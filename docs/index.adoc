@@ -1,0 +1,72 @@
+//
+// ============================================ Asciidoc HEADER =============================================
+//
+:doctype: book
+:pagenums:
+:numbered!:
+// git rid of PDF 'Chapter' labs on level 1 headings
+:chapter-label:
+//
+// HTML-only attributes
+//
+:linkcss:
+:keywords: language models
+:description: openEHR Language Specifications
+:sectanchors:
+:lang_release: latest
+:jira-roadmap: https://openehr.atlassian.net/projects/SPECLANG?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=unreleased
+:jira-hist-issues: https://openehr.atlassian.net/projects/SPEC?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page&status=all
+
+image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+
+= Language Specifications (LANG) - {lang_release}
+
+// Use the following version for 'latest'
+ifeval::["{lang_release}" == "latest"]
+:jira-issues: https://openehr.atlassian.net/issues/?filter=11116
+[.title-para]
+{jira-roadmap}[Roadmap] | {jira-issues}[Current Issues] | {jira-hist-issues}[Change History]
+endif::[]
+
+// Use the following version for a named release
+ifeval::["{lang_release}" != "latest"]
+:jira-pr-release: https://openehr.atlassian.net/projects/SPECPR/versions/12518
+:jira-cr-release: https://openehr.atlassian.net/projects/SPECLANG/versions/12519
+[.title-para]
+{jira-pr-release}[Problems Fixed] | {jira-cr-release}[Changes Implemented] | {jira-roadmap}[Roadmap] | {jira-hist-issues}[Change History]
+endif::[]
+
+== Specifications
+
+[cols="2,5", options="header"]
+|===
+|Specification |Description
+
+|link:/releases/LANG/{lang_release}/odin.html[ODIN - Object Data Instance Notation]
+|This is the JSON-like notation used to express various sections of ADL archetypes including description, terminology and annotations, and also BMM files.
+
+|link:/releases/LANG/{lang_release}/bmm.html[BMM - Basic Meta-Model]
+|BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.
+
+|link:/releases/LANG/{lang_release}/bmm_persistence.html[P_BMM - BMM Persistence]
+|A human-readable and machine-processable save format for BMM.
+
+|link:/releases/LANG/{lang_release}/expression.html[EL - Expression Language]
+|The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.
+
+|===
+
+== Computable Expressions
+
+[cols="2,5", options="header"]
+|===
+|Resource |Description
+
+|link:/releases/LANG/{lang_release}/UML/openEHR_UML-LANG.mdzip[source files / XMI]
+|UML file for openEHR Language model classes, as MagicDraw 18.5. Contains UML 2.5 standard XMI file.
+
+|===
+
+
+== Class Index
+include::UML/class_index.adoc[leveloffset=+1]
