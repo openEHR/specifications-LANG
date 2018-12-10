@@ -7,14 +7,14 @@
 4+^h|*LANG R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.0*
 
 |[[latest_issue]]1.5.2
-|{openehr_jira}/SPECLANG-7[SPECLANG-7]: Move IDON spec to LANG component.
+|{spec_tickets}/SPECLANG-7[SPECLANG-7^]: Move IDON spec to LANG component.
 |openEHR SEC
 |[[latest_issue_date]]11 Nov 2018
 
 |
-|{openehr_jira}/SPECLANG-3[SPECLANG-3]: Add grammar support for plus-or-minus ranges; +
- {openehr_jira}/SPECLANG-4[SPECLANG-4]: Update grammar to support documented ODIN keys; + 
- {openehr_jira}/SPECLANG-5[SPECLANG-5]: Update grammar to support documented openEHR ISO 8601 variant using '??';
+|{spec_tickets}/SPECLANG-3[SPECLANG-3^]: Add grammar support for plus-or-minus ranges; +
+ {spec_tickets}/SPECLANG-4[SPECLANG-4^]: Update grammar to support documented ODIN keys; + 
+ {spec_tickets}/SPECLANG-5[SPECLANG-5^]: Update grammar to support documented openEHR ISO 8601 variant using '??';
  make `MONTH` and `DAY` regexes in grammar more accurate; correct xref in section 7.
 |K Allen, +
  T Beale, +
@@ -22,7 +22,7 @@
 |29 Aug 2018
 
 |
-|{openehr_jira}/SPECLANG-6[SPECLANG-6]: Correct minor comment errors in section 7 to do with intervals.
+|{spec_tickets}/SPECLANG-6[SPECLANG-6^]: Correct minor comment errors in section 7 to do with intervals.
 |C Nanjo
 |08 Apr 2016
 
@@ -41,19 +41,19 @@
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.2*
 
 |1.4.1
-|{openehr_jira}/SPEC-268[SPEC-268]: Correct missing parentheses in dADL type identifiers. dADL grammar rules updated.
+|{spec_tickets}/SPEC-268[SPEC-268^]: Correct missing parentheses in dADL type identifiers. dADL grammar rules updated.
 |R Chen
 |12 Dec 2008
 
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.1*
 
 |1.4.0
-|{openehr_jira}/SPEC-213[SPEC-213]: Include 'T' in dADL Date/time, Time and Duration values.
+|{spec_tickets}/SPEC-213[SPEC-213^]: Include 'T' in dADL Date/time, Time and Duration values.
 |T Beale
 |13 Mar 2007
 
 | 
-|{openehr_jira}/SPEC-216[SPEC-216]: Allow mixture of W, D etc in ISO 8601 Duration (deviation from standard).
+|{spec_tickets}/SPEC-216[SPEC-216^]: Allow mixture of W, D etc in ISO 8601 Duration (deviation from standard).
 |S Heard
 | 
 
@@ -61,31 +61,31 @@
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0*
 
 |1.3.0
-|{openehr_jira}/SPEC-143[SPEC-143]. Add partial date/time values to dADL syntax.
+|{spec_tickets}/SPEC-143[SPEC-143^]. Add partial date/time values to dADL syntax.
 |S Heard
 |18 Jun 2005
 
 |
-|{openehr_jira}/SPEC-149[SPEC-149]. Add URIs to dADL and remove `query()` syntax.
+|{spec_tickets}/SPEC-149[SPEC-149^]. Add URIs to dADL and remove `query()` syntax.
 |T Beale
 |
 
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}0.95*
 
 |1.2
-|{openehr_jira}/SPEC-110[SPEC-110]. Added explanatory material; added domain type support; rewrote of most dADL sections.
+|{spec_tickets}/SPEC-110[SPEC-110^]. Added explanatory material; added domain type support; rewrote of most dADL sections.
 |T Beale
 |15 Nov 2004
 
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}0.9*
 
 |0.9.9
-|{openehr_jira}/SPEC-75[SPEC-75]. Added dADL object model.
+|{spec_tickets}/SPEC-75[SPEC-75^]. Added dADL object model.
 |T Beale
 |28 Dec 2003
 
 |0.9.8
-|{openehr_jira}/SPEC-70[SPEC-70]. Copyright Assigned by Ocean Informatics P/L Australia to The openEHR Foundation.
+|{spec_tickets}/SPEC-70[SPEC-70^]. Copyright Assigned by Ocean Informatics P/L Australia to The openEHR Foundation.
 |T Beale, +
  S Heard
 |29 Nov 2003

@@ -13,8 +13,6 @@
 :keywords: language models
 :description: openEHR Language Specifications
 :sectanchors:
-:jira-roadmap: https://openehr.atlassian.net/projects/SPECLANG?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=unreleased
-:jira-hist-issues: https://openehr.atlassian.net/projects/SPEC?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page&status=all
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
 
@@ -30,17 +28,16 @@ image::openehr_block_diagram.svg["openEHR components",align="center",width="60%"
 
 // Use the following version for 'latest'
 ifeval::["{lang_release}" == "latest"]
-:jira-issues: https://openehr.atlassian.net/issues/?filter=11116
 [.title-para]
-{jira-roadmap}[Roadmap] | {jira-issues}[Current Issues] | {jira-hist-issues}[Change History]
+{component_prs}[Open Issues^] | {component_roadmap}[Roadmap^] | {component_history}[Previous Releases^] 
 endif::[]
 
 // Use the following version for a named release
 ifeval::["{lang_release}" != "latest"]
-:jira-pr-release: https://openehr.atlassian.net/projects/SPECPR/versions/12518
-:jira-cr-release: https://openehr.atlassian.net/projects/SPECLANG/versions/12519
+:lang_prs_fixed: {component_prs_fixed}{lang_release}/issues
+:lang_crs_done: {component_crs_done}{lang_release}/changes
 [.title-para]
-{jira-pr-release}[Problems Fixed] | {jira-cr-release}[Changes Implemented] | {jira-roadmap}[Roadmap] | {jira-hist-issues}[Change History]
+{lang_prs_fixed}[Issues Fixed^] | {lang_crs_done}[Changes Implemented^] | {component_roadmap}[Roadmap^] | {component_history}[Change History^]
 endif::[]
 
 == Specifications
@@ -58,7 +55,7 @@ endif::[]
 |link:/releases/LANG/{lang_release}/bmm_persistence.html[P_BMM - BMM Persistence]
 |A human-readable and machine-processable save format for BMM.
 
-|link:/releases/LANG/{lang_release}/expression.html[EL - Expression Language]
+|link:/releases/LANG/{lang_release}/expression_language.html[EL - Expression Language]
 |The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.
 
 |===
@@ -76,4 +73,5 @@ endif::[]
 
 
 == Class Index
+
 include::UML/class_index.adoc[leveloffset=+1]

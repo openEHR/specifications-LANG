@@ -9,7 +9,7 @@ h|*Description*
 2+a|A built-in statement type in the form of an assertion taking one expression argument, that determines whether it is true and if not, generates an exception.
 
 h|*Inherit*
-2+|`EL_STATEMENT`
+2+|`DL_STATEMENT`
 
 h|*Attributes*
 ^h|*Signature*

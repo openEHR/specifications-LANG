@@ -7,7 +7,7 @@
 4+^h|*LANG R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.0*
 
 |[[latest_issue]]2.3.0
-|{openehr_jira}/SPECLANG-2[SPECLANG-2]. Add Basic Meta-Model (BMM) spec to BASE component.
+|{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
 |[[latest_issue_date]]11 Nov 2018
 

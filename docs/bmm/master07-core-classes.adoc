@@ -6,7 +6,7 @@ This section describes the semantics of the `BMM_CLASS` meta-class, its sub-type
 
 [.text-center]
 .`base.bmm.core` Package - Classes
-image::{uml_export_dir}/diagrams/LANG-bmm.core-class.svg[id=core_class, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm.core-class.svg[id=core_class, align="center"]
 
 Class definitions are the _definitional_ basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus _derived_ entities.
 

@@ -21,7 +21,7 @@ a|Name of the class. Persisted attribute.
 
 h|*0..1*
 |*ancestors*: `List<String>`
-a|List of immediate inheritance parents. Persisted attribute.
+a|List of immediate inheritance parents. If there are generic ancestors, use `_ancestor_defs_` instead. Persisted attribute.
 
 h|*0..1*
 |*properties*: `Hash<String,P_BMM_PROPERTY>`
@@ -50,6 +50,10 @@ a|`BMM_CLASS` object built by `_create_bmm_class_definition_` and `_populate_bmm
 h|*1..1*
 |*uid*: `Integer`
 a|Unique id generated for later comparison during merging, in order to detect if two classes are the same. Assigned in post-load processing.
+
+h|*0..1*
+|*ancestor_defs*: `List<P_BMM_GENERIC_TYPE>`
+a|List of structured inheritance ancestors, used only in the case of generic inheritance. Persisted attribute.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

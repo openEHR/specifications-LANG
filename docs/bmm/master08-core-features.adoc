@@ -6,7 +6,7 @@ Within the definitions of each class in a BMM model are found the definitions of
 
 [.text-center]
 .`base.bmm.core` package - Features
-image::{uml_export_dir}/diagrams/LANG-bmm.core-features.svg[id=core_features, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm.core-features.svg[id=core_features, align="center"]
 
 The abstract classes in this model that define the taxonomy of types are as follows:
 

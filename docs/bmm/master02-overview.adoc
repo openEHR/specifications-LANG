@@ -63,7 +63,7 @@ Newer tools are able to include the computational features.
 
 == Specification Structure
 
-This specification defines a BMM object model, i.e. the in-memory object structure of a BMM. The related {openehr_base_bmm_persistence}[BMM Persistence specification] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as ODIN, JSON or XML.
+This specification defines a BMM object model, i.e. the in-memory object structure of a BMM. The related {openehr_bmm_persistence}[BMM Persistence specification] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as ODIN, JSON or XML.
 
 The BMM packages are as follows:
 
@@ -77,4 +77,4 @@ These are illustrated below.
 
 [.text-center]
 .Package Overview
-image::{uml_export_dir}/diagrams/LANG-bmm-packages.svg[id=package_overview, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
