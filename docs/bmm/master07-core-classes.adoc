@@ -20,7 +20,7 @@ The enumeration meta-type adds a set of enumeration labels and optional `String`
 
 [.text-center]
 .Enumeration Example
-image::images/awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
+image::{images_uri}/awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
 
 The types `String` and `Integer` are assumed to be defined via primitive classes of the same names.
 
@@ -30,7 +30,7 @@ The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_
 
 [.text-center]
 .BMM class - generic class
-image::images/awb_generic_class.png[id=awb_generic_class, align="center", width="50%"]
+image::{images_uri}/awb_generic_class.png[id=awb_generic_class, align="center", width="50%"]
 
 == Primitive Classes
 
@@ -38,7 +38,7 @@ Any class definitions can be marked as being 'primitive' within a BMM model, ena
 
 [.text-center]
 .Primitive classes
-image::images/awb_primitive_types.png[id=awb_primitive_types, align="center", width="50%"]
+image::{images_uri}/awb_primitive_types.png[id=awb_primitive_types, align="center", width="50%"]
 
 Primitive classes are normal BMM classes, other than being marked primitive for convenience, and do not have different semantics.
 

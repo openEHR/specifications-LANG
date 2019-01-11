@@ -101,7 +101,7 @@ The following example shows a the flattened property view of a class `OBSERVATIO
 
 [.text-center]
 .BMM class - properties view
-image::images/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
+image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
 
 == Functions and Procedures
 
