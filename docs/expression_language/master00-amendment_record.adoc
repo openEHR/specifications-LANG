@@ -4,7 +4,7 @@
 |===
 |Issue|Details|Raiser, Implementer|Completed
 
-4+^h|*LANG R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.0*
+4+^h|*LANG Release 1.0.0*
 
 |[[latest_issue]]2.0.0
 |{spec_tickets}/SPECLANG-1[SPECLANG-1^]. Add Expression Language specification.
