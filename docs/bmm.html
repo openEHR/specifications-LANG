@@ -168,13 +168,14 @@
 <li><a href="#_bmm_container_property_class">8.10.8. BMM_CONTAINER_PROPERTY Class</a></li>
 <li><a href="#_bmm_constant_class">8.10.9. BMM_CONSTANT Class</a></li>
 <li><a href="#_bmm_variable_class">8.10.10. BMM_VARIABLE Class</a></li>
-<li><a href="#_bmm_routine_class">8.10.11. BMM_ROUTINE Class</a></li>
-<li><a href="#_bmm_function_class">8.10.12. BMM_FUNCTION Class</a></li>
-<li><a href="#_bmm_operator_class">8.10.13. BMM_OPERATOR Class</a></li>
-<li><a href="#_bmm_operator_position_enumeration">8.10.14. BMM_OPERATOR_POSITION Enumeration</a></li>
-<li><a href="#_bmm_procedure_class">8.10.15. BMM_PROCEDURE Class</a></li>
-<li><a href="#_bmm_parameter_class">8.10.16. BMM_PARAMETER Class</a></li>
-<li><a href="#_bmm_parameter_direction_enumeration">8.10.17. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_local_class">8.10.11. BMM_LOCAL Class</a></li>
+<li><a href="#_bmm_routine_class">8.10.12. BMM_ROUTINE Class</a></li>
+<li><a href="#_bmm_function_class">8.10.13. BMM_FUNCTION Class</a></li>
+<li><a href="#_bmm_operator_class">8.10.14. BMM_OPERATOR Class</a></li>
+<li><a href="#_bmm_operator_position_enumeration">8.10.15. BMM_OPERATOR_POSITION Enumeration</a></li>
+<li><a href="#_bmm_procedure_class">8.10.16. BMM_PROCEDURE Class</a></li>
+<li><a href="#_bmm_parameter_class">8.10.17. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_parameter_direction_enumeration">8.10.18. BMM_PARAMETER_DIRECTION Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -4204,7 +4205,33 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.10.11. BMM_ROUTINE Class</h4>
+<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>8.10.11. BMM_LOCAL Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_LOCAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A routine local variable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VARIABLE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.10.12. BMM_ROUTINE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4269,7 +4296,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.10.12. BMM_FUNCTION Class</h4>
+<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.10.13. BMM_FUNCTION Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4313,7 +4340,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.10.13. BMM_OPERATOR Class</h4>
+<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.10.14. BMM_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4361,7 +4388,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.10.14. BMM_OPERATOR_POSITION Enumeration</h4>
+<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.10.15. BMM_OPERATOR_POSITION Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4402,7 +4429,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.10.15. BMM_PROCEDURE Class</h4>
+<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.10.16. BMM_PROCEDURE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4428,7 +4455,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.10.16. BMM_PARAMETER Class</h4>
+<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.10.17. BMM_PARAMETER Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4466,7 +4493,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.10.17. BMM_PARAMETER_DIRECTION Enumeration</h4>
+<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.10.18. BMM_PARAMETER_DIRECTION Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">

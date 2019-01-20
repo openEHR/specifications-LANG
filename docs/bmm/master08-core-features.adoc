@@ -129,6 +129,7 @@ include::{uml_export_dir}/classes/bmm_container_property.adoc[]
 
 include::{uml_export_dir}/classes/bmm_constant.adoc[]
 include::{uml_export_dir}/classes/bmm_variable.adoc[]
+include::{uml_export_dir}/classes/bmm_local.adoc[]
 
 include::{uml_export_dir}/classes/bmm_routine.adoc[]
 include::{uml_export_dir}/classes/bmm_function.adoc[]
