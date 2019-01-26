@@ -20,7 +20,7 @@ Unitary meta-types are further distinguished as either formal generic parameters
 
 == Simple Type
 
-A _simple type_ is a type based only on a _simple class_, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simle type. Thus, for example, a class `Organisation` may have a property `_managers_` of static type `List<Person>`. An instance of the simple type `Organisation` might have its `_managers_` property attached to an instance of `List<Manager>`, which is legal as long as `Manager` conforms to `Person`, which it will do it the same-named classes inherit in the usual sense.
+A _simple type_ is a type based only on a _simple class_, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class `Organisation` may have a property `_managers_` of static type `List<Person>`. An instance of the simple type `Organisation` might have its `_managers_` property attached to an instance of `List<Manager>`, which is legal as long as `Manager` conforms to `Person`, which it will do if the same-named classes inherit in the usual sense.
 
 == Generic Type
 
