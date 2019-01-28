@@ -1,0 +1,14 @@
+=== BMM_INTENSIONAL Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_BMM_INTENSIONAL (abstract)_*
+
+h|*Description*
+2+a|Definition of a range-constrained class, i.e. one whose value range is constrained intensionally.
+
+h|*Inherit*
+2+|`BMM_RANGE_CONSTRAINED`
+
+|===

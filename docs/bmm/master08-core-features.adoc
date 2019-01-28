@@ -121,6 +121,8 @@ include::{uml_export_dir}/classes/bmm_formal_element.adoc[]
 include::{uml_export_dir}/classes/bmm_value_returning.adoc[]
 include::{uml_export_dir}/classes/bmm_evaluable.adoc[]
 include::{uml_export_dir}/classes/bmm_value.adoc[]
+include::{uml_export_dir}/classes/bmm_string_value.adoc[]
+include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
 include::{uml_export_dir}/classes/bmm_mutable.adoc[]
 
 include::{uml_export_dir}/classes/bmm_property.adoc[]

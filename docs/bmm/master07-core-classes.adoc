@@ -10,21 +10,11 @@ image::{uml_diagrams_uri}/LANG-bmm.core-class.svg[id=core_class, align="center"]
 
 Class definitions are the _definitional_ basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus _derived_ entities.
 
-BMM distinguishes between simple and generic class definitions via two descendants of `BMM_CLASS`, i.e. `BMM_SIMPLE_CLASS` and `BMM_GENERIC_CLASS`, with the first providing a concrete form of `BMM_CLASS` that applies to non-generic classes, and the latter defining the additional semantics of generic classes. The meta-type `BMM_ENUMERATION` is a specialisation of `BMM_SIMPLE_CLASS` used to represent enumeration classes in BMM models. The non-simple meta-types are further described below.
+BMM distinguishes between simple and generic class definitions via two descendants of `BMM_CLASS`, i.e. `BMM_SIMPLE_CLASS` and `BMM_GENERIC_CLASS`, with the first providing a concrete form of `BMM_CLASS` that applies to non-generic classes, and the latter defining the additional semantics of generic classes. The meta-type `BMM_ENUMERATION` is a specialisation of `BMM_SIMPLE_CLASS` used to represent enumeration classes in BMM models. The meta-types are further described below.
 
 NOTE: not currently supported: export status; 'static' (non-instance dependent) methods; anchored types.
 
-== Enumeration Classes
-
-The enumeration meta-type adds a set of enumeration labels and optional `String` or `Integer` values, in the manner of contemporary languages such as Java and C#. This meta-type allows classes to be declared in a BMM to be enumerations without either having to manufacture a representation from simple class definitions, or having to replicate the representation of enumerations in some target language. The following screenshot shows how a BMM integer enumeration class appears within a BMM model.
-
-[.text-center]
-.Enumeration Example
-image::{images_uri}/awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
-
-The types `String` and `Integer` are assumed to be defined via primitive classes of the same names.
-
-== Generic Classes
+== Generic Class Meta-type
 
 The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_CLASS`, enabling formal generic parameters to be represented. Each such parameter is expressed using an instance of `BMM_PARAMETER_TYPE` which names the parameter and optionally allows a type constraint to be associated with it, in the usual object-oriented fashion. In BMM, formal parameters have single-letter names, such as 'T', 'U' etc, following typical usage in programming languages. The following example shows a generic class `Interval<T:Ordered>`, which is a class `Interval` with one formal parameter `T` constrained to be of type `Ordered` or any descendant.
 
@@ -32,7 +22,7 @@ The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_
 .BMM class - generic class
 image::{images_uri}/awb_generic_class.png[id=awb_generic_class, align="center", width="50%"]
 
-== Primitive Classes
+== Primitive Class Meta-type
 
 Any class definitions can be marked as being 'primitive' within a BMM model, enabling them to be visualised and queried as a separate group without otherwise impacting on the semantics of the entity in BMM meta-type system. The following shows part of a BMM model in which a number of classes are classified as primitive (shown in light and dark grey).
 
@@ -42,11 +32,46 @@ image::{images_uri}/awb_primitive_types.png[id=awb_primitive_types, align="cente
 
 Primitive classes are normal BMM classes, other than being marked primitive for convenience, and do not have different semantics.
 
+== Range-Constrained Meta-types
+
+The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as `String` and `Integer`, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types.
+
+A useful form of any concrete type definition (i.e. instance of `BMM_DEFINED_TYPE` in a model) is one that constrains the legal values of its instances to a set of particular values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. In modern programming languages, the _enumerated type_ is the most common incarnation. In Java for example, an enumeration is a finite set of labels each associated with singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind.
+
+A related need that occurs in many models is the use of 'coded terms' that represent codes from e.g. ISO or IANA value sets such as ISO 639 (languages) and IANA media types. These are particularly prevalent in type systems used in the biosciences where object models routinely include attributes of a Coded Term type that refer to terminologies such as {snomed_ct}[SNOMED CT], {who_icd}[WHO ICD10] etc. In such models, it is typical to want to define an attribute being not just of a Coded Term type, but also limited to a particular terminology (such as a coded attribute representing 'language'), or even a specific 'value set' from such a terminology.
+
+In the BMM, all of these possibilities are accommodated via the meta-type `BMM_RANGE_CONSTRAINED`, whose descendants define meta-types for each case. These classes are shown below.
+
+[.text-center]
+.`base.bmm.core` Package - Constrained-range Meta-Types, including Enumeration
+image::{uml_diagrams_uri}/LANG-bmm.core-range_constrained.svg[id=core_range_constrained, align="center"]
+
+=== Enumeration Class Meta-type
+
+The `BMM_ENUMERATION` meta-type is a descendant of `BMM_CLASS` whose instances represent types whose value range is constrained by an explicit list of values, i.e. an _enumeration_. This is achieved via a set of enumeration labels (`_item_names_`) and constant values (`_item_values_`), the latter of which may be of any type in available within the concrete model.
+
+Since `String` and `Integer` valued enumerations are by far the most common in real models, two descendant classes `BMM_ENUMERATION_STRING` and `BMM_ENUMERATION_INTEGER` are provided, which fix the values and types to `String` and `Integer` respectively. The following screenshot shows how a BMM integer enumeration class appears within a BMM model.
+
+[.text-center]
+.Enumeration Example
+image::{images_uri}/awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
+
+The types `String` and `Integer` are assumed to be defined via primitive classes of the same names.
+
+=== Intensional Range-Constrained Meta-type
+
+A second kind of range-constrained meta-type, `BMM_INTENSIONAL`, is provided to enable the use of a concrete type within a model which constrains the values on another type _intensionally_, i.e. via a formula or other evaluable definition that may be resolved to the set of allowed instances.
+
+The descendant `BMM_EXTERNAL_VALUE_SET` defines a kind of range-constrained type whose allowable set of values is defined by an external resource, such as a terminology, vocabulary, or service that generates legal reference values, such as drug definitions, laboratory normal ranges etc.
+
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_class.adoc[]
 include::{uml_export_dir}/classes/bmm_simple_class.adoc[]
+include::{uml_export_dir}/classes/bmm_generic_class.adoc[]
+include::{uml_export_dir}/classes/bmm_range_constrained.adoc[]
 include::{uml_export_dir}/classes/bmm_enumeration.adoc[]
 include::{uml_export_dir}/classes/bmm_enumeration_string.adoc[]
 include::{uml_export_dir}/classes/bmm_enumeration_integer.adoc[]
-include::{uml_export_dir}/classes/bmm_generic_class.adoc[]
+include::{uml_export_dir}/classes/bmm_intensional.adoc[]
+include::{uml_export_dir}/classes/bmm_external_value_set.adoc[]

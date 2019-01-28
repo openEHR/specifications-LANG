@@ -125,17 +125,25 @@
 <li><a href="#_classes">7. Classes</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_6">7.1. Overview</a></li>
-<li><a href="#_enumeration_classes">7.2. Enumeration Classes</a></li>
-<li><a href="#_generic_classes">7.3. Generic Classes</a></li>
-<li><a href="#_primitive_classes">7.4. Primitive Classes</a></li>
+<li><a href="#_generic_class_meta_type">7.2. Generic Class Meta-type</a></li>
+<li><a href="#_primitive_class_meta_type">7.3. Primitive Class Meta-type</a></li>
+<li><a href="#_range_constrained_meta_types">7.4. Range-Constrained Meta-types</a>
+<ul class="sectlevel3">
+<li><a href="#_enumeration_class_meta_type">7.4.1. Enumeration Class Meta-type</a></li>
+<li><a href="#_intensional_range_constrained_meta_type">7.4.2. Intensional Range-Constrained Meta-type</a></li>
+</ul>
+</li>
 <li><a href="#_class_definitions_5">7.5. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_bmm_class_class">7.5.1. BMM_CLASS Class</a></li>
 <li><a href="#_bmm_simple_class_class">7.5.2. BMM_SIMPLE_CLASS Class</a></li>
-<li><a href="#_bmm_enumeration_class">7.5.3. BMM_ENUMERATION Class</a></li>
-<li><a href="#_bmm_enumeration_string_class">7.5.4. BMM_ENUMERATION_STRING Class</a></li>
-<li><a href="#_bmm_enumeration_integer_class">7.5.5. BMM_ENUMERATION_INTEGER Class</a></li>
-<li><a href="#_bmm_generic_class_class">7.5.6. BMM_GENERIC_CLASS Class</a></li>
+<li><a href="#_bmm_generic_class_class">7.5.3. BMM_GENERIC_CLASS Class</a></li>
+<li><a href="#_bmm_range_constrained_class">7.5.4. BMM_RANGE_CONSTRAINED Class</a></li>
+<li><a href="#_bmm_enumeration_class">7.5.5. BMM_ENUMERATION Class</a></li>
+<li><a href="#_bmm_enumeration_string_class">7.5.6. BMM_ENUMERATION_STRING Class</a></li>
+<li><a href="#_bmm_enumeration_integer_class">7.5.7. BMM_ENUMERATION_INTEGER Class</a></li>
+<li><a href="#_bmm_intensional_class">7.5.8. BMM_INTENSIONAL Class</a></li>
+<li><a href="#_bmm_external_value_set_class">7.5.9. BMM_EXTERNAL_VALUE_SET Class</a></li>
 </ul>
 </li>
 </ul>
@@ -163,20 +171,22 @@
 <li><a href="#_bmm_value_returning_class">8.10.2. BMM_VALUE_RETURNING Class</a></li>
 <li><a href="#_bmm_evaluable_class">8.10.3. BMM_EVALUABLE Class</a></li>
 <li><a href="#_bmm_value_class">8.10.4. BMM_VALUE Class</a></li>
-<li><a href="#_bmm_mutable_class">8.10.5. BMM_MUTABLE Class</a></li>
-<li><a href="#_bmm_property_class">8.10.6. BMM_PROPERTY Class</a></li>
-<li><a href="#_bmm_unitary_property_class">8.10.7. BMM_UNITARY_PROPERTY Class</a></li>
-<li><a href="#_bmm_container_property_class">8.10.8. BMM_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_bmm_constant_class">8.10.9. BMM_CONSTANT Class</a></li>
-<li><a href="#_bmm_variable_class">8.10.10. BMM_VARIABLE Class</a></li>
-<li><a href="#_bmm_local_class">8.10.11. BMM_LOCAL Class</a></li>
-<li><a href="#_bmm_routine_class">8.10.12. BMM_ROUTINE Class</a></li>
-<li><a href="#_bmm_function_class">8.10.13. BMM_FUNCTION Class</a></li>
-<li><a href="#_bmm_operator_class">8.10.14. BMM_OPERATOR Class</a></li>
-<li><a href="#_bmm_operator_position_enumeration">8.10.15. BMM_OPERATOR_POSITION Enumeration</a></li>
-<li><a href="#_bmm_procedure_class">8.10.16. BMM_PROCEDURE Class</a></li>
-<li><a href="#_bmm_parameter_class">8.10.17. BMM_PARAMETER Class</a></li>
-<li><a href="#_bmm_parameter_direction_enumeration">8.10.18. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_string_value_class">8.10.5. BMM_STRING_VALUE Class</a></li>
+<li><a href="#_bmm_integer_value_class">8.10.6. BMM_INTEGER_VALUE Class</a></li>
+<li><a href="#_bmm_mutable_class">8.10.7. BMM_MUTABLE Class</a></li>
+<li><a href="#_bmm_property_class">8.10.8. BMM_PROPERTY Class</a></li>
+<li><a href="#_bmm_unitary_property_class">8.10.9. BMM_UNITARY_PROPERTY Class</a></li>
+<li><a href="#_bmm_container_property_class">8.10.10. BMM_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_bmm_constant_class">8.10.11. BMM_CONSTANT Class</a></li>
+<li><a href="#_bmm_variable_class">8.10.12. BMM_VARIABLE Class</a></li>
+<li><a href="#_bmm_local_class">8.10.13. BMM_LOCAL Class</a></li>
+<li><a href="#_bmm_routine_class">8.10.14. BMM_ROUTINE Class</a></li>
+<li><a href="#_bmm_function_class">8.10.15. BMM_FUNCTION Class</a></li>
+<li><a href="#_bmm_operator_class">8.10.16. BMM_OPERATOR Class</a></li>
+<li><a href="#_bmm_operator_position_enumeration">8.10.17. BMM_OPERATOR_POSITION Enumeration</a></li>
+<li><a href="#_bmm_procedure_class">8.10.18. BMM_PROCEDURE Class</a></li>
+<li><a href="#_bmm_parameter_class">8.10.19. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_parameter_direction_enumeration">8.10.20. BMM_PARAMETER_DIRECTION Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -299,7 +309,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>11 Nov 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>28 Jan 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Enumerated types to include intensional range constrained types, including Coded Terms restricted to a terminology or value set.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 Jan 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -2156,13 +2172,13 @@ an_anc_type: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p><em>entity meta-type</em>: simple &#124; enumerated &#124; generic &#124; generic_effective &#124; parameter</p>
+<p><em>entity meta-type</em>: simple &#124; etc</p>
 </li>
 <li>
 <p><em>abstract modifier</em> - abstract status</p>
 </li>
 <li>
-<p><em>primitive modifier</em> primitive status</p>
+<p><em>primitive modifier</em> - primitive status</p>
 </li>
 </ul>
 </div>
@@ -2177,7 +2193,7 @@ an_anc_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Meta-type of entity, which classifies it according to the kind of formal entity it represents from the following:</p>
 </div>
@@ -2190,10 +2206,10 @@ an_anc_type: <code>String[1]</code><br>
 <p>generic</p>
 </li>
 <li>
-<p>enumeration</p>
+<p>generic type parameter</p>
 </li>
 <li>
-<p>type parameter</p>
+<p>range-constrained</p>
 </li>
 <li>
 <p>container type</p>
@@ -2271,7 +2287,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_simple_type"><a class="anchor" href="#_simple_type"></a>6.2. Simple Type</h3>
 <div class="paragraph">
-<p>A <em>simple type</em> is a type based only on a <em>simple class</em>, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simle type. Thus, for example, a class <code>Organisation</code> may have a property <code><em>managers</em></code> of static type <code>List&lt;Person&gt;</code>. An instance of the simple type <code>Organisation</code> might have its <code><em>managers</em></code> property attached to an instance of <code>List&lt;Manager&gt;</code>, which is legal as long as <code>Manager</code> conforms to <code>Person</code>, which it will do it the same-named classes inherit in the usual sense.</p>
+<p>A <em>simple type</em> is a type based only on a <em>simple class</em>, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class <code>Organisation</code> may have a property <code><em>managers</em></code> of static type <code>List&lt;Person&gt;</code>. An instance of the simple type <code>Organisation</code> might have its <code><em>managers</em></code> property attached to an instance of <code>List&lt;Manager&gt;</code>, which is legal as long as <code>Manager</code> conforms to <code>Person</code>, which it will do if the same-named classes inherit in the usual sense.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2689,7 +2705,7 @@ an_anc_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Meta-type of a container type is <code>Entity_metatype_generic_parameter</code>.</p>
 </div></div></td>
@@ -2989,7 +3005,7 @@ an_anc_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Meta-type of container type is <code>Classifier_metatype_container</code>.</p>
 </div></div></td>
@@ -3077,7 +3093,7 @@ an_anc_type: <code>String[1]</code><br>
 <p>Class definitions are the <em>definitional</em> basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus <em>derived</em> entities.</p>
 </div>
 <div class="paragraph">
-<p>BMM distinguishes between simple and generic class definitions via two descendants of <code>BMM_CLASS</code>, i.e. <code>BMM_SIMPLE_CLASS</code> and <code>BMM_GENERIC_CLASS</code>, with the first providing a concrete form of <code>BMM_CLASS</code> that applies to non-generic classes, and the latter defining the additional semantics of generic classes. The meta-type <code>BMM_ENUMERATION</code> is a specialisation of <code>BMM_SIMPLE_CLASS</code> used to represent enumeration classes in BMM models. The non-simple meta-types are further described below.</p>
+<p>BMM distinguishes between simple and generic class definitions via two descendants of <code>BMM_CLASS</code>, i.e. <code>BMM_SIMPLE_CLASS</code> and <code>BMM_GENERIC_CLASS</code>, with the first providing a concrete form of <code>BMM_CLASS</code> that applies to non-generic classes, and the latter defining the additional semantics of generic classes. The meta-type <code>BMM_ENUMERATION</code> is a specialisation of <code>BMM_SIMPLE_CLASS</code> used to represent enumeration classes in BMM models. The meta-types are further described below.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3093,22 +3109,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enumeration_classes"><a class="anchor" href="#_enumeration_classes"></a>7.2. Enumeration Classes</h3>
-<div class="paragraph">
-<p>The enumeration meta-type adds a set of enumeration labels and optional <code>String</code> or <code>Integer</code> values, in the manner of contemporary languages such as Java and C#. This meta-type allows classes to be declared in a BMM to be enumerations without either having to manufacture a representation from simple class definitions, or having to replicate the representation of enumerations in some target language. The following screenshot shows how a BMM integer enumeration class appears within a BMM model.</p>
-</div>
-<div id="awb_enumeration" class="imageblock text-center" style="text-align: center">
-<div class="content">
-<img src="bmm/images/awb_enumeration.png" alt="awb enumeration" width="65%">
-</div>
-<div class="title">Figure 18. Enumeration Example</div>
-</div>
-<div class="paragraph">
-<p>The types <code>String</code> and <code>Integer</code> are assumed to be defined via primitive classes of the same names.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_generic_classes"><a class="anchor" href="#_generic_classes"></a>7.3. Generic Classes</h3>
+<h3 id="_generic_class_meta_type"><a class="anchor" href="#_generic_class_meta_type"></a>7.2. Generic Class Meta-type</h3>
 <div class="paragraph">
 <p>The generic class meta-type <code>BMM_GENERIC_CLASS</code> adds generic parameters to <code>BMM_CLASS</code>, enabling formal generic parameters to be represented. Each such parameter is expressed using an instance of <code>BMM_PARAMETER_TYPE</code> which names the parameter and optionally allows a type constraint to be associated with it, in the usual object-oriented fashion. In BMM, formal parameters have single-letter names, such as 'T', 'U' etc, following typical usage in programming languages. The following example shows a generic class <code>Interval&lt;T:Ordered&gt;</code>, which is a class <code>Interval</code> with one formal parameter <code>T</code> constrained to be of type <code>Ordered</code> or any descendant.</p>
 </div>
@@ -3116,11 +3117,11 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="50%">
 </div>
-<div class="title">Figure 19. BMM class - generic class</div>
+<div class="title">Figure 18. BMM class - generic class</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_primitive_classes"><a class="anchor" href="#_primitive_classes"></a>7.4. Primitive Classes</h3>
+<h3 id="_primitive_class_meta_type"><a class="anchor" href="#_primitive_class_meta_type"></a>7.3. Primitive Class Meta-type</h3>
 <div class="paragraph">
 <p>Any class definitions can be marked as being 'primitive' within a BMM model, enabling them to be visualised and queried as a separate group without otherwise impacting on the semantics of the entity in BMM meta-type system. The following shows part of a BMM model in which a number of classes are classified as primitive (shown in light and dark grey).</p>
 </div>
@@ -3128,10 +3129,58 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/images/awb_primitive_types.png" alt="awb primitive types" width="50%">
 </div>
-<div class="title">Figure 20. Primitive classes</div>
+<div class="title">Figure 19. Primitive classes</div>
 </div>
 <div class="paragraph">
 <p>Primitive classes are normal BMM classes, other than being marked primitive for convenience, and do not have different semantics.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_range_constrained_meta_types"><a class="anchor" href="#_range_constrained_meta_types"></a>7.4. Range-Constrained Meta-types</h3>
+<div class="paragraph">
+<p>The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as <code>String</code> and <code>Integer</code>, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types.</p>
+</div>
+<div class="paragraph">
+<p>A useful form of any concrete type definition (i.e. instance of <code>BMM_DEFINED_TYPE</code> in a model) is one that constrains the legal values of its instances to a set of particular values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. In modern programming languages, the <em>enumerated type</em> is the most common incarnation. In Java for example, an enumeration is a finite set of labels each associated with singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind.</p>
+</div>
+<div class="paragraph">
+<p>A related need that occurs in many models is the use of 'coded terms' that represent codes from e.g. ISO or IANA value sets such as ISO 639 (languages) and IANA media types. These are particularly prevalent in type systems used in the biosciences where object models routinely include attributes of a Coded Term type that refer to terminologies such as <a href="http://www.ihtsdo.org">SNOMED CT</a>, <a href="http://www.who.int/classifications/icd/en/">WHO ICD10</a> etc. In such models, it is typical to want to define an attribute being not just of a Coded Term type, but also limited to a particular terminology (such as a coded attribute representing 'language'), or even a specific 'value set' from such a terminology.</p>
+</div>
+<div class="paragraph">
+<p>In the BMM, all of these possibilities are accommodated via the meta-type <code>BMM_RANGE_CONSTRAINED</code>, whose descendants define meta-types for each case. These classes are shown below.</p>
+</div>
+<div id="core_range_constrained" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="UML/diagrams/LANG-bmm.core-range_constrained.svg" alt="LANG bmm.core range constrained">
+</div>
+<div class="title">Figure 20. <code>base.bmm.core</code> Package - Constrained-range Meta-Types, including Enumeration</div>
+</div>
+<div class="sect3">
+<h4 id="_enumeration_class_meta_type"><a class="anchor" href="#_enumeration_class_meta_type"></a>7.4.1. Enumeration Class Meta-type</h4>
+<div class="paragraph">
+<p>The <code>BMM_ENUMERATION</code> meta-type is a descendant of <code>BMM_CLASS</code> whose instances represent types whose value range is constrained by an explicit list of values, i.e. an <em>enumeration</em>. This is achieved via a set of enumeration labels (<code><em>item_names</em></code>) and constant values (<code><em>item_values</em></code>), the latter of which may be of any type in available within the concrete model.</p>
+</div>
+<div class="paragraph">
+<p>Since <code>String</code> and <code>Integer</code> valued enumerations are by far the most common in real models, two descendant classes <code>BMM_ENUMERATION_STRING</code> and <code>BMM_ENUMERATION_INTEGER</code> are provided, which fix the values and types to <code>String</code> and <code>Integer</code> respectively. The following screenshot shows how a BMM integer enumeration class appears within a BMM model.</p>
+</div>
+<div id="awb_enumeration" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="bmm/images/awb_enumeration.png" alt="awb enumeration" width="65%">
+</div>
+<div class="title">Figure 21. Enumeration Example</div>
+</div>
+<div class="paragraph">
+<p>The types <code>String</code> and <code>Integer</code> are assumed to be defined via primitive classes of the same names.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_intensional_range_constrained_meta_type"><a class="anchor" href="#_intensional_range_constrained_meta_type"></a>7.4.2. Intensional Range-Constrained Meta-type</h4>
+<div class="paragraph">
+<p>A second kind of range-constrained meta-type, <code>BMM_INTENSIONAL</code>, is provided to enable the use of a concrete type within a model which constrains the values on another type <em>intensionally</em>, i.e. via a formula or other evaluable definition that may be resolved to the set of allowed instances.</p>
+</div>
+<div class="paragraph">
+<p>The descendant <code>BMM_EXTERNAL_VALUE_SET</code> defines a kind of range-constrained type whose allowable set of values is defined by an external resource, such as a terminology, vocabulary, or service that generates legal reference values, such as drug definitions, laboratory normal ranges etc.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -3356,165 +3405,16 @@ not currently supported: export status; 'static' (non-instance dependent) method
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Meta-type of <code>BMM_SIMPLE_CLASS</code>, which is <code>Entity_metatype_simple</code>.</p>
+<p>Return meta-type of <code>BMM_SIMPLE_CLASS</code>, which is <code>Entity_metatype_simple</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.5.3. BMM_ENUMERATION Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Definition of an enumeration type. In the BMM system, an 'enumeration' type is understood as an underlying basic type and a set of named constants of that type. It is designed so that the default type is Integer, and the default constants are numbered 0, 1, &#8230;&#8203; Optional model elements can be specified to override the values and / or the type.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_SIMPLE_CLASS</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_names</strong>: <code>List&lt;String&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The list of names of the enumeration. If no values are supplied, the integer values 0, 1, 2, &#8230;&#8203; are assumed.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_values</strong>: <code>List&lt;T&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Optional list of specific values. Must be 1:1 with <code><em>item_names</em></code> list.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>underlying_type_name</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Name of type any concrete <code>BMM_ENUMERATION_*</code> sub-type is based on, i.e. the name of type bound to 'T' in a declared use of this type.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Meta-type of <code>BMM_ENUMERATION</code>, which is <code>Entity_metatype_enumeration</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name_map</strong> (): <code>Hash&lt;String,String&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Map of <code><em>item_values</em></code> (stringified) to <code><em>item_names</em></code>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.5.4. BMM_ENUMERATION_STRING Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION_STRING</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>String-based enumeration type.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENUMERATION</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>underlying_type_name</strong>: <code>String&#160;=&#160;"STRING"</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Name of type any concrete <code>BMM_ENUMERATION_*</code> sub-type is based on.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.5.5. BMM_ENUMERATION_INTEGER Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION_INTEGER</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Integer-based enumeration type.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENUMERATION</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>underlying_type_name</strong>: <code>String&#160;=&#160;"INTEGER"</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Name of type any concrete <code>BMM_ENUMERATION_*</code> sub-type is based on.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_generic_class_class"><a class="anchor" href="#_bmm_generic_class_class"></a>7.5.6. BMM_GENERIC_CLASS Class</h4>
+<h4 id="_bmm_generic_class_class"><a class="anchor" href="#_bmm_generic_class_class"></a>7.5.3. BMM_GENERIC_CLASS Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3562,9 +3462,9 @@ not currently supported: export status; 'static' (non-instance dependent) method
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Meta-type of <code>BMM_GENERIC_CLASS</code>, which is <code>Entity_metatype_generic</code>.</p>
+<p>Return meta-type of <code>BMM_GENERIC_CLASS</code>, which is <code>Entity_metatype_generic</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3586,6 +3486,262 @@ a_name: <code>String[1]</code><br>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_bmm_range_constrained_class"><a class="anchor" href="#_bmm_range_constrained_class"></a>7.5.4. BMM_RANGE_CONSTRAINED Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_RANGE_CONSTRAINED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Abstract parent of range-constrained meta-types, which represent class definitions that include a restriction on legal values with respect to possible values that would otherwise be allowed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_CLASS</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>underlying_type</strong> (): <code>BMM_DEFINED_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return the underlying type on which this range-constrained class is based, which is the sole member of <code><em>ancestors</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_metatype</strong> (): <code>BMM_ENTITY_METATYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return meta-type of <code>BMM_ENUMERATION</code>, which is <code>Entity_metatype_range_constrained</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p><strong><em>Inv_unique_ancestor</em></strong>: <code>ancestors.count = 1</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.5.5. BMM_ENUMERATION Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Definition of an enumeration class, understood as a class whose value range is constrained extensionally, i.e. by an explicit enumeration of named singleton instances.</p>
+</div>
+<div class="paragraph">
+<p>The common notion of a set of literals with no explicit defined values is represented as the degenerate subtype <code>BMM_ENUMERATION_INTEGER</code>, whose values are 0, 1, &#8230;&#8203;</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_RANGE_CONSTRAINED</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_names</strong>: <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The list of names of the enumeration. If no values are supplied, the integer values 0, 1, 2, &#8230;&#8203; are assumed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_values</strong>: <code>List&lt;BMM_VALUE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Optional list of specific values. Must be 1:1 with <code><em>item_names</em></code> list.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name_map</strong> (): <code>Hash&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Map of <code><em>item_values</em></code> (stringified) to <code><em>item_names</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.5.6. BMM_ENUMERATION_STRING Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION_STRING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>String-based enumeration meta-type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENUMERATION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_values</strong>: <code>List&lt;BMM_STRING_VALUE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Optional list of specific values. Must be 1:1 with <code><em>item_names</em></code> list.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.5.7. BMM_ENUMERATION_INTEGER Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENUMERATION_INTEGER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Integer-based enumeration meta-type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENUMERATION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_values</strong>: <code>List&lt;BMM_INTEGER_VALUE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Optional list of specific values. Must be 1:1 with <code><em>item_names</em></code> list.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_intensional_class"><a class="anchor" href="#_bmm_intensional_class"></a>7.5.8. BMM_INTENSIONAL Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_INTENSIONAL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Definition of a range-constrained class, i.e. one whose value range is constrained intensionally.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_RANGE_CONSTRAINED</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_external_value_set_class"><a class="anchor" href="#_bmm_external_value_set_class"></a>7.5.9. BMM_EXTERNAL_VALUE_SET Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_EXTERNAL_VALUE_SET</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Definition of a range-constrained class whose value range is defined by reference to a 'value set' within an external resource, e.g. a reference data service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_INTENSIONAL</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>resource_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_set_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -3601,7 +3757,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core-features.svg" alt="LANG bmm.core features">
 </div>
-<div class="title">Figure 21. <code>base.bmm.core</code> package - Features</div>
+<div class="title">Figure 22. <code>base.bmm.core</code> package - Features</div>
 </div>
 <div class="paragraph">
 <p>The abstract classes in this model that define the taxonomy of types are as follows:</p>
@@ -3771,7 +3927,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_properties.png" alt="awb class properties" width="50%">
 </div>
-<div class="title">Figure 22. BMM class - properties view</div>
+<div class="title">Figure 23. BMM class - properties view</div>
 </div>
 </div>
 </div>
@@ -3932,7 +4088,85 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_mutable_class"><a class="anchor" href="#_bmm_mutable_class"></a>8.10.5. BMM_MUTABLE Class</h4>
+<h4 id="_bmm_string_value_class"><a class="anchor" href="#_bmm_string_value_class"></a>8.10.5. BMM_STRING_VALUE Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_STRING_VALUE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Meta-type for a String value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>String</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_STRING_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Declared or inferred static type of the entity.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_integer_value_class"><a class="anchor" href="#_bmm_integer_value_class"></a>8.10.6. BMM_INTEGER_VALUE Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INTEGER_VALUE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Meta-type for an Integer value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>Integer</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_INTEGER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Declared or inferred static type of the entity.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_mutable_class"><a class="anchor" href="#_bmm_mutable_class"></a>8.10.7. BMM_MUTABLE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3970,7 +4204,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>8.10.6. BMM_PROPERTY Class</h4>
+<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>8.10.8. BMM_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4066,7 +4300,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>8.10.7. BMM_UNITARY_PROPERTY Class</h4>
+<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>8.10.9. BMM_UNITARY_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4103,7 +4337,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>8.10.8. BMM_CONTAINER_PROPERTY Class</h4>
+<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>8.10.10. BMM_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4159,7 +4393,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>8.10.9. BMM_CONSTANT Class</h4>
+<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>8.10.11. BMM_CONSTANT Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4205,7 +4439,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>8.10.10. BMM_VARIABLE Class</h4>
+<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>8.10.12. BMM_VARIABLE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4242,7 +4476,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>8.10.11. BMM_LOCAL Class</h4>
+<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>8.10.13. BMM_LOCAL Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4268,7 +4502,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.10.12. BMM_ROUTINE Class</h4>
+<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.10.14. BMM_ROUTINE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4333,7 +4567,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.10.13. BMM_FUNCTION Class</h4>
+<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.10.15. BMM_FUNCTION Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4377,7 +4611,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.10.14. BMM_OPERATOR Class</h4>
+<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.10.16. BMM_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4425,7 +4659,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.10.15. BMM_OPERATOR_POSITION Enumeration</h4>
+<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.10.17. BMM_OPERATOR_POSITION Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4466,7 +4700,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.10.16. BMM_PROCEDURE Class</h4>
+<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.10.18. BMM_PROCEDURE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4492,7 +4726,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.10.17. BMM_PARAMETER Class</h4>
+<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.10.19. BMM_PARAMETER Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4530,7 +4764,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.10.18. BMM_PARAMETER_DIRECTION Enumeration</h4>
+<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.10.20. BMM_PARAMETER_DIRECTION Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4605,7 +4839,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 23. BMM class - ancestors view</div>
+<div class="title">Figure 24. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -4614,7 +4848,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 24. BMM class - descendants view</div>
+<div class="title">Figure 25. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect2">
@@ -4639,7 +4873,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 25. Generic inheritance, open parameter</div>
+<div class="title">Figure 26. Generic inheritance, open parameter</div>
 </div>
 <div class="paragraph">
 <p>A simple class may also inherit from a closed generic type, with the parameters of the latter fixed to specific type(s), as shown in the following example.</p>
@@ -4648,7 +4882,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 26. Generic inheritance, closed</div>
+<div class="title">Figure 27. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>The general case is that any number of formal generic parameters may be substituted or left open down the inheritance lineage, as shown by the variants in the following example.</p>
@@ -4657,7 +4891,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 27. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 28. Generic inheritance, mixed open and closed</div>
 </div>
 </div>
 <div class="sect2">
@@ -4669,7 +4903,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 28. Multiple inheritance</div>
+<div class="title">Figure 29. Multiple inheritance</div>
 </div>
 </div>
 </div>

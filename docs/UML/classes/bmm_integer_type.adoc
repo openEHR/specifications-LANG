@@ -1,0 +1,14 @@
+=== BMM_INTEGER_TYPE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_INTEGER_TYPE*
+
+h|*Description*
+2+a|BMM meta-type representing the concrete primitive type `Integer`.
+
+h|*Inherit*
+2+|`BMM_SIMPLE_TYPE`
+
+|===

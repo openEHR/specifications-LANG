@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_ENUMERATION_INTEGER*
 
 h|*Description*
-2+a|Integer-based enumeration type.
+2+a|Integer-based enumeration meta-type.
 
 h|*Inherit*
 2+|`BMM_ENUMERATION`
@@ -15,8 +15,8 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
+h|*0..1 +
 (redefined)*
-|*underlying_type_name*: `String{nbsp}={nbsp}"INTEGER"`
-a|Name of type any concrete `BMM_ENUMERATION_*` sub-type is based on.
+|*item_values*: `List<BMM_INTEGER_VALUE>`
+a|Optional list of specific values. Must be 1:1 with `_item_names_` list.
 |===

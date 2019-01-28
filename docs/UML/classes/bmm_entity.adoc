@@ -50,9 +50,9 @@ h|(abstract)
 |*entity_category* (): `String`
 a|Generate a category code-string to use in visualisation, that indicates:
 
-* _entity meta-type_: simple &#124; enumerated &#124; generic &#124; generic_effective &#124; parameter
+* _entity meta-type_: simple &#124; etc
 * _abstract modifier_ - abstract status
-* _primitive modifier_ primitive status
+* _primitive modifier_ - primitive status
 
 The code is structured as:
 
@@ -61,13 +61,13 @@ entity_metatype [ '-' abstract_modifier ] [ '-' primitive_modifier ]
 ----
 
 h|(abstract)
-|*entity_metatype* (): `String`
+|*entity_metatype* (): `BMM_ENTITY_METATYPE`
 a|Meta-type of entity, which classifies it according to the kind of formal entity it represents from the following:
 
 * simple (non-generic)
 * generic
-* enumeration
-* type parameter
+* generic type parameter
+* range-constrained
 * container type
 
 These meta-types don't exactly match the `BMM_*` types defined in the model, but are useful for displaying models visually.

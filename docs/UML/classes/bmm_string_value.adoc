@@ -1,0 +1,22 @@
+=== BMM_STRING_VALUE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_STRING_VALUE*
+
+h|*Description*
+2+a|Meta-type for a String value, for which `_type_` is fixed to the `BMM_TYPE` representing `String`.
+
+h|*Inherit*
+2+|`BMM_VALUE`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1 +
+(redefined)*
+|*type*: `BMM_STRING_TYPE`
+a|Declared or inferred static type of the entity.
+|===
