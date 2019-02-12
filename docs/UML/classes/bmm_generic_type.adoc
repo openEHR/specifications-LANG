@@ -58,4 +58,8 @@ a|Returns True if there is any substituted generic parameter.
 h|(effected)
 |*effective_base_class* (): `BMM_GENERIC_CLASS`
 a|Effective underlying class for this type, abstracting away any container type.
+
+h|
+|*is_open* (): `Boolean`
+a|True if all generic parameters from ancestor generic types have been substituted in this type.
 |===

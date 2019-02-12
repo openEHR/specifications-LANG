@@ -1,15 +1,12 @@
-=== BMM_EXTERNAL_VALUE_SET Class
+=== BMM_VALUE_SET_SPEC Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*BMM_EXTERNAL_VALUE_SET*
+2+^h|*BMM_VALUE_SET_SPEC*
 
 h|*Description*
 2+a|Definition of a range-constrained class whose value range is defined by reference to a 'value set' within an external resource, e.g. a reference data service.
-
-h|*Inherit*
-2+|`BMM_INTENSIONAL`
 
 h|*Attributes*
 ^h|*Signature*

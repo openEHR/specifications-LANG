@@ -43,15 +43,15 @@ a|True if this definition overrides a class of the same name in an included sche
 
 h|*0..1*
 |*constants*: `Hash<String,BMM_CONSTANT>`
-a|
+a|List of constants defined in this class.
 
 h|*0..1*
 |*functions*: `Hash<String,BMM_FUNCTION>`
-a|
+a|List of functions defined in this class.
 
 h|*0..1*
 |*procedures*: `Hash<String,BMM_PROCEDURE>`
-a|
+a|List of procedures defined in this class.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -94,15 +94,15 @@ a|True if this class is abstract in its model. Value provided from an underlying
 
 h|(abstract)
 |*type* (): `BMM_DEFINED_TYPE`
-a|Generate a type object that represents the type of this class.
+a|Generate a type object that represents the type for which this class is the definer.
 
 h|
 |*features* (): `List<BMM_FORMAL_ELEMENT>`
-a|
+a|List of all feature definitions introduced in this class.
 
 h|
 |*flat_features* (): `List<BMM_FORMAL_ELEMENT>`
-a|
+a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|
 |*flat_properties* (): `List<Hash<String, BMM_PROPERTY<BMM_TYPE>>>`

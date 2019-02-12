@@ -12,9 +12,9 @@
 |[[latest_issue_date]]28 Jan 2019
 
 |
-|Improve meta-model of Enumerated types to include intensional range constrained types, including Coded Terms restricted to a terminology or value set.
+|Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints).
 |T Beale
-|28 Jan 2019
+|12 Feb 2019
 
 |
 |Add feature elements `BMM_ROUTINE`, `BMM_VALUE_RETURNING` and descendants; +

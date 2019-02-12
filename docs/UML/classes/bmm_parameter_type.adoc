@@ -21,7 +21,7 @@ a|Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and up
 
 h|*0..1*
 |*type_constraint*: `BMM_DEFINED_TYPE`
-a|Optional conformance constraint that must be another valid class name.
+a|Optional conformance constraint that must be the name of a defined type.
 
 h|*0..1*
 |*inheritance_precursor*: `BMM_PARAMETER_TYPE`

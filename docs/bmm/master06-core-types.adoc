@@ -2,21 +2,22 @@
 
 == Overview
 
-Types are understood as the _formal classifiers_ of object instances in BMM, in both a static sense and dynamically, i.e. at execution time, when polymorphic attachment is possible. Types are defined indirectly via the definitions of classes and their constituent parts. Types are used for three purposes in a BMM model:
+Types are understood as the _formal generators_ of object instances in the BMM, in both a static sense and dynamically, i.e. at execution time, when polymorphic attachment is possible. Types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:
 
 * to define the _type of a property_;
 * to define _formal type parameters_ in a generic class;
-* to define type(s) of _inheritance ancestors of class definitions_.
+* to define type(s) of _inheritance ancestors of class definitions_;
+* to determine _conformance_, which is a relation between types (not classes).
 
-Every type entity can be mapped back to its generating class(es), which provide the definitional basis for the type. The BMM class `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The `BMM_TYPE` class includes features common to all meta-types:
+Every type entity can be mapped back to its _defining_ class(es), which provide the formal definition for the type. The BMM class `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The `BMM_TYPE` class includes features common to all meta-types:
 
-* _effective_base_class_: a reference to the effective generating class;
+* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_DEFINED_TYPE` meta-class), this will just be the defining class (`_defining_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);
 * _type_signature_: a form of the type name that can be used as a fully-defined type signature, which for generic classes includes generic constrainer types, giving a signature such as `Interval<T:Ordered>`.
 
 Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` corresponds to meta-types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This division is made to enable BMM to directly support collections in the type system.
 
-Unitary meta-types are further distinguished as either formal generic parameters (`BMM_PARAMETER TYPE`) and _defined_ types, i.e. types with class definitions, via the abstract meta-type `BMM_DEFINED_TYPE`. The subtypes of the BMM defined meta-type are `BMM_SIMPLE_TYPE` and `BMM_GENERIC _TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class deifintions) of these meta-types are available via the property `_base_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+Unitary meta-types are further distinguished as either formal generic parameters (`BMM_PARAMETER TYPE`) and _defined_ types, i.e. types with class definitions, via the abstract meta-type `BMM_DEFINED_TYPE`. The subtypes of the BMM defined meta-type are `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class deifintions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
 
 == Simple Type
 
@@ -24,7 +25,9 @@ A _simple type_ is a type based only on a _simple class_, which is a class with 
 
 == Generic Type
 
-A _generic type_ is any type based on a _generic class_, which has one or more open type parameters that are substituted for actual types in its declaration. For example, the generic type `Interval<Quantity>` can be used in a model that contains the generic class `Interval<T:Ordered>` and `Quantity`. A typical programmatic usage of such a type, and its instantiated BMM model structure are shown below.
+A _generic type_ is any type based on a _generic class_, which has one or more open type parameters that are substituted for actual types in its declaration. For example, the generic type `Interval<Quantity>` can be used in a model that contains the generic class `Interval<T:Ordered>` and `Quantity`. The general case is that the generic parameter substitution type (`BMM_GENERIC_TYPE._generic_parameters_`) for any formal parameter (`BMM_GENERIC_CLASS._generic_parameters_`) is of meta-type `BMM_UNITARY_TYPE`.
+
+A typical programmatic usage of such a type, and its instantiated BMM model structure is shown below.
 
 [.text-center]
 .Generic type - closed simple
@@ -41,13 +44,7 @@ Consequently, a generic type may be:
 * _partially closed_: at least one formal parameter is substituted e.g. `Document<ClinicalContent, U>`;
 * _fully open_: no formal parameters substituted, e.g. `Document<T, U>`.
 
-The feature `_is_partially_closed ()_` defined on `BMM_GENERIC_TYPE` can be used to distinguish the latter two cases. 
-
-The following diagram shows the BMM instance structure created for a generic type based on a generic class and another generic type.
-
-[.text-center]
-.Generic type - closed container
-image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
+The first case is detected via the function `_is_closed_` defined on `BMM_GENERIC_TYPE`, while the function `_is_partially_closed_` distinguishes the latter two cases. 
 
 The following shows the BMM instance structure of a generic type that is fully open.
 
@@ -55,13 +52,19 @@ The following shows the BMM instance structure of a generic type that is fully o
 .Generic type - open
 image::{diagrams_uri}/bmm_structure-generic_3.svg[id=bmm_structure_generic_3, align="center"]
 
+Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BMM_UNITARY_TYPE`, constructions such as `MyGenericType<List<OtherType>>` are prevented, due to the concrete parameter type `List<OtherType>` being an instance of `BMM_CONTAINER_TYPE` rather than of `BMM_UNITARY_TYPE`. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment should be expressed _where the formal generic parameter is used_, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.
+
+[.text-center]
+.Generic type - closed container
+image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
+
 == Container Types
 
 In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as `List<T>` and `Set<T>` are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes `BMM_GENERIC_TYPE` and `BMM_CONTAINER_TYPE`. This allows the BMM to treat container types in a special way. A `BMM_CONTAINER_TYPE` can be thought of as a 1:N counterpart to a `BMM_UNITARY_TYPE`, such as the type `List<Paragraph>` with respect to `Paragraph`. `BMM_GENERIC_TYPE` is typically used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. `Interval<Quantity>`. 
 
-The explicit provision of `BMM_CONTAINER_TYPE` enables BMM models to mention logical linear container types such as `Array<T>`, `List<T>` and `Set<T>`, on the assumption of their standard semantics in computer science , without worrying about providing concrete types which may be numerous and also variable across programming languages, e.g. `ArrayedList<T>`, `LinkedSet<T>`, `ArrayedStack<T>` and so on. (This corrects one of the errors in UML, which does not represent containment via typing, but via cardinality, and uniqueness constraints.)
+The explicit provision of `BMM_CONTAINER_TYPE` enables BMM models to mention logical linear container types such as `Array<T>`, `List<T>` and `Set<T>`, on the assumption of their standard semantics in computer science , without worrying about providing concrete types which may be numerous and also variable across programming languages, e.g. `ArrayedList<T>`, `LinkedSet<T>`, `ArrayedStack<T>` and so on. (This corrects one of the errors in UML, which does not represent containment via meta-typing, but via cardinality and uniqueness constraints.)
 
-The following diagram shows how the container type `List<Paragraph>` is represented in a BMM model.
+The following diagram shows how the container type `List<Paragraph>`, declared as the type of an attribute `_paragraphs_` in a class `Document`, is represented in a BMM model.
 
 [.text-center]
 .Container Type

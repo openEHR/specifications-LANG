@@ -49,6 +49,6 @@ generic (class or type):: a kind of class or type that has parameters of other t
 
 == Tooling
 
-The {openehr_awb}[openEHR ADL Workbench (AWB)] fully implements this specification, and provide a convenient way of illustrating BMM semantics. The screenshots used in this specification are all from the ADL Workbench. The tool is written in the Eiffel language, and is available as {openehr_awb_github}[open source on Github^]. The BMM libraries can be found in the {eomf_bmm}[EOMF Github repository^].
+The {openehr_archie_github}[openEHR Archie Library^] fully implements this specification in Java and may be used to build UI tools for compiling, viewing and editing BMM models.
 
-A modelling tool known as Archie implements BMM in Java, and {openehr_archie_github}[can be found in the openEHR Github area^].
+The {openehr_awb}[openEHR ADL Workbench (AWB)] fully implements this specification, and provides a convenient way of illustrating BMM semantics. The screenshots used in this specification are all from the ADL Workbench. The tool is written in the Eiffel language, and is available as {openehr_awb_github}[open source on Github^]. The BMM libraries can be found in the {eomf_bmm}[EOMF Github repository^].
