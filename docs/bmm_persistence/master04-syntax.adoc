@@ -376,6 +376,33 @@ The following example shows two similar examples based on `String`.
     >
 --------
 
+=== Value-set Constraints
+
+Value-sets are related to enumerated types, but rather than specifying the possible instance values for a type in an explicit enumeration type, a standard type can be marked as having values that conform to an external value set, such as a terminology. The following shows an attribute declared to be of a simple type `CODE_PHRASE` in the normal way.
+
+[source, odin]
+--------
+    ["encoding"] = (P_BMM_SINGLE_PROPERTY) <
+        name = <"encoding">
+        type = <"CODE_PHRASE">
+    >
+--------
+
+With a value-set constraint added, it now looks as follows:
+
+[source, odin]
+--------
+    ["encoding"] = (P_BMM_SINGLE_PROPERTY) <
+        name = <"encoding">
+        type_ref = <
+            type = <"CODE_PHRASE">
+            value_constraint = <"openEHR::languages">
+        >
+    >
+--------
+
+The use of the `value_constraint` attribute forces the use of the `type_ref` structural form of the type definition, rather than the simple `String` form above.
+
 == Inheritance
 
 In the case of inheritance from simple classes, the `ancestors` list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured `ancestor_defs` section is used instead of the `ancestors` String list, in the same way as for the `P_BMM_GENERIC_PROPERTY` examples above.

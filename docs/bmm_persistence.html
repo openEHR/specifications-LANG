@@ -88,6 +88,7 @@
 </li>
 <li><a href="#_generic_classes">4.5.4. Generic Classes</a></li>
 <li><a href="#_enumerated_types">4.5.5. Enumerated Types</a></li>
+<li><a href="#_value_set_constraints">4.5.6. Value-set Constraints</a></li>
 </ul>
 </li>
 <li><a href="#_inheritance">4.6. Inheritance</a></li>
@@ -193,7 +194,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.3.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>11 Nov 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>12 Feb 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add value-set constraint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Feb 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -2134,6 +2141,37 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
         <span class="tok-nc">item_names</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;FIRST&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;MIDDLE&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;LAST&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_value_set_constraints"><a class="anchor" href="#_value_set_constraints"></a>4.5.6. Value-set Constraints</h4>
+<div class="paragraph">
+<p>Value-sets are related to enumerated types, but rather than specifying the possible instance values for a type in an explicit enumeration type, a standard type can be marked as having values that conform to an external value set, such as a terminology. The following shows an attribute declared to be of a simple type <code>CODE_PHRASE</code> in the normal way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-p">[</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CODE_PHRASE&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With a value-set constraint added, it now looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-p">[</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">type_ref</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CODE_PHRASE&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">value_constraint</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR::languages&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The use of the <code>value_constraint</code> attribute forces the use of the <code>type_ref</code> structural form of the type definition, rather than the simple <code>String</code> form above.</p>
 </div>
 </div>
 </div>
