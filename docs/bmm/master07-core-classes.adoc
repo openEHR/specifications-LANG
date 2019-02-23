@@ -34,7 +34,9 @@ image::{images_uri}/awb_generic_class.png[id=awb_generic_class, align="center", 
 
 == Range-Constrained Meta-types
 
-The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as `String` and `Integer`, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types. A useful form of any concrete type definition (i.e. instance of `BMM_DEFINED_TYPE` in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes ar shown below.
+The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as `String` and `Integer`, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types. 
+
+A useful derived form of any concrete type definition (i.e. instance of `BMM_DEFINED_TYPE` in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes are shown below.
 
 [.text-center]
 .`base.bmm.core` Package - Constrained-range Meta-Types, including Enumeration
@@ -44,13 +46,13 @@ image::{uml_diagrams_uri}/LANG-bmm.core-range_constrained.svg[id=core_range_cons
 
 In modern programming languages, the _enumerated type_ is the most common kind of range constraint mechanism. In Java for example, an enumeration is a finite set of labels each associated with singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind. Enumerated types are supported in BMM via the `BMM_ENUMERATION` meta-type and descendants.
 
-An enumerated type could in theory be based on any BMM defined type, i.e. any simple or generic type, since instances of either could be constrained. BMM makes the simplification that an enumerated type can only be based on a BMM simple type, which means that in the defined model, an enumeration of a closed generic type `Gen<T_subst>` is achieved by first defining a simple type based on the closed generic type via inheritance, in this case a type `Simple` that inherits from `Gen<T_subst>` can be used as the ancestor of a BMM enumeration type.
+An enumerated type could in theory be based on any BMM defined type, i.e. any simple or generic type, since instances of either could be constrained. BMM makes the simplification that an enumerated type can only be based on a BMM simple type, which means that in the defined model, an enumeration of a closed generic type `Gen<T_subst>` is achieved by first defining a simple type based on the closed generic type via inheritance, e.g. a type `Gen_T_subst` that inherits from `Gen<T_subst>` can be used as the ancestor of a BMM enumeration type.
 
 For this reason, the `BMM_ENUMERATION` meta-type is defined as a descendant of `BMM_SIMPLE_CLASS`, and may have only one ancestor. The value enumeration is represented via a set of enumeration labels (`_item_names_`) and constant values (`_item_values_`), the latter of which must be of the type represented in the concrete model by the instance of the ancestor class.
 
 Since `String` and `Integer` valued enumerations are by far the most common in real models, two descendant classes `BMM_ENUMERATION_STRING` and `BMM_ENUMERATION_INTEGER` are provided, which fix the values and types to `String` and `Integer` respectively.
 
-The following diagram shows the meta-model structure corresponding to an attribute declaration `_lifecycle_: TaskLifecycle` in a class `Order`.
+The following diagram shows the BMM instance structure corresponding to an attribute declaration `_lifecycle_: TaskLifecycle` in a class `Order`.
 
 [.text-center]
 .Integer-based Enumeration Type

@@ -681,7 +681,7 @@ Other tools may well perform as well or better, and in any case, all tools chang
 <p>The Basic Meta-Model is concretely based on Object-oriented class model concepts, rather than being a highly general model like the UML meta-model;</p>
 </li>
 <li>
-<p>Types and Classes are distinguished in the meta-amodel, unlike UML which has no formal concept of type;</p>
+<p>Types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;</p>
 </li>
 <li>
 <p>Types as a first-order entity allows generic types and inheritance from open, closed, or partially open generics to be properly represented, unlike in UML;</p>
@@ -691,6 +691,9 @@ Other tools may well perform as well or better, and in any case, all tools chang
 </li>
 <li>
 <p>The notion of 'range-constrained' classes is supported via enumerated types based on any model type as well as value-set constraints;</p>
+</li>
+<li>
+<p>Enumerated types are supported in two forms, enabling representation of both traditional 'defined' enumerations, and also references to external value sets;</p>
 </li>
 <li>
 <p>There is no concept of an 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.</p>
@@ -3245,7 +3248,10 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="sect2">
 <h3 id="_range_constrained_meta_types"><a class="anchor" href="#_range_constrained_meta_types"></a>7.4. Range-Constrained Meta-types</h3>
 <div class="paragraph">
-<p>The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as <code>String</code> and <code>Integer</code>, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types. A useful form of any concrete type definition (i.e. instance of <code>BMM_DEFINED_TYPE</code> in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes ar shown below.</p>
+<p>The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as <code>String</code> and <code>Integer</code>, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types.</p>
+</div>
+<div class="paragraph">
+<p>A useful derived form of any concrete type definition (i.e. instance of <code>BMM_DEFINED_TYPE</code> in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes are shown below.</p>
 </div>
 <div id="core_range_constrained" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -3259,7 +3265,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <p>In modern programming languages, the <em>enumerated type</em> is the most common kind of range constraint mechanism. In Java for example, an enumeration is a finite set of labels each associated with singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind. Enumerated types are supported in BMM via the <code>BMM_ENUMERATION</code> meta-type and descendants.</p>
 </div>
 <div class="paragraph">
-<p>An enumerated type could in theory be based on any BMM defined type, i.e. any simple or generic type, since instances of either could be constrained. BMM makes the simplification that an enumerated type can only be based on a BMM simple type, which means that in the defined model, an enumeration of a closed generic type <code>Gen&lt;T_subst&gt;</code> is achieved by first defining a simple type based on the closed generic type via inheritance, in this case a type <code>Simple</code> that inherits from <code>Gen&lt;T_subst&gt;</code> can be used as the ancestor of a BMM enumeration type.</p>
+<p>An enumerated type could in theory be based on any BMM defined type, i.e. any simple or generic type, since instances of either could be constrained. BMM makes the simplification that an enumerated type can only be based on a BMM simple type, which means that in the defined model, an enumeration of a closed generic type <code>Gen&lt;T_subst&gt;</code> is achieved by first defining a simple type based on the closed generic type via inheritance, e.g. a type <code>Gen_T_subst</code> that inherits from <code>Gen&lt;T_subst&gt;</code> can be used as the ancestor of a BMM enumeration type.</p>
 </div>
 <div class="paragraph">
 <p>For this reason, the <code>BMM_ENUMERATION</code> meta-type is defined as a descendant of <code>BMM_SIMPLE_CLASS</code>, and may have only one ancestor. The value enumeration is represented via a set of enumeration labels (<code><em>item_names</em></code>) and constant values (<code><em>item_values</em></code>), the latter of which must be of the type represented in the concrete model by the instance of the ancestor class.</p>
@@ -3268,7 +3274,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <p>Since <code>String</code> and <code>Integer</code> valued enumerations are by far the most common in real models, two descendant classes <code>BMM_ENUMERATION_STRING</code> and <code>BMM_ENUMERATION_INTEGER</code> are provided, which fix the values and types to <code>String</code> and <code>Integer</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows the meta-model structure corresponding to an attribute declaration <code><em>lifecycle</em>: TaskLifecycle</code> in a class <code>Order</code>.</p>
+<p>The following diagram shows the BMM instance structure corresponding to an attribute declaration <code><em>lifecycle</em>: TaskLifecycle</code> in a class <code>Order</code>.</p>
 </div>
 <div id="bmm_structure_enumeration" class="imageblock text-center" style="text-align: center">
 <div class="content">
