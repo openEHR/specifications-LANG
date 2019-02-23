@@ -38,14 +38,18 @@ This version adds meta-classes for routines, variables and constants to the BMM,
 
 == A Note on Language
 
-The elements of meta-models are sometimes named confusingly in the literature and within various programming language technologies. In this specification, we have used the following terms:
+The elements of meta-models are sometimes named confusingly in the literature and within various programming language technologies. In this specification, we use the following terms:
 
+class:: generally refers to a class defined in a model expressed in BMM, i.e. an instance of a BMM meta-class;
+meta-class:: refers to a class in the BMM itself, such as `BMM_CLASS`, in order to clearly distinguish it from classes defined in models represented using BMM;
 feature (of a class):: any stored or computed element of a class, including constants, attributes (properties) and routines (methods);
 property:: a stored class feature; also known as 'attribute';
 routine:: a computed class feature that may be either value-returning (a function) or work-performing (a procedure);
 function:: a routine that computes and returns a value; typically causes no side-effects in the object;
 procedure:: a routine that performs a computation; typically has side-effects;
-generic (class or type):: a kind of class or type that has parameters of other types; known as 'template' type in some programming languages.
+generic (class or type):: a kind of class or type that has parameters of other types; known as 'template' type in some programming languages;
+type:: generally refers to a type defined in a model expressed in BMM, i.e. an instance of a BMM meta-type;
+meta-type:: refers to a type in the BMM itself, which is either a class (such as `BMM_CLASS`) or generically derived (meta-)type in the sense of being an instance generator, where the instances will be concrete type definitions in models represented using BMM.
 
 == Tooling
 

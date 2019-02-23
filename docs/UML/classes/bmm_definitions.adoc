@@ -27,4 +27,16 @@ a|Delimiter used to separate package names in a package path.
 h|*1..1*
 |*Bmm_schema_file_extension*: `String{nbsp}={nbsp}".bmm"`
 a|Extension used for BMM files.
+
+h|*1..1*
+|*Generic_left_delimiter*: `Character{nbsp}={nbsp}'<'`
+a|
+
+h|*1..1*
+|*Generic_right_delimiter*: `Character{nbsp}={nbsp}'>'`
+a|
+
+h|*1..1*
+|*Generic_constraint_delimiter*: `Character{nbsp}={nbsp}':'`
+a|
 |===

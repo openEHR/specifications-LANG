@@ -76,7 +76,9 @@ One of the uses of the BMM in the ADL Workbench and other similar tools is to pr
 .ADL archetype with BMM class properties
 image::{images_uri}/archetype_rm.png[id=archetype_rm, align="center"]
 
-Newer tools are able to include the computational features.
+Newer tools are able to include the computational features. 
+
+The {openehr_website_url}[openEHR project] makes extensive use of BMM for representing its models for use in tools. The full set of openEHR models in BMM format may be found in the {openehr_its_bmm}[specfications-ITS-BMM repository on Github].
 
 == Specification Structure
 

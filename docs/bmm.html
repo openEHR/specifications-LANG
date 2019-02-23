@@ -318,9 +318,10 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints);<br>
+ Improve explanation and diagrams to do with types and classes.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12 Feb 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Feb 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -516,10 +517,18 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 <div class="sect2">
 <h3 id="_a_note_on_language"><a class="anchor" href="#_a_note_on_language"></a>1.6. A Note on Language</h3>
 <div class="paragraph">
-<p>The elements of meta-models are sometimes named confusingly in the literature and within various programming language technologies. In this specification, we have used the following terms:</p>
+<p>The elements of meta-models are sometimes named confusingly in the literature and within various programming language technologies. In this specification, we use the following terms:</p>
 </div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1">class</dt>
+<dd>
+<p>generally refers to a class defined in a model expressed in BMM, i.e. an instance of a BMM meta-class;</p>
+</dd>
+<dt class="hdlist1">meta-class</dt>
+<dd>
+<p>refers to a class in the BMM itself, such as <code>BMM_CLASS</code>, in order to clearly distinguish it from classes defined in models represented using BMM;</p>
+</dd>
 <dt class="hdlist1">feature (of a class)</dt>
 <dd>
 <p>any stored or computed element of a class, including constants, attributes (properties) and routines (methods);</p>
@@ -542,7 +551,15 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 </dd>
 <dt class="hdlist1">generic (class or type)</dt>
 <dd>
-<p>a kind of class or type that has parameters of other types; known as 'template' type in some programming languages.</p>
+<p>a kind of class or type that has parameters of other types; known as 'template' type in some programming languages;</p>
+</dd>
+<dt class="hdlist1">type</dt>
+<dd>
+<p>generally refers to a type defined in a model expressed in BMM, i.e. an instance of a BMM meta-type;</p>
+</dd>
+<dt class="hdlist1">meta-type</dt>
+<dd>
+<p>refers to a type in the BMM itself, which is either a class (such as <code>BMM_CLASS</code>) or generically derived (meta-)type in the sense of being an instance generator, where the instances will be concrete type definitions in models represented using BMM.</p>
 </dd>
 </dl>
 </div>
@@ -714,6 +731,9 @@ Other tools may well perform as well or better, and in any case, all tools chang
 </div>
 <div class="paragraph">
 <p>Newer tools are able to include the computational features.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://www.openehr.org">openEHR project</a> makes extensive use of BMM for representing its models for use in tools. The full set of openEHR models in BMM format may be found in the <a href="https://github.com/openEHR/specifications-ITS-BMM">specfications-ITS-BMM repository on Github</a>.</p>
 </div>
 </div>
 </div>
@@ -1677,6 +1697,21 @@ a future version of BMM may define an option to import schemas using differing n
 <p>Extension used for BMM files.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_left_delimiter</strong>: <code>Character&#160;=&#160;'&lt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_right_delimiter</strong>: <code>Character&#160;=&#160;'&gt;'</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_constraint_delimiter</strong>: <code>Character&#160;=&#160;':'</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2069,7 +2104,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_4"><a class="anchor" href="#_overview_4"></a>5.1. Overview</h3>
 <div class="paragraph">
-<p>The central elements of the BMM model are meta-classes representing <em>classes</em> and <em>types</em>, collectively known as <em>entities</em>. These are shown in the following UML diagram.</p>
+<p>The key elements of the BMM model are meta-classes representing <em>classes</em> and <em>types</em>, collectively known as <em>entities</em>. These are shown in the following UML diagram.</p>
 </div>
 <div id="core_entities" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2085,6 +2120,21 @@ an_anc_type: <code>String[1]</code><br>
 <img src="bmm/diagrams/bmm_entities.svg" alt="bmm entities">
 </div>
 <div class="title">Figure 10. BMM entities</div>
+</div>
+<div class="paragraph">
+<p>The top class <code>BMM_ENTITY</code> defines a small number of properties that classify both classes and types in a model: <code><em>entity_metatype</em></code>, <code><em>is_abstract</em></code> and <code><em>is_primitive</em></code>. These are combined to produce a String classifier <code><em>entity_category</em></code>, which can be used to help visualise elements of a BMM model (for example, by use as a key to find icons for each entity type in a UI).</p>
+</div>
+<div class="paragraph">
+<p>The Boolean attribute <code><em>is_abstract</em></code> on an entity indicates an abstract class in a BMM model, or a type based on an abstract class - i.e. one that cannot be directly instantiated. The attribute <code><em>is_primitive</em></code> indicates that a class in a BMM model is considered to be part of a primitive type set (typically corresponding to primitive types in another type system); for types, it is derived from the setting of the <code><em>defining_class</em></code>. Primitive status has no effect on BMM model semantics, and is provided as a convenience for visualisation and type-system mapping.</p>
+</div>
+<div class="paragraph">
+<p>The attribute <code>BMM_ENTITY.<em>entity_metatype</em></code> is a built-in classifier used to mark entities, with a 'type' that abstracts away the concrete class/type distinction, and is illustrated below. Other than for UI or other rendering uses, it can generally be ignored.</p>
+</div>
+<div id="bmm_entity_taxonomy" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="bmm/diagrams/bmm_entity_taxonomy.svg" alt="bmm entity taxonomy">
+</div>
+<div class="title">Figure 11. BMM entity classification</div>
 </div>
 </div>
 <div class="sect2">
@@ -2106,19 +2156,7 @@ an_anc_type: <code>String[1]</code><br>
 <p>In the latter case, a type is understood as the <em>generator</em> of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a particular usage of a generic class definition. A generic class may generate numerous generic types.</p>
 </div>
 <div class="paragraph">
-<p>This central division is reflected in the two classes <code>BMM_CLASS</code> and <code>BMM_TYPE</code>. The common parent class <code>BMM_ENTITY</code> defines a small number of properties that classify both classes and types in a model: <code><em>entity_metatype</em></code>, <code><em>is_abstract</em></code> and <code><em>is_primitive</em></code>. These are combined to produce a String classifier <code><em>entity_category</em></code>, which can be used to help visualise elements of a BMM model.</p>
-</div>
-<div class="paragraph">
-<p>The Boolean attribute <code><em>is_abstract</em></code> on an entity indicates an abstract class in a BMM model, or a type based on an abstract class. The attribute <code><em>is_primitive</em></code> indicates that a class in a BMM model is considered to be part of a primitive type set (typically corresponding to primitive types in another type system); for types, it is derived from the setting of the <code><em>defining_class</em></code>. Primitive status has no effect on BMM model semantics, and is provided as a convenience for visualisation and type-system mapping.</p>
-</div>
-<div class="paragraph">
-<p>The taxonomy represented by <code>BMM_ENTITY.<em>entity_category</em></code> is illustrated below.</p>
-</div>
-<div id="bmm_entity_taxonomy" class="imageblock text-center" style="text-align: center">
-<div class="content">
-<img src="bmm/diagrams/bmm_entity_taxonomy.svg" alt="bmm entity taxonomy">
-</div>
-<div class="title">Figure 11. BMM entity taxonomy</div>
+<p>This central division is reflected in the two classes <code>BMM_CLASS</code> and <code>BMM_TYPE</code>, and their respective descendants, which are described in the following sections.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2307,7 +2345,16 @@ an_anc_type: <code>String[1]</code><br>
 </ul>
 </div>
 <div class="paragraph">
-<p>Every type entity can be mapped back to its <em>defining</em> class(es), which provide the formal definition for the type. The BMM class <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The <code>BMM_TYPE</code> class includes features common to all meta-types:</p>
+<p>Every type can be mapped back to its <em>defining</em> class(es), which provide the formal definition for the type. The BMM metaclass <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy, that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
+</div>
+<div id="bmm_metatype_taxonomy" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="bmm/diagrams/bmm_metatype_taxonomy.svg" alt="bmm metatype taxonomy">
+</div>
+<div class="title">Figure 12. BMM meta-type taxonomy</div>
+</div>
+<div class="paragraph">
+<p>The <code>BMM_TYPE</code> class includes features common to all meta-types:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2347,7 +2394,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-generic_1.svg" alt="bmm structure generic 1">
 </div>
-<div class="title">Figure 12. Generic type - closed simple</div>
+<div class="title">Figure 13. Generic type - closed simple</div>
 </div>
 <div class="paragraph">
 <p>The parameters of a generic type may be:</p>
@@ -2388,7 +2435,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-generic_3.svg" alt="bmm structure generic 3">
 </div>
-<div class="title">Figure 13. Generic type - open</div>
+<div class="title">Figure 14. Generic type - open</div>
 </div>
 <div class="paragraph">
 <p>Since the meta-type of <code>BMM_GENERIC_TYPE.<em>generic_parameters</em></code> in the BMM is <code>BMM_UNITARY_TYPE</code>, constructions such as <code>MyGenericType&lt;List&lt;OtherType&gt;&gt;</code> are prevented, due to the concrete parameter type <code>List&lt;OtherType&gt;</code> being an instance of <code>BMM_CONTAINER_TYPE</code> rather than of <code>BMM_UNITARY_TYPE</code>. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment should be expressed <em>where the formal generic parameter is used</em>, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.</p>
@@ -2397,7 +2444,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-generic_2.svg" alt="bmm structure generic 2">
 </div>
-<div class="title">Figure 14. Generic type - closed container</div>
+<div class="title">Figure 15. Generic type - closed container</div>
 </div>
 </div>
 <div class="sect2">
@@ -2415,7 +2462,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-container.svg" alt="bmm structure container">
 </div>
-<div class="title">Figure 15. Container Type</div>
+<div class="title">Figure 16. Container Type</div>
 </div>
 <div class="paragraph">
 <p>One other container type is also ubiquitous in object models and object-oriented programming: indexed containers, commonly known under the type name <code>Hash&lt;K,V&gt;</code>, <code>HashMap&lt;K,V&gt;</code>, <code>HashTable&lt;K,V&gt;</code>, <code>Dictionary&lt;K,V&gt;</code> and so on. This type always takes two parameters, a key type and a value type. The key type must be such that hash values can be generated, and may be any type, but practically speaking, is almost always a <code>String</code> or <code>Integer</code>, or a Date/Time type if such exists.</p>
@@ -2427,7 +2474,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-indexed_container.svg" alt="bmm structure indexed container">
 </div>
-<div class="title">Figure 16. Indexed Container Type</div>
+<div class="title">Figure 17. Indexed Container Type</div>
 </div>
 </div>
 <div class="sect2">
@@ -3147,7 +3194,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core-class.svg" alt="LANG bmm.core class">
 </div>
-<div class="title">Figure 17. <code>base.bmm.core</code> Package - Classes</div>
+<div class="title">Figure 18. <code>base.bmm.core</code> Package - Classes</div>
 </div>
 <div class="paragraph">
 <p>Class definitions are the <em>definitional</em> basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus <em>derived</em> entities.</p>
@@ -3177,7 +3224,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/images/awb_primitive_types.png" alt="awb primitive types" width="45%">
 </div>
-<div class="title">Figure 18. Primitive classes</div>
+<div class="title">Figure 19. Primitive classes</div>
 </div>
 <div class="paragraph">
 <p>Primitive classes are normal BMM classes, other than being marked primitive for convenience, and do not have different semantics.</p>
@@ -3192,7 +3239,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="50%">
 </div>
-<div class="title">Figure 19. BMM class - generic class</div>
+<div class="title">Figure 20. BMM class - generic class</div>
 </div>
 </div>
 <div class="sect2">
@@ -3204,7 +3251,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core-range_constrained.svg" alt="LANG bmm.core range constrained">
 </div>
-<div class="title">Figure 20. <code>base.bmm.core</code> Package - Constrained-range Meta-Types, including Enumeration</div>
+<div class="title">Figure 21. <code>base.bmm.core</code> Package - Constrained-range Meta-Types, including Enumeration</div>
 </div>
 <div class="sect3">
 <h4 id="_enumeration_class_meta_type"><a class="anchor" href="#_enumeration_class_meta_type"></a>7.4.1. Enumeration Class Meta-type</h4>
@@ -3227,7 +3274,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-enumeration.svg" alt="bmm structure enumeration">
 </div>
-<div class="title">Figure 21. Integer-based Enumeration Type</div>
+<div class="title">Figure 22. Integer-based Enumeration Type</div>
 </div>
 <div class="paragraph">
 <p>The following screenshot shows how this enumeration class appears within a BMM model.</p>
@@ -3236,7 +3283,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/images/awb_enumeration.png" alt="awb enumeration" width="65%">
 </div>
-<div class="title">Figure 22. Enumeration Example</div>
+<div class="title">Figure 23. Enumeration Example</div>
 </div>
 <div class="paragraph">
 <p>The types <code>String</code> and <code>Integer</code> are assumed to be defined via primitive classes of the same names.</p>
@@ -3263,7 +3310,7 @@ not currently supported: export status; 'static' (non-instance dependent) method
 <div class="content">
 <img src="bmm/diagrams/bmm_structure-value_set.svg" alt="bmm structure value set">
 </div>
-<div class="title">Figure 23. Value-set Constrained Type</div>
+<div class="title">Figure 24. Value-set Constrained Type</div>
 </div>
 </div>
 </div>
@@ -3777,7 +3824,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core-features.svg" alt="LANG bmm.core features">
 </div>
-<div class="title">Figure 24. <code>base.bmm.core</code> package - Features</div>
+<div class="title">Figure 25. <code>base.bmm.core</code> package - Features</div>
 </div>
 <div class="paragraph">
 <p>The abstract classes in this model that define the taxonomy of types are as follows:</p>
@@ -3947,7 +3994,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_properties.png" alt="awb class properties" width="50%">
 </div>
-<div class="title">Figure 25. BMM class - properties view</div>
+<div class="title">Figure 26. BMM class - properties view</div>
 </div>
 </div>
 </div>
@@ -4833,7 +4880,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 26. BMM class - ancestors view</div>
+<div class="title">Figure 27. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -4842,7 +4889,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 27. BMM class - descendants view</div>
+<div class="title">Figure 28. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect2">
@@ -4867,7 +4914,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 28. Generic inheritance, open parameter</div>
+<div class="title">Figure 29. Generic inheritance, open parameter</div>
 </div>
 <div class="paragraph">
 <p>A simple class may also inherit from a closed generic type, with the parameters of the latter fixed to specific type(s), as shown in the following example.</p>
@@ -4876,7 +4923,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 29. Generic inheritance, closed</div>
+<div class="title">Figure 30. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>The general case is that any number of formal generic parameters may be substituted or left open down the inheritance lineage, as shown by the variants in the following example.</p>
@@ -4885,7 +4932,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 30. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 31. Generic inheritance, mixed open and closed</div>
 </div>
 </div>
 <div class="sect2">
@@ -4897,7 +4944,7 @@ computed complex constants not yet supported.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 31. Multiple inheritance</div>
+<div class="title">Figure 32. Multiple inheritance</div>
 </div>
 </div>
 </div>

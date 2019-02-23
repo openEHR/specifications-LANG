@@ -1,9 +1,9 @@
-=== GENERIC_CHILD_OPEN_U Class
+=== GENERIC_CHILD_OPEN_U<U> Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*GENERIC_CHILD_OPEN_U*
+2+^h|*GENERIC_CHILD_OPEN_U<U>*
 
 h|*Description*
 2+a|

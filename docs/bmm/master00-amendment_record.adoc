@@ -12,9 +12,10 @@
 |[[latest_issue_date]]28 Jan 2019
 
 |
-|Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints).
+|Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints); +
+ Improve explanation and diagrams to do with types and classes.
 |T Beale
-|12 Feb 2019
+|22 Feb 2019
 
 |
 |Add feature elements `BMM_ROUTINE`, `BMM_VALUE_RETURNING` and descendants; +

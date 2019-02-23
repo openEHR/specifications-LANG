@@ -1,9 +1,9 @@
-=== GENERIC_PARENT Class
+=== GENERIC_PARENT<T,U> Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*GENERIC_PARENT*
+2+^h|*GENERIC_PARENT<T,U>*
 
 h|*Description*
 2+a|

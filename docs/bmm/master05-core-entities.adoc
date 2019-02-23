@@ -2,7 +2,7 @@
 
 == Overview
 
-The central elements of the BMM model are meta-classes representing _classes_ and _types_, collectively known as _entities_. These are shown in the following UML diagram.
+The key elements of the BMM model are meta-classes representing _classes_ and _types_, collectively known as _entities_. These are shown in the following UML diagram.
 
 [.text-center]
 .`base.bmm.core` Package - Entities
@@ -14,6 +14,16 @@ The general structure of a concrete model expressed in BMM consists of a set of 
 .BMM entities
 image::{diagrams_uri}/bmm_entities.svg[id=bmm_entities, align="center"]
 
+The top class `BMM_ENTITY` defines a small number of properties that classify both classes and types in a model: `_entity_metatype_`, `_is_abstract_` and `_is_primitive_`. These are combined to produce a String classifier `_entity_category_`, which can be used to help visualise elements of a BMM model (for example, by use as a key to find icons for each entity type in a UI).
+
+The Boolean attribute `_is_abstract_` on an entity indicates an abstract class in a BMM model, or a type based on an abstract class - i.e. one that cannot be directly instantiated. The attribute `_is_primitive_` indicates that a class in a BMM model is considered to be part of a primitive type set (typically corresponding to primitive types in another type system); for types, it is derived from the setting of the `_defining_class_`. Primitive status has no effect on BMM model semantics, and is provided as a convenience for visualisation and type-system mapping.
+
+The attribute `BMM_ENTITY._entity_metatype_` is a built-in classifier used to mark entities, with a 'type' that abstracts away the concrete class/type distinction, and is illustrated below. Other than for UI or other rendering uses, it can generally be ignored.
+
+[.text-center]
+.BMM entity classification
+image::{diagrams_uri}/bmm_entity_taxonomy.svg[id=bmm_entity_taxonomy, align="center"]
+
 == The Class / Type Distinction
 
 One of the foundational distinctions in the BMM is between _class_ and _type_, in common with the type systems of the modern forms of most object-oriented languages, but in contrast to the UML meta-model. Classes are _definitional_ entities, while 'type' has two meanings: 
@@ -23,15 +33,7 @@ One of the foundational distinctions in the BMM is between _class_ and _type_, i
 
 In the latter case, a type is understood as the _generator_ of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a particular usage of a generic class definition. A generic class may generate numerous generic types.
 
-This central division is reflected in the two classes `BMM_CLASS` and `BMM_TYPE`. The common parent class `BMM_ENTITY` defines a small number of properties that classify both classes and types in a model: `_entity_metatype_`, `_is_abstract_` and `_is_primitive_`. These are combined to produce a String classifier `_entity_category_`, which can be used to help visualise elements of a BMM model.
-
-The Boolean attribute `_is_abstract_` on an entity indicates an abstract class in a BMM model, or a type based on an abstract class. The attribute `_is_primitive_` indicates that a class in a BMM model is considered to be part of a primitive type set (typically corresponding to primitive types in another type system); for types, it is derived from the setting of the `_defining_class_`. Primitive status has no effect on BMM model semantics, and is provided as a convenience for visualisation and type-system mapping.
-
-The taxonomy represented by `BMM_ENTITY._entity_category_` is illustrated below.
-
-[.text-center]
-.BMM entity taxonomy
-image::{diagrams_uri}/bmm_entity_taxonomy.svg[id=bmm_entity_taxonomy, align="center"]
+This central division is reflected in the two classes `BMM_CLASS` and `BMM_TYPE`, and their respective descendants, which are described in the following sections.
 
 == Class Definitions
 

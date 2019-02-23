@@ -9,7 +9,13 @@ Types are understood as the _formal generators_ of object instances in the BMM, 
 * to define type(s) of _inheritance ancestors of class definitions_;
 * to determine _conformance_, which is a relation between types (not classes).
 
-Every type entity can be mapped back to its _defining_ class(es), which provide the formal definition for the type. The BMM class `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The `BMM_TYPE` class includes features common to all meta-types:
+Every type can be mapped back to its _defining_ class(es), which provide the formal definition for the type. The BMM metaclass `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy, that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
+
+[.text-center]
+.BMM meta-type taxonomy
+image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align="center"]
+
+The `BMM_TYPE` class includes features common to all meta-types:
 
 * _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_DEFINED_TYPE` meta-class), this will just be the defining class (`_defining_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);

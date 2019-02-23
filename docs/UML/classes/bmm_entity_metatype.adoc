@@ -29,6 +29,10 @@ h|
 a|
 
 h|
+|Entity_metatype_enumeration
+a|
+
+h|
 |Entity_metatype_container
 a|
 |===
