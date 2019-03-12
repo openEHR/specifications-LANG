@@ -1,12 +1,12 @@
-=== BMM_FORMAL_ELEMENT Class
+=== BMM_REFERENCEABLE Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_BMM_FORMAL_ELEMENT (abstract)_*
+2+^h|*_BMM_REFERENCEABLE (abstract)_*
 
 h|*Description*
-2+a|A formal element of an enclosing entity, that has at least a name, and a signature.
+2+a|A formal element of an enclosing entity, that has a name, a reference scope, and a signature. The name is its means of _reference_.
 
 h|*Inherit*
 2+|`BMM_MODEL_ELEMENT`

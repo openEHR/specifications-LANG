@@ -12,6 +12,10 @@
 |[[latest_issue_date]]28 Jan 2019
 
 |
+|Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`.  |T Beale 
+|10 Mar 2019
+
+|
 |Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints); +
  Improve explanation and diagrams to do with types and classes.
 |T Beale

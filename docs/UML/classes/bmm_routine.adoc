@@ -9,7 +9,7 @@ h|*Description*
 2+a|A formal element with computational definition, scoped to a class.
 
 h|*Inherit*
-2+|`BMM_FORMAL_ELEMENT`
+2+|`BMM_REFERENCEABLE`
 
 h|*Attributes*
 ^h|*Signature*

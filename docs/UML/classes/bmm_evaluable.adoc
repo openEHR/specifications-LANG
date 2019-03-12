@@ -6,9 +6,23 @@ h|*Class*
 2+^h|*_BMM_EVALUABLE (abstract)_*
 
 h|*Description*
-2+a|A formal feature that can be evaluated to return a value at execution time.
+2+a|A formal feature with a declared type that can be evaluated to return a value at execution time.
 
 h|*Inherit*
-2+|`BMM_FORMAL_ELEMENT`, `BMM_VALUE_RETURNING`
+2+|`BMM_REFERENCEABLE`, `BMM_VALUED`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*type*: `BMM_TYPE`
+a|Declared or inferred static type of the entity.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*type* (): `BMM_TYPE`
+a|Return statically declared type.
 |===

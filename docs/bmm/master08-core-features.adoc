@@ -10,10 +10,10 @@ image::{uml_diagrams_uri}/LANG-bmm.core-features.svg[id=core_features, align="ce
 
 The abstract classes in this model that define the taxonomy of types are as follows:
 
-* `BMM_FORMAL_ELEMENT`: a formally defined element with a scope and signature;
-* `BMM_ROUTINE`: an element whose definition is a compututation;
-* `BMM_VALUE_RETURNING`: any element that has a value at execution time;
-* `BMM_EVALUABLE`: any element that can be evaluated at execution time to produce a value;
+* `BMM_REFERENCEABLE`: a model element referencable by name within a scope and having a signature;
+* `BMM_ROUTINE`: a model element whose definition is a compututation;
+* `BMM_VALUED`: any entity that has a value at execution time;
+* `BMM_EVALUABLE`: any entity that can be evaluated at execution time to produce a value;
 * `BMM_MUTABLE`: a non-computed evaluable element whose value may be changed during execution;
 * `BMM_VARIABLE`: a mutable element whose scope is a routine.
 
@@ -25,7 +25,7 @@ Class features consist of the formal sub-parts of a class, namely:
 
 == Scope of Formal Elements
 
-All formally defined model elements (i.e. instances of the meta-type `BMM_FORMAL_ELEMENT`) have a _scope_, represented by the `_scope_` meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value 
+All formally defined model elements (i.e. instances of the meta-type `BMM_REFERENCEABLE`) have a _scope_, represented by the `_scope_` meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value 
 
 == Nullability, Optionality and Void-safety
 
@@ -105,7 +105,7 @@ image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="cen
 
 == Functions and Procedures
 
-Functions and procedures are kinds of _routine_, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class `BMM_FORMAL_ELEMENT`.
+Functions and procedures are kinds of _routine_, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class `BMM_REFERENCEABLE`.
 
 The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is understood as a kind of _variable_ scoped to the owning routine. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The inherited `_is_nullable_` meta-attribute indicates whether each parameter is mandatory or not.
 
@@ -117,8 +117,8 @@ At the finest level of detail of a model definition are what are typically thoug
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_formal_element.adoc[]
-include::{uml_export_dir}/classes/bmm_value_returning.adoc[]
+include::{uml_export_dir}/classes/bmm_referenceable.adoc[]
+include::{uml_export_dir}/classes/bmm_valued.adoc[]
 include::{uml_export_dir}/classes/bmm_evaluable.adoc[]
 include::{uml_export_dir}/classes/bmm_value.adoc[]
 include::{uml_export_dir}/classes/bmm_string_value.adoc[]

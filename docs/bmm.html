@@ -172,8 +172,8 @@
 <li><a href="#_variables_objects_and_values">8.9. Variables, Objects and Values</a></li>
 <li><a href="#_class_definitions_6">8.10. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_formal_element_class">8.10.1. BMM_FORMAL_ELEMENT Class</a></li>
-<li><a href="#_bmm_value_returning_class">8.10.2. BMM_VALUE_RETURNING Class</a></li>
+<li><a href="#_bmm_referenceable_class">8.10.1. BMM_REFERENCEABLE Class</a></li>
+<li><a href="#_bmm_valued_class">8.10.2. BMM_VALUED Class</a></li>
 <li><a href="#_bmm_evaluable_class">8.10.3. BMM_EVALUABLE Class</a></li>
 <li><a href="#_bmm_value_class">8.10.4. BMM_VALUE Class</a></li>
 <li><a href="#_bmm_string_value_class">8.10.5. BMM_STRING_VALUE Class</a></li>
@@ -224,7 +224,7 @@
 <div class="sectionbody">
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="https://specifications.openehr.org/images/openehr_logo_large.png" alt="openEHR logo">
+<img src="https://specifications.openehr.org/images/openEHR_logo_RGB.svg" alt="openEHR logo">
 </div>
 </div>
 </div>
@@ -315,6 +315,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>28 Jan 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Features: rename <code>BMM_FORMAL_ELEMENT</code> to <code>BMM_REFERENCEABLE</code>; move <code>BMM_VALUE_RETURNING.<em>type</em></code> to <code>BMM_EVALUABLE</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Mar 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -3493,14 +3499,14 @@ not currently supported: export status; 'static' (non-instance dependent) method
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>features</strong> (): <code>List&lt;BMM_FORMAL_ELEMENT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>features</strong> (): <code>List&lt;BMM_REFERENCEABLE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of all feature definitions introduced in this class.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_features</strong> (): <code>List&lt;BMM_FORMAL_ELEMENT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_features</strong> (): <code>List&lt;BMM_REFERENCEABLE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Consolidated list of all feature definitions from this class and all inheritance ancestors.</p>
 </div></div></td>
@@ -3838,16 +3844,16 @@ a_name: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p><code>BMM_FORMAL_ELEMENT</code>: a formally defined element with a scope and signature;</p>
+<p><code>BMM_REFERENCEABLE</code>: a model element referencable by name within a scope and having a signature;</p>
 </li>
 <li>
-<p><code>BMM_ROUTINE</code>: an element whose definition is a compututation;</p>
+<p><code>BMM_ROUTINE</code>: a model element whose definition is a compututation;</p>
 </li>
 <li>
-<p><code>BMM_VALUE_RETURNING</code>: any element that has a value at execution time;</p>
+<p><code>BMM_VALUED</code>: any entity that has a value at execution time;</p>
 </li>
 <li>
-<p><code>BMM_EVALUABLE</code>: any element that can be evaluated at execution time to produce a value;</p>
+<p><code>BMM_EVALUABLE</code>: any entity that can be evaluated at execution time to produce a value;</p>
 </li>
 <li>
 <p><code>BMM_MUTABLE</code>: a non-computed evaluable element whose value may be changed during execution;</p>
@@ -3877,7 +3883,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_scope_of_formal_elements"><a class="anchor" href="#_scope_of_formal_elements"></a>8.2. Scope of Formal Elements</h3>
 <div class="paragraph">
-<p>All formally defined model elements (i.e. instances of the meta-type <code>BMM_FORMAL_ELEMENT</code>) have a <em>scope</em>, represented by the <code><em>scope</em></code> meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value</p>
+<p>All formally defined model elements (i.e. instances of the meta-type <code>BMM_REFERENCEABLE</code>) have a <em>scope</em>, represented by the <code><em>scope</em></code> meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value</p>
 </div>
 </div>
 <div class="sect2">
@@ -4007,7 +4013,7 @@ computed complex constants not yet supported.
 <div class="sect2">
 <h3 id="_functions_and_procedures"><a class="anchor" href="#_functions_and_procedures"></a>8.8. Functions and Procedures</h3>
 <div class="paragraph">
-<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class <code>BMM_FORMAL_ELEMENT</code>.</p>
+<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class <code>BMM_REFERENCEABLE</code>.</p>
 </div>
 <div class="paragraph">
 <p>The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class <code>BMM_PARAMETER</code>, which is understood as a kind of <em>variable</em> scoped to the owning routine. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The inherited <code><em>is_nullable</em></code> meta-attribute indicates whether each parameter is mandatory or not.</p>
@@ -4025,7 +4031,7 @@ computed complex constants not yet supported.
 <div class="sect2">
 <h3 id="_class_definitions_6"><a class="anchor" href="#_class_definitions_6"></a>8.10. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_formal_element_class"><a class="anchor" href="#_bmm_formal_element_class"></a>8.10.1. BMM_FORMAL_ELEMENT Class</h4>
+<h4 id="_bmm_referenceable_class"><a class="anchor" href="#_bmm_referenceable_class"></a>8.10.1. BMM_REFERENCEABLE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4035,12 +4041,12 @@ computed complex constants not yet supported.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_FORMAL_ELEMENT (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_REFERENCEABLE (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>A formal element of an enclosing entity, that has at least a name, and a signature.</p>
+<p>A formal element of an enclosing entity, that has a name, a reference scope, and a signature. The name is its means of <em>reference</em>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4075,7 +4081,7 @@ computed complex constants not yet supported.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_value_returning_class"><a class="anchor" href="#_bmm_value_returning_class"></a>8.10.2. BMM_VALUE_RETURNING Class</h4>
+<h4 id="_bmm_valued_class"><a class="anchor" href="#_bmm_valued_class"></a>8.10.2. BMM_VALUED Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4085,24 +4091,24 @@ computed complex constants not yet supported.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_VALUE_RETURNING (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_VALUED (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Any entity that represents or returns an instance value of a type.</p>
+<p>Any entity that represents or returns an instance value of <code><em>type()</em></code>; the parent meta-type of any meta-type whose instance may be used as an expression atom (value) or passed as a parameter.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_TYPE</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Declared or inferred static type of the entity.</p>
+<p>Static type, either inferred or declared.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4124,12 +4130,36 @@ computed complex constants not yet supported.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>A formal feature that can be evaluated to return a value at execution time.</p>
+<p>A formal feature with a declared type that can be evaluated to return a value at execution time.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_FORMAL_ELEMENT</code>, <code>BMM_VALUE_RETURNING</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_REFERENCEABLE</code>, <code>BMM_VALUED</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Declared or inferred static type of the entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return statically declared type.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4155,7 +4185,19 @@ computed complex constants not yet supported.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUE_RETURNING</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUED</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Static type inferred from literal value.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4569,7 +4611,7 @@ computed complex constants not yet supported.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_FORMAL_ELEMENT</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_REFERENCEABLE</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -4634,7 +4676,7 @@ computed complex constants not yet supported.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE</code>, <code>BMM_EVALUABLE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE</code>, <code>BMM_MUTABLE</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>

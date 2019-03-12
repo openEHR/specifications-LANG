@@ -97,11 +97,11 @@ h|(abstract)
 a|Generate a type object that represents the type for which this class is the definer.
 
 h|
-|*features* (): `List<BMM_FORMAL_ELEMENT>`
+|*features* (): `List<BMM_REFERENCEABLE>`
 a|List of all feature definitions introduced in this class.
 
 h|
-|*flat_features* (): `List<BMM_FORMAL_ELEMENT>`
+|*flat_features* (): `List<BMM_REFERENCEABLE>`
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|

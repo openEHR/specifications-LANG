@@ -9,6 +9,13 @@ h|*Description*
 2+a|Instance value. In an abstract syntax, represented by a literal value.
 
 h|*Inherit*
-2+|`BMM_VALUE_RETURNING`
+2+|`BMM_VALUED`
 
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*type* (): `BMM_TYPE`
+a|Static type inferred from literal value.
 |===
