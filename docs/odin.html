@@ -182,7 +182,7 @@
 </table>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="openehr_block_diagram.svg" alt="openEHR components" width="60%">
+<object type="image/svg+xml" data="openehr_block_diagram.svg" width="60%"><span class="alt">openEHR components</span></object>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -587,7 +587,7 @@
 <p><code>\uHHHH</code> - 4 hex digits which will be the same (possibly 0-filled on the left) as the unicode code-point number expressed in hexadecimal; this applies to unicode codepoints in the range <code>U+0000</code> - <code>U+FFFF</code> (the 'base multi-lingual plane', BMP);</p>
 </li>
 <li>
-<p><code>\uHHHHHHHH</code> - 8 hex digits to encode unicode code-points in the range U+10000 through <code>U+10FFFF</code> (non-BMP planes); the algorithm is described in <a href="http://www.ietf.org/html/rfc2781">IETF RFC 2781</a>.</p>
+<p><code>\uHHHHHHHH</code> - 8 hex digits to encode unicode code-points in the range U+10000 through <code>U+10FFFF</code> (non-BMP planes); the algorithm is described in <a href="https://www.ietf.org/html/rfc2781">IETF RFC 2781</a>.</p>
 </li>
 </ul>
 </div>
@@ -598,7 +598,7 @@
 <p>Thus, while the only officially designated encoding for ODIN and its constituent syntaxes is UTF-8, real software systems may be more tolerant. This document therefore specifies that any tool designed to process ODIN files need only support UTF-8; supporting other encodings is an optional extra. This could change in the future, if required by the ODIN user community.</p>
 </div>
 <div class="paragraph">
-<p>URIs, which have their own data type in ODIN, are handled in a specific way: all characters outside the 'unreserved set' defined by <a href="http://www.ietf.org/rfc/rfc3986">IETF RFC 3986</a> are 'percent-encoded'. The unreserved set is:</p>
+<p>URIs, which have their own data type in ODIN, are handled in a specific way: all characters outside the 'unreserved set' defined by <a href="https://www.ietf.org/rfc/rfc3986">IETF RFC 3986</a> are 'percent-encoded'. The unreserved set is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1531,7 +1531,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 <div class="sect3">
 <h4 id="_uris"><a class="anchor" href="#_uris"></a>7.3.1. URIs</h4>
 <div class="paragraph">
-<p>URI can be expressed as ODIN data in the usual way found on the web, and follow the standard syntax from <a href="http://www.ietf.org/rfc/rfc3986">IETF RFC3986</a>. Examples of URIs in ODIN:</p>
+<p>URI can be expressed as ODIN data in the usual way found on the web, and follow the standard syntax from <a href="https://www.ietf.org/rfc/rfc3986">IETF RFC3986</a>. Examples of URIs in ODIN:</p>
 </div>
 <div class="listingblock">
 <div class="content">
