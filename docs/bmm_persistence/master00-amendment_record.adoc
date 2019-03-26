@@ -14,7 +14,7 @@
 |
 |Add value-set constraint.
 |T Beale
-|12 Feb 2019
+|26 Mar 2019
 
 |
 |Separate from main BMM specification; +

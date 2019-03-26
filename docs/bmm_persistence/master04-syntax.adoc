@@ -401,8 +401,33 @@ With a value-set constraint added, it now looks as follows:
     >
 --------
 
-The use of the `value_constraint` attribute forces the use of the `type_ref` structural form of the type definition, rather than the simple `String` form above.
+The use of the `value_constraint` attribute forces the use of the `type_ref` structural form of the type definition within a `P_BMM_SINGLE_PROPERTY` instance, rather than the simple `String` form above.
 
+Within a container type, the structure is slightly different, owing to another level of instance nesting. The following exmaple shows a container class declaration in original form and then with a value constraint.
+
+[source, odin]
+--------
+	-- original form
+	["language"] = (P_BMM_CONTAINER_PROPERTY) <
+		name = <"language">
+		type_def = <
+			container_type = <"List">
+			type = <"Coding">
+		>
+	>
+
+	-- with value constraint
+	["language"] = (P_BMM_CONTAINER_PROPERTY) <
+		name = <"language">
+		type_def = <
+			container_type = <"List">
+			type_def = (P_BMM_SIMPLE_TYPE) <
+				type = <"Coding">
+				value_constraint = <"hl7::Languages">
+			>
+		>
+	>
+--------
 == Inheritance
 
 In the case of inheritance from simple classes, the `ancestors` list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured `ancestor_defs` section is used instead of the `ancestors` String list, in the same way as for the `P_BMM_GENERIC_PROPERTY` examples above.

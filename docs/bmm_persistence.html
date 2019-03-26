@@ -200,7 +200,7 @@
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add value-set constraint.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12 Feb 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26 Mar 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -2171,7 +2171,34 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 </div>
 <div class="paragraph">
-<p>The use of the <code>value_constraint</code> attribute forces the use of the <code>type_ref</code> structural form of the type definition, rather than the simple <code>String</code> form above.</p>
+<p>The use of the <code>value_constraint</code> attribute forces the use of the <code>type_ref</code> structural form of the type definition within a <code>P_BMM_SINGLE_PROPERTY</code> instance, rather than the simple <code>String</code> form above.</p>
+</div>
+<div class="paragraph">
+<p>Within a container type, the structure is slightly different, owing to another level of instance nesting. The following exmaple shows a container class declaration in original form and then with a value constraint.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="odin">	<span class="tok-c">-- original form</span>
+	<span class="tok-p">[</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Coding&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
+
+	<span class="tok-c">-- with value constraint</span>
+	<span class="tok-p">[</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SIMPLE_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Coding&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">value_constraint</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;hl7::Languages&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span></code></pre>
+</div>
 </div>
 </div>
 </div>
