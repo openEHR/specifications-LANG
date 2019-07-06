@@ -1,4 +1,4 @@
-= BMM Entities
+= Entities
 
 == Overview
 

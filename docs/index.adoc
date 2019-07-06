@@ -10,8 +10,8 @@
 // HTML-only attributes
 //
 :linkcss:
-:keywords: language models
-:description: openEHR Language Specifications
+:keywords: language models, lang component
+:description: openEHR Languages Component
 :sectanchors:
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
@@ -24,7 +24,7 @@ image::{openehr_logo}["openEHR logo",align="center"]
 
 image::openehr_block_diagram.svg["openEHR components",align="center",width="60%"]
 
-= Language Specifications (LANG) - {lang_release}
+= Languages (LANG) Component - {lang_release}
 
 // Use the following version for 'latest'
 ifeval::["{lang_release}" == "latest"]

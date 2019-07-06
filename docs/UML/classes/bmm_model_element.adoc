@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_MODEL_ELEMENT (abstract)_*
 
 h|*Description*
-2+a|Ancestor class of most BMM model elements.
+2+a|Ancestor class of BMM model elements. A 'model element' is a an element of a model specified by an author in a model definition. Thus, a class definition and its property and routine definitions are model elements, but Types are not, since they are derived from model elements.
 
 h|*Inherit*
 2+|`BMM_DEFINITIONS`
