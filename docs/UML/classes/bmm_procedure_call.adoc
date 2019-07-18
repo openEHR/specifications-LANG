@@ -1,0 +1,14 @@
+=== BMM_PROCEDURE_CALL Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_PROCEDURE_CALL*
+
+h|*Description*
+2+a|A literal procedure call.
+
+h|*Inherit*
+2+|`BMM_ROUTINE_CALL`
+
+|===

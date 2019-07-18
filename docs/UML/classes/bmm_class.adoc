@@ -18,7 +18,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*ancestors*: `Hash<String,BMM_DEFINED_TYPE>`
+|*ancestors*: `Hash<String,BMM_ENTITY_TYPE>`
 a|List of immediate inheritance parents.
 
 h|*1..1*
@@ -65,7 +65,7 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(abstract)
-|*type* (): `BMM_DEFINED_TYPE`
+|*type* (): `BMM_ENTITY_TYPE`
 a|Generate a type object that represents the type for which this class is the definer.
 
 h|
@@ -113,6 +113,6 @@ h|
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|
-|*flat_properties* (): `List<Hash<String, BMM_PROPERTY<BMM_TYPE>>>`
+|*flat_properties* ()
 a|List of all properties due to current and ancestor classes, keyed by property name.
 |===

@@ -9,10 +9,16 @@
 |[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]28 Jan 2019
+|[[latest_issue_date]]18 Jul 2019
 
 |
-|Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`.  |T Beale 
+|Add meta-model for functional entities. Re-structure packages.
+|T Beale 
+|18 Jul 2019
+
+|
+|Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`.
+|T Beale 
 |10 Mar 2019
 
 |
@@ -22,7 +28,7 @@
 |22 Feb 2019
 
 |
-|Add feature elements `BMM_ROUTINE`, `BMM_VALUE_RETURNING` and descendants; +
+|Add feature elements `BMM_ROUTINE`, `BMM_VALUED` and descendants; +
  Change `BMM_PROPERTY._is_mandatory_` to `BMM_MUTABLE._is_nullable_` (reversed Boolean sense); +
  Made `BMM_PACKAGE_CONTAINER` abstract; +
  Moved `_name_` to `BMM_MODEL_ELEMENT`, replacing `_name_` in `BMM_CLASS`, `BMM_PACKAGE`, `BMM_PROPERTY`, and `_model_name_` in `BMM_MODEL`; +

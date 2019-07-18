@@ -77,12 +77,14 @@ This specification has benefited from formal and informal input from the openEHR
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-model_access.adoc[leveloffset=+1]
-include::master04-core-structure.adoc[leveloffset=+1]
+include::master04-core-model.adoc[leveloffset=+1]
 include::master05-core-entities.adoc[leveloffset=+1]
 include::master06-core-types.adoc[leveloffset=+1]
 include::master07-core-classes.adoc[leveloffset=+1]
 include::master08-core-features.adoc[leveloffset=+1]
-include::master09-core-model_semantics.adoc[leveloffset=+1]
+include::master09-core-values.adoc[leveloffset=+1]
+include::master10-core-functional.adoc[leveloffset=+1]
+include::master11-model_semantics.adoc[leveloffset=+1]
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------

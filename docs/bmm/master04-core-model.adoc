@@ -1,12 +1,12 @@
-= Structure
+= Model Structure
 
 == Overview
 
-The `core` package defines the main BMM model. The following figure shows it in overview.
+The `core` package defines the main BMM model, within which the `model` sub-package defines the top-level structure of a model which is an instance of the BMM. The UML for this package is shown below.
 
 [.text-center]
-.`base.bmm.core` Package - Overview
-image::{uml_diagrams_uri}/LANG-bmm.core-overview.svg[id=core_package_overview, align="center"]
+.`base.bmm.core.model` Package - Model structure
+image::{uml_diagrams_uri}/LANG-bmm.core.model.svg[id=core_model, align="center"]
 
 A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'. 
 
@@ -44,3 +44,5 @@ include::{uml_export_dir}/classes/bmm_model_element.adoc[]
 include::{uml_export_dir}/classes/bmm_package_container.adoc[]
 include::{uml_export_dir}/classes/bmm_package.adoc[]
 include::{uml_export_dir}/classes/bmm_model.adoc[]
+include::{uml_export_dir}/classes/bmm_valued.adoc[]
+

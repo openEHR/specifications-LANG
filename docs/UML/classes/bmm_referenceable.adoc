@@ -24,5 +24,5 @@ h|*Functions*
 
 h|
 |*signature* (): `String`
-a|Formal signature of this element, in the form `'name <arg1_name: T_arg1, ...>'`.
+a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...]'`.
 |===

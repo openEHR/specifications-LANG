@@ -5,8 +5,8 @@
 Within the definitions of each class in a BMM model are found the definitions of its _features_, consisting of _routines_, _properties_ and _constants_. The overall meta-model of features, as well as the elements that occur within them, namely parameters and local variables is shown below, and described in this section.
 
 [.text-center]
-.`base.bmm.core` package - Features
-image::{uml_diagrams_uri}/LANG-bmm.core-features.svg[id=core_features, align="center"]
+.`base.bmm.core.feature` package - Features
+image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
 
 The abstract classes in this model that define the taxonomy of types are as follows:
 
@@ -47,26 +47,26 @@ All class features have formal signatures. The simplest type of signature is tha
 
 This indicates that both meta-types have a return type, being the type of the value they are attached to at execution time.
 
-The two types of routines, i.e. functions and procedures include 0 or more formal parameters in their signatures, with functions also having a return type. The general form of routine signatures is thus as follows:
+The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The general form of routine signatures is thus as follows:
 
 ----
-    <T_arg1, T_arg2, ....>: T_result        -- Function
-    <T_arg1, T_arg2, ....>                  -- Procedure
+    [T_arg1, T_arg2, ...]: T_result        -- Function
+    [T_arg1, T_arg2, ...]                  -- Procedure
 ----
 
 Typical examples of function signatures:
 
 ----
-    : Date                          -- signature of a 0-order function like current_date()
-    <Real, Real>: Real              -- signature of a 2nd-order function like '*' for the domain R
-    <Integer, Integer>: Integer     -- signature of a 2nd-order function like 'add' for the domain I
+    []: Date                        -- signature of a 0-order function like current_date()
+    [Real, Real]: Real              -- signature of a 2nd-order function like '*' for the domain R
+    [Integer, Integer]: Integer     -- signature of a 2nd-order function like 'add' for the domain I
 ----
 
 Typical procedure signatures include the following:
 
 ----
-    <Real>                          -- a 1st-order procedure for the domain R
-    <String, Integer>               -- signature of a procedure taking a String and an Integer argument
+    [Real]                          -- a 1st-order procedure for the domain R
+    [String, Integer]               -- signature of a procedure taking a String and an Integer argument
 ----
 
 == Constants
@@ -118,11 +118,7 @@ At the finest level of detail of a model definition are what are typically thoug
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_referenceable.adoc[]
-include::{uml_export_dir}/classes/bmm_valued.adoc[]
 include::{uml_export_dir}/classes/bmm_evaluable.adoc[]
-include::{uml_export_dir}/classes/bmm_value.adoc[]
-include::{uml_export_dir}/classes/bmm_string_value.adoc[]
-include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
 include::{uml_export_dir}/classes/bmm_mutable.adoc[]
 
 include::{uml_export_dir}/classes/bmm_property.adoc[]

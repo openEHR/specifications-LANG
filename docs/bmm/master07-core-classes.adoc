@@ -39,8 +39,8 @@ The value range of any defined type is by default open, meaning that its instanc
 A useful derived form of any concrete type definition (i.e. instance of `BMM_DEFINED_TYPE` in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes are shown below.
 
 [.text-center]
-.`base.bmm.core` Package - Constrained-range Meta-Types, including Enumeration
-image::{uml_diagrams_uri}/LANG-bmm.core-range_constrained.svg[id=core_range_constrained, align="center"]
+.`bmm.core.range_constrained` Package - Constrained-range Meta-Types, including Enumeration
+image::{uml_diagrams_uri}/LANG-bmm.core.range_constrained.svg[id=core_range_constrained, align="center"]
 
 === Enumeration Class Meta-type
 

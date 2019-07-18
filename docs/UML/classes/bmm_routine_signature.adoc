@@ -1,0 +1,25 @@
+=== BMM_ROUTINE_SIGNATURE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_BMM_ROUTINE_SIGNATURE (abstract)_*
+
+h|*Description*
+2+a|A defined type that expresses the signature of a routine.
+
+h|*Inherit*
+2+|`BMM_DEFINED_TYPE`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*open_args*: `BMM_TUPLE_TYPE`
+a|Type of open arguments to the call, as a `Tuple` of arbitrary types.
+
+h|*0..1*
+|*definition*: `BMM_ROUTINE`
+a|Reference to the definition of a routine that this signature represents.
+|===

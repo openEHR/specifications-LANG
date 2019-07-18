@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_ROUTINE (abstract)_*
 
 h|*Description*
-2+a|A formal element with computational definition, scoped to a class.
+2+a|A formal element defining a routine, scoped to a class.
 
 h|*Inherit*
 2+|`BMM_REFERENCEABLE`

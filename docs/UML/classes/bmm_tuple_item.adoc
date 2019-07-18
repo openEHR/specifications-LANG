@@ -1,0 +1,22 @@
+=== BMM_TUPLE_ITEM Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_TUPLE_ITEM*
+
+h|*Description*
+2+a|A single tuple item, with an optional name.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*item*: `BMM_VALUED`
+a|Value of tuple item.
+
+h|*0..1*
+|*name*: `String`
+a|Optional name of tuple item.
+|===

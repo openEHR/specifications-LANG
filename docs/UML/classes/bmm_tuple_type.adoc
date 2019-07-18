@@ -1,0 +1,14 @@
+=== BMM_TUPLE_TYPE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_TUPLE_TYPE*
+
+h|*Description*
+2+a|Special type representing the type of a tuple, i.e. an array of any number of other unitary types. Note that both open and closed generic parameters are allowed, as with any generic type.
+
+h|*Inherit*
+2+|`BMM_GENERIC_TYPE`
+
+|===

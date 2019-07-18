@@ -5,8 +5,8 @@
 The key elements of the BMM model are meta-classes representing _classes_ and _types_, collectively known as _entities_. These are shown in the following UML diagram.
 
 [.text-center]
-.`base.bmm.core` Package - Entities
-image::{uml_diagrams_uri}/LANG-bmm.core-entities.svg[id=core_entities, align="center"]
+.`base.bmm.core.entity` Package - Entities
+image::{uml_diagrams_uri}/LANG-bmm.core.entity.svg[id=core_entity, align="center"]
 
 The general structure of a concrete model expressed in BMM consists of a set of classes, whose features (properties, routines) are each typed by an instance of `BMM_TYPE`. The following diagram illustrates the general typing of properties. Structures specific to generic and container types are shown in relevant sections below. 
 
