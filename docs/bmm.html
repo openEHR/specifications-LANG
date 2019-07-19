@@ -2412,7 +2412,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>Types are understood as the <em>formal generators</em> of object instances in the BMM, in both a static sense and dynamically, i.e. at execution time, when polymorphic attachment is possible. Types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:</p>
+<p>Types are understood in BMM as the <em>formal generators</em> of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2426,12 +2426,15 @@ an_anc_type: <code>String[1]</code><br>
 <p>to define type(s) of <em>inheritance ancestors of class definitions</em>;</p>
 </li>
 <li>
+<p>to formalise concepts relating to functional programming, including <em>tuples</em> and routine <em>signatures</em>;</p>
+</li>
+<li>
 <p>to determine <em>conformance</em>, which is a relation between types (not classes).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Every type can be mapped back to its <em>defining</em> class(es), which provide the formal definition for the type. The BMM metaclass <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy, that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
+<p>Most types are based on one or more <em>defining</em> class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the <code>T</code> in <code>List&lt;T&gt;</code>), and the special types for tuples and routine signatures.  The BMM meta-type <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
 </div>
 <div id="bmm_metatype_taxonomy" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2445,7 +2448,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p><em>effective_base_class</em>: a reference to the effective generating class; for defined types (<code>BMM_DEFINED_TYPE</code> meta-type), this will just be the defining class (<code><em>defining_class</em></code>); for open generic type parameters, the constraining class (<code>Any</code> if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;</p>
+<p><em>effective_base_class</em>: a reference to the effective generating class; for defined types (<code>BMM_ENTITY_TYPE</code> meta-type), this will just be the defining class (<code><em>base_class</em></code>); for open generic type parameters, the constraining class (<code>Any</code> if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained items (not the container);</p>
 </li>
 <li>
 <p><em>type_name</em>: the effective type name of an entity; for simple classes, this will just be the class name (<code>BMM_CLASS.<em>name</em></code>); for generic and container classes it will be generic name such as <code>List&lt;T&gt;</code>, <code>Interval&lt;T&gt;</code> etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. <code>T</code>) or a generic type name (e.g. <code>Interval&lt;Time&gt;</code>);</p>
@@ -2897,7 +2900,7 @@ an_anc_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_base_class</strong> (): <code>BMM_CLASS</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The effective conformance type of this parameter, or the 'Any' class if none.</p>
+<p>The effective conformance type of this parameter, or the <code>Any</code> class if none.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3148,7 +3151,7 @@ an_anc_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_UNITARY_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DEFINED_TYPE</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3224,7 +3227,7 @@ an_anc_type: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_base_class</strong> (): <code>BMM_CLASS</code><br>
 <strong><em>Post_validity</em></strong>: <code>Result = base_type.base_class</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Result is <code><em>base_class</em></code> of <code><em>base_type</em></code>.</p>
+<p>Result is <code><em>effective_base_class()</em></code> of <code><em>base_type</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>

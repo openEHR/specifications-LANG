@@ -2,14 +2,15 @@
 
 == Overview
 
-Types are understood as the _formal generators_ of object instances in the BMM, in both a static sense and dynamically, i.e. at execution time, when polymorphic attachment is possible. Types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:
+Types are understood in BMM as the _formal generators_ of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:
 
 * to define the _type of a property_;
 * to define _formal type parameters_ in a generic class;
 * to define type(s) of _inheritance ancestors of class definitions_;
+* to formalise concepts relating to functional programming, including _tuples_ and routine _signatures_;
 * to determine _conformance_, which is a relation between types (not classes).
 
-Every type can be mapped back to its _defining_ class(es), which provide the formal definition for the type. The BMM metaclass `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy, that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
+Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the `T` in `List<T>`), and the special types for tuples and routine signatures.  The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
 
 [.text-center]
 .BMM meta-type taxonomy
@@ -17,7 +18,7 @@ image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align=
 
 The `BMM_TYPE` class includes features common to all meta-types:
 
-* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_DEFINED_TYPE` meta-type), this will just be the defining class (`_defining_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;
+* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_ENTITY_TYPE` meta-type), this will just be the defining class (`_base_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained items (not the container);
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);
 * _type_signature_: a form of the type name that can be used as a fully-defined type signature, which for generic classes includes generic constrainer types, giving a signature such as `Interval<T:Ordered>`.
 

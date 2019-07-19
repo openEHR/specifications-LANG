@@ -56,7 +56,7 @@ a|Meta-type of a container type is `Entity_metatype_generic_parameter`.
 
 h|(effected)
 |*effective_base_class* (): `BMM_CLASS`
-a|The effective conformance type of this parameter, or the 'Any' class if none.
+a|The effective conformance type of this parameter, or the `Any` class if none.
 
 h|(effected)
 |*has_subtypes* (): `Boolean`
