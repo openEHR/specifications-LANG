@@ -112,6 +112,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_schema_state_enumeration[BMM_SCHEMA_STATE^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_signature_class[BMM_SIGNATURE^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_simple_class_class[BMM_SIMPLE_CLASS^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_simple_type_class[BMM_SIMPLE_TYPE^]
@@ -135,6 +137,8 @@
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_valued_class[BMM_VALUED^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_value_set_spec_class[BMM_VALUE_SET_SPEC^]
+[.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_value_signature_class[BMM_VALUE_SIGNATURE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_variable_class[BMM_VARIABLE^]
 

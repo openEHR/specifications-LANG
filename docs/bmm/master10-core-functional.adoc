@@ -2,7 +2,7 @@
 
 == Overview
 
-BMM provides support for representing functional entities, often known as _lambdas_. The relevant package is `bmm.core.functional`, shown below.
+BMM provides support for representing functional entities, often known as {wikipedia_lambda_calculus}[lambdas^]. The relevant package is `bmm.core.functional`, shown below.
 
 [.text-center]
 .`base.bmm.core.functional` package - Functional Elements
@@ -28,11 +28,11 @@ The first is dealt with in the `feature` package of this specification. The seco
 
 The third is a kind of _value_ in the sense of the `BMM_VALUE` meta-type of this specification, i.e. a literal object, sometimes needed within model specifications.
 
-The second and third caegories are addressed in the `functional` package, and are described below.
+The second and third categories are addressed in the `functional` package, and are described below.
 
 == Routine Types and Signatures
 
-The feature of a model or language that makes it functional is to allow the type of a _delayed call_ to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type `BMM_ROUTINE_SIGNATURE`, and its descendants `BMM_PROCEDURE_SIGNATURE` and `BMM_FUNCTION_SIGNATURE`. Both of the latter inherit a property `_open_args_` whose meta-type is `BMM_TUPLE_TYPE`. The latter is a specialised generic type that enables the _type_ of a tuple (an array of objects, each of which may be of any type) to be stated. The `BMM_FUNCTION_SIGNATURE` meta-type adds the attribute `_result_`, representing the type of the result of the call.
+The feature of a model or language that makes it functional is to allow the type of a _delayed call_ to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type `BMM_ROUTINE_SIGNATURE`, and its descendants `BMM_PROCEDURE_SIGNATURE` and `BMM_FUNCTION_SIGNATURE`. Both of the latter inherit a property `_open_args_` whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>). The `BMM_FUNCTION_SIGNATURE` meta-type adds the attribute `_result_`, representing the type of the result of the call.
 
 As an example the function `_calculateAge_ (Date _date_of_birth, today_): Duration` has the signature `[Date, Date], Duration`, where the `[Date, Date]` is a tuple type.
 
@@ -40,14 +40,15 @@ As an example the function `_calculateAge_ (Date _date_of_birth, today_): Durati
 
 At the third level of representation are literal calls, for example, `_calculateAge_ ('1982-03-22', '2019-06-01')`, which calculates a person's age from his data of birth and a given date. In normal programming languages, any of the parameters may of course be any referenceable value-returning entity, i.e. any in-scope variable, other function call etc, exemplified by a call such as `_calculateAge_ ('1982-03-22', _today_())`, where `_today_()` is a function returning the date of today.
 
-The meta-type `BMM_ROUTINE_CALL` and its descendants `BMM_PROCEDURE_CALL` and `BMM_FUNCTION_CALL` allow such calls to be represented. The model of  `BMM_ROUTINE_CALL` allows not only simple calls with all arguments filled to be specified, but also calls with open arguments, for example, `format_structure (struct=?, style=3)` (the syntax of this will vary according to programming language). This facility allows the latter call to be supplied as an argument to another routine, where the argument type is `[Integer]` (assuming `struct` is of type `Integer`). This capability is known as 'function currying' and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution.
+The meta-type `BMM_ROUTINE_CALL` and its descendants `BMM_PROCEDURE_CALL` and `BMM_FUNCTION_CALL` allow such calls to be represented. The model of  `BMM_ROUTINE_CALL` allows not only simple calls with all arguments filled to be specified, but also calls with open arguments, for example, `format_structure (struct=?, style=3)` (the syntax of this will vary according to programming language). This facility allows the latter call to be supplied as an argument to another routine, where the argument type is `[Integer]` (assuming `struct` is of type `Integer`). This capability is known as {wikipedia_currying}[function currying^] and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution.
 
 == Class Definitions
 
+include::{uml_export_dir}/classes/bmm_signature.adoc[]
+include::{uml_export_dir}/classes/bmm_value_signature.adoc[]
 include::{uml_export_dir}/classes/bmm_routine_signature.adoc[]
 include::{uml_export_dir}/classes/bmm_function_signature.adoc[]
 include::{uml_export_dir}/classes/bmm_procedure_signature.adoc[]
-include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_routine_call.adoc[]
 include::{uml_export_dir}/classes/bmm_function_call.adoc[]

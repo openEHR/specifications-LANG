@@ -17,13 +17,17 @@ image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align=
 
 The `BMM_TYPE` class includes features common to all meta-types:
 
-* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_DEFINED_TYPE` meta-class), this will just be the defining class (`_defining_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;
+* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_DEFINED_TYPE` meta-type), this will just be the defining class (`_defining_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained values;
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);
 * _type_signature_: a form of the type name that can be used as a fully-defined type signature, which for generic classes includes generic constrainer types, giving a signature such as `Interval<T:Ordered>`.
 
 Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` corresponds to meta-types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This division is made to enable BMM to directly support collections in the type system.
 
-Unitary meta-types are further distinguished as either formal generic parameters (`BMM_PARAMETER TYPE`) and _defined_ types, i.e. types with class definitions, via the abstract meta-type `BMM_DEFINED_TYPE`. The subtypes of the BMM defined meta-type are `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class deifintions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+Unitary meta-types are further distinguished as formal generic parameters (`BMM_PARAMETER TYPE`), _tuple types_, and _defined_ types, i.e. types with class definitions. The first of these is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as `List<T>` etc) within generic type declarations. Tuple types are special constructs stated purely in terms of other types.
+
+Defined types have as their meta-type `BMM_DEFINED_TYPE`, whose subtypes are `BMM_ENTITY_TYPE`, a meta-type for entities (i.e. full objects) and `BMM_SIGNATURE`, a meta-type representing signatures of routines and valued model elements (properties, variables etc). The former divides into `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+
+These various meta-types are described in more detail below.
 
 == Simple Type
 
@@ -63,6 +67,10 @@ Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BM
 [.text-center]
 .Generic type - closed container
 image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
+
+== Tuple Type
+
+The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments to a routine, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or `struct`, in the C/C++).
 
 == Container Types
 
@@ -168,6 +176,7 @@ include::{uml_export_dir}/classes/bmm_defined_type.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_type.adoc[]
 include::{uml_export_dir}/classes/bmm_simple_type.adoc[]
 include::{uml_export_dir}/classes/bmm_generic_type.adoc[]
+include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]

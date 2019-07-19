@@ -9,10 +9,10 @@
 |[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]18 Jul 2019
+|[[latest_issue_date]]19 Jul 2019
 
 |
-|Add meta-model for functional entities. Re-structure packages.
+|Add meta-model for functional entities. Re-structure packages. Modify `BMM_REFERENCEABLE._signature_` to new meta-type, `BMM_SIGNATURE`.
 |T Beale 
 |18 Jul 2019
 

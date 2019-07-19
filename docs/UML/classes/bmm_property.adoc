@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_PROPERTY (abstract)_*
 
 h|*Description*
-2+a|Model of a property definition within a class definition of an object model. The `_is_composition_` meta-attribute indicates whether the property has sub-part or an association semantics with respect to the owning class.
+2+a|Meta-type of a property definition within a class definition of an object model. The `_is_composition_` attribute indicates whether the property has sub-part or an association semantics with respect to the owning class.
 
 h|*Inherit*
 2+|`BMM_MUTABLE`
@@ -52,4 +52,8 @@ a|Interval form of `0..1`, `1..1` etc, derived from `_is_nullable_`.
 h|
 |*display_name* (): `String`
 a|Name of this property to display in UI.
+
+h|(effected)
+|*signature* (): `BMM_VALUE_SIGNATURE`
+a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===

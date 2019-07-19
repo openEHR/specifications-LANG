@@ -6,9 +6,18 @@ h|*Class*
 2+^h|*BMM_TUPLE_TYPE*
 
 h|*Description*
-2+a|Special type representing the type of a tuple, i.e. an array of any number of other unitary types. Note that both open and closed generic parameters are allowed, as with any generic type.
+2+a|Special type representing the type of a tuple, i.e. an array of any number of other types. This includes both container and unitary types, since tuple instances represent concrete objects.
+
+Note that both open and closed generic parameters are allowed, as with any generic type, but open generic parameters are only valid within the scope of a generic class.
 
 h|*Inherit*
-2+|`BMM_GENERIC_TYPE`
+2+|`BMM_UNITARY_TYPE`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*item_types*: `List<BMM_TYPE>`
+a|List of types of the items of the tuple.
 |===

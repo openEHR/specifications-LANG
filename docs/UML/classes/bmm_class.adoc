@@ -6,9 +6,9 @@ h|*Class*
 2+^h|*_BMM_CLASS (abstract)_*
 
 h|*Description*
-2+a|Meta-type defining a class definition in an object model.
+2+a|Meta-type defining a class definition in an object model. Inheritance is specified by the `_ancestors_` attribute, which contains a list of _types_ rather than classes. Inheritance is thus understood in BMM as a stated relationship between classes. The equivalent relationship between types is conformance.
 
-Note that unlike UML, the `_name_` is just the root name, even if the class is generic. Use `_type_name()_` to obtain the qualified type name.
+NOTE: unlike UML, the `_name_` is just the root name, even if the class is generic. Use `_type_name()_` to obtain the qualified type name.
 
 h|*Inherit*
 2+|`BMM_ENTITY`, `BMM_MODEL_ELEMENT`

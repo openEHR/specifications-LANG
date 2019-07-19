@@ -34,4 +34,8 @@ h|*Functions*
 h|
 |*arity* (): `Integer`
 a|Return number of arguments of this routine.
+
+h|(effected)
+|*signature* (): `BMM_ROUTINE_SIGNATURE`
+a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===

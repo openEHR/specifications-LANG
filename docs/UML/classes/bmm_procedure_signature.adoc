@@ -11,12 +11,7 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_ROUTINE_SIGNATURE`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
 
-h|*0..1 +
-(redefined)*
-|*definition*: `BMM_PROCEDURE`
-a|Reference to the definition of a procedure that this signature represents.
+h|*Invariants*
+2+a|*_Inv_no_result_*: `result = Void`
 |===

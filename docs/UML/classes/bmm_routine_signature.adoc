@@ -6,20 +6,9 @@ h|*Class*
 2+^h|*_BMM_ROUTINE_SIGNATURE (abstract)_*
 
 h|*Description*
-2+a|A defined type that expresses the signature of a routine.
+2+a|A structured type that expresses the signature of a routine, i.e. a referenceable, computed model element.
 
 h|*Inherit*
-2+|`BMM_DEFINED_TYPE`
+2+|`BMM_SIGNATURE`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*0..1*
-|*open_args*: `BMM_TUPLE_TYPE`
-a|Type of open arguments to the call, as a `Tuple` of arbitrary types.
-
-h|*0..1*
-|*definition*: `BMM_ROUTINE`
-a|Reference to the definition of a routine that this signature represents.
 |===

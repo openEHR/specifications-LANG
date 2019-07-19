@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_UNITARY_PROPERTY*
 
 h|*Description*
-2+a|
+2+a|Meta-type of for properties of unitary type.
 
 h|*Inherit*
 2+|`BMM_PROPERTY`

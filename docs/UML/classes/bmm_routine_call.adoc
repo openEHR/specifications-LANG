@@ -31,6 +31,6 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*type* (): `BMM_ROUTINE_SIGNATURE`
+|*type* (): `BMM_SIGNATURE`
 a|Static type inferred from literal value.
 |===

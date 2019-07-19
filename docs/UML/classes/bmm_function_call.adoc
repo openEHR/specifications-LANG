@@ -20,4 +20,8 @@ h|
 args: `BMM_TUPLE[1]` +
 ): `BMM_VALUE`
 a|Result of evaluation of the function call in an appropriate execution context.
+
+h|(effected)
+|*type* (): `BMM_FUNCTION_SIGNATURE`
+a|Static type inferred from literal value.
 |===

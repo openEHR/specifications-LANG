@@ -19,4 +19,11 @@ h|*1..1 +
 (redefined)*
 |*scope*: `BMM_ROUTINE`
 a|
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*signature* (): `BMM_VALUE_SIGNATURE`
+a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===
