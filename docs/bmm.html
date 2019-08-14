@@ -2462,10 +2462,10 @@ an_anc_type: <code>String[1]</code><br>
 <p>Below <code>BMM_TYPE</code> are the abstract meta-type <code>BMM_UNITARY_TYPE</code> and the concrete meta-type <code>BMM_CONTAINER_TYPE</code> and its specialisation <code>BMM_INDEXED_CONTAINER_TYPE</code>. <code>BMM_UNITARY_TYPE</code> corresponds to meta-types whose <em>instances are unitary</em> i.e. singular, while the container meta-types correspond to <em>collections of instances</em>. The latter are further described below. This division is made to enable BMM to directly support collections in the type system.</p>
 </div>
 <div class="paragraph">
-<p>Unitary meta-types are further distinguished as formal generic parameters (<code>BMM_PARAMETER TYPE</code>), <em>tuple types</em>, and <em>defined</em> types, i.e. types with class definitions. The first of these is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as <code>List&lt;T&gt;</code> etc) within generic type declarations. Tuple types are special constructs stated purely in terms of other types.</p>
+<p>Unitary meta-types are further distinguished as formal generic parameters (<code>BMM_PARAMETER TYPE</code>) and <em>defined</em> types, i.e. types that define instances of some kind. The former meta-type is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as <code>List&lt;T&gt;</code> etc) within generic type declarations.</p>
 </div>
 <div class="paragraph">
-<p>Defined types have as their meta-type <code>BMM_DEFINED_TYPE</code>, whose subtypes are <code>BMM_ENTITY_TYPE</code>, a meta-type for entities (i.e. full objects) and <code>BMM_SIGNATURE</code>, a meta-type representing signatures of routines and valued model elements (properties, variables etc). The former divides into <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property <code><em>defining_class</em></code>, of meta-type <code>BMM_CLASS</code> for a BMM simple type, and <code>BMM_GENERIC_CLASS</code> for BMM generic type.</p>
+<p>Defined types have as their meta-type <code>BMM_DEFINED_TYPE</code>, whose subtypes are <code>BMM_ENTITY_TYPE</code>, a meta-type for entities (i.e. full objects), <code>BMM_TUPLE_TYPE</code>, a meta-type for tuples (), and <code>BMM_SIGNATURE</code>, a meta-type representing signatures of routines and valued model elements (properties, variables etc). The first divides into <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property <code><em>defining_class</em></code>, of meta-type <code>BMM_CLASS</code> for a BMM simple type, and <code>BMM_GENERIC_CLASS</code> for BMM generic type.</p>
 </div>
 <div class="paragraph">
 <p>These various meta-types are described in more detail below.</p>
@@ -5253,16 +5253,7 @@ computed complex constants not yet supported.
 </ul>
 </div>
 <div class="paragraph">
-<p>The first is dealt with in the <code>feature</code> package of this specification. The second can be understood as the <em>signature</em> of a routine, and can be expressed as described earlier in <a href="#_signatures">Section 8.5</a>, using type-tuples:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>    []: Date                -- signature of a 0-order function like current_date()
-    [Real, Real]: Real      -- signature of a 2nd-order function like '*' for the domain R
-
-    [Real]                  -- a 1st-order procedure for the domain R
-    [String, Integer]       -- signature of a procedure taking a String and an Integer argument</pre>
-</div>
+<p>The first is dealt with in the <code>feature</code> package of this specification. The second can be understood as the <em>signature</em> of a routine, and can be expressed as described earlier in <a href="#_signatures">Section 8.5</a>.</p>
 </div>
 <div class="paragraph">
 <p>The third is a kind of <em>value</em> in the sense of the <code>BMM_VALUE</code> meta-type of this specification, i.e. a literal object, sometimes needed within model specifications.</p>
@@ -5277,16 +5268,39 @@ computed complex constants not yet supported.
 <p>The feature of a model or language that makes it functional is to allow the type of a <em>delayed call</em> to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type <code>BMM_ROUTINE_SIGNATURE</code>, and its descendants <code>BMM_PROCEDURE_SIGNATURE</code> and <code>BMM_FUNCTION_SIGNATURE</code>. Both of the latter inherit a property <code><em>open_args</em></code> whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#_tuple_type">Section 6.4</a>). The <code>BMM_FUNCTION_SIGNATURE</code> meta-type adds the attribute <code><em>result</em></code>, representing the type of the result of the call.</p>
 </div>
 <div class="paragraph">
-<p>As an example the function <code><em>calculateAge</em> (Date <em>date_of_birth, today</em>): Duration</code> has the signature <code>[Date, Date], Duration</code>, where the <code>[Date, Date]</code> is a tuple type.</p>
+<p>Typical signatures expressed as type-tuples in a common syntactic form such as the following, are instances of these meta-types.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    []: Date                -- signature of a 0-order function like current_date()
+    [Real, Real]: Real      -- signature of a 2nd-order function like '*' for the domain R
+
+    [Real]                  -- a 1st-order procedure for the domain R
+    [String, Integer]       -- signature of a procedure taking a String and an Integer argument
+
+    [Date, Date], Duration  -- signature of calculateAge (Date dateOfBirth, today): Duration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, the construction <code>[Type, &#8230;&#8203;]</code> represents a type-tuple.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_routine_calls"><a class="anchor" href="#_routine_calls"></a>10.3. Routine Calls</h3>
 <div class="paragraph">
-<p>At the third level of representation are literal calls, for example, <code><em>calculateAge</em> ('1982-03-22', '2019-06-01')</code>, which calculates a person&#8217;s age from his data of birth and a given date. In normal programming languages, any of the parameters may of course be any referenceable value-returning entity, i.e. any in-scope variable, other function call etc, exemplified by a call such as <code><em>calculateAge</em> ('1982-03-22', <em>today</em>())</code>, where <code><em>today</em>()</code> is a function returning the date of today.</p>
+<p>At the third level of representation are literal calls, for example, <code><em>calculateAge</em> ('1982-03-22', '2019-06-01')</code>, which calculates a person&#8217;s age from his data of birth and a given date. In normal programming languages, any of the parameters may be any referenceable value-returning entity, i.e. any in-scope variable, other function call etc, exemplified by a call such as <code><em>calculateAge</em> ('1982-03-22', <em>today</em>())</code>, where <code><em>today</em>()</code> is a function returning the date of today. The meta-type <code>BMM_ROUTINE_CALL</code> and its descendants <code>BMM_PROCEDURE_CALL</code> and <code>BMM_FUNCTION_CALL</code> allow such calls to be represented.</p>
 </div>
 <div class="paragraph">
-<p>The meta-type <code>BMM_ROUTINE_CALL</code> and its descendants <code>BMM_PROCEDURE_CALL</code> and <code>BMM_FUNCTION_CALL</code> allow such calls to be represented. The model of  <code>BMM_ROUTINE_CALL</code> allows not only simple calls with all arguments filled to be specified, but also calls with open arguments, for example, <code>format_structure (struct=?, style=3)</code> (the syntax of this will vary according to programming language). This facility allows the latter call to be supplied as an argument to another routine, where the argument type is <code>[Integer]</code> (assuming <code>struct</code> is of type <code>Integer</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution.</p>
+<p>Such calls are direct equivalents for expressions using basic mathematical operators and functions, on the usual basis that any operator (such as 'plus', i.e. <code>+</code>) is formally defined as a function such as <code>add (arg1, arg2: Numeric): Numeric</code>. Thus, the instance structure for a typical expression such as the Body Mass Index (BMI), i.e. <code>weight / height^2</code>, is shown below.</p>
+</div>
+<div id="bmm_nested_call" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
+</div>
+<div class="title">Figure 29. Function call example - Body Mass index (BMI)</div>
+</div>
+<div class="paragraph">
+<p>The model of  <code>BMM_ROUTINE_CALL</code> allows not only simple calls with all arguments filled to be specified, but also calls with open arguments, for example, <code>format_structure (struct=?, style=3)</code> (the syntax of this will vary according to programming language). This facility allows the latter call to be supplied as an argument to another routine, where the argument type is <code>[Integer]</code> (assuming <code>struct</code> is of type <code>Integer</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5639,7 +5653,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 29. BMM class - ancestors view</div>
+<div class="title">Figure 30. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -5648,7 +5662,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 30. BMM class - descendants view</div>
+<div class="title">Figure 31. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect2">
@@ -5673,7 +5687,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 31. Generic inheritance, open parameter</div>
+<div class="title">Figure 32. Generic inheritance, open parameter</div>
 </div>
 <div class="paragraph">
 <p>A simple class may also inherit from a closed generic type, with the parameters of the latter fixed to specific type(s), as shown in the following example.</p>
@@ -5682,7 +5696,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 32. Generic inheritance, closed</div>
+<div class="title">Figure 33. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>The general case is that any number of formal generic parameters may be substituted or left open down the inheritance lineage, as shown by the variants in the following example.</p>
@@ -5691,7 +5705,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 33. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 34. Generic inheritance, mixed open and closed</div>
 </div>
 </div>
 <div class="sect2">
@@ -5703,7 +5717,7 @@ args: <code>BMM_TUPLE[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 34. Multiple inheritance</div>
+<div class="title">Figure 35. Multiple inheritance</div>
 </div>
 </div>
 </div>
