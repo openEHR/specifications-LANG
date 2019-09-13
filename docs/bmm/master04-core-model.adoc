@@ -2,7 +2,7 @@
 
 == Overview
 
-The `core` package defines the main BMM model, within which the `model` sub-package defines the top-level structure of a model which is an instance of the BMM. The UML for this package is shown below.
+The `core` package defines the main BMM meta-model, within which the `model` sub-package defines the top-level structure of a model which is an instance of the BMM. The UML for this package is shown below.
 
 [.text-center]
 .`base.bmm.core.model` Package - Model structure
@@ -28,7 +28,7 @@ Package paths are only used in BMM to specify package structures in the serialse
 
 == Documentation
 
-A `_documentation_` attribute is inherited from `BMM_MODEL_ELEMENT` into `BMM_CLASS`, `BMM_PROPERTY`, `BMM_MODEL` and `BMM_PACKAGE` (the latter two via `BMM_PACKAGE_CONTAINER`), enabling packages, classes and properties to be individually documented.
+A `_documentation_` attribute is inherited from `BMM_DECLARATION` into `BMM_CLASS`, `BMM_PROPERTY`, `BMM_MODEL` and `BMM_PACKAGE` (the latter two via `BMM_PACKAGE_CONTAINER`), enabling packages, classes and properties to be individually documented.
 
 [.tbd]
 TBD: expand to be of type `Hash<String,Any>` or similar?
@@ -40,9 +40,9 @@ The `BMM_MODEL` class defines the single instance of each distinct BMM model tha
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_definitions.adoc[]
-include::{uml_export_dir}/classes/bmm_model_element.adoc[]
+include::{uml_export_dir}/classes/bmm_declaration.adoc[]
 include::{uml_export_dir}/classes/bmm_package_container.adoc[]
 include::{uml_export_dir}/classes/bmm_package.adoc[]
 include::{uml_export_dir}/classes/bmm_model.adoc[]
-include::{uml_export_dir}/classes/bmm_valued.adoc[]
+include::{uml_export_dir}/classes/bmm_typed.adoc[]
 

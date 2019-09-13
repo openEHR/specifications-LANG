@@ -54,6 +54,9 @@ h|
 a|Name of this property to display in UI.
 
 h|(effected)
-|*signature* (): `BMM_VALUE_SIGNATURE`
+|*signature* (): `BMM_PROPERTY_SIGNATURE`
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
+
+h|*Invariants*
+2+a|*_Inv_signature_no_args_*: `signature.arguments = Void`
 |===

@@ -9,7 +9,12 @@
 |[[latest_issue]]2.3.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]12 Feb 2019
+|[[latest_issue_date]]04 Sep 2019
+
+|
+|Add `P_BMM_INDEXED_CONTAINER_TYPE`, `P_BMM_INDEXED_CONTAINER_PROPERTY` to support indexed containers like `Hash<K, V>`.
+|T Beale 
+|04 Sep 2019
 
 |
 |Add value-set constraint.

@@ -11,7 +11,7 @@ h|*Description*
 NOTE: unlike UML, the `_name_` is just the root name, even if the class is generic. Use `_type_name()_` to obtain the qualified type name.
 
 h|*Inherit*
-2+|`BMM_ENTITY`, `BMM_MODEL_ELEMENT`
+2+|`BMM_ENTITY`, `BMM_DECLARATION`
 
 h|*Attributes*
 ^h|*Signature*
@@ -105,11 +105,11 @@ h|(effected)
 a|True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time.
 
 h|
-|*features* (): `List<BMM_REFERENCEABLE>`
+|*features* (): `List<BMM_FEATURE>`
 a|List of all feature definitions introduced in this class.
 
 h|
-|*flat_features* (): `List<BMM_REFERENCEABLE>`
+|*flat_features* (): `List<BMM_FEATURE>`
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|

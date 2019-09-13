@@ -1,0 +1,25 @@
+=== BMM_DECLARATION Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_BMM_DECLARATION (abstract)_*
+
+h|*Description*
+2+a|Ancestor class of BMM declared model elements. A _declaration_ is a an element of a model _specified by an author in a model definition_. Thus, a class definition and its property and routine definitions are model elements, but Types are not, since they are derived from model elements.
+
+h|*Inherit*
+2+|`BMM_DEFINITIONS`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*name*: `String`
+a|Name of this model element.
+
+h|*0..1*
+|*documentation*: `String`
+a|Optional documentation of this element.
+|===

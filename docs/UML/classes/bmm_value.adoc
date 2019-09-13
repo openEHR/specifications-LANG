@@ -6,27 +6,18 @@ h|*Class*
 2+^h|*_BMM_VALUE (abstract)_*
 
 h|*Description*
-2+a|Instance value. In an abstract syntax, represented by a literal value.
+2+a|Meta-type of any entity that is resolvable to a value, i.e. a literal value, or a reference to an instance, a function call, or an expression containing references, function calls and/or literals.
 
 h|*Inherit*
-2+|`BMM_VALUED`
+2+|`BMM_TYPED`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*1..1*
-|*value_literal*: `String`
-a|A serial representation of the value.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
-|*type* (): `BMM_TYPE`
-a|Static type inferred from literal value.
-
-h|
+h|(abstract)
 |*value* (): `Any`
-a|A meta-function that when evaluated will convert the `_value_literal_` to a value of a type from the system of types represented by a particular BMM model.
+a|A runtime executable value of this entity.
+
+NOTE: Not necessarily directly implemented.
 |===

@@ -181,3 +181,4 @@ include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]
+

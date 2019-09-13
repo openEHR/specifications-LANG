@@ -1,0 +1,32 @@
+=== BMM_LITERAL_VALUE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_LITERAL_VALUE*
+
+h|*Description*
+2+a|Instance value. In an abstract syntax, represented by a literal value.
+
+h|*Inherit*
+2+|`BMM_VALUE`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*value_literal*: `String`
+a|A serial representation of the value.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*type* (): `BMM_ENTITY_TYPE`
+a|Static type inferred from literal value.
+
+h|(effected)
+|*value* (): `Any`
+a|When evaluated will convert the `_value_literal_` to a value of a type from the system of types represented by a particular BMM model.
+|===

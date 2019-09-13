@@ -59,13 +59,15 @@
 <li><a href="#_p_bmm_open_type_class">3.2.11. P_BMM_OPEN_TYPE Class</a></li>
 <li><a href="#_p_bmm_generic_type_class">3.2.12. P_BMM_GENERIC_TYPE Class</a></li>
 <li><a href="#_p_bmm_container_type_class">3.2.13. P_BMM_CONTAINER_TYPE Class</a></li>
-<li><a href="#_p_bmm_single_property_class">3.2.14. P_BMM_SINGLE_PROPERTY Class</a></li>
-<li><a href="#_p_bmm_single_property_open_class">3.2.15. P_BMM_SINGLE_PROPERTY_OPEN Class</a></li>
-<li><a href="#_p_bmm_generic_property_class">3.2.16. P_BMM_GENERIC_PROPERTY Class</a></li>
-<li><a href="#_p_bmm_container_property_class">3.2.17. P_BMM_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_p_bmm_enumeration_class">3.2.18. P_BMM_ENUMERATION Class</a></li>
-<li><a href="#_p_bmm_enumeration_string_class">3.2.19. P_BMM_ENUMERATION_STRING Class</a></li>
-<li><a href="#_p_bmm_enumeration_integer_class">3.2.20. P_BMM_ENUMERATION_INTEGER Class</a></li>
+<li><a href="#_p_bmm_indexed_container_type_class">3.2.14. P_BMM_INDEXED_CONTAINER_TYPE Class</a></li>
+<li><a href="#_p_bmm_single_property_class">3.2.15. P_BMM_SINGLE_PROPERTY Class</a></li>
+<li><a href="#_p_bmm_single_property_open_class">3.2.16. P_BMM_SINGLE_PROPERTY_OPEN Class</a></li>
+<li><a href="#_p_bmm_generic_property_class">3.2.17. P_BMM_GENERIC_PROPERTY Class</a></li>
+<li><a href="#_p_bmm_container_property_class">3.2.18. P_BMM_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_p_bmm_indexed_container_property_class">3.2.19. P_BMM_INDEXED_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_p_bmm_enumeration_class">3.2.20. P_BMM_ENUMERATION Class</a></li>
+<li><a href="#_p_bmm_enumeration_string_class">3.2.21. P_BMM_ENUMERATION_STRING Class</a></li>
+<li><a href="#_p_bmm_enumeration_integer_class">3.2.22. P_BMM_ENUMERATION_INTEGER Class</a></li>
 </ul>
 </li>
 </ul>
@@ -194,7 +196,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.3.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>12 Feb 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>04 Sep 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>P_BMM_INDEXED_CONTAINER_TYPE</code>, <code>P_BMM_INDEXED_CONTAINER_PROPERTY</code> to support indexed containers like <code>Hash&lt;K, V&gt;</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">04 Sep 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -996,7 +1004,7 @@ a_bmm_schema: <code>BMM_MODEL[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_PROPERTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>BMM_PROPERTY created by create_bmm_property_definition.</p>
 </div></div></td>
@@ -1292,7 +1300,49 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_single_property_class"><a class="anchor" href="#_p_bmm_single_property_class"></a>3.2.14. P_BMM_SINGLE_PROPERTY Class</h4>
+<h4 id="_p_bmm_indexed_container_type_class"><a class="anchor" href="#_p_bmm_indexed_container_type_class"></a>3.2.14. P_BMM_INDEXED_CONTAINER_TYPE Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>P_BMM_INDEXED_CONTAINER_TYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>P_BMM_CONTAINER_TYPE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>index_type</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code>BMM_INDEXED_CONTAINER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Result of <code><em>create_bmm_type()</em></code> call.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_p_bmm_single_property_class"><a class="anchor" href="#_p_bmm_single_property_class"></a>3.2.15. P_BMM_SINGLE_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1336,7 +1386,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_UNITARY_PROPERTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1357,7 +1407,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_single_property_open_class"><a class="anchor" href="#_p_bmm_single_property_open_class"></a>3.2.15. P_BMM_SINGLE_PROPERTY_OPEN Class</h4>
+<h4 id="_p_bmm_single_property_open_class"><a class="anchor" href="#_p_bmm_single_property_open_class"></a>3.2.16. P_BMM_SINGLE_PROPERTY_OPEN Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1401,7 +1451,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_UNITARY_PROPERTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1422,7 +1472,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_generic_property_class"><a class="anchor" href="#_p_bmm_generic_property_class"></a>3.2.16. P_BMM_GENERIC_PROPERTY Class</h4>
+<h4 id="_p_bmm_generic_property_class"><a class="anchor" href="#_p_bmm_generic_property_class"></a>3.2.17. P_BMM_GENERIC_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1460,7 +1510,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_UNITARY_PROPERTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1469,7 +1519,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_container_property_class"><a class="anchor" href="#_p_bmm_container_property_class"></a>3.2.17. P_BMM_CONTAINER_PROPERTY Class</h4>
+<h4 id="_p_bmm_container_property_class"><a class="anchor" href="#_p_bmm_container_property_class"></a>3.2.18. P_BMM_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1514,7 +1564,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_CONTAINER_PROPERTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property</em></code>.</p>
 </div></div></td>
@@ -1538,7 +1588,52 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_enumeration_class"><a class="anchor" href="#_p_bmm_enumeration_class"></a>3.2.18. P_BMM_ENUMERATION Class</h4>
+<h4 id="_p_bmm_indexed_container_property_class"><a class="anchor" href="#_p_bmm_indexed_container_property_class"></a>3.2.19. P_BMM_INDEXED_CONTAINER_PROPERTY Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>P_BMM_INDEXED_CONTAINER_PROPERTY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>P_BMM_CONTAINER_PROPERTY</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_def</strong>: <code>P_BMM_INDEXED_CONTAINER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type definition of this property, if not a simple String type reference. Persistent attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code>BMM_INDEXED_CONTAINER_PROPERTY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_p_bmm_enumeration_class"><a class="anchor" href="#_p_bmm_enumeration_class"></a>3.2.20. P_BMM_ENUMERATION Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1587,7 +1682,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_enumeration_string_class"><a class="anchor" href="#_p_bmm_enumeration_string_class"></a>3.2.19. P_BMM_ENUMERATION_STRING Class</h4>
+<h4 id="_p_bmm_enumeration_string_class"><a class="anchor" href="#_p_bmm_enumeration_string_class"></a>3.2.21. P_BMM_ENUMERATION_STRING Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1626,7 +1721,7 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_p_bmm_enumeration_integer_class"><a class="anchor" href="#_p_bmm_enumeration_integer_class"></a>3.2.20. P_BMM_ENUMERATION_INTEGER Class</h4>
+<h4 id="_p_bmm_enumeration_integer_class"><a class="anchor" href="#_p_bmm_enumeration_integer_class"></a>3.2.22. P_BMM_ENUMERATION_INTEGER Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1915,6 +2010,31 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
     <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Indexed containers such as <code>Hash&lt;K,V&gt;</code>, <code>Dictionary&lt;K,V&gt;</code> etc are also suuported via the <code>P_BMM_INDEXED_CONTAINER_PROPERTY</code>, the use of which is shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="odin">	<span class="tok-p">[</span><span class="tok-s">&quot;CALLBACK_WAIT&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CALLBACK_WAIT&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;...&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;custom_actions&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_INDEXED_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;custom_actions&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+					<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Hash&quot;</span><span class="tok-p">&gt;</span>
+					<span class="tok-nc">index_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+					<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EVENT_ACTION&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-p">&gt;</span>
+				<span class="tok-nc">cardinality</span> <span class="tok-o">=</span> <span class="tok-p">&lt;|&gt;=</span><span class="tok-mi">0</span><span class="tok-p">|&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above represents a property <code>custom_actions: Hash &lt;String, EVENT_ACTION&gt;</code> in the class <code>CALLBACK_WAIT</code>. The meta-element <code>index_type</code> is used to state the key type.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1981,7 +2101,7 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 </div>
 <div class="paragraph">
-<p>Type declarations can also be nested types, for example and container followed by a generic type. In the following the <code><em>careProvider</em></code> attribute is declared to be of model type <code>List&lt;ResourceReference&lt;Party&gt;&gt;</code>. Any level of type nesting is allowed.</p>
+<p>Type declarations can also be nested types, for example and container followed by a generic type. In the following the <code><em>careProvider</em></code> attribute is declared to be of model type <code>List&lt;Reference&lt;Party&gt;&gt;</code>. Any level of type nesting is allowed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1994,7 +2114,7 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
                 <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
                     <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-                        <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ResourceReference&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Reference&quot;</span><span class="tok-p">&gt;</span>
                         <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Party&quot;</span><span class="tok-p">&gt;</span>
                     <span class="tok-p">&gt;</span>
                 <span class="tok-p">&gt;</span>

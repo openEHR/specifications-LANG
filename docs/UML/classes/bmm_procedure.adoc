@@ -11,4 +11,7 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_ROUTINE`
 
+
+h|*Invariants*
+2+a|*_Inv_signature_no_result_*: `signature.result = Void`
 |===

@@ -11,17 +11,12 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_ROUTINE_CALL`
 
-h|*Functions*
+h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
-|*result* ( +
-args: `BMM_TUPLE[1]` +
-): `BMM_VALUE`
-a|Result of evaluation of the function call in an appropriate execution context.
-
-h|(effected)
-|*type* (): `BMM_FUNCTION_SIGNATURE`
-a|Static type inferred from literal value.
+h|*0..1 +
+(redefined)*
+|*definition*: `BMM_FUNCTION`
+a|Reference to definition of routine for which this is a call instance.
 |===

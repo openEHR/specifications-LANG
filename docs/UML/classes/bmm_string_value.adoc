@@ -9,6 +9,6 @@ h|*Description*
 2+a|Meta-type for a String value, for which `_type_` is fixed to the `BMM_TYPE` representing `String`.
 
 h|*Inherit*
-2+|`BMM_VALUE`
+2+|`BMM_LITERAL_VALUE`
 
 |===

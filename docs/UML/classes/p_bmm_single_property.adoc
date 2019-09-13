@@ -25,7 +25,7 @@ a|Type definition of this property computed from `_type_` for later use in `_bmm
 
 h|*0..1 +
 (redefined)*
-|*bmm_property*: 
+|*bmm_property*: `BMM_UNITARY_PROPERTY`
 a|`BMM_PROPERTY` created by `_create_bmm_property_definition_`.
 h|*Functions*
 ^h|*Signature*

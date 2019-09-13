@@ -11,11 +11,12 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_ROUTINE_CALL`
 
-h|*Functions*
+h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
-|*type* (): `BMM_PROCEDURE_SIGNATURE`
-a|Static type inferred from literal value.
+h|*0..1 +
+(redefined)*
+|*definition*: `BMM_PROCEDURE`
+a|Reference to definition of routine for which this is a call instance.
 |===

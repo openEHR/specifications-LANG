@@ -23,8 +23,12 @@ h|*0..1*
 |*symbol*: `String`
 a|The symbol actually used in the expression, or intended to be used for serialisation. Must be a member of `OPERATOR_DEF._symbols_`.
 
+h|*1..1*
+|*operator_definition*: `BMM_OPERATOR`
+a|
+
 h|*1..1 +
 (redefined)*
-|*definition*: `BMM_FUNCTION`
+|*definition*: `BMM_FUNCTION_CALL`
 a|The reference item from which the value of this node can be computed.
 |===

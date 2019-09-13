@@ -8,11 +8,12 @@ Within the definitions of each class in a BMM model are found the definitions of
 .`base.bmm.core.feature` package - Features
 image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
 
-The abstract classes in this model that define the taxonomy of types are as follows:
+The abstract classes in this model that define the taxonomy of meta-types are as follows:
 
-* `BMM_REFERENCEABLE`: a model element referencable by name within a scope and having a signature;
-* `BMM_ROUTINE`: a model element whose definition is a compututation;
-* `BMM_VALUED`: any entity that has a value at execution time;
+* `BMM_FEATURE`: a declared model element referencable by name within a scope and having a _signature_;
+* `BMM_ROUTINE`: a feature whose definition is a compututation;
+* `BMM_TYPED`: an entity that may be instantiated at execution time;
+* `BMM_VALUE`: a model element representing a literal value;
 * `BMM_EVALUABLE`: any entity that can be evaluated at execution time to produce a value;
 * `BMM_MUTABLE`: a non-computed evaluable element whose value may be changed during execution;
 * `BMM_VARIABLE`: a mutable element whose scope is a routine.
@@ -25,7 +26,7 @@ Class features consist of the formal sub-parts of a class, namely:
 
 == Scope of Formal Elements
 
-All formally defined model elements (i.e. instances of the meta-type `BMM_REFERENCEABLE`) have a _scope_, represented by the `_scope_` meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value 
+All formally defined model elements (i.e. instances of the meta-type `BMM_FEATURE`) have a _scope_, represented by the `_scope_` meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value 
 
 == Nullability, Optionality and Void-safety
 
@@ -81,7 +82,7 @@ Class properties are defined via the meta-class `BMM_PROPERTY`, and its two subt
 
 === Unitary versus Container Properties
 
-Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `UNITARY_TYPE`. Container properties are instances of the type `BMM_CONTAINER_PROPERTY`, which adds the meta-attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations).
+Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
 
 === Composition versus Association
 
@@ -105,7 +106,7 @@ image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="cen
 
 == Functions and Procedures
 
-Functions and procedures are kinds of _routine_, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class `BMM_REFERENCEABLE`.
+Functions and procedures are kinds of _routine_, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class `BMM_FEATURE`.
 
 The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is understood as a kind of _variable_ scoped to the owning routine. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The inherited `_is_nullable_` meta-attribute indicates whether each parameter is mandatory or not.
 
@@ -117,13 +118,14 @@ At the finest level of detail of a model definition are what are typically thoug
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_referenceable.adoc[]
+include::{uml_export_dir}/classes/bmm_feature.adoc[]
 include::{uml_export_dir}/classes/bmm_evaluable.adoc[]
 include::{uml_export_dir}/classes/bmm_mutable.adoc[]
 
 include::{uml_export_dir}/classes/bmm_property.adoc[]
 include::{uml_export_dir}/classes/bmm_unitary_property.adoc[]
 include::{uml_export_dir}/classes/bmm_container_property.adoc[]
+include::{uml_export_dir}/classes/bmm_indexed_container_property.adoc[]
 
 include::{uml_export_dir}/classes/bmm_constant.adoc[]
 include::{uml_export_dir}/classes/bmm_variable.adoc[]
@@ -136,6 +138,4 @@ include::{uml_export_dir}/classes/bmm_operator_position.adoc[]
 include::{uml_export_dir}/classes/bmm_procedure.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_direction.adoc[]
-
-
 

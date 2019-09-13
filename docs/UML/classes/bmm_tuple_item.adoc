@@ -13,8 +13,8 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*item*: `BMM_VALUED`
-a|Value of tuple item.
+|*reference*: `BMM_VALUE`
+a|Reference to value entity.
 
 h|*0..1*
 |*name*: `String`

@@ -27,7 +27,7 @@ If it was desired to create a full set of 'native' types for BMM, in the way sup
 
 == Tuples
 
-One very useful structured value is the _tuple_, which is defined as an array of items each having as its meta-type any descendant of `BMM_VALUED`. This allows tuples to contain not only other literals (including other tuples) but also constants, variables, properties and parameters declared in class definitions the model, and literal routine calls.
+One very useful structured value is the _tuple_, which is defined as an array of items each having as its meta-type any descendant of `BMM_TYPED`. This allows tuples to contain not only other literals (including other tuples) but also constants, variables, properties and parameters declared in class definitions the model, and literal routine calls.
 
 The type of a tuple is defined by an instance of the meta-type `BMM_TUPLE_TYPE`, described in <<Routine Types and Signatures>>.
 

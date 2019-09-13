@@ -17,5 +17,5 @@ h|*Attributes*
 
 h|*0..1*
 |*is_nullable*: `Boolean`
-a|True if this element can be null at execution time. May be interpreted as optionality in subtypes..
+a|True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes..
 |===

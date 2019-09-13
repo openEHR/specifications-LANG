@@ -1,12 +1,12 @@
-=== BMM_VALUE_SIGNATURE Class
+=== BMM_PROPERTY_SIGNATURE Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*BMM_VALUE_SIGNATURE*
+2+^h|*BMM_PROPERTY_SIGNATURE*
 
 h|*Description*
-2+a|
+2+a|The type signature of a property.
 
 h|*Inherit*
 2+|`BMM_SIGNATURE`

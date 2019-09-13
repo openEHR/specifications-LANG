@@ -9,6 +9,6 @@ h|*Description*
 2+a|Meta-type for an Integer value, for which `_type_` is fixed to the `BMM_TYPE` representing `Integer`.
 
 h|*Inherit*
-2+|`BMM_VALUE`
+2+|`BMM_LITERAL_VALUE`
 
 |===

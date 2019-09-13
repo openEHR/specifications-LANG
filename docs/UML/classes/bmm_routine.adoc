@@ -6,10 +6,10 @@ h|*Class*
 2+^h|*_BMM_ROUTINE (abstract)_*
 
 h|*Description*
-2+a|A formal element defining a routine, scoped to a class.
+2+a|A feature defining a routine, scoped to a class.
 
 h|*Inherit*
-2+|`BMM_REFERENCEABLE`
+2+|`BMM_FEATURE`
 
 h|*Attributes*
 ^h|*Signature*
@@ -36,6 +36,6 @@ h|
 a|Return number of arguments of this routine.
 
 h|(effected)
-|*signature* (): `BMM_ROUTINE_SIGNATURE`
+|*signature* ()
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===

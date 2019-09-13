@@ -9,7 +9,7 @@ h|*Description*
 2+a|A BMM model component that contains packages and classes.
 
 h|*Inherit*
-2+|`BMM_MODEL_ELEMENT`
+2+|`BMM_DECLARATION`
 
 h|*Attributes*
 ^h|*Signature*

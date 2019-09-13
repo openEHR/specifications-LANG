@@ -16,9 +16,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*operator_def*: `BMM_OPERATOR`
+|*operator_definition*: `BMM_OPERATOR`
 a|Optional details enabling a function to be represented as an operator in a syntactic representation.
 
 h|*Invariants*
-2+a|*_Operator_validity_*: `operator_def /= Void implies arity = 1 or arity = 2`
+2+a|*_Operator_validity_*: `operator_def /= Void implies arity in &#124;1..2&#124;`
+
+h|
+2+a|*_Inv_signature_has_result_*: `signature.result /= Void`
 |===

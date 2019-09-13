@@ -9,7 +9,7 @@ h|*Description*
 2+a|A formal feature with a declared type that can be evaluated to return a value at execution time.
 
 h|*Inherit*
-2+|`BMM_REFERENCEABLE`, `BMM_VALUED`
+2+|`BMM_FEATURE`, `BMM_TYPED`
 
 h|*Attributes*
 ^h|*Signature*

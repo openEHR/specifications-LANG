@@ -9,15 +9,19 @@
 |[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]19 Jul 2019
+|[[latest_issue_date]]04 Sep 2019
 
 |
-|Add meta-model for functional entities. Re-structure packages. Modify `BMM_REFERENCEABLE._signature_` to new meta-type, `BMM_SIGNATURE`.
+|Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +
+ Rename `BMM_VALUED` to `BMM_TYPED`; +
+ Rename `BMM_REFERENCEABLE` to `BMM_FEATURE`; +
+ Add meta-model for functional entities. Re-structure packages. Modify `BMM_FEATURE._signature_` to new meta-type, `BMM_SIGNATURE`.
 |T Beale 
-|18 Jul 2019
+|04 Sep 2019
 
 |
-|Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`.
+|Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`; +
+ Add `BMM_INDEXED_CONTAINER_TYPE`, `BMM_INDEXED_CONTAINER_PROPERTY`, to support indexed containers like `Hash<K, V>`.
 |T Beale 
 |10 Mar 2019
 

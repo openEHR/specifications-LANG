@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*value*: `BMM_VALUE`
+|*value*: `BMM_LITERAL_VALUE`
 a|The value of the constant.
 
 h|*1..1 +
@@ -28,6 +28,6 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*signature* (): `BMM_VALUE_SIGNATURE`
+|*signature* (): `BMM_PROPERTY_SIGNATURE`
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===

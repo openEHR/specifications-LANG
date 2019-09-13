@@ -170,6 +170,29 @@ The following is a `P_BMM_CONTAINER_PROPERTY` definition for the model property 
     >
 --------
 
+Indexed containers such as `Hash<K,V>`, `Dictionary<K,V>` etc are also suuported via the `P_BMM_INDEXED_CONTAINER_PROPERTY`, the use of which is shown here:
+
+[source, odin]
+--------
+	["CALLBACK_WAIT"] = <
+		name = <"CALLBACK_WAIT">
+		ancestors = <"...">
+        properties = <
+			["custom_actions"] = (P_BMM_INDEXED_CONTAINER_PROPERTY) <
+				name = <"custom_actions">
+				type_def = <
+					container_type = <"Hash">
+					index_type = <"String">
+					type = <"EVENT_ACTION">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+--------
+
+The above represents a property `custom_actions: Hash <String, EVENT_ACTION>` in the class `CALLBACK_WAIT`. The meta-element `index_type` is used to state the key type.
+
 === Generic Classes
 
 Generic classes are those that have one or more substitutable generic type parameters. Such classes are therefore _type generators_, since actual types are formed by substitution of concrete types (typically simple classes) for the formal type parameters. The following example shows a generic class `Interval` with `generic_parameter_defs` of `T` which is constrained to conform to the type `Ordered`. This structure defineds the type `Interval<T->Ordered>`, with the same meaning as UML and programming languages supporting generic (templated) types.
@@ -230,7 +253,7 @@ Given the presence of generic classes in a BMM schema, derived generic types can
     >
 --------
 
-Type declarations can also be nested types, for example and container followed by a generic type. In the following the `_careProvider_` attribute is declared to be of model type `List<ResourceReference<Party>>`. Any level of type nesting is allowed.
+Type declarations can also be nested types, for example and container followed by a generic type. In the following the `_careProvider_` attribute is declared to be of model type `List<Reference<Party>>`. Any level of type nesting is allowed.
 
 [source, odin]
 --------
@@ -243,7 +266,7 @@ Type declarations can also be nested types, for example and container followed b
                 type_def = <
                     container_type = <"List">
                     type_def = (P_BMM_GENERIC_TYPE) <
-                        root_type = <"ResourceReference">
+                        root_type = <"Reference">
                         generic_parameters = <"Party">
                     >
                 >

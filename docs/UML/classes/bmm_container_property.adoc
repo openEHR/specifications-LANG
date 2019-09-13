@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_CONTAINER_PROPERTY*
 
 h|*Description*
-2+a|Meta-type of for properties of container type.
+2+a|Meta-type of for properties of linear container type, such as List<T> etc.
 
 h|*Inherit*
 2+|`BMM_PROPERTY`
