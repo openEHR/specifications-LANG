@@ -9,7 +9,7 @@ h|*Description*
 2+a|An immutable, static value-returning element scoped to a class.
 
 h|*Inherit*
-2+|`BMM_EVALUABLE`
+2+|`BMM_INSTANTIABLE`, `BMM_CLASS_SCOPED`
 
 h|*Attributes*
 ^h|*Signature*
@@ -19,15 +19,9 @@ h|*1..1*
 |*value*: `BMM_LITERAL_VALUE`
 a|The value of the constant.
 
-h|*1..1 +
-(redefined)*
-|*scope*: `BMM_CLASS`
-a|Owning class of this constant.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
+h|*Invariants*
+2+a|*_Inv_not_nullable_*: `is_nullable = False`
 
-h|(effected)
-|*signature* (): `BMM_PROPERTY_SIGNATURE`
-a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
+h|
+2+a|*_Inv_signature_no_args_*: `signature.arguments = Void`
 |===

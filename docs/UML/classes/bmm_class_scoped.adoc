@@ -1,9 +1,9 @@
-=== BMM_FEATURE Class
+=== BMM_CLASS_SCOPED Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_BMM_FEATURE (abstract)_*
+2+^h|*_BMM_CLASS_SCOPED (abstract)_*
 
 h|*Description*
 2+a|A formal element of an enclosing entity, that is referenced via a name within a scope, and has a signature.
@@ -15,9 +15,10 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*scope*: `BMM_DECLARATION`
-a|Model element within which a referenceable element is known.
+h|*1..1 +
+(redefined)*
+|*scope*: `BMM_CLASS`
+a|Class within which a referenceable element is known.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

@@ -22,7 +22,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|
 |*type* (): `BMM_TUPLE_TYPE`
 a|Static type inferred from literal value.
 |===

@@ -38,5 +38,3 @@ One of the main uses of literal tuples is to express the closed arguments of a l
 include::{uml_export_dir}/classes/bmm_value.adoc[]
 include::{uml_export_dir}/classes/bmm_string_value.adoc[]
 include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
-include::{uml_export_dir}/classes/bmm_tuple.adoc[]
-include::{uml_export_dir}/classes/bmm_tuple_item.adoc[]

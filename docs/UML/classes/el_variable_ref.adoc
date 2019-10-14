@@ -11,12 +11,4 @@ h|*Description*
 h|*Inherit*
 2+|`EL_TERMINAL`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*1..1 +
-(redefined)*
-|*definition*: `BMM_MUTABLE`
-a|The reference item from which the value of this node can be computed.
 |===

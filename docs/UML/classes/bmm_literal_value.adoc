@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_LITERAL_VALUE*
 
 h|*Description*
-2+a|Instance value. In an abstract syntax, represented by a literal value.
+2+a|Meta-type for literal instance values declared in a model. Instance values may be inline values of primitive types in the usual fashion or complex objects in syntax form, e.g. JSON.
 
 h|*Inherit*
 2+|`BMM_VALUE`
@@ -18,13 +18,14 @@ h|*Attributes*
 h|*1..1*
 |*value_literal*: `String`
 a|A serial representation of the value.
+
+h|*1..1 +
+(redefined)*
+|*type*: `BMM_ENTITY_TYPE`
+a|Static type inferred from literal value.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
-
-h|(effected)
-|*type* (): `BMM_ENTITY_TYPE`
-a|Static type inferred from literal value.
 
 h|(effected)
 |*value* (): `Any`

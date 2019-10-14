@@ -9,7 +9,7 @@ h|*Description*
 2+a|A feature defining a routine, scoped to a class.
 
 h|*Inherit*
-2+|`BMM_FEATURE`
+2+|`BMM_CLASS_SCOPED`
 
 h|*Attributes*
 ^h|*Signature*
@@ -22,11 +22,6 @@ a|Formal parameters of the routine.
 h|*0..1*
 |*locals*: `List<BMM_LOCAL>`
 a|Local variables of the routine.
-
-h|*1..1 +
-(redefined)*
-|*scope*: `BMM_CLASS`
-a|Owning class of this routine.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -37,5 +32,5 @@ a|Return number of arguments of this routine.
 
 h|(effected)
 |*signature* ()
-a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
+a|Formal signature of this element, in the form `'[arg1_name: T_arg1, ...]:T_value'`.
 |===

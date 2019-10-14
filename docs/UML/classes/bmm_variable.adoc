@@ -9,7 +9,7 @@ h|*Description*
 2+a|A mutable entity whose scope is a routine.
 
 h|*Inherit*
-2+|`BMM_MUTABLE`
+2+|`BMM_INSTANTIABLE`, `BMM_CLASS_SCOPED`
 
 h|*Attributes*
 ^h|*Signature*
@@ -24,6 +24,9 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*signature* (): `BMM_PROPERTY_SIGNATURE`
+|*signature* ()
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
+
+h|*Invariants*
+2+a|*_Inv_signature_no_args_*: `signature.arguments = Void`
 |===

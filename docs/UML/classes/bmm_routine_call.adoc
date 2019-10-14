@@ -30,11 +30,9 @@ a|Optional list of names of open arguments of the call. If not provided, and the
 h|*0..1*
 |*definition*: `BMM_ROUTINE`
 a|Reference to definition of a routine for which this is a direct call instance, if one exists.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
 
-h|(effected)
-|*type* (): `BMM_SIGNATURE`
-a|Static type inferred from literal value.
+h|*1..1 +
+(redefined)*
+|*type*: `BMM_SIGNATURE`
+a|Inferred static type of the call.
 |===

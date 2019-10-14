@@ -18,6 +18,11 @@ h|*Attributes*
 h|*0..1*
 |*packages*: `Hash<String,BMM_PACKAGE>`
 a|Child packages; keys all in upper case for guaranteed matching.
+
+h|*1..1 +
+(redefined)*
+|*scope*: `BMM_PACKAGE_CONTAINER`
+a|Model element within which a referenceable element is known.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

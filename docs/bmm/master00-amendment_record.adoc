@@ -17,7 +17,7 @@
  Rename `BMM_REFERENCEABLE` to `BMM_FEATURE`; +
  Add meta-model for functional entities. Re-structure packages. Modify `BMM_FEATURE._signature_` to new meta-type, `BMM_SIGNATURE`.
 |T Beale 
-|04 Sep 2019
+|14 Oct 2019
 
 |
 |Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`; +
@@ -44,7 +44,7 @@
 |3.0.0
 |Separate `P_BMM` model and syntax to BMM Persistence specification; +
  refactor / tighten class model: +
- rename `BMM_GENERIC_PARAMTER` to `BMM_PARAMETER_TYPE`; +
+ rename `BMM_GENERIC_PARAMETER` to `BMM_PARAMETER_TYPE`; +
  remove `BMM_OPEN_TYPE`; remove `BMM_TYPE_ELEMENT`; +
  add new type `BMM_DEFINED_TYPE` as parent of `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`; +
  add new type `BMM_UNITARY_TYPE` as parent of `BMM_DEFINED_TYPE` and `BMM_PARAMETER_TYPE`; +

@@ -2,35 +2,45 @@
 
 == Overview
 
-Within the definitions of each class in a BMM model are found the definitions of its _features_, consisting of _routines_, _properties_ and _constants_. The overall meta-model of features, as well as the elements that occur within them, namely parameters and local variables is shown below, and described in this section.
+Within the definition of each class in a BMM model are found the declarations of its _features_, consisting of _routines_, _properties_ and _constants_. The overall meta-model of features, as well as the elements that occur within them, namely parameters and local variables is shown below, and described in this section.
 
-[.text-center]
-.`base.bmm.core.feature` package - Features
-image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
+The taxonomy of meta-types that classify the concrete meta-types representing features is somewhat complicated in an object-oriented approach by the presence of procedures, which are declared features (sometimes called commands or modifiers) that change internal object state, rather than returning a value as is the case with all other kinds of features. The consequence is that the cleanest approach to definition of meta-attributes is the use of two taxonomies, one corresponding to declared features (including procedures) and on to do with typed, value-returning entities, which excludes procedures.
 
-The abstract classes in this model that define the taxonomy of meta-types are as follows:
+=== Feature Declarations
 
-* `BMM_FEATURE`: a declared model element referencable by name within a scope and having a _signature_;
-* `BMM_ROUTINE`: a feature whose definition is a compututation;
-* `BMM_TYPED`: an entity that may be instantiated at execution time;
-* `BMM_VALUE`: a model element representing a literal value;
-* `BMM_EVALUABLE`: any entity that can be evaluated at execution time to produce a value;
-* `BMM_MUTABLE`: a non-computed evaluable element whose value may be changed during execution;
-* `BMM_VARIABLE`: a mutable element whose scope is a routine.
-
-Class features consist of the formal sub-parts of a class, namely:
+_Features_ are understood in BMM as entities referenceable within a module or lower context. The 'module' in BMM is the class. Class features consist of the formal sub-parts of a class, namely:
 
 * _routines_: _procedures_ and _functions_;
 * _properties_: mutable static definitions, described in detail in previous sections;
 * _constants_: immutable static definitions.
 
-== Scope of Formal Elements
+Variables are also understood as a kind of class feature, whose scoping entity is further restricted to a containing routine.
 
-All formally defined model elements (i.e. instances of the meta-type `BMM_FEATURE`) have a _scope_, represented by the `_scope_` meta-attribute. The scope meta-type indicates the kind of model element within which the current element is scoped, and the value 
+The taxonomy of feature declarations is shown below.
 
-== Nullability, Optionality and Void-safety
+[.text-center]
+.Feature taxonomy
+image::{diagrams_uri}/feature_taxonomy.svg[id=feature_taxonomy, align="center"]
 
-The `_is_nullable_` attribute of the meta-class `BMM_MUTABLE` indicates whether instances are optional or mandatory within their context, i.e. whether the value of the reference may be null (or 'void') at execution or persistence time. This flag maps on to the UML notion of optionality (i.e. whether a property or routine parameter has `[0..1]` existence) and also to the broader notion of void-safety.
+This taxonomy is concerned with model elements that can be lexically declared within some _scope_. Those elements defined within a class scope have a _type signature_, i.e. a formal 'shape' in terms of types. This applies even to _procedures_, which are formal entities despite having no return type.
+
+=== Typed Entities
+
+For entities with a _type_, i.e. which can potentially produce a value, the following taxonomy of typing applies.
+
+[.text-center]
+.Typed taxonomy
+image::{diagrams_uri}/typed_taxonomy.svg[id=typed_taxonomy, align="center"]
+
+This taxonomy is concerned with typedness, valuedness, and mutability, i.e. the notion that a typed value-producing entity may be Void (null) at execution time. Features, which are declarations _in context_ can be mutable, but value objects (e.g. literal values, delayed routine calls cannot).
+
+=== Class Model
+
+The class model that results from the above considerations is shown below.
+
+[.text-center]
+.`base.bmm.core.feature` package - Features
+image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
 
 == Differential and Flat Form
 
@@ -40,7 +50,7 @@ In contrast, the _effective_ set of features for an instance at runtime is the r
 
 == Signatures
 
-All class features have formal signatures. The simplest type of signature is that of properties and constants, which may be expressed formally as follows:
+All class-scoped features have formal signatures. The simplest type of signature is that of properties and constants, which may be expressed formally as follows:
 
 ----
     : T_result
@@ -72,23 +82,25 @@ Typical procedure signatures include the following:
 
 == Constants
 
-Constant features in a class are represented by the BMM meta-class `BMM_CONSTANT`, which is an immutable descendant of `BMM_EVALUABLE`. A constant has a `_value_`, which may be of any type, including complex types. The `_scope_` of a constant is its enclosing class.
+Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is:
 
-NOTE: computed complex constants not yet supported.
+* a descendant of `BMM_CLASS_SCOPED` with a signature having no arguments; and
+* a descendant of `BMM_INSTANTIABLE` that is not run-time nullable.
+
+A constant has a `_value_`, which may be of any type, including complex types.
+
+[.tbd]
+TBD: add support for computed constants a la Eiffel `once` routines.
 
 == Properties
 
-Class properties are defined via the meta-class `BMM_PROPERTY`, and its two subtypes, `BMM_UNITARY_PROPERTY` and `BMM_CONTAINER_PROPERTY`, corresponding to the unitary and container type meta-types. The `BMM_PROPERTY` meta-type defines semantics common to all properties, including `_type_`, a reference to an instance of `BMM_TYPE` representing the class property type in the BMM model.
+Class properties are defined via the meta-class `BMM_PROPERTY`, and its subtypes which distinguish _unitary properties_ (single-valued attributes in a class) from _container properties_ (multiply-valued attributes).
+
+The `BMM_PROPERTY` meta-type defines semantics common to all properties, including `_is_composition_`, which indicates whether the property reference instantiates a part-of relationship or an association.
 
 === Unitary versus Container Properties
 
 Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
-
-=== Composition versus Association
-
-A property of an class is on its own a _relationship_. Depending on the property, it may represent a sub-part or an association. The notion of sub-part corresponds to the 'composition' association type in UML (which is however missing on properties for which no association, i.e. 'line' is defined) and 'cascade-delete' semantics in Entity Relationship (ER) models.
-
-This distinction is represented by the meta-attribute `_is_composition_` defined on `BMM_PROPERTY`, which is assumed by default to be `False`.
 
 === Semantic level
 
@@ -106,9 +118,9 @@ image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="cen
 
 == Functions and Procedures
 
-Functions and procedures are kinds of _routine_, which are computational features of a class. In BMM, they are represented, along with constituent parts, namely parameters and local variables by descendants of the class `BMM_FEATURE`.
+Functions and procedures are kinds of _routine_, which are computational features of a class.
 
-The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is understood as a kind of _variable_ scoped to the owning routine. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The inherited `_is_nullable_` meta-attribute indicates whether each parameter is mandatory or not.
+The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is understood as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
 
 An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
 
@@ -118,24 +130,27 @@ At the finest level of detail of a model definition are what are typically thoug
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_feature.adoc[]
-include::{uml_export_dir}/classes/bmm_evaluable.adoc[]
-include::{uml_export_dir}/classes/bmm_mutable.adoc[]
+include::{uml_export_dir}/classes/bmm_typed.adoc[]
+
+include::{uml_export_dir}/classes/bmm_class_scoped.adoc[]
+include::{uml_export_dir}/classes/bmm_typed_feature.adoc[]
+include::{uml_export_dir}/classes/bmm_instantiable.adoc[]
+
+include::{uml_export_dir}/classes/bmm_constant.adoc[]
 
 include::{uml_export_dir}/classes/bmm_property.adoc[]
 include::{uml_export_dir}/classes/bmm_unitary_property.adoc[]
 include::{uml_export_dir}/classes/bmm_container_property.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_property.adoc[]
 
-include::{uml_export_dir}/classes/bmm_constant.adoc[]
-include::{uml_export_dir}/classes/bmm_variable.adoc[]
-include::{uml_export_dir}/classes/bmm_local.adoc[]
-
 include::{uml_export_dir}/classes/bmm_routine.adoc[]
 include::{uml_export_dir}/classes/bmm_function.adoc[]
 include::{uml_export_dir}/classes/bmm_operator.adoc[]
 include::{uml_export_dir}/classes/bmm_operator_position.adoc[]
 include::{uml_export_dir}/classes/bmm_procedure.adoc[]
+
+include::{uml_export_dir}/classes/bmm_variable.adoc[]
+include::{uml_export_dir}/classes/bmm_local.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_direction.adoc[]
 

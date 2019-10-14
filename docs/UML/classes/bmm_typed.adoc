@@ -6,13 +6,13 @@ h|*Class*
 2+^h|*_BMM_TYPED (abstract)_*
 
 h|*Description*
-2+a|Any entity that represents or returns an instance value of type `_type()_`.
+2+a|Any entity that represents or returns an value of some type `_type()_`.
 
-h|*Functions*
+h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
-|*type* (): `BMM_TYPE`
-a|Static type of entity, either inferred or declared.
+h|*1..1*
+|*type*: `BMM_TYPE`
+a|Declared or inferred static type of the entity.
 |===
