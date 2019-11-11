@@ -9,7 +9,7 @@ h|*Description*
 2+a|Meta-type for literal instance values declared in a model. Instance values may be inline values of primitive types in the usual fashion or complex objects in syntax form, e.g. JSON.
 
 h|*Inherit*
-2+|`BMM_VALUE`
+2+|`BMM_TYPED`
 
 h|*Attributes*
 ^h|*Signature*
@@ -23,11 +23,4 @@ h|*1..1 +
 (redefined)*
 |*type*: `BMM_ENTITY_TYPE`
 a|Static type inferred from literal value.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
-
-h|(effected)
-|*value* (): `Any`
-a|When evaluated will convert the `_value_literal_` to a value of a type from the system of types represented by a particular BMM model.
 |===

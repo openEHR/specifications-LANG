@@ -9,14 +9,6 @@ h|*Description*
 2+a|
 
 h|*Inherit*
-2+|`EL_VARIABLE_REF`
+2+|`EL_INSTANTIABLE_REF`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*1..1 +
-(redefined)*
-|*definition*: `BMM_PARAMETER`
-a|The reference item from which the value of this node can be computed.
 |===

@@ -69,9 +69,15 @@ Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BM
 .Generic type - closed container
 image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
 
+== Routine Types and Signatures
+
+The feature of a model or language that makes it functional is to allow the type of a _routine call_, and thus a _function call_, to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type.
+
+The same meta-type is used to represent signatures of both procedures and functions, even though procedures have no result type. This is achieved using invariants, as described in <<_signatures>>.
+
 == Tuple Type
 
-The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments to a routine, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or `struct`, in the C/C++).
+The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or `struct`, in C/C++).
 
 == Container Types
 
@@ -177,8 +183,11 @@ include::{uml_export_dir}/classes/bmm_defined_type.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_type.adoc[]
 include::{uml_export_dir}/classes/bmm_simple_type.adoc[]
 include::{uml_export_dir}/classes/bmm_generic_type.adoc[]
+
 include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
+include::{uml_export_dir}/classes/bmm_signature.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]
 
+include::{uml_export_dir}/classes/bmm_entity_metatype.adoc[]

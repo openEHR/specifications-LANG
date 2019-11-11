@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*target*: `EL_VARIABLE_REF`
+|*target*: `EL_INSTANTIABLE_REF`
 a|The target variable on the notional left-hand side of this assignment.
 
 h|*1..1*

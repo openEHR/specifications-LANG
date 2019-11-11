@@ -6,16 +6,17 @@ h|*Class*
 2+^h|*DL_PROCEDURE_CALL*
 
 h|*Description*
-2+a|Statement type representing a call to
+2+a|
 
 h|*Inherit*
-2+|`DL_STATEMENT`
+2+|`EL_AGENT_CALL`, `DL_STATEMENT`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*definition*: `BMM_PROCEDURE`
-a|
+h|*1..1 +
+(redefined)*
+|*agent*: `EL_PROCEDURE_AGENT`
+a|The procedure agent being called.
 |===

@@ -20,6 +20,6 @@ h|*1..1*
 a|Left operand node.
 
 h|*1..1*
-|*right_operand*: `EL_EXPRESSION`
+|*right_operand*: `EL_TERMINAL`
 a|Right operand node.
 |===

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_INDEXED_CONTAINER_TYPE*
 
 h|*Description*
-2+a|Type of linear container that indexes the contained items in the manner of a standard Hash table, map or dictionary.
+2+a|Meta-type of linear container type that indexes the contained items in the manner of a standard Hash table, map or dictionary.
 
 h|*Inherit*
 2+|`BMM_CONTAINER_TYPE`

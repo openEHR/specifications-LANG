@@ -4,11 +4,11 @@
 
 The `org.openehr.lang.elom` package defines the Expression Language Object Model (ELOM), a structural model of the openEHR Expression language. Its elements, including statements and expressions can be used in various contexts in openEHR, including inside archetypes and in GDL guidelines. If the Expression Language or other syntax-based artefact is used, the model described here defines the parser output in the form of a computable structure. Other openEHR models designed for a particular purpose may reuse the `elom` package and further specialise some of its types specifically intended for extension.
 
-The package structure of the `elom` package is shown below.
+The structure of the `dlom` and `elom` packages is shown below.
 
 [.text-center]
-.base.elom Package
-image::{uml_diagrams_uri}/LANG-elom-packages.svg[id=elom_packages, align="center", width="50%"]
+.lang.dlom Package
+image::{uml_diagrams_uri}/LANG-dlom-packages.svg[id=dlom_packages, align="center", width="50%"]
 
 The packages are described below in the same 'inside-out' order as the EL language description, corresponding to minimal to maximal use.
 
@@ -31,23 +31,26 @@ include::{uml_export_dir}/classes/el_unary_operator.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_binary_operator.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/el_terminal.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/el_variable_ref.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/el_instantiable_ref.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_external_ref.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/el_local_ref.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/el_constant_ref.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/el_routine_call.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/el_agent.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/el_function_agent.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/el_procedure_agent.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/el_agent_call.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_function_call.adoc[leveloffset=+1]
+
 include::{uml_export_dir}/classes/el_literal.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/el_predicate.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/el_assertion.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_defined.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/el_constraint_expression.adoc[leveloffset=+1]
 
 == Statements
 
-The statements part of EL is represented by the `EL_STATEMENT` class and descendants, which represent, respectively assignments, procedure calls, assertions (check instructions) and decision structures (i.e. if/then and when/then).
+The statements part of EL is represented by the `DL_STATEMENT` class and descendants, which represent, respectively assignments, procedure calls, assertions (check instructions) and decision structures (i.e. if/then and when/then).
 
 [.text-center]
 .base.dlom.statement Package
@@ -57,10 +60,13 @@ image::{uml_diagrams_uri}/LANG-dlom.statement.svg[id=dlom_statement, align="cent
 
 include::{uml_export_dir}/classes/dl_statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_assignment.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/dl_assertion.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_procedure_call.adoc[leveloffset=+1]
+
 include::{uml_export_dir}/classes/dl_choice_group.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_choice_branch.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_condition_group.adoc[leveloffset=+1]
+
 include::{uml_export_dir}/classes/dl_condition_branch.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_decision_group.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/dl_decision_branch.adoc[leveloffset=+1]
@@ -74,7 +80,7 @@ The top-level construct of the ELOM is the `EL_MODULE`, representing a standalon
 image::{uml_diagrams_uri}/LANG-dlom.module.svg[id=dlom_module, align="center", width="80%"]
 
 [.tbd]
-TBD: to be continued.
+TBD: to be continued. 
 
 === Class Descriptions
 

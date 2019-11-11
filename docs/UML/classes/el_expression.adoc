@@ -8,14 +8,17 @@ h|*Class*
 h|*Description*
 2+a|Abstract parent of all typed expression tree items.
 
-h|*Inherit*
-2+|`BMM_VALUE`
-
-h|*Attributes*
+h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*definition*: `Any`
-a|The reference item from which the value of this node can be computed.
+h|(abstract)
+|*value* (): `Any`
+a|A runtime executable value of this entity.
+
+NOTE: Not necessarily directly implemented.
+
+h|(abstract)
+|*effective_type* (): `BMM_TYPE`
+a|Type of expression entity at evaluation time. Effected in descendants.
 |===

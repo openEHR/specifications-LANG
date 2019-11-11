@@ -54,9 +54,10 @@
 <li><a href="#_design_approach">2.3. Design Approach</a></li>
 <li><a href="#_uses_of_the_bmm">2.4. Uses of the BMM</a>
 <ul class="sectlevel3">
-<li><a href="#_class_model_representation">2.4.1. Class Model Representation</a></li>
-<li><a href="#_information_model_representation">2.4.2. Information Model Representation</a></li>
-<li><a href="#_archetype_modelling">2.4.3. Archetype Modelling</a></li>
+<li><a href="#_mata_model_basis_for_expressions_meta_model">2.4.1. Mata-Model Basis for Expressions Meta-model</a></li>
+<li><a href="#_class_model_representation">2.4.2. Class Model Representation</a></li>
+<li><a href="#_information_model_representation">2.4.3. Information Model Representation</a></li>
+<li><a href="#_archetype_modelling">2.4.4. Archetype Modelling</a></li>
 </ul>
 </li>
 <li><a href="#_specification_structure">2.5. Specification Structure</a></li>
@@ -113,20 +114,23 @@
 <li><a href="#_overview_5">6.1. Overview</a></li>
 <li><a href="#_simple_type">6.2. Simple Type</a></li>
 <li><a href="#_generic_type">6.3. Generic Type</a></li>
-<li><a href="#_tuple_type">6.4. Tuple Type</a></li>
-<li><a href="#_container_types">6.5. Container Types</a></li>
-<li><a href="#_type_conformance">6.6. Type Conformance</a></li>
-<li><a href="#_class_definitions_4">6.7. Class Definitions</a>
+<li><a href="#_routine_types_and_signatures">6.4. Routine Types and Signatures</a></li>
+<li><a href="#_tuple_type">6.5. Tuple Type</a></li>
+<li><a href="#_container_types">6.6. Container Types</a></li>
+<li><a href="#_type_conformance">6.7. Type Conformance</a></li>
+<li><a href="#_class_definitions_4">6.8. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_type_class">6.7.1. BMM_TYPE Class</a></li>
-<li><a href="#_bmm_unitary_type_class">6.7.2. BMM_UNITARY_TYPE Class</a></li>
-<li><a href="#_bmm_defined_type_class">6.7.3. BMM_DEFINED_TYPE Class</a></li>
-<li><a href="#_bmm_parameter_type_class">6.7.4. BMM_PARAMETER_TYPE Class</a></li>
-<li><a href="#_bmm_simple_type_class">6.7.5. BMM_SIMPLE_TYPE Class</a></li>
-<li><a href="#_bmm_generic_type_class">6.7.6. BMM_GENERIC_TYPE Class</a></li>
-<li><a href="#_bmm_tuple_type_class">6.7.7. BMM_TUPLE_TYPE Class</a></li>
-<li><a href="#_bmm_container_type_class">6.7.8. BMM_CONTAINER_TYPE Class</a></li>
-<li><a href="#_bmm_indexed_container_type_class">6.7.9. BMM_INDEXED_CONTAINER_TYPE Class</a></li>
+<li><a href="#_bmm_type_class">6.8.1. BMM_TYPE Class</a></li>
+<li><a href="#_bmm_unitary_type_class">6.8.2. BMM_UNITARY_TYPE Class</a></li>
+<li><a href="#_bmm_defined_type_class">6.8.3. BMM_DEFINED_TYPE Class</a></li>
+<li><a href="#_bmm_parameter_type_class">6.8.4. BMM_PARAMETER_TYPE Class</a></li>
+<li><a href="#_bmm_simple_type_class">6.8.5. BMM_SIMPLE_TYPE Class</a></li>
+<li><a href="#_bmm_generic_type_class">6.8.6. BMM_GENERIC_TYPE Class</a></li>
+<li><a href="#_bmm_tuple_type_class">6.8.7. BMM_TUPLE_TYPE Class</a></li>
+<li><a href="#_bmm_signature_class">6.8.8. BMM_SIGNATURE Class</a></li>
+<li><a href="#_bmm_container_type_class">6.8.9. BMM_CONTAINER_TYPE Class</a></li>
+<li><a href="#_bmm_indexed_container_type_class">6.8.10. BMM_INDEXED_CONTAINER_TYPE Class</a></li>
+<li><a href="#_bmm_entity_metatype_enumeration">6.8.11. BMM_ENTITY_METATYPE Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -170,11 +174,14 @@
 <li><a href="#_properties">8.5. Properties</a>
 <ul class="sectlevel3">
 <li><a href="#_unitary_versus_container_properties">8.5.1. Unitary versus Container Properties</a></li>
-<li><a href="#_semantic_level">8.5.2. Semantic level</a></li>
 </ul>
 </li>
 <li><a href="#_functions_and_procedures">8.6. Functions and Procedures</a></li>
-<li><a href="#_variables_objects_and_values">8.7. Variables, Objects and Values</a></li>
+<li><a href="#_variables_objects_and_values">8.7. Variables, Objects and Values</a>
+<ul class="sectlevel3">
+<li><a href="#_semantic_level">8.7.1. Semantic level</a></li>
+</ul>
+</li>
 <li><a href="#_class_definitions_6">8.8. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_bmm_typed_class">8.8.1. BMM_TYPED Class</a></li>
@@ -199,14 +206,14 @@
 </li>
 </ul>
 </li>
-<li><a href="#_values">9. Values</a>
+<li><a href="#_literal_values">9. Literal Values</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_8">9.1. Overview</a></li>
-<li><a href="#_meaning_of_bmm_value_meta_type">9.2. Meaning of BMM_VALUE Meta-type</a></li>
+<li><a href="#_meaning_of_bmm_literal_value_meta_type">9.2. Meaning of BMM_LITERAL_VALUE Meta-type</a></li>
 <li><a href="#_tuples">9.3. Tuples</a></li>
 <li><a href="#_class_definitions_7">9.4. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_value_class">9.4.1. BMM_VALUE Class</a></li>
+<li><a href="#_bmm_literal_value_class">9.4.1. BMM_LITERAL_VALUE Class</a></li>
 <li><a href="#_bmm_string_value_class">9.4.2. BMM_STRING_VALUE Class</a></li>
 <li><a href="#_bmm_integer_value_class">9.4.3. BMM_INTEGER_VALUE Class</a></li>
 </ul>
@@ -216,16 +223,15 @@
 <li><a href="#_functional_elements">10. Functional Elements</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_9">10.1. Overview</a></li>
-<li><a href="#_routine_types_and_signatures">10.2. Routine Types and Signatures</a></li>
-<li><a href="#_routine_calls">10.3. Routine Calls</a></li>
-<li><a href="#_class_definitions_8">10.4. Class Definitions</a>
+<li><a href="#_class_definitions_8">10.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_signature_class">10.4.1. BMM_SIGNATURE Class</a></li>
-<li><a href="#_bmm_routine_call_class">10.4.2. BMM_ROUTINE_CALL Class</a></li>
-<li><a href="#_bmm_function_call_class">10.4.3. BMM_FUNCTION_CALL Class</a></li>
-<li><a href="#_bmm_procedure_call_class">10.4.4. BMM_PROCEDURE_CALL Class</a></li>
-<li><a href="#_bmm_tuple_class">10.4.5. BMM_TUPLE Class</a></li>
-<li><a href="#_bmm_tuple_item_class">10.4.6. BMM_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_agent_class">10.2.1. EL_AGENT Class</a></li>
+<li><a href="#_el_tuple_class">10.2.2. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">10.2.3. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_function_agent_class">10.2.4. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">10.2.5. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_agent_call_class">10.2.6. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">10.2.7. EL_FUNCTION_CALL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -355,9 +361,10 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>BMM_MODEL_ELEMENT</code> to <code>BMM_DECLARATION</code>;<br>
  Rename <code>BMM_VALUED</code> to <code>BMM_TYPED</code>;<br>
  Rename <code>BMM_REFERENCEABLE</code> to <code>BMM_FEATURE</code>;<br>
+ Introduce dual taxonomy for features based on scoped declarations and typing;<br>
  Add meta-model for functional entities. Re-structure packages. Modify <code>BMM_FEATURE.<em>signature</em></code> to new meta-type, <code>BMM_SIGNATURE</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">14 Oct 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 Nov 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -726,18 +733,18 @@ Other tools may well perform as well or better, and in any case, all tools chang
 <div class="sect2">
 <h3 id="_design_approach"><a class="anchor" href="#_design_approach"></a>2.3. Design Approach</h3>
 <div class="paragraph">
-<p>The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms, 'classes, properties and methods'. It is designed to enable both human authoring and machine extraction (e.g. from a UML tool or programming language classes) of textual schemas. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction <a href="#Meyer_OOSC2">[Meyer_OOSC2]</a> and also the <a href="http://www.ecma-international.org/publications/standards/Ecma-367.htm">Eiffel language</a>, which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, but also from the OOSC/Eiffel approach in one key aspect. Its key design concepts are as follows:</p>
+<p>The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms, 'classes, properties and methods'. It is designed to enable both human authoring and machine extraction (e.g. from a UML tool or programming language classes) of textual schemas. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction <a href="#Meyer_OOSC2">[Meyer_OOSC2]</a> and also the <a href="http://www.ecma-international.org/publications/standards/Ecma-367.htm">Eiffel language</a>, which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in one key aspect (container types). Its key design concepts are as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The Basic Meta-Model is concretely based on Object-oriented class model concepts, rather than being a highly general model like the UML meta-model;</p>
+<p>The Basic Meta-Model is concretely based on Object-oriented class model as well as functional programming concepts, rather than being a highly general model like the UML meta-model;</p>
 </li>
 <li>
 <p>Types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;</p>
 </li>
 <li>
-<p>Types as a first-order entity allows generic types and inheritance from open, closed, or partially open generics to be properly represented, unlike in UML;</p>
+<p>Types as a first-order entity enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;</p>
 </li>
 <li>
 <p>Container types are treated as partially built-in, meaning that class features in a model are always typed to either 'unitary' or 'container' types;</p>
@@ -753,17 +760,26 @@ Other tools may well perform as well or better, and in any case, all tools chang
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Functional elements are supported via the inclusion of meta-types representing signature and tuples, enabling the construction of delayed agent calls (known here as agents) and function applications (i.e. function calls).</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_uses_of_the_bmm"><a class="anchor" href="#_uses_of_the_bmm"></a>2.4. Uses of the BMM</h3>
 <div class="sect3">
-<h4 id="_class_model_representation"><a class="anchor" href="#_class_model_representation"></a>2.4.1. Class Model Representation</h4>
+<h4 id="_mata_model_basis_for_expressions_meta_model"><a class="anchor" href="#_mata_model_basis_for_expressions_meta_model"></a>2.4.1. Mata-Model Basis for Expressions Meta-model</h4>
+<div class="paragraph">
+<p>The BMM provides a system of meta-types that enables further meta-types to be constructed representing the use of typed elements in <em>expressions</em>. These include <em>references</em> to static entities in scope (constants, variables, properties), literal values, construction of agents (lambda terms), and function calls (lambda applications).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_class_model_representation"><a class="anchor" href="#_class_model_representation"></a>2.4.2. Class Model Representation</h4>
 <div class="paragraph">
 <p>The BMM from version 3.1.0 on may be used to represent a full class model at an interface level (i.e. without code for methods) including classes, types, and class feature types including property (i.e. attribute), symbolic constant, manifest value, functions, operators, and procedures.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_information_model_representation"><a class="anchor" href="#_information_model_representation"></a>2.4.2. Information Model Representation</h4>
+<h4 id="_information_model_representation"><a class="anchor" href="#_information_model_representation"></a>2.4.3. Information Model Representation</h4>
 <div class="paragraph">
 <p>Until version 3.0.0, BMM supported only the information point of view, i.e. no methods, and it is often used to express models of data. Tools based on BMM can provide views of an object model expressed in BMM that are particularly useful to information modelling, such as the 'closure' view show below. This is a computed reachability graph of a fully inheritance-flattened class and all properties, including recursive references.</p>
 </div>
@@ -775,7 +791,7 @@ Other tools may well perform as well or better, and in any case, all tools chang
 </div>
 </div>
 <div class="sect3">
-<h4 id="_archetype_modelling"><a class="anchor" href="#_archetype_modelling"></a>2.4.3. Archetype Modelling</h4>
+<h4 id="_archetype_modelling"><a class="anchor" href="#_archetype_modelling"></a>2.4.4. Archetype Modelling</h4>
 <div class="paragraph">
 <p>One of the uses of the BMM in the ADL Workbench and other similar tools is to provide a computable form of the information model for use with domain-level content models, such as <a href="https://specifications.openehr.org/releases/AM/latest/index">archetypes</a>. The following shows an archetype for which each node has its class shown (in colour), and additionally, the inclusion of non-archetyped attributes from the classes of the archetype nodes.</p>
 </div>
@@ -1372,7 +1388,9 @@ other: <code>BMM_SCHEMA[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>read_to_validate</strong> (): <code>Boolean</code><br>
 <strong><em>Post_state</em></strong>: <code>state = State_includes_processed</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True when validation may be commenced.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -1381,7 +1399,7 @@ other: <code>BMM_SCHEMA[1]</code><br>
 <p>Identifier of this schema, used for stating inclusions and identifying files. Formed as:</p>
 </div>
 <div class="paragraph">
-<p><code><em>rm_publisher</em> '<em>' _schema_name</em> '<em>' _rm_release</em></code></p>
+<p><code><em>rm_publisher</em></code> '<em>' <code>_schema_name</em></code> '<em>' <code>_rm_release</em></code></p>
 </div>
 <div class="paragraph">
 <p>E.g. <code>'openehr_rm_ehr_1.0.4'</code>.</p>
@@ -2175,7 +2193,7 @@ an_anc_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_4"><a class="anchor" href="#_overview_4"></a>5.1. Overview</h3>
 <div class="paragraph">
-<p>The key elements of the BMM model are meta-classes representing <em>classes</em> and <em>types</em>, collectively known as <em>entities</em>. These are shown in the following UML diagram.</p>
+<p>The key elements of the BMM model are meta-classes representing <em>classes</em> and <em>types</em>, respectively definers and instance templates for run-time objects, known in BMM as <em>entities</em>. BMM accordingly defines meta-types for entity, class, and various flavours of type, as shown in the following UML diagram.</p>
 </div>
 <div id="core_entity" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2528,13 +2546,22 @@ an_anc_type: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tuple_type"><a class="anchor" href="#_tuple_type"></a>6.4. Tuple Type</h3>
+<h3 id="_routine_types_and_signatures"><a class="anchor" href="#_routine_types_and_signatures"></a>6.4. Routine Types and Signatures</h3>
 <div class="paragraph">
-<p>The meta-type <code>BMM_TUPLE_TYPE</code> is a specialised type that enables the <em>type</em> of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments to a routine, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or <code>struct</code>, in the C/C++).</p>
+<p>The feature of a model or language that makes it functional is to allow the type of a <em>routine call</em>, and thus a <em>function call</em>, to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type <code>BMM_SIGNATURE</code>. Instances of this meta-type represent any kind of signature, and consist of <code><em>argument_types</em></code>, whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#_tuple_type">Section 6.5</a>), and <code><em>result_type</em></code>, representing the result type.</p>
+</div>
+<div class="paragraph">
+<p>The same meta-type is used to represent signatures of both procedures and functions, even though procedures have no result type. This is achieved using invariants, as described in <a href="#_signatures">Section 8.3</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_container_types"><a class="anchor" href="#_container_types"></a>6.5. Container Types</h3>
+<h3 id="_tuple_type"><a class="anchor" href="#_tuple_type"></a>6.5. Tuple Type</h3>
+<div class="paragraph">
+<p>The meta-type <code>BMM_TUPLE_TYPE</code> is a specialised type that enables the <em>type</em> of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the <code>BMM_SIGNATURE</code> class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or <code>struct</code>, in C/C++).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_types"><a class="anchor" href="#_container_types"></a>6.6. Container Types</h3>
 <div class="paragraph">
 <p>In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as <code>List&lt;T&gt;</code> and <code>Set&lt;T&gt;</code> are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes <code>BMM_GENERIC_TYPE</code> and <code>BMM_CONTAINER_TYPE</code>. This allows the BMM to treat container types in a special way. A <code>BMM_CONTAINER_TYPE</code> can be thought of as a 1:N counterpart to a <code>BMM_UNITARY_TYPE</code>, such as the type <code>List&lt;Paragraph&gt;</code> with respect to <code>Paragraph</code>. <code>BMM_GENERIC_TYPE</code> is typically used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. <code>Interval&lt;Quantity&gt;</code>.</p>
 </div>
@@ -2564,7 +2591,7 @@ an_anc_type: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_type_conformance"><a class="anchor" href="#_type_conformance"></a>6.6. Type Conformance</h3>
+<h3 id="_type_conformance"><a class="anchor" href="#_type_conformance"></a>6.7. Type Conformance</h3>
 <div class="paragraph">
 <p>In object-oriented theory, the important relationship between types is substitutability, which governs which instances may be dynamically attached to property references of particular declared static types. In the BMM, a type is <em>conformant</em> to another type if the base classes of its constituent elements are inheritance descendants of the corresponding elements of the other type. This is known in object-oriented type theory as <em>covariant</em> conformance.</p>
 </div>
@@ -2642,9 +2669,9 @@ an_anc_type: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_4"><a class="anchor" href="#_class_definitions_4"></a>6.7. Class Definitions</h3>
+<h3 id="_class_definitions_4"><a class="anchor" href="#_class_definitions_4"></a>6.8. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_type_class"><a class="anchor" href="#_bmm_type_class"></a>6.7.1. BMM_TYPE Class</h4>
+<h4 id="_bmm_type_class"><a class="anchor" href="#_bmm_type_class"></a>6.8.1. BMM_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2734,7 +2761,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_unitary_type_class"><a class="anchor" href="#_bmm_unitary_type_class"></a>6.7.2. BMM_UNITARY_TYPE Class</h4>
+<h4 id="_bmm_unitary_type_class"><a class="anchor" href="#_bmm_unitary_type_class"></a>6.8.2. BMM_UNITARY_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2760,7 +2787,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_defined_type_class"><a class="anchor" href="#_bmm_defined_type_class"></a>6.7.3. BMM_DEFINED_TYPE Class</h4>
+<h4 id="_bmm_defined_type_class"><a class="anchor" href="#_bmm_defined_type_class"></a>6.8.3. BMM_DEFINED_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2786,7 +2813,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_type_class"><a class="anchor" href="#_bmm_parameter_type_class"></a>6.7.4. BMM_PARAMETER_TYPE Class</h4>
+<h4 id="_bmm_parameter_type_class"><a class="anchor" href="#_bmm_parameter_type_class"></a>6.8.4. BMM_PARAMETER_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2926,7 +2953,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_simple_type_class"><a class="anchor" href="#_bmm_simple_type_class"></a>6.7.5. BMM_SIMPLE_TYPE Class</h4>
+<h4 id="_bmm_simple_type_class"><a class="anchor" href="#_bmm_simple_type_class"></a>6.8.5. BMM_SIMPLE_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2947,6 +2974,19 @@ an_anc_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENTITY_TYPE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_class</strong>: <code>BMM_SIMPLE_CLASS</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Defining class of this type.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -2999,7 +3039,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_generic_type_class"><a class="anchor" href="#_bmm_generic_type_class"></a>6.7.6. BMM_GENERIC_TYPE Class</h4>
+<h4 id="_bmm_generic_type_class"><a class="anchor" href="#_bmm_generic_type_class"></a>6.8.6. BMM_GENERIC_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3030,7 +3070,7 @@ an_anc_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameters</strong>: <code>List&lt;BMM_UNITARY_TYPE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Generic parameters of the <code><em>root_type</em></code> in this type specifier. The order must match the order of the owning class&#8217;s formal generic parameter declarations.</p>
+<p>Generic parameters of the <code><em>root_type</em></code> in this type specifier. The order must match the order of the owning class&#8217;s formal generic parameter declarations, and the types may be defined types or formal parameter types.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3113,7 +3153,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_tuple_type_class"><a class="anchor" href="#_bmm_tuple_type_class"></a>6.7.7. BMM_TUPLE_TYPE Class</h4>
+<h4 id="_bmm_tuple_type_class"><a class="anchor" href="#_bmm_tuple_type_class"></a>6.8.7. BMM_TUPLE_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3154,7 +3194,52 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_container_type_class"><a class="anchor" href="#_bmm_container_type_class"></a>6.7.8. BMM_CONTAINER_TYPE Class</h4>
+<h4 id="_bmm_signature_class"><a class="anchor" href="#_bmm_signature_class"></a>6.8.8. BMM_SIGNATURE Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_SIGNATURE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Non-entity meta-type that expresses the type structure of any referenceable element of a model. Consists of potential <code><em>arguments</em></code> and <code><em>result</em></code>, with constraints in descendants determining the exact form.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DEFINED_TYPE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument_types</strong>: <code>BMM_TUPLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result_type</strong>: <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Result type of signature, if any.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_container_type_class"><a class="anchor" href="#_bmm_container_type_class"></a>6.8.9. BMM_CONTAINER_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3169,7 +3254,7 @@ an_anc_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> etc.</p>
+<p>Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> etc.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3254,7 +3339,7 @@ an_anc_type: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_indexed_container_type_class"><a class="anchor" href="#_bmm_indexed_container_type_class"></a>6.7.9. BMM_INDEXED_CONTAINER_TYPE Class</h4>
+<h4 id="_bmm_indexed_container_type_class"><a class="anchor" href="#_bmm_indexed_container_type_class"></a>6.8.10. BMM_INDEXED_CONTAINER_TYPE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3269,7 +3354,7 @@ an_anc_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Type of linear container that indexes the contained items in the manner of a standard Hash table, map or dictionary.</p>
+<p>Meta-type of linear container type that indexes the contained items in the manner of a standard Hash table, map or dictionary.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3287,6 +3372,61 @@ an_anc_type: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Type of the element index, typically <code>String</code> or <code>Integer</code>, but may be a numeric type or indeed any type from which a hash value can be derived.</p>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_entity_metatype_enumeration"><a class="anchor" href="#_bmm_entity_metatype_enumeration"></a>6.8.11. BMM_ENTITY_METATYPE Enumeration</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ENTITY_METATYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_simple</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_generic</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_generic_parameter</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_range_constrained</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_enumeration</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity_metatype_container</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
@@ -3732,7 +3872,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameters</strong>: <code>Hash&lt;String,BMM_PARAMETER_TYPE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of generic parameter definitions, keyed by name of generic parameter; these are defined either directly on this class or by the addition of an ancestor class which is generic.</p>
+<p>List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4054,7 +4194,16 @@ a_name: <code>String[1]</code><br>
 <p>This indicates that both meta-types have a return type, being the type of the value they are attached to at execution time.</p>
 </div>
 <div class="paragraph">
-<p>The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The general form of routine signatures is thus as follows:</p>
+<p>The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. <code>BMM_FUNCION</code>, representing a function definition has an invariant requiring <code>signature.result /= Void</code>).</p>
+</div>
+<div id="signature_taxonomy" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="bmm/diagrams/signature_taxonomy.svg" alt="signature taxonomy" width="50%">
+</div>
+<div class="title">Figure 28. Signature taxonomy</div>
+</div>
+<div class="paragraph">
+<p>The general form of routine signatures is thus as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4063,7 +4212,10 @@ a_name: <code>String[1]</code><br>
 </div>
 </div>
 <div class="paragraph">
-<p>Typical examples of function signatures:</p>
+<p>In the above, the construction <code>[Type, &#8230;&#8203;]</code> represents a type-tuple.</p>
+</div>
+<div class="paragraph">
+<p>Typical examples of function signatures are as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4090,7 +4242,7 @@ a_name: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p>a descendant of <code>BMM_CLASS_SCOPED</code> with a signature having no arguments; and</p>
+<p>a descendant of <code>BMM_CLASS_SCOPED</code> whose <code><em>signature</em></code> has no arguments; and</p>
 </li>
 <li>
 <p>a descendant of <code>BMM_INSTANTIABLE</code> that is not run-time nullable.</p>
@@ -4118,8 +4270,26 @@ a_name: <code>String[1]</code><br>
 <p>Single-valued properties in a BMM model are instances of the type <code>BMM_UNITARY_PROPERTY</code>, and have as their <code><em>type</em></code> the meta-type <code>UNITARY_TYPE</code>. Container properties are instances of the meta-type <code>BMM_CONTAINER_PROPERTY</code>, which adds the attribute <code><em>cardinality</em></code>, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type <code>BMM_INDEXED_CONTAINER_PROPERTY</code> adds the attribute <code><em>index_type</em></code>, enabling representation of indexed concrete container types such as <code>Hash&lt;K,V&gt;</code> etc.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_functions_and_procedures"><a class="anchor" href="#_functions_and_procedures"></a>8.6. Functions and Procedures</h3>
+<div class="paragraph">
+<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class.</p>
+</div>
+<div class="paragraph">
+<p>The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class <code>BMM_PARAMETER</code>, which is defined as a kind of <em>variable</em>. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The <code><em>is_nullable</em></code> meta-attribute inherited from <code>BMM_TYPED_FEATURE</code> indicates whether each parameter is mandatory or not.</p>
+</div>
+<div class="paragraph">
+<p>An additional feature of the meta-model for functions is the notion of <em>operator</em>, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of <code><em>arity</em></code> 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like <code>weight &gt; 90</code> to mean <code>weight.gt (90)</code>, where <code>weight</code> is of type <code>Real</code>, and the function <code>gt(other: Real)</code> is defined.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variables_objects_and_values"><a class="anchor" href="#_variables_objects_and_values"></a>8.7. Variables, Objects and Values</h3>
+<div class="paragraph">
+<p>At the finest level of detail of a model definition are what are typically thought of as (local) <em>variables</em> and (literal) <em>values</em>. These are represented by the classes <code>BMM_LOCAL</code> and <code>BMM_VALUE</code> respectively. Both variables and values have a <code><em>type</em></code>, with type being inferred for the latter from its value when parsed or otherwise created.</p>
+</div>
 <div class="sect3">
-<h4 id="_semantic_level"><a class="anchor" href="#_semantic_level"></a>8.5.2. Semantic level</h4>
+<h4 id="_semantic_level"><a class="anchor" href="#_semantic_level"></a>8.7.1. Semantic level</h4>
 <div class="paragraph">
 <p>Properties also include two other Boolean meta-data items, <code><em>is_im_runtime</em></code> and <code><em>is_im_infrastructure</em></code>, which can be used to classify property values in a model according to 'semantic level', which roughly corresponds to the continuum from domain-specific to infrastructure. These may be individually set, or both may be False. The three meaningful value settings are as follows:</p>
 </div>
@@ -4143,26 +4313,8 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_class_properties.png" alt="awb class properties" width="50%">
 </div>
-<div class="title">Figure 28. BMM class - properties view</div>
+<div class="title">Figure 29. BMM class - properties view</div>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_functions_and_procedures"><a class="anchor" href="#_functions_and_procedures"></a>8.6. Functions and Procedures</h3>
-<div class="paragraph">
-<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class.</p>
-</div>
-<div class="paragraph">
-<p>The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class <code>BMM_PARAMETER</code>, which is understood as a kind of <em>variable</em>. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The <code><em>is_nullable</em></code> meta-attribute inherited from <code>BMM_TYPED_FEATURE</code> indicates whether each parameter is mandatory or not.</p>
-</div>
-<div class="paragraph">
-<p>An additional feature of the meta-model for functions is the notion of <em>operator</em>, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of <code><em>arity</em></code> 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like <code>weight &gt; 90</code> to mean <code>weight.gt (90)</code>, where <code>weight</code> is of type <code>Real</code>, and the function <code>gt(other: Real)</code> is defined.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_variables_objects_and_values"><a class="anchor" href="#_variables_objects_and_values"></a>8.7. Variables, Objects and Values</h3>
-<div class="paragraph">
-<p>At the finest level of detail of a model definition are what are typically thought of as (local) <em>variables</em> and (literal) <em>values</em>. These are represented by the classes <code>BMM_LOCAL</code> and <code>BMM_VALUE</code> respectively. Both variables and values have a <code><em>type</em></code>, with type being inferred for the latter from its value when parsed or otherwise created.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4183,7 +4335,7 @@ a_name: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Any entity that represents or returns an value of some type <code><em>type()</em></code>.</p>
+<p>Any entity that has a declared or inferred static type, and that can therefore be generate a value.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4246,7 +4398,13 @@ a_name: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>signature</strong> (): <code>BMM_SIGNATURE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Formal signature of this element, in the form <code>'name [arg1_name: T_arg1, &#8230;&#8203;][:T_value]'</code>.</p>
+<p>Formal signature of this element, in the form:</p>
+</div>
+<div class="paragraph">
+<p><code>name [arg1_name: T_arg1, &#8230;&#8203;][:T_value]</code></p>
+</div>
+<div class="paragraph">
+<p>Specific implementations in descendants.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5008,25 +5166,25 @@ a_name: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_values"><a class="anchor" href="#_values"></a>9. Values</h2>
+<h2 id="_literal_values"><a class="anchor" href="#_literal_values"></a>9. Literal Values</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_8"><a class="anchor" href="#_overview_8"></a>9.1. Overview</h3>
 <div class="paragraph">
-<p>With a typical formal model, there is a need for formal representation of literal values. This is needed to support constant declarations, 'default values' (a UML concept), enumeration literals and literal routine calls (see next section). In BMM, all such values have as their meta-type the type <code>BMM_VALUE</code> or a descendant. The UML model of these types is shown below.</p>
+<p>With a typical formal model, there is a need for formal representation of literal values. This is needed to support constant declarations, 'default values' (a UML concept), enumeration literals and literal routine calls (see next section). In BMM, all such values have as their meta-type the type <code>BMM_LITERAL_VALUE</code> or a descendant. The UML model of these types is shown below.</p>
 </div>
-<div id="core_value" class="imageblock text-center" style="text-align: center">
+<div id="core_literal_value" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="UML/diagrams/LANG-bmm.core.value.svg" alt="LANG bmm.core.value">
+<img src="UML/diagrams/LANG-bmm.core.literal_value.svg" alt="LANG bmm.core.literal value">
 </div>
-<div class="title">Figure 29. <code>base.bmm.core.value</code> package - Values</div>
+<div class="title">Figure 30. <code>base.bmm.core.literal_value</code> package - Literal Values</div>
 </div>
 <div class="paragraph">
-<p>In the above model, the sub-types of <code>BMM_VALUE</code> are limited to those that are generically applicable in any other part of the model. Other value-specific <code>BMM_VALUE</code> descendants are also defined within specific sub-packages.</p>
+<p>In the above model, the sub-types of <code>BMM_LITERAL_VALUE</code> are limited to those that are generically applicable in any other part of the model. Other value-specific <code>BMM_VALUE</code> descendants are also defined within specific sub-packages.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_meaning_of_bmm_value_meta_type"><a class="anchor" href="#_meaning_of_bmm_value_meta_type"></a>9.2. Meaning of BMM_VALUE Meta-type</h3>
+<h3 id="_meaning_of_bmm_literal_value_meta_type"><a class="anchor" href="#_meaning_of_bmm_literal_value_meta_type"></a>9.2. Meaning of BMM_LITERAL_VALUE Meta-type</h3>
 <div class="paragraph">
 <p>When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. 'Real pi = 3.1415926'), default values (e.g. <code>Person.name: String = "(unknown)"</code>) etc are instances of two 'types':</p>
 </div>
@@ -5041,16 +5199,16 @@ a_name: <code>String[1]</code><br>
 </ul>
 </div>
 <div class="paragraph">
-<p>The literal value of any such object is represented by the <code><em>value_literal</em></code> field within its <code>BMM_VALUE</code>. This is assumed to carry a value expressed in a syntax known to the model processing environment in which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.</p>
+<p>The literal value of any such object is represented by the <code><em>value_literal</em></code> field within its <code>BMM_LITERAL_VALUE</code>. This is assumed to carry a value expressed in a syntax known to the model processing environment in which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.</p>
 </div>
 <div class="paragraph">
 <p>In principle, a <code>BMM_VALUE</code> descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types concretely needed in the BMM, which includes two primitive types (<code>String</code> and <code>Integer</code>) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <a href="#_functional_elements">Section 10</a>.</p>
 </div>
 <div class="paragraph">
-<p>In practice many literal values appearing in a BMM model may be instantiated simply as instances of <code>BMM_VALUE</code>, with their value stored in the <code><em>value_literal</em></code> field.</p>
+<p>In practice many literal values appearing in a BMM model may be instantiated simply as instances of <code>BMM_LITERAL_VALUE</code>, with their value stored in the <code><em>value_literal</em></code> field.</p>
 </div>
 <div class="paragraph">
-<p>If it was desired to create a full set of 'native' types for BMM, in the way supplied for UML in the UML Standard Profile, specific descendants would be added to the meta-type classes <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, as well as <code>BMM_VALUE</code>, which would allow such instances to be directly representable in the internal BMM type system. This would still need to be ultimately mapped to the types actually available in any language in which BMM is implemented.</p>
+<p>If it was desired to create a full set of 'native' types for BMM, in the way supplied for UML in the UML Standard Profile, specific descendants would be added to the meta-type classes <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, as well as <code>BMM_LITERAL_VALUE</code>, which would allow such instances to be directly representable in the internal BMM type system. This would still need to be ultimately mapped to the types actually available in any language in which BMM is implemented.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5059,7 +5217,7 @@ a_name: <code>String[1]</code><br>
 <p>One very useful structured value is the <em>tuple</em>, which is defined as an array of items each having as its meta-type any descendant of <code>BMM_TYPED</code>. This allows tuples to contain not only other literals (including other tuples) but also constants, variables, properties and parameters declared in class definitions the model, and literal routine calls.</p>
 </div>
 <div class="paragraph">
-<p>The type of a tuple is defined by an instance of the meta-type <code>BMM_TUPLE_TYPE</code>, described in <a href="#_routine_types_and_signatures">Section 10.2</a>.</p>
+<p>The type of a tuple is defined by an instance of the meta-type <code>BMM_TUPLE_TYPE</code>, described in <a href="#_routine_types_and_signatures">Section 6.4</a>.</p>
 </div>
 <div class="paragraph">
 <p>One of the main uses of literal tuples is to express the closed arguments of a literal routine call.</p>
@@ -5068,7 +5226,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_class_definitions_7"><a class="anchor" href="#_class_definitions_7"></a>9.4. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_value_class"><a class="anchor" href="#_bmm_value_class"></a>9.4.1. BMM_VALUE Class</h4>
+<h4 id="_bmm_literal_value_class"><a class="anchor" href="#_bmm_literal_value_class"></a>9.4.1. BMM_LITERAL_VALUE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5078,12 +5236,12 @@ a_name: <code>String[1]</code><br>
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_VALUE (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_LITERAL_VALUE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Meta-type of any entity that is resolvable to a value, i.e. a literal value, or a reference to an instance, a function call, or an expression containing references, function calls and/or literals.</p>
+<p>Meta-type for literal instance values declared in a model. Instance values may be inline values of primitive types in the usual fashion or complex objects in syntax form, e.g. JSON.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5091,27 +5249,23 @@ a_name: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_TYPED</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code>Any</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_literal</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>A runtime executable value of this entity.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Not necessarily directly implemented.
-</td>
+<p>A serial representation of the value.</p>
+</div></div></td>
 </tr>
-</table>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_ENTITY_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Static type inferred from literal value.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5178,79 +5332,47 @@ Not necessarily directly implemented.
 <div class="sect2">
 <h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
 <div class="paragraph">
-<p>BMM provides support for representing functional entities, often known as <a href="https://en.wikipedia.org/wiki//Lambda_calculus" target="_blank" rel="noopener">lambdas</a>. The relevant package is <code>bmm.core.functional</code>, shown below.</p>
-</div>
-<div id="core_functional" class="imageblock text-center" style="text-align: center">
-<div class="content">
-<img src="UML/diagrams/LANG-bmm.core.functional.svg" alt="LANG bmm.core.functional">
-</div>
-<div class="title">Figure 30. <code>base.bmm.core.functional</code> package - Functional Elements</div>
+<p>BMM provides support for representing functional entities, often known as <a href="https://en.wikipedia.org/wiki//Lambda_calculus" target="_blank" rel="noopener">lambdas</a>. The two key functional entities are known in the calculus as a <em>lambda term</em> and an <em>application</em>. The first is more commonly understood by programmers as a <em>delayed routine call</em>, here denoted by the term <em>agent</em>. The latter is what programmers understand as a 'call', i.e. an application of a lambda term.</p>
 </div>
 <div class="paragraph">
-<p>A call to a routine may be formalised as a lambda expression, often termed as a 'function-as-object', more correctly understood as a <em>delayed routine call</em>. As described in <a href="#_functions_and_procedures">Section 8.6</a>, function and procedure are two specialisations of 'routine', where a procedure is a callable entity producing no return value. So-called functional programming generally deals with both types of calls.</p>
-</div>
-<div class="paragraph">
-<p>There are three possible levels of expression of a callable routine within an object/functional model system that supports lambda expressions, as follows:</p>
+<p>An agent is formed by reference to a function or procedure in an expression context, potentially with provision of some or all arguments. This creates an entity whose type is an instance of the meta-type <code>BMM_SIGNATURE</code>. There are three variations as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em>definition</em>: the definition of the routine, consisting at least of its interface, and possibly implementation;</p>
+<p><em>no arguments supplied</em>: this is just a reference to a function or procedure by name, and is typically used to pass it as an argument to some other routine;</p>
 </li>
 <li>
-<p><em>routine type</em>: the specification of the <em>type</em> of a routine such that a routine-call-as-object may be the type of an entity, including an argument or return type in another routine definition;</p>
+<p><em>some arguments supplied</em>: this generates a new delayed function or procedure call whose formal signature is the projection of the remaining open arguments with respect to the original signature;</p>
 </li>
 <li>
-<p><em>routine call</em>: an actual routine call, i.e. an invocation of a named routine with closed and potentially open arguments.</p>
+<p><em>all arguments supplied</em>: this generates a new fully closed delayed call that may be invoked.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The first is dealt with in the <code>feature</code> package of this specification. The second can be understood as the <em>signature</em> of a routine, and can be expressed as described earlier in <a href="#_signatures">Section 8.3</a>.</p>
+<p>A call is thus an invocation of a <em>closed agent</em>. The effective type of a function call is the result type of the original function definition, thus its meta-type is just <code>BMM_TYPE</code>. A procedure call has no effective type.</p>
 </div>
 <div class="paragraph">
-<p>The third is a kind of <em>value</em> in the sense of the <code>BMM_VALUE</code> meta-type of this specification, i.e. a literal object, sometimes needed within model specifications.</p>
+<p>Both calls and agents are special kinds of <em>references</em> to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. Accordingly, they are not defined within BMM, which is focused on <em>types</em>, but in the <code>lang.elom.expression</code> package of the <a href="https://specifications.openehr.org/releases/LANG/latest/expression_language.html">openEHR Expression Language model</a>, of which the functional view is shown below.</p>
 </div>
-<div class="paragraph">
-<p>The second and third categories are addressed in the <code>functional</code> package, and are described below.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_routine_types_and_signatures"><a class="anchor" href="#_routine_types_and_signatures"></a>10.2. Routine Types and Signatures</h3>
-<div class="paragraph">
-<p>The feature of a model or language that makes it functional is to allow the type of a <em>delayed call</em> to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type <code>BMM_ROUTINE_SIGNATURE</code>. Instances of this meta-type represent any kind of signature, in terms of <code><em>arguments</em></code>, whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#_tuple_type">Section 6.4</a>), and <code><em>result</em></code>, representing the result type.</p>
-</div>
-<div class="paragraph">
-<p>The standard taxonomy of signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. <code>BMM-FUNCION</code>, representing a function definition has an invariant requiring <code>signature.result /= Void</code>).</p>
-</div>
-<div id="signature_taxonomy" class="imageblock text-center" style="text-align: center">
+<div id="functional" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="bmm/diagrams/signature_taxonomy.svg" alt="signature taxonomy" width="50%">
+<img src="UML/diagrams/LANG-elom.expression-functional.svg" alt="LANG elom.expression functional">
 </div>
-<div class="title">Figure 31. Signature taxonomy</div>
-</div>
-<div class="paragraph">
-<p>Typical signatures expressed as type-tuples in a common syntactic form such as the following, are instances of this meta-types.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>    []: Date                -- signature of a 0-order function like current_date()
-    [Real, Real]: Real      -- signature of a 2nd-order function like '*' for the domain R
-
-    [Real]                  -- a 1st-order procedure for the domain R
-    [String, Integer]       -- signature of a procedure taking a String and an Integer argument
-
-    [Date, Date], Duration  -- signature of calculateAge (Date dateOfBirth, today): Duration</pre>
-</div>
+<div class="title">Figure 31. <code>lang.elom.expression</code> package - Functional Elements</div>
 </div>
 <div class="paragraph">
-<p>In the above, the construction <code>[Type, &#8230;&#8203;]</code> represents a type-tuple.</p>
+<p>In the model the central three classes define respectively, Agent and its Function and Procedure forms. An Agent is defined as a kind of terminal expression (<code>EL_TERMINAL</code>), since it is concretely a <em>reference</em> to a routine that generates a delayed call. It potentially has <code><em>closed_args</em></code>, in the form of an <code>EL_TUPLE</code> which is a meta-type at the instance level, conforming to <code>BMM_TUPLE_TYPE</code>. The items of the tuple are each in the form of an <code>EL_TUPLE_ITEM</code> consisting of the argument name (optional) and an <code><em>item</em></code>, which is an <code>EL_EXPRESSION</code>, having an <code><em>effective_type</em></code> of <code>BMM_TYPE</code>. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_routine_calls"><a class="anchor" href="#_routine_calls"></a>10.3. Routine Calls</h3>
 <div class="paragraph">
-<p>At the third level of representation are literal calls, for example, <code><em>calculateAge</em> ('1982-03-22', '2019-06-01')</code>, which calculates a person&#8217;s age from his data of birth and a given date. In normal programming languages, any of the parameters may be any referenceable value-returning entity, i.e. any in-scope variable, other function call etc, exemplified by a call such as <code><em>calculateAge</em> ('1982-03-22', <em>today</em>())</code>, where <code><em>today</em>()</code> is a function returning the date of today. The meta-type <code>BMM_ROUTINE_CALL</code> and its descendants <code>BMM_PROCEDURE_CALL</code> and <code>BMM_FUNCTION_CALL</code> allow such calls to be represented.</p>
+<p>An example of a delayed function call in syntax form is <code>nodeCount (struct=?, depth=3)</code> (the exact syntax will vary according to programming language). Here, the <code><em>struct</em></code> argument is left open, while the <code><em>depth</em></code> argument is closed with the supplied value <code>3</code>. This expression generates an agent whose signature is <code>[StructType]:Integer</code>. This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.</p>
+</div>
+<div class="paragraph">
+<p>On the left of the UML diagram is the meta-class <code>EL_FUNCTION_CALL</code>, which represents a call to a function Agent, and which is also an <code>EL_TERMINAL</code>. For such a call to be possible, all arguments must be supplied (which may be none, in the case of a parameterless function).</p>
+</div>
+<div class="paragraph">
+<p>An example of a Function Call is <code><em>calculateAge</em> ('1982-03-22', '2019-06-01')</code>, which calculates a person&#8217;s age from his date of birth and a given date. In normal programming languages, any of the parameters may be any referenceable value-returning entity, i.e. any in-scope variable, other function call, or a valid operator expression, e.g. <code><em>calculateAge</em> ('1982-03-22', <em>today</em>())</code>, where <code><em>today</em>()</code> is a function returning the date of today.</p>
 </div>
 <div class="paragraph">
 <p>Such calls are direct equivalents for expressions using basic mathematical operators and functions, on the usual basis that any operator (such as 'plus', i.e. <code>+</code>) is formally defined as a function such as <code>add (arg1, arg2: Numeric): Numeric</code>. Thus, the instance structure for a typical expression such as the Body Mass Index (BMI), i.e. <code>weight / height^2</code>, is shown below.</p>
@@ -5261,14 +5383,11 @@ Not necessarily directly implemented.
 </div>
 <div class="title">Figure 32. Function call example - Body Mass index (BMI)</div>
 </div>
-<div class="paragraph">
-<p>The model of  <code>BMM_ROUTINE_CALL</code> allows not only simple calls with all arguments filled to be specified, but also calls with open arguments, for example, <code>format_structure (struct=?, style=3)</code> (the syntax of this will vary according to programming language). This facility allows the latter call to be supplied as an argument to another routine, where the argument type is <code>[Integer]</code> (assuming <code>struct</code> is of type <code>Integer</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution.</p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.4. Class Definitions</h3>
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_signature_class"><a class="anchor" href="#_bmm_signature_class"></a>10.4.1. BMM_SIGNATURE Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.2.1. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5278,62 +5397,17 @@ Not necessarily directly implemented.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_SIGNATURE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_AGENT (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Non-entity meta-type that expresses the type structure of any referenceable element of a model. Consists of potential <code><em>arguments</em></code> and <code><em>result</em></code>, with constraints in descendants determining the exact form.</p>
+<p>A delayed routine call, whose arguments may be open, partially closed or closed. Instances may include closed delayed calls like <code>calculate_age (dob="1987-09-13", today="2019-06-03")</code> but also partially open calls such as <code>format_structure (struct=?, style=3)</code>, where <code>struct</code> is an open argument.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DEFINED_TYPE</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument_types</strong>: <code>BMM_TUPLE_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result_type</strong>: <code>BMM_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Result type of signature, if any.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_routine_call_class"><a class="anchor" href="#_bmm_routine_call_class"></a>10.4.2. BMM_ROUTINE_CALL Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_ROUTINE_CALL (abstract)</em></strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>A literal routine call, including closed arguments (if any) and potentially including open arguments. This allows a simple call like <code>calculate_age (dob="1987-09-13", today="2019-06-03")</code> but also curried function calls such as <code>format_structure (struct=?, style=3)</code>, where <code>struct</code> is an open argument.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5349,7 +5423,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>closed_args</strong>: <code>BMM_TUPLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>closed_args</strong>: <code>EL_TUPLE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Closed arguments of a routine call as a tuple of objects.</p>
 </div></div></td>
@@ -5365,61 +5439,35 @@ Not necessarily directly implemented.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_ROUTINE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Reference to definition of a routine for which this is a direct call instance, if one exists.</p>
+<p>Reference to definition of a routine for which this is an agent, if one exists.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_SIGNATURE</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Inferred static type of the call.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_function_call_class"><a class="anchor" href="#_bmm_function_call_class"></a>10.4.3. BMM_FUNCTION_CALL Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_FUNCTION_CALL</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>A literal Function call.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE_CALL</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_FUNCTION</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_SIGNATURE</code><br>
+<strong><em>Post_effective_type</em></strong>: <code>Result = definition.signature</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Reference to definition of routine for which this is a call instance.</p>
+<p>Effective type is the signature corresponding to the (remaining) open arguments and return type, if any.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_callable</strong> (): <code>Boolean</code><br>
+<strong><em>Post_result_validity</em></strong>: <code>Result = open_arguments = Void</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if there are no open arguments.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>10.4.4. BMM_PROCEDURE_CALL Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.2.2. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5429,46 +5477,7 @@ Not necessarily directly implemented.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_CALL</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>A literal procedure call.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE_CALL</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_PROCEDURE</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Reference to definition of routine for which this is a call instance.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_tuple_class"><a class="anchor" href="#_bmm_tuple_class"></a>10.4.5. BMM_TUPLE Class</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_TUPLE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_TUPLE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -5477,17 +5486,13 @@ Not necessarily directly implemented.
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_VALUE</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code>List&lt;BMM_TUPLE_ITEM&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code>List&lt;EL_TUPLE_ITEM&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Items in the tuple, potentially with names. Typical use is to represent an argument list to routine call.</p>
 </div></div></td>
@@ -5508,7 +5513,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_tuple_item_class"><a class="anchor" href="#_bmm_tuple_item_class"></a>10.4.6. BMM_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.2.3. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5518,7 +5523,7 @@ Not necessarily directly implemented.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_TUPLE_ITEM</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_TUPLE_ITEM</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -5533,7 +5538,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reference</strong>: <code>BMM_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code>EL_EXPRESSION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Reference to value entity.</p>
 </div></div></td>
@@ -5543,6 +5548,170 @@ Not necessarily directly implemented.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Optional name of tuple item.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.2.4. EL_FUNCTION_AGENT Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_AGENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>An agent whose signa</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_FUNCTION</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Reference to definition of a routine for which this is a direct call instance, if one exists.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.2.5. EL_PROCEDURE_AGENT Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_PROCEDURE_AGENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A literal procedure call.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_PROCEDURE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Reference to definition of routine for which this is a call instance.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.2.6. EL_AGENT_CALL Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_AGENT_CALL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A call made to a 'closed' agent, i.e. one with no remaining open arguments.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_AGENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The agent being called.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.2.7. EL_FUNCTION_CALL Class</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_CALL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function in Lambda calculus.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code>, <code>EL_AGENT_CALL</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_FUNCTION_AGENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The function agent being called.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
+<strong><em>Post_effective_call_type</em></strong>: <code>Result = agent.effective_type().result_type</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Effective type of function call, being the result type of the called functional agent.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5752,7 +5921,7 @@ Not necessarily directly implemented.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-18 12:03:26 BST
+Last updated 2019-07-18 08:03:26 -03
 </div>
 </div>
 </body>

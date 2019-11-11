@@ -58,14 +58,22 @@ All class-scoped features have formal signatures. The simplest type of signature
 
 This indicates that both meta-types have a return type, being the type of the value they are attached to at execution time.
 
-The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The general form of routine signatures is thus as follows:
+The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. `BMM_FUNCION`, representing a function definition has an invariant requiring `signature.result /= Void`).
+
+[.text-center]
+.Signature taxonomy
+image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="50%"]
+
+The general form of routine signatures is thus as follows:
 
 ----
     [T_arg1, T_arg2, ...]: T_result        -- Function
     [T_arg1, T_arg2, ...]                  -- Procedure
 ----
 
-Typical examples of function signatures:
+In the above, the construction `[Type, ...]` represents a type-tuple.
+
+Typical examples of function signatures are as follows:
 
 ----
     []: Date                        -- signature of a 0-order function like current_date()
@@ -84,7 +92,7 @@ Typical procedure signatures include the following:
 
 Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is:
 
-* a descendant of `BMM_CLASS_SCOPED` with a signature having no arguments; and
+* a descendant of `BMM_CLASS_SCOPED` whose `_signature_` has no arguments; and
 * a descendant of `BMM_INSTANTIABLE` that is not run-time nullable.
 
 A constant has a `_value_`, which may be of any type, including complex types.
@@ -102,6 +110,18 @@ The `BMM_PROPERTY` meta-type defines semantics common to all properties, includi
 
 Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
 
+== Functions and Procedures
+
+Functions and procedures are kinds of _routine_, which are computational features of a class.
+
+The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is defined as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
+
+An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
+
+== Variables, Objects and Values
+
+At the finest level of detail of a model definition are what are typically thought of as (local) _variables_ and (literal) _values_. These are represented by the classes `BMM_LOCAL` and `BMM_VALUE` respectively. Both variables and values have a `_type_`, with type being inferred for the latter from its value when parsed or otherwise created.
+
 === Semantic level
 
 Properties also include two other Boolean meta-data items, `_is_im_runtime_` and `_is_im_infrastructure_`, which can be used to classify property values in a model according to 'semantic level', which roughly corresponds to the continuum from domain-specific to infrastructure. These may be individually set, or both may be False. The three meaningful value settings are as follows:
@@ -115,18 +135,6 @@ The following example shows a the flattened property view of a class `OBSERVATIO
 [.text-center]
 .BMM class - properties view
 image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
-
-== Functions and Procedures
-
-Functions and procedures are kinds of _routine_, which are computational features of a class.
-
-The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is understood as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
-
-An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
-
-== Variables, Objects and Values
-
-At the finest level of detail of a model definition are what are typically thought of as (local) _variables_ and (literal) _values_. These are represented by the classes `BMM_LOCAL` and `BMM_VALUE` respectively. Both variables and values have a `_type_`, with type being inferred for the latter from its value when parsed or otherwise created.
 
 == Class Definitions
 

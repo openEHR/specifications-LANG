@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*1..1*
 |*generic_parameters*: `Hash<String,BMM_PARAMETER_TYPE>`
-a|List of generic parameter definitions, keyed by name of generic parameter; these are defined either directly on this class or by the addition of an ancestor class which is generic.
+a|List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

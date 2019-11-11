@@ -15,14 +15,15 @@
 |Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +
  Rename `BMM_VALUED` to `BMM_TYPED`; +
  Rename `BMM_REFERENCEABLE` to `BMM_FEATURE`; +
+ Introduce dual taxonomy for features based on scoped declarations and typing; +
  Add meta-model for functional entities. Re-structure packages. Modify `BMM_FEATURE._signature_` to new meta-type, `BMM_SIGNATURE`.
 |T Beale 
-|14 Oct 2019
+|11 Nov 2019
 
 |
 |Improve meta-model of Features: rename `BMM_FORMAL_ELEMENT` to `BMM_REFERENCEABLE`; move `BMM_VALUE_RETURNING._type_` to `BMM_EVALUABLE`; +
  Add `BMM_INDEXED_CONTAINER_TYPE`, `BMM_INDEXED_CONTAINER_PROPERTY`, to support indexed containers like `Hash<K, V>`.
-|T Beale 
+|T Beale
 |10 Mar 2019
 
 |

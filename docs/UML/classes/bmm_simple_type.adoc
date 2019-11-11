@@ -11,6 +11,14 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_ENTITY_TYPE`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1 +
+(redefined)*
+|*base_class*: `BMM_SIMPLE_CLASS`
+a|Defining class of this type.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

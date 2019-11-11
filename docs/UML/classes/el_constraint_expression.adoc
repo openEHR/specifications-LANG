@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_CONSTRAINT_EXPRESSION*
 
 h|*Description*
-2+a|Special kind of terminal element representing a constraint on values. Used with the 'matches' operator. Does not follow the ordinary model of binary operator, since the constraint is not itself a value-returning expression.
+2+a|Special kind of expression representing a constraint on values. Used with the 'matches' operator. Does not follow the ordinary model of binary operator, since the constraint is not itself a value-returning expression.
 
 h|*Inherit*
 2+|`EL_EXPRESSION`

@@ -112,13 +112,13 @@ a|Populate `_bmm_model_` from schema.
 h|
 |*read_to_validate* (): `Boolean` +
 *_Post_state_*: `state = State_includes_processed`
-a|
+a|True when validation may be commenced.
 
 h|
 |*schema_id* (): `String`
 a|Identifier of this schema, used for stating inclusions and identifying files. Formed as:
 
-`_rm_publisher_ '_' _schema_name_ '_' _rm_release_`
+`_rm_publisher_` '_' `_schema_name_` '_' `_rm_release_`
 
 E.g. `'openehr_rm_ehr_1.0.4'`.
 |===

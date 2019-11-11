@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_CONTAINER_TYPE*
 
 h|*Description*
-2+a|Type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as `List<T>`, `Set<T>` etc.
+2+a|Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as `List<T>`, `Set<T>` etc.
 
 h|*Inherit*
 2+|`BMM_TYPE`

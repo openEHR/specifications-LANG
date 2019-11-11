@@ -15,8 +15,15 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
-(redefined)*
+h|*1..1*
 |*definition*: `BMM_LITERAL_VALUE`
 a|The reference item from which the value of this node can be computed.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*effective_type* (): `BMM_ENTITY_TYPE` +
+*_Post_manifest_effective_type_*: `Result = definition.type`
+a|
 |===

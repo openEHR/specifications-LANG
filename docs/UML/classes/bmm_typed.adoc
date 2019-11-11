@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_TYPED (abstract)_*
 
 h|*Description*
-2+a|Any entity that represents or returns an value of some type `_type()_`.
+2+a|Any entity that has a declared or inferred static type, and that can therefore be generate a value.
 
 h|*Attributes*
 ^h|*Signature*
