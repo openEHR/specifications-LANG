@@ -27,10 +27,6 @@ h|(redefined)
 a|Add suppliers from generic parameters.
 
 h|(effected)
-|*entity_metatype* (): `BMM_ENTITY_METATYPE`
-a|Return meta-type of `BMM_GENERIC_CLASS`, which is `Entity_metatype_generic`.
-
-h|(effected)
 |*type* (): `BMM_GENERIC_TYPE`
 a|Generate a fully open `BMM_GENERIC_TYPE` instance that corresponds to this class definition
 

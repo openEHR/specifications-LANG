@@ -44,8 +44,4 @@ Generally useful for display purposes.
 h|(effected)
 |*is_primitive* (): `Boolean`
 a|True if `_base_class.is_primitive_`.
-
-h|(effected)
-|*entity_metatype* (): `String`
-a|Meta-type of type is by default assumed to be the meta-type of its `_base_class_`.
 |===

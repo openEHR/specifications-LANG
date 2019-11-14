@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_CLASS_SCOPED (abstract)_*
 
 h|*Description*
-2+a|A formal element of an enclosing entity, that is referenced via a name within a scope, and has a signature.
+2+a|A formal declared element, referenced via a name within the scope of the enclosing entity, and having a signature.
 
 h|*Inherit*
 2+|`BMM_DECLARATION`

@@ -30,13 +30,13 @@ a|Extension used for BMM files.
 
 h|*1..1*
 |*Generic_left_delimiter*: `Character{nbsp}={nbsp}'<'`
-a|
+a|Left delimiter for generic class and generic type names, as used in 'List<T>'.
 
 h|*1..1*
 |*Generic_right_delimiter*: `Character{nbsp}={nbsp}'>'`
-a|
+a|Right delimiter for generic class and generic type names, as used in 'List<T>'.
 
 h|*1..1*
 |*Generic_constraint_delimiter*: `Character{nbsp}={nbsp}':'`
-a|
+a|Right delimiter for generic class names, as used in 'Sortable<T: Ordered>'.
 |===

@@ -11,4 +11,11 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_UNITARY_TYPE`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*base_class*: `BMM_CLASS`
+a|Defining class of this type.
 |===

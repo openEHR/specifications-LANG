@@ -18,8 +18,4 @@ h|*Functions*
 h|(effected)
 |*type* (): `BMM_SIMPLE_TYPE`
 a|Generate a type object that represents the type of this class. Can only be an instance of `BMM_SIMPLE_TYPE` or a descendant.
-
-h|(effected)
-|*entity_metatype* (): `BMM_ENTITY_METATYPE`
-a|Return meta-type of `BMM_SIMPLE_CLASS`, which is `Entity_metatype_simple`.
 |===

@@ -36,12 +36,9 @@ h|(effected)
 a|Result is `_effective_base_class()_` of `_base_type_`.
 
 h|(effected)
-|*is_abstract* (): `Boolean`
+|*is_abstract* (): `Boolean` +
+*_Post_is_abstract_*: `Result = base_type.is_abstract or container_type.is_abstract`
 a|True if `_base_type.is_abstract_` or `_container_type.is_abstract_`.
-
-h|(effected)
-|*entity_metatype* (): `BMM_ENTITY_METATYPE`
-a|Meta-type of container type is `Classifier_metatype_container`.
 
 h|(effected)
 |*flattened_type_list* (): `List<String>`

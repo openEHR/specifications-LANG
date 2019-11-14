@@ -30,12 +30,6 @@ a|True if this property was synthesised due to generic substitution in an inheri
 h|*0..1*
 |*is_composition*: `Boolean`
 a|True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas.
-
-h|*0..1*
-|*is_computed*: `Boolean`
-a|True if this property is computed rather than stored in objects of this class.
-
-OBSOLETE - to be phased out.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

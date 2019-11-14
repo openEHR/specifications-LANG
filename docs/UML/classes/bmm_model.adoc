@@ -26,7 +26,7 @@ h|
 |*model_id* (): `String`
 a|Identifier of this model, lower-case, formed from:
 
-`rm_publisher '_' model_name '_' rm_release`
+`rm_publisher` '_' `model_name` '_' `rm_release`
 
 E.g. `'openehr_ehr_1.0.4'`.
 

@@ -16,19 +16,23 @@ Most types are based on one or more _defining_ class(es), which provide the form
 .BMM meta-type taxonomy
 image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align="center"]
 
-The `BMM_TYPE` class includes features common to all meta-types:
+`BMM_TYPE` includes features common to all meta-types:
 
-* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_ENTITY_TYPE` meta-type), this will just be the defining class (`_base_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained items (not the container);
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);
+* _effective_base_class_: a reference to the effective generating class; for defined types (`BMM_ENTITY_TYPE` meta-type), this will just be the defining class (`_base_class_`); for open generic type parameters, the constraining class (`Any` if no other); and for container types, it is the defining class of the base type, i.e. the type of the contained items (not the container);
 * _type_signature_: a form of the type name that can be used as a fully-defined type signature, which for generic classes includes generic constrainer types, giving a signature such as `Interval<T:Ordered>`.
 
-Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` corresponds to meta-types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This division is made to enable BMM to directly support collections in the type system.
+== Unitary and Containment Meta-types
 
-Unitary meta-types are further distinguished as formal generic parameters (`BMM_PARAMETER TYPE`) and _defined_ types, i.e. types that define instances of some kind. The former meta-type is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as `List<T>` etc) within generic type declarations.
+Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` is a meta-type for types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This distinction is made to enable BMM to directly represent the notion of collections in the type system rather than treating them in the same way as any other type, which would force modellers (i.e. authors of actual BMM models) to state concrete containment types such as `ArrayedList<Packet>`, where `ArrayedList` would have to be defined in the model as well as `Packet`. 
 
-Defined types have as their meta-type `BMM_DEFINED_TYPE`, whose subtypes are `BMM_ENTITY_TYPE`, a meta-type for entities (i.e. full objects), `BMM_TUPLE_TYPE`, a meta-type for tuples (), and `BMM_SIGNATURE`, a meta-type representing signatures of routines and valued model elements (properties, variables etc). The first divides into `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+Unitary meta-types are further distinguished as formal generic parameters (`BMM_PARAMETER TYPE`) and _defined_ types, i.e. types that have class definitions. The former meta-type is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as `List<T>` etc) within generic type declarations.
 
-These various meta-types are described in more detail below.
+Defined types have as their meta-type `BMM_DEFINED_TYPE`, and are characterised by the property `_base_class_: BMM_CLASS`. Its subtypes are `BMM_ENTITY_TYPE`, a meta-type for entities (i.e. full objects), `BMM_TUPLE_TYPE`, a meta-type for tuples (a list of objects of varying types), and `BMM_SIGNATURE`, a meta-type representing signatures of routines and typed model elements (properties, variables etc).
+
+`BMM_ENTITY_TYPE` divides into `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of type familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+
+These various concrete meta-types are described in more detail below.
 
 == Simple Type
 
@@ -36,7 +40,7 @@ A _simple type_ is a type based only on a _simple class_, which is a class with 
 
 == Generic Type
 
-A _generic type_ is any type based on a _generic class_, which has one or more open type parameters that are substituted for actual types in its declaration. For example, the generic type `Interval<Quantity>` can be used in a model that contains the generic class `Interval<T:Ordered>` and `Quantity`. The general case is that the generic parameter substitution type (`BMM_GENERIC_TYPE._generic_parameters_`) for any formal parameter (`BMM_GENERIC_CLASS._generic_parameters_`) is of meta-type `BMM_UNITARY_TYPE`.
+A _generic type_ is a type based on a _generic class_, which has one or more formal type parameters that are substituted by actual types in its declaration. For example, the generic type `Interval<Quantity>` can be used in a model that contains the generic class `Interval<T:Ordered>` and `Quantity`. The general case is that the generic parameter substitution type (`BMM_GENERIC_TYPE._generic_parameters_`) for any formal parameter (`BMM_GENERIC_CLASS._generic_parameters_`) is of meta-type `BMM_UNITARY_TYPE`.
 
 A typical programmatic usage of such a type, and its instantiated BMM model structure is shown below.
 
@@ -51,13 +55,13 @@ The parameters of a generic type may be:
 
 Consequently, a generic type may be:
 
-* _fully closed_: all formal parameters substituted e.g. `Interval<Quantity>`;
+* _closed_: all formal parameters substituted e.g. `Interval<Quantity>`;
 * _partially closed_: at least one formal parameter is substituted e.g. `Document<ClinicalContent, U>`;
-* _fully open_: no formal parameters substituted, e.g. `Document<T, U>`.
+* _open_: no formal parameters substituted, e.g. `Document<T, U>`.
 
 The first case is detected via the function `_is_closed_` defined on `BMM_GENERIC_TYPE`, while the function `_is_partially_closed_` distinguishes the latter two cases. 
 
-The following shows the BMM instance structure of a generic type that is fully open.
+The following shows the BMM instance structure of a generic type that is open.
 
 [.text-center]
 .Generic type - open
@@ -69,17 +73,17 @@ Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BM
 .Generic type - closed container
 image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
 
-== Routine Types and Signatures
-
-The feature of a model or language that makes it functional is to allow the type of a _routine call_, and thus a _function call_, to be stated in the same way as any other type. Such types take the form of signatures, and are represented by the meta-type `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type.
-
-The same meta-type is used to represent signatures of both procedures and functions, even though procedures have no result type. This is achieved using invariants, as described in <<_signatures>>.
-
-== Tuple Type
+== Tuple Meta-type
 
 The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or `struct`, in C/C++).
 
-== Container Types
+== Signature Meta-type
+
+One requirement for a formalism to support functional expressions is to provide a representation for the type of a _routine call_, and thus of a _function call_. Such types take the form of signatures, and are represented by the meta-type `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type.
+
+The same meta-type is used to represent signatures of both procedures and functions, even though procedures have no result type. This is achieved using invariants, as described in <<_signatures>>.
+
+== Container Meta-types
 
 In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as `List<T>` and `Set<T>` are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes `BMM_GENERIC_TYPE` and `BMM_CONTAINER_TYPE`. This allows the BMM to treat container types in a special way. A `BMM_CONTAINER_TYPE` can be thought of as a 1:N counterpart to a `BMM_UNITARY_TYPE`, such as the type `List<Paragraph>` with respect to `Paragraph`. `BMM_GENERIC_TYPE` is typically used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. `Interval<Quantity>`. 
 
@@ -107,36 +111,37 @@ An algorithm to determine conformance of two type-names (e.g. to implement `BMM_
 
 [source,java]
 --------
-Boolean type_conforms_to (String this_type, other_type) {
-    BMM_TYPE_NAME this_type_name, other_type_name;
+Boolean type_conforms_to (String a_type, anc_type) {
+    BMM_TYPE_NAME a_type_name, anc_type_name;
 
-    if attached create_type_name_from_string (a_this_type) as this_type_name and
-        attached create_type_name_from_string (other_type) as other_type_name
+    if attached create_type_name_from_string (a_a_type) as a_type_name and
+        attached create_type_name_from_string (anc_type) as anc_type_name
     {
-        this_base_class = this_type_name.name;
-        other_base_class = other_type_name.name;
+        base_class = a_type_name.name;
+        anc_base_class = anc_type_name.name;
         
-        if (this_base_class.is_case_insensitive_equal (other_base_class) or else 
-            class_definition (this_base_class).has_ancestor_class (other_base_class)) 
+        if (base_class.is_case_insensitive_equal (anc_base_class) or else 
+            class_definition (base_class).has_ancestor_class (anc_base_class)) 
         {
+            BMM_CLASS bmm_def_class = class_definition (base_class);
+            
             // handle case where formal generic names appear in type name
-            BMM_DEFINED_CLASS this_bmm_def_class = class_definition (this_base_class);
-            if (valid_generic_type_name (this_type) and this_bmm_def_class instanceOf BMM_GENERIC_CLASS) {
+            if (valid_generic_type_name (a_type) and bmm_def_class instanceOf (BMM_GENERIC_CLASS) {
 
                 // in the case of both being generic, we need to compare generics
                 // to start with, the number of generics must match
-                BMM_DEFINED_CLASS other_bmm_def_class = class_definition (other_base_class);
-                if (valid_generic_type_name (other_type) and other_bmm_def_class instanceOf BMM_GENERIC_CLASS) {
-                    this_type_gen_params = this_type_name.generic_parameters_type_list;
-                    other_type_gen_params = other_type_name.generic_parameters_type_list;
+                BMM_CLASS anc_bmm_def_class = class_definition (anc_base_class);
+                if (valid_generic_type_name (anc_type) and anc_bmm_def_class instanceOf (BMM_GENERIC_CLASS)) {
+                    ArrayedList<String> a_type_gen_params = a_type_name.generic_parameters_type_list;
+                    ArrayedList<String> anc_type_gen_params = anc_type_name.generic_parameters_type_list;
                     
-                    if (this_type_gen_params.count = other_type_gen_params.count) {
+                    if (a_type_gen_params.count = anc_type_gen_params.count) {
                     
-                        Iterator<String> this_gen_parms_it = this_type_gen_params.iterator();
-                        Iterator<String> other_gen_parms_it = other_type_gen_params.iterator();
+                        Iterator<String> this_gen_parms_it = a_type_gen_params.iterator();
+                        Iterator<String> other_gen_parms_it = anc_type_gen_params.iterator();
 
                         Boolean result = True;
-                        String this_type_gen_type, other_type_gen_type;
+                        String a_type_gen_type, anc_type_gen_type;
                         
                         while (this_gen_parms_it.hasNext() && other_gen_parms_it.hasNext() || !result) {
                             // first we convert any open generic parameters to their conformance types
@@ -144,36 +149,41 @@ Boolean type_conforms_to (String this_type, other_type) {
                             String this_gen_parm = this_gen_parms_it.next();
                             String other_gen_parm = other_gen_parms_it.next();
                             if (formal_generic_parameter_name (this_gen_parm))
-                                this_type_gen_type = this_bmm_gen_class.generic_parameter_conformance_type (this_gen_parm);
+                                a_type_gen_type = this_bmm_gen_class.generic_parameter_conformance_type (this_gen_parm);
                             else
-                                this_type_gen_type = this_gen_parm;
+                                a_type_gen_type = this_gen_parm;
     
                             if (formal_generic_parameter_name (other_gen_parm))
-                                other_type_gen_type = other_bmm_gen_class.generic_parameter_conformance_type (other_gen_parm);
+                                anc_type_gen_type = other_bmm_gen_class.generic_parameter_conformance_type (other_gen_parm);
                             else
-                                other_type_gen_type = other_gen_parm;
+                                anc_type_gen_type = other_gen_parm;
 
                             -- now do the test
-                            result = type_conforms_to (this_type_gen_type, other_type_gen_type);
+                            result = type_conforms_to (a_type_gen_type, anc_type_gen_type);
                         }
                         
                         return result;
                     }
 
+                }
                 // Conforms - case where anc type is not provided in generic form, but desc is
                 // e.g. Interval<Integer> conforms to Interval
                 else
                     return True;
-
+            }
             // in the following case, the descendant type is not generic, 
             // so the ancestor type cannot be either, for conformance
             else
-                return not valid_generic_type_name (other_type);
+                return not valid_generic_type_name (anc_type);
         }
     }
 }
 
 --------
+
+== Consequences of the Model
+
+* 
 
 == Class Definitions
 
@@ -189,5 +199,3 @@ include::{uml_export_dir}/classes/bmm_signature.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]
-
-include::{uml_export_dir}/classes/bmm_entity_metatype.adoc[]

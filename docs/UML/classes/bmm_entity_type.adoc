@@ -15,10 +15,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*base_class*: `BMM_CLASS`
-a|Defining class of this type.
-
 h|*0..1*
 |*value_constraint*: `BMM_VALUE_SET_SPEC`
 a|
