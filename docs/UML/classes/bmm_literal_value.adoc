@@ -19,8 +19,12 @@ h|*1..1*
 |*value_literal*: `String`
 a|A serial representation of the value.
 
+h|*1..1*
+|*value*: `Any`
+a|
+
 h|*1..1 +
 (redefined)*
-|*type*: `BMM_ENTITY_TYPE`
+|*type*: `BMM_MODEL_TYPE`
 a|Static type inferred from literal value.
 |===

@@ -2610,6 +2610,13 @@ definition
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type of expression entity at evaluation time. Effected in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code>Any</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>A runtime executable value of this entity.</p>
@@ -2625,13 +2632,6 @@ Not necessarily directly implemented.
 </td>
 </tr>
 </table>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Type of expression entity at evaluation time. Effected in descendants.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3183,7 +3183,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_ENTITY_TYPE</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_MODEL_TYPE</code><br>
 <strong><em>Post_manifest_effective_type</em></strong>: <code>Result = definition.type</code></p></td>
 <td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
@@ -3441,7 +3441,9 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A call made on a closed procedure agent.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -4052,10 +4054,10 @@ this is still the old ADL grammar - the Antlr4 file has to be upgraded.
 </div>
 <div class="sect3">
 <h4 id="_online_resources"><a class="anchor" href="#_online_resources"></a>Online Resources</h4>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="olist bibliography">
+<ol class="bibliography">
 <li>
-<p>[<a id="cov_contra"></a>] Wikipedia. <strong>Covariance and contravariance.</strong> See <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science" class="bare">https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science</a>) .</p>
+<p><a id="cov_contra"></a>[cov_contra] Wikipedia. <strong>Covariance and contravariance.</strong> See <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science" class="bare">https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science</a>) .</p>
 </li>
 </ol>
 </div>

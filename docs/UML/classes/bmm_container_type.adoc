@@ -20,8 +20,8 @@ h|*1..1*
 a|The type of the container. This converts to the `_root_type_` in `BMM_GENERIC_TYPE`.
 
 h|*1..1*
-|*base_type*: `BMM_UNITARY_TYPE`
-a|The target type; this converts to the first parameter in `_generic_parameters_` in `BMM_GENERIC_TYPE`.
+|*item_type*: `BMM_UNITARY_TYPE`
+a|The container item type.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -31,24 +31,19 @@ h|(effected)
 a|Return full type name, e.g. `List<ELEMENT>`.
 
 h|(effected)
-|*effective_base_class* (): `BMM_CLASS` +
-*_Post_validity_*: `Result = base_type.base_class`
-a|Result is `_effective_base_class()_` of `_base_type_`.
-
-h|(effected)
 |*is_abstract* (): `Boolean` +
 *_Post_is_abstract_*: `Result = base_type.is_abstract or container_type.is_abstract`
-a|True if `_base_type.is_abstract_` or `_container_type.is_abstract_`.
+a|True if `_item_type.is_abstract_` or `_container_class.is_abstract_`.
 
 h|(effected)
 |*flattened_type_list* (): `List<String>`
-a|Completely flattened list of type names, flattening out all generic parameters.
+a|Flattened list of type names with container type name abstracted away. Result = `_item_type.flattened_type_list_`.
 
 h|(effected)
-|*subtypes* (): `List<String>`
-a|Result is all permutations of current container type and its descendants with the current `_base_type_` and its descendants.
+|*unitary_type* (): `BMM_UNITARY_TYPE`
+a|Return `_base_type_`.
 
 h|(effected)
-|*has_subtypes* (): `Boolean`
-a|Determine if there are any type substitutions.
+|*is_primitive* (): `Boolean`
+a|Result = `_item_type.is_primitive_`.
 |===

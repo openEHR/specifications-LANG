@@ -15,21 +15,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
-|*effective_base_class* (): `BMM_CLASS`
-a|Effective underlying class for this type, abstracting away any container type.
+h|(effected)
+|*is_primitive* (): `Boolean`
+a|True if type is based only on a primitive class, or a collection thereof. Effected in descendants.
 
 h|(abstract)
 |*type_name* (): `String`
 a|Formal string form of the type as per UML.
-
-h|(abstract)
-|*has_subtypes* (): `Boolean`
-a|Determine if there are any type substitutions.
-
-h|(abstract)
-|*subtypes* (): `List<String>`
-a|List of type substitutions if any available for this type within the current BMM model.
 
 h|(abstract)
 |*flattened_type_list* (): `List<String>`
@@ -37,11 +29,15 @@ a|Completely flattened list of type names, flattening out all generic parameters
 
 h|
 |*type_signature* (): `String`
-a|Signature form of the type, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
+a|Signature form of the type name, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
-Generally useful for display purposes.
+Defaults to the value of `_type_name()_`.
 
-h|(effected)
-|*is_primitive* (): `Boolean`
-a|True if `_base_class.is_primitive_`.
+h|(abstract)
+|*unitary_type* (): `BMM_UNITARY_TYPE`
+a|Type with any container abstracted away.
+
+h|(abstract)
+|*effective_type* (): `BMM_EFFECTIVE_TYPE`
+a|Type with any container abstracted away, and any formal parameter replaced by its effective constraint type.
 |===

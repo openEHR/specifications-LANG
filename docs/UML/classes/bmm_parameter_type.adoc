@@ -20,7 +20,7 @@ h|*1..1*
 a|Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and upper-case.
 
 h|*0..1*
-|*type_constraint*: `BMM_DEFINED_TYPE`
+|*type_constraint*: `BMM_EFFECTIVE_TYPE`
 a|Optional conformance constraint that must be the name of a defined type.
 
 h|*0..1*
@@ -31,12 +31,8 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*flattened_conforms_to_type* (): `String`
+|*flattened_conforms_to_type* (): `BMM_EFFECTIVE_TYPE`
 a|Result is either `_conforms_to_type_` or `_inheritance_precursor.flattened_conforms_to_type_`.
-
-h|
-|*effective_conforms_to_type* (): `BMM_CLASS`
-a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `Any`.
 
 h|(redefined)
 |*type_signature* (): `String`
@@ -51,24 +47,16 @@ h|(effected)
 a|Result = `False` - generic parameters are understood by definition to be non-abstract.
 
 h|(effected)
-|*effective_base_class* (): `BMM_CLASS`
-a|The effective conformance type of this parameter, or the `Any` class if none.
-
-h|(effected)
-|*has_subtypes* (): `Boolean`
-a|True if `_effective_conforms_to_type.base_class.has_descendants_`.
-
-h|(effected)
-|*subtypes* (): `List<String>`
-a|Result is `_effective_conforms_to_type.base_class.all_descendants_` .
-
-h|(effected)
 |*type_name* (): `String`
-a|Result is `_name_`.
+a|Result = `_name_`.
 
 h|(effected)
 |*flattened_type_list* (): `List<String>`
 a|Result is either `_flattened_conforms_to_type.flattened_type_list_` or the `Any` type.
+
+h|(effected)
+|*effective_type* (): `BMM_EFFECTIVE_TYPE`
+a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `Any`.
 
 h|*Invariants*
 2+a|*_Inv_generic_name_*: `name.count = 1 and name.is_upper`

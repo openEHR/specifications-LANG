@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*DL_PROCEDURE_CALL*
 
 h|*Description*
-2+a|
+2+a|A call made on a closed procedure agent.
 
 h|*Inherit*
 2+|`EL_AGENT_CALL`, `DL_STATEMENT`

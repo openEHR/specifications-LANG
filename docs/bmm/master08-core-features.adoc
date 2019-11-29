@@ -50,43 +50,13 @@ In contrast, the _effective_ set of features for an instance at runtime is the r
 
 == Signatures
 
-All class-scoped features have formal signatures. The simplest type of signature is that of properties and constants, which may be expressed formally as follows:
+All class-scoped features have formal signatures (described in <<Signature Meta-type>>), realised as `BMM_CLASS_SCOPED._signature_`. This includes procedures, even though they have no return type.
 
-----
-    : T_result
-----
-
-This indicates that both meta-types have a return type, being the type of the value they are attached to at execution time.
-
-The two types of routines, i.e. functions and procedures include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. `BMM_FUNCION`, representing a function definition has an invariant requiring `signature.result /= Void`).
+The two types of routines, i.e. functions and procedures, include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of feature signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. `BMM_FUNCION`, representing a function definition has an invariant requiring `signature.result /= Void`).
 
 [.text-center]
 .Signature taxonomy
-image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="50%"]
-
-The general form of routine signatures is thus as follows:
-
-----
-    [T_arg1, T_arg2, ...]: T_result        -- Function
-    [T_arg1, T_arg2, ...]                  -- Procedure
-----
-
-In the above, the construction `[Type, ...]` represents a type-tuple.
-
-Typical examples of function signatures are as follows:
-
-----
-    []: Date                        -- signature of a 0-order function like current_date()
-    [Real, Real]: Real              -- signature of a 2nd-order function like '*' for the domain R
-    [Integer, Integer]: Integer     -- signature of a 2nd-order function like 'add' for the domain I
-----
-
-Typical procedure signatures include the following:
-
-----
-    [Real]                          -- a 1st-order procedure for the domain R
-    [String, Integer]               -- signature of a procedure taking a String and an Integer argument
-----
+image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="40%"]
 
 == Constants
 

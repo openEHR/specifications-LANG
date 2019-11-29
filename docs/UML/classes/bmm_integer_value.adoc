@@ -11,4 +11,12 @@ h|*Description*
 h|*Inherit*
 2+|`BMM_LITERAL_VALUE`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1 +
+(redefined)*
+|*value*: `Integer`
+a|
 |===

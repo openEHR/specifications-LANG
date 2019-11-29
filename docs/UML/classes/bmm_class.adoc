@@ -18,7 +18,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*ancestors*: `Hash<String,BMM_ENTITY_TYPE>`
+|*ancestors*: `Hash<String,BMM_MODEL_TYPE>`
 a|List of immediate inheritance parents.
 
 h|*1..1*
@@ -70,7 +70,7 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(abstract)
-|*type* (): `BMM_ENTITY_TYPE`
+|*type* (): `BMM_MODEL_TYPE`
 a|Generate a type object that represents the type for which this class is the definer.
 
 h|

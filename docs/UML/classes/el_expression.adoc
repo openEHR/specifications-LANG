@@ -13,12 +13,12 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(abstract)
+|*effective_type* (): `BMM_TYPE`
+a|Type of expression entity at evaluation time. Effected in descendants.
+
+h|(abstract)
 |*value* (): `Any`
 a|A runtime executable value of this entity.
 
 NOTE: Not necessarily directly implemented.
-
-h|(abstract)
-|*effective_type* (): `BMM_TYPE`
-a|Type of expression entity at evaluation time. Effected in descendants.
 |===

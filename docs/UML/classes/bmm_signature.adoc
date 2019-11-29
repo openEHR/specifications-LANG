@@ -9,8 +9,15 @@ h|*Description*
 2+a|Non-entity meta-type that expresses the type structure of any referenceable element of a model. Consists of potential `_arguments_` and `_result_`, with constraints in descendants determining the exact form.
 
 h|*Inherit*
-2+|`BMM_DEFINED_TYPE`
+2+|`BMM_EFFECTIVE_TYPE`
 
+h|*Constants*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*base_name*: `String{nbsp}={nbsp}"Signature"`
+a|
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
@@ -22,4 +29,19 @@ a|Type of arguments in the signature, if any; represented as a type-tuple (list 
 h|*0..1*
 |*result_type*: `BMM_TYPE`
 a|Result type of signature, if any.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*type_base_name* (): `String`
+a|Result = `_base_name_`.
+
+h|(effected)
+|*is_abstract* (): `Boolean`
+a|Result = `False`.
+
+h|(effected)
+|*is_primitive* (): `Boolean`
+a|Result = `True`.
 |===

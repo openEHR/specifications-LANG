@@ -23,7 +23,7 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*effective_type* (): `BMM_ENTITY_TYPE` +
+|*effective_type* (): `BMM_MODEL_TYPE` +
 *_Post_manifest_effective_type_*: `Result = definition.type`
 a|
 |===

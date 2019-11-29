@@ -11,13 +11,35 @@ h|*Description*
 Note that both open and closed generic parameters are allowed, as with any generic type, but open generic parameters are only valid within the scope of a generic class.
 
 h|*Inherit*
-2+|`BMM_DEFINED_TYPE`
+2+|`BMM_EFFECTIVE_TYPE`
 
+h|*Constants*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*base_name*: `String{nbsp}={nbsp}"Tuple"`
+a|
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*item_types*: `List<BMM_TYPE>`
-a|List of types of the items of the tuple.
+h|*1..1*
+|*item_types*: `Hash<String,BMM_TYPE>`
+a|List of types of the items of the tuple, keyed by purpose in the tuple.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*type_base_name* (): `String`
+a|Result = `_base_name_`.
+
+h|(effected)
+|*is_primitive* (): `Boolean`
+a|Result = `True`.
+
+h|(effected)
+|*is_abstract* (): `Boolean`
+a|Result = `False`.
 |===

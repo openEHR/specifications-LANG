@@ -14,13 +14,13 @@ h|*Attributes*
 
 h|
 |in
-a|
+a|Parameter is an input parameter, and treated as readonly by the receiving routine.
 
 h|
 |out
-a|
+a|Parameter is an output parameter, and treated as a reference to an entity writeable by the receiving routine.
 
 h|
 |in_out
-a|
+a|Parameter is an input and output parameter, and treated as a reference to an entity readable and writeable by the receiving routine.
 |===

@@ -1,0 +1,25 @@
+=== BMM_EFFECTIVE_TYPE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_BMM_EFFECTIVE_TYPE (abstract)_*
+
+h|*Description*
+2+a|A concrete, unitary meta-type that can be used as an actual parameter type in a generic type declaration.
+
+h|*Inherit*
+2+|`BMM_UNITARY_TYPE`
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*effective_type* (): `BMM_EFFECTIVE_TYPE`
+a|Result = self.
+
+h|(abstract)
+|*type_base_name* (): `String`
+a|Name of base generator type, i.e. excluding any generic parts if present.
+|===
