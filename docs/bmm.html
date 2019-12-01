@@ -2285,7 +2285,7 @@ a_type: <code>String[1]</code><br>
 </ul>
 </div>
 <div class="paragraph">
-<p>The simplest example of the former case is the typing of properties, as shown below.</p>
+<p>The simplest example of the former case is the typing of properties, as shown in the instance diagram below.</p>
 </div>
 <div id="bmm_entities" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2294,7 +2294,7 @@ a_type: <code>String[1]</code><br>
 <div class="title">Figure 10. BMM entities</div>
 </div>
 <div class="paragraph">
-<p>In the latter case, a type is understood as the <em>generator</em> of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a particular usage of a generic class definition. A generic class may generate numerous generic types.</p>
+<p>In the latter case, a type is understood as the <em>generator</em> of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a usage of a generic class definition with particular type substitutions. A generic class may generate numerous generic types.</p>
 </div>
 <div class="paragraph">
 <p>This central division is reflected in the two classes <code>BMM_CLASS</code> and <code>BMM_TYPE</code>, and their respective descendants, which are described in the following sections.</p>
@@ -2356,7 +2356,7 @@ a_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>Types are understood in BMM as the <em>formal generators</em> of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:</p>
+<p>Types are understood in BMM as the <em>formal generators</em> of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a model expressed in BMM:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2378,7 +2378,7 @@ a_type: <code>String[1]</code><br>
 </ul>
 </div>
 <div class="paragraph">
-<p>Most types are based on one or more <em>defining</em> class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the <code>T</code> in <code>List&lt;T&gt;</code>), and the special types for tuples and routine signatures.  The BMM meta-type <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
+<p>Most types are based on one or more <em>defining</em> class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the <code>T</code> in <code>List&lt;T&gt;</code>), and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
 </div>
 <div id="bmm_metatype_taxonomy" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2434,7 +2434,7 @@ a_type: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p><em>meta-rule</em>: A Simple type can only conform to another Simple type;</p>
+<p><em>meta-rule</em>: A Simple type can only conform to Model type, i.e. either another Simple type or a Generic type ;</p>
 </li>
 <li>
 <p><em>concrete rule</em>: A Simple type A conforms to Simple type B iff for <code><em>base_class</em></code> of A, <code><em>all_ancestors()</em></code> contains B.</p>
@@ -2466,7 +2466,7 @@ a_type: <code>String[1]</code><br>
 <p>a substitution of a formal parameter from the generic class with a concrete type, including other generic types and container types;</p>
 </li>
 <li>
-<p>an unsubstituted formal parameter.</p>
+<p>an unsubstituted formal parameter, if used as the type of a feature, routine argument etc, whose context has an open generic type to which this parameter conforms.</p>
 </li>
 </ul>
 </div>
@@ -2499,7 +2499,7 @@ a_type: <code>String[1]</code><br>
 <div class="title">Figure 13. Generic type - open</div>
 </div>
 <div class="paragraph">
-<p>Since the meta-type of <code>BMM_GENERIC_TYPE.<em>generic_parameters</em></code> in the BMM is <code>BMM_UNITARY_TYPE</code>, constructions such as <code>MyGenericType&lt;List&lt;OtherType&gt;&gt;</code> are prevented, due to the concrete parameter type <code>List&lt;OtherType&gt;</code> being an instance of <code>BMM_CONTAINER_TYPE</code> rather than of <code>BMM_UNITARY_TYPE</code>. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment should be expressed <em>where the formal generic parameter is used</em>, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.</p>
+<p>Since the meta-type of <code>BMM_GENERIC_TYPE.<em>generic_parameters</em></code> in the BMM is <code>BMM_UNITARY_TYPE</code>, constructions such as <code>MyGenericType&lt;List&lt;OtherType&gt;&gt;</code> are prevented, due to the concrete parameter type <code>List&lt;OtherType&gt;</code> being an instance of <code>BMM_CONTAINER_TYPE</code> rather than of <code>BMM_UNITARY_TYPE</code>. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment can be expressed <em>where the formal generic parameter is used</em>, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.</p>
 </div>
 <div id="bmm_structure_generic_2" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -2518,24 +2518,24 @@ a_type: <code>String[1]</code><br>
 <p><em>meta-rule</em>: A Generic type can only conform to another Generic type;</p>
 </li>
 <li>
-<p><em>concrete rules</em>: A Generic type Ga&lt;Tai, &#8230;&#8203;&gt; conforms to Generic type Gb&lt;Tbi, &#8230;&#8203;&gt; iff:</p>
+<p><em>concrete rules</em>: A Generic type <code>Ga&lt;Ta<sub>i</sub>, &#8230;&#8203;&gt;</code> conforms to Generic type <code>Gb&lt;Tb<sub>i</sub>, &#8230;&#8203;&gt;</code> iff:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>for <code><em>base_class</em></code> of Ga, <code><em>all_ancestors()</em></code> contains Gb; and</p>
+<p>for <code><em>base_class</em></code> of <code>Ga</code>, <code><em>all_ancestors()</em></code> contains Gb; and</p>
 </li>
 <li>
 <p>the number of generic parameters is equal;</p>
 </li>
 <li>
-<p>for each Tai, either</p>
+<p>for each <code>Ta<sub>i</sub></code>, either</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Tbi is an open formal parameter, and Tai conforms to any generic constraint type, or;</p>
+<p><code>Tb<sub>i</sub></code> is an open formal parameter, and <code>Tai</code> conforms to any generic constraint type, or;</p>
 </li>
 <li>
-<p>Tai conforms to Tbi.</p>
+<p><code>Ta<sub>i</sub></code> conforms to <code>Tb<sub>i</sub></code>.</p>
 </li>
 </ul>
 </div>
@@ -2563,11 +2563,11 @@ a_type: <code>String[1]</code><br>
 <p><em>meta-rule</em>: A Tuple type can only conform to another Tuple type;</p>
 </li>
 <li>
-<p><em>concrete rules</em>: A Tuple type [Tai, &#8230;&#8203;] conforms to Generic type [Tbi, &#8230;&#8203;] iff:</p>
+<p><em>concrete rules</em>: A Tuple type <code>Tuple[Ta<sub>i</sub>, &#8230;&#8203;]</code> conforms to Tuple type <code>Tuple[Tb<sub>i</sub>, &#8230;&#8203;]</code> iff:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>for each Tai, Tai conforms to Tbi.</p>
+<p>for each <code>Ta<sub>i</sub></code>, <code>Ta<sub>i</sub></code> conforms to <code>Tb<sub>i</sub></code>.</p>
 </li>
 </ul>
 </div>
@@ -2717,21 +2717,21 @@ a_type: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p>A Container type Ca&lt;Va&gt; conforms to Container type Cb&lt;Vb&gt; conforms to iff:</p>
+<p>A Container type <code>Ca&lt;Va&gt;</code> conforms to Container type <code>Cb&lt;Vb&gt;</code> conforms to iff:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>for <code><em>base_class</em></code> of Ca, <code><em>all_ancestors()</em></code> contains Cb; and Va conforms to Vb.</p>
+<p>for <code><em>base_class</em></code> of <code>Ca</code>, <code><em>all_ancestors()</em></code> contains <code>Cb</code>; and <code>Va</code> conforms to <code>Vb</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>An indexed Container type Ca&lt;Ka, Va&gt; conforms to indexed Container type Gb&lt;Kb, Vb&gt; iff:</p>
+<p>An indexed Container type <code>Ca&lt;Ka, Va&gt;</code> conforms to indexed Container type <code>Gb&lt;Kb, Vb&gt;</code> iff:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>for <code><em>base_class</em></code> of Ca, <code><em>all_ancestors()</em></code> contains Cb; Kb conforms to Kb and Va conforms to Vb.</p>
+<p>for <code><em>base_class</em></code> of <code>Ca</code>, <code><em>all_ancestors()</em></code> contains <code>Cb</code>; <code>Kb</code> conforms to <code>Kb</code> and <code>Va</code> conforms to <code>Vb</code>.</p>
 </li>
 </ul>
 </div>

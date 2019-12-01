@@ -2,7 +2,7 @@
 
 == Overview
 
-Types are understood in BMM as the _formal generators_ of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a concrete model expressed in BMM:
+Types are understood in BMM as the _formal generators_ of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a model expressed in BMM:
 
 * to define the _type of a property_;
 * to define _formal type parameters_ in a generic class;
@@ -10,7 +10,7 @@ Types are understood in BMM as the _formal generators_ of instances (where non-a
 * to formalise concepts relating to functional programming, including _tuples_ and routine _signatures_;
 * to determine _conformance_, which is a relation between types (not classes).
 
-Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the `T` in `List<T>`), and the special types for tuples and routine signatures.  The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
+Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are: formal generic parameters (e.g. the `T` in `List<T>`), and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
 
 [.text-center]
 .BMM meta-type taxonomy
@@ -43,7 +43,7 @@ A _simple type_ is a type based only on a _simple class_, which is a class with 
 
 Conformance of Simple types follows the inheritance hierarchy via which they are defined, according to the rules:
 
-* _meta-rule_: A Simple type can only conform to another Simple type;
+* _meta-rule_: A Simple type can only conform to a Model type, i.e. either another Simple type or a Generic type;
 * _concrete rule_: A Simple type A conforms to Simple type B iff for `_base_class_` of A, `_all_ancestors()_` contains B.
 
 == Generic Type
@@ -59,7 +59,7 @@ image::{diagrams_uri}/bmm_structure-generic_1.svg[id=bmm_structure_generic_1, al
 The parameters of a generic type may be:
 
 * a substitution of a formal parameter from the generic class with a concrete type, including other generic types and container types;
-* an unsubstituted formal parameter. 
+* an unsubstituted formal parameter, if used as the type of a feature, routine argument etc, whose context has an open generic type to which this parameter conforms.
 
 Consequently, a generic type may be:
 
@@ -75,7 +75,7 @@ The following shows the BMM instance structure of a generic type that is open.
 .Generic type - open
 image::{diagrams_uri}/bmm_structure-generic_3.svg[id=bmm_structure_generic_3, align="center"]
 
-Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BMM_UNITARY_TYPE`, constructions such as `MyGenericType<List<OtherType>>` are prevented, due to the concrete parameter type `List<OtherType>` being an instance of `BMM_CONTAINER_TYPE` rather than of `BMM_UNITARY_TYPE`. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment should be expressed _where the formal generic parameter is used_, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.
+Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BMM_UNITARY_TYPE`, constructions such as `MyGenericType<List<OtherType>>` are prevented, due to the concrete parameter type `List<OtherType>` being an instance of `BMM_CONTAINER_TYPE` rather than of `BMM_UNITARY_TYPE`. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment can be expressed _where the formal generic parameter is used_, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.
 
 [.text-center]
 .Generic type - closed container
@@ -86,12 +86,12 @@ image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, al
 Conformance of Generic types follows is according to the rules:
 
 * _meta-rule_: A Generic type can only conform to another Generic type;
-* _concrete rules_: A Generic type Ga<Tai, ...> conforms to Generic type Gb<Tbi, ...> iff:
-** for `_base_class_` of Ga, `_all_ancestors()_` contains Gb; and
+* _concrete rules_: A Generic type `Ga<Ta~i~, ...>` conforms to Generic type `Gb<Tb~i~, ...>` iff:
+** for `_base_class_` of `Ga`, `_all_ancestors()_` contains Gb; and
 ** the number of generic parameters is equal;
-** for each Tai, either
-*** Tbi is an open formal parameter, and Tai conforms to any generic constraint type, or;
-*** Tai conforms to Tbi.
+** for each `Ta~i~`, either
+*** `Tb~i~` is an open formal parameter, and `Tai` conforms to any generic constraint type, or;
+*** `Ta~i~` conforms to `Tb~i~`.
 
 == Tuple Meta-type
 
@@ -102,8 +102,8 @@ The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of 
 Conformance of Tuple types follows is according to the rules:
 
 * _meta-rule_: A Tuple type can only conform to another Tuple type;
-* _concrete rules_: A Tuple type [Tai, ...] conforms to Generic type [Tbi, ...] iff:
-** for each Tai, Tai conforms to Tbi.
+* _concrete rules_: A Tuple type `Tuple[Ta~i~, ...]` conforms to Tuple type `Tuple[Tb~i~, ...]` iff:
+** for each `Ta~i~`, `Ta~i~` conforms to `Tb~i~`.
 
 == Signature Meta-type
 
@@ -187,10 +187,10 @@ Conformance of Container types follows is according to the rules:
 
 * _meta-rule_: A Container type can only conform to another Container type;
 * _concrete rules_: 
-** A Container type Ca<Va> conforms to Container type Cb<Vb> conforms to iff:
-*** for `_base_class_` of Ca, `_all_ancestors()_` contains Cb; and Va conforms to Vb.
-** An indexed Container type Ca<Ka, Va> conforms to indexed Container type Gb<Kb, Vb> iff:
-*** for `_base_class_` of Ca, `_all_ancestors()_` contains Cb; Kb conforms to Kb and Va conforms to Vb.
+** A Container type `Ca<Va>` conforms to Container type `Cb<Vb>` conforms to iff:
+*** for `_base_class_` of `Ca`, `_all_ancestors()_` contains `Cb`; and `Va` conforms to `Vb`.
+** An indexed Container type `Ca<Ka, Va>` conforms to indexed Container type `Gb<Kb, Vb>` iff:
+*** for `_base_class_` of `Ca`, `_all_ancestors()_` contains `Cb`; `Kb` conforms to `Kb` and `Va` conforms to `Vb`.
 
 == Type Conformance
 

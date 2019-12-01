@@ -21,13 +21,13 @@ One of the foundational distinctions in the BMM is between _class_ and _type_, i
 * as the static (design time) type of a class feature (property or function result), and 
 * as the dynamic (run-time) type of the object referred to by or computed by that feature. 
 
-The simplest example of the former case is the typing of properties, as shown below.
+The simplest example of the former case is the typing of properties, as shown in the instance diagram below.
 
 [.text-center]
 .BMM entities
 image::{diagrams_uri}/bmm_entities.svg[id=bmm_entities, align="center"]
 
-In the latter case, a type is understood as the _generator_ of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a particular usage of a generic class definition. A generic class may generate numerous generic types.
+In the latter case, a type is understood as the _generator_ of instances. In a static model, types are references. For simple types, they refer to the corresponding simple class definition, but for generic types, they refer to a usage of a generic class definition with particular type substitutions. A generic class may generate numerous generic types.
 
 This central division is reflected in the two classes `BMM_CLASS` and `BMM_TYPE`, and their respective descendants, which are described in the following sections.
 
