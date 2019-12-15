@@ -28,7 +28,7 @@ This section describes the various kinds of terminal entities that may appear in
 
 === Literals
 
-Literal values are expressed in the {openehr_odin}#_primitive_types[ODIN syntax], with the exception of `List<T>` and `Set<T>` which are distinguished in EL with specific types of brackets.
+Literal values are expressed in the {openehr_odin}#_primitive_types[ODIN syntax^], with the exception of `List<T>` and `Set<T>` which are distinguished in EL with specific types of brackets.
 
 [cols="1,2,3",options="header"]
 |=================================================================
@@ -37,13 +37,13 @@ Literal values are expressed in the {openehr_odin}#_primitive_types[ODIN syntax]
 | `Boolean`             |`True`, `False`                        |
 | `Integer`             |`10`, `-4`, `1024`                     |
 | `Real`                |`10.0`, `0.345`                        |
-| `Date`                |`2004-08-12`                           |ISO8601-format date
-| `Date_time`           |`2004-08-12T12:00:59+0100`             |ISO8601-format date/time
-| `Time`                |`12:00:59`                             |ISO8601-format time
-| `Duration`            |`P39W`                                 |ISO8601-format duration
+| `Date`                |`2004-08-12`                           |ISO 8601-format date
+| `Date_time`           |`2004-08-12T12:00:59+0100`             |ISO 8601-format date/time
+| `Time`                |`12:00:59`                             |ISO 8601-format time
+| `Duration`            |`P39W`                                 |ISO 8601-format duration
 | `String`              |`"this is a string"`                   |
 |                       |`[blood_pressure]`                     |Extract the string value for the symbol `blood_pressure` from the EL terminology
-| `Uri`                 |`https://en.wikipedia.org/wiki/Everest`|Uri in {rfc3986}[IETF RFC3986] format
+| `Uri`                 |`https://en.wikipedia.org/wiki/Everest`|Uri in {rfc3986}[IETF RFC 3986^] format
 | `Terminology_code`    |`[snomed_ct::389086002]` +
                          `[snomed_ct::389086002\|Hypoxia\|]`    |Terminology code in openEHR format
 
@@ -102,7 +102,7 @@ Typical expressions containing variables are as follows.
 
 === Function Calls
 
-In EL expressions, computational functions may be called in the same way as for typical programming languages. The following example shows a declaration for a function `tnm_major_number()` that extracts various elements of {wikipedia}/TNM_staging_system[Tumour/Node/Metastasis ('TNM')] cancer staging values, such as `'Tis'`, `'G3'` and so on, and uses them in a Boolean expression whose value is assigned to the variable `is_luminal_A`.
+In EL expressions, computational functions may be called in the same way as for typical programming languages. The following example shows a declaration for a function `tnm_major_number()` that extracts various elements of {wikipedia_tnm}[Tumour/Node/Metastasis ('TNM')^] cancer staging values, such as `'Tis'`, `'G3'` and so on, and uses them in a Boolean expression whose value is assigned to the variable `is_luminal_A`.
 
 ----
     func tnm_major_number (tnm_val: String): Integer

@@ -9,7 +9,7 @@ Within any kind of ODIN object instance (i.e. implied, anonymous or identified),
 object = attribute_name '=' '<' value '>' ;
 --------
 
-Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see section <<See Primitive Types>>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.
+Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see section <<Primitive Types>>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.
 
 The following shows a typical structure.
 
@@ -172,7 +172,7 @@ end
 
 Other class specifications corresponding to the same data are possible, but will all be isomorphic to the above.
 
-How key values relate to a particular object structure depends on the object model being used during the ODIN parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as ODIN text; it is also possible to include explicit typing information in the ODIN itself (see section <<See Adding Type Information>> below).
+How key values relate to a particular object structure depends on the object model being used during the ODIN parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as ODIN text; it is also possible to include explicit typing information in the ODIN itself (see section <<Adding Type Information>> below).
 
 The validity rule for objects within a container attribute is as follows:
 

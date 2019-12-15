@@ -80,4 +80,5 @@ include::master04-syntax.adoc[leveloffset=+1]
 
 :sectnums!:
 //== References
-
+//
+//bibliography::[]

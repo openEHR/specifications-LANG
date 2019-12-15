@@ -26,20 +26,20 @@ For reasons of comprehensibility and explanation, the Expression Language is def
 
 == Design Background
 
-The openEHR Expression formalism is based on a limited first-order predicate logic language with extensions for numeric sub-expressions. It has similarities with OMG's OCL (Object Constraint Language) syntax, and is also similar to the assertion syntax used in the <<Object_Z>> language (see <<Sowa>>, <<Hein>>, <<Kilov_Ross>> for an explanation of predicate logic in information modelling). None of these languages has been used directly, for reasons including:
+The openEHR Expression formalism is based on a limited first-order predicate logic language with extensions for numeric sub-expressions. It has similarities with OMG's OCL (Object Constraint Language) syntax, and is also similar to the assertion syntax used in the citenp:[Object_Z] language (see citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling). None of these languages has been used directly, for reasons including:
 
 * OCL has a complex type system connected to the UML meta-model, and includes some undecidable procedural semantics;
 * none have adequate variable referencing mechanisms, such as to paths and external queries.
 
-There are also similarities with other languages developed in the health arena for expressing 'medical logic' (Arden <<hl7_arden>>), guidelines (<<GLIF>> and many others) and decision support (e.g. GELLO <<hl7_gello>>). These languages were not directly used, for reasons including:
+There are also similarities with other languages developed in the health arena for expressing 'medical logic', including {hl7v3_arden}[HL7 Arden Syntax^], Guideline Interchange Format cite:[GLIF] and many others, as well as decision support languages such as {hl7v3_gello}[HL7 Gello^]. These languages were not directly used, for reasons including:
 
 * none have an easily extensible value referencing mechanism;
 * some are too procedural (Arden, GLIF);
-* current versions of some of these languages have been made specific to the HL7v3 RIM, a particular model of health information designed for message representation (GLIF 3.x, GELLO).
+* current versions of some of these languages have been made specific to the HL7v3 RIM, a particular (and now obsolete) model of health information designed for message representation (GLIF 3.x, GELLO).
 
 Nevertheless, various elements of Arden provided useful inspiration for the formalism described here.
 
-Modern syntaxes that provide a more generic inspiration for the expression syntax described here include the {xpath}[Xpath syntax] and {typescript}[TypeScript].
+Modern syntaxes that provide a more generic inspiration for the expression syntax described here include the {w3c_xpath}[W3C Xpath syntax^] and {typescript}[TypeScript^].
 
 == Requirements
 
@@ -47,7 +47,7 @@ The semantic requirements are for expressions including arithmetic, boolean, and
 
 In addition, there is a need to be able to provide:
 
-* multi-lingual translations for symbolic variables, in a similar way to the {openehr_am_adl2}[openEHR Archetype Definition Language (ADL)^];
+* multi-lingual translations for symbolic variables, in a similar way to the {openehr_am_adl2}[openEHR Archetype Definition Language (ADL2)^];
 * bindings that connect variables to external data sources;
 * an ability to use externally defined information models that supply types that may be used in EL statements.
 

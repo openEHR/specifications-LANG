@@ -14,9 +14,9 @@ The `P_BMM` format is not the only serial format possible for BMM, and alternati
 
 The normal use of P_BMM schemas is as follows:
 
-* create one or more `.bmm` schema files, using the `P_BMM_` form of the model. This is easy to understand by using the link:../../example/example.bmm[example schema] and/or copying other examples;
-* locate these files in a suitable place for use with a tool such as the {openehr_awb}[openEHR ADL Workbench] and {linkehr}[LinkEHR].
+* create one or more `.bmm` schema files, using the `P_BMM_` form of the model. This is easy to understand by using the link:../../example/example.bmm[example schema^] and/or copying other examples;
+* locate these files in a suitable place for use with a tool such as the {openehr_awb}[openEHR ADL Workbench^] and {linkehr}[LinkEHR^].
 
 == Concrete Format
 
-BMM models are normally expressed as schema text files that support inclusion and re-use. The default file format has historically been {openehr_odin}[openEHR ODIN syntax], and BMM tools to date support this format. However any common format that can express typed object models may be used, including JSON (with type markers), YAML, and XML. The examples shown in this specification are primarily in ODIN, but a tool implementing BMM may choose to serialise in and out of another preferred format.
+BMM models are normally expressed as schema text files that support inclusion and re-use. The default file format has historically been {openehr_odin}[openEHR ODIN syntax^], and BMM tools to date support this format. However any common format that can express typed object models may be used, including JSON (with type markers), YAML, and XML. The examples shown in this specification are primarily in ODIN, but a tool implementing BMM may choose to serialise in and out of another preferred format.

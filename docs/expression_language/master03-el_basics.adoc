@@ -67,12 +67,12 @@ The primitive types are shown below.
 | `Boolean`             |Boolean value
 | `Integer`             |Integer value
 | `Real`                |Real value
-| `Date`                |ISO8601-format date
-| `Date_time`           |ISO8601-format date/time
-| `Time`                |ISO8601-format time
-| `Duration`            |ISO8601-format duration
+| `Date`                |ISO 8601-format date
+| `Date_time`           |ISO 8601-format date/time
+| `Time`                |ISO 8601-format time
+| `Duration`            |ISO 8601-format duration
 | `String`              |String
-| `Uri`                 |Uri in {rfc3986}[IETF RFC3986] format
+| `Uri`                 |Uri in {rfc3986}[IETF RFC 3986^] format
 | `Terminology_code`    |Terminology code reference
 |=================================================================
 

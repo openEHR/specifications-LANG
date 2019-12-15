@@ -93,5 +93,5 @@ include::master11-model_semantics.adoc[leveloffset=+1]
 
 :sectnums!:
 == References
-include::{ref_dir}/docs/references/publications_general_it.adoc[leveloffset=+1]
 
+bibliography::[]
