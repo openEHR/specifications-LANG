@@ -2740,78 +2740,78 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">Boolean type_conforms_to (String a_type, anc_type) {
-    BMM_TYPE_NAME a_type_name, anc_type_name;
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Boolean</span> <span class="tok-nf">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">a_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">BMM_TYPE_NAME</span> <span class="tok-n">a_type_name</span><span class="tok-o">,</span> <span class="tok-n">anc_type_name</span><span class="tok-o">;</span>
 
-    if attached create_type_name_from_string (a_a_type) as a_type_name and
-        attached create_type_name_from_string (anc_type) as anc_type_name
-    {
-        base_class = a_type_name.name;
-        anc_base_class = anc_type_name.name;
+    <span class="tok-k">if</span> <span class="tok-n">attached</span> <span class="tok-nf">create_type_name_from_string</span> <span class="tok-o">(</span><span class="tok-n">a_a_type</span><span class="tok-o">)</span> <span class="tok-n">as</span> <span class="tok-n">a_type_name</span> <span class="tok-n">and</span>
+        <span class="tok-n">attached</span> <span class="tok-nf">create_type_name_from_string</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-n">as</span> <span class="tok-n">anc_type_name</span>
+    <span class="tok-o">{</span>
+        <span class="tok-n">base_class</span> <span class="tok-o">=</span> <span class="tok-n">a_type_name</span><span class="tok-o">.</span><span class="tok-na">name</span><span class="tok-o">;</span>
+        <span class="tok-n">anc_base_class</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_name</span><span class="tok-o">.</span><span class="tok-na">name</span><span class="tok-o">;</span>
 
-        if (base_class.is_case_insensitive_equal (anc_base_class) or else
-            class_definition (base_class).has_ancestor_class (anc_base_class))
-        {
-            BMM_CLASS bmm_def_class = class_definition (base_class);
+        <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">.</span><span class="tok-na">is_case_insensitive_equal</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">)</span> <span class="tok-n">or</span> <span class="tok-k">else</span>
+            <span class="tok-nf">class_definition</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">).</span><span class="tok-na">has_ancestor_class</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">))</span>
+        <span class="tok-o">{</span>
+            <span class="tok-n">BMM_CLASS</span> <span class="tok-n">bmm_def_class</span> <span class="tok-o">=</span> <span class="tok-n">class_definition</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">);</span>
 
-            // ---- Tuple types
+            <span class="tok-c1">// ---- Tuple types</span>
 
-            // ---- Signature types ----
+            <span class="tok-c1">// ---- Signature types ----</span>
 
-            // ---- Generic types
-            // handle case where formal generic names appear in type name
-            if (valid_generic_type_name (a_type) and bmm_def_class instanceOf (BMM_GENERIC_CLASS) {
+            <span class="tok-c1">// ---- Generic types</span>
+            <span class="tok-c1">// handle case where formal generic names appear in type name</span>
+            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">a_type</span><span class="tok-o">)</span> <span class="tok-n">and</span> <span class="tok-n">bmm_def_class</span> <span class="tok-nf">instanceOf</span> <span class="tok-o">(</span><span class="tok-n">BMM_GENERIC_CLASS</span><span class="tok-o">)</span> <span class="tok-o">{</span>
 
-                // in the case of both being generic, we need to compare generics
-                // to start with, the number of generics must match
-                BMM_CLASS anc_bmm_def_class = class_definition (anc_base_class);
-                if (valid_generic_type_name (anc_type) and anc_bmm_def_class instanceOf (BMM_GENERIC_CLASS)) {
-                    ArrayedList&lt;String&gt; a_type_gen_params = a_type_name.generic_parameters_type_list;
-                    ArrayedList&lt;String&gt; anc_type_gen_params = anc_type_name.generic_parameters_type_list;
+                <span class="tok-c1">// in the case of both being generic, we need to compare generics</span>
+                <span class="tok-c1">// to start with, the number of generics must match</span>
+                <span class="tok-n">BMM_CLASS</span> <span class="tok-n">anc_bmm_def_class</span> <span class="tok-o">=</span> <span class="tok-n">class_definition</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">);</span>
+                <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-n">and</span> <span class="tok-n">anc_bmm_def_class</span> <span class="tok-nf">instanceOf</span> <span class="tok-o">(</span><span class="tok-n">BMM_GENERIC_CLASS</span><span class="tok-o">))</span> <span class="tok-o">{</span>
+                    <span class="tok-n">ArrayedList</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">a_type_gen_params</span> <span class="tok-o">=</span> <span class="tok-n">a_type_name</span><span class="tok-o">.</span><span class="tok-na">generic_parameters_type_list</span><span class="tok-o">;</span>
+                    <span class="tok-n">ArrayedList</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">anc_type_gen_params</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_name</span><span class="tok-o">.</span><span class="tok-na">generic_parameters_type_list</span><span class="tok-o">;</span>
 
-                    if (a_type_gen_params.count = anc_type_gen_params.count) {
+                    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">a_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">count</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">count</span><span class="tok-o">)</span> <span class="tok-o">{</span>
 
-                        Iterator&lt;String&gt; this_gen_parms_it = a_type_gen_params.iterator();
-                        Iterator&lt;String&gt; other_gen_parms_it = anc_type_gen_params.iterator();
+                        <span class="tok-n">Iterator</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">this_gen_parms_it</span> <span class="tok-o">=</span> <span class="tok-n">a_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">iterator</span><span class="tok-o">();</span>
+                        <span class="tok-n">Iterator</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">other_gen_parms_it</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">iterator</span><span class="tok-o">();</span>
 
-                        Boolean result = True;
-                        String a_type_gen_type, anc_type_gen_type;
+                        <span class="tok-n">Boolean</span> <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">True</span><span class="tok-o">;</span>
+                        <span class="tok-n">String</span> <span class="tok-n">a_type_gen_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type_gen_type</span><span class="tok-o">;</span>
 
-                        while (this_gen_parms_it.hasNext() &amp;&amp; other_gen_parms_it.hasNext() || !result) {
-                            // first we convert any open generic parameters to their conformance types
-                            // We assume type names of 1 letter are open parameters
-                            String this_gen_parm = this_gen_parms_it.next();
-                            String other_gen_parm = other_gen_parms_it.next();
-                            if (formal_generic_parameter_name (this_gen_parm))
-                                a_type_gen_type = this_bmm_gen_class.generic_parameter_conformance_type (this_gen_parm);
-                            else
-                                a_type_gen_type = this_gen_parm;
+                        <span class="tok-k">while</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">hasNext</span><span class="tok-o">()</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-n">other_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">hasNext</span><span class="tok-o">()</span> <span class="tok-o">||</span> <span class="tok-o">!</span><span class="tok-n">result</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+                            <span class="tok-c1">// first we convert any open generic parameters to their conformance types</span>
+                            <span class="tok-c1">// We assume type names of 1 letter are open parameters</span>
+                            <span class="tok-n">String</span> <span class="tok-n">this_gen_parm</span> <span class="tok-o">=</span> <span class="tok-n">this_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">next</span><span class="tok-o">();</span>
+                            <span class="tok-n">String</span> <span class="tok-n">other_gen_parm</span> <span class="tok-o">=</span> <span class="tok-n">other_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">next</span><span class="tok-o">();</span>
+                            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">formal_generic_parameter_name</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parm</span><span class="tok-o">))</span>
+                                <span class="tok-n">a_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">this_bmm_gen_class</span><span class="tok-o">.</span><span class="tok-na">generic_parameter_conformance_type</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parm</span><span class="tok-o">);</span>
+                            <span class="tok-k">else</span>
+                                <span class="tok-n">a_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">this_gen_parm</span><span class="tok-o">;</span>
 
-                            if (formal_generic_parameter_name (other_gen_parm))
-                                anc_type_gen_type = other_bmm_gen_class.generic_parameter_conformance_type (other_gen_parm);
-                            else
-                                anc_type_gen_type = other_gen_parm;
+                            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">formal_generic_parameter_name</span> <span class="tok-o">(</span><span class="tok-n">other_gen_parm</span><span class="tok-o">))</span>
+                                <span class="tok-n">anc_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">other_bmm_gen_class</span><span class="tok-o">.</span><span class="tok-na">generic_parameter_conformance_type</span> <span class="tok-o">(</span><span class="tok-n">other_gen_parm</span><span class="tok-o">);</span>
+                            <span class="tok-k">else</span>
+                                <span class="tok-n">anc_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">other_gen_parm</span><span class="tok-o">;</span>
 
-                            -- now do the test
-                            result = type_conforms_to (a_type_gen_type, anc_type_gen_type);
-                        }
+                            <span class="tok-o">--</span> <span class="tok-n">now</span> <span class="tok-k">do</span> <span class="tok-n">the</span> <span class="tok-n">test</span>
+                            <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">a_type_gen_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type_gen_type</span><span class="tok-o">);</span>
+                        <span class="tok-o">}</span>
 
-                        return result;
-                    }
+                        <span class="tok-k">return</span> <span class="tok-n">result</span><span class="tok-o">;</span>
+                    <span class="tok-o">}</span>
 
-                }
-                // Conforms - case where anc type is not provided in generic form, but desc is
-                // e.g. Interval&lt;Integer&gt; conforms to Interval
-                else
-                    return True;
-            }
-            // in the following case, the descendant type is not generic,
-            // so the ancestor type cannot be either, for conformance
-            else
-                return not valid_generic_type_name (anc_type);
-        }
-    }
-}</code></pre>
+                <span class="tok-o">}</span>
+                <span class="tok-c1">// Conforms - case where anc type is not provided in generic form, but desc is</span>
+                <span class="tok-c1">// e.g. Interval&lt;Integer&gt; conforms to Interval</span>
+                <span class="tok-k">else</span>
+                    <span class="tok-k">return</span> <span class="tok-n">True</span><span class="tok-o">;</span>
+            <span class="tok-o">}</span>
+            <span class="tok-c1">// in the following case, the descendant type is not generic,</span>
+            <span class="tok-c1">// so the ancestor type cannot be either, for conformance</span>
+            <span class="tok-k">else</span>
+                <span class="tok-k">return</span> <span class="tok-n">not</span> <span class="tok-nf">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">);</span>
+        <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -6056,8 +6056,9 @@ a_name: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-15 08:30:59 UTC
+Last updated 2019-12-15 23:33:24 UTC
 </div>
 </div>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>
