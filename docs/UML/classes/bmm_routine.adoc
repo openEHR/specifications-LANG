@@ -32,5 +32,7 @@ a|Return number of arguments of this routine.
 
 h|(effected)
 |*signature* ()
-a|Formal signature of this element, in the form `'[arg1_name: T_arg1, ...]:T_value'`.
+a|Formal signature of this element, in the form
+
+`'[arg1_name: T_arg1, ...]:T_value'`.
 |===

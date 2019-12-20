@@ -15,4 +15,7 @@ h|*Attributes*
 h|*1..1*
 |*agent*: `EL_AGENT`
 a|The agent being called.
+
+h|*Invariants*
+2+a|*_Inv_valid_call_*: `agent.is_callable()`
 |===

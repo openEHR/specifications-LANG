@@ -8,33 +8,24 @@ With a typical formal model, there is a need for formal representation of litera
 .`base.bmm.core.literal_value` package - Literal Values
 image::{uml_diagrams_uri}/LANG-bmm.core.literal_value.svg[id=core_literal_value, align="center"]
 
-In the above model, the sub-types of `BMM_LITERAL_VALUE` are limited to those that are generically applicable in any other part of the model. Other value-specific `BMM_VALUE` descendants are also defined within specific sub-packages.
+In the above model, the sub-types of `BMM_LITERAL_VALUE` are limited to those that are generically applicable in any other part of the model.
 
-== Meaning of BMM_LITERAL_VALUE Meta-type
-
-When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. 'Real pi = 3.1415926'), default values (e.g. `Person.name: String = "(unknown)"`) etc are instances of two 'types':
+When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. `Real pi = 3.1415926`), default values (e.g. `Person.name: String = "(unknown)"`) etc are instances of two 'types':
 
 * their declared types withing the model, e.g. `Real`, `String`;
-* the meta-type `BMM_VALUE`, which is instantiated to represent the value object within the model.
+* the meta-type `BMM_LITERAL_VALUE`, which is instantiated to represent the value object within the model.
 
-The literal value of any such object is represented by the `_value_literal_` field within its `BMM_LITERAL_VALUE`. This is assumed to carry a value expressed in a syntax known to the model processing environment in which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.
+The literal value of any such object is represented by the `_value_literal_` field within its `BMM_LITERAL_VALUE`. This is assumed to carry a value expressed in a syntax known to the model processing environment within which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.
 
-In principle, a `BMM_VALUE` descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types concretely needed in the BMM, which includes two primitive types (`String` and `Integer`) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <<Functional Elements>>.
+In principle, a `BMM_LITERAL_VALUE` descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types directly needed in the BMM, which includes two primitive types (`String` and `Integer`) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <<Functional Elements>>.
 
 In practice many literal values appearing in a BMM model may be instantiated simply as instances of `BMM_LITERAL_VALUE`, with their value stored in the `_value_literal_` field.
 
 If it was desired to create a full set of 'native' types for BMM, in the way supplied for UML in the UML Standard Profile, specific descendants would be added to the meta-type classes `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, as well as `BMM_LITERAL_VALUE`, which would allow such instances to be directly representable in the internal BMM type system. This would still need to be ultimately mapped to the types actually available in any language in which BMM is implemented.
-
-== Tuples
-
-One very useful structured value is the _tuple_, which is defined as an array of items each having as its meta-type any descendant of `BMM_TYPED`. This allows tuples to contain not only other literals (including other tuples) but also constants, variables, properties and parameters declared in class definitions the model, and literal routine calls.
-
-The type of a tuple is defined by an instance of the meta-type `BMM_TUPLE_TYPE`, described in <<_signatures>>.
-
-One of the main uses of literal tuples is to express the closed arguments of a literal routine call.
 
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_literal_value.adoc[]
 include::{uml_export_dir}/classes/bmm_string_value.adoc[]
 include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
+include::{uml_export_dir}/classes/bmm_boolean_value.adoc[]

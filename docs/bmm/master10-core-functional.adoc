@@ -18,15 +18,21 @@ Both calls and agents are special kinds of _references_ to their original routin
 .`lang.elom.expression` package - Functional Elements
 image::{uml_diagrams_uri}/LANG-elom.expression-functional.svg[id=functional, align="center"]
 
-In the model the central three classes define respectively, Agent and its Function and Procedure forms. An Agent is defined as a kind of terminal expression (`EL_TERMINAL`), since it is concretely a _reference_ to a routine that generates a delayed call. It potentially has `_closed_args_`, in the form of an `EL_TUPLE` which is a meta-type at the instance level, conforming to `BMM_TUPLE_TYPE`. The items of the tuple are each in the form of an `EL_TUPLE_ITEM` consisting of the argument name (optional) and an `_item_`, which is an `EL_EXPRESSION`, having an `_effective_type_` of `BMM_TYPE`. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).
+=== Agents
 
-An example of a delayed function call in syntax form is `nodeCount (struct=?, depth=3)` (the exact syntax will vary according to programming language). Here, the `_struct_` argument is left open, while the `_depth_` argument is closed with the supplied value `3`. This expression generates an agent whose signature is `[StructType]:Integer`. This capability is known as {wikipedia_currying}[function currying^] and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.
+In the model the three classes `EL_AGENT`, `EL_FUNCTION_AGENT`, and `EL_PROCEDURE_AGENT` (centre) define respectively, Agent and its Function and Procedure forms. An Agent is understood as one kind of terminal expression element (`EL_TERMINAL`), since it is concretely a _reference_ that generates a value, in this case, to a routine that generates a delayed call object. It potentially has `_closed_args_`, in the form of an `EL_TUPLE` which is a meta-type for tuple instances, which instantiate an instance `BMM_TUPLE_TYPE` (such as `[String, Integer]`). The items of the tuple are each in the form of an `EL_TUPLE_ITEM` consisting of the argument name (optional) and an `_item_`, which is an `EL_EXPRESSION`, having an `_effective_type_` of `BMM_TYPE`. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).
+
+An example of a delayed function call in syntax form is `nodeCount (struct=?, depth=3)` (the exact syntax will vary according to programming language). Here, the `_struct_` argument is left open, while the `_depth_` argument is closed with the supplied value `3`. This expression generates an agent whose signature is `[StructType]:Integer` (assuming the concrete type of the `struct` argument is `StructType`). This capability is known as {wikipedia_currying}[function currying^] and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.
+
+=== Calls
 
 On the left of the UML diagram is the meta-class `EL_FUNCTION_CALL`, which represents a call to a function Agent, and which is also an `EL_TERMINAL`. For such a call to be possible, all arguments must be supplied (which may be none, in the case of a parameterless function).
 
 An example of a Function Call is `_calculateAge_ ('1982-03-22', '2019-06-01')`, which calculates a person's age from his date of birth and a given date. In normal programming languages, any of the parameters may be any referenceable value-returning entity, i.e. any in-scope variable, other function call, or a valid operator expression, e.g. `_calculateAge_ ('1982-03-22', _today_())`, where `_today_()` is a function returning the date of today.
 
-Such calls are direct equivalents for expressions using basic mathematical operators and functions, on the usual basis that any operator (such as 'plus', i.e. `+`) is formally defined as a function such as `add (arg1, arg2: Numeric): Numeric`. Thus, the instance structure for a typical expression such as the Body Mass Index (BMI), i.e. `weight / height^2`, is shown below.
+Such calls are direct equivalents for expressions using basic mathematical operators and functions, on the usual basis that any operator (such as 'plus', i.e. `+`) is formally defined as a function such as `add (arg1, arg2: Numeric): Numeric`.
+
+The instance structure for a typical expression such as the Body Mass Index (BMI), i.e. `weight / height^2`, is shown below.
 
 [.text-center]
 .Function call example - Body Mass index (BMI)

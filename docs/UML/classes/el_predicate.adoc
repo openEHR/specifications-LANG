@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `EL_EXPRESSION`
+|*operand*: `EL_TERMINAL`
 a|
 |===

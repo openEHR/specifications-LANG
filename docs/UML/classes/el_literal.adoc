@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_LITERAL*
 
 h|*Description*
-2+a|Literal value expression terminal element. This can represent a literal value of any Foundation type, or any type known in the included models. Defined via a `BMM_VALUE`.
+2+a|Literal value of any type known in the model, including primitive types. Defined via a `BMM_LITERAL_VALUE`.
 
 h|*Inherit*
 2+|`EL_TERMINAL`
