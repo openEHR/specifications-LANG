@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="description" content="Object Data Instance Notation (ODIN) specification">
 <meta name="keywords" content="data, notation, JSON, syntax">
 <title>Object Data Instance Notation (ODIN)</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -92,8 +91,8 @@
 <li><a href="#_boolean_data">7.1.5. Boolean Data</a></li>
 <li><a href="#_dates_and_times">7.1.6. Dates and Times</a>
 <ul class="sectlevel4">
-<li><a href="#_complete_date_times">7.1.6.1. Complete Date/Times</a></li>
-<li><a href="#_partial_date_times">7.1.6.2. Partial Date/Times</a></li>
+<li><a href="#_complete_datetimes">7.1.6.1. Complete Date/Times</a></li>
+<li><a href="#_partial_datetimes">7.1.6.2. Partial Date/Times</a></li>
 </ul>
 </li>
 </ul>
@@ -146,7 +145,7 @@
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <img src="https://specifications.openehr.org/images/openEHR_logo_RGB.svg" alt="openEHR logo">
 </div>
@@ -156,10 +155,10 @@
 <h1 id="_object_data_instance_notation_odin" class="sect0">Object Data Instance Notation (ODIN)</h1>
 <div class="openblock partintro">
 <div class="content">
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all fit-content spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -180,12 +179,12 @@
 </tr>
 </tbody>
 </table>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <object type="image/svg+xml" data="openehr_block_diagram.svg" width="60%"><span class="alt">openEHR components</span></object>
 </div>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -215,7 +214,7 @@
 <div class="sect1">
 <h2 id="_amendment_record">Amendment Record</h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 9.0909%;">
 <col style="width: 54.5454%;">
@@ -500,7 +499,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">person</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">List&lt;PERSON&gt;</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">person</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">List&lt;PERSON&gt;</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-mi">01234</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span> <span class="tok-c">-- person&#39;s name</span>
             <span class="tok-nc">forenames</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Sherlock&quot;</span><span class="tok-p">&gt;</span>
@@ -602,7 +601,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-nl">unreserved</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">ALPHA</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">DIGIT</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;.&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;_&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;~&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-nl">unreserved</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">ALPHA</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">DIGIT</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;.&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;_&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;~&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 
 <span class="tok-nl">ALPHA</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">a</span><span class="tok-o">-</span><span class="tok-n">zA</span><span class="tok-o">-</span><span class="tok-n">Z</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-nl">DIGIT</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span></code></pre>
@@ -737,7 +736,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;plan&quot;</span><span class="tok-p">&gt;;</span> <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;The clinician&#39;s advice&quot;</span><span class="tok-p">&gt;&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">term</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;plan&quot;</span><span class="tok-p">&gt;;</span> <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;The clinician&#39;s advice&quot;</span><span class="tok-p">&gt;&gt;</span>
 <span class="tok-nc">term</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;plan&quot;</span><span class="tok-p">&gt;</span> <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;The clinician&#39;s advice&quot;</span><span class="tok-p">&gt;&gt;</span>
 
 <span class="tok-nc">term</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -760,7 +759,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-nl">odin_text</span><span class="tok-w">           </span><span class="tok-p">::</span><span class="tok-o">=</span><span class="tok-w">   </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">schema_identifier</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-nv">main_text</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-nl">odin_text</span><span class="tok-w">           </span><span class="tok-p">::</span><span class="tok-o">=</span><span class="tok-w">   </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">schema_identifier</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-nv">main_text</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-nl">schema_identifier</span><span class="tok-w">   </span><span class="tok-p">::</span><span class="tok-o">=</span><span class="tok-w">   </span><span class="tok-err">`@`</span><span class="tok-w"> </span><span class="tok-nv">schema</span><span class="tok-w"> </span><span class="tok-s">&#39;=&#39;</span><span class="tok-w"> </span><span class="tok-no">URI</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span></code></pre>
 </div>
 </div>
@@ -777,7 +776,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">...</span> <span class="tok-nc">other</span> <span class="tok-nc">formalism</span> <span class="tok-nc">text</span> <span class="tok-p">...</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">...</span> <span class="tok-nc">other</span> <span class="tok-nc">formalism</span> <span class="tok-nc">text</span> <span class="tok-p">...</span>
 <span class="tok-p">...</span> <span class="tok-nc">delimiter</span> <span class="tok-p">...</span>
 
 <span class="tok-c">--</span>
@@ -818,7 +817,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-c">--</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-c">--</span>
 <span class="tok-c">-- ODIN Anonymous Object Document</span>
 <span class="tok-c">--</span>
 <span class="tok-p">&lt;</span>
@@ -844,7 +843,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-c">--</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-c">--</span>
 <span class="tok-c">-- ODIN Identified Object Document</span>
 <span class="tok-c">--</span>
 <span class="tok-p">[</span><span class="tok-s">&quot;id_1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -882,7 +881,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-c">--</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-c">--</span>
 <span class="tok-c">-- ODIN Identified Object Document</span>
 <span class="tok-c">--</span>
 
@@ -914,18 +913,18 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-nl">object</span><span class="tok-w"> </span><span class="tok-err">=</span><span class="tok-w"> </span><span class="tok-err">attribute_name</span><span class="tok-w"> </span><span class="tok-err">&#39;=&#39;</span><span class="tok-w"> </span><span class="tok-err">&#39;&lt;&#39;</span><span class="tok-w"> </span><span class="tok-err">value</span><span class="tok-w"> </span><span class="tok-err">&#39;&gt;&#39;</span><span class="tok-w"> </span><span class="tok-err">;</span><span class="tok-w"></span></code></pre>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-nl">object</span><span class="tok-w"> </span><span class="tok-err">=</span><span class="tok-w"> </span><span class="tok-err">attribute_name</span><span class="tok-w"> </span><span class="tok-err">&#39;=&#39;</span><span class="tok-w"> </span><span class="tok-err">&#39;&lt;&#39;</span><span class="tok-w"> </span><span class="tok-err">value</span><span class="tok-w"> </span><span class="tok-err">&#39;&gt;&#39;</span><span class="tok-w"> </span><span class="tok-err">;</span><span class="tok-w"></span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see section <a href="#See Primitive Types">[See Primitive Types]</a>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.</p>
+<p>Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see section <a href="#_primitive_types">Section 7.1</a>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.</p>
 </div>
 <div class="paragraph">
 <p>The following shows a typical structure.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">attr_1</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">attr_1</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">attr_2</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">attr_3</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">leaf_value</span><span class="tok-p">&gt;</span>
         <span class="tok-nc">attr_4</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">leaf_value</span><span class="tok-p">&gt;</span>
@@ -957,7 +956,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-p">/</span><span class="tok-nc">attr_1</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">/</span><span class="tok-nc">attr_1</span>
     <span class="tok-p">/</span><span class="tok-nc">attr_1</span><span class="tok-p">/</span><span class="tok-nc">attr_2</span>
     <span class="tok-p">/</span><span class="tok-nc">attr_1</span><span class="tok-p">/</span><span class="tok-nc">attr_2</span><span class="tok-p">/</span><span class="tok-nc">attr_3</span>           <span class="tok-c">-- path to a leaf value</span>
     <span class="tok-p">/</span><span class="tok-nc">attr_1</span><span class="tok-p">/</span><span class="tok-nc">attr_2</span><span class="tok-p">/</span><span class="tok-nc">attr_4</span>           <span class="tok-c">-- path to a leaf value</span>
@@ -979,7 +978,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-nc">address</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>    <span class="tok-c">-- person&#39;s address</span></code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-nc">address</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>    <span class="tok-c">-- person&#39;s address</span></code></pre>
 </div>
 </div>
 </div>
@@ -990,7 +989,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">fruits</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;pear&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;cumquat&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;peach&quot;</span><span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">fruits</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;pear&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;cumquat&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;peach&quot;</span><span class="tok-p">&gt;</span>
 <span class="tok-nc">some_primes</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -1002,7 +1001,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-c">-- WARNING: THIS IS NOT VALID ODIN</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-c">-- WARNING: THIS IS NOT VALID ODIN</span>
 
 <span class="tok-nc">people</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">date_of_birth</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">sex</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
@@ -1019,7 +1018,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">people</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">people</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
     <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
     <span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
@@ -1031,7 +1030,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">people</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">people</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;akmal:1975-04-22&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;akmal:1962-02-11&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;gianni:1978-11-30&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">birth_date</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-nc">interests</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span> <span class="tok-p">&gt;</span>
@@ -1046,7 +1045,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">school_schedule</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">school_schedule</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">lesson_times</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-ld">08:30:00</span><span class="tok-p">,</span> <span class="tok-ld">09:30:00</span><span class="tok-p">,</span> <span class="tok-ld">10:30:00</span><span class="tok-p">,</span> <span class="tok-p">...&gt;</span>
 
     <span class="tok-nc">locations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -1083,7 +1082,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="idl">class SCHEDULE
+<pre class="pygments highlight"><code data-lang="idl"><span></span>class SCHEDULE
     lesson_times<span class="tok-o">:</span> <span class="tok-nb">List</span><span class="tok-o">&lt;</span>Time<span class="tok-o">&gt;</span>
     locations<span class="tok-o">:</span> <span class="tok-nb">List</span><span class="tok-o">&lt;</span><span class="tok-nb">String</span><span class="tok-o">&gt;</span>
     subjects<span class="tok-o">:</span> <span class="tok-nb">List</span><span class="tok-o">&lt;</span>SUBJECT<span class="tok-o">&gt;</span> <span class="tok-o">--</span> <span class="tok-k">or</span> it could be <span class="tok-nb">Hash</span><span class="tok-o">&lt;</span>SUBJECT<span class="tok-o">&gt;</span>
@@ -1101,7 +1100,7 @@ class SUBJECT
 <p>Other class specifications corresponding to the same data are possible, but will all be isomorphic to the above.</p>
 </div>
 <div class="paragraph">
-<p>How key values relate to a particular object structure depends on the object model being used during the ODIN parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as ODIN text; it is also possible to include explicit typing information in the ODIN itself (see section <a href="#See Adding Type Information">[See Adding Type Information]</a> below).</p>
+<p>How key values relate to a particular object structure depends on the object model being used during the ODIN parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as ODIN text; it is also possible to include explicit typing information in the ODIN itself (see section <a href="#_adding_type_information">Section 5.6</a> below).</p>
 </div>
 <div class="paragraph">
 <p>The validity rule for objects within a container attribute is as follows:</p>
@@ -1114,7 +1113,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">/</span><span class="tok-nc">school_schedule</span><span class="tok-p">/</span><span class="tok-nc">locations</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>                   <span class="tok-c">-- path to &quot;under the big...&quot;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">/</span><span class="tok-nc">school_schedule</span><span class="tok-p">/</span><span class="tok-nc">locations</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>                   <span class="tok-c">-- path to &quot;under the big...&quot;</span>
 <span class="tok-p">/</span><span class="tok-nc">school_schedule</span><span class="tok-p">/</span><span class="tok-nc">subjects</span><span class="tok-p">[</span><span class="tok-s">&quot;philosophy:kant&quot;</span><span class="tok-p">]</span>    <span class="tok-c">-- path to &quot;kant&quot;</span></code></pre>
 </div>
 </div>
@@ -1126,7 +1125,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">list_of_string_lists</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">list_of_string_lists</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;first string in first list&quot;</span><span class="tok-p">&gt;</span>
         <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;second string in first list&quot;</span><span class="tok-p">&gt;</span>
@@ -1147,7 +1146,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">/</span><span class="tok-nc">list_of_string_lists</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]/[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">/</span><span class="tok-nc">list_of_string_lists</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]/[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
 <span class="tok-p">/</span><span class="tok-nc">list_of_string_lists</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]/[</span><span class="tok-mi">2</span><span class="tok-p">]</span>
 <span class="tok-p">/</span><span class="tok-nc">list_of_string_lists</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]/[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
 <span class="tok-nc">etc</span></code></pre>
@@ -1164,7 +1163,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TOURIST_DESTINATION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">profile</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">DESTINATION_PROFILE</span><span class="tok-p">)</span> <span class="tok-p">&lt;...&gt;</span>
         <span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -1185,7 +1184,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">/</span><span class="tok-nc">destinations</span><span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]/</span><span class="tok-nc">hotels</span><span class="tok-p">[</span><span class="tok-s">&quot;gran sevilla&quot;</span><span class="tok-p">]</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">/</span><span class="tok-nc">destinations</span><span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]/</span><span class="tok-nc">hotels</span><span class="tok-p">[</span><span class="tok-s">&quot;gran sevilla&quot;</span><span class="tok-p">]</span>
 <span class="tok-p">/</span><span class="tok-nc">destinations</span><span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]/</span><span class="tok-nc">hotels</span><span class="tok-p">[</span><span class="tok-s">&quot;sofitel&quot;</span><span class="tok-p">]</span>
 <span class="tok-p">/</span><span class="tok-nc">destinations</span><span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]/</span><span class="tok-nc">hotels</span><span class="tok-p">[</span><span class="tok-s">&quot;hotel real&quot;</span><span class="tok-p">]</span>
 
@@ -1203,7 +1202,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">List&lt;HOTEL&gt;</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">List&lt;HOTEL&gt;</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;gran sevilla&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">HISTORIC_HOTEL</span><span class="tok-p">)</span> <span class="tok-p">&lt;...&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
@@ -1232,7 +1231,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;gran sevilla&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;/</span><span class="tok-nc">hotels</span><span class="tok-p">[</span><span class="tok-s">&quot;gran sevilla&quot;</span><span class="tok-p">]&gt;</span>
@@ -1268,7 +1267,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">[</span><span class="tok-s">&quot;travel_db_0293822&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">[</span><span class="tok-s">&quot;travel_db_0293822&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -1357,7 +1356,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;And now the STORM-BLAST came, and he</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;And now the STORM-BLAST came, and he</span>
 <span class="tok-s">            Was tyrannous and strong :</span>
 <span class="tok-s">            He struck with his o&#39;ertaking wings,</span>
 <span class="tok-s">            And chased us south along.&quot;</span><span class="tok-p">&gt;</span></code></pre>
@@ -1414,9 +1413,9 @@ class SUBJECT
 <div class="sect3">
 <h4 id="_dates_and_times"><a class="anchor" href="#_dates_and_times"></a>7.1.6. Dates and Times</h4>
 <div class="sect4">
-<h5 id="_complete_date_times"><a class="anchor" href="#_complete_date_times"></a>7.1.6.1. Complete Date/Times</h5>
+<h5 id="_complete_datetimes"><a class="anchor" href="#_complete_datetimes"></a>7.1.6.1. Complete Date/Times</h5>
 <div class="paragraph">
-<p>In ODIN, full and partial dates, times and durations can be expressed. All full dates, times and durations are expressed using a subset of ISO 8601. The openEHR <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_types">Foundation Types specification</a> provides a full explanation of the ISO 8601 semantics supported in openEHR.</p>
+<p>In ODIN, full and partial dates, times and durations can be expressed. All full dates, times and durations are expressed using a subset of <a href="https://en.wikipedia.org/wiki//ISO_8601">ISO 8601</a>. The openEHR <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_types">Foundation Types specification</a> provides a full explanation of the ISO 8601 semantics supported in openEHR.</p>
 </div>
 <div class="paragraph">
 <p>In ODIN, the use of ISO 8601 allows extended form only (i.e. ':' and '-' must be used). The ISO 8601 method of representing partial dates consisting of a single year number, and partial times consisting of hours only are not supported, since they are ambiguous. See below for partial forms.</p>
@@ -1426,7 +1425,7 @@ class SUBJECT
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin">    <span class="tok-ld">1919-01-23</span>                 <span class="tok-c">-- birthdate of Django Reinhardt</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-ld">1919-01-23</span>                 <span class="tok-c">-- birthdate of Django Reinhardt</span>
     <span class="tok-ld">16:35:04</span><span class="tok-p">,</span><span class="tok-mi">5</span>                 <span class="tok-c">-- rise of Venus in Sydney on 24 Jul 2003</span>
     <span class="tok-ld">2001-05-12T07:35:20+1000</span>   <span class="tok-c">-- timestamp on an email received from Australia</span>
     <span class="tok-ld">P22DT4H15M0S</span>               <span class="tok-c">-- period of 22 days, 4 hours, 15 minutes</span></code></pre>
@@ -1434,7 +1433,7 @@ class SUBJECT
 </div>
 </div>
 <div class="sect4">
-<h5 id="_partial_date_times"><a class="anchor" href="#_partial_date_times"></a>7.1.6.2. Partial Date/Times</h5>
+<h5 id="_partial_datetimes"><a class="anchor" href="#_partial_datetimes"></a>7.1.6.2. Partial Date/Times</h5>
 <div class="paragraph">
 <p>Two ways of expressing partial (i.e. incomplete) date/times are supported in ODIN. The ISO 8601 incomplete formats are supported in extended form only (i.e. with '-' and ':' separators) for all patterns that are unambiguous on their own. Dates consisting of only the year, and times consisting of only the hour are not supported, since both of these syntactically look like integers. The supported ISO 8601 patterns are as follows:</p>
 </div>
@@ -1616,7 +1615,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="ebnf"><span class="tok-k">path            </span><span class="tok-o">=</span>     <span class="tok-p">[</span><span class="tok-s1">&#39;/&#39;</span><span class="tok-p">]</span> <span class="tok-k">path_segment </span><span class="tok-p">{</span> <span class="tok-s1">&#39;/&#39;</span> <span class="tok-k">path_segment </span><span class="tok-p">}</span> <span class="tok-p">;</span>
+<pre class="pygments highlight"><code data-lang="ebnf"><span></span><span class="tok-k">path            </span><span class="tok-o">=</span>     <span class="tok-p">[</span><span class="tok-s1">&#39;/&#39;</span><span class="tok-p">]</span> <span class="tok-k">path_segment </span><span class="tok-p">{</span> <span class="tok-s1">&#39;/&#39;</span> <span class="tok-k">path_segment </span><span class="tok-p">}</span> <span class="tok-p">;</span>
 <span class="tok-k">path_segment    </span><span class="tok-o">=</span>     <span class="tok-k">attr_name </span><span class="tok-p">[</span> <span class="tok-s1">&#39;[&#39;</span> <span class="tok-k">object_id </span><span class="tok-s1">&#39;]&#39;</span> <span class="tok-p">]</span> <span class="tok-p">;</span></code></pre>
 </div>
 </div>
@@ -1634,7 +1633,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">/</span><span class="tok-nc">term_definitions</span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]/</span><span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-s">&quot;at0001&quot;</span><span class="tok-p">]/</span><span class="tok-nc">text</span></code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">/</span><span class="tok-nc">term_definitions</span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]/</span><span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-s">&quot;at0001&quot;</span><span class="tok-p">]/</span><span class="tok-nc">text</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1651,7 +1650,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>            <span class="tok-c">-- the first member of &#39;items&#39;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>            <span class="tok-c">-- the first member of &#39;items&#39;</span>
 <span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-s">&quot;systolic&quot;</span><span class="tok-p">]</span>   <span class="tok-c">-- the member of &#39;items&#39; with meaning &#39;systolic&#39;</span>
 <span class="tok-nc">items</span><span class="tok-p">[</span><span class="tok-s">&quot;at0001&quot;</span><span class="tok-p">]</span>     <span class="tok-c">-- the member of &#39;items&#39; with node id &#39;at0001&#39;</span></code></pre>
 </div>
@@ -1661,7 +1660,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xpath">items[1]                                -- the first member of &#39;items&#39;
+<pre class="pygments highlight"><code data-lang="xpath"><span></span>items[1]                                -- the first member of &#39;items&#39;
 items[@key = &#39;systolic&#39;]                -- the member of &#39;items&#39; with key &quot;systolic&quot;
 items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39; with archetype_node_id attribute &#39;at0001&#39;</code></pre>
 </div>
@@ -1753,7 +1752,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">subjects</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">subjects</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;philosophy:plato&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;philosophy&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span>
@@ -1768,7 +1767,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;subjects</span> <span class="tok-na">id=</span><span class="tok-s">&quot;philosophy:plato&quot;</span><span class="tok-nt">&gt;</span>
+<pre class="pygments highlight"><code data-lang="xml"><span></span><span class="tok-nt">&lt;subjects</span> <span class="tok-na">id=</span><span class="tok-s">&quot;philosophy:plato&quot;</span><span class="tok-nt">&gt;</span>
     <span class="tok-nt">&lt;name&gt;</span> philosophy <span class="tok-nt">&lt;/name&gt;</span>
 <span class="tok-nt">&lt;/subjects&gt;</span>
 <span class="tok-nt">&lt;subjects</span> <span class="tok-na">id=</span><span class="tok-s">&quot;philosophy:kant&quot;</span><span class="tok-nt">&gt;</span>
@@ -1787,7 +1786,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">countries</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">countries</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;spain&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;hotels&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;attractions&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
@@ -1804,7 +1803,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;countries</span> <span class="tok-na">key=</span><span class="tok-s">&quot;spain&quot;</span><span class="tok-nt">&gt;</span>
+<pre class="pygments highlight"><code data-lang="xml"><span></span><span class="tok-nt">&lt;countries</span> <span class="tok-na">key=</span><span class="tok-s">&quot;spain&quot;</span><span class="tok-nt">&gt;</span>
     <span class="tok-nt">&lt;_items</span> <span class="tok-na">key=</span><span class="tok-s">&quot;hotels&quot;</span><span class="tok-nt">&gt;</span>
         ...
     <span class="tok-nt">&lt;/_items&gt;</span>
@@ -1834,7 +1833,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">destinations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;seville&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TOURIST_DESTINATION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">profile</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">DESTINATION_PROFILE</span><span class="tok-p">)</span> <span class="tok-p">&lt;...&gt;</span>
         <span class="tok-nc">hotels</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -1849,7 +1848,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml"><span class="tok-nt">&lt;destinations</span> <span class="tok-na">id=</span><span class="tok-s">&quot;seville&quot;</span> <span class="tok-na">rm:type=</span><span class="tok-s">&quot;TOURIST_DESTINATION&quot;</span><span class="tok-nt">&gt;</span>
+<pre class="pygments highlight"><code data-lang="xml"><span></span><span class="tok-nt">&lt;destinations</span> <span class="tok-na">id=</span><span class="tok-s">&quot;seville&quot;</span> <span class="tok-na">rm:type=</span><span class="tok-s">&quot;TOURIST_DESTINATION&quot;</span><span class="tok-nt">&gt;</span>
 	<span class="tok-nt">&lt;profile</span> <span class="tok-na">rm:type=</span><span class="tok-s">&quot;DESTINATION_PROFILE&quot;</span><span class="tok-nt">&gt;</span>
 		...
 	<span class="tok-nt">&lt;/profile&gt;</span>
@@ -1873,14 +1872,14 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 <p>ODIN has more terminal types than JSON, including the date/time types, and the Interval types.</p>
 </div>
 <div class="paragraph">
-<p>Date/time types would typically be mapped to and from Strings containing ISO 8601 syntax dates and times.</p>
+<p>Date/time types would typically be mapped to and from Strings containing <a href="https://en.wikipedia.org/wiki//ISO_8601">ISO 8601 syntax</a> dates and times.</p>
 </div>
 <div class="paragraph">
 <p>The interval is a built-in ODIN type that would need to be explicitly expanded into a JSON structure, with an assumed model of the parts of the Interval. For this purpose, the following model is recommended as a basis for constructing the JSON equivalent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="idl">class Interval <span class="tok-o">&lt;</span>T<span class="tok-o">:</span> Ordered<span class="tok-o">&gt;</span> {
+<pre class="pygments highlight"><code data-lang="idl"><span></span>class Interval <span class="tok-o">&lt;</span>T<span class="tok-o">:</span> Ordered<span class="tok-o">&gt;</span> {
     T lower;
     T upper;
     Boolean lower_included;
@@ -1907,7 +1906,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-c">//</span><span class="tok-w"></span>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span><span class="tok-w"></span>
 <span class="tok-c">//	description: Antlr4 grammar for Object Data Instance Notation (ODIN)</span><span class="tok-w"></span>
 <span class="tok-c">//	author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;</span><span class="tok-w"></span>
 <span class="tok-c">//	support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;</span><span class="tok-w"></span>
@@ -2005,7 +2004,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-c">//</span><span class="tok-w"></span>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span><span class="tok-w"></span>
 <span class="tok-c">// grammar defining ODIN terminal value types, including atoms, lists and intervals</span><span class="tok-w"></span>
 <span class="tok-c">//</span><span class="tok-w"></span>
 
@@ -2088,7 +2087,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span class="tok-c">//</span><span class="tok-w"></span>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span><span class="tok-w"></span>
 <span class="tok-c">//  General purpose patterns used in all openEHR parser and lexer tools</span><span class="tok-w"></span>
 <span class="tok-c">//</span><span class="tok-w"></span>
 
@@ -2149,7 +2148,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 <span class="tok-n">fragment</span> <span class="tok-n">YEAR</span>     <span class="tok-o">:</span> <span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]{</span><span class="tok-mi">4</span><span class="tok-o">}</span> <span class="tok-o">;</span>					 <span class="tok-c1">// Year in ISO8601:2004 is 4 digits with 0-filling as needed</span>
 <span class="tok-n">fragment</span> <span class="tok-n">MONTH</span>    <span class="tok-o">:</span> <span class="tok-o">(</span> <span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">][</span><span class="tok-mi">1</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">|</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-o">]</span> <span class="tok-o">)</span> <span class="tok-o">;</span>    <span class="tok-c1">// month in year</span>
 <span class="tok-n">fragment</span> <span class="tok-n">DAY</span>      <span class="tok-o">:</span> <span class="tok-o">(</span> <span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">][</span><span class="tok-mi">1</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">|</span> <span class="tok-o">[</span><span class="tok-mi">12</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">|</span> <span class="tok-o">[</span><span class="tok-mi">3</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-o">]</span> <span class="tok-o">)</span> <span class="tok-o">;</span>  <span class="tok-c1">// day in month</span>
-<span class="tok-n">fragment</span> <span class="tok-n">HOUR</span>     <span class="tok-o">:</span> <span class="tok-o">(</span> <span class="tok-o">[</span><span class="tok-mi">01</span><span class="tok-o">]?[</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">|</span> <span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">3</span><span class="tok-o">]</span> <span class="tok-o">)</span> <span class="tok-o">;</span>  <span class="tok-c1">// hour in 24 hour clock</span>
+<span class="tok-n">fragment</span> <span class="tok-n">HOUR</span>     <span class="tok-o">:</span> <span class="tok-o">(</span> <span class="tok-o">[</span><span class="tok-mo">01</span><span class="tok-o">]?[</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">|</span> <span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">3</span><span class="tok-o">]</span> <span class="tok-o">)</span> <span class="tok-o">;</span>  <span class="tok-c1">// hour in 24 hour clock</span>
 <span class="tok-n">fragment</span> <span class="tok-n">MINUTE</span>   <span class="tok-o">:</span> <span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">5</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">;</span>                 <span class="tok-c1">// minutes</span>
 <span class="tok-n">fragment</span> <span class="tok-n">SECOND</span>   <span class="tok-o">:</span> <span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">5</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">-</span><span class="tok-mi">9</span><span class="tok-o">]</span> <span class="tok-o">;</span>                 <span class="tok-c1">// seconds</span>
 <span class="tok-n">fragment</span> <span class="tok-n">UNKNOWN_DT</span>  <span class="tok-o">:</span> <span class="tok-err">&#39;</span><span class="tok-o">??</span><span class="tok-err">&#39;</span> <span class="tok-o">;</span>                    <span class="tok-c1">// any unknown date/time value, except years.</span>
@@ -2244,8 +2243,9 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 10:06:10 GMT
+Last updated 2019-12-11 18:36:57 UTC
 </div>
 </div>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>
