@@ -108,7 +108,7 @@ The above types each have an assumed interface consisting of functions and proce
 Any such method may be accessed in the usual way, using dot notation, i.e. as shown below for the method `_has()_`.
 
 ----
-    heart_rrate_samples: List<Real>
+    heart_rate_samples: List<Real>
     High_threshold: Real = 200.0
     
     if heart_rate_samples.has (High_threshold) then
