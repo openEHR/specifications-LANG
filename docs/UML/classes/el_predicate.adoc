@@ -6,16 +6,19 @@ h|*Class*
 2+^h|*_EL_PREDICATE (abstract)_*
 
 h|*Description*
-2+a|Special purpose built-in functions of the EL formalism.
+2+a|Parent type of predicate of any object reference.
 
 h|*Inherit*
-2+|`EL_EXPRESSION`
+2+|`EL_TERMINAL`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `EL_TERMINAL`
+|*operand*: `EL_INSTANCE_REF`
 a|
+
+h|*Invariants*
+2+a|*_Inv_boolean_result_*: `is_boolean()`
 |===

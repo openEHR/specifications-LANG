@@ -16,6 +16,13 @@ h|*Description*
 h|*Inherit*
 2+|`EL_EXPRESSION`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*context*: `EL_INSTANCE_REF`
+a|Reference to an owning object for this terminal element, if it is not  the current scope.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

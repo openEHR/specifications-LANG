@@ -167,15 +167,16 @@
 <li><a href="#_value_set_range_constrained_meta_type">7.4.2. Value-set Range-Constrained Meta-type</a></li>
 </ul>
 </li>
-<li><a href="#_class_definitions_5">7.5. Class Definitions</a>
+<li><a href="#_class_invariants">7.5. Class Invariants</a></li>
+<li><a href="#_class_definitions_5">7.6. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_class_class">7.5.1. BMM_CLASS Class</a></li>
-<li><a href="#_bmm_simple_class_class">7.5.2. BMM_SIMPLE_CLASS Class</a></li>
-<li><a href="#_bmm_generic_class_class">7.5.3. BMM_GENERIC_CLASS Class</a></li>
-<li><a href="#_bmm_enumeration_class">7.5.4. BMM_ENUMERATION Class</a></li>
-<li><a href="#_bmm_enumeration_string_class">7.5.5. BMM_ENUMERATION_STRING Class</a></li>
-<li><a href="#_bmm_enumeration_integer_class">7.5.6. BMM_ENUMERATION_INTEGER Class</a></li>
-<li><a href="#_bmm_value_set_spec_class">7.5.7. BMM_VALUE_SET_SPEC Class</a></li>
+<li><a href="#_bmm_class_class">7.6.1. BMM_CLASS Class</a></li>
+<li><a href="#_bmm_simple_class_class">7.6.2. BMM_SIMPLE_CLASS Class</a></li>
+<li><a href="#_bmm_generic_class_class">7.6.3. BMM_GENERIC_CLASS Class</a></li>
+<li><a href="#_bmm_enumeration_class">7.6.4. BMM_ENUMERATION Class</a></li>
+<li><a href="#_bmm_enumeration_string_class">7.6.5. BMM_ENUMERATION_STRING Class</a></li>
+<li><a href="#_bmm_enumeration_integer_class">7.6.6. BMM_ENUMERATION_INTEGER Class</a></li>
+<li><a href="#_bmm_value_set_spec_class">7.6.7. BMM_VALUE_SET_SPEC Class</a></li>
 </ul>
 </li>
 </ul>
@@ -237,32 +238,69 @@
 </li>
 </ul>
 </li>
-<li><a href="#_functional_elements">10. Functional Elements</a>
+<li><a href="#_expressions">10. Expressions</a>
 <ul class="sectlevel2">
-<li><a href="#_overview_9">10.1. Overview</a>
+<li><a href="#_overview_9">10.1. Overview</a></li>
+<li><a href="#_operator_expressions">10.2. Operator Expressions</a></li>
+<li><a href="#_constraint_expressions">10.3. Constraint Expressions</a></li>
+<li><a href="#_terminal_entities">10.4. Terminal Entities</a>
 <ul class="sectlevel3">
-<li><a href="#_agents">10.1.1. Agents</a></li>
-<li><a href="#_calls">10.1.2. Calls</a></li>
+<li><a href="#_literals">10.4.1. Literals</a></li>
+<li><a href="#_feature_references">10.4.2. Feature References</a></li>
+<li><a href="#_agents">10.4.3. Agents</a></li>
+<li><a href="#_predicates">10.4.4. Predicates</a>
+<ul class="sectlevel4">
+<li><a href="#_attached_x">10.4.4.1. Attached (x)</a></li>
+<li><a href="#_defined_x">10.4.4.2. Defined (x)</a></li>
 </ul>
 </li>
-<li><a href="#_class_definitions_8">10.2. Class Definitions</a>
+</ul>
+</li>
+<li><a href="#_class_descriptions">10.5. Class Descriptions</a>
 <ul class="sectlevel3">
-<li><a href="#_el_agent_class">10.2.1. EL_AGENT Class</a></li>
-<li><a href="#_el_tuple_class">10.2.2. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">10.2.3. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_function_agent_class">10.2.4. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">10.2.5. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_agent_call_class">10.2.6. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">10.2.7. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_assertion_class">10.5.1. ASSERTION Class</a></li>
+<li><a href="#_el_expression_class">10.5.2. EL_EXPRESSION Class</a></li>
+<li><a href="#_el_operator_class">10.5.3. EL_OPERATOR Class</a></li>
+<li><a href="#_el_unary_operator_class">10.5.4. EL_UNARY_OPERATOR Class</a></li>
+<li><a href="#_el_binary_operator_class">10.5.5. EL_BINARY_OPERATOR Class</a></li>
+<li><a href="#_el_terminal_class">10.5.6. EL_TERMINAL Class</a></li>
+<li><a href="#_el_instance_ref_class">10.5.7. EL_INSTANCE_REF Class</a></li>
+<li><a href="#_el_feature_ref_class">10.5.8. EL_FEATURE_REF Class</a></li>
+<li><a href="#_el_instantiable_reft_class">10.5.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
+<li><a href="#_el_external_ref_class">10.5.10. EL_EXTERNAL_REF Class</a></li>
+<li><a href="#_el_literal_class">10.5.11. EL_LITERAL Class</a></li>
+<li><a href="#_el_predicate_class">10.5.12. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">10.5.13. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">10.5.14. EL_ATTACHED Class</a></li>
+<li><a href="#_el_constraint_expression_class">10.5.15. EL_CONSTRAINT_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_model_semantics">11. Model Semantics</a>
+<li><a href="#_functional_elements">11. Functional Elements</a>
 <ul class="sectlevel2">
-<li><a href="#_simple_inheritance">11.1. Simple Inheritance</a></li>
-<li><a href="#_generic_inheritance">11.2. Generic Inheritance</a></li>
-<li><a href="#_multiple_inheritance">11.3. Multiple Inheritance</a></li>
+<li><a href="#_overview_10">11.1. Overview</a></li>
+<li><a href="#_agents_2">11.2. Agents</a></li>
+<li><a href="#_calls">11.3. Calls</a></li>
+<li><a href="#_class_definitions_8">11.4. Class Definitions</a>
+<ul class="sectlevel3">
+<li><a href="#_el_agent_class">11.4.1. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">11.4.2. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">11.4.3. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_agent_call_class">11.4.4. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">11.4.5. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_tuple_class">11.4.6. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">11.4.7. EL_TUPLE_ITEM Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_model_semantics">12. Model Semantics</a>
+<ul class="sectlevel2">
+<li><a href="#_simple_inheritance">12.1. Simple Inheritance</a></li>
+<li><a href="#_generic_inheritance">12.2. Generic Inheritance</a></li>
+<li><a href="#_multiple_inheritance">12.3. Multiple Inheritance</a></li>
+<li><a href="#_inheritance_and_invariants_pre_conditions_and_post_conditions">12.4. Inheritance and Invariants, Pre-conditions and Post-conditions</a></li>
 </ul>
 </li>
 <li><a href="#_references">References</a></li>
@@ -320,7 +358,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2019 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2020 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -372,9 +410,10 @@
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>BMM_DEFINED_TYPE</code> to <code>BMM_EFFECTIVE_TYPE</code>;<br>
  Rename <code>BMM_ENTITY_TYPE</code> to <code>BMM_MODEL_TYPE</code>;<br>
- Significant improvements to meta-type part of model.</p></td>
+ Significant improvements to meta-type part of model;<br>
+ Add Expression language meta-model.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12 Dec 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13 Dec 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -1852,9 +1891,9 @@ a future version of BMM may define an option to import schemas using differing n
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>documentation</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>documentation</strong>: <code>Hash&lt;String, Any&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional documentation of this element.</p>
+<p>Optional documentation of this element, as a keyed list.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1862,6 +1901,13 @@ a future version of BMM may define an option to import schemas using differing n
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_DECLARATION</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Model element within which an element is declared.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meta_data</strong>: <code>Hash&lt;String, Any&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2740,78 +2786,78 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Boolean</span> <span class="tok-nf">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">a_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-o">{</span>
-    <span class="tok-n">BMM_TYPE_NAME</span> <span class="tok-n">a_type_name</span><span class="tok-o">,</span> <span class="tok-n">anc_type_name</span><span class="tok-o">;</span>
+<pre class="highlight"><code class="language-java" data-lang="java">Boolean type_conforms_to (String a_type, anc_type) {
+    BMM_TYPE_NAME a_type_name, anc_type_name;
 
-    <span class="tok-k">if</span> <span class="tok-n">attached</span> <span class="tok-nf">create_type_name_from_string</span> <span class="tok-o">(</span><span class="tok-n">a_a_type</span><span class="tok-o">)</span> <span class="tok-n">as</span> <span class="tok-n">a_type_name</span> <span class="tok-n">and</span>
-        <span class="tok-n">attached</span> <span class="tok-nf">create_type_name_from_string</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-n">as</span> <span class="tok-n">anc_type_name</span>
-    <span class="tok-o">{</span>
-        <span class="tok-n">base_class</span> <span class="tok-o">=</span> <span class="tok-n">a_type_name</span><span class="tok-o">.</span><span class="tok-na">name</span><span class="tok-o">;</span>
-        <span class="tok-n">anc_base_class</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_name</span><span class="tok-o">.</span><span class="tok-na">name</span><span class="tok-o">;</span>
+    if attached create_type_name_from_string (a_a_type) as a_type_name and
+        attached create_type_name_from_string (anc_type) as anc_type_name
+    {
+        base_class = a_type_name.name;
+        anc_base_class = anc_type_name.name;
 
-        <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">.</span><span class="tok-na">is_case_insensitive_equal</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">)</span> <span class="tok-n">or</span> <span class="tok-k">else</span>
-            <span class="tok-nf">class_definition</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">).</span><span class="tok-na">has_ancestor_class</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">))</span>
-        <span class="tok-o">{</span>
-            <span class="tok-n">BMM_CLASS</span> <span class="tok-n">bmm_def_class</span> <span class="tok-o">=</span> <span class="tok-n">class_definition</span> <span class="tok-o">(</span><span class="tok-n">base_class</span><span class="tok-o">);</span>
+        if (base_class.is_case_insensitive_equal (anc_base_class) or else
+            class_definition (base_class).has_ancestor_class (anc_base_class))
+        {
+            BMM_CLASS bmm_def_class = class_definition (base_class);
 
-            <span class="tok-c1">// ---- Tuple types</span>
+            // ---- Tuple types
 
-            <span class="tok-c1">// ---- Signature types ----</span>
+            // ---- Signature types ----
 
-            <span class="tok-c1">// ---- Generic types</span>
-            <span class="tok-c1">// handle case where formal generic names appear in type name</span>
-            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">a_type</span><span class="tok-o">)</span> <span class="tok-n">and</span> <span class="tok-n">bmm_def_class</span> <span class="tok-nf">instanceOf</span> <span class="tok-o">(</span><span class="tok-n">BMM_GENERIC_CLASS</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+            // ---- Generic types
+            // handle case where formal generic names appear in type name
+            if (valid_generic_type_name (a_type) and bmm_def_class instanceOf (BMM_GENERIC_CLASS) {
 
-                <span class="tok-c1">// in the case of both being generic, we need to compare generics</span>
-                <span class="tok-c1">// to start with, the number of generics must match</span>
-                <span class="tok-n">BMM_CLASS</span> <span class="tok-n">anc_bmm_def_class</span> <span class="tok-o">=</span> <span class="tok-n">class_definition</span> <span class="tok-o">(</span><span class="tok-n">anc_base_class</span><span class="tok-o">);</span>
-                <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-n">and</span> <span class="tok-n">anc_bmm_def_class</span> <span class="tok-nf">instanceOf</span> <span class="tok-o">(</span><span class="tok-n">BMM_GENERIC_CLASS</span><span class="tok-o">))</span> <span class="tok-o">{</span>
-                    <span class="tok-n">ArrayedList</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">a_type_gen_params</span> <span class="tok-o">=</span> <span class="tok-n">a_type_name</span><span class="tok-o">.</span><span class="tok-na">generic_parameters_type_list</span><span class="tok-o">;</span>
-                    <span class="tok-n">ArrayedList</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">anc_type_gen_params</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_name</span><span class="tok-o">.</span><span class="tok-na">generic_parameters_type_list</span><span class="tok-o">;</span>
+                // in the case of both being generic, we need to compare generics
+                // to start with, the number of generics must match
+                BMM_CLASS anc_bmm_def_class = class_definition (anc_base_class);
+                if (valid_generic_type_name (anc_type) and anc_bmm_def_class instanceOf (BMM_GENERIC_CLASS)) {
+                    ArrayedList&lt;String&gt; a_type_gen_params = a_type_name.generic_parameters_type_list;
+                    ArrayedList&lt;String&gt; anc_type_gen_params = anc_type_name.generic_parameters_type_list;
 
-                    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">a_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">count</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">count</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+                    if (a_type_gen_params.count = anc_type_gen_params.count) {
 
-                        <span class="tok-n">Iterator</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">this_gen_parms_it</span> <span class="tok-o">=</span> <span class="tok-n">a_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">iterator</span><span class="tok-o">();</span>
-                        <span class="tok-n">Iterator</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">other_gen_parms_it</span> <span class="tok-o">=</span> <span class="tok-n">anc_type_gen_params</span><span class="tok-o">.</span><span class="tok-na">iterator</span><span class="tok-o">();</span>
+                        Iterator&lt;String&gt; this_gen_parms_it = a_type_gen_params.iterator();
+                        Iterator&lt;String&gt; other_gen_parms_it = anc_type_gen_params.iterator();
 
-                        <span class="tok-n">Boolean</span> <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">True</span><span class="tok-o">;</span>
-                        <span class="tok-n">String</span> <span class="tok-n">a_type_gen_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type_gen_type</span><span class="tok-o">;</span>
+                        Boolean result = True;
+                        String a_type_gen_type, anc_type_gen_type;
 
-                        <span class="tok-k">while</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">hasNext</span><span class="tok-o">()</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-n">other_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">hasNext</span><span class="tok-o">()</span> <span class="tok-o">||</span> <span class="tok-o">!</span><span class="tok-n">result</span><span class="tok-o">)</span> <span class="tok-o">{</span>
-                            <span class="tok-c1">// first we convert any open generic parameters to their conformance types</span>
-                            <span class="tok-c1">// We assume type names of 1 letter are open parameters</span>
-                            <span class="tok-n">String</span> <span class="tok-n">this_gen_parm</span> <span class="tok-o">=</span> <span class="tok-n">this_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">next</span><span class="tok-o">();</span>
-                            <span class="tok-n">String</span> <span class="tok-n">other_gen_parm</span> <span class="tok-o">=</span> <span class="tok-n">other_gen_parms_it</span><span class="tok-o">.</span><span class="tok-na">next</span><span class="tok-o">();</span>
-                            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">formal_generic_parameter_name</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parm</span><span class="tok-o">))</span>
-                                <span class="tok-n">a_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">this_bmm_gen_class</span><span class="tok-o">.</span><span class="tok-na">generic_parameter_conformance_type</span> <span class="tok-o">(</span><span class="tok-n">this_gen_parm</span><span class="tok-o">);</span>
-                            <span class="tok-k">else</span>
-                                <span class="tok-n">a_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">this_gen_parm</span><span class="tok-o">;</span>
+                        while (this_gen_parms_it.hasNext() &amp;&amp; other_gen_parms_it.hasNext() || !result) {
+                            // first we convert any open generic parameters to their conformance types
+                            // We assume type names of 1 letter are open parameters
+                            String this_gen_parm = this_gen_parms_it.next();
+                            String other_gen_parm = other_gen_parms_it.next();
+                            if (formal_generic_parameter_name (this_gen_parm))
+                                a_type_gen_type = this_bmm_gen_class.generic_parameter_conformance_type (this_gen_parm);
+                            else
+                                a_type_gen_type = this_gen_parm;
 
-                            <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">formal_generic_parameter_name</span> <span class="tok-o">(</span><span class="tok-n">other_gen_parm</span><span class="tok-o">))</span>
-                                <span class="tok-n">anc_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">other_bmm_gen_class</span><span class="tok-o">.</span><span class="tok-na">generic_parameter_conformance_type</span> <span class="tok-o">(</span><span class="tok-n">other_gen_parm</span><span class="tok-o">);</span>
-                            <span class="tok-k">else</span>
-                                <span class="tok-n">anc_type_gen_type</span> <span class="tok-o">=</span> <span class="tok-n">other_gen_parm</span><span class="tok-o">;</span>
+                            if (formal_generic_parameter_name (other_gen_parm))
+                                anc_type_gen_type = other_bmm_gen_class.generic_parameter_conformance_type (other_gen_parm);
+                            else
+                                anc_type_gen_type = other_gen_parm;
 
-                            <span class="tok-o">--</span> <span class="tok-n">now</span> <span class="tok-k">do</span> <span class="tok-n">the</span> <span class="tok-n">test</span>
-                            <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">a_type_gen_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type_gen_type</span><span class="tok-o">);</span>
-                        <span class="tok-o">}</span>
+                            -- now do the test
+                            result = type_conforms_to (a_type_gen_type, anc_type_gen_type);
+                        }
 
-                        <span class="tok-k">return</span> <span class="tok-n">result</span><span class="tok-o">;</span>
-                    <span class="tok-o">}</span>
+                        return result;
+                    }
 
-                <span class="tok-o">}</span>
-                <span class="tok-c1">// Conforms - case where anc type is not provided in generic form, but desc is</span>
-                <span class="tok-c1">// e.g. Interval&lt;Integer&gt; conforms to Interval</span>
-                <span class="tok-k">else</span>
-                    <span class="tok-k">return</span> <span class="tok-n">True</span><span class="tok-o">;</span>
-            <span class="tok-o">}</span>
-            <span class="tok-c1">// in the following case, the descendant type is not generic,</span>
-            <span class="tok-c1">// so the ancestor type cannot be either, for conformance</span>
-            <span class="tok-k">else</span>
-                <span class="tok-k">return</span> <span class="tok-n">not</span> <span class="tok-nf">valid_generic_type_name</span> <span class="tok-o">(</span><span class="tok-n">anc_type</span><span class="tok-o">);</span>
-        <span class="tok-o">}</span>
-    <span class="tok-o">}</span>
-<span class="tok-o">}</span></code></pre>
+                }
+                // Conforms - case where anc type is not provided in generic form, but desc is
+                // e.g. Interval&lt;Integer&gt; conforms to Interval
+                else
+                    return True;
+            }
+            // in the following case, the descendant type is not generic,
+            // so the ancestor type cannot be either, for conformance
+            else
+                return not valid_generic_type_name (anc_type);
+        }
+    }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -3779,9 +3825,15 @@ not currently supported: export status; 'static' (non-instance dependent) method
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_5"><a class="anchor" href="#_class_definitions_5"></a>7.5. Class Definitions</h3>
+<h3 id="_class_invariants"><a class="anchor" href="#_class_invariants"></a>7.5. Class Invariants</h3>
+<div class="paragraph">
+<p>A class defined within a model may include <em>invarants</em>, i.e. assertions relating to its state that hold true before and after all <em>public</em> routine calls. Assertions are instances of the class <code>ASSERTION</code>, which is a tagged Boolean-valued Expression. The internal structure of the latter is defined below in <a href="#expressions">[expressions]</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_5"><a class="anchor" href="#_class_definitions_5"></a>7.6. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_class_class"><a class="anchor" href="#_bmm_class_class"></a>7.5.1. BMM_CLASS Class</h4>
+<h4 id="_bmm_class_class"><a class="anchor" href="#_bmm_class_class"></a>7.6.1. BMM_CLASS Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3898,6 +3950,11 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_MODEL</code></p></td>
@@ -4005,7 +4062,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_simple_class_class"><a class="anchor" href="#_bmm_simple_class_class"></a>7.5.2. BMM_SIMPLE_CLASS Class</h4>
+<h4 id="_bmm_simple_class_class"><a class="anchor" href="#_bmm_simple_class_class"></a>7.6.2. BMM_SIMPLE_CLASS Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4043,7 +4100,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_generic_class_class"><a class="anchor" href="#_bmm_generic_class_class"></a>7.5.3. BMM_GENERIC_CLASS Class</h4>
+<h4 id="_bmm_generic_class_class"><a class="anchor" href="#_bmm_generic_class_class"></a>7.6.3. BMM_GENERIC_CLASS Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4109,7 +4166,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.5.4. BMM_ENUMERATION Class</h4>
+<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.6.4. BMM_ENUMERATION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4172,7 +4229,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.5.5. BMM_ENUMERATION_STRING Class</h4>
+<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.6.5. BMM_ENUMERATION_STRING Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4211,7 +4268,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.5.6. BMM_ENUMERATION_INTEGER Class</h4>
+<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.6.6. BMM_ENUMERATION_INTEGER Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4250,7 +4307,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_value_set_spec_class"><a class="anchor" href="#_bmm_value_set_spec_class"></a>7.5.7. BMM_VALUE_SET_SPEC Class</h4>
+<h4 id="_bmm_value_set_spec_class"><a class="anchor" href="#_bmm_value_set_spec_class"></a>7.6.7. BMM_VALUE_SET_SPEC Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4461,7 +4518,10 @@ a_name: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_functions_and_procedures"><a class="anchor" href="#_functions_and_procedures"></a>8.6. Functions and Procedures</h3>
 <div class="paragraph">
-<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class.</p>
+<p>Functions and procedures are kinds of <em>routine</em>, which are computational features of a class. The classes <code>BMM_FUNCTION</code>, <code>BMM_PROCEDURE</code> and <code>BMM_ROUTINE</code> respectively provide the meta-model for <em>definitions</em> of the two types of routine.</p>
+</div>
+<div class="paragraph">
+<p>Any routine may have pre- and/or post-conditions defined for it, represented in BMM by <code>ASSERTIONs</code> populating the <code><em>pre_conditions</em></code> and <code><em>post_conditions</em></code> attributes of <code>BMM_ROUINE</code>. An Assertion is a tagged Boolean Expression, whose internal structure is described below in <a href="#expressions">[expressions]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class <code>BMM_PARAMETER</code>, which is defined as a kind of <em>variable</em>. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The <code><em>is_nullable</em></code> meta-attribute inherited from <code>BMM_TYPED_FEATURE</code> indicates whether each parameter is mandatory or not.</p>
@@ -4539,6 +4599,13 @@ a_name: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_synthesised_generic</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this property was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
@@ -4723,13 +4790,6 @@ a_name: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_im_infrastructure</strong>: <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this property was marked with info model <code><em>im_infrastructure</em></code> flag.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_synthesised_generic</strong>: <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>True if this property was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4956,6 +5016,16 @@ a_name: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Local variables of the routine.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -5357,7 +5427,7 @@ a_name: <code>String[1]</code><br>
 <p>The literal value of any such object is represented by the <code><em>value_literal</em></code> field within its <code>BMM_LITERAL_VALUE</code>. This is assumed to carry a value expressed in a syntax known to the model processing environment within which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.</p>
 </div>
 <div class="paragraph">
-<p>In principle, a <code>BMM_LITERAL_VALUE</code> descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types directly needed in the BMM, which includes two primitive types (<code>String</code> and <code>Integer</code>) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <a href="#_functional_elements">Section 10</a>.</p>
+<p>In principle, a <code>BMM_LITERAL_VALUE</code> descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types directly needed in the BMM, which includes two primitive types (<code>String</code> and <code>Integer</code>) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <a href="#_functional_elements">Section 11</a>.</p>
 </div>
 <div class="paragraph">
 <p>In practice many literal values appearing in a BMM model may be instantiated simply as instances of <code>BMM_LITERAL_VALUE</code>, with their value stored in the <code><em>value_literal</em></code> field.</p>
@@ -5407,6 +5477,13 @@ a_name: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>Any</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code>BMM_SERIAL_FORMALISM</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional specification of formalism of the <code><em>value_literal</em></code> attribute for complex values.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
@@ -5534,10 +5611,769 @@ a_name: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_functional_elements"><a class="anchor" href="#_functional_elements"></a>10. Functional Elements</h2>
+<h2 id="_expressions"><a class="anchor" href="#_expressions"></a>10. Expressions</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
+<div class="paragraph">
+<p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM Expression Language (BMM-EL) supports the representation of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>classical expressions using unary and binary operators with functional equivalents;</p>
+</li>
+<li>
+<p>terminal elements, including:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>literals;</p>
+</li>
+<li>
+<p>references to instantiable entities, i.e. object properties and routine variables;</p>
+</li>
+<li>
+<p>function calls;</p>
+</li>
+<li>
+<p>agents, i.e. delayed function calls with possibly open parameters;</p>
+</li>
+<li>
+<p>predicates on other terminal entities, including 'attached' test for Void (null) instance values.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The meta-types defined in this part of the model may be understood as the types of entities in a parse tree or syntax tree (AST). Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM-EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.</p>
+</div>
+<div class="paragraph">
+<p>The UML model of BMM-EL is shown below.</p>
+</div>
+<div id="elom_expression" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-elom.expression.svg" alt="LANG elom.expression">
+</div>
+<div class="title">Figure 30. base.elom.expression Package</div>
+</div>
+<div class="paragraph">
+<p>Apart from <code>ASSERTION</code>, all <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>effective_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
+</div>
+<div class="paragraph">
+<p>Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.</p>
+</div>
+<div id="elom_expression_type_hierarchy" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-elom.expression-type_hierarchy.svg" alt="LANG elom.expression type hierarchy">
+</div>
+<div class="title">Figure 31. base.elom.expression Package - Type hierarchy</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_operator_expressions"><a class="anchor" href="#_operator_expressions"></a>10.2. Operator Expressions</h3>
+<div class="paragraph">
+<p>BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by <code>EL_OPERATOR</code>, contains the attribute <code><em>definition</em></code> to refer to the corresponding function call. This  has to be inferred from the types of its operands.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraint_expressions"><a class="anchor" href="#_constraint_expressions"></a>10.3. Constraint Expressions</h3>
+<div class="paragraph">
+<p>One class, <code>EL_CONSTRAINT_EXPRESSION</code> is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form <code>&lt;expr&gt; matches &lt;constraint&gt;</code>. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: it might also be supplied by the type <code>C_OBJECT</code> from the AOM.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>10.4. Terminal Entities</h3>
+<div class="sect3">
+<h4 id="_literals"><a class="anchor" href="#_literals"></a>10.4.1. Literals</h4>
+<div class="paragraph">
+<p>A literal value may appear in an expression as a separate entity within an operator expression, as well as a functional call or agent parameter. The literal values that may be used are either instances of the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a> in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_leaf_data" target="_blank" rel="noopener">ODIN format</a>, or a complex object instance in structured serial format, specified by <code>BMM_SERIAL_FORMALISM</code> if not a primitive type.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_feature_references"><a class="anchor" href="#_feature_references"></a>10.4.2. Feature References</h4>
+<div class="paragraph">
+<p>In BMM, a <em>feature reference</em> is any symbolic reference to a class feature or variable that resolves to an object at evaluation time. This includes all referenceable entities within classes except procedures, which have no return value. Concretely, a feature reference takes the form of one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a property name, e.g. <code><em>name</em></code>;</p>
+</li>
+<li>
+<p>a constant name, e.g. <code><em>pi</em></code>;</p>
+</li>
+<li>
+<p>a variable or parameter name, e.g. <code><em>a_name</em></code>, <code><em>call_name</em></code>;</p>
+</li>
+<li>
+<p>a function call.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Function calls are described in detail in the following section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_agents"><a class="anchor" href="#_agents"></a>10.4.3. Agents</h4>
+<div class="paragraph">
+<p>An agent is the BMM term for a delayed routine call, and has the meta-type <code>BMM_SIGNATURE</code>. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_predicates"><a class="anchor" href="#_predicates"></a>10.4.4. Predicates</h4>
+<div class="paragraph">
+<p>Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand.</p>
+</div>
+<div class="sect4">
+<h5 id="_attached_x"><a class="anchor" href="#_attached_x"></a>10.4.4.1. Attached (x)</h5>
+<div class="paragraph">
+<p>xxxx</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_defined_x"><a class="anchor" href="#_defined_x"></a>10.4.4.2. Defined (x)</h5>
+<div class="paragraph">
+<p>xxxx</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a>10.5. Class Descriptions</h3>
+<div class="sect3">
+<h4 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>10.5.1. ASSERTION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ASSERTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Optionally tagged Boolean-returning expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_expression</em></strong>: <code>expression.is_boolean()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_expression_class"><a class="anchor" href="#_el_expression_class"></a>10.5.2. EL_EXPRESSION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_EXPRESSION (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of all typed expression tree items.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of expression entity at evaluation time. Effected in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if effective type is Boolean (i.e. notionally, <code><em>effective_type()</em></code> = <code>BMM_BOOLEAN_TYPE</code> and <code><em>value()</em></code> = <code>Boolean</code>).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>10.5.3. EL_OPERATOR Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_OPERATOR (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of operator types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precedence_overridden</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the natural precedence of operators is overridden in the expression represented by this node of the expression tree. If True, parentheses should be introduced around the totality of the syntax expression corresponding to this operator node and its operands.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The symbol actually used in the expression, or intended to be used for serialisation. Must be a member of <code>OPERATOR_DEF.<em>symbols</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>EL_FUNCTION_CALL</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The reference item from which the value of this node can be computed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator_definition</strong> (): <code>BMM_OPERATOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Operator definition derived from <code><em>definition.agent.operator_definition()</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>10.5.4. EL_UNARY_OPERATOR Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_UNARY_OPERATOR</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Unary operator expression node.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_OPERATOR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Operand node.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>10.5.5. EL_BINARY_OPERATOR Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_BINARY_OPERATOR</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Binary operator expression node.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_OPERATOR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>left_operand</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Left operand node.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>right_operand</strong>: <code>EL_TERMINAL</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Right operand node.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>10.5.6. EL_TERMINAL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_TERMINAL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression terminal entity, representing one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a reference to a manifest constant of any type;</p>
+</li>
+<li>
+<p>a reference to an instance of any instantiable type, i.e. variable, property or constant;</p>
+</li>
+<li>
+<p>an agent, i.e. a delayed function call;</p>
+</li>
+<li>
+<p>a function call.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code>EL_INSTANCE_REF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to an owning object for this terminal element, if it is not  the current scope.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong> (): <code>BMM_TYPED</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defining typed entity, whose meta-type is <code>BMM_TYPED</code>, that provides the formal definition of this reference.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>10.5.7. EL_INSTANCE_REF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_INSTANCE_REF (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A reference to an instance of any kind.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_feature_ref_class"><a class="anchor" href="#_el_feature_ref_class"></a>10.5.8. EL_FEATURE_REF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_FEATURE_REF (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A reference to an object, understood as a data instance + type reference, either in stored form or generated from a function call.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(redefined)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong> (): <code>BMM_TYPED_FEATURE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defining typed entity, whose meta-type is <code>BMM_TYPED</code>, that provides the formal definition of this reference.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.5.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_INSTANTIABLE_REF&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Terminal item corresponding to a reference to a directly instantiable entity, i.e. a variable, constant, or property.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>T</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The reference item from which the value of this node can be computed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
+<strong><em>Post_ref_effective_type</em></strong>: <code>Result = definition.type</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_external_ref_class"><a class="anchor" href="#_el_external_ref_class"></a>10.5.10. EL_EXTERNAL_REF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_EXTERNAL_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANTIABLE_REF</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.5.11. EL_LITERAL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_LITERAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Literal value of any type known in the model, including primitive types. Defined via a <code>BMM_LITERAL_VALUE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_LITERAL_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The reference item from which the value of this node can be computed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.5.12. EL_PREDICATE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_PREDICATE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Parent type of predicate of any object reference.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_INSTANCE_REF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.5.13. EL_DEFINED Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_DEFINED</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A predicate taking one external variable reference argument, that returns true if the reference is resolvable, i.e. the external value is obtainable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_PREDICATE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>10.5.14. EL_ATTACHED Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_ATTACHED</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A predicate on any object reference (including function call) that returns True if the reference is attached, i.e. non-Void.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_PREDICATE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.5.15. EL_CONSTRAINT_EXPRESSION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_CONSTRAINT_EXPRESSION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Special kind of expression representing a constraint on values. Used with the 'matches' operator. Does not follow the ordinary model of binary operator, since the constraint is not itself a value-returning expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>left_operand</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Left operand of constraint expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>constraint</strong>: <code>Any</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Right hand side of the constraint expression. Redefined in sub-types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_functional_elements"><a class="anchor" href="#_functional_elements"></a>11. Functional Elements</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_10"><a class="anchor" href="#_overview_10"></a>11.1. Overview</h3>
 <div class="paragraph">
 <p>BMM provides support for representing functional entities, often known as <a href="https://en.wikipedia.org/wiki//Lambda_calculus" target="_blank" rel="noopener">lambdas</a>. The two key functional entities are known in the calculus as a <em>lambda term</em> and an <em>application</em>. The first is more commonly understood by programmers as a <em>delayed routine call</em>, here denoted by the term <em>agent</em>. The latter is what programmers understand as a 'call', i.e. an application of a lambda term.</p>
 </div>
@@ -5567,10 +6403,11 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-elom.expression-functional.svg" alt="LANG elom.expression functional">
 </div>
-<div class="title">Figure 30. <code>lang.elom.expression</code> package - Functional Elements</div>
+<div class="title">Figure 32. <code>lang.elom.expression</code> package - Functional Elements</div>
 </div>
-<div class="sect3">
-<h4 id="_agents"><a class="anchor" href="#_agents"></a>10.1.1. Agents</h4>
+</div>
+<div class="sect2">
+<h3 id="_agents_2"><a class="anchor" href="#_agents_2"></a>11.2. Agents</h3>
 <div class="paragraph">
 <p>In the model the three classes <code>EL_AGENT</code>, <code>EL_FUNCTION_AGENT</code>, and <code>EL_PROCEDURE_AGENT</code> (centre) define respectively, Agent and its Function and Procedure forms. An Agent is understood as one kind of terminal expression element (<code>EL_TERMINAL</code>), since it is concretely a <em>reference</em> that generates a value, in this case, to a routine that generates a delayed call object. It potentially has <code><em>closed_args</em></code>, in the form of an <code>EL_TUPLE</code> which is a meta-type for tuple instances, which instantiate an instance <code>BMM_TUPLE_TYPE</code> (such as <code>[String, Integer]</code>). The items of the tuple are each in the form of an <code>EL_TUPLE_ITEM</code> consisting of the argument name (optional) and an <code><em>item</em></code>, which is an <code>EL_EXPRESSION</code>, having an <code><em>effective_type</em></code> of <code>BMM_TYPE</code>. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).</p>
 </div>
@@ -5578,8 +6415,8 @@ a_name: <code>String[1]</code><br>
 <p>An example of a delayed function call in syntax form is <code>nodeCount (struct=?, depth=3)</code> (the exact syntax will vary according to programming language). Here, the <code><em>struct</em></code> argument is left open, while the <code><em>depth</em></code> argument is closed with the supplied value <code>3</code>. This expression generates an agent whose signature is <code>[StructType]:Integer</code> (assuming the concrete type of the <code>struct</code> argument is <code>StructType</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_calls"><a class="anchor" href="#_calls"></a>10.1.2. Calls</h4>
+<div class="sect2">
+<h3 id="_calls"><a class="anchor" href="#_calls"></a>11.3. Calls</h3>
 <div class="paragraph">
 <p>On the left of the UML diagram is the meta-class <code>EL_FUNCTION_CALL</code>, which represents a call to a function Agent, and which is also an <code>EL_TERMINAL</code>. For such a call to be possible, all arguments must be supplied (which may be none, in the case of a parameterless function).</p>
 </div>
@@ -5596,14 +6433,13 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 31. Function call example - Body Mass index (BMI)</div>
-</div>
+<div class="title">Figure 33. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.2. Class Definitions</h3>
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>11.4. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.2.1. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>11.4.1. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5686,7 +6522,177 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.2.2. EL_TUPLE Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>11.4.2. EL_FUNCTION_AGENT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_AGENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>An agent whose signa</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_FUNCTION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to definition of a routine for which this is a direct call instance, if one exists.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>11.4.3. EL_PROCEDURE_AGENT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_PROCEDURE_AGENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A literal procedure call.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_PROCEDURE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to definition of routine for which this is a call instance.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>11.4.4. EL_AGENT_CALL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_AGENT_CALL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A call made to a 'closed' agent, i.e. one with no remaining open arguments.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_AGENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The agent being called.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_valid_call</em></strong>: <code>agent.is_callable()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>11.4.5. EL_FUNCTION_CALL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_CALL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function in Lambda calculus.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code>, <code>EL_AGENT_CALL</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_FUNCTION_AGENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The function agent being called.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
+<strong><em>Post_effective_call_type</em></strong>: <code>Result = agent.effective_type().result_type</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Effective type of function call, being the result type of the called functional agent.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>11.4.6. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5732,7 +6738,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.2.3. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>11.4.7. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5772,184 +6778,14 @@ a_name: <code>String[1]</code><br>
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.2.4. EL_FUNCTION_AGENT Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_AGENT</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>An agent whose signa</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_FUNCTION</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Reference to definition of a routine for which this is a direct call instance, if one exists.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.2.5. EL_PROCEDURE_AGENT Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_PROCEDURE_AGENT</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A literal procedure call.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_PROCEDURE</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Reference to definition of routine for which this is a call instance.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.2.6. EL_AGENT_CALL Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_AGENT_CALL (abstract)</em></strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A call made to a 'closed' agent, i.e. one with no remaining open arguments.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_AGENT</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The agent being called.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_valid_call</em></strong>: <code>agent.is_callable()</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.2.7. EL_FUNCTION_CALL Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_FUNCTION_CALL</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function in Lambda calculus.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code>, <code>EL_AGENT_CALL</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_FUNCTION_AGENT</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The function agent being called.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
-<strong><em>Post_effective_call_type</em></strong>: <code>Result = agent.effective_type().result_type</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Effective type of function call, being the result type of the called functional agent.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>11. Model Semantics</h2>
+<h2 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>12. Model Semantics</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_simple_inheritance"><a class="anchor" href="#_simple_inheritance"></a>11.1. Simple Inheritance</h3>
+<h3 id="_simple_inheritance"><a class="anchor" href="#_simple_inheritance"></a>12.1. Simple Inheritance</h3>
 <div class="paragraph">
 <p>The BMM supports single and multiple inheritance, although it does not distinguish between different types of inheritance relation as some programming languages do. Inheritance is formally defined to be between a class definition (an instance of <code>BMM_CLASS</code>) and a defined type, i.e. a <code>BMM_SIMPLE_TYPE</code> or <code>BMM_GENERIC_TYPE</code>. This is because the inheritance parents of a class may be any of:</p>
 </div>
@@ -5976,7 +6812,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 32. BMM class - ancestors view</div>
+<div class="title">Figure 34. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -5985,11 +6821,11 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 33. BMM class - descendants view</div>
+<div class="title">Figure 35. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_generic_inheritance"><a class="anchor" href="#_generic_inheritance"></a>11.2. Generic Inheritance</h3>
+<h3 id="_generic_inheritance"><a class="anchor" href="#_generic_inheritance"></a>12.2. Generic Inheritance</h3>
 <div class="paragraph">
 <p>Inheritance between generic classes works in the same way as for simple classes, with the additional semantics of formal parameter inheritance, which are as follows:</p>
 </div>
@@ -6010,7 +6846,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 34. Generic inheritance, open parameter</div>
+<div class="title">Figure 36. Generic inheritance, open parameter</div>
 </div>
 <div class="paragraph">
 <p>A simple class may also inherit from a closed generic type, with the parameters of the latter fixed to specific type(s), as shown in the following example.</p>
@@ -6019,7 +6855,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 35. Generic inheritance, closed</div>
+<div class="title">Figure 37. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>The general case is that any number of formal generic parameters may be substituted or left open down the inheritance lineage, as shown by the variants in the following example.</p>
@@ -6028,11 +6864,11 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 36. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 38. Generic inheritance, mixed open and closed</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_multiple_inheritance"><a class="anchor" href="#_multiple_inheritance"></a>11.3. Multiple Inheritance</h3>
+<h3 id="_multiple_inheritance"><a class="anchor" href="#_multiple_inheritance"></a>12.3. Multiple Inheritance</h3>
 <div class="paragraph">
 <p>Multiple inheritance is typically used in the definition of classes that have a Liskov substitution inheritance relation as well as a re-use inheritance relation. The following shows a class <code>DV_INTERVAL&lt;T&gt;</code> multiply inheriting from <code>Interval&lt;T&gt;</code> and <code>DATA_VALUE</code>, where the latter is considered the substitutable type, and the former an interface re-use.</p>
 </div>
@@ -6040,7 +6876,13 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 37. Multiple inheritance</div>
+<div class="title">Figure 39. Multiple inheritance</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inheritance_and_invariants_pre_conditions_and_post_conditions"><a class="anchor" href="#_inheritance_and_invariants_pre_conditions_and_post_conditions"></a>12.4. Inheritance and Invariants, Pre-conditions and Post-conditions</h3>
+<div class="paragraph tbd">
+<p>xxx</p>
 </div>
 </div>
 </div>
@@ -6056,9 +6898,8 @@ a_name: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-15 23:33:24 UTC
+Last updated 2020-01-09 16:36:22 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>

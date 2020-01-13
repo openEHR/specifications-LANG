@@ -14,9 +14,10 @@
 |
 |Rename `BMM_DEFINED_TYPE` to `BMM_EFFECTIVE_TYPE`; +
  Rename `BMM_ENTITY_TYPE` to `BMM_MODEL_TYPE`; +
- Significant improvements to meta-type part of model.
+ Significant improvements to meta-type part of model; +
+ Add Expression language meta-model.
 |T Beale 
-|12 Dec 2019
+|13 Dec 2020
 
 |
 |Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +

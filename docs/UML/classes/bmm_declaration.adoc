@@ -20,10 +20,14 @@ h|*1..1*
 a|Name of this model element.
 
 h|*0..1*
-|*documentation*: `String`
-a|Optional documentation of this element.
+|*documentation*: `Hash<String, Any>`
+a|Optional documentation of this element, as a keyed list.
 
 h|*1..1*
 |*scope*: `BMM_DECLARATION`
 a|Model element within which an element is declared.
+
+h|*0..1*
+|*meta_data*: `Hash<String, Any>`
+a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.
 |===

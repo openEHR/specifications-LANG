@@ -82,6 +82,10 @@ The following diagram shows the meta-model structure corresponding to an attribu
 .Value-set Constrained Type
 image::{diagrams_uri}/bmm_structure-value_set.svg[id=bmm_structure_value_set, align="center"]
 
+== Class Invariants
+
+A class defined within a model may include _invarants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `ASSERTION`, which is a tagged Boolean-valued Expression. The internal structure of the latter is defined below in <<expressions>>.
+
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_class.adoc[]

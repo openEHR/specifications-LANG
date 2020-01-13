@@ -16,9 +16,7 @@ h|(abstract)
 |*effective_type* (): `BMM_TYPE`
 a|Type of expression entity at evaluation time. Effected in descendants.
 
-h|(abstract)
-|*value* (): `Any`
-a|A runtime executable value of this entity.
-
-NOTE: Not necessarily directly implemented.
+h|
+|*is_boolean* (): `Boolean`
+a|True if effective type is Boolean (i.e. notionally, `_effective_type()_` = `BMM_BOOLEAN_TYPE` and `_value()_` = `Boolean`).
 |===

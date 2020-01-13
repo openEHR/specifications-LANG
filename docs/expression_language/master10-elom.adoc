@@ -31,6 +31,7 @@ include::{uml_export_dir}/classes/el_unary_operator.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_binary_operator.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/el_terminal.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/el_object_ref.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/el_external_ref.adoc[leveloffset=+1]
 

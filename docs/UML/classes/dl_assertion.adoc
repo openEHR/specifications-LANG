@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*DL_ASSERTION*
 
 h|*Description*
-2+a|A built-in statement type in the form of an assertion taking one expression argument, that determines whether it is true and if not, generates an exception.
+2+a|A statement type in the form of an assertion taking one expression argument, that determines whether it is true and if not, generates an exception.
 
 h|*Inherit*
 2+|`DL_STATEMENT`
@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*expression*: `EL_EXPRESSION`
+|*expression*: `ASSERTION`
 a|
 |===

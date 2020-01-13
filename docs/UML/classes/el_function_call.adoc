@@ -9,7 +9,7 @@ h|*Description*
 2+a|A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function in Lambda calculus.
 
 h|*Inherit*
-2+|`EL_TERMINAL`, `EL_AGENT_CALL`
+2+|`EL_FEATURE_REF`, `EL_AGENT_CALL`
 
 h|*Attributes*
 ^h|*Signature*

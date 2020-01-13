@@ -22,6 +22,14 @@ a|Formal parameters of the routine.
 h|*0..1*
 |*locals*: `List<BMM_LOCAL>`
 a|Local variables of the routine.
+
+h|*0..1*
+|*pre_conditions*: `List<ASSERTION>`
+a|
+
+h|*0..1*
+|*post_conditions*: `List<ASSERTION>`
+a|
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

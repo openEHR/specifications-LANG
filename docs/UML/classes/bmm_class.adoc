@@ -61,6 +61,10 @@ h|*0..1*
 |*is_abstract*: `Boolean`
 a|True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type.
 
+h|*0..1*
+|*invariants*: `List<ASSERTION>`
+a|
+
 h|*1..1 +
 (redefined)*
 |*scope*: `BMM_MODEL`

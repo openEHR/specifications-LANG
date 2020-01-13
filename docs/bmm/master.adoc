@@ -83,8 +83,9 @@ include::master06-core-types.adoc[leveloffset=+1]
 include::master07-core-classes.adoc[leveloffset=+1]
 include::master08-core-features.adoc[leveloffset=+1]
 include::master09-core-values.adoc[leveloffset=+1]
-include::master10-core-functional.adoc[leveloffset=+1]
-include::master11-model_semantics.adoc[leveloffset=+1]
+include::master10-expressions.adoc[leveloffset=+1]
+include::master11-functional.adoc[leveloffset=+1]
+include::master12-model_semantics.adoc[leveloffset=+1]
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------

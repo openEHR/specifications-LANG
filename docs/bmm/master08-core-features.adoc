@@ -98,7 +98,9 @@ The following example shows a the flattened property view of a class `OBSERVATIO
 
 == Functions and Procedures
 
-Functions and procedures are kinds of _routine_, which are computational features of a class.
+Functions and procedures are kinds of _routine_, which are computational features of a class. The classes `BMM_FUNCTION`, `BMM_PROCEDURE` and `BMM_ROUTINE` respectively provide the meta-model for _definitions_ of the two types of routine.
+
+Any routine may have pre- and/or post-conditions defined for it, represented in BMM by `ASSERTIONs` populating the `_pre_conditions_` and `_post_conditions_` attributes of `BMM_ROUINE`. An Assertion is a tagged Boolean Expression, whose internal structure is described below in <<expressions>>.
 
 The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is defined as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
 

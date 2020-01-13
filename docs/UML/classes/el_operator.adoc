@@ -32,5 +32,5 @@ h|*Functions*
 
 h|
 |*operator_definition* (): `BMM_OPERATOR`
-a|
+a|Operator definition derived from `_definition.agent.operator_definition()_`.
 |===

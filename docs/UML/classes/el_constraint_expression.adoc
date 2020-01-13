@@ -22,4 +22,7 @@ a|Left operand of constraint expression.
 h|*1..1*
 |*constraint*: `Any`
 a|Right hand side of the constraint expression. Redefined in sub-types.
+
+h|*Invariants*
+2+a|*_Inv_boolean_result_*: `is_boolean()`
 |===

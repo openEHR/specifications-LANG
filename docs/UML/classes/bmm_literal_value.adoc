@@ -23,6 +23,10 @@ h|*1..1*
 |*value*: `Any`
 a|
 
+h|*0..1*
+|*formalism*: `BMM_SERIAL_FORMALISM`
+a|Optional specification of formalism of the `_value_literal_` attribute for complex values.
+
 h|*1..1 +
 (redefined)*
 |*type*: `BMM_MODEL_TYPE`

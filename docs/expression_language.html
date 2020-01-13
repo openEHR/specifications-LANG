@@ -142,17 +142,20 @@
 <li><a href="#_el_unary_operator_class">10.2.1.3. EL_UNARY_OPERATOR Class</a></li>
 <li><a href="#_el_binary_operator_class">10.2.1.4. EL_BINARY_OPERATOR Class</a></li>
 <li><a href="#_el_terminal_class">10.2.1.5. EL_TERMINAL Class</a></li>
-<li><a href="#_el_instantiable_reft_class">10.2.1.6. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
-<li><a href="#_el_external_ref_class">10.2.1.7. EL_EXTERNAL_REF Class</a></li>
-<li><a href="#_el_agent_class">10.2.1.8. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">10.2.1.9. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">10.2.1.10. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_agent_call_class">10.2.1.11. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">10.2.1.12. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_literal_class">10.2.1.13. EL_LITERAL Class</a></li>
-<li><a href="#_el_predicate_class">10.2.1.14. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">10.2.1.15. EL_DEFINED Class</a></li>
-<li><a href="#_el_constraint_expression_class">10.2.1.16. EL_CONSTRAINT_EXPRESSION Class</a></li>
+</ul>
+</li>
+<li><a href="#_el_instantiable_reft_class">10.2.2. EL_INSTANTIABLE_REF&lt;T&gt; Class</a>
+<ul class="sectlevel4">
+<li><a href="#_el_external_ref_class">10.2.2.1. EL_EXTERNAL_REF Class</a></li>
+<li><a href="#_el_agent_class">10.2.2.2. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">10.2.2.3. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">10.2.2.4. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_agent_call_class">10.2.2.5. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">10.2.2.6. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_literal_class">10.2.2.7. EL_LITERAL Class</a></li>
+<li><a href="#_el_predicate_class">10.2.2.8. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">10.2.2.9. EL_DEFINED Class</a></li>
+<li><a href="#_el_constraint_expression_class">10.2.2.10. EL_CONSTRAINT_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -244,7 +247,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2019 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2020 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -1264,7 +1267,7 @@ Extensions would also typically provide more operators, functions, leaf types an
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span></span>    <span class="tok-n">T</span> <span class="tok-n">function</span> <span class="tok-n">minus</span><span class="tok-o">&lt;</span><span class="tok-n">T</span> <span class="tok-kd">extends</span> <span class="tok-n">Numeric</span><span class="tok-o">&gt;</span> <span class="tok-o">(</span><span class="tok-n">T</span> <span class="tok-n">other</span><span class="tok-o">)</span></code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">    T function minus&lt;T extends Numeric&gt; (T other)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1942,80 +1945,80 @@ computing_bindings
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="adl"><span></span><span class="tok-err">openEHR-ELOM.bmi.v1</span>
+<pre class="highlight"><code class="language-adl" data-lang="adl">openEHR-ELOM.bmi.v1
 
-<span class="tok-gh">language</span>
-    <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
-    <span class="tok-nc">translations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;pt&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-    <span class="tok-p">&gt;</span>
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+    translations = &lt;
+        ["pt"] = &lt;...&gt;
+    &gt;
 
-<span class="tok-gh">description</span>
-    <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;unmanaged&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">original_author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-    <span class="tok-nc">details</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;pt&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">pt</span><span class="tok-p">]&gt;</span>
-            <span class="tok-nc">purpose</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cálculo do peso do corpo&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">use</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;...&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;...&gt;
+    details = &lt;
+    ["pt"] = &lt;
+        language = &lt;[ISO_639-1::pt]&gt;
+            purpose = &lt;"Cálculo do peso do corpo"&gt;
+            use = &lt;"..."&gt;
+        &gt;
+    &gt;
 
-<span class="tok-s">use_model</span>
-    <span class="tok-nc">org</span><span class="tok-err">.</span><span class="tok-nc">openehr</span><span class="tok-err">.</span><span class="tok-nc">rm</span>
+use_model
+    org.openehr.rm
 
-<span class="tok-s">data_context</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">body_weight</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-l">height:</span><span class="tok-p"> </span><span class="tok-err">R</span><span class="tok-nc">eal</span>
-    <span class="tok-nc">out</span> <span class="tok-err">$</span><span class="tok-l">bmi:</span><span class="tok-p"> </span><span class="tok-err">R</span><span class="tok-nc">eal</span>
+data_context
+    in $body_weight, $height: Real
+    out $bmi: Real
 
-<span class="tok-gh">definition</span>
-    <span class="tok-err">$</span><span class="tok-nc">bmi</span> <span class="tok-err">:</span><span class="tok-o">=</span> <span class="tok-err">$</span><span class="tok-nc">body_weight</span> <span class="tok-p">/ </span><span class="tok-err">$</span><span class="tok-nc">height</span> <span class="tok-o">^</span> <span class="tok-mi">2</span>
+definition
+    $bmi := $body_weight / $height ^ 2
 
-<span class="tok-gh">terminology</span>
-    <span class="tok-nc">symbol_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body weight&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;weight of subject body&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;bmi&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body mass index&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body mass index&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;pt&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;peso do corpo&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;peso do corpo do sujeito&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;bmi&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;índice de massa corporal&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;índice de massa corporal&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+terminology
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"body weight"&gt;
+                description = &lt;"weight of subject body"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"body mass index"&gt;
+                description = &lt;"body mass index"&gt;
+            &gt;
+        &gt;
+        ["pt"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"peso do corpo"&gt;
+                description = &lt;"peso do corpo do sujeito"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"índice de massa corporal"&gt;
+                description = &lt;"índice de massa corporal"&gt;
+            &gt;
+        &gt;
+    &gt;
 
-<span class="tok-s">data_bindings</span>
-    <span class="tok-nc">content_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-OBSERVATION.body_measurements.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id5]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">direction</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;in&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id6]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">direction</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;in&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-OBSERVATION.body_mass_index.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_mass_index&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id5]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">direction</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;out&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+data_bindings
+    content_bindings = &lt;
+        ["openEHR-EHR-OBSERVATION.body_measurements.v1"] = &lt;
+            ["body_weight"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+            ["height"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id6]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+        &gt;
+        ["openEHR-EHR-OBSERVATION.body_mass_index.v1"] = &lt;
+            ["body_mass_index"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"out"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2065,12 +2068,12 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span></span>    <span class="tok-cm">/*</span>
-<span class="tok-cm">     * &lt;documentation&gt;</span>
-<span class="tok-cm">     */</span>
-    <span class="tok-n">Real</span> <span class="tok-nf">bmi</span> <span class="tok-o">(</span><span class="tok-n">Real</span> <span class="tok-n">body_weight</span><span class="tok-o">,</span> <span class="tok-n">Real</span> <span class="tok-n">height</span><span class="tok-o">)</span> <span class="tok-o">{</span>
-        <span class="tok-k">return</span> <span class="tok-n">body_weight</span> <span class="tok-o">/</span> <span class="tok-n">height</span> <span class="tok-o">^</span> <span class="tok-mi">2</span><span class="tok-o">;</span>
-    <span class="tok-o">}</span></code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">    /*
+     * &lt;documentation&gt;
+     */
+    Real bmi (Real body_weight, Real height) {
+        return body_weight / height ^ 2;
+    }</code></pre>
 </div>
 </div>
 </div>
@@ -2081,160 +2084,160 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="adl"><span></span><span class="tok-err">openEHR-ELOM.breast_cancer_treatment.v1</span>
+<pre class="highlight"><code class="language-adl" data-lang="adl">openEHR-ELOM.breast_cancer_treatment.v1
 
-<span class="tok-gh">language</span>
-    <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
 
-<span class="tok-gh">description</span>
-    <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;unmanaged&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">original_author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;...&gt;
 
-<span class="tok-s">use_model</span>
-    <span class="tok-nc">org</span><span class="tok-err">.</span><span class="tok-nc">openehr</span><span class="tok-err">.</span><span class="tok-nc">rm</span>
+use_model
+    org.openehr.rm
 
-<span class="tok-s">data_context</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">cancer_diagnosis</span><span class="tok-err">:</span> <span class="tok-err">T</span><span class="tok-nc">erminology_code</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">has_metastasis</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-err">:</span> <span class="tok-err">B</span><span class="tok-nc">oolean</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-l">ki67:</span><span class="tok-p"> </span><span class="tok-err">R</span><span class="tok-nc">eal</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">tnm_g</span><span class="tok-err">:</span> <span class="tok-err">S</span><span class="tok-nc">tring</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">has_dx_transmural_mi</span><span class="tok-err">:</span> <span class="tok-err">B</span><span class="tok-nc">oolean</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">ejection_fraction</span><span class="tok-err">:</span> <span class="tok-err">R</span><span class="tok-nc">eal</span>
-    <span class="tok-nc">in</span> <span class="tok-err">$</span><span class="tok-nc">hs_dx_hf_stage_2_4</span><span class="tok-err">:</span> <span class="tok-err">B</span><span class="tok-nc">oolean</span>
-    <span class="tok-nc">out</span> <span class="tok-err">$</span><span class="tok-l">recommendation:</span><span class="tok-p"> </span><span class="tok-err">S</span><span class="tok-nc">tring</span>
+data_context
+    in $cancer_diagnosis: Terminology_code
+    in $has_metastasis, $er_positive, $pr_positive, $her2_positive: Boolean
+    in $ki67: Real
+    in $tnm_t, $tnm_n, $tnm_g: String
+    in $has_dx_transmural_mi: Boolean
+    in $ejection_fraction: Real
+    in $hs_dx_hf_stage_2_4: Boolean
+    out $recommendation: String
 
-<span class="tok-s">preconditions</span>
-    <span class="tok-err">$</span><span class="tok-nc">cancer_diagnosis</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-err">ICD_</span><span class="tok-mi">10</span><span class="tok-err">::C</span><span class="tok-mi">50</span><span class="tok-p">|</span><span class="tok-err">Breast</span> <span class="tok-err">cancer</span><span class="tok-p">|]</span>
+preconditions
+    $cancer_diagnosis = [ICD_10::C50|Breast cancer|]
 
-<span class="tok-gh">definition</span>
-    <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-nc">is_er_positive</span><span class="tok-p">,</span> <span class="tok-nc">is_pr_positive</span><span class="tok-p">,</span> <span class="tok-nc">is_her2_positive</span><span class="tok-err">:</span> <span class="tok-nc">Boolean</span><span class="tok-p">;</span> <span class="tok-nc">ki67_level</span><span class="tok-err">:</span> <span class="tok-nc">Real</span><span class="tok-p">)</span><span class="tok-err">:</span> <span class="tok-nc">Terminology_code</span>
-    <span class="tok-p">{</span>
-        <span class="tok-nc">if</span> <span class="tok-nc">is_er_positive</span> <span class="tok-kt">and not </span><span class="tok-nc">is_her2_positive</span> <span class="tok-kt">and </span><span class="tok-nc">ki67_level</span> <span class="tok-o">&lt;</span> <span class="tok-mf">0.20</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">return</span> <span class="tok-p">[</span>1111<span class="tok-p">|</span><span class="tok-s">luminal A</span><span class="tok-p">|]</span>
+definition
+    tumor_molecular_subtype (is_er_positive, is_pr_positive, is_her2_positive: Boolean; ki67_level: Real): Terminology_code
+    {
+        if is_er_positive and not is_her2_positive and ki67_level &lt; 0.20 then
+            return [1111|luminal A|]
 
-        <span class="tok-c">-- Luminal B (HER2 negative)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">is_er_positive</span> <span class="tok-kt">and not </span><span class="tok-nc">is_her2_positive</span> <span class="tok-kt">and </span><span class="tok-nc">ki67_level</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.20</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">return</span> <span class="tok-p">[</span>2222<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 negative)</span><span class="tok-p">|]</span>
+        -- Luminal B (HER2 negative)
+        elseif is_er_positive and not is_her2_positive and ki67_level &gt;= 0.20 then
+            return [2222|Luminal B (HER2 negative)|]
 
-        <span class="tok-c">-- Luminal B (HER2 positive)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">is_er_positive</span> <span class="tok-kt">and </span><span class="tok-nc">is_her2_positive</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">return</span> <span class="tok-p">[</span>3333<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 positive)</span><span class="tok-p">|]</span>
+        -- Luminal B (HER2 positive)
+        elseif is_er_positive and is_her2_positive then
+            return [3333|Luminal B (HER2 positive)|]
 
-        <span class="tok-c">-- HER2</span>
-        <span class="tok-nc">elseif</span> <span class="tok-kt">not </span><span class="tok-nc">is_er_positive</span> <span class="tok-kt">and not </span><span class="tok-nc">is_pr_positive</span> <span class="tok-kt">and </span><span class="tok-nc">is_her2_positive</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">return</span> <span class="tok-p">[</span>4444<span class="tok-p">|</span><span class="tok-s">HER2</span><span class="tok-p">|]</span>
+        -- HER2
+        elseif not is_er_positive and not is_pr_positive and is_her2_positive then
+            return [4444|HER2|]
 
-        <span class="tok-c">-- Triple negative</span>
-        <span class="tok-nc">elseif</span> <span class="tok-kt">not </span><span class="tok-nc">is_er_positive</span> <span class="tok-kt">and not </span><span class="tok-nc">is_pr_positive</span> <span class="tok-kt">and not </span><span class="tok-nc">is_her2_positive</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">return</span> <span class="tok-p">[</span>55555<span class="tok-p">|</span><span class="tok-s">Triple negative</span><span class="tok-p">|]</span>
-    <span class="tok-p">}</span>
+        -- Triple negative
+        elseif not is_er_positive and not is_pr_positive and not is_her2_positive then
+            return [55555|Triple negative|]
+    }
 
-    <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">has_metastasis</span> <span class="tok-nc">then</span>
-        <span class="tok-c">-- Luminal A</span>
-        <span class="tok-nc">if</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>1111<span class="tok-p">|</span><span class="tok-s">luminal A</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
+    if $has_metastasis then
+        -- Luminal A
+        if tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [1111|luminal A|] then
 
-        <span class="tok-c">-- Luminal B (HER2 negative)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>2222<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 negative)</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
+        -- Luminal B (HER2 negative)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [2222|Luminal B (HER2 negative)|] then
 
-        <span class="tok-c">-- Luminal B (HER2 positive)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>3333<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 positive)</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
+        -- Luminal B (HER2 positive)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [3333|Luminal B (HER2 positive)|] then
 
-        <span class="tok-c">-- HER2 type</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>4444<span class="tok-p">|</span><span class="tok-s">HER2</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
+        -- HER2 type
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [4444|HER2|] then
 
-        <span class="tok-c">-- Triple negative</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>55555<span class="tok-p">|</span><span class="tok-s">Triple negative</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
-
-
-        <span class="tok-nc">end</span>
-    <span class="tok-nc">else</span>
-        <span class="tok-c">-- Luminal A</span>
-        <span class="tok-nc">if</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>1111<span class="tok-p">|</span><span class="tok-s">luminal A</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">if</span> <span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_t</span><span class="tok-p">)</span> <span class="tok-o">&lt;</span> <span class="tok-mi">3</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">&lt;</span> <span class="tok-mi">2</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_g</span><span class="tok-p">)</span> <span class="tok-o">&lt;</span> <span class="tok-mi">3</span> <span class="tok-nc">then</span>
-                <span class="tok-err">$</span><span class="tok-nc">recommendation</span> <span class="tok-err">:</span><span class="tok-o">=</span> <span class="tok-nc">No_intervention_message</span>
-            <span class="tok-nc">else</span>
-                <span class="tok-c">-- consider contraindications to anthracyclines</span>
-                <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">has_dx_transmural_mi</span> <span class="tok-kt">or </span><span class="tok-err">$</span><span class="tok-nc">ejection_fraction</span> <span class="tok-o">&lt;</span> <span class="tok-mf">0.4</span> <span class="tok-kt">or </span><span class="tok-err">$</span><span class="tok-nc">hs_dx_hf_stage_2_4</span> <span class="tok-nc">then</span>
-                    <span class="tok-err">$</span><span class="tok-nc">recommendation</span> <span class="tok-err">:</span><span class="tok-o">=</span> <span class="tok-nc">Recommend_cmf_message</span>
-                <span class="tok-nc">else</span>
-                    <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">has_critical_cardio_pathology</span> <span class="tok-kt">or </span><span class="tok-err">$</span><span class="tok-nc">age</span> <span class="tok-o">&gt;</span> <span class="tok-mi">75</span> <span class="tok-nc">then</span>
-                        <span class="tok-err">$</span><span class="tok-nc">recommendation</span> <span class="tok-err">:</span><span class="tok-o">=</span> <span class="tok-nc">Recommend_apirubicin_cycloPosphamide_message</span>
-                    <span class="tok-nc">else</span>
-                        <span class="tok-err">$</span><span class="tok-nc">recommendation</span> <span class="tok-err">:</span><span class="tok-o">=</span> <span class="tok-nc">Recommend_ac_message</span>
-                    <span class="tok-nc">end</span>
-                <span class="tok-nc">end</span>
-            <span class="tok-nc">end</span>
-
-        <span class="tok-c">-- Luminal B (HER2 negative)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>2222<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 negative)</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span> <span class="tok-o">=</span> <span class="tok-s">&quot;1a&quot;</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
-
-            <span class="tok-nc">else</span>
-
-            <span class="tok-nc">end</span>
-
-        <span class="tok-c">-- Luminal B (HER2 positive)</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>3333<span class="tok-p">|</span><span class="tok-s">Luminal B (HER2 positive)</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span> <span class="tok-o">=</span> <span class="tok-s">&quot;1a&quot;</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
-
-            <span class="tok-nc">elseif</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span> <span class="tok-o">matches </span><span class="tok-p">{</span><span class="tok-s">&quot;T1b&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;T1c&quot;</span><span class="tok-p">}</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
-
-            <span class="tok-nc">elseif</span> <span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_t</span><span class="tok-p">)</span> <span class="tok-o">matches </span><span class="tok-p">{|</span><span class="tok-mi">2</span><span class="tok-p">..</span><span class="tok-mi">4</span><span class="tok-p">|}</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
-
-            <span class="tok-nc">else</span>
-
-            <span class="tok-nc">end</span>
+        -- Triple negative
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [55555|Triple negative|] then
 
 
-        <span class="tok-c">-- HER2 type</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>4444<span class="tok-p">|</span><span class="tok-s">HER2</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
-            <span class="tok-nc">if</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span> <span class="tok-o">=</span> <span class="tok-s">&quot;1a&quot;</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
+        end
+    else
+        -- Luminal A
+        if tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [1111|luminal A|] then
+            if tnm_major_number ($tnm_t) &lt; 3 and tnm_major_number ($tnm_n) &lt; 2 and tnm_major_number ($tnm_g) &lt; 3 then
+                $recommendation := No_intervention_message
+            else
+                -- consider contraindications to anthracyclines
+                if $has_dx_transmural_mi or $ejection_fraction &lt; 0.4 or $hs_dx_hf_stage_2_4 then
+                    $recommendation := Recommend_cmf_message
+                else
+                    if $has_critical_cardio_pathology or $age &gt; 75 then
+                        $recommendation := Recommend_apirubicin_cycloPosphamide_message
+                    else
+                        $recommendation := Recommend_ac_message
+                    end
+                end
+            end
 
-            <span class="tok-nc">elseif</span> <span class="tok-err">$</span><span class="tok-nc">tnm_t</span> <span class="tok-o">matches </span><span class="tok-p">{</span><span class="tok-s">&quot;T1b&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;T1c&quot;</span><span class="tok-p">}</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
+        -- Luminal B (HER2 negative)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [2222|Luminal B (HER2 negative)|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
 
-            <span class="tok-nc">elseif</span> <span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_t</span><span class="tok-p">)</span> <span class="tok-o">matches </span><span class="tok-p">{|</span><span class="tok-mi">2</span><span class="tok-p">..</span><span class="tok-mi">4</span><span class="tok-p">|}</span> <span class="tok-kt">and </span><span class="tok-nc">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">tnm_n</span><span class="tok-p">)</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-nc">then</span>
+            else
 
-            <span class="tok-nc">else</span>
+            end
 
-            <span class="tok-nc">end</span>
+        -- Luminal B (HER2 positive)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [3333|Luminal B (HER2 positive)|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
 
-        <span class="tok-c">-- Triple negative</span>
-        <span class="tok-nc">elseif</span> <span class="tok-nc">tumor_molecular_subtype</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">er_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">pr_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">her2_positive</span><span class="tok-p">,</span> <span class="tok-err">$</span><span class="tok-nc">ki67</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">[</span>55555<span class="tok-p">|</span><span class="tok-s">Triple negative</span><span class="tok-p">|]</span> <span class="tok-nc">then</span>
+            elseif $tnm_t matches {"T1b", "T1c"} and tnm_major_number ($tnm_n) = 0 then
+
+            elseif tnm_major_number ($tnm_t) matches {|2..4|} and tnm_major_number ($tnm_n) &gt; 0 then
+
+            else
+
+            end
 
 
-        <span class="tok-nc">end</span>
+        -- HER2 type
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [4444|HER2|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
 
-        <span class="tok-nc">user_alert</span> <span class="tok-p">(</span><span class="tok-err">$</span><span class="tok-nc">recommendation</span><span class="tok-p">)</span>
-    <span class="tok-nc">end</span>
+            elseif $tnm_t matches {"T1b", "T1c"} and tnm_major_number ($tnm_n) = 0 then
 
-<span class="tok-gh">terminology</span>
-    <span class="tok-nc">symbol_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;er_positive&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Oestrogen receptor positive&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Oestrogen receptor positive&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+            elseif tnm_major_number ($tnm_t) matches {|2..4|} and tnm_major_number ($tnm_n) &gt; 0 then
 
-<span class="tok-s">data_bindings</span>
-    <span class="tok-nc">content_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-OBSERVATION.cancer_investigation.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;er_positive&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id5]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">direction</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;in&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-nc">query_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;https://oncology.health.org/cdr/&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;has_dx_transmural_mi&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">query_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;dx_transmural_mi&quot;</span><span class="tok-p">&gt;,</span>
-                <span class="tok-nc">parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-p">[</span><span class="tok-s">&quot;$type&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&#39;xxx&#39;&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+            else
+
+            end
+
+        -- Triple negative
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [55555|Triple negative|] then
+
+
+        end
+
+        user_alert ($recommendation)
+    end
+
+terminology
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+            ["er_positive"] = &lt;
+                text = &lt;"Oestrogen receptor positive"&gt;
+                description = &lt;"Oestrogen receptor positive"&gt;
+            &gt;
+        &gt;
+    &gt;
+
+data_bindings
+    content_bindings = &lt;
+        ["openEHR-EHR-OBSERVATION.cancer_investigation.v1"] = &lt;
+            ["er_positive"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+        &gt;
+    query_bindings = &lt;
+        ["https://oncology.health.org/cdr/"] = &lt;
+            ["has_dx_transmural_mi"] = &lt;
+                query_id = &lt;"dx_transmural_mi"&gt;,
+                parameters = &lt;
+                    ["$type"] = &lt;"'xxx'"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2248,53 +2251,53 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="adl"><span></span><span class="tok-err">openEHR-bmi.v1</span>
+<pre class="highlight"><code class="language-adl" data-lang="adl">openEHR-bmi.v1
 
-<span class="tok-gh">language</span>
-    <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
-    <span class="tok-nc">translations</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;pt-br&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">pt-br</span><span class="tok-p">]&gt;</span>
-            <span class="tok-nc">author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;name&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Jussara Rözsch&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;organisation&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;OpenEHR  Foundation&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;email&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;jussara.macedo@gmail.com&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-nc">accreditation</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Medical Doctor, Psychiarist, ...&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+    translations = &lt;
+        ["pt-br"] = &lt;
+            language = &lt;[ISO_639-1::pt-br]&gt;
+            author = &lt;
+                ["name"] = &lt;"Jussara Rözsch"&gt;
+                ["organisation"] = &lt;"OpenEHR  Foundation"&gt;
+                ["email"] = &lt;"jussara.macedo@gmail.com"&gt;
+            &gt;
+            accreditation = &lt;"Medical Doctor, Psychiarist, ..."&gt;
+        &gt;
+    &gt;
 
-<span class="tok-gh">description</span>
-    <span class="tok-p">...</span>
+description
+    ...
 
-<span class="tok-gh">definition</span>
-    <span class="tok-p">...</span>
+definition
+    ...
 
-<span class="tok-gh">terminology</span>
-    <span class="tok-nc">symbol_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body weight&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;weight of subject body&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;bmi&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body mass index&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;body mass index&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;pt&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;peso do corpo&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;peso do corpo do sujeito&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;bmi&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;índice de massa corporal&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;índice de massa corporal&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+terminology
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"body weight"&gt;
+                description = &lt;"weight of subject body"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"body mass index"&gt;
+                description = &lt;"body mass index"&gt;
+            &gt;
+        &gt;
+        ["pt"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"peso do corpo"&gt;
+                description = &lt;"peso do corpo do sujeito"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"índice de massa corporal"&gt;
+                description = &lt;"índice de massa corporal"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2361,14 +2364,14 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_bindings</span>
-    <span class="tok-nc">content_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-COMPOSITION.encounter.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;date_initial_onset&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[id2]/items[id3]/value[id35]/value&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_bindings
+    content_bindings = &lt;
+        ["openEHR-EHR-COMPOSITION.encounter.v1"] = &lt;
+            ["date_initial_onset"] = &lt;
+                target = &lt;"/data[id2]/items[id3]/value[id35]/value"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2376,22 +2379,22 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_context</span>
-    <span class="tok-nc">content_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-OBSERVATION.body_measurements.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_weight&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id5]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;height&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id6]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;openEHR-EHR-OBSERVATION.body_mass_index.v1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;body_mass_index&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">target</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data/events[id3]/data/items[id5]/value/magnitude&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_context
+    content_bindings = &lt;
+        ["openEHR-EHR-OBSERVATION.body_measurements.v1"] = &lt;
+            ["body_weight"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+            &gt;
+            ["height"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id6]/value/magnitude"&gt;
+            &gt;
+        &gt;
+        ["openEHR-EHR-OBSERVATION.body_mass_index.v1"] = &lt;
+            ["body_mass_index"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2402,19 +2405,19 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_bindings</span>
-    <span class="tok-nc">api_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;https://oncology.health.org/cdr/&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;systolic_bp&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">call_name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;vital_sign&quot;</span><span class="tok-p">&gt;,</span>
-                <span class="tok-nc">parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$ehr_id&quot;</span><span class="tok-p">&gt;</span>
-                    <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;systolic_pressure&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;,</span>
-                <span class="tok-nc">currency</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-err">P</span><span class="tok-mi">1</span><span class="tok-nc">h</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_bindings
+    api_bindings = &lt;
+        ["https://oncology.health.org/cdr/"] = &lt;
+            ["systolic_bp"] = &lt;
+                call_name = &lt;"vital_sign"&gt;,
+                parameters = &lt;
+                    [1] = &lt;"$ehr_id"&gt;
+                    [2] = &lt;"systolic_pressure"&gt;
+                &gt;,
+                currency = &lt;P1h&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 <div class="paragraph tbd">
@@ -2428,17 +2431,17 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_context</span>
-    <span class="tok-nc">query_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;https://oncology.health.org/cdr/&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;systolic_bp&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">query_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;vital_signs_basic&quot;</span><span class="tok-p">&gt;,</span>
-                <span class="tok-nc">parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-p">[</span><span class="tok-s">&quot;$type&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&#39;systolic_pressure&#39;&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_context
+    query_bindings = &lt;
+        ["https://oncology.health.org/cdr/"] = &lt;
+            ["systolic_bp"] = &lt;
+                query_id = &lt;"vital_signs_basic"&gt;,
+                parameters = &lt;
+                    ["$type"] = &lt;"'systolic_pressure'"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2446,17 +2449,17 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_bindings</span>
-    <span class="tok-nc">query_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;https://oncology.health.org/cdr/&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;is_diabetic&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">query_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;has_diagnosis&quot;</span><span class="tok-p">&gt;,</span>
-                <span class="tok-nc">parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-p">[</span><span class="tok-s">&quot;$dx_expr&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&#39;&lt;&lt;[snomed_ct::1234567]&#39;&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_bindings
+    query_bindings = &lt;
+        ["https://oncology.health.org/cdr/"] = &lt;
+            ["is_diabetic"] = &lt;
+                query_id = &lt;"has_diagnosis"&gt;,
+                parameters = &lt;
+                    ["$dx_expr"] = &lt;"'&lt;&lt;[snomed_ct::1234567]'"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2467,15 +2470,15 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">data_bindings</span>
-    <span class="tok-nc">interactive_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;default&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;is_diabetic&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">visual_control_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;boolean&quot;</span><span class="tok-p">&gt;,</span>
-                <span class="tok-nc">prompt</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;is_diabetic_prompt&quot;</span><span class="tok-p">&gt;,</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+<pre class="highlight"><code class="language-odin" data-lang="odin">data_bindings
+    interactive_bindings = &lt;
+        ["default"] = &lt;
+            ["is_diabetic"] = &lt;
+                visual_control_type = &lt;"boolean"&gt;,
+                prompt = &lt;"is_diabetic_prompt"&gt;,
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2493,32 +2496,32 @@ definition
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">computing_bindings</span>
-    <span class="tok-nc">library_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;onco_staging_lib&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">connector</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;java8&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">library</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;onco_staging_lib.jar&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">xxx</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;xxx&quot;</span><span class="tok-p">&gt;</span>  <span class="tok-c">-- other connector details</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-nc">bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;tnm_major_number&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;TnmCalculator::tnmNumericVal&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;tnm_prefix&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;TnmCalculator::tnmPrefixVal&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
+<pre class="highlight"><code class="language-odin" data-lang="odin">computing_bindings
+    library_bindings = &lt;
+        ["onco_staging_lib"] = &lt;
+            connector = &lt;
+                language = &lt;"java8"&gt;
+                library = &lt;"onco_staging_lib.jar"&gt;
+                xxx = &lt;"xxx"&gt;  -- other connector details
+            &gt;
+            bindings = &lt;
+                ["tnm_major_number"] = &lt;"TnmCalculator::tnmNumericVal"&gt;
+                ["tnm_prefix"] = &lt;"TnmCalculator::tnmPrefixVal"&gt;
+            &gt;
+        &gt;
 
-        <span class="tok-p">[</span><span class="tok-s">&quot;anti_coag_lib&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">connector</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;python&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">library</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;anti_coagulation_algorithms&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">xxx</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;xxx&quot;</span><span class="tok-p">&gt;</span>  <span class="tok-c">-- other connector details</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-nc">bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;chadsvasc_score&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Anti_coag_lib_wrapper::CHA2DS2_VASc_score&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;warfarin_dose&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Anti_coag_lib_wrapper::calc_warfarin_dose&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span></code></pre>
+        ["anti_coag_lib"] = &lt;
+            connector = &lt;
+                language = &lt;"python"&gt;
+                library = &lt;"anti_coagulation_algorithms"&gt;
+                xxx = &lt;"xxx"&gt;  -- other connector details
+            &gt;
+            bindings = &lt;
+                ["chadsvasc_score"] = &lt;"Anti_coag_lib_wrapper::CHA2DS2_VASc_score"&gt;
+                ["warfarin_dose"] = &lt;"Anti_coag_lib_wrapper::calc_warfarin_dose"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2598,22 +2601,10 @@ definition
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code>Any</code></p></td>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A runtime executable value of this entity.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Not necessarily directly implemented.
-</td>
-</tr>
-</table>
+<p>True if effective type is Boolean (i.e. notionally, <code><em>effective_type()</em></code> = <code>BMM_BOOLEAN_TYPE</code> and <code><em>value()</em></code> = <code>Boolean</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2676,7 +2667,9 @@ Not necessarily directly implemented.
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator_definition</strong> (): <code>BMM_OPERATOR</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Operator definition derived from <code><em>definition.agent.operator_definition()</em></code>.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -2804,6 +2797,18 @@ Not necessarily directly implemented.
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_EXPRESSION</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code>EL_INSTANCE_REF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to an owning object for this terminal element, if it is not  the current scope.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -2817,9 +2822,14 @@ Not necessarily directly implemented.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Unresolved directive in master10-elom.adoc - include::../UML/classes/el_object_ref.adoc[leveloffset=+1]
+:leveloffset: +1</p>
 </div>
-<div class="sect4">
-<h5 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.2.1.6. EL_INSTANTIABLE_REF&lt;T&gt; Class</h5>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.2.2. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2839,7 +2849,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -2866,9 +2876,8 @@ Not necessarily directly implemented.
 </tr>
 </tbody>
 </table>
-</div>
 <div class="sect4">
-<h5 id="_el_external_ref_class"><a class="anchor" href="#_el_external_ref_class"></a>10.2.1.7. EL_EXTERNAL_REF Class</h5>
+<h5 id="_el_external_ref_class"><a class="anchor" href="#_el_external_ref_class"></a>10.2.2.1. EL_EXTERNAL_REF Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2892,7 +2901,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.2.1.8. EL_AGENT Class</h5>
+<h5 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.2.2.2. EL_AGENT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2975,7 +2984,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.2.1.9. EL_FUNCTION_AGENT Class</h5>
+<h5 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.2.2.3. EL_FUNCTION_AGENT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3014,7 +3023,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.2.1.10. EL_PROCEDURE_AGENT Class</h5>
+<h5 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.2.2.4. EL_PROCEDURE_AGENT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3053,7 +3062,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.2.1.11. EL_AGENT_CALL Class</h5>
+<h5 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.2.2.5. EL_AGENT_CALL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3093,7 +3102,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.2.1.12. EL_FUNCTION_CALL Class</h5>
+<h5 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.2.2.6. EL_FUNCTION_CALL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3113,7 +3122,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code>, <code>EL_AGENT_CALL</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code>, <code>EL_AGENT_CALL</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3145,7 +3154,7 @@ Not necessarily directly implemented.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.2.1.13. EL_LITERAL Class</h5>
+<h5 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.2.2.7. EL_LITERAL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3165,7 +3174,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3179,22 +3188,11 @@ Not necessarily directly implemented.
 <p>The reference item from which the value of this node can be computed.</p>
 </div></div></td>
 </tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_MODEL_TYPE</code><br>
-<strong><em>Post_manifest_effective_type</em></strong>: <code>Result = definition.type</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.2.1.14. EL_PREDICATE Class</h5>
+<h5 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.2.2.8. EL_PREDICATE Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3209,12 +3207,12 @@ Not necessarily directly implemented.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Special purpose built-in functions of the EL formalism.</p>
+<p>Parent type of predicate of any object reference.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_TERMINAL</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3223,14 +3221,20 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_TERMINAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_INSTANCE_REF</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.2.1.15. EL_DEFINED Class</h5>
+<h5 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.2.2.9. EL_DEFINED Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3245,29 +3249,18 @@ Not necessarily directly implemented.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A built-in predicate taking one external variable reference argument, that returns true if the reference is resolvable, i.e. the external value is obtainable.</p>
+<p>A predicate taking one external variable reference argument, that returns true if the reference is resolvable, i.e. the external value is obtainable.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_PREDICATE</code></p></td>
 </tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_EXTERNAL_REF</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.2.1.16. EL_CONSTRAINT_EXPRESSION Class</h5>
+<h5 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.2.2.10. EL_CONSTRAINT_EXPRESSION Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3306,6 +3299,12 @@ Not necessarily directly implemented.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>constraint</strong>: <code>Any</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Right hand side of the constraint expression. Redefined in sub-types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3409,7 +3408,7 @@ Not necessarily directly implemented.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A built-in statement type in the form of an assertion taking one expression argument, that determines whether it is true and if not, generates an exception.</p>
+<p>A statement type in the form of an assertion taking one expression argument, that determines whether it is true and if not, generates an exception.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3423,7 +3422,7 @@ Not necessarily directly implemented.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>ASSERTION</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
@@ -3915,82 +3914,82 @@ this is still the old ADL grammar - the Antlr4 file has to be upgraded.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span><span class="tok-w"></span>
-<span class="tok-c">//  description: Antlr4 grammar for openEHR Rules core syntax.</span><span class="tok-w"></span>
-<span class="tok-c">//  author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;</span><span class="tok-w"></span>
-<span class="tok-c">//  support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;</span><span class="tok-w"></span>
-<span class="tok-c">//  copyright:   Copyright (c) 2016 openEHR Foundation</span><span class="tok-w"></span>
-<span class="tok-c">//  license:     Apache 2.0 License &lt;http://www.apache.org/licenses/LICENSE-2.0.html&gt;</span><span class="tok-w"></span>
-<span class="tok-c">//</span><span class="tok-w"></span>
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+//  description: Antlr4 grammar for openEHR Rules core syntax.
+//  author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;
+//  support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;
+//  copyright:   Copyright (c) 2016 openEHR Foundation
+//  license:     Apache 2.0 License &lt;http://www.apache.org/licenses/LICENSE-2.0.html&gt;
+//
 
-<span class="tok-k">grammar</span><span class="tok-w"> </span><span class="tok-nc">base_expressions</span><span class="tok-p">;</span><span class="tok-w"></span>
+grammar base_expressions;
 
-<span class="tok-c">//</span><span class="tok-w"></span>
-<span class="tok-c">//  ============== Parser rules ==============</span><span class="tok-w"></span>
-<span class="tok-c">//</span><span class="tok-w"></span>
+//
+//  ============== Parser rules ==============
+//
 
-<span class="tok-nl">assertion</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">identifier</span><span class="tok-w"> </span><span class="tok-s">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-nv">boolean_expr</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+assertion: ( identifier ':' )? boolean_expr ;
 
-<span class="tok-c">//</span><span class="tok-w"></span>
-<span class="tok-c">// Expressions evaluating to boolean values</span><span class="tok-w"></span>
-<span class="tok-c">//</span><span class="tok-w"></span>
+//
+// Expressions evaluating to boolean values
+//
 
-<span class="tok-nl">boolean_expr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">boolean_expr</span><span class="tok-w"> </span><span class="tok-nv">boolean_binop</span><span class="tok-w"> </span><span class="tok-nv">boolean_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">boolean_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+boolean_expr: boolean_expr boolean_binop boolean_leaf
+    | boolean_leaf
+    ;
 
-<span class="tok-nl">boolean_leaf</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">      </span><span class="tok-nv">boolean_literal</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">boolean_expr</span><span class="tok-w"> </span><span class="tok-s">&#39;)&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_relop_expr</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_NOT</span><span class="tok-w"> </span><span class="tok-nv">boolean_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+boolean_leaf:
+      boolean_literal
+    | '(' boolean_expr ')'
+    | arithmetic_relop_expr
+    | SYM_NOT boolean_leaf
+    ;
 
-<span class="tok-nl">boolean_binop</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_AND</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_XOR</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_OR</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_IMPLIES</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+boolean_binop:
+    | SYM_AND
+    | SYM_XOR
+    | SYM_OR
+    | SYM_IMPLIES
+    ;
 
-<span class="tok-nl">boolean_literal</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">      </span><span class="tok-no">SYM_TRUE</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_FALSE</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+boolean_literal:
+      SYM_TRUE
+    | SYM_FALSE
+    ;
 
-<span class="tok-c">//</span><span class="tok-w"></span>
-<span class="tok-c">// Expressions evaluating to arithmetic values</span><span class="tok-w"></span>
-<span class="tok-c">//</span><span class="tok-w"></span>
+//
+// Expressions evaluating to arithmetic values
+//
 
-<span class="tok-nl">arithmetic_relop_expr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_arith_expr</span><span class="tok-w"> </span><span class="tok-nv">relational_binop</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_arith_expr</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+arithmetic_relop_expr: arithmetic_arith_expr relational_binop arithmetic_arith_expr ;
 
-<span class="tok-nl">arithmetic_leaf</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">      </span><span class="tok-nv">integer_value</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">real_value</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_arith_expr</span><span class="tok-w"> </span><span class="tok-s">&#39;)&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+arithmetic_leaf:
+      integer_value
+    | real_value
+    | '(' arithmetic_arith_expr ')'
+    | '-' arithmetic_leaf
+    ;
 
-<span class="tok-nl">arithmetic_arith_expr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_arith_expr</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_binop</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_arith_expr</span><span class="tok-w"> </span><span class="tok-s">&#39;^&#39;</span><span class="tok-err">&lt;</span><span class="tok-nv">assoc</span><span class="tok-o">=</span><span class="tok-nv">right</span><span class="tok-err">&gt;</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmetic_leaf</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+arithmetic_arith_expr: arithmetic_arith_expr arithmetic_binop arithmetic_leaf
+    | arithmetic_arith_expr '^'&lt;assoc=right&gt; arithmetic_leaf
+    | arithmetic_leaf
+    ;
 
-<span class="tok-nl">relational_binop</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">      </span><span class="tok-no">SYM_EQ</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_NE</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_GT</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_LT</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_LE</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_GE</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span>
+relational_binop:
+      SYM_EQ
+    | SYM_NE
+    | SYM_GT
+    | SYM_LT
+    | SYM_LE
+    | SYM_GE
+    ;
 
-<span class="tok-nl">arithmetic_binop</span><span class="tok-p">:</span><span class="tok-w"></span>
-<span class="tok-w">      </span><span class="tok-s">&#39;/&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;*&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;+&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s">&#39;-&#39;</span><span class="tok-w"></span>
-<span class="tok-w">    </span><span class="tok-p">;</span><span class="tok-w"></span></code></pre>
+arithmetic_binop:
+      '/'
+    | '*'
+    | '+'
+    | '-'
+    ;</code></pre>
 </div>
 </div>
 </div>
@@ -4018,9 +4017,8 @@ this is still the old ADL grammar - the Antlr4 file has to be upgraded.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-15 23:33:24 UTC
+Last updated 2019-12-15 08:31:35 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>
