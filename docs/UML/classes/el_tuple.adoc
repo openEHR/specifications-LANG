@@ -6,7 +6,10 @@ h|*Class*
 2+^h|*EL_TUPLE*
 
 h|*Description*
-2+a|Defines an array of optionally named items of any type.
+2+a|Defines an array of optionally named items each of any type.
+
+h|*Inherit*
+2+|`EL_INSTANCE_REF`
 
 h|*Attributes*
 ^h|*Signature*

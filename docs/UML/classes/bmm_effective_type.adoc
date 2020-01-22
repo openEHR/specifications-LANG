@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_BMM_EFFECTIVE_TYPE (abstract)_*
 
 h|*Description*
-2+a|A concrete, unitary meta-type that can be used as an actual parameter type in a generic type declaration.
+2+a|Meta-type for a A concrete, unitary type that can be used as an actual parameter type in a generic type declaration.
 
 h|*Inherit*
 2+|`BMM_UNITARY_TYPE`

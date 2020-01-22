@@ -7,6 +7,7 @@ Expressions in BMM are used to specify class invariants, routine pre- and post-c
 * classical expressions using unary and binary operators with functional equivalents;
 * terminal elements, including:
 ** literals;
+** tuples containing items of any meta-type and concrete type;
 ** references to instantiable entities, i.e. object properties and routine variables;
 ** function calls;
 ** agents, i.e. delayed function calls with possibly open parameters;
@@ -20,7 +21,7 @@ The UML model of BMM-EL is shown below.
 .base.elom.expression Package
 image::{uml_diagrams_uri}/LANG-elom.expression.svg[id=elom_expression, align="center"]
 
-Apart from `ASSERTION`, all `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_effective_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
+Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_effective_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
 Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.
 
@@ -28,24 +29,32 @@ Although the type hierarchy is not complex, it contains particular choices that 
 .base.elom.expression Package - Type hierarchy
 image::{uml_diagrams_uri}/LANG-elom.expression-type_hierarchy.svg[id=elom_expression_type_hierarchy, align="center"]
 
-== Operator Expressions
+== Semantics
+
+=== Operator Expressions
 
 BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function call. This  has to be inferred from the types of its operands.
 
-== Constraint Expressions
+=== Constraint Expressions
 
 One class, `EL_CONSTRAINT_EXPRESSION` is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form `<expr> matches <constraint>`. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.
 
 [.tbd]
 TBD: it might also be supplied by the type `C_OBJECT` from the AOM.
 
-== Terminal Entities
+=== Terminal Entities
 
-=== Literals
+==== Literals
 
 A literal value may appear in an expression as a separate entity within an operator expression, as well as a functional call or agent parameter. The literal values that may be used are either instances of the {openehr_foundation_types}[openEHR Foundation Types^] in {openehr_odin}#_leaf_data[ODIN format^], or a complex object instance in structured serial format, specified by `BMM_SERIAL_FORMALISM` if not a primitive type.
 
-=== Feature References
+==== Tuples
+
+Although rarely useful in class definitions, a Tuple of any degree may be formed from any combination of other EL expressions and used on its own as an expression terminal element. The main use for this construct is to express a literal tuple, i.e. one whose constituents consist only of proper literal values.
+
+For more general uses of BMM Expressions, tuple instances are the basis of representing ad hoc query results which have a formal type such as `List<[T~a~, T~b~, T~c~]>`, where `[T~a~, T~b~, T~c~]` represents a tuple of three types.
+
+==== Feature References
 
 In BMM, a _feature reference_ is any symbolic reference to a class feature or variable that resolves to an object at evaluation time. This includes all referenceable entities within classes except procedures, which have no return value. Concretely, a feature reference takes the form of one of:
 
@@ -56,25 +65,86 @@ In BMM, a _feature reference_ is any symbolic reference to a class feature or va
 
 Function calls are described in detail in the following section.
 
-=== Agents
+==== Agents
 
 An agent is the BMM term for a delayed routine call, and has the meta-type `BMM_SIGNATURE`. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.
 
-=== Predicates
+==== Predicates
 
 Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand.
 
-==== Attached (x)
+===== Attached (x)
+
+The `attached` predicate is used to test for an instance reference (including a function call result) being `Void`. It may be used in expressions such as the following class invariant.
+
+----
+class SmartRef {
+    property url: Url;
+    property value: Base64String;
+    
+    invariant
+        Validity: attached(url) or attached(value)
+}
+----
+
+===== Defined (x)
 
 xxxx
 
-==== Defined (x)
+== Usage in BMM Models
 
-xxxx
+Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `ASSERTION`, i.e. a tagged Boolean-returning `EL_EXPRESSION`.
+
+=== Simple Expressions
+
+Simple assertions may be formed from common operators and operands, including the usual logical arithmetic and comparison operators, as well as any operators relating to specific data types. Normally the top-level operator in the Expression graph is a logical or relational operator. Since all operators are mapped to functions defined on types, there are no 'floating' or 'built-in' operators as such.
+
+=== Existential and Universal Quantifier Expressions
+
+A common kind of expression to use in class invariants particularly functions over collections and uses the existential and universal quantifier operators, respectively ∃ and ∀ in most predicate logic syntaxes. A typical such expression to use within a class invariant is shown below in an abstract syntax.
+
+----
+class PersonName {
+    property items: String[1..*];
+    
+    invariant
+        ∀ nameItem: items | not nameItem.isEmpty()
+}
+----
+
+A different syntax might express it as follows.
+
+----
+    invariant
+        across items as nameItem all 
+            not nameItem.isEmpty() 
+        end
+----
+
+A similar invariant, this time using ∃, is shown below.
+
+----
+    invariant
+        across items as nameItem some 
+            not nameItem.isEmpty() 
+        end
+----
+
+Regardless of the surface syntax, expressions such as the above map to functions such as `_for_all_` and `there_exists` defined on relevant linear container types. These functions have the following signatures in which the 'test' expression appears as a Function agent type.
+
+----
+class Container<T> {
+
+    for_all (test: Function<[T], Boolean>): Boolean;
+            -- True if for every v in container, test (v) is True    
+
+    there_exists (test: Function<[T], Boolean>): Boolean;
+            -- True if there is any v in container for which test (v) is True
+}
+----
 
 == Class Descriptions
 
-include::{uml_export_dir}/classes/assertion.adoc[]
 include::{uml_export_dir}/classes/el_expression.adoc[]
 
 include::{uml_export_dir}/classes/el_operator.adoc[]
@@ -86,13 +156,23 @@ include::{uml_export_dir}/classes/el_terminal.adoc[]
 include::{uml_export_dir}/classes/el_instance_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_feature_ref.adoc[]
+
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
-include::{uml_export_dir}/classes/el_external_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_literal.adoc[]
+
+include::{uml_export_dir}/classes/el_tuple.adoc[]
+include::{uml_export_dir}/classes/el_tuple_item.adoc[]
 
 include::{uml_export_dir}/classes/el_predicate.adoc[]
 include::{uml_export_dir}/classes/el_defined.adoc[]
 include::{uml_export_dir}/classes/el_attached.adoc[]
+
+include::{uml_export_dir}/classes/el_agent_call.adoc[]
+include::{uml_export_dir}/classes/el_function_call.adoc[]
+
+include::{uml_export_dir}/classes/el_agent.adoc[]
+include::{uml_export_dir}/classes/el_function_agent.adoc[]
+include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
 
 include::{uml_export_dir}/classes/el_constraint_expression.adoc[]

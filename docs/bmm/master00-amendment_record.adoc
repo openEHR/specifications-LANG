@@ -17,7 +17,7 @@
  Significant improvements to meta-type part of model; +
  Add Expression language meta-model.
 |T Beale 
-|13 Dec 2020
+|22 Jan 2020
 
 |
 |Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +

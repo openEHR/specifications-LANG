@@ -38,14 +38,3 @@ The instance structure for a typical expression such as the Body Mass Index (BMI
 .Function call example - Body Mass index (BMI)
 image::{uml_diagrams_uri}/LANG-bmm-nested_call.svg[id=bmm_nested_call, align="center"]
 
-== Class Definitions
-
-include::{uml_export_dir}/classes/el_agent.adoc[]
-include::{uml_export_dir}/classes/el_function_agent.adoc[]
-include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
-
-include::{uml_export_dir}/classes/el_agent_call.adoc[]
-include::{uml_export_dir}/classes/el_function_call.adoc[]
-
-include::{uml_export_dir}/classes/el_tuple.adoc[]
-include::{uml_export_dir}/classes/el_tuple_item.adoc[]

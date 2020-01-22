@@ -22,6 +22,14 @@ a|The type of the container. This converts to the `_root_type_` in `BMM_GENERIC_
 h|*1..1*
 |*item_type*: `BMM_UNITARY_TYPE`
 a|The container item type.
+
+h|*0..1*
+|*is_ordered*: `Boolean`
+a|
+
+h|*0..1*
+|*is_unique*: `Boolean`
+a|
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

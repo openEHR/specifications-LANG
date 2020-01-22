@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*0..1*
 |*is_synthesised_generic*: `Boolean`
-a|True if this property was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.
+a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.
 
 h|*1..1 +
 (redefined)*

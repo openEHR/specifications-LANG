@@ -12,9 +12,9 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
+h|*0..1*
 |*item*: `EL_EXPRESSION`
-a|Reference to value entity.
+a|Reference to value entity. If Void, this indicates that the item in this position is Void, e.g. within a routine call parameter list.
 
 h|*0..1*
 |*name*: `String`

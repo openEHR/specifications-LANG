@@ -2,7 +2,7 @@
 
 == Overview
 
-This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties. The following UML illustrates classes and relationships to constituent feature meta-types. (Features are described in detail in the following section.)
+This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.
 
 [.text-center]
 .`base.bmm.core` Package - Classes
@@ -84,13 +84,15 @@ image::{diagrams_uri}/bmm_structure-value_set.svg[id=bmm_structure_value_set, al
 
 == Class Invariants
 
-A class defined within a model may include _invarants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `ASSERTION`, which is a tagged Boolean-valued Expression. The internal structure of the latter is defined below in <<expressions>>.
+A class defined within a model may include _invariants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `BMM_ASSERTION`, which is a tagged Boolean-valued Expression.
 
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_class.adoc[]
 include::{uml_export_dir}/classes/bmm_simple_class.adoc[]
 include::{uml_export_dir}/classes/bmm_generic_class.adoc[]
+include::{uml_export_dir}/classes/bmm_assertion.adoc[]
+
 include::{uml_export_dir}/classes/bmm_enumeration.adoc[]
 include::{uml_export_dir}/classes/bmm_enumeration_string.adoc[]
 include::{uml_export_dir}/classes/bmm_enumeration_integer.adoc[]

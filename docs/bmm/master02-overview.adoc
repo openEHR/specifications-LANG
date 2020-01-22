@@ -46,31 +46,42 @@ For some, {w3c_xml_schema}[W3C XML schema^] represents a way of expressing objec
 
 == Design Approach
 
-The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms, 'classes, properties and methods'. It is designed to enable both human authoring and machine extraction (e.g. from a UML tool or programming language classes) of textual schemas. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction cite:[Meyer_OOSC2] and also the {eiffel_ecma_367}[Eiffel language^], which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in one key aspect (container types). Its key design concepts are as follows:
+The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms:
 
-* The Basic Meta-Model is concretely based on Object-oriented class model as well as functional programming concepts, rather than being a highly general model like the UML meta-model;
+* definition of classes, properties and methods;
+* delayed routine calls as first-class objects;
+* expressions.
+
+It is designed to enable both human authoring and machine processing, including e.g. extraction of BMM textual schemas from a UML tool or programming language classes. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction cite:[Meyer_OOSC2] and also the {eiffel_ecma_367}[Eiffel language^], which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in some aspects (e.g. direct meta-type suport for container types). Its key design concepts are as follows:
+
+* The Basic Meta-Model is directly based on a combination of Object-oriented class model, functional programming concepts and expression language, rather than being a highly general model like the UML meta-model;
 * Types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;
-* Types as a first-order entity enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;
+* Types as first-order entities enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;
 * Container types are treated as partially built-in, meaning that class features in a model are always typed to either 'unitary' or 'container' types;
-* The notion of 'range-constrained' classes is supported via enumerated types based on any model type as well as value-set constraints;
-* Enumerated types are supported in two forms, enabling representation of both traditional 'defined' enumerations, and also references to external value sets;
+* Enumerated types are supported via the notion of 'range-constrained' classes and also references to external value sets;
 * There is no concept of an 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.
 
-Functional elements are supported via the inclusion of meta-types representing signature and tuples, enabling the construction of delayed agent calls (known here as agents) and function applications (i.e. function calls).
+Functional elements are supported via the inclusion of meta-types representing _signatures_ and _tuples_, enabling the construction of delayed agent calls, known here as _agents_, and function applications (i.e. function calls).
+
+== Computational Model
+
+The BMM is specified as a structural model representing an abstract syntax tree (AST), which is the result of either in-memory construction (such as by a model authoring tool) or by parsing of a serialised representation of a BMM model. It does not specify an abstract syntax, and indeed, more than one concrete syntax could be parsed to a BMM instance.
+
+NOTE: for the purposes of explanation, an abstract syntax is used throughout this document that draws freely from mainstream modelling and programming languages.
 
 == Uses of the BMM
 
-=== Meta-Model Basis for Expressions Language
-
-The BMM provides a system of meta-types that enables further meta-types to be constructed representing the use of typed elements in _expressions_. These include _references_ to static entities in scope (constants, variables, properties), literal values, construction of agents (lambda terms), and function calls (lambda applications).
-
 === Class Model Representation
 
-The BMM from version 3.1.0 on may be used to represent a full class model at an interface level (i.e. without code for methods) including classes, types, and class feature types including property (i.e. attribute), symbolic constant, manifest value, functions, operators, and procedures.
+The BMM from version 3.0.0 on may be used to represent a full class model at an interface level (i.e. without code for methods) including classes, types, and class feature types including property (i.e. attribute), symbolic constant, manifest value, functions, operators, and procedures.
+
+=== Meta-Model Basis for Expressions Language
+
+The BMM provides a system of meta-types that act as the basis for a typed expression language. These include _references_ to static entities in scope (constants, variables, properties), literal values, construction of agents (lambda terms), and function calls (lambda applications).
 
 === Information Model Representation
 
-Until version 3.0.0, BMM supported only the information point of view, i.e. no methods, and it is often used to express models of data. Tools based on BMM can provide views of an object model expressed in BMM that are particularly useful to information modelling, such as the 'closure' view show below. This is a computed reachability graph of a fully inheritance-flattened class and all properties, including recursive references.
+Until version 3.0.0, BMM supported only the information point of view, i.e. no computational interface, and in that form, it is often used to express models of data. Tools based on BMM can provide views of an object model expressed in BMM that are particularly useful to information modelling, such as the 'closure' view show below. This is a computed reachability graph of a fully inheritance-flattened class and all properties, including recursive references.
 
 [.text-center]
 .BMM class - closure view
@@ -78,7 +89,7 @@ image::{images_uri}/awb_class_closure.png[id=awb_class_closure, align="center", 
 
 === Archetype Modelling
 
-One of the uses of the BMM in the ADL Workbench and other similar tools is to provide a computable form of the information model for use with domain-level content models, such as {openehr_am}[archetypes]. The following shows an archetype for which each node has its class shown (in colour), and additionally, the inclusion of non-archetyped attributes from the classes of the archetype nodes.
+One of the uses of the BMM in the {openehr_awb}[openEHR ADL Workbench^] and other similar tools is to provide a computable form of the information model for use with domain-level content models, such as {openehr_am}[archetypes]. The following shows an archetype for which each node has its class shown (in colour), and additionally, the inclusion of non-archetyped attributes from the classes of the archetype nodes.
 
 [.text-center]
 .ADL archetype with BMM class properties
@@ -86,7 +97,7 @@ image::{images_uri}/archetype_rm.png[id=archetype_rm, align="center"]
 
 Newer tools are able to include the computational features. 
 
-The {openehr_website_url}[openEHR project^] makes extensive use of BMM for representing its models for use in tools. The full set of openEHR models in BMM format may be found in the {openehr_its_bmm}[specfications-ITS-BMM repository on Github^].
+The {openehr_specs}[openEHR project^] makes extensive use of BMM for representing its models for use in tools. The full set of openEHR models in BMM format may be found in the {openehr_its_bmm}[specfications-ITS-BMM repository on Github^].
 
 == Specification Structure
 
@@ -94,11 +105,14 @@ This specification defines a BMM object model, i.e. the in-memory object structu
 
 The BMM packages are as follows:
 
-* `bmm`: the BMM
+* `org.openehr.lang.bmm`: the BMM
 ** `rm_access`: the interface to most features including schema load/reload, generally used by an application as a reflection library;
 ** `core`: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages.
 
-Related is the `bmm_persistence` package, which contains the BMM Persistence classes.
+Related packages are:
+
+* the `org.openehr.lang.bmm.elom` package, defining an expression language sufficient for expressing class invariants and pre- and post-conditions;
+* the `org.openehr.lang.bmm_persistence` package, which contains the BMM Persistence classes.
 
 These are illustrated below.
 

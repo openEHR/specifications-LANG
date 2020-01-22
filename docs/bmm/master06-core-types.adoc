@@ -23,8 +23,6 @@ image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align=
 
 In the following sub-sections, the various Type meta-types are described, along with the type conformance rules.
 
-== Unitary and Containment Meta-types
-
 Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` is a meta-type for types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This distinction is made to enable BMM to directly represent the notion of collections in the type system rather than treating them in the same way as any other type, which would force modellers (i.e. authors of actual BMM models) to state concrete containment types such as `ArrayedList<Packet>`, where `ArrayedList` would have to be defined in the model as well as `Packet`. 
 
 Unitary meta-types are further distinguished as formal generic parameters (`BMM_PARAMETER TYPE`) and _effective_ types, i.e. concrete unitary types. The former meta-type is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as `List<T>` etc) within generic type declarations.
@@ -83,7 +81,7 @@ image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, al
 
 === Conformance
 
-Conformance of Generic types follows is according to the rules:
+Conformance of Generic types is according to the rules:
 
 * _meta-rule_: A Generic type can only conform to another Generic type;
 * _concrete rules_: A Generic type `Ga<Ta~i~, ...>` conforms to Generic type `Gb<Tb~i~, ...>` iff:
@@ -99,7 +97,7 @@ The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of 
 
 === Conformance
 
-Conformance of Tuple types follows is according to the rules:
+Conformance of Tuple types is according to the rules:
 
 * _meta-rule_: A Tuple type can only conform to another Tuple type;
 * _concrete rules_: A Tuple type `Tuple[Ta~i~, ...]` conforms to Tuple type `Tuple[Tb~i~, ...]` iff:
@@ -107,7 +105,7 @@ Conformance of Tuple types follows is according to the rules:
 
 == Signature Meta-type
 
-Within any typed formalism, any entity declared as having a type also has a _signature_. In BMM, this is is the case for any kind of feature of a class, including constants, properties, and routines. The signature of a feature is a formal construct capturing the type structure of the feature. The simplest type of signature is that of properties and constants, which may be expressed formally as follows:
+Within any typed formalism, any entity declared as having a type also has a _signature_. In BMM, this is is the case for any kind of feature of a class, including constants, properties, and routines. The signature of a feature is a formal construct capturing the type structure of the feature. The simplest type of signature is that of properties and constants, which may be expressed formally in a typical abstract syntax as follows:
 
 ----
     T_result
@@ -163,9 +161,15 @@ Conformance of Signature types is as follows:
 
 == Container Meta-types
 
-In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as `List<T>` and `Set<T>` are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes `BMM_GENERIC_TYPE` and `BMM_CONTAINER_TYPE`. This allows the BMM to treat container types in a special way. A `BMM_CONTAINER_TYPE` can be thought of as a 1:N counterpart to a `BMM_UNITARY_TYPE`, such as the type `List<Paragraph>` with respect to `Paragraph`. `BMM_GENERIC_TYPE` is typically used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. `Interval<Quantity>`. 
+In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as `List<T>`, `Set<T>` and `Hash<K,V>` are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes `BMM_CONTAINER_TYPE` and `BMM_GENERIC_TYPE` respectively. This allows the BMM to treat container types in a special way. A `BMM_CONTAINER_TYPE` can be thought of as a 1:N counterpart to a `BMM_UNITARY_TYPE`, such as the type `List<Paragraph>` with respect to `Paragraph`. `BMM_GENERIC_TYPE` is thus used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. `Interval<Quantity>`. 
 
-The explicit provision of `BMM_CONTAINER_TYPE` enables BMM models to mention logical linear container types such as `Array<T>`, `List<T>` and `Set<T>`, on the assumption of their standard semantics in computer science , without worrying about providing concrete types which may be numerous and also variable across programming languages, e.g. `ArrayedList<T>`, `LinkedSet<T>`, `ArrayedStack<T>` and so on. (This corrects one of the errors in UML, which does not represent containment via meta-typing, but via cardinality and uniqueness constraints.)
+The explicit provision of `BMM_CONTAINER_TYPE` enables BMM models to mention logical linear container types such as `List<T>` and `Set<T>`, on the assumption of their standard semantics in computer science , without worrying about providing concrete types which may be numerous and also variable across programming languages, e.g. `ArrayedList<T>`, `LinkedSet<T>`, `ArrayedStack<T>` and so on.
+
+List and Set semantics are achieved via the `BMM_CONTAINER_TYPE` attributes `_is_ordered_` and `_is_unique_`, used in the standard combinations i.e.:
+
+* `_is_ordered_ and not _is_unique_`: `List<T>`;
+* `_is_unique_`: `Set<T>` (ordered or not);
+* `not _is_ordered_ and not _is_unique_`: `Bag<T>`.
 
 The following diagram shows how the container type `List<Paragraph>`, declared as the type of an attribute `_paragraphs_` in a class `Document`, is represented in a BMM model.
 
@@ -173,9 +177,9 @@ The following diagram shows how the container type `List<Paragraph>`, declared a
 .Container Type
 image::{diagrams_uri}/bmm_structure-container.svg[id=bmm_structure_container, align="center"]
 
-One other container type is also ubiquitous in object models and object-oriented programming: indexed containers, commonly known under the type name `Hash<K,V>`, `HashMap<K,V>`, `HashTable<K,V>`, `Dictionary<K,V>` and so on. This type always takes two parameters, a key type and a value type. The key type must be such that hash values can be generated, and may be any type, but practically speaking, is almost always a `String` or `Integer`, or a Date/Time type if such exists.
+The semantics of indexed containers, commonly known under the type names `Hash<K,V>`, `HashMap<K,V>`, `HashTable<K,V>`, `Dictionary<K,V>` and so on, are represented by the meta-type `BMM_INDEXED_CONTAINER_TYPE`, which inherits from `BMM_CONTAINER_TYPE`, and adds the property `_index_type_`. The latter type represents the key type, which must be such that hash values can be generated, and may be any type, but practically speaking, is almost always a `String`, `Integer`, or a Date/Time type.
 
-The indexed container is represented by the meta-type `BMM_INDEXED_CONTAINER_TYPE`, which inherits from `BMM_CONTAINER_TYPE`, and adds the property `_index_type_`. The following diagram shows how the container type `Hash<String, Person>` is represented in a BMM model.
+The following diagram shows how the container type `Hash<String, Person>` is represented in a BMM model.
 
 [.text-center]
 .Indexed Container Type
@@ -183,14 +187,14 @@ image::{diagrams_uri}/bmm_structure-indexed_container.svg[id=bmm_structure_index
 
 === Conformance
 
-Conformance of Container types follows is according to the rules:
+Conformance of Container types is according to the rules:
 
 * _meta-rule_: A Container type can only conform to another Container type;
 * _concrete rules_: 
-** A Container type `Ca<Va>` conforms to Container type `Cb<Vb>` conforms to iff:
-*** for `_base_class_` of `Ca`, `_all_ancestors()_` contains `Cb`; and `Va` conforms to `Vb`.
-** An indexed Container type `Ca<Ka, Va>` conforms to indexed Container type `Gb<Kb, Vb>` iff:
-*** for `_base_class_` of `Ca`, `_all_ancestors()_` contains `Cb`; `Kb` conforms to `Kb` and `Va` conforms to `Vb`.
+** A Container type `C~a~<V~a~>` conforms to Container type `C~b~<V~b~>` conforms to iff:
+*** for `_base_class_` of `C~a~`, `_all_ancestors()_` contains `C~b~`; and `V~a~` conforms to `V~b~`.
+** An indexed Container type `C~a~<K~a~, V~a~>` conforms to indexed Container type `G~b~<K~b~, V~b~>` iff:
+*** for `_base_class_` of `C~a~`, `_all_ancestors()_` contains `C~b~`; `K~b~` conforms to `K~b~` and `V~a~` conforms to `V~b~`.
 
 == Type Conformance
 

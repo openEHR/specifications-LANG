@@ -22,7 +22,7 @@
 ==== Package bmm
 
 [.xcode]
-* link:/releases/LANG/{lang_release}/bmm.html#_bmm_boolean_value_class[BMM_BOOLEAN_VALUE^]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_assertion_class[BMM_ASSERTION^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_class_class[BMM_CLASS^]
 [.xcode]
@@ -103,8 +103,6 @@
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_schema_metadata_key_enumeration[BMM_SCHEMA_METADATA_KEY^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_schema_state_enumeration[BMM_SCHEMA_STATE^]
-[.xcode]
-* link:/releases/LANG/{lang_release}/bmm.html#_bmm_serial_formalism_enumeration[BMM_SERIAL_FORMALISM^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_signature_class[BMM_SIGNATURE^]
 [.xcode]
@@ -213,8 +211,6 @@
 ==== Package elom
 
 [.xcode]
-* link:/releases/LANG/{lang_release}/elom.html#_assertion_class[ASSERTION^]
-[.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_agent_class[EL_AGENT^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_agent_call_class[EL_AGENT_CALL^]
@@ -228,8 +224,6 @@
 * link:/releases/LANG/{lang_release}/elom.html#_el_defined_class[EL_DEFINED^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_expression_class[EL_EXPRESSION^]
-[.xcode]
-* link:/releases/LANG/{lang_release}/elom.html#_el_external_ref_class[EL_EXTERNAL_REF^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_feature_ref_class[EL_FEATURE_REF^]
 [.xcode]

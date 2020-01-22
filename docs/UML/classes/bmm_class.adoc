@@ -62,7 +62,7 @@ h|*0..1*
 a|True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type.
 
 h|*0..1*
-|*invariants*: `List<ASSERTION>`
+|*invariants*: `List<BMM_ASSERTION>`
 a|
 
 h|*1..1 +

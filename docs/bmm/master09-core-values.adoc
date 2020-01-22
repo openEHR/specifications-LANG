@@ -8,24 +8,33 @@ With a typical formal model, there is a need for formal representation of litera
 .`base.bmm.core.literal_value` package - Literal Values
 image::{uml_diagrams_uri}/LANG-bmm.core.literal_value.svg[id=core_literal_value, align="center"]
 
-In the above model, the sub-types of `BMM_LITERAL_VALUE` are limited to those that are generically applicable in any other part of the model.
+When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. `Real Pi = 3.1415926`), default values (e.g. `Person.name: String = "(unknown)"`) etc are instances of 'two types':
 
-When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. `Real pi = 3.1415926`), default values (e.g. `Person.name: String = "(unknown)"`) etc are instances of two 'types':
+* their declared types withing the model, e.g. `Real`, `String`, `Observation`;
+* the meta-type `BMM_LITERAL_VALUE` (or a matching descendant if there is one), which is instantiated to represent the value object within the model.
 
-* their declared types withing the model, e.g. `Real`, `String`;
-* the meta-type `BMM_LITERAL_VALUE`, which is instantiated to represent the value object within the model.
+The value of any such instance is represented by the `_value_literal_` field within its `BMM_LITERAL_VALUE`. This is assumed to carry a serialised form of the value expressed in a syntax known to the model processing environment within which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format, and is specified by `BMM_LITERAL_VALUE._syntax_`.
 
-The literal value of any such object is represented by the `_value_literal_` field within its `BMM_LITERAL_VALUE`. This is assumed to carry a value expressed in a syntax known to the model processing environment within which the BMM model is being used. This may be a programming language syntax, JSON, or any other serialisable format.
+In principle, a `BMM_LITERAL_VALUE` descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types directly needed in the BMM, which includes two primitive types `String` and `Integer` needed for constrained types (enumerations), tuples, which are described below, and routine calls, described in <<Functional Elements>>.
 
-In principle, a `BMM_LITERAL_VALUE` descendant can be created to directly match the concrete type of any value in a model, including any primitive type, and also structured values. The BMM model described here currently includes only descendants corresponding to types directly needed in the BMM, which includes two primitive types (`String` and `Integer`) needed for constrained types (aka enumerations), tuples, which are described below, and routine calls, described in <<Functional Elements>>.
+In practice most literal values appearing in a BMM model may be instantiated simply as instances of `BMM_LITERAL_VALUE`, with the value stored in the `_value_literal_` field.
 
-In practice many literal values appearing in a BMM model may be instantiated simply as instances of `BMM_LITERAL_VALUE`, with their value stored in the `_value_literal_` field.
+== Container Literals
 
-If it was desired to create a full set of 'native' types for BMM, in the way supplied for UML in the UML Standard Profile, specific descendants would be added to the meta-type classes `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, as well as `BMM_LITERAL_VALUE`, which would allow such instances to be directly representable in the internal BMM type system. This would still need to be ultimately mapped to the types actually available in any language in which BMM is implemented.
+Literals representing Lists or Sets of values of other types are automatically supported by the above model, as long as the syntax representation is correctly parsed as an instance of the intended model type. For example, if the serialised value `["Feyerabend", "Lakatos", "Popper"]` (which happens to be a JSON Array of Strings) were parsed as a `List<String>` instance, its metatype would be a `BMM_LITERAL_VALUE` instance whose `_value_literal_` was the same String, assuming JSON were used as the syntax, and whose `_type_` will be `BMM_CONTAINER_TYPE`.
+
+Similarly a syntax that supported literal Sets using braces, e.g. `{"Feyerabend", "Lakatos", "Popper"}` may be parsed to a `Set<String>` instance, with the same meta-types as for the List.
+
+== Literal Tuples
+
+Literal tuples may be expressed in BMM, but are not instances of `BMM_LITERAL_VALUE`; instead they are instances (at the meta level) of `EL_TUPLE`, an expression-related meta-type. This is a consequence of the fact that `Tuple` is considered a BMM built-in type rather than a model-provided type, and also that a Tuple instance may contain items of any meta-type, not just literal values. Tuple instances are used in BMM expressions and described in <<_terminal_entities>>.
+
+== Type Extension
+
+If it were desired to create a full set of 'native' types for BMM, in the way supplied for UML in the UML Standard Profile, specific descendants would be added to the meta-type classes `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, as well as `BMM_LITERAL_VALUE`, which would allow such instances to be directly representable in the internal BMM type system. This would still need to be ultimately mapped to the types actually available in any language in which BMM is implemented.
 
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_literal_value.adoc[]
 include::{uml_export_dir}/classes/bmm_string_value.adoc[]
 include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
-include::{uml_export_dir}/classes/bmm_boolean_value.adoc[]

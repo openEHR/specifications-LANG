@@ -7,7 +7,7 @@ include::{ref_dir}/docs/boilerplate/book_style_settings.adoc[]
 // Document-specific attributes
 //
 :copyright_year: 2016
-:spec_status: STABLE
+:spec_status: TRIAL
 
 //
 // HTML-only attributes
