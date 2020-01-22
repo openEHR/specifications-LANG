@@ -1777,26 +1777,26 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">------------------------------------------------------
--- P_BMM version on which these schemas are based.
-------------------------------------------------------
-bmm_version = &lt;"2.3"&gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-c">------------------------------------------------------</span>
+<span class="tok-c">-- P_BMM version on which these schemas are based.</span>
+<span class="tok-c">------------------------------------------------------</span>
+<span class="tok-nc">bmm_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2.3&quot;</span><span class="tok-p">&gt;</span>
 
-------------------------------------------------------
--- schema identification
--- (schema_id computed as &lt;rm_publisher&gt;_&lt;schema_name&gt;_&lt;rm_release&gt;)
-------------------------------------------------------
-rm_publisher = &lt;"openehr"&gt;
-schema_name = &lt;"adltest"&gt;
-rm_release = &lt;"1.0.2"&gt;
-model_name = &lt;"TEST_PKG"&gt;
+<span class="tok-c">------------------------------------------------------</span>
+<span class="tok-c">-- schema identification</span>
+<span class="tok-c">-- (schema_id computed as &lt;rm_publisher&gt;_&lt;schema_name&gt;_&lt;rm_release&gt;)</span>
+<span class="tok-c">------------------------------------------------------</span>
+<span class="tok-nc">rm_publisher</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openehr&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-nc">schema_name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;adltest&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-nc">rm_release</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;1.0.2&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-nc">model_name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;TEST_PKG&quot;</span><span class="tok-p">&gt;</span>
 
-------------------------------------------------------
--- schema documentation
-------------------------------------------------------
-schema_revision = &lt;"1.0.36"&gt;
-schema_lifecycle_state = &lt;"stable"&gt;
-schema_description = &lt;"openEHR schema to support test archetypes"&gt;</code></pre>
+<span class="tok-c">------------------------------------------------------</span>
+<span class="tok-c">-- schema documentation</span>
+<span class="tok-c">------------------------------------------------------</span>
+<span class="tok-nc">schema_revision</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;1.0.36&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-nc">schema_lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;stable&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-nc">schema_description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR schema to support test archetypes&quot;</span><span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1804,11 +1804,11 @@ schema_description = &lt;"openEHR schema to support test archetypes"&gt;</code><
 <h3 id="_inclusions"><a class="anchor" href="#_inclusions"></a>4.3. Inclusions</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">includes = &lt;
-    ["1"] = &lt;
-        id = &lt;"openehr_basic_types_1.0.2"&gt;
-    &gt;
-&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">includes</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;1&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openehr_basic_types_1.0.2&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1855,12 +1855,12 @@ make sure that the ODIN 'keys' are the same as the 'name' attributes in each blo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">packages = &lt;
-    ["org.openehr.test_pkg"] = &lt;
-        name = &lt;"org.openehr.test_pkg"&gt;
-        classes = &lt;"WHOLE", "SOME_TYPE", "BOOK", "CHAPTER", "ENTRY", "CAR", "CAR_BODY"&gt;
-    &gt;
-&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">packages</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;org.openehr.test_pkg&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;org.openehr.test_pkg&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">classes</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;WHOLE&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;SOME_TYPE&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;BOOK&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CHAPTER&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;ENTRY&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CAR&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CAR_BODY&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1885,17 +1885,17 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">primitive_types = &lt;
-    ["Any"] = &lt;
-        name = &lt;"Any"&gt;
-        is_abstract = &lt;True&gt;
-    &gt;
-    ["Ordered"] = &lt;
-        name = &lt;"Ordered"&gt;
-        is_abstract = &lt;True&gt;
-        ancestors = &lt;"Any"&gt;
-    &gt;
-&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">primitive_types</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">is_abstract</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;Ordered&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Ordered&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">is_abstract</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1931,17 +1931,17 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">class_definitions = &lt;
-    ["ITEM"] = &lt;
-        name = &lt;"ITEM"&gt;
-        ancestors = &lt;"Any"&gt;
-        is_abstract = &lt;True&gt;
-        properties = &lt;
-            -- properties here
-        &gt;
-    &gt;
-    -- more classes here
-&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">class_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;ITEM&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ITEM&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">is_abstract</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-c">-- properties here</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-c">-- more classes here</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="sect4">
@@ -1967,21 +1967,21 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["ELEMENT"] = &lt;
-        name = &lt;"ELEMENT"&gt;
-        ancestors = &lt;"ITEM"&gt;
-        properties = &lt;
-            ["null_flavour"] = (P_BMM_SINGLE_PROPERTY) &lt;
-                name = &lt;"null_flavour"&gt;
-                type = &lt;"DV_CODED_TEXT"&gt;
-                is_mandatory = &lt;True&gt;
-            &gt;
-            ["value"] = (P_BMM_SINGLE_PROPERTY) &lt;
-                name = &lt;"value"&gt;
-                type = &lt;"DATA_VALUE"&gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;ELEMENT&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ELEMENT&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ITEM&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;null_flavour&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;null_flavour&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_CODED_TEXT&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;value&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;value&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DATA_VALUE&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1992,21 +1992,21 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["ELEMENT"] = &lt;
-        name = &lt;"ELEMENT"&gt;
-        ancestors = &lt;"ITEM"&gt;
-        properties = &lt;
-            ["items"] = (P_BMM_CONTAINER_PROPERTY) &lt;
-                name = &lt;"items"&gt;
-                type_def = &lt;
-                    container_type = &lt;"List"&gt;
-                    type = &lt;"ITEM"&gt;
-                &gt;
-                cardinality = &lt;|&gt;=1|&gt;
-                is_mandatory = &lt;True&gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;ELEMENT&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ELEMENT&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ITEM&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;items&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;items&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ITEM&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+                <span class="tok-nc">cardinality</span> <span class="tok-o">=</span> <span class="tok-p">&lt;|&gt;=</span><span class="tok-mi">1</span><span class="tok-p">|&gt;</span>
+                <span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2014,21 +2014,21 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">	["CALLBACK_WAIT"] = &lt;
-		name = &lt;"CALLBACK_WAIT"&gt;
-		ancestors = &lt;"..."&gt;
-        properties = &lt;
-			["custom_actions"] = (P_BMM_INDEXED_CONTAINER_PROPERTY) &lt;
-				name = &lt;"custom_actions"&gt;
-				type_def = &lt;
-					container_type = &lt;"Hash"&gt;
-					index_type = &lt;"String"&gt;
-					type = &lt;"EVENT_ACTION"&gt;
-				&gt;
-				cardinality = &lt;|&gt;=0|&gt;
-			&gt;
-		&gt;
-	&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>	<span class="tok-p">[</span><span class="tok-s">&quot;CALLBACK_WAIT&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CALLBACK_WAIT&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;...&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;custom_actions&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_INDEXED_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;custom_actions&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+					<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Hash&quot;</span><span class="tok-p">&gt;</span>
+					<span class="tok-nc">index_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+					<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EVENT_ACTION&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-p">&gt;</span>
+				<span class="tok-nc">cardinality</span> <span class="tok-o">=</span> <span class="tok-p">&lt;|&gt;=</span><span class="tok-mi">0</span><span class="tok-p">|&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2046,26 +2046,26 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["Interval"] = &lt;
-        name = &lt;"Interval"&gt;
-        ancestors = &lt;"Any"&gt;
-        generic_parameter_defs = &lt;
-            ["T"] = &lt;
-                name = &lt;"T"&gt;
-                conforms_to_type = &lt;"Ordered"&gt;
-            &gt;
-        &gt;
-        properties = &lt;
-            ["lower"] = (P_BMM_SINGLE_PROPERTY_OPEN) &lt;
-                name = &lt;"lower"&gt;
-                type = &lt;"T"&gt;
-            &gt;
-            ["upper"] = (P_BMM_SINGLE_PROPERTY_OPEN) &lt;
-                name = &lt;"upper"&gt;
-                type = &lt;"T"&gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;Interval&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Interval&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Ordered&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;lower&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY_OPEN</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;lower&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;upper&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY_OPEN</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;upper&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2073,30 +2073,30 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["DV_INTERVAL"] = &lt;
-        name = &lt;"DV_INTERVAL"&gt;
-        ancestors = &lt;"Interval", "DATA_VALUE"&gt;
-        generic_parameter_defs = &lt;
-            ["T"] = &lt;
-                name = &lt;"T"&gt;
-                conforms_to_type = &lt;"DV_ORDERED"&gt;
-            &gt;
-        &gt;
-    &gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Interval&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;DATA_VALUE&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_ORDERED&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
 
-    ["SOME_TYPE"] = &lt;
-        name = &lt;"SOME_TYPE"&gt;
-        ancestors = &lt;"Any", ...&gt;
-        properties = &lt;
-            ["qty_interval_attr"] = (P_BMM_GENERIC_PROPERTY) &lt;
-                name = &lt;"qty_interval_attr"&gt;
-                type_def = &lt;
-                    root_type = &lt;"DV_INTERVAL"&gt;
-                    generic_parameters = &lt;"DV_QUANTITY"&gt;
-                &gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+    <span class="tok-p">[</span><span class="tok-s">&quot;SOME_TYPE&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SOME_TYPE&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">,</span> <span class="tok-p">...&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;qty_interval_attr&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;qty_interval_attr&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2104,23 +2104,23 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["Patient"] = &lt;
-        name = &lt;"Patient"&gt;
-        ancestors = &lt;"Any"&gt;
-        properties = &lt;
-            ["careProvider"] = (P_BMM_CONTAINER_PROPERTY) &lt;
-                name = &lt;"careProvider"&gt;
-                type_def = &lt;
-                    container_type = &lt;"List"&gt;
-                    type_def = (P_BMM_GENERIC_TYPE) &lt;
-                        root_type = &lt;"Reference"&gt;
-                        generic_parameters = &lt;"Party"&gt;
-                    &gt;
-                &gt;
-                cardinality = &lt;|&gt;=0|&gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;Patient&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Patient&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;careProvider&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;careProvider&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                        <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Reference&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Party&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+                <span class="tok-nc">cardinality</span> <span class="tok-o">=</span> <span class="tok-p">&lt;|&gt;=</span><span class="tok-mi">0</span><span class="tok-p">|&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2128,41 +2128,41 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["REFERENCE_RANGE"] = &lt;
-        name = &lt;"REFERENCE_RANGE"&gt;
-        ancestors = &lt;"Any"&gt;
-        generic_parameter_defs = &lt;
-            ["T"] = &lt;
-                name = &lt;"T"&gt;
-                conforms_to_type = &lt;"DV_ORDERED"&gt;
-            &gt;
-        &gt;
-        properties = &lt;
-            ["range"] = (P_BMM_SINGLE_PROPERTY) &lt;
-                name = &lt;"range"&gt;
-                type = &lt;"DV_INTERVAL"&gt;
-                is_mandatory = &lt;True&gt;
-            &gt;
-        &gt;
-    &gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;REFERENCE_RANGE&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;REFERENCE_RANGE&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_ORDERED&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
 
-    ["RANGE_OF_INTERVAL_OF_QUANTITY"] = &lt;
-        name = &lt;"RANGE_OF_INTERVAL_OF_QUANTITY"&gt;
-        ancestors = &lt;"Any", ...&gt;
-        properties = &lt;
-            ["range"] = (P_BMM_GENERIC_PROPERTY) &lt;
-                name = &lt;"range"&gt;
-                type_def = &lt;
-                    root_type = &lt;"REFERENCE_RANGE"&gt;
-                    generic_parameter_defs = &lt;
-                        ["T"] = (P_BMM_GENERIC_TYPE) &lt;
-                            root_type = &lt;"DV_INTERVAL"&gt;
-                            generic_parameters = &lt;"DV_QUANTITY"&gt;
-                        &gt;
-                    &gt;
-                &gt;
-            &gt;
-        &gt;</code></pre>
+    <span class="tok-p">[</span><span class="tok-s">&quot;RANGE_OF_INTERVAL_OF_QUANTITY&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;RANGE_OF_INTERVAL_OF_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">,</span> <span class="tok-p">...&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;REFERENCE_RANGE&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                        <span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                            <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+                            <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-p">&gt;</span>
+                    <span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2183,38 +2183,38 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["CRAZY_TYPE"] = &lt;
-        name = &lt;"CRAZY_TYPE"&gt;
-        ancestors = &lt;"Any"&gt;
-        properties = &lt;
-            ["range"] = (P_BMM_GENERIC_PROPERTY) &lt;
-                name = &lt;"range"&gt;
-                type_def = &lt;
-                    root_type = &lt;"REFERENCE_RANGE"&gt;
-                    generic_parameter_defs = &lt;
-                        ["T"] = (P_BMM_GENERIC_TYPE) &lt;
-                            root_type = &lt;"DV_INTERVAL"&gt;
-                            generic_parameters = &lt;"DV_QUANTITY"&gt;
-                        &gt;
-                        ["U"] = (P_BMM_SIMPLE_TYPE) &lt;
-                            type = &lt;"Integer"&gt;
-                        &gt;
-                        ["V"] = (P_BMM_CONTAINER_TYPE) &lt;
-                            type = &lt;"DV_QUANTITY"&gt;
-                            container_type = &lt;"List"&gt;
-                        &gt;
-                        ["W"] = (P_BMM_CONTAINER_TYPE) &lt;
-                            type_def = (P_BMM_GENERIC_TYPE) &lt;
-                                root_type = &lt;"DV_INTERVAL"&gt;
-                                generic_parameters = &lt;"DV_QUANTITY"&gt;
-                            &gt;
-                            container_type = &lt;"List"&gt;
-                        &gt;
-                    &gt;
-                &gt;
-            &gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;CRAZY_TYPE&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CRAZY_TYPE&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Any&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;range&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;REFERENCE_RANGE&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                        <span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                            <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+                            <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-p">&gt;</span>
+                        <span class="tok-p">[</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SIMPLE_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Integer&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-p">&gt;</span>
+                        <span class="tok-p">[</span><span class="tok-s">&quot;V&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+                            <span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-p">&gt;</span>
+                        <span class="tok-p">[</span><span class="tok-s">&quot;W&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                            <span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                                <span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_INTERVAL&quot;</span><span class="tok-p">&gt;</span>
+                                <span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;DV_QUANTITY&quot;</span><span class="tok-p">&gt;</span>
+                            <span class="tok-p">&gt;</span>
+                            <span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+                        <span class="tok-p">&gt;</span>
+                    <span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2228,18 +2228,18 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["PROPORTION_KIND"] = (P_BMM_ENUMERATION_INTEGER) &lt;
-        name = &lt;"PROPORTION_KIND"&gt;
-        ancestors = &lt;"Integer"&gt;
-        item_names = &lt;"pk_ratio", "pk_unitary", "pk_percent", "pk_fraction", "pk_integer_fraction"&gt;
-    &gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;PROPORTION_KIND&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_ENUMERATION_INTEGER</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;PROPORTION_KIND&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Integer&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">item_names</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;pk_ratio&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_unitary&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_percent&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_fraction&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_integer_fraction&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
 
-    ["PROPORTION_KIND_2"] = (P_BMM_ENUMERATION_INTEGER) &lt;
-        name = &lt;"PROPORTION_KIND_2"&gt;
-        ancestors = &lt;"Integer"&gt;
-        item_names = &lt;"pk_ratio", "pk_unitary", "pk_percent", "pk_fraction", "pk_integer_fraction"&gt;
-        item_values = &lt;0, 1001, 1002, 1003&gt;
-    &gt;</code></pre>
+    <span class="tok-p">[</span><span class="tok-s">&quot;PROPORTION_KIND_2&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_ENUMERATION_INTEGER</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;PROPORTION_KIND_2&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Integer&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">item_names</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;pk_ratio&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_unitary&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_percent&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_fraction&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;pk_integer_fraction&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">item_values</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1001</span><span class="tok-p">,</span> <span class="tok-mi">1002</span><span class="tok-p">,</span> <span class="tok-mi">1003</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2247,18 +2247,18 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["MAGNITUDE_STATUS"] = (P_BMM_ENUMERATION_STRING) &lt;
-        name = &lt;"MAGNITUDE_STATUS"&gt;
-        ancestors = &lt;"String", ...&gt;
-        item_names = &lt;"le", "ge", "eq", "approx_eq"&gt;
-        item_values = &lt;"&lt;=", "&gt;=", "=", "~"&gt;
-    &gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;MAGNITUDE_STATUS&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_ENUMERATION_STRING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;MAGNITUDE_STATUS&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">,</span> <span class="tok-p">...&gt;</span>
+        <span class="tok-nc">item_names</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;le&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;ge&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;eq&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;approx_eq&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">item_values</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&lt;=&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;&gt;=&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;=&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;~&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
 
-    ["NAME_PART"] = (P_BMM_ENUMERATION_STRING) &lt;
-        name = &lt;"NAME_PART"&gt;
-        ancestors = &lt;"String", ...&gt;
-        item_names = &lt;"FIRST", "MIDDLE", "LAST"&gt;
-    &gt;</code></pre>
+    <span class="tok-p">[</span><span class="tok-s">&quot;NAME_PART&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_ENUMERATION_STRING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;NAME_PART&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">,</span> <span class="tok-p">...&gt;</span>
+        <span class="tok-nc">item_names</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;FIRST&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;MIDDLE&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;LAST&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2269,10 +2269,10 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["encoding"] = (P_BMM_SINGLE_PROPERTY) &lt;
-        name = &lt;"encoding"&gt;
-        type = &lt;"CODE_PHRASE"&gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CODE_PHRASE&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2280,13 +2280,13 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">    ["encoding"] = (P_BMM_SINGLE_PROPERTY) &lt;
-        name = &lt;"encoding"&gt;
-        type_ref = &lt;
-            type = &lt;"CODE_PHRASE"&gt;
-            value_constraint = &lt;"openEHR::languages"&gt;
-        &gt;
-    &gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span></span>    <span class="tok-p">[</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;encoding&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">type_ref</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CODE_PHRASE&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">value_constraint</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR::languages&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2297,26 +2297,26 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">	-- original form
-	["language"] = (P_BMM_CONTAINER_PROPERTY) &lt;
-		name = &lt;"language"&gt;
-		type_def = &lt;
-			container_type = &lt;"List"&gt;
-			type = &lt;"Coding"&gt;
-		&gt;
-	&gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>	<span class="tok-c">-- original form</span>
+	<span class="tok-p">[</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Coding&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	-- with value constraint
-	["language"] = (P_BMM_CONTAINER_PROPERTY) &lt;
-		name = &lt;"language"&gt;
-		type_def = &lt;
-			container_type = &lt;"List"&gt;
-			type_def = (P_BMM_SIMPLE_TYPE) &lt;
-				type = &lt;"Coding"&gt;
-				value_constraint = &lt;"hl7::Languages"&gt;
-			&gt;
-		&gt;
-	&gt;</code></pre>
+	<span class="tok-c">-- with value constraint</span>
+	<span class="tok-p">[</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_CONTAINER_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;language&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-nc">container_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;List&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-nc">type_def</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SIMPLE_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Coding&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">value_constraint</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;hl7::Languages&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2334,135 +2334,135 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-odin" data-lang="odin">	["GENERIC_PARENT"] = &lt;
-		name = &lt;"GENERIC_PARENT"&gt;
-		generic_parameter_defs = &lt;
-			["T"] = &lt;
-				name = &lt;"T"&gt;
-				conforms_to_type = &lt;"SUPPLIER"&gt;
-			&gt;
-			["U"] = &lt;
-				name = &lt;"U"&gt;
-				conforms_to_type = &lt;"SUPPLIER"&gt;
-			&gt;
-		&gt;
-		properties = &lt;
-			["property_a"] = (P_BMM_SINGLE_PROPERTY_OPEN) &lt;
-				name = &lt;"property_a"&gt;
-				type = &lt;"T"&gt;
-			&gt;
-			["property_b"] = (P_BMM_SINGLE_PROPERTY_OPEN) &lt;
-				name = &lt;"property_b"&gt;
-				type = &lt;"U"&gt;
-			&gt;
-		&gt;
-	&gt;
+<pre class="pygments highlight"><code data-lang="odin"><span></span>	<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_PARENT&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_PARENT&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;property_a&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY_OPEN</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;property_a&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;property_b&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY_OPEN</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;property_b&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["SUPPLIER"] = &lt;
-		name = &lt;"SUPPLIER"&gt;
-		is_abstract = &lt;True&gt;
-		properties = &lt;
-			["abstract_prop"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"abstract_prop"&gt;
-				type = &lt;"String"&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">is_abstract</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;abstract_prop&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;abstract_prop&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["SUPPLIER_A"] = &lt;
-		name = &lt;"SUPPLIER_A"&gt;
-		ancestors = &lt;"SUPPLIER"&gt;
-		properties = &lt;
-			["magnitude"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"magnitude"&gt;
-				type = &lt;"Double"&gt;
-				is_mandatory = &lt;True&gt;
-			&gt;
-			["units"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"units"&gt;
-				type = &lt;"String"&gt;
-				is_mandatory = &lt;True&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;SUPPLIER_A&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER_A&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;magnitude&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;magnitude&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Double&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;units&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;units&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["SUPPLIER_B"] = &lt;
-		name = &lt;"SUPPLIER_B"&gt;
-		ancestors = &lt;"SUPPLIER"&gt;
-		properties = &lt;
-			["property"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"property"&gt;
-				type = &lt;"CODE_PHRASE"&gt;
-				is_mandatory = &lt;True&gt;
-			&gt;
-			["precision"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"precision"&gt;
-				type = &lt;"Integer"&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;SUPPLIER_B&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER_B&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;property&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;property&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CODE_PHRASE&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">is_mandatory</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">True</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;precision&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;precision&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Integer&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["GENERIC_CHILD_OPEN_T"] = &lt;
-		name = &lt;"GENERIC_CHILD_OPEN_T"&gt;
-		ancestor_defs = &lt;
-			["GENERIC_PARENT&lt;T,SUPPLIER_B&gt;"] = (P_BMM_GENERIC_TYPE) &lt;
-				root_type = &lt;"GENERIC_PARENT"&gt;
-				generic_parameters = &lt;"T", "SUPPLIER_B"&gt;
-			&gt;
-		&gt;
-		generic_parameter_defs = &lt;
-			["T"] = &lt;
-				name = &lt;"T"&gt;
-				conforms_to_type = &lt;"SUPPLIER"&gt;
-			&gt;
-		&gt;
-		properties = &lt;
-			["gen_child_open_t_prop"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"gen_child_open_t_prop"&gt;
-				type = &lt;"String"&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_CHILD_OPEN_T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_CHILD_OPEN_T&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestor_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_PARENT&lt;T,SUPPLIER_B&gt;&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_PARENT&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;SUPPLIER_B&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;T&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;gen_child_open_t_prop&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gen_child_open_t_prop&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["GENERIC_CHILD_OPEN_U"] = &lt;
-		name = &lt;"GENERIC_CHILD_OPEN_U"&gt;
-		ancestor_defs = &lt;
-			["GENERIC_PARENT&lt;SUPPLIER_A,U&gt;"] = (P_BMM_GENERIC_TYPE) &lt;
-				root_type = &lt;"GENERIC_PARENT"&gt;
-				generic_parameters = &lt;"SUPPLIER_A", "U"&gt;
-			&gt;
-		&gt;
-		generic_parameter_defs = &lt;
-			["U"] = &lt;
-				name = &lt;"U"&gt;
-				conforms_to_type = &lt;"SUPPLIER"&gt;
-			&gt;
-		&gt;
-		properties = &lt;
-			["gen_child_open_u_prop"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"gen_child_open_u_prop"&gt;
-				type = &lt;"String"&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_CHILD_OPEN_U&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_CHILD_OPEN_U&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestor_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_PARENT&lt;SUPPLIER_A,U&gt;&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_PARENT&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER_A&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;U&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">generic_parameter_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;U&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">conforms_to_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;gen_child_open_u_prop&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gen_child_open_u_prop&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-	["GENERIC_CHILD_CLOSED"] = &lt;
-		name = &lt;"GENERIC_CHILD_CLOSED"&gt;
-		ancestor_defs = &lt;
-			["GENERIC_PARENT&lt;SUPPLIER_A,SUPPLIER_B&gt;"] = (P_BMM_GENERIC_TYPE) &lt;
-				root_type = &lt;"GENERIC_PARENT"&gt;
-				generic_parameters = &lt;"SUPPLIER_A", "SUPPLIER_B"&gt;
-			&gt;
-		&gt;
-		properties = &lt;
-			["gen_child_closed_prop"] = (P_BMM_SINGLE_PROPERTY) &lt;
-				name = &lt;"gen_child_closed_prop"&gt;
-				type = &lt;"String"&gt;
-			&gt;
-		&gt;
-	&gt;
+	<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_CHILD_CLOSED&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+		<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_CHILD_CLOSED&quot;</span><span class="tok-p">&gt;</span>
+		<span class="tok-nc">ancestor_defs</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;GENERIC_PARENT&lt;SUPPLIER_A,SUPPLIER_B&gt;&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_GENERIC_TYPE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">root_type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;GENERIC_PARENT&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">generic_parameters</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;SUPPLIER_A&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;SUPPLIER_B&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+		<span class="tok-nc">properties</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+			<span class="tok-p">[</span><span class="tok-s">&quot;gen_child_closed_prop&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">P_BMM_SINGLE_PROPERTY</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+				<span class="tok-nc">name</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gen_child_closed_prop&quot;</span><span class="tok-p">&gt;</span>
+				<span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;String&quot;</span><span class="tok-p">&gt;</span>
+			<span class="tok-p">&gt;</span>
+		<span class="tok-p">&gt;</span>
+	<span class="tok-p">&gt;</span>
 
-&gt;</code></pre>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -2471,8 +2471,9 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-15 08:31:14 UTC
+Last updated 2019-12-15 23:33:24 UTC
 </div>
 </div>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>
