@@ -28,10 +28,21 @@ Package paths are only used in BMM to specify package structures in the serialse
 
 == Documentation
 
-A `_documentation_` attribute is inherited from `BMM_DECLARATION` into `BMM_CLASS`, `BMM_PROPERTY`, `BMM_MODEL` and `BMM_PACKAGE` (the latter two via `BMM_PACKAGE_CONTAINER`), enabling packages, classes and properties to be individually documented.
+A `_documentation_` attribute is inherited from `BMM_DECLARATION` into `BMM_CLASS`, `BMM_PROPERTY`, `BMM_MODEL` and `BMM_PACKAGE` (the latter two via `BMM_PACKAGE_CONTAINER`), enabling packages, classes and properties to be individually documented using a keyed table (i.e. Hash) of values.
 
-[.tbd]
-TBD: expand to be of type `Hash<String,Any>` or similar?
+It is strongly recommended to use the following key /type combinations for the relevant purposes:
+
+* `"purpose": String`
+* `"keywords": List<String>`
+* `"use": String`
+* `"misuse": String`
+* `"references": String`
+
+Other keys and value types may be freely added.
+
+== Other Meta-data
+
+The `BMM_DECLARATION` meta-class also defines the attribute `_extensions_` of type `Hash<String, Any>`, to enable representation of meta-data of any type on any model node. This provides a means of extending BMM.
 
 == Model
 

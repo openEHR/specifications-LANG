@@ -277,12 +277,14 @@ Boolean type_conforms_to (String a_type, anc_type) {
 
 --------
 
-== Summary of Consequences of the Model
+== Model Theoretic Questions
 
 The above model produces a number of outcomes that are not necessarily immediately obvious or expected, including:
 
-* Inheritance is from classes to types (not classes);
-* A Generic type parameter can only be a unitary type, i.e. not a container type.
+* Inheritance is from classes to types rather than classes;
+* A Generic type parameter can only be a unitary type, i.e. not a container type;
+* Tuple and Signature types are pure types, i.e. not defined in generating model other than by implication due to use as routine argument lists;
+* In theory, a Signature type could be a `BMM_GENERIC_TYPE` descendant but the specialisation restriction would make the meta-model more complex for no obvious benefit.
 
 == Class Definitions
 

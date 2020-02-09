@@ -58,6 +58,13 @@ The two types of routines, i.e. functions and procedures, include zero or more f
 .Signature taxonomy
 image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="40%"]
 
+=== Feature Visibility
+
+Selective _visibility_ of features to external clients is expressed in the attribute `BMM_CLASS_SCOPED._visibility_`.
+
+[.tbd]
+TBD: define visibility meta-model; probably need to support C/Java approach and type-based.
+
 === Synthesis due to Generic Parameter Substitution
 
 Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on the class `BMM_CLASS_SCOPED` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
@@ -116,6 +123,12 @@ An additional feature of the meta-model for functions is the notion of _operator
 == Variables
 
 At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally withing a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively.
+
+== Model Theoretic Questions
+
+The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a procedure is not a 'typed' entity, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the model. The alternative would have been to treat procedures as Void-returning entities, and thus `Void` as a pseudo-type. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
+
+Ultimately this difficulty arises from the fact of including procedures at all within the formal framework, when from a purely functional perspective, they would not exist. Avoiding this means going down the pure functional route, which, although providing a cleaner model of computation, inevitably entails varius artificial and non-intuitive means of making a computational entity _do_ something. In BMM we have taken the route of objects as black boxes having displays (functions) and controls (procedures), with well-behaved models relying on command-query separation, i.e. side-effect free functions. The latter principle is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
 
 == Class Definitions
 

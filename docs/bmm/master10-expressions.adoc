@@ -65,6 +65,10 @@ In BMM, a _feature reference_ is any symbolic reference to a class feature or va
 
 Function calls are described in detail in the following section.
 
+==== Self Reference
+
+A special meta-type, `EL_SELF_REF` is provided to represent references to the current scoping object for expressions. And instance of this meta-class corresponds to references such as 'this' or 'self' found in object-oriented programming languages.
+
 ==== Agents
 
 An agent is the BMM term for a delayed routine call, and has the meta-type `BMM_SIGNATURE`. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.
@@ -159,6 +163,7 @@ include::{uml_export_dir}/classes/el_feature_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
 
+include::{uml_export_dir}/classes/el_self_ref.adoc[]
 include::{uml_export_dir}/classes/el_literal.adoc[]
 
 include::{uml_export_dir}/classes/el_tuple.adoc[]

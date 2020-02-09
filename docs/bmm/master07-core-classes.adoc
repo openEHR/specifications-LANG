@@ -86,6 +86,12 @@ image::{diagrams_uri}/bmm_structure-value_set.svg[id=bmm_structure_value_set, al
 
 A class defined within a model may include _invariants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `BMM_ASSERTION`, which is a tagged Boolean-valued Expression.
 
+== Model Theoretic Questions
+
+The class meta-model as defined here entails certain choices that have consequences, including:
+
+* All Enumeration types are based on literal values (i.e. not only names), which may be of any concrete type, including constructed types.
+
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_class.adoc[]
