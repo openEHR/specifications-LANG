@@ -243,6 +243,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_procedure_agent_class[EL_PROCEDURE_AGENT^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/elom.html#_el_self_ref_class[EL_SELF_REF^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_terminal_class[EL_TERMINAL^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/elom.html#_el_tuple_class[EL_TUPLE^]

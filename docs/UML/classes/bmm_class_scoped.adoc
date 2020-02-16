@@ -19,6 +19,12 @@ h|*0..1*
 |*is_synthesised_generic*: `Boolean`
 a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.
 
+h|*0..1*
+|*visibility*: `Any`
+a|Visibility of this item to client entities.
+
+TODO: define scheme; probably need to support broken C/Java scheme as well as better type-based schemes.
+
 h|*1..1 +
 (redefined)*
 |*scope*: `BMM_CLASS`

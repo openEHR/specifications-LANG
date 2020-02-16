@@ -23,11 +23,21 @@ h|*0..1*
 |*documentation*: `Hash<String, Any>`
 a|Optional documentation of this element, as a keyed list.
 
+It is strongly recommended to use the following key /type combinations for the relevant purposes:
+
+* `"purpose": String`
+* `"keywords": List<String>`
+* `"use": String`
+* `"misuse": String`
+* `"references": String`
+
+Other keys and value types may be freely added.
+
 h|*1..1*
 |*scope*: `BMM_DECLARATION`
 a|Model element within which an element is declared.
 
 h|*0..1*
-|*meta_data*: `Hash<String, Any>`
+|*extensions*: `Hash<String, Any>`
 a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.
 |===

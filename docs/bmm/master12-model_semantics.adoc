@@ -1,6 +1,9 @@
 = Model Semantics
 
-== Simple Inheritance
+[[inheritance_semantics]]
+== Inheritance
+
+=== Simple Inheritance
 
 The BMM supports single and multiple inheritance, although it does not distinguish between different types of inheritance relation as some programming languages do. Inheritance is formally defined to be between a class definition (an instance of `BMM_CLASS`) and a defined type, i.e. a `BMM_SIMPLE_TYPE` or `BMM_GENERIC_TYPE`. This is because the inheritance parents of a class may be any of:
 
@@ -22,7 +25,7 @@ The next screenshot shows the descendants view of one of the ancestor classes of
 .BMM class - descendants view
 image::{images_uri}/awb_class_descendants.png[id=awb_class_descendants, align="center", width="45%"]
 
-== Generic Inheritance
+=== Generic Inheritance
 
 Inheritance between generic classes works in the same way as for simple classes, with the additional semantics of formal parameter inheritance, which are as follows:
 
@@ -33,7 +36,7 @@ The following example shows the class `DV_INTERVAL<T:DV_ORDERED>` inheriting fro
 
 [.text-center]
 .Generic inheritance, constraint-narrowing
-image::{images_uri}/awb_generic_class.png[id=awb_generic_inheritance_constraint_narrowing, align="center", width="60%"]
+image::{images_uri}/awb_generic_class.png[id=awb_generic_inheritance_constraint_narrowing, align="center", width="55%"]
 
 The resulting types of `_lower_` and `_upper_` are now `T:DV_ORDERED` rather than `T:Ordered` from the parent. In the fully computed model shown above, these two properties are synthesised within `DV_INTERVAL<T>` with their new concrete types. Their BMM meta-type objects (type `BMM_UNITARY_PROPERTY`) will both have the meta-attribute `_is_synthesised_generic_` set to `True` and are marked with an asterisk within the property view to indicate this.
 
@@ -57,7 +60,7 @@ Generic substitution may be with other open, closed or partly-closed generic typ
 .Generic inheritance, open parameter
 image::{images_uri}/awb_generic_inheritance.png[id=awb_generic_inheritance, align="center", width="70%"]
 
-== Multiple Inheritance
+=== Multiple Inheritance
 
 Multiple inheritance is typically used in the definition of classes that have a Liskov substitution inheritance relation as well as a re-use inheritance relation. The following shows a class `DV_INTERVAL<T>` multiply inheriting from `Interval<T>` and `DATA_VALUE`, where the latter is considered the substitutable type, and the former an interface re-use.
 
@@ -65,7 +68,7 @@ Multiple inheritance is typically used in the definition of classes that have a 
 .Multiple inheritance
 image::{images_uri}/awb_multiple_inheritance.png[id=awb_multiple_inheritance, align="center", width="45%"]
 
-== Inheritance and Invariants, Pre-conditions and Post-conditions
+=== Inheritance and Invariants, Pre-conditions and Post-conditions
 
 [.tbd]
 TBD

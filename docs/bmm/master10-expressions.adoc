@@ -75,7 +75,9 @@ An agent is the BMM term for a delayed routine call, and has the meta-type `BMM_
 
 ==== Predicates
 
-Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand.
+Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand, and are represented by the meta-type `EL_PREDICATE`. Predicates conceptually apply to data instance structures and may be understood as queries on data. Any number of specific predicates might be added as extensions via inheritance. In particular, Xpath-style predicates could be supported by addition of meta-types descending from `EL_PREDICATE`.
+
+The following predicates are pre-defined.
 
 ===== Attached (x)
 
@@ -93,7 +95,10 @@ class SmartRef {
 
 ===== Defined (x)
 
-xxxx
+The `defined` predicate is used to test whether an instance that is mapped to an external data access method exists in the data context (regardless of its value there).
+
+[.tbd]
+TBD: this might be replaced by another approach.
 
 == Usage in BMM Models
 
@@ -120,7 +125,7 @@ A different syntax might express it as follows.
 
 ----
     invariant
-        across items as nameItem all 
+        for nameItem in items all 
             not nameItem.isEmpty() 
         end
 ----
@@ -129,9 +134,8 @@ A similar invariant, this time using ∃, is shown below.
 
 ----
     invariant
-        across items as nameItem some 
-            not nameItem.isEmpty() 
-        end
+        for nameItem in items 
+            ∃ not nameItem.isEmpty()
 ----
 
 Regardless of the surface syntax, expressions such as the above map to functions such as `_for_all_` and `there_exists` defined on relevant linear container types. These functions have the following signatures in which the 'test' expression appears as a Function agent type.

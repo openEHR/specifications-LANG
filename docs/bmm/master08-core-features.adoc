@@ -32,7 +32,7 @@ For entities with a _type_, i.e. which can potentially produce a value, the foll
 .Typed taxonomy
 image::{diagrams_uri}/typed_taxonomy.svg[id=typed_taxonomy, align="center"]
 
-This taxonomy is concerned with typedness, valuedness, and mutability, i.e. the notion that a typed value-producing entity may be Void (null) at execution time. Features, which are declarations _in context_ can be mutable, but value objects (e.g. literal values, delayed routine calls cannot).
+This taxonomy is concerned with typedness, valuedness, and mutability, which is the notion that a typed value-producing entity may be Void (null) at execution time. Features, which are declarations _in context_ can be mutable, but value objects (e.g. literal values, delayed routine calls) cannot.
 
 === Class Model
 
@@ -78,6 +78,32 @@ Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`
 
 A constant has a `_value_`, which may be of any type, including complex types.
 
+The following abstract syntax illustrates how constants may be defined in a BMM model.
+
+----
+    // a class with simple invariants
+    class BASIC_DEFINITIONS {
+        feature
+            // some simple constants
+            constant CR: Character '\015';
+            constant LF: Character '\012';
+        
+            // constant of complex type
+            constant SafeSpeed: Interval<Quantity> {
+                "lower": {
+                    "value": 0.0,
+                    "units": "km/h"
+                },
+                "upper": {
+                    "value": 60.0,
+                    "units": "km/h"
+                },
+                "lower_included": true,
+                "upper_included": true                
+            }
+    }
+----
+
 [.tbd]
 TBD: add support for computed constants.
 
@@ -97,6 +123,25 @@ A typical example of properties of class is shown below, in which the flattened 
 .BMM class - properties view
 image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
 
+The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than `other_participations`, which is defined as a container property with cardinality `[*]` (i.e. `0..*`) and 'set' semantics.
+
+----
+    abstract class ENTRY {
+        inherit
+            CARE_ENTRY
+
+        feature -- Locale
+            association property language: CODE_PHRASE <<"iso::iso_639-2">> [0..1];
+            association property encoding: CODE_PHRASE <<"iana::character-sets">> [0..1];
+        
+        feature -- Access
+            composition property protocol: ITEM_STRUCTURE[1];
+            composition property guideline_id: OBJECT_REF[0..1];
+            composition property subject: PARTY_PROXY[0..1];
+            composition property other_participations: PARTICIPATION[*]{set};
+    }
+----
+
 === Semantic level
 
 [.tbd]
@@ -114,21 +159,55 @@ The above screenshot also includes properties have different settings of the `_i
 
 Functions and procedures are kinds of _routine_, which are computational features of a class. The classes `BMM_FUNCTION`, `BMM_PROCEDURE` and `BMM_ROUTINE` respectively provide the meta-model for _definitions_ of the two types of routine.
 
-Any routine may have pre- and/or post-conditions defined for it, represented in BMM by `BMM_ASSERTIONs` populating the `_pre_conditions_` and `_post_conditions_` attributes of `BMM_ROUINE`. An Assertion is a <<_bmm_assertion_class,tagged Boolean Expression>>.
-
 The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is defined as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
 
 An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
 
+Any routine may have pre- and/or post-conditions defined for it, represented in BMM by `BMM_ASSERTIONs` populating the `_pre_conditions_` and `_post_conditions_` attributes of `BMM_ROUINE`. An Assertion is a <<_bmm_assertion_class,tagged Boolean Expression>>.
+
+The following abstract syntax illustrates the various elements of function definitions.
+
+----
+    abstract class DV_AMOUNT {
+        inherit
+            DV_QUANTIFIED
+
+        feature -- Arithmetic Operations
+        
+            function equal (other: DV_AMOUNT[1]): Boolean[1] 
+                alias {infix '='};
+            
+            function less_than (other: DV_AMOUNT[1]): Boolean[1] 
+                alias {infix '<'};
+            
+        feature -- Arithmetic Operations
+        
+            function add (other: DV_AMOUNT[1]): DV_AMOUNT[1] 
+                alias {infix '+'};
+            
+            function subtract (other: DV_AMOUNT[1]): DV_AMOUNT[1] 
+                alias {infix '-'};
+                
+            function multiply (val: Real[1]): DV_AMOUNT[1] 
+                alias {infix '*'};
+                
+            function divide (val: Real[1]): DV_AMOUNT[1] 
+                alias {infix '/', infix '÷'};
+                
+    }
+----
+
+NOTE: not currently supported: 'static' (non-instance dependent) methods; anchored types.
+
 == Variables
 
-At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally withing a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively.
+At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively.
 
 == Model Theoretic Questions
 
-The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a procedure is not a 'typed' entity, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the model. The alternative would have been to treat procedures as Void-returning entities, and thus `Void` as a pseudo-type. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
+The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a _procedure is not a typed entity_, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the BMM meta-model. The alternative would have been to treat procedures as Void-returning entities, and thus `Void` as a pseudo-type. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
 
-Ultimately this difficulty arises from the fact of including procedures at all within the formal framework, when from a purely functional perspective, they would not exist. Avoiding this means going down the pure functional route, which, although providing a cleaner model of computation, inevitably entails varius artificial and non-intuitive means of making a computational entity _do_ something. In BMM we have taken the route of objects as black boxes having displays (functions) and controls (procedures), with well-behaved models relying on command-query separation, i.e. side-effect free functions. The latter principle is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
+Ultimately this difficulty arises from the decision to include procedures at all within the formal framework, when from a purely functional perspective they would not exist. Avoiding procedures means going down a pure functional route, which, although providing a cleaner model of computation, inevitably entails various artificial and non-intuitive means of making a computational entity _do_ something. In BMM we have taken the route of objects as black boxes having displays (functions) and controls (procedures), with well-behaved models relying on command-query separation, i.e. side-effect free functions. The latter principle is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
 
 == Class Definitions
 

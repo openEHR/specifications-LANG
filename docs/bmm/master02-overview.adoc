@@ -24,7 +24,7 @@ The UML 2.x specifications are exceedingly complex: UML 2.1.2 was specified by t
 * the notion of _type_ is not adequately formalised;
 * the meta-model of generic types and container properties is problematic and does not map well to object programming languages;
 * the Design By Contract (DbC) concept (i.e. pre-, post-conditions, class invariants), crucial for proper specifications, is in theory supported via the use of OCL 2.0 constraints in class definitions, but OCL suffers from the same underlying semantic weaknesses as UML;
-* there is no direct support for functional entities, i.e. delayed routine calls as objects (aka 'lambdas').
+* there is no direct support for functional entities, i.e. routine calls as objects (aka 'lambdas').
 
 Experience with various UML tools (up till 2015) highlighted the following problems:
 
