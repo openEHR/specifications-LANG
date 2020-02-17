@@ -211,7 +211,11 @@
 <li><a href="#_semantic_level">8.3.2. Semantic level</a></li>
 </ul>
 </li>
-<li><a href="#_functions_and_procedures">8.4. Functions and Procedures</a></li>
+<li><a href="#_functions_and_procedures">8.4. Functions and Procedures</a>
+<ul class="sectlevel3">
+<li><a href="#_pre_and_post_conditions">8.4.1. Pre- and Post-conditions</a></li>
+</ul>
+</li>
 <li><a href="#_variables">8.5. Variables</a></li>
 <li><a href="#_model_theoretic_questions_3">8.6. Model Theoretic Questions</a></li>
 <li><a href="#_class_definitions_6">8.7. Class Definitions</a>
@@ -4891,7 +4895,7 @@ a_name: <code>String[1]</code><br>
 <div class="title">Figure 28. BMM class - properties view</div>
 </div>
 <div class="paragraph">
-<p>The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than <code>other_participations</code>, which is defined as a container property with cardinality <code>[<strong>]</code> (i.e. <code>0..</strong></code>) and 'set' semantics.</p>
+<p>The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than <code>other_participations</code>, which is defined as a container property with cardinality <code>[*]</code> (i.e. <code>0..*</code>) and 'set' semantics.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4997,6 +5001,62 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </td>
 </tr>
 </table>
+</div>
+<div class="sect3">
+<h4 id="_pre_and_post_conditions"><a class="anchor" href="#_pre_and_post_conditions"></a>8.4.1. Pre- and Post-conditions</h4>
+<div class="paragraph">
+<p>All BMM routine definitions may include pre- and/or post-conditions, with the semantics of Djikstra&#8217;s weakest pre-condition logic (<a href="#Djikstra_DOP_1976">Dijkstra (1976)</a>), Object-Z (<a href="#Object_Z">Smith (2000)</a>) and the Eiffel language (<a href="#Meyer_OOSC2">Meyer (1997)</a>).</p>
+</div>
+<div class="paragraph">
+<p>The essential semantics are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>pre-conditions</em> specify truth conditions on public object state and/or parameters that must hold for the routine to execute correctly;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if a pre-condition is not met at the moment of routine call, the client (caller) is at fault;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>post-conditions</em> specify truth conditions on public object state and/or result (in the case of functions) that will hold at the end of routine execution;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if a post-condition is not met at the moment of routine completion, the routine is at fault, i.e. contains bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The use of pre- and post-conditions is also known as <em>design by contract (DbC)</em>, a term introduced by Meyer, and is widely used in general IT, particularly in specification languages such as <a href="https://www.omg.org//spec/IDL/" target="_blank" rel="noopener">OMG Interface Definition Language (IDL)</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following shows how a routine contract may be specified in an abstract syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    class I_EHR_SERVICE {
+
+        feature -- Creation
+
+            create_ehr_with_id (
+                an_ehr_id: UUID[1];
+                an_ehr_status: EHR_STATUS[0..1]
+            ): UUID[1]
+                pre_condition
+                    No_duplicate: not has_ehr (an_ehr_id)
+                post_condition
+                    Has_ehr: has_ehr (Result)
+    }</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -7427,7 +7487,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><a id="Djikstra_DOP_1976"></a>Dijkstra, E. W. (1976). <em>A discipline of programming</em>. Prentice-Hall Englewood Cliffs, N.J.</p>
+</div>
+<div class="paragraph">
 <p><a id="Meyer_OOSC2"></a>Meyer, B. (1997). <em>Object-oriented Software Construction</em> (second.). Prentice Hall.</p>
+</div>
+<div class="paragraph">
+<p><a id="Object_Z"></a>Smith, G. (2000). <em>The Object Z Specification Language</em>. Kluwer Academic Publishers. Retrieved from <a href="http://www.itee.uq.edu.au/ smith/objectz.html" class="bare">http://www.itee.uq.edu.au/ smith/objectz.html</a></p>
 </div>
 </div>
 </div>

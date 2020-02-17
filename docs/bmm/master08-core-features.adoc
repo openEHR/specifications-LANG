@@ -123,7 +123,7 @@ A typical example of properties of class is shown below, in which the flattened 
 .BMM class - properties view
 image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
 
-The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than `other_participations`, which is defined as a container property with cardinality `[*]` (i.e. `0..*`) and 'set' semantics.
+The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than `other_participations`, which is defined as a container property with cardinality `[\*]` (i.e. `0..*`) and 'set' semantics.
 
 ----
     abstract class ENTRY {
@@ -198,6 +198,37 @@ The following abstract syntax illustrates the various elements of function defin
 ----
 
 NOTE: not currently supported: 'static' (non-instance dependent) methods; anchored types.
+
+=== Pre- and Post-conditions
+
+All BMM routine definitions may include pre- and/or post-conditions, with the semantics of Djikstra's weakest pre-condition logic (citenp:[Djikstra_DOP_1976]), Object-Z (citenp:[Object_Z]) and the Eiffel language (citenp:[Meyer_OOSC2]).
+
+The essential semantics are as follows:
+
+* _pre-conditions_ specify truth conditions on public object state and/or parameters that must hold for the routine to execute correctly;
+** if a pre-condition is not met at the moment of routine call, the client (caller) is at fault;
+* _post-conditions_ specify truth conditions on public object state and/or result (in the case of functions) that will hold at the end of routine execution;
+** if a post-condition is not met at the moment of routine completion, the routine is at fault, i.e. contains bugs.
+
+The use of pre- and post-conditions is also known as _design by contract (DbC)_, a term introduced by Meyer, and is widely used in general IT, particularly in specification languages such as {omg_idl}[OMG Interface Definition Language (IDL)^].
+
+The following shows how a routine contract may be specified in an abstract syntax.
+
+----
+    class I_EHR_SERVICE {
+        
+        feature -- Creation
+            
+            create_ehr_with_id (
+                an_ehr_id: UUID[1];
+                an_ehr_status: EHR_STATUS[0..1]
+            ): UUID[1]
+                pre_condition
+                    No_duplicate: not has_ehr (an_ehr_id)
+                post_condition
+                    Has_ehr: has_ehr (Result)
+    }
+----
 
 == Variables
 
