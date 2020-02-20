@@ -238,8 +238,6 @@ include::{uml_export_dir}/classes/el_terminal.adoc[]
 
 include::{uml_export_dir}/classes/el_instance_ref.adoc[]
 
-include::{uml_export_dir}/classes/el_feature_ref.adoc[]
-
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_self_ref.adoc[]

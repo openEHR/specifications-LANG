@@ -14,7 +14,7 @@ h|*Functions*
 
 h|(abstract)
 |*effective_type* (): `BMM_TYPE`
-a|Meta-type of expression entity resulting from evaluation. For entities represented as data, i.e. constants, properties, and variables, the declared and evaluated types and meta-types are the same; however for computed entities, they are different.
+a|Meta-type of expression entity used in type-checking and evaluation.
 
 Effected in descendants.
 

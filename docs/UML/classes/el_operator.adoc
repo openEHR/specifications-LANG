@@ -24,13 +24,17 @@ h|*0..1*
 a|The symbol actually used in the expression, or intended to be used for serialisation. Must be a member of `OPERATOR_DEF._symbols_`.
 
 h|*1..1*
-|*definition*: `EL_FUNCTION_CALL`
-a|The reference item from which the value of this node can be computed.
+|*definition*: `BMM_FUNCTION`
+a|Function equivalent to this operator, inferred by matching operator against functions defined in interface of principal operand.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|
 |*operator_definition* (): `BMM_OPERATOR`
-a|Operator definition derived from `_definition.agent.operator_definition()_`.
+a|Operator definition derived from `_definition.operator_definition()_`.
+
+h|
+|*equivalent_call* (): `EL_FUNCTION_CALL`
+a|Function call equivalent to this operator.
 |===

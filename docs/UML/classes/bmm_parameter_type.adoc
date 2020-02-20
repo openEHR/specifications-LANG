@@ -48,7 +48,7 @@ a|Result = `False` - generic parameters are understood by definition to be non-a
 
 h|(effected)
 |*type_name* (): `String`
-a|Result = `_name_`.
+a|Return `_name_`.
 
 h|(effected)
 |*flattened_type_list* (): `List<String>`

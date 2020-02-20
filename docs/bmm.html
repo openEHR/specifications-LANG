@@ -291,21 +291,20 @@
 <li><a href="#_el_binary_operator_class">10.4.5. EL_BINARY_OPERATOR Class</a></li>
 <li><a href="#_el_terminal_class">10.4.6. EL_TERMINAL Class</a></li>
 <li><a href="#_el_instance_ref_class">10.4.7. EL_INSTANCE_REF Class</a></li>
-<li><a href="#_el_feature_ref_class">10.4.8. EL_FEATURE_REF Class</a></li>
-<li><a href="#_el_instantiable_reft_class">10.4.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
-<li><a href="#_el_self_ref_class">10.4.10. EL_SELF_REF Class</a></li>
-<li><a href="#_el_literal_class">10.4.11. EL_LITERAL Class</a></li>
-<li><a href="#_el_tuple_class">10.4.12. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">10.4.13. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_predicate_class">10.4.14. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">10.4.15. EL_DEFINED Class</a></li>
-<li><a href="#_el_attached_class">10.4.16. EL_ATTACHED Class</a></li>
-<li><a href="#_el_agent_call_class">10.4.17. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">10.4.18. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_agent_class">10.4.19. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">10.4.20. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">10.4.21. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_constraint_expression_class">10.4.22. EL_CONSTRAINT_EXPRESSION Class</a></li>
+<li><a href="#_el_instantiable_reft_class">10.4.8. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
+<li><a href="#_el_self_ref_class">10.4.9. EL_SELF_REF Class</a></li>
+<li><a href="#_el_literal_class">10.4.10. EL_LITERAL Class</a></li>
+<li><a href="#_el_tuple_class">10.4.11. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">10.4.12. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_predicate_class">10.4.13. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">10.4.14. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">10.4.15. EL_ATTACHED Class</a></li>
+<li><a href="#_el_agent_call_class">10.4.16. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">10.4.17. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_agent_class">10.4.18. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">10.4.19. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">10.4.20. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_constraint_expression_class">10.4.21. EL_CONSTRAINT_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -3302,7 +3301,7 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result = <code><em>name</em></code>.</p>
+<p>Return <code><em>name</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6522,7 +6521,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Meta-type of expression entity resulting from evaluation. For entities represented as data, i.e. constants, properties, and variables, the declared and evaluated types and meta-types are the same; however for computed entities, they are different.</p>
+<p>Meta-type of expression entity used in type-checking and evaluation.</p>
 </div>
 <div class="paragraph">
 <p>Effected in descendants.</p>
@@ -6572,7 +6571,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_EXPRESSION</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The expression of this assertion.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
@@ -6627,9 +6628,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>EL_FUNCTION_CALL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_FUNCTION</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The reference item from which the value of this node can be computed.</p>
+<p>Function equivalent to this operator, inferred by matching operator against functions defined in interface of principal operand.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6641,7 +6642,14 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator_definition</strong> (): <code>BMM_OPERATOR</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Operator definition derived from <code><em>definition.agent.operator_definition()</em></code>.</p>
+<p>Operator definition derived from <code><em>definition.operator_definition()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equivalent_call</strong> (): <code>EL_FUNCTION_CALL</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Function call equivalent to this operator.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6751,7 +6759,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="ulist">
 <ul>
 <li>
-<p>a reference to a manifest constant of any type;</p>
+<p>a reference to a literal value of any type;</p>
 </li>
 <li>
 <p>a reference to an instance of any instantiable type, i.e. variable, property or constant;</p>
@@ -6779,18 +6787,6 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code>EL_INSTANCE_REF</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Reference to an owning object for this terminal element, if it is not  the current scope.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong> (): <code>BMM_TYPED</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defining typed entity, whose meta-type is <code>BMM_TYPED</code>, that provides the formal definition of this reference.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6823,45 +6819,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_feature_ref_class"><a class="anchor" href="#_el_feature_ref_class"></a>10.4.8. EL_FEATURE_REF Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_FEATURE_REF (abstract)</em></strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A reference to an object, understood as a data instance + type reference, either in stored form or generated from a function call.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(redefined)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong> (): <code>BMM_TYPED_FEATURE</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defining typed entity, whose meta-type is <code>BMM_TYPED</code>, that provides the formal definition of this reference.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.4.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
+<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.4.8. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6881,7 +6839,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -6890,9 +6848,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>T</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>T</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The reference item from which the value of this node can be computed.</p>
+<p>Type definition of the constant, property or variable, inferred by inspection of the current scoping instance.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6902,15 +6860,16 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
-<strong><em>Post_ref_effective_type</em></strong>: <code>Result = definition.type</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return <code><em>type</em></code>.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>10.4.10. EL_SELF_REF Class</h4>
+<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>10.4.9. EL_SELF_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6932,11 +6891,35 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code></p></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type definition of the current scoping instance, inferred from expression context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return <code><em>type</em></code>.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.4.11. EL_LITERAL Class</h4>
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.4.10. EL_LITERAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6965,16 +6948,28 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>BMM_LITERAL_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>BMM_LITERAL_VALUE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The reference item from which the value of this node can be computed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return <code><em>value.type</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.4.12. EL_TUPLE Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.4.11. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7009,22 +7004,29 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_TUPLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Static type inferred from literal value.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code>BMM_TUPLE_TYPE</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Static type inferred from literal value.</p>
+<p>Return <code><em>type</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.4.13. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.4.12. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7065,7 +7067,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.4.14. EL_PREDICATE Class</h4>
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.4.13. EL_PREDICATE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7095,7 +7097,21 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EL_INSTANCE_REF</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The target instance of this predicate.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return <code>Boolean</code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
@@ -7107,7 +7123,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.4.15. EL_DEFINED Class</h4>
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.4.14. EL_DEFINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7123,6 +7139,18 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p>A predicate taking one external variable reference argument, that returns true if the reference is resolvable, i.e. the external value is obtainable.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+probably to be removed.
+</td>
+</tr>
+</table>
 </div></div></td>
 </tr>
 <tr>
@@ -7133,7 +7161,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>10.4.16. EL_ATTACHED Class</h4>
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>10.4.15. EL_ATTACHED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7159,7 +7187,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.4.17. EL_AGENT_CALL Class</h4>
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.4.16. EL_AGENT_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7199,7 +7227,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.4.18. EL_FUNCTION_CALL Class</h4>
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.4.17. EL_FUNCTION_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7219,7 +7247,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_FEATURE_REF</code>, <code>EL_AGENT_CALL</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_INSTANCE_REF</code>, <code>EL_AGENT_CALL</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7241,17 +7269,16 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code><br>
-<strong><em>Post_effective_call_type</em></strong>: <code>Result = agent.effective_type().result_type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Effective type of function call, being the result type of the called functional agent.</p>
+<p>Return <code><em>agent.definition.type</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.4.19. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.4.18. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7334,7 +7361,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.4.20. EL_FUNCTION_AGENT Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.4.19. EL_FUNCTION_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7373,7 +7400,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.4.21. EL_PROCEDURE_AGENT Class</h4>
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.4.20. EL_PROCEDURE_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7412,7 +7439,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.4.22. EL_CONSTRAINT_EXPRESSION Class</h4>
+<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.4.21. EL_CONSTRAINT_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">

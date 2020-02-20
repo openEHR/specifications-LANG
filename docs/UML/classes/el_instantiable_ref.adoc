@@ -9,21 +9,20 @@ h|*Description*
 2+a|Terminal item corresponding to a reference to a directly instantiable entity, i.e. a variable, constant, or property.
 
 h|*Inherit*
-2+|`EL_FEATURE_REF`
+2+|`EL_INSTANCE_REF`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*definition*: `T`
-a|The reference item from which the value of this node can be computed.
+|*type*: `T`
+a|Type definition of the constant, property or variable, inferred by inspection of the current scoping instance.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|(effected)
-|*effective_type* (): `BMM_TYPE` +
-*_Post_ref_effective_type_*: `Result = definition.type`
-a|
+|*effective_type* (): `BMM_TYPE`
+a|Return `_type_`.
 |===

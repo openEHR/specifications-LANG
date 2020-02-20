@@ -11,4 +11,18 @@ h|*Description*
 h|*Inherit*
 2+|`EL_INSTANCE_REF`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*type*: `BMM_TYPE`
+a|Type definition of the current scoping instance, inferred from expression context.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(effected)
+|*effective_type* (): `BMM_TYPE`
+a|Return `_type_`.
 |===

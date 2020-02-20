@@ -8,7 +8,7 @@ h|*Class*
 h|*Description*
 2+a|Expression terminal entity, representing one of:
 
-* a reference to a manifest constant of any type;
+* a reference to a literal value of any type;
 * a reference to an instance of any instantiable type, i.e. variable, property or constant;
 * an agent, i.e. a delayed function call;
 * a function call.
@@ -23,11 +23,4 @@ h|*Attributes*
 h|*0..1*
 |*context*: `EL_INSTANCE_REF`
 a|Reference to an owning object for this terminal element, if it is not  the current scope.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
-
-h|
-|*definition* (): `BMM_TYPED`
-a|Defining typed entity, whose meta-type is `BMM_TYPED`, that provides the formal definition of this reference.
 |===

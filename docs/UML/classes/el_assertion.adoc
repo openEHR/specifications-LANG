@@ -18,7 +18,7 @@ a|Optional tag, typically used to designate design intention of the assertion, e
 
 h|*1..1*
 |*expression*: `EL_EXPRESSION`
-a|
+a|The expression of this assertion.
 
 h|*Invariants*
 2+a|*_Inv_boolean_expression_*: `expression.is_boolean()`

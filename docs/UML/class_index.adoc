@@ -144,8 +144,6 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_expression_class[EL_EXPRESSION^]
 [.xcode]
-* link:/releases/LANG/{lang_release}/bmm.html#_el_feature_ref_class[EL_FEATURE_REF^]
-[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_function_agent_class[EL_FUNCTION_AGENT^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_function_call_class[EL_FUNCTION_CALL^]
