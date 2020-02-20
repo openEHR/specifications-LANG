@@ -9,7 +9,7 @@
 |[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]09 Sep 2019
+|[[latest_issue_date]]20 Feb 2020
 
 |
 |Rename `BMM_DEFINED_TYPE` to `BMM_EFFECTIVE_TYPE`; +
@@ -18,7 +18,7 @@
  Add Expression language meta-model; +
  Add abstract syntax examples to text.
 |T Beale 
-|16 Feb 2020
+|20 Feb 2020
 
 |
 |Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +

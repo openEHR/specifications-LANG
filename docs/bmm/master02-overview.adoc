@@ -106,12 +106,16 @@ This specification defines a BMM object model, i.e. the in-memory object structu
 The BMM packages are as follows:
 
 * `org.openehr.lang.bmm`: the BMM
-** `rm_access`: the interface to most features including schema load/reload, generally used by an application as a reflection library;
-** `core`: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages.
+** `model_access`: the interface to most features including schema load/reload, generally used by an application as a reflection library;
+** `core`: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages:
+*** `model`: meta-types representing models and packages;
+*** `entity`: meta-types representing classes and types;
+*** `feature`: meta-types representing classes features, i.e. constants, routines, properties;
+*** `literal_value`: meta-types representing literal values;
+*** `expression`: an expression meta-model sufficient for expressing first-order predicate logic expressions, including class invariants and pre- and post-conditions.
 
 Related packages are:
 
-* the `org.openehr.lang.bmm.elom` package, defining an expression language sufficient for expressing class invariants and pre- and post-conditions;
 * the `org.openehr.lang.bmm_persistence` package, which contains the BMM Persistence classes.
 
 These are illustrated below.

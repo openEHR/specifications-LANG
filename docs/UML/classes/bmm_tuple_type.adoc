@@ -32,8 +32,9 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*type_base_name* (): `String`
-a|Result = `_base_name_`.
+|*type_base_name* (): `String` +
+*_Post_result_*: `Result.is_equal (base_name())`
+a|Return `_base_name_`.
 
 h|(effected)
 |*is_primitive* (): `Boolean`
@@ -42,4 +43,9 @@ a|Result = `True`.
 h|(effected)
 |*is_abstract* (): `Boolean`
 a|Result = `False`.
+
+h|(effected)
+|*type_name* (): `String` +
+*_Post_result_*: `Result.is_equal (base_name())`
+a|Return `_base_name_`.
 |===
