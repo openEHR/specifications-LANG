@@ -35,7 +35,7 @@ a|Package at the path `_a_path_`.
 
 h|
 |*do_recursive_packages* ( +
-action: `PROCEDURE[1]` +
+action: `BMM_PROCEDURE_AGENT[1]` +
 )
 a|Recursively execute `_action_`, which is a procedure taking a `BMM_PACKAGE` argument, on all members of packages.
 

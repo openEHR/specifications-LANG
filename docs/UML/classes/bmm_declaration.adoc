@@ -40,4 +40,12 @@ a|Model element within which an element is declared.
 h|*0..1*
 |*extensions*: `Hash<String, Any>`
 a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*is_root_scope* (): `Boolean` +
+*_Post_result_*: `Result = (scope = self)`
+a|True if this declaration entity is the root of the declaration hierarchy.
 |===

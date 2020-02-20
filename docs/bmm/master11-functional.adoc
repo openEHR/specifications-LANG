@@ -12,11 +12,11 @@ An agent is formed by reference to a function or procedure in an expression cont
 
 A call is thus an invocation of a _closed agent_. The effective type of a function call is the result type of the original function definition, thus its meta-type is just `BMM_TYPE`. A procedure call has no effective type.
 
-Both calls and agents are special kinds of _references_ to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. Accordingly, they are not defined within BMM, which is focused on _types_, but in the `lang.elom.expression` package of the {openehr_expression_language}[openEHR Expression Language model^], of which the functional view is shown below.
+Both calls and agents are special kinds of _references_ to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. The following UML view of the `bmm.expression` package illustrates these details.
 
 [.text-center]
-.`lang.elom.expression` package - Functional Elements
-image::{uml_diagrams_uri}/LANG-elom.expression-functional.svg[id=functional, align="center"]
+.`bmm.expression` package - Functional Elements
+image::{uml_diagrams_uri}/LANG-bmm.expression-functional.svg[id=bmm_expression_functional, align="center"]
 
 == Agents
 

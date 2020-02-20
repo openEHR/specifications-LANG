@@ -21,7 +21,7 @@ In practice most literal values appearing in a BMM model may be instantiated sim
 
 == Container Literals
 
-Literals representing Lists or Sets of values of other types are automatically supported by the above model, as long as the syntax representation is correctly parsed as an instance of the intended model type. For example, if the serialised value `["Feyerabend", "Lakatos", "Popper"]` (which happens to be a JSON Array of Strings) were parsed as a `List<String>` instance, its metatype would be a `BMM_LITERAL_VALUE` instance whose `_value_literal_` was the same String, assuming JSON were used as the syntax, and whose `_type_` will be `BMM_CONTAINER_TYPE`.
+Literals representing Lists or Sets of values of other types are automatically supported by the above model, as long as the syntax representation is correctly parsed as an instance of the intended model type. For example, if the serialised value `["Feyerabend", "Lakatos", "Popper"]` (which happens to be a JSON Array of Strings) were parsed as a `List<String>` instance, its metatype would be a `BMM_LITERAL_VALUE` instance whose `_value_literal_` was the same string, assuming JSON were used as the syntax, and whose `_type_` will be `BMM_CONTAINER_TYPE`.
 
 Similarly a syntax that supported literal Sets using braces, e.g. `{"Feyerabend", "Lakatos", "Popper"}` may be parsed to a `Set<String>` instance, with the same meta-types as for the List.
 
@@ -38,3 +38,4 @@ If it were desired to create a full set of 'native' types for BMM, in the way su
 include::{uml_export_dir}/classes/bmm_literal_value.adoc[]
 include::{uml_export_dir}/classes/bmm_string_value.adoc[]
 include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
+include::{uml_export_dir}/classes/bmm_boolean_value.adoc[]

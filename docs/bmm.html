@@ -182,11 +182,10 @@
 <li><a href="#_bmm_class_class">7.9.1. BMM_CLASS Class</a></li>
 <li><a href="#_bmm_simple_class_class">7.9.2. BMM_SIMPLE_CLASS Class</a></li>
 <li><a href="#_bmm_generic_class_class">7.9.3. BMM_GENERIC_CLASS Class</a></li>
-<li><a href="#_bmm_assertion_class">7.9.4. BMM_ASSERTION Class</a></li>
-<li><a href="#_bmm_enumeration_class">7.9.5. BMM_ENUMERATION Class</a></li>
-<li><a href="#_bmm_enumeration_string_class">7.9.6. BMM_ENUMERATION_STRING Class</a></li>
-<li><a href="#_bmm_enumeration_integer_class">7.9.7. BMM_ENUMERATION_INTEGER Class</a></li>
-<li><a href="#_bmm_value_set_spec_class">7.9.8. BMM_VALUE_SET_SPEC Class</a></li>
+<li><a href="#_bmm_enumeration_class">7.9.4. BMM_ENUMERATION Class</a></li>
+<li><a href="#_bmm_enumeration_string_class">7.9.5. BMM_ENUMERATION_STRING Class</a></li>
+<li><a href="#_bmm_enumeration_integer_class">7.9.6. BMM_ENUMERATION_INTEGER Class</a></li>
+<li><a href="#_bmm_value_set_spec_class">7.9.7. BMM_VALUE_SET_SPEC Class</a></li>
 </ul>
 </li>
 </ul>
@@ -253,6 +252,7 @@
 <li><a href="#_bmm_literal_value_class">9.5.1. BMM_LITERAL_VALUE Class</a></li>
 <li><a href="#_bmm_string_value_class">9.5.2. BMM_STRING_VALUE Class</a></li>
 <li><a href="#_bmm_integer_value_class">9.5.3. BMM_INTEGER_VALUE Class</a></li>
+<li><a href="#_bmm_boolean_value_class">9.5.4. BMM_BOOLEAN_VALUE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -262,18 +262,18 @@
 <li><a href="#_overview_9">10.1. Overview</a></li>
 <li><a href="#_semantics">10.2. Semantics</a>
 <ul class="sectlevel3">
-<li><a href="#_operator_expressions">10.2.1. Operator Expressions</a></li>
-<li><a href="#_constraint_expressions">10.2.2. Constraint Expressions</a></li>
-<li><a href="#_terminal_entities">10.2.3. Terminal Entities</a>
+<li><a href="#_terminal_entities">10.2.1. Terminal Entities</a>
 <ul class="sectlevel4">
-<li><a href="#_literals">10.2.3.1. Literals</a></li>
-<li><a href="#_tuples">10.2.3.2. Tuples</a></li>
-<li><a href="#_feature_references">10.2.3.3. Feature References</a></li>
-<li><a href="#_self_reference">10.2.3.4. Self Reference</a></li>
-<li><a href="#_agents">10.2.3.5. Agents</a></li>
-<li><a href="#_predicates">10.2.3.6. Predicates</a></li>
+<li><a href="#_literals">10.2.1.1. Literals</a></li>
+<li><a href="#_tuples">10.2.1.2. Tuples</a></li>
+<li><a href="#_feature_references">10.2.1.3. Feature References</a></li>
+<li><a href="#_self_reference">10.2.1.4. Self Reference</a></li>
+<li><a href="#_agents">10.2.1.5. Agents</a></li>
+<li><a href="#_predicates">10.2.1.6. Predicates</a></li>
 </ul>
 </li>
+<li><a href="#_operator_expressions">10.2.2. Operator Expressions</a></li>
+<li><a href="#_constraint_expressions">10.2.3. Constraint Expressions</a></li>
 </ul>
 </li>
 <li><a href="#_usage_in_bmm_models">10.3. Usage in BMM Models</a>
@@ -285,26 +285,27 @@
 <li><a href="#_class_descriptions">10.4. Class Descriptions</a>
 <ul class="sectlevel3">
 <li><a href="#_el_expression_class">10.4.1. EL_EXPRESSION Class</a></li>
-<li><a href="#_el_operator_class">10.4.2. EL_OPERATOR Class</a></li>
-<li><a href="#_el_unary_operator_class">10.4.3. EL_UNARY_OPERATOR Class</a></li>
-<li><a href="#_el_binary_operator_class">10.4.4. EL_BINARY_OPERATOR Class</a></li>
-<li><a href="#_el_terminal_class">10.4.5. EL_TERMINAL Class</a></li>
-<li><a href="#_el_instance_ref_class">10.4.6. EL_INSTANCE_REF Class</a></li>
-<li><a href="#_el_feature_ref_class">10.4.7. EL_FEATURE_REF Class</a></li>
-<li><a href="#_el_instantiable_reft_class">10.4.8. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
-<li><a href="#_el_self_ref_class">10.4.9. EL_SELF_REF Class</a></li>
-<li><a href="#_el_literal_class">10.4.10. EL_LITERAL Class</a></li>
-<li><a href="#_el_tuple_class">10.4.11. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">10.4.12. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_predicate_class">10.4.13. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">10.4.14. EL_DEFINED Class</a></li>
-<li><a href="#_el_attached_class">10.4.15. EL_ATTACHED Class</a></li>
-<li><a href="#_el_agent_call_class">10.4.16. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">10.4.17. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_agent_class">10.4.18. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">10.4.19. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">10.4.20. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_constraint_expression_class">10.4.21. EL_CONSTRAINT_EXPRESSION Class</a></li>
+<li><a href="#_el_assertion_class">10.4.2. EL_ASSERTION Class</a></li>
+<li><a href="#_el_operator_class">10.4.3. EL_OPERATOR Class</a></li>
+<li><a href="#_el_unary_operator_class">10.4.4. EL_UNARY_OPERATOR Class</a></li>
+<li><a href="#_el_binary_operator_class">10.4.5. EL_BINARY_OPERATOR Class</a></li>
+<li><a href="#_el_terminal_class">10.4.6. EL_TERMINAL Class</a></li>
+<li><a href="#_el_instance_ref_class">10.4.7. EL_INSTANCE_REF Class</a></li>
+<li><a href="#_el_feature_ref_class">10.4.8. EL_FEATURE_REF Class</a></li>
+<li><a href="#_el_instantiable_reft_class">10.4.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
+<li><a href="#_el_self_ref_class">10.4.10. EL_SELF_REF Class</a></li>
+<li><a href="#_el_literal_class">10.4.11. EL_LITERAL Class</a></li>
+<li><a href="#_el_tuple_class">10.4.12. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">10.4.13. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_predicate_class">10.4.14. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">10.4.15. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">10.4.16. EL_ATTACHED Class</a></li>
+<li><a href="#_el_agent_call_class">10.4.17. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">10.4.18. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_agent_class">10.4.19. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">10.4.20. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">10.4.21. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_constraint_expression_class">10.4.22. EL_CONSTRAINT_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -429,7 +430,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>09 Sep 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>20 Feb 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -439,7 +440,7 @@
  Add Expression language meta-model;<br>
  Add abstract syntax examples to text.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">16 Feb 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Feb 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -549,10 +550,13 @@
 <div class="ulist">
 <ul>
 <li>
+<p>Matija Kejžar, Senior Engineer, Better, Slovenia</p>
+</li>
+<li>
 <p>Patrick Langford, NeuronSong LLC, Utah, USA</p>
 </li>
 <li>
-<p>Claude Nanjo MA African Studies., M Public Health, Cognitive Medical Systems Inc., California, USA</p>
+<p>Claude Nanjo MA African Studies, M Public Health, Cognitive Medical Systems Inc., California, USA</p>
 </li>
 <li>
 <p>Harold Solbrig, Mayo Clinic, Rochester, USA</p>
@@ -940,10 +944,29 @@ for the purposes of explanation, an abstract syntax is used throughout this docu
 <div class="ulist">
 <ul>
 <li>
-<p><code>rm_access</code>: the interface to most features including schema load/reload, generally used by an application as a reflection library;</p>
+<p><code>model_access</code>: the interface to most features including schema load/reload, generally used by an application as a reflection library;</p>
 </li>
 <li>
-<p><code>core</code>: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages.</p>
+<p><code>core</code>: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>model</code>: meta-types representing models and packages;</p>
+</li>
+<li>
+<p><code>entity</code>: meta-types representing classes and types;</p>
+</li>
+<li>
+<p><code>feature</code>: meta-types representing classes features, i.e. constants, routines, properties;</p>
+</li>
+<li>
+<p><code>literal_value</code>: meta-types representing literal values;</p>
+</li>
+<li>
+<p><code>expression</code>: an expression meta-model sufficient for expressing first-order predicate logic expressions, including class invariants and pre- and post-conditions.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -955,9 +978,6 @@ for the purposes of explanation, an abstract syntax is used throughout this docu
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p>the <code>org.openehr.lang.bmm.elom</code> package, defining an expression language sufficient for expressing class invariants and pre- and post-conditions;</p>
-</li>
 <li>
 <p>the <code>org.openehr.lang.bmm_persistence</code> package, which contains the BMM Persistence classes.</p>
 </li>
@@ -2030,6 +2050,19 @@ a future version of BMM may define an option to import schemas using differing n
 <p>Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_root_scope</strong> (): <code>Boolean</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = (scope = self)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this declaration entity is the root of the declaration hierarchy.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2093,7 +2126,7 @@ a_path: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>do_recursive_packages</strong> (<br>
-action: <code>PROCEDURE[1]</code><br>
+action: <code>BMM_PROCEDURE_AGENT[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Recursively execute <code><em>action</em></code>, which is a procedure taking a <code>BMM_PACKAGE</code> argument, on all members of packages.</p>
@@ -2394,6 +2427,12 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>any_type_definition</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_top_level_scope</em></strong>: <code>scope = self</code></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4088,7 +4127,7 @@ a_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_class_invariants"><a class="anchor" href="#_class_invariants"></a>7.6. Class Invariants</h3>
 <div class="paragraph">
-<p>A class defined within a model may include <em>invariants</em>, i.e. assertions relating to its state that hold true before and after all <em>public</em> routine calls. Assertions are instances of the class <code>BMM_ASSERTION</code>, which is a tagged Boolean-valued Expression.</p>
+<p>A class defined within a model may include <em>invariants</em>, i.e. assertions relating to its state that hold true before and after all <em>public</em> routine calls. Assertions are instances of the class <code>EL_ASSERTION</code>, which is a tagged Boolean-valued Expression.</p>
 </div>
 <div class="paragraph">
 <p>The following shows classes with invariants.</p>
@@ -4266,7 +4305,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;BMM_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -4481,52 +4520,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>7.9.4. BMM_ASSERTION Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ASSERTION</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Optionally tagged Boolean-returning expression.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_EXPRESSION</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_boolean_expression</em></strong>: <code>expression.is_boolean()</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.9.5. BMM_ENUMERATION Class</h4>
+<h4 id="_bmm_enumeration_class"><a class="anchor" href="#_bmm_enumeration_class"></a>7.9.4. BMM_ENUMERATION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4580,7 +4574,7 @@ a_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name_map</strong> (): <code>Hash&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name_map</strong> (): <code>Hash&lt;String, String&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Map of <code><em>item_names</em></code> to <code><em>item_values</em></code> (stringified).</p>
 </div></div></td>
@@ -4589,7 +4583,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.9.6. BMM_ENUMERATION_STRING Class</h4>
+<h4 id="_bmm_enumeration_string_class"><a class="anchor" href="#_bmm_enumeration_string_class"></a>7.9.5. BMM_ENUMERATION_STRING Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4628,7 +4622,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.9.7. BMM_ENUMERATION_INTEGER Class</h4>
+<h4 id="_bmm_enumeration_integer_class"><a class="anchor" href="#_bmm_enumeration_integer_class"></a>7.9.6. BMM_ENUMERATION_INTEGER Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4667,7 +4661,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_value_set_spec_class"><a class="anchor" href="#_bmm_value_set_spec_class"></a>7.9.8. BMM_VALUE_SET_SPEC Class</h4>
+<h4 id="_bmm_value_set_spec_class"><a class="anchor" href="#_bmm_value_set_spec_class"></a>7.9.7. BMM_VALUE_SET_SPEC Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4845,27 +4839,27 @@ a_name: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // a class with simple invariants
-    class BASIC_DEFINITIONS {
-        feature
-            // some simple constants
-            constant CR: Character '\015';
-            constant LF: Character '\012';
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
+    <span class="tok-kr">class</span> <span class="tok-nx">BASIC_DEFINITIONS</span> <span class="tok-p">{</span>
+        <span class="tok-nx">feature</span>
+            <span class="tok-c1">// some simple constants</span>
+            <span class="tok-nx">constant</span> <span class="tok-nx">CR</span>: <span class="tok-kt">Character</span> <span class="tok-s1">&#39;\015&#39;</span><span class="tok-p">;</span>
+            <span class="tok-nx">constant</span> <span class="tok-nx">LF</span>: <span class="tok-kt">Character</span> <span class="tok-s1">&#39;\012&#39;</span><span class="tok-p">;</span>
 
-            // constant of complex type
-            constant SafeSpeed: Interval&lt;Quantity&gt; {
-                "lower": {
-                    "value": 0.0,
-                    "units": "km/h"
-                },
-                "upper": {
-                    "value": 60.0,
-                    "units": "km/h"
-                },
-                "lower_included": true,
-                "upper_included": true
-            }
-    }</pre>
+            <span class="tok-c1">// constant of complex type</span>
+            <span class="tok-nx">constant</span> <span class="tok-nx">SafeSpeed</span>: <span class="tok-kt">Interval</span><span class="tok-o">&lt;</span><span class="tok-nx">Quantity</span><span class="tok-o">&gt;</span> <span class="tok-p">{</span>
+                <span class="tok-s2">&quot;lower&quot;</span><span class="tok-o">:</span> <span class="tok-p">{</span>
+                    <span class="tok-s2">&quot;value&quot;</span><span class="tok-o">:</span> <span class="tok-mf">0.0</span><span class="tok-p">,</span>
+                    <span class="tok-s2">&quot;units&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;km/h&quot;</span>
+                <span class="tok-p">},</span>
+                <span class="tok-s2">&quot;upper&quot;</span><span class="tok-o">:</span> <span class="tok-p">{</span>
+                    <span class="tok-s2">&quot;value&quot;</span><span class="tok-o">:</span> <span class="tok-mf">60.0</span><span class="tok-p">,</span>
+                    <span class="tok-s2">&quot;units&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;km/h&quot;</span>
+                <span class="tok-p">},</span>
+                <span class="tok-s2">&quot;lower_included&quot;</span><span class="tok-o">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;upper_included&quot;</span><span class="tok-o">:</span> <span class="tok-kc">true</span>
+            <span class="tok-p">}</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph tbd">
@@ -4899,20 +4893,20 @@ a_name: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    abstract class ENTRY {
-        inherit
-            CARE_ENTRY
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">ENTRY</span> <span class="tok-p">{</span>
+        <span class="tok-nx">inherit</span>
+            <span class="tok-nx">CARE_ENTRY</span>
 
-        feature -- Locale
-            association property language: CODE_PHRASE &lt;&lt;"iso::iso_639-2"&gt;&gt; [0..1];
-            association property encoding: CODE_PHRASE &lt;&lt;"iana::character-sets"&gt;&gt; [0..1];
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Locale</span>
+            <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">language</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iso::iso_639-2&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+            <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">encoding</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iana::character-sets&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
 
-        feature -- Access
-            composition property protocol: ITEM_STRUCTURE[1];
-            composition property guideline_id: OBJECT_REF[0..1];
-            composition property subject: PARTY_PROXY[0..1];
-            composition property other_participations: PARTICIPATION[*]{set};
-    }</pre>
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Access</span>
+            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">protocol</span>: <span class="tok-kt">ITEM_STRUCTURE</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">guideline_id</span>: <span class="tok-kt">OBJECT_REF</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">subject</span>: <span class="tok-kt">PARTY_PROXY</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">other_participations</span>: <span class="tok-kt">PARTICIPATION</span><span class="tok-p">[</span><span class="tok-o">*</span><span class="tok-p">]{</span><span class="tok-nx">set</span><span class="tok-p">};</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4954,40 +4948,40 @@ a_name: <code>String[1]</code><br>
 <p>An additional feature of the meta-model for functions is the notion of <em>operator</em>, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of <code><em>arity</em></code> 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like <code>weight &gt; 90</code> to mean <code>weight.gt (90)</code>, where <code>weight</code> is of type <code>Real</code>, and the function <code>gt(other: Real)</code> is defined.</p>
 </div>
 <div class="paragraph">
-<p>Any routine may have pre- and/or post-conditions defined for it, represented in BMM by <code>BMM_ASSERTIONs</code> populating the <code><em>pre_conditions</em></code> and <code><em>post_conditions</em></code> attributes of <code>BMM_ROUINE</code>. An Assertion is a <a href="#_bmm_assertion_class">tagged Boolean Expression</a>.</p>
+<p>Any routine may have pre- and/or post-conditions defined for it, represented in BMM by <code>EL_ASSERTIONs</code> populating the <code><em>pre_conditions</em></code> and <code><em>post_conditions</em></code> attributes of <code>BMM_ROUINE</code>. An Assertion is a <a href="#_bmm_assertion_class">tagged Boolean Expression</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following abstract syntax illustrates the various elements of function definitions.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    abstract class DV_AMOUNT {
-        inherit
-            DV_QUANTIFIED
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">DV_AMOUNT</span> <span class="tok-p">{</span>
+        <span class="tok-nx">inherit</span>
+            <span class="tok-nx">DV_QUANTIFIED</span>
 
-        feature -- Arithmetic Operations
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Arithmetic</span> <span class="tok-nx">Operations</span>
 
-            function equal (other: DV_AMOUNT[1]): Boolean[1]
-                alias {infix '='};
+            <span class="tok-kd">function</span> <span class="tok-nx">equal</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;=&#39;</span><span class="tok-p">};</span>
 
-            function less_than (other: DV_AMOUNT[1]): Boolean[1]
-                alias {infix '&lt;'};
+            <span class="tok-kd">function</span> <span class="tok-nx">less_than</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;&lt;&#39;</span><span class="tok-p">};</span>
 
-        feature -- Arithmetic Operations
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Arithmetic</span> <span class="tok-nx">Operations</span>
 
-            function add (other: DV_AMOUNT[1]): DV_AMOUNT[1]
-                alias {infix '+'};
+            <span class="tok-kd">function</span> <span class="tok-nx">add</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;+&#39;</span><span class="tok-p">};</span>
 
-            function subtract (other: DV_AMOUNT[1]): DV_AMOUNT[1]
-                alias {infix '-'};
+            <span class="tok-kd">function</span> <span class="tok-nx">subtract</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;-&#39;</span><span class="tok-p">};</span>
 
-            function multiply (val: Real[1]): DV_AMOUNT[1]
-                alias {infix '*'};
+            <span class="tok-kd">function</span> <span class="tok-nx">multiply</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Real</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;*&#39;</span><span class="tok-p">};</span>
 
-            function divide (val: Real[1]): DV_AMOUNT[1]
-                alias {infix '/', infix '÷'};
+            <span class="tok-kd">function</span> <span class="tok-nx">divide</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Real</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;/&#39;</span><span class="tok-p">,</span> <span class="tok-nx">infix</span> <span class="tok-s1">&#39;÷&#39;</span><span class="tok-p">};</span>
 
-    }</pre>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5042,19 +5036,19 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    class I_EHR_SERVICE {
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">I_EHR_SERVICE</span> <span class="tok-p">{</span>
 
-        feature -- Creation
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Creation</span>
 
-            create_ehr_with_id (
-                an_ehr_id: UUID[1];
-                an_ehr_status: EHR_STATUS[0..1]
-            ): UUID[1]
-                pre_condition
-                    No_duplicate: not has_ehr (an_ehr_id)
-                post_condition
-                    Has_ehr: has_ehr (Result)
-    }</pre>
+            <span class="tok-nx">create_ehr_with_id</span> <span class="tok-p">(</span>
+                <span class="tok-nx">an_ehr_id</span>: <span class="tok-kt">UUID</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+                <span class="tok-nx">an_ehr_status</span>: <span class="tok-kt">EHR_STATUS</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+            <span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nx">UUID</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+                <span class="tok-nx">pre_condition</span>
+                    <span class="tok-nx">No_duplicate</span>: <span class="tok-kt">not</span> <span class="tok-nx">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">an_ehr_id</span><span class="tok-p">)</span>
+                <span class="tok-nx">post_condition</span>
+                    <span class="tok-nx">Has_ehr</span>: <span class="tok-kt">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">Result</span><span class="tok-p">)</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -5567,12 +5561,12 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;BMM_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;BMM_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -5803,7 +5797,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_ROUTINE</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Routine within which variable is defined.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -5981,7 +5977,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="sect2">
 <h3 id="_container_literals"><a class="anchor" href="#_container_literals"></a>9.2. Container Literals</h3>
 <div class="paragraph">
-<p>Literals representing Lists or Sets of values of other types are automatically supported by the above model, as long as the syntax representation is correctly parsed as an instance of the intended model type. For example, if the serialised value <code>["Feyerabend", "Lakatos", "Popper"]</code> (which happens to be a JSON Array of Strings) were parsed as a <code>List&lt;String&gt;</code> instance, its metatype would be a <code>BMM_LITERAL_VALUE</code> instance whose <code><em>value_literal</em></code> was the same String, assuming JSON were used as the syntax, and whose <code><em>type</em></code> will be <code>BMM_CONTAINER_TYPE</code>.</p>
+<p>Literals representing Lists or Sets of values of other types are automatically supported by the above model, as long as the syntax representation is correctly parsed as an instance of the intended model type. For example, if the serialised value <code>["Feyerabend", "Lakatos", "Popper"]</code> (which happens to be a JSON Array of Strings) were parsed as a <code>List&lt;String&gt;</code> instance, its metatype would be a <code>BMM_LITERAL_VALUE</code> instance whose <code><em>value_literal</em></code> was the same string, assuming JSON were used as the syntax, and whose <code><em>type</em></code> will be <code>BMM_CONTAINER_TYPE</code>.</p>
 </div>
 <div class="paragraph">
 <p>Similarly a syntax that supported literal Sets using braces, e.g. <code>{"Feyerabend", "Lakatos", "Popper"}</code> may be parsed to a <code>Set&lt;String&gt;</code> instance, with the same meta-types as for the List.</p>
@@ -5990,7 +5986,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="sect2">
 <h3 id="_literal_tuples"><a class="anchor" href="#_literal_tuples"></a>9.3. Literal Tuples</h3>
 <div class="paragraph">
-<p>Literal tuples may be expressed in BMM, but are not instances of <code>BMM_LITERAL_VALUE</code>; instead they are instances (at the meta level) of <code>EL_TUPLE</code>, an expression-related meta-type. This is a consequence of the fact that <code>Tuple</code> is considered a BMM built-in type rather than a model-provided type, and also that a Tuple instance may contain items of any meta-type, not just literal values. Tuple instances are used in BMM expressions and described in <a href="#_terminal_entities">Section 10.2.3</a>.</p>
+<p>Literal tuples may be expressed in BMM, but are not instances of <code>BMM_LITERAL_VALUE</code>; instead they are instances (at the meta level) of <code>EL_TUPLE</code>, an expression-related meta-type. This is a consequence of the fact that <code>Tuple</code> is considered a BMM built-in type rather than a model-provided type, and also that a Tuple instance may contain items of any meta-type, not just literal values. Tuple instances are used in BMM expressions and described in <a href="#_terminal_entities">Section 10.2.1</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6067,7 +6063,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Meta-type for a String value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>String</code>.</p>
+<p>Meta-type for a literal String value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>String</code> and <code><em>value</em></code> is of type <code>String</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6104,7 +6100,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Meta-type for an Integer value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>Integer</code>.</p>
+<p>Meta-type for a literal Integer value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>Integer</code> and <code><em>value</em></code> is of type <code>Integer</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6125,6 +6121,43 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_bmm_boolean_value_class"><a class="anchor" href="#_bmm_boolean_value_class"></a>9.5.4. BMM_BOOLEAN_VALUE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_BOOLEAN_VALUE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for a literal Boolean value, for which <code><em>type</em></code> is fixed to the <code>BMM_TYPE</code> representing <code>Boolean</code> and <code><em>value</em></code> is of type <code>Boolean</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_LITERAL_VALUE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -6134,7 +6167,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="sect2">
 <h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
 <div class="paragraph">
-<p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM Expression Language (BMM-EL) supports the representation of the following:</p>
+<p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model supports the representation of the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6172,13 +6205,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p>The meta-types defined in this part of the model may be understood as the types of entities in a parse tree or syntax tree (AST). Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM-EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.</p>
 </div>
 <div class="paragraph">
-<p>The UML model of BMM-EL is shown below.</p>
+<p>The UML model of the BMM <code>expression</code> package is shown below.</p>
 </div>
-<div id="elom_expression" class="imageblock text-center text-center">
+<div id="bmm_expression" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/LANG-elom.expression.svg" alt="LANG elom.expression">
+<img src="UML/diagrams/LANG-bmm.expression.svg" alt="LANG bmm.expression">
 </div>
-<div class="title">Figure 30. base.elom.expression Package</div>
+<div class="title">Figure 30. bmm.expression Package</div>
 </div>
 <div class="paragraph">
 <p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>effective_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
@@ -6186,40 +6219,25 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="paragraph">
 <p>Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.</p>
 </div>
-<div id="elom_expression_type_hierarchy" class="imageblock text-center text-center">
+<div id="bmm_expression_type_hierarchy" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/LANG-elom.expression-type_hierarchy.svg" alt="LANG elom.expression type hierarchy">
+<img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
 </div>
-<div class="title">Figure 31. base.elom.expression Package - Type hierarchy</div>
+<div class="title">Figure 31. bmm.expression Package - Type hierarchy</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_semantics"><a class="anchor" href="#_semantics"></a>10.2. Semantics</h3>
 <div class="sect3">
-<h4 id="_operator_expressions"><a class="anchor" href="#_operator_expressions"></a>10.2.1. Operator Expressions</h4>
-<div class="paragraph">
-<p>BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by <code>EL_OPERATOR</code>, contains the attribute <code><em>definition</em></code> to refer to the corresponding function call. This  has to be inferred from the types of its operands.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_constraint_expressions"><a class="anchor" href="#_constraint_expressions"></a>10.2.2. Constraint Expressions</h4>
-<div class="paragraph">
-<p>One class, <code>EL_CONSTRAINT_EXPRESSION</code> is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form <code>&lt;expr&gt; matches &lt;constraint&gt;</code>. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.</p>
-</div>
-<div class="paragraph tbd">
-<p>TBD: it might also be supplied by the type <code>C_OBJECT</code> from the AOM.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>10.2.3. Terminal Entities</h4>
+<h4 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>10.2.1. Terminal Entities</h4>
 <div class="sect4">
-<h5 id="_literals"><a class="anchor" href="#_literals"></a>10.2.3.1. Literals</h5>
+<h5 id="_literals"><a class="anchor" href="#_literals"></a>10.2.1.1. Literals</h5>
 <div class="paragraph">
 <p>A literal value may appear in an expression as a separate entity within an operator expression, as well as a functional call or agent parameter. The literal values that may be used are either instances of the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a> in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_leaf_data" target="_blank" rel="noopener">ODIN format</a>, or a complex object instance in structured serial format, specified by <code>BMM_SERIAL_FORMALISM</code> if not a primitive type.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_tuples"><a class="anchor" href="#_tuples"></a>10.2.3.2. Tuples</h5>
+<h5 id="_tuples"><a class="anchor" href="#_tuples"></a>10.2.1.2. Tuples</h5>
 <div class="paragraph">
 <p>Although rarely useful in class definitions, a Tuple of any degree may be formed from any combination of other EL expressions and used on its own as an expression terminal element. The main use for this construct is to express a literal tuple, i.e. one whose constituents consist only of proper literal values.</p>
 </div>
@@ -6228,7 +6246,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_feature_references"><a class="anchor" href="#_feature_references"></a>10.2.3.3. Feature References</h5>
+<h5 id="_feature_references"><a class="anchor" href="#_feature_references"></a>10.2.1.3. Feature References</h5>
 <div class="paragraph">
 <p>In BMM, a <em>feature reference</em> is any symbolic reference to a class feature or variable that resolves to an object at evaluation time. This includes all referenceable entities within classes except procedures, which have no return value. Concretely, a feature reference takes the form of one of:</p>
 </div>
@@ -6253,19 +6271,19 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>10.2.3.4. Self Reference</h5>
+<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>10.2.1.4. Self Reference</h5>
 <div class="paragraph">
 <p>A special meta-type, <code>EL_SELF_REF</code> is provided to represent references to the current scoping object for expressions. And instance of this meta-class corresponds to references such as 'this' or 'self' found in object-oriented programming languages.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_agents"><a class="anchor" href="#_agents"></a>10.2.3.5. Agents</h5>
+<h5 id="_agents"><a class="anchor" href="#_agents"></a>10.2.1.5. Agents</h5>
 <div class="paragraph">
 <p>An agent is the BMM term for a delayed routine call, and has the meta-type <code>BMM_SIGNATURE</code>. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_predicates"><a class="anchor" href="#_predicates"></a>10.2.3.6. Predicates</h5>
+<h5 id="_predicates"><a class="anchor" href="#_predicates"></a>10.2.1.6. Predicates</h5>
 <div class="paragraph">
 <p>Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand, and are represented by the meta-type <code>EL_PREDICATE</code>. Predicates conceptually apply to data instance structures and may be understood as queries on data. Any number of specific predicates might be added as extensions via inheritance. In particular, Xpath-style predicates could be supported by addition of meta-types descending from <code>EL_PREDICATE</code>.</p>
 </div>
@@ -6279,13 +6297,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class SmartRef {
-    property url: Url;
-    property value: Base64String;
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">SmartRef</span> <span class="tok-p">{</span>
+    <span class="tok-nx">property</span> <span class="tok-nx">url</span>: <span class="tok-kt">Url</span><span class="tok-p">;</span>
+    <span class="tok-nx">property</span> <span class="tok-nx">value</span>: <span class="tok-kt">Base64String</span><span class="tok-p">;</span>
 
-    invariant
-        Validity: attached(url) or attached(value)
-}</pre>
+    <span class="tok-nx">invariant</span>
+        <span class="tok-nx">Validity</span>: <span class="tok-kt">attached</span><span class="tok-p">(</span><span class="tok-nx">url</span><span class="tok-p">)</span> <span class="tok-nx">or</span> <span class="tok-nx">attached</span><span class="tok-p">(</span><span class="tok-nx">value</span><span class="tok-p">)</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -6298,6 +6316,97 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p>TBD: this might be replaced by another approach.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operator_expressions"><a class="anchor" href="#_operator_expressions"></a>10.2.2. Operator Expressions</h4>
+<div class="paragraph">
+<p>BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by <code>EL_OPERATOR</code>, contains the attribute <code><em>definition</em></code> to refer to the corresponding function call. This  has to be inferred from the types of its operands.</p>
+</div>
+<div class="paragraph">
+<p>The following abstract syntax examples illustrate expressions containing the various kinds of terminal reference.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Definitions</span>
+
+        <span class="tok-nx">Fast_resting_heart_rate</span>: <span class="tok-kt">Real</span> <span class="tok-o">=</span> <span class="tok-mi">100</span><span class="tok-p">;</span>
+        <span class="tok-nx">Atrial_fibrillation_heart_rate</span>: <span class="tok-kt">Real</span> <span class="tok-o">=</span> <span class="tok-mi">120</span><span class="tok-p">;</span>
+        <span class="tok-nx">Erratic</span>: <span class="tok-kt">Terminology_code</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+            <span class="tok-s2">&quot;terminology_id&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;snomed_ct&quot;</span><span class="tok-p">,</span>
+            <span class="tok-s2">&quot;code_string&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;286761003&quot;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-nx">Blood_pressure_units</span>: <span class="tok-kt">String</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;mm[Hg]&quot;</span><span class="tok-p">;</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Accessors</span>
+
+        <span class="tok-nx">heart_rate</span>: <span class="tok-kt">Real</span><span class="tok-p">;</span>
+        <span class="tok-nx">heart_rhythm</span>: <span class="tok-kt">Terminology_code</span><span class="tok-p">;</span>
+        <span class="tok-nx">bp_samples</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Quantity</span><span class="tok-o">&gt;</span><span class="tok-p">;</span>
+        <span class="tok-nx">patient</span>: <span class="tok-kt">Patient</span><span class="tok-p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first example is a comparison of a property value to a value, where the <code>&gt;=</code> operator maps to the function <code>Real.<em>greater_than_or_equal</em>()</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">heart_rate</span> <span class="tok-o">&gt;=</span> <span class="tok-mi">80</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following shows the comparison of a property value to a constant, where the <code>&gt;=</code> operator maps to the function <code>Real.<em>greater_than_or_equal</em>()</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">heart_rate</span> <span class="tok-o">&gt;=</span> <span class="tok-nx">Fast_resting_heart_rate</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is a logical condition, where the <code>=</code> operator maps to a function such as <code>Terminology_code.<em>equal</em>()</code>; <code>and</code> maps to <code>Boolean.<em>and</em>()</code>; and <code>&gt;=</code> maps to <code>Real.<em>greater_than_or_equal</em>()</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">heart_rhythm</span> <span class="tok-o">=</span> <span class="tok-nx">Erratic</span> <span class="tok-nx">and</span> <span class="tok-nx">heart_rate</span> <span class="tok-o">&gt;=</span> <span class="tok-nx">Atrial_fibrillation_heart_rate</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is the same logical condition, but with the use of object context specified with typical 'dot notation', here <code>patient.</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">patient</span><span class="tok-p">.</span><span class="tok-nx">heart_rhythm</span> <span class="tok-o">=</span> <span class="tok-nx">Erratic</span> <span class="tok-nx">and</span> <span class="tok-nx">patient</span><span class="tok-p">.</span><span class="tok-nx">heart_rate</span> <span class="tok-o">&gt;=</span> <span class="tok-nx">Atrial_fibrillation_heart_rate</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following shows a function call whose argument is an expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">date_of_birth</span><span class="tok-p">.</span><span class="tok-nx">earlier</span> <span class="tok-p">(</span><span class="tok-nx">env</span><span class="tok-p">.</span><span class="tok-nx">current_date</span> <span class="tok-o">-</span> <span class="tok-nx">P10Y</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following shows the use of an inline agent as an argument to the function <code>List.<em>for_all</em>()</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// use of an agent</span>
+    <span class="tok-nx">bp_samples</span><span class="tok-p">.</span><span class="tok-nx">for_all</span> <span class="tok-p">(</span>
+        <span class="tok-nx">agent</span> <span class="tok-p">(</span><span class="tok-nx">a_quantity</span>: <span class="tok-kt">Quantity</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+            <span class="tok-nx">a_quantity</span><span class="tok-p">.</span><span class="tok-nx">units</span><span class="tok-p">.</span><span class="tok-nx">is_equal</span> <span class="tok-p">(</span><span class="tok-nx">Blood_pressure_units</span><span class="tok-p">);</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constraint_expressions"><a class="anchor" href="#_constraint_expressions"></a>10.2.3. Constraint Expressions</h4>
+<div class="paragraph">
+<p>One class, <code>EL_CONSTRAINT_EXPRESSION</code> is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form <code>&lt;expr&gt; matches &lt;constraint&gt;</code>. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: it might also be supplied by the type <code>C_OBJECT</code> from the AOM.</p>
 </div>
 </div>
 </div>
@@ -6319,12 +6428,12 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class PersonName {
-    property items: String[1..*];
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">PersonName</span> <span class="tok-p">{</span>
+    <span class="tok-nx">property</span> <span class="tok-nx">items</span>: <span class="tok-kt">String</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">..</span><span class="tok-o">*</span><span class="tok-p">];</span>
 
-    invariant
-        ∀ nameItem: items | not nameItem.isEmpty()
-}</pre>
+    <span class="tok-nx">invariant</span>
+        <span class="tok-err">∀</span> <span class="tok-nx">nameItem</span>: <span class="tok-kt">items</span> <span class="tok-o">|</span> <span class="tok-nx">not</span> <span class="tok-nx">nameItem</span><span class="tok-p">.</span><span class="tok-nx">isEmpty</span><span class="tok-p">()</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6332,10 +6441,10 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    invariant
-        for nameItem in items all
-            not nameItem.isEmpty()
-        end</pre>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">invariant</span>
+        <span class="tok-k">for</span> <span class="tok-nx">nameItem</span> <span class="tok-k">in</span> <span class="tok-nx">items</span> <span class="tok-nx">all</span>
+            <span class="tok-nx">not</span> <span class="tok-nx">nameItem</span><span class="tok-p">.</span><span class="tok-nx">isEmpty</span><span class="tok-p">()</span>
+        <span class="tok-nx">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6343,9 +6452,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    invariant
-        for nameItem in items
-            ∃ not nameItem.isEmpty()</pre>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">invariant</span>
+        <span class="tok-k">for</span> <span class="tok-nx">nameItem</span> <span class="tok-k">in</span> <span class="tok-nx">items</span>
+            <span class="tok-err">∃</span> <span class="tok-nx">not</span> <span class="tok-nx">nameItem</span><span class="tok-p">.</span><span class="tok-nx">isEmpty</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6353,14 +6462,14 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class Container&lt;T&gt; {
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Container</span><span class="tok-o">&lt;</span><span class="tok-nx">T</span><span class="tok-o">&gt;</span> <span class="tok-p">{</span>
 
-    for_all (test: Function&lt;[T], Boolean&gt;): Boolean;
-            -- True if for every v in container, test (v) is True
+    <span class="tok-nx">for_all</span> <span class="tok-p">(</span><span class="tok-nx">test</span>: <span class="tok-kt">Function</span><span class="tok-o">&lt;</span><span class="tok-p">[</span><span class="tok-nx">T</span><span class="tok-p">],</span> <span class="tok-nb">Boolean</span><span class="tok-o">&gt;</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">;</span>
+            <span class="tok-o">--</span> <span class="tok-nx">True</span> <span class="tok-k">if</span> <span class="tok-k">for</span> <span class="tok-nx">every</span> <span class="tok-nx">v</span> <span class="tok-k">in</span> <span class="tok-nx">container</span><span class="tok-p">,</span> <span class="tok-nx">test</span> <span class="tok-p">(</span><span class="tok-nx">v</span><span class="tok-p">)</span> <span class="tok-nx">is</span> <span class="tok-nx">True</span>
 
-    there_exists (test: Function&lt;[T], Boolean&gt;): Boolean;
-            -- True if there is any v in container for which test (v) is True
-}</pre>
+    <span class="tok-nx">there_exists</span> <span class="tok-p">(</span><span class="tok-nx">test</span>: <span class="tok-kt">Function</span><span class="tok-o">&lt;</span><span class="tok-p">[</span><span class="tok-nx">T</span><span class="tok-p">],</span> <span class="tok-nb">Boolean</span><span class="tok-o">&gt;</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">;</span>
+            <span class="tok-o">--</span> <span class="tok-nx">True</span> <span class="tok-k">if</span> <span class="tok-nx">there</span> <span class="tok-nx">is</span> <span class="tok-nx">any</span> <span class="tok-nx">v</span> <span class="tok-k">in</span> <span class="tok-nx">container</span> <span class="tok-k">for</span> <span class="tok-nx">which</span> <span class="tok-nx">test</span> <span class="tok-p">(</span><span class="tok-nx">v</span><span class="tok-p">)</span> <span class="tok-nx">is</span> <span class="tok-nx">True</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -6395,7 +6504,10 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of expression entity at evaluation time. Effected in descendants.</p>
+<p>Meta-type of expression entity resulting from evaluation. For entities represented as data, i.e. constants, properties, and variables, the declared and evaluated types and meta-types are the same; however for computed entities, they are different.</p>
+</div>
+<div class="paragraph">
+<p>Effected in descendants.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6409,7 +6521,52 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>10.4.2. EL_OPERATOR Class</h4>
+<h4 id="_el_assertion_class"><a class="anchor" href="#_el_assertion_class"></a>10.4.2. EL_ASSERTION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_ASSERTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Optionally tagged Boolean-returning expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_boolean_expression</em></strong>: <code>expression.is_boolean()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>10.4.3. EL_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6473,7 +6630,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>10.4.3. EL_UNARY_OPERATOR Class</h4>
+<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>10.4.4. EL_UNARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6511,7 +6668,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>10.4.4. EL_BINARY_OPERATOR Class</h4>
+<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>10.4.5. EL_BINARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6556,7 +6713,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>10.4.5. EL_TERMINAL Class</h4>
+<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>10.4.6. EL_TERMINAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6622,7 +6779,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>10.4.6. EL_INSTANCE_REF Class</h4>
+<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>10.4.7. EL_INSTANCE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6648,7 +6805,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_feature_ref_class"><a class="anchor" href="#_el_feature_ref_class"></a>10.4.7. EL_FEATURE_REF Class</h4>
+<h4 id="_el_feature_ref_class"><a class="anchor" href="#_el_feature_ref_class"></a>10.4.8. EL_FEATURE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6686,7 +6843,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.4.8. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
+<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>10.4.9. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6735,7 +6892,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>10.4.9. EL_SELF_REF Class</h4>
+<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>10.4.10. EL_SELF_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6761,7 +6918,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.4.10. EL_LITERAL Class</h4>
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>10.4.11. EL_LITERAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6799,7 +6956,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.4.11. EL_TUPLE Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>10.4.12. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6849,7 +7006,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.4.12. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>10.4.13. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6890,7 +7047,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.4.13. EL_PREDICATE Class</h4>
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>10.4.14. EL_PREDICATE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6932,7 +7089,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.4.14. EL_DEFINED Class</h4>
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>10.4.15. EL_DEFINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6958,7 +7115,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>10.4.15. EL_ATTACHED Class</h4>
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>10.4.16. EL_ATTACHED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6984,7 +7141,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.4.16. EL_AGENT_CALL Class</h4>
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>10.4.17. EL_AGENT_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7024,7 +7181,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.4.17. EL_FUNCTION_CALL Class</h4>
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>10.4.18. EL_FUNCTION_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7076,7 +7233,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.4.18. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>10.4.19. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7159,7 +7316,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.4.19. EL_FUNCTION_AGENT Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>10.4.20. EL_FUNCTION_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7198,7 +7355,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.4.20. EL_PROCEDURE_AGENT Class</h4>
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>10.4.21. EL_PROCEDURE_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7237,7 +7394,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.4.21. EL_CONSTRAINT_EXPRESSION Class</h4>
+<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>10.4.22. EL_CONSTRAINT_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7318,13 +7475,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p>A call is thus an invocation of a <em>closed agent</em>. The effective type of a function call is the result type of the original function definition, thus its meta-type is just <code>BMM_TYPE</code>. A procedure call has no effective type.</p>
 </div>
 <div class="paragraph">
-<p>Both calls and agents are special kinds of <em>references</em> to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. Accordingly, they are not defined within BMM, which is focused on <em>types</em>, but in the <code>lang.elom.expression</code> package of the <a href="https://specifications.openehr.org/releases/LANG/latest/expression_language.html" target="_blank" rel="noopener">openEHR Expression Language model</a>, of which the functional view is shown below.</p>
+<p>Both calls and agents are special kinds of <em>references</em> to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. The following UML view of the <code>bmm.expression</code> package illustrates these details.</p>
 </div>
-<div id="functional" class="imageblock text-center text-center">
+<div id="bmm_expression_functional" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/LANG-elom.expression-functional.svg" alt="LANG elom.expression functional">
+<img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 32. <code>lang.elom.expression</code> package - Functional Elements</div>
+<div class="title">Figure 32. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -7500,7 +7657,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-08 17:54:56 UTC
+Last updated 2020-02-20 15:18:22 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">

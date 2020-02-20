@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_STRING_VALUE*
 
 h|*Description*
-2+a|Meta-type for a String value, for which `_type_` is fixed to the `BMM_TYPE` representing `String`.
+2+a|Meta-type for a literal String value, for which `_type_` is fixed to the `BMM_TYPE` representing `String` and `_value_` is of type `String`.
 
 h|*Inherit*
 2+|`BMM_LITERAL_VALUE`

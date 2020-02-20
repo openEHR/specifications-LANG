@@ -132,4 +132,7 @@ a|`BMM_CLASS` instance for the `Any` class. This may be defined in the BMM schem
 h|
 |*any_type_definition* (): `BMM_SIMPLE_TYPE`
 a|
+
+h|*Invariants*
+2+a|*_Inv_top_level_scope_*: `scope = self`
 |===

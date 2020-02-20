@@ -31,6 +31,6 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*name_map* (): `Hash<String,String>`
+|*name_map* (): `Hash<String, String>`
 a|Map of `_item_names_` to `_item_values_` (stringified).
 |===

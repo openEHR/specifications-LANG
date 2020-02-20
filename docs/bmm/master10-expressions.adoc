@@ -2,7 +2,7 @@
 
 == Overview
 
-Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM Expression Language (BMM-EL) supports the representation of the following:
+Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model supports the representation of the following:
 
 * classical expressions using unary and binary operators with functional equivalents;
 * terminal elements, including:
@@ -15,32 +15,21 @@ Expressions in BMM are used to specify class invariants, routine pre- and post-c
 
 The meta-types defined in this part of the model may be understood as the types of entities in a parse tree or syntax tree (AST). Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM-EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
 
-The UML model of BMM-EL is shown below. 
+The UML model of the BMM `expression` package is shown below. 
 
 [.text-center]
-.base.elom.expression Package
-image::{uml_diagrams_uri}/LANG-elom.expression.svg[id=elom_expression, align="center"]
+.bmm.expression Package
+image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
 
 Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_effective_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
 Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.
 
 [.text-center]
-.base.elom.expression Package - Type hierarchy
-image::{uml_diagrams_uri}/LANG-elom.expression-type_hierarchy.svg[id=elom_expression_type_hierarchy, align="center"]
+.bmm.expression Package - Type hierarchy
+image::{uml_diagrams_uri}/LANG-bmm.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
 
 == Semantics
-
-=== Operator Expressions
-
-BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function call. This  has to be inferred from the types of its operands.
-
-=== Constraint Expressions
-
-One class, `EL_CONSTRAINT_EXPRESSION` is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form `<expr> matches <constraint>`. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.
-
-[.tbd]
-TBD: it might also be supplied by the type `C_OBJECT` from the AOM.
 
 === Terminal Entities
 
@@ -83,6 +72,7 @@ The following predicates are pre-defined.
 
 The `attached` predicate is used to test for an instance reference (including a function call result) being `Void`. It may be used in expressions such as the following class invariant.
 
+[source,typescript]
 ----
 class SmartRef {
     property url: Url;
@@ -100,6 +90,86 @@ The `defined` predicate is used to test whether an instance that is mapped to an
 [.tbd]
 TBD: this might be replaced by another approach.
 
+=== Operator Expressions
+
+BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function call. This  has to be inferred from the types of its operands.
+
+The following abstract syntax examples illustrate expressions containing the various kinds of terminal reference.
+
+[source, typescript]
+----
+    feature -- Definitions
+    
+        Fast_resting_heart_rate: Real = 100;
+        Atrial_fibrillation_heart_rate: Real = 120;
+        Erratic: Terminology_code = {
+            "terminology_id": "snomed_ct",
+            "code_string": "286761003"
+        }
+        Blood_pressure_units: String = "mm[Hg]";
+    
+    feature -- Accessors
+    
+        heart_rate: Real;
+        heart_rhythm: Terminology_code;    
+        bp_samples: List<Quantity>;
+        patient: Patient;
+----
+
+The first example is a comparison of a property value to a value, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
+
+[source, typescript]
+----
+    heart_rate >= 80
+----
+
+The following shows the comparison of a property value to a constant, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
+
+[source, typescript]
+----
+    heart_rate >= Fast_resting_heart_rate
+----
+
+The following is a logical condition, where the `=` operator maps to a function such as `Terminology_code._equal_()`; `and` maps to `Boolean._and_()`; and `>=` maps to `Real._greater_than_or_equal_()`.
+
+[source, typescript]
+----
+    heart_rhythm = Erratic and heart_rate >= Atrial_fibrillation_heart_rate
+----
+
+The following is the same logical condition, but with the use of object context specified with typical 'dot notation', here `patient.`.
+
+[source, typescript]
+----
+    patient.heart_rhythm = Erratic and patient.heart_rate >= Atrial_fibrillation_heart_rate
+----
+
+The following shows a function call whose argument is an expression.
+
+[source, typescript]
+----
+    date_of_birth.earlier (env.current_date - P10Y)
+----
+
+The following shows the use of an inline agent as an argument to the function `List._for_all_()`.
+
+[source, typescript]
+----
+    // use of an agent
+    bp_samples.for_all (
+        agent (a_quantity: Quantity) {
+            a_quantity.units.is_equal (Blood_pressure_units);
+        }
+    );
+----
+
+=== Constraint Expressions
+
+One class, `EL_CONSTRAINT_EXPRESSION` is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form `<expr> matches <constraint>`. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.
+
+[.tbd]
+TBD: it might also be supplied by the type `C_OBJECT` from the AOM.
+
 == Usage in BMM Models
 
 Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `ASSERTION`, i.e. a tagged Boolean-returning `EL_EXPRESSION`.
@@ -112,6 +182,7 @@ Simple assertions may be formed from common operators and operands, including th
 
 A common kind of expression to use in class invariants particularly functions over collections and uses the existential and universal quantifier operators, respectively ∃ and ∀ in most predicate logic syntaxes. A typical such expression to use within a class invariant is shown below in an abstract syntax.
 
+[source,typescript]
 ----
 class PersonName {
     property items: String[1..*];
@@ -123,6 +194,7 @@ class PersonName {
 
 A different syntax might express it as follows.
 
+[source,typescript]
 ----
     invariant
         for nameItem in items all 
@@ -132,6 +204,7 @@ A different syntax might express it as follows.
 
 A similar invariant, this time using ∃, is shown below.
 
+[source,typescript]
 ----
     invariant
         for nameItem in items 
@@ -140,6 +213,7 @@ A similar invariant, this time using ∃, is shown below.
 
 Regardless of the surface syntax, expressions such as the above map to functions such as `_for_all_` and `there_exists` defined on relevant linear container types. These functions have the following signatures in which the 'test' expression appears as a Function agent type.
 
+[source,typescript]
 ----
 class Container<T> {
 
@@ -154,6 +228,7 @@ class Container<T> {
 == Class Descriptions
 
 include::{uml_export_dir}/classes/el_expression.adoc[]
+include::{uml_export_dir}/classes/el_assertion.adoc[]
 
 include::{uml_export_dir}/classes/el_operator.adoc[]
 include::{uml_export_dir}/classes/el_unary_operator.adoc[]

@@ -1,9 +1,9 @@
-=== BMM_ASSERTION Class
+=== EL_ASSERTION Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*BMM_ASSERTION*
+2+^h|*EL_ASSERTION*
 
 h|*Description*
 2+a|Optionally tagged Boolean-returning expression.
