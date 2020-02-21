@@ -1,0 +1,32 @@
+=== BMM_CLASS_ENTITY Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_BMM_CLASS_ENTITY (abstract)_*
+
+h|*Description*
+2+a|Any entity declared within a class.
+
+h|*Inherit*
+2+|`BMM_DECLARATION`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*is_synthesised_generic*: `Boolean`
+a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|(abstract)
+|*signature* (): `BMM_SIGNATURE`
+a|Formal signature of this element, in the form:
+
+`name [arg1_name: T_arg1, ...][:T_value]`
+
+Specific implementations in descendants.
+|===

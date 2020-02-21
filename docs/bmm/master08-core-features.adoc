@@ -50,7 +50,7 @@ In contrast, the _effective_ set of features for an instance at runtime is the r
 
 === Signatures
 
-All class-scoped features have formal signatures (described in <<Signature Meta-type>>), realised as `BMM_CLASS_SCOPED._signature_`. This includes procedures, even though they have no return type.
+All class-scoped features have formal signatures (described in <<Signature Meta-type>>), realised as `BMM_CLASS_ENTITY._signature_`. This includes procedures, even though they have no return type.
 
 The two types of routines, i.e. functions and procedures, include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of feature signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. `BMM_FUNCTION`, representing a function definition has an invariant requiring `signature.result /= Void`).
 
@@ -67,13 +67,13 @@ TBD: define visibility meta-model; probably need to support C/Java approach and 
 
 === Synthesis due to Generic Parameter Substitution
 
-Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on the class `BMM_CLASS_SCOPED` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
+Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on the class `BMM_CLASS_ENTITY` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
 
 == Constants
 
 Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is:
 
-* a descendant of `BMM_CLASS_SCOPED` whose `_signature_` has no arguments; and
+* a descendant of `BMM_CLASS_ENTITY` whose `_signature_` has no arguments; and
 * a descendant of `BMM_INSTANTIABLE` that is not run-time nullable.
 
 A constant has a `_value_`, which may be of any type, including complex types.
@@ -248,6 +248,7 @@ Ultimately this difficulty arises from the decision to include procedures at all
 
 include::{uml_export_dir}/classes/bmm_typed.adoc[]
 
+include::{uml_export_dir}/classes/bmm_class_entity.adoc[]
 include::{uml_export_dir}/classes/bmm_class_scoped.adoc[]
 include::{uml_export_dir}/classes/bmm_typed_feature.adoc[]
 include::{uml_export_dir}/classes/bmm_instantiable.adoc[]

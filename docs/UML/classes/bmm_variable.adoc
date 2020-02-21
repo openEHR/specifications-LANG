@@ -9,7 +9,7 @@ h|*Description*
 2+a|A mutable entity whose scope is a routine.
 
 h|*Inherit*
-2+|`BMM_INSTANTIABLE`, `BMM_CLASS_SCOPED`
+2+|`BMM_INSTANTIABLE`, `BMM_CLASS_ENTITY`
 
 h|*Attributes*
 ^h|*Signature*

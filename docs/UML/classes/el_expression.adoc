@@ -13,12 +13,13 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(abstract)
-|*effective_type* (): `BMM_TYPE`
+|*eval_type* (): `BMM_TYPE`
 a|Meta-type of expression entity used in type-checking and evaluation.
 
 Effected in descendants.
 
 h|
-|*is_boolean* (): `Boolean`
-a|True if effective type is Boolean (i.e. notionally, `_effective_type()_` = `BMM_BOOLEAN_TYPE` and `_value()_` = `Boolean`).
+|*is_boolean* (): `Boolean` +
+*_Post_result_*: `Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())`
+a|True if `_eval_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `Boolean`).
 |===

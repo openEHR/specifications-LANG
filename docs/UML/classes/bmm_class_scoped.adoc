@@ -6,38 +6,23 @@ h|*Class*
 2+^h|*_BMM_CLASS_SCOPED (abstract)_*
 
 h|*Description*
-2+a|A declared entity having a signature and a class as its scope.
+2+a|A class entity having a signature and a class as its scope.
 
 h|*Inherit*
-2+|`BMM_DECLARATION`
+2+|`BMM_CLASS_ENTITY`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*is_synthesised_generic*: `Boolean`
-a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.
-
-h|*0..1*
 |*visibility*: `Any`
 a|Visibility of this item to client entities.
 
-TODO: define scheme; probably need to support broken C/Java scheme as well as better type-based schemes.
+TODO: define scheme; probably need to support C++/Java scheme as well as better type-based schemes.
 
 h|*1..1 +
 (redefined)*
 |*scope*: `BMM_CLASS`
 a|Class within which a referenceable element is known.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
-
-h|(abstract)
-|*signature* (): `BMM_SIGNATURE`
-a|Formal signature of this element, in the form:
-
-`name [arg1_name: T_arg1, ...][:T_value]`
-
-Specific implementations in descendants.
 |===

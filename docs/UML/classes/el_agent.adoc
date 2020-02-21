@@ -37,8 +37,8 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*effective_type* (): `BMM_SIGNATURE` +
-*_Post_effective_type_*: `Result = definition.signature`
+|*eval_type* (): `BMM_SIGNATURE` +
+*_Post_result_*: `Result = definition.signature`
 a|Effective type is the signature corresponding to the (remaining) open arguments and return type, if any.
 
 h|

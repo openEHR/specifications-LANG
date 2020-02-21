@@ -21,7 +21,7 @@ The UML model of the BMM `expression` package is shown below.
 .bmm.expression Package
 image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
 
-Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_effective_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
+Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_eval_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
 Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.
 

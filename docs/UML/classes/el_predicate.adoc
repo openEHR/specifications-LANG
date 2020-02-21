@@ -23,8 +23,8 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*effective_type* (): `BMM_SIMPLE_TYPE`
-a|Return `Boolean`.
+|*eval_type* (): `BMM_SIMPLE_TYPE`
+a|Return `{BMM_MODEL}._boolean_type_definition_()`.
 
 h|*Invariants*
 2+a|*_Inv_boolean_result_*: `is_boolean()`

@@ -24,6 +24,6 @@ h|*Functions*
 ^h|*Meaning*
 
 h|(effected)
-|*effective_type* (): `BMM_TYPE`
+|*eval_type* (): `BMM_TYPE`
 a|Return `_agent.definition.type_`.
 |===

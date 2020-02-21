@@ -220,23 +220,24 @@
 <li><a href="#_class_definitions_6">8.7. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_bmm_typed_class">8.7.1. BMM_TYPED Class</a></li>
-<li><a href="#_bmm_class_scoped_class">8.7.2. BMM_CLASS_SCOPED Class</a></li>
-<li><a href="#_bmm_typed_feature_class">8.7.3. BMM_TYPED_FEATURE Class</a></li>
-<li><a href="#_bmm_instantiable_class">8.7.4. BMM_INSTANTIABLE Class</a></li>
-<li><a href="#_bmm_constant_class">8.7.5. BMM_CONSTANT Class</a></li>
-<li><a href="#_bmm_property_class">8.7.6. BMM_PROPERTY Class</a></li>
-<li><a href="#_bmm_unitary_property_class">8.7.7. BMM_UNITARY_PROPERTY Class</a></li>
-<li><a href="#_bmm_container_property_class">8.7.8. BMM_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_bmm_indexed_container_property_class">8.7.9. BMM_INDEXED_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_bmm_routine_class">8.7.10. BMM_ROUTINE Class</a></li>
-<li><a href="#_bmm_function_class">8.7.11. BMM_FUNCTION Class</a></li>
-<li><a href="#_bmm_operator_class">8.7.12. BMM_OPERATOR Class</a></li>
-<li><a href="#_bmm_operator_position_enumeration">8.7.13. BMM_OPERATOR_POSITION Enumeration</a></li>
-<li><a href="#_bmm_procedure_class">8.7.14. BMM_PROCEDURE Class</a></li>
-<li><a href="#_bmm_variable_class">8.7.15. BMM_VARIABLE Class</a></li>
-<li><a href="#_bmm_local_class">8.7.16. BMM_LOCAL Class</a></li>
-<li><a href="#_bmm_parameter_class">8.7.17. BMM_PARAMETER Class</a></li>
-<li><a href="#_bmm_parameter_direction_enumeration">8.7.18. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_class_entity_class">8.7.2. BMM_CLASS_ENTITY Class</a></li>
+<li><a href="#_bmm_class_scoped_class">8.7.3. BMM_CLASS_SCOPED Class</a></li>
+<li><a href="#_bmm_typed_feature_class">8.7.4. BMM_TYPED_FEATURE Class</a></li>
+<li><a href="#_bmm_instantiable_class">8.7.5. BMM_INSTANTIABLE Class</a></li>
+<li><a href="#_bmm_constant_class">8.7.6. BMM_CONSTANT Class</a></li>
+<li><a href="#_bmm_property_class">8.7.7. BMM_PROPERTY Class</a></li>
+<li><a href="#_bmm_unitary_property_class">8.7.8. BMM_UNITARY_PROPERTY Class</a></li>
+<li><a href="#_bmm_container_property_class">8.7.9. BMM_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_bmm_indexed_container_property_class">8.7.10. BMM_INDEXED_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_bmm_routine_class">8.7.11. BMM_ROUTINE Class</a></li>
+<li><a href="#_bmm_function_class">8.7.12. BMM_FUNCTION Class</a></li>
+<li><a href="#_bmm_operator_class">8.7.13. BMM_OPERATOR Class</a></li>
+<li><a href="#_bmm_operator_position_enumeration">8.7.14. BMM_OPERATOR_POSITION Enumeration</a></li>
+<li><a href="#_bmm_procedure_class">8.7.15. BMM_PROCEDURE Class</a></li>
+<li><a href="#_bmm_variable_class">8.7.16. BMM_VARIABLE Class</a></li>
+<li><a href="#_bmm_local_class">8.7.17. BMM_LOCAL Class</a></li>
+<li><a href="#_bmm_parameter_class">8.7.18. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_parameter_direction_enumeration">8.7.19. BMM_PARAMETER_DIRECTION Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -1948,21 +1949,21 @@ a future version of BMM may define an option to import schemas using differing n
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_left_delimiter</strong>: <code>Character&#160;=&#160;'&lt;'</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Left delimiter for generic class and generic type names, as used in 'List&lt;T&gt;'.</p>
+<p>Left delimiter for generic class and generic type names, as used in <code>List&lt;T&gt;</code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_right_delimiter</strong>: <code>Character&#160;=&#160;'&gt;'</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Right delimiter for generic class and generic type names, as used in 'List&lt;T&gt;'.</p>
+<p>Right delimiter for generic class and generic type names, as used in <code>List&lt;T&gt;</code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generic_constraint_delimiter</strong>: <code>Character&#160;=&#160;':'</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Right delimiter for generic class names, as used in 'Sortable&lt;T: Ordered&gt;'.</p>
+<p>Right delimiter for generic class names, as used in <code>Sortable&lt;T: Ordered&gt;</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2125,7 +2126,7 @@ a_path: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>do_recursive_packages</strong> (<br>
-action: <code>BMM_PROCEDURE_AGENT[1]</code><br>
+action: <code>EL_PROCEDURE_AGENT[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Recursively execute <code><em>action</em></code>, which is a procedure taking a <code>BMM_PACKAGE</code> argument, on all members of packages.</p>
@@ -2419,13 +2420,22 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>any_class_definition</strong> (): <code>BMM_SIMPLE_CLASS</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><code>BMM_CLASS</code> instance for the <code>Any</code> class. This may be defined in the BMM schema, but if not, a default <code>Any</code> class will be generated.</p>
+<p><code>BMM_SIMPLE_CLASS</code> instance for the <code>Any</code> class. This may be defined in the BMM schema, but if not, a default <code>Any</code> class will be generated.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>any_type_definition</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>BMM_SIMPLE_TYPE</code> instance for the <code>Any</code> type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>boolean_type_definition</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>BMM_SIMPLE_TYPE</code> instance for the <code>Boolean</code> type.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
@@ -4805,7 +4815,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect3">
 <h4 id="_signatures"><a class="anchor" href="#_signatures"></a>8.1.5. Signatures</h4>
 <div class="paragraph">
-<p>All class-scoped features have formal signatures (described in <a href="#_signature_meta_type">Section 6.5</a>), realised as <code>BMM_CLASS_SCOPED.<em>signature</em></code>. This includes procedures, even though they have no return type.</p>
+<p>All class-scoped features have formal signatures (described in <a href="#_signature_meta_type">Section 6.5</a>), realised as <code>BMM_CLASS_ENTITY.<em>signature</em></code>. This includes procedures, even though they have no return type.</p>
 </div>
 <div class="paragraph">
 <p>The two types of routines, i.e. functions and procedures, include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of feature signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. <code>BMM_FUNCTION</code>, representing a function definition has an invariant requiring <code>signature.result /= Void</code>).</p>
@@ -4829,7 +4839,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect3">
 <h4 id="_synthesis_due_to_generic_parameter_substitution"><a class="anchor" href="#_synthesis_due_to_generic_parameter_substitution"></a>8.1.7. Synthesis due to Generic Parameter Substitution</h4>
 <div class="paragraph">
-<p>Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag <code><em>is_synthesised_generic</em></code> on the class <code>BMM_CLASS_SCOPED</code> to mark any such synthesised feature. An example of the use of this is described below in <a href="#_generic_inheritance">Section 12.1.2</a>.</p>
+<p>Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag <code><em>is_synthesised_generic</em></code> on the class <code>BMM_CLASS_ENTITY</code> to mark any such synthesised feature. An example of the use of this is described below in <a href="#_generic_inheritance">Section 12.1.2</a>.</p>
 </div>
 </div>
 </div>
@@ -4841,7 +4851,7 @@ a_name: <code>String[1]</code><br>
 <div class="ulist">
 <ul>
 <li>
-<p>a descendant of <code>BMM_CLASS_SCOPED</code> whose <code><em>signature</em></code> has no arguments; and</p>
+<p>a descendant of <code>BMM_CLASS_ENTITY</code> whose <code><em>signature</em></code> has no arguments; and</p>
 </li>
 <li>
 <p>a descendant of <code>BMM_INSTANTIABLE</code> that is not run-time nullable.</p>
@@ -5122,7 +5132,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_class_scoped_class"><a class="anchor" href="#_bmm_class_scoped_class"></a>8.7.2. BMM_CLASS_SCOPED Class</h4>
+<h4 id="_bmm_class_entity_class"><a class="anchor" href="#_bmm_class_entity_class"></a>8.7.2. BMM_CLASS_ENTITY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5132,12 +5142,12 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_CLASS_SCOPED (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_CLASS_ENTITY (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A declared entity having a signature and a class as its scope.</p>
+<p>Any entity declared within a class.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5154,24 +5164,6 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_synthesised_generic</strong>: <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>visibility</strong>: <code>Any</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Visibility of this item to client entities.</p>
-</div>
-<div class="paragraph">
-<p>TODO: define scheme; probably need to support broken C/Java scheme as well as better type-based schemes.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_CLASS</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Class within which a referenceable element is known.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5196,7 +5188,56 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_typed_feature_class"><a class="anchor" href="#_bmm_typed_feature_class"></a>8.7.3. BMM_TYPED_FEATURE Class</h4>
+<h4 id="_bmm_class_scoped_class"><a class="anchor" href="#_bmm_class_scoped_class"></a>8.7.3. BMM_CLASS_SCOPED Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_CLASS_SCOPED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A class entity having a signature and a class as its scope.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_CLASS_ENTITY</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>visibility</strong>: <code>Any</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Visibility of this item to client entities.</p>
+</div>
+<div class="paragraph">
+<p>TODO: define scheme; probably need to support C++/Java scheme as well as better type-based schemes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_CLASS</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Class within which a referenceable element is known.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_typed_feature_class"><a class="anchor" href="#_bmm_typed_feature_class"></a>8.7.4. BMM_TYPED_FEATURE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5234,7 +5275,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_instantiable_class"><a class="anchor" href="#_bmm_instantiable_class"></a>8.7.4. BMM_INSTANTIABLE Class</h4>
+<h4 id="_bmm_instantiable_class"><a class="anchor" href="#_bmm_instantiable_class"></a>8.7.5. BMM_INSTANTIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5260,7 +5301,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>8.7.5. BMM_CONSTANT Class</h4>
+<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>8.7.6. BMM_CONSTANT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5310,7 +5351,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>8.7.6. BMM_PROPERTY Class</h4>
+<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>8.7.7. BMM_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5387,7 +5428,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>8.7.7. BMM_UNITARY_PROPERTY Class</h4>
+<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>8.7.8. BMM_UNITARY_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5426,7 +5467,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>8.7.8. BMM_CONTAINER_PROPERTY Class</h4>
+<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>8.7.9. BMM_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5484,7 +5525,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_indexed_container_property_class"><a class="anchor" href="#_bmm_indexed_container_property_class"></a>8.7.9. BMM_INDEXED_CONTAINER_PROPERTY Class</h4>
+<h4 id="_bmm_indexed_container_property_class"><a class="anchor" href="#_bmm_indexed_container_property_class"></a>8.7.10. BMM_INDEXED_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5535,7 +5576,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.7.10. BMM_ROUTINE Class</h4>
+<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>8.7.11. BMM_ROUTINE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5612,7 +5653,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.7.11. BMM_FUNCTION Class</h4>
+<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>8.7.12. BMM_FUNCTION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5662,7 +5703,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.7.12. BMM_OPERATOR Class</h4>
+<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>8.7.13. BMM_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5710,7 +5751,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.7.13. BMM_OPERATOR_POSITION Enumeration</h4>
+<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>8.7.14. BMM_OPERATOR_POSITION Enumeration</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5751,7 +5792,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.7.14. BMM_PROCEDURE Class</h4>
+<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>8.7.15. BMM_PROCEDURE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5783,7 +5824,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>8.7.15. BMM_VARIABLE Class</h4>
+<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>8.7.16. BMM_VARIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5803,7 +5844,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_INSTANTIABLE</code>, <code>BMM_CLASS_SCOPED</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_INSTANTIABLE</code>, <code>BMM_CLASS_ENTITY</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5840,7 +5881,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>8.7.16. BMM_LOCAL Class</h4>
+<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>8.7.17. BMM_LOCAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5866,7 +5907,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.7.17. BMM_PARAMETER Class</h4>
+<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>8.7.18. BMM_PARAMETER Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5904,7 +5945,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.7.18. BMM_PARAMETER_DIRECTION Enumeration</h4>
+<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>8.7.19. BMM_PARAMETER_DIRECTION Enumeration</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6231,7 +6272,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="title">Figure 30. bmm.expression Package</div>
 </div>
 <div class="paragraph">
-<p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>effective_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
+<p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>eval_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
 </div>
 <div class="paragraph">
 <p>Although the type hierarchy is not complex, it contains particular choices that may not be the same as found in certain other formalisms. Accordingly, the following UML diagram provides an annotated view of the main Terminal meta-types.</p>
@@ -6519,7 +6560,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Meta-type of expression entity used in type-checking and evaluation.</p>
 </div>
@@ -6529,9 +6570,10 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>True if effective type is Boolean (i.e. notionally, <code><em>effective_type()</em></code> = <code>BMM_BOOLEAN_TYPE</code> and <code><em>value()</em></code> = <code>Boolean</code>).</p>
+<p>True if <code><em>eval_type</em></code> is notionally Boolean (i.e. a <code>BMM_SIMPLE_TYPE</code> with <code><em>type_name()</em></code> = <code>Boolean</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6848,7 +6890,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>T</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>T</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type definition of the constant, property or variable, inferred by inspection of the current scoping instance.</p>
 </div></div></td>
@@ -6860,9 +6902,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return <code><em>type</em></code>.</p>
+<p>Type definition (i.e. BMM meta-type definition object) of the constant, property or variable, inferred by inspection of the current scoping instance. Return <code><em>definition.type</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6910,7 +6952,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>type</em></code>.</p>
 </div></div></td>
@@ -6960,7 +7002,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>value.type</em></code>.</p>
 </div></div></td>
@@ -7017,7 +7059,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>type</em></code>.</p>
 </div></div></td>
@@ -7108,9 +7150,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_SIMPLE_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return <code>Boolean</code>.</p>
+<p>Return <code>{BMM_MODEL}.<em>boolean_type_definition</em>()</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7269,7 +7311,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>agent.definition.type</em></code>.</p>
 </div></div></td>
@@ -7343,8 +7385,8 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_SIGNATURE</code><br>
-<strong><em>Post_effective_type</em></strong>: <code>Result = definition.signature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_SIGNATURE</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = definition.signature</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Effective type is the signature corresponding to the (remaining) open arguments and return type, if any.</p>
 </div></div></td>
@@ -7517,7 +7559,7 @@ probably to be removed.
 </ul>
 </div>
 <div class="paragraph">
-<p>A call is thus an invocation of a <em>closed agent</em>. The effective type of a function call is the result type of the original function definition, thus its meta-type is just <code>BMM_TYPE</code>. A procedure call has no effective type.</p>
+<p>A call is thus an invocation of a <em>closed agent</em>. The <em>evaluation type</em> of a function call is the result type of the original function definition, thus its meta-type is just <code>BMM_TYPE</code>. A procedure call has no evaluation type.</p>
 </div>
 <div class="paragraph">
 <p>Both calls and agents are special kinds of <em>references</em> to their original routines, and both can appear within an expression context, including as arguments passed to routine invocations. The following UML view of the <code>bmm.expression</code> package illustrates these details.</p>
@@ -7532,7 +7574,7 @@ probably to be removed.
 <div class="sect2">
 <h3 id="_agents_2"><a class="anchor" href="#_agents_2"></a>11.2. Agents</h3>
 <div class="paragraph">
-<p>In the model the three classes <code>EL_AGENT</code>, <code>EL_FUNCTION_AGENT</code>, and <code>EL_PROCEDURE_AGENT</code> (centre) define respectively, Agent and its Function and Procedure forms. An Agent is understood as one kind of terminal expression element (<code>EL_TERMINAL</code>), since it is concretely a <em>reference</em> that generates a value, in this case, to a routine that generates a delayed call object. It potentially has <code><em>closed_args</em></code>, in the form of an <code>EL_TUPLE</code> which is a meta-type for tuple instances, which instantiate an instance <code>BMM_TUPLE_TYPE</code> (such as <code>[String, Integer]</code>). The items of the tuple are each in the form of an <code>EL_TUPLE_ITEM</code> consisting of the argument name (optional) and an <code><em>item</em></code>, which is an <code>EL_EXPRESSION</code>, having an <code><em>effective_type</em></code> of <code>BMM_TYPE</code>. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).</p>
+<p>In the model the three classes <code>EL_AGENT</code>, <code>EL_FUNCTION_AGENT</code>, and <code>EL_PROCEDURE_AGENT</code> (centre) define respectively, Agent and its Function and Procedure forms. An Agent is understood as one kind of terminal expression element (<code>EL_TERMINAL</code>), since it is concretely a <em>reference</em> that generates a value, in this case, to a routine that generates a delayed call object. It potentially has <code><em>closed_args</em></code>, in the form of an <code>EL_TUPLE</code> which is a meta-type for tuple instances, which instantiate an instance <code>BMM_TUPLE_TYPE</code> (such as <code>[String, Integer]</code>). The items of the tuple are each in the form of an <code>EL_TUPLE_ITEM</code> consisting of the argument name (optional) and an <code><em>item</em></code>, which is an <code>EL_EXPRESSION</code>, having an <code><em>eval_type</em></code> of <code>BMM_TYPE</code>. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).</p>
 </div>
 <div class="paragraph">
 <p>An example of a delayed function call in syntax form is <code>nodeCount (struct=?, depth=3)</code> (the exact syntax will vary according to programming language). Here, the <code><em>struct</em></code> argument is left open, while the <code><em>depth</em></code> argument is closed with the supplied value <code>3</code>. This expression generates an agent whose signature is <code>[StructType]:Integer</code> (assuming the concrete type of the <code>struct</code> argument is <code>StructType</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.</p>
