@@ -48,9 +48,20 @@ The `BMM_DECLARATION` meta-class also defines the attribute `_extensions_` of ty
 
 The `BMM_MODEL` class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the `model_access` package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (`_model_name_` attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.
 
+== The Any Class and Type
+
+While a BMM model defines a model in terms of class declarations, it must always have a top class named `Any` from which all others inherit. Similar to root classes in typical OOPL type systems (sometimes called 'Object'), the `Any` class defines semantics true for all objects such as equality (i.e. semantics for an '=' operator) and copying.
+
+A BMM model may define its own `Any` class, but if it does not, the `BMM_MODEL` instance representing the model will produce a standard 'Any' class via the `_any_class_definition()_` method. This will create the following structure, including a default package structure, and an `Any` type.
+
+[.text-center]
+.Default `Any` class
+image::{uml_diagrams_uri}/LANG-bmm-any_class.svg[id=bmm_any_class, align="center"]
+
+The `Any` type defined by the model's `Any` class, or else the default one above, will be used as the inheritance parent for every class in the model that doesn't have any other inheritance parent. As a result, the inheritance graph will always have the `Any` type as its top node.
+
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_definitions.adoc[]
 include::{uml_export_dir}/classes/bmm_declaration.adoc[]
 include::{uml_export_dir}/classes/bmm_package_container.adoc[]
 include::{uml_export_dir}/classes/bmm_package.adoc[]

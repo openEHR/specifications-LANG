@@ -127,7 +127,7 @@ a|Generate type substitutions for the supplied type, which may be simple, generi
 
 h|
 |*any_class_definition* (): `BMM_SIMPLE_CLASS`
-a|`BMM_SIMPLE_CLASS` instance for the `Any` class. This may be defined in the BMM schema, but if not, a default `Any` class will be generated.
+a|`BMM_SIMPLE_CLASS` instance for the `Any` class. This may be defined in the BMM schema, but if not, use `BMM_DEFINITIONS._any_class_`.
 
 h|
 |*any_type_definition* (): `BMM_SIMPLE_TYPE`

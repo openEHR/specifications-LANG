@@ -8,6 +8,9 @@ h|*Class*
 h|*Description*
 2+a|Definitions used by all BMM packages.
 
+h|*Inherit*
+2+|`BASIC_DEFINITIONS`
+
 h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
@@ -39,4 +42,15 @@ a|Right delimiter for generic class and generic type names, as used in `List<T>`
 h|*1..1*
 |*Generic_constraint_delimiter*: `Character{nbsp}={nbsp}':'`
 a|Right delimiter for generic class names, as used in `Sortable<T: Ordered>`.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*Any_class* (): `BMM_SIMPLE_CLASS`
+a|
+
+h|
+|*Any_type* (): `BMM_SIMPLE_TYPE`
+a|
 |===

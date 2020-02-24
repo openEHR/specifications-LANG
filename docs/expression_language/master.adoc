@@ -24,7 +24,7 @@ include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
 
 image::{openehr_logo}["openEHR logo",align="center"]
 
-= Expression Language (EL) and Model (ELOM)
+= Expression Language (EL)
 
 include::{ref_dir}/docs/boilerplate/full_front_block.adoc[]
 include::{ref_dir}/docs/references/reference_definitions.adoc[]
@@ -45,6 +45,22 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 * Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
 
+=== Contributors
+
+This specification benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Borut Fabjan, Program Manager, Better, Slovenia
+* Matija Kejžar, Senior Engineer, Better, Slovenia
+* Bostjan Lah, Architect, Better, Slovenia
+
+=== Supporters
+
+The work reported in this paper has been funded by the following organisations:
+
+* openEHR Foundation Industry and Organisation Partners
+* Ars Semantica, UK
+* Better, Slovenia (formerly Marand)
+
 //
 // --------------------------------------------- TOC -----------------------------------------------
 //
@@ -59,14 +75,6 @@ include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-el_basics.adoc[leveloffset=+1]
 include::master04-el_expressions.adoc[leveloffset=+1]
-include::master05-dl_statements.adoc[leveloffset=+1]
-include::master06-dl_module.adoc[leveloffset=+1]
-include::master07-terminology.adoc[leveloffset=+1]
-include::master08-data_context.adoc[leveloffset=+1]
-include::master09-computing_context.adoc[leveloffset=+1]
-include::master10-elom.adoc[leveloffset=+1]
-include::masterAppA-syntax.adoc[leveloffset=+1]
-
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
