@@ -25,11 +25,11 @@ a|The container item type.
 
 h|*0..1*
 |*is_ordered*: `Boolean`
-a|
+a|True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics.
 
 h|*0..1*
 |*is_unique*: `Boolean`
-a|
+a|True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -40,7 +40,7 @@ a|Return full type name, e.g. `List<ELEMENT>`.
 
 h|(effected)
 |*is_abstract* (): `Boolean` +
-*_Post_is_abstract_*: `Result = base_type.is_abstract or container_type.is_abstract`
+*_Post_is_abstract_*: `Result = item_type.is_abstract or container_type.is_abstract`
 a|True if `_item_type.is_abstract_` or `_container_class.is_abstract_`.
 
 h|(effected)
@@ -49,7 +49,7 @@ a|Flattened list of type names with container type name abstracted away. Result 
 
 h|(effected)
 |*unitary_type* (): `BMM_UNITARY_TYPE`
-a|Return `_base_type_`.
+a|Return `_item_type_`.
 
 h|(effected)
 |*is_primitive* (): `Boolean`

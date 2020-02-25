@@ -3735,12 +3735,16 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_ordered</strong>: <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unique</strong>: <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -3757,7 +3761,7 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_abstract</strong> (): <code>Boolean</code><br>
-<strong><em>Post_is_abstract</em></strong>: <code>Result = base_type.is_abstract or container_type.is_abstract</code></p></td>
+<strong><em>Post_is_abstract</em></strong>: <code>Result = item_type.is_abstract or container_type.is_abstract</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if <code><em>item_type.is_abstract</em></code> or <code><em>container_class.is_abstract</em></code>.</p>
 </div></div></td>
@@ -3773,7 +3777,7 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unitary_type</strong> (): <code>BMM_UNITARY_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return <code><em>base_type</em></code>.</p>
+<p>Return <code><em>item_type</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3836,7 +3840,7 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_abstract</strong> (): <code>Boolean</code><br>
-<strong><em>Post_is_abstract</em></strong>: <code>Result = base_type.is_abstract or container_type.is_abstract</code></p></td>
+<strong><em>Post_is_abstract</em></strong>: <code>Result = precursor or index_type.is_abstract</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result = <code>precursor</code> or <code><em>index_type.is_abstract</em></code>.</p>
 </div></div></td>
