@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_FUNCTION_AGENT*
 
 h|*Description*
-2+a|An agent whose signa
+2+a|An agent whose signature is of a function, i.e. has a result type.
 
 h|*Inherit*
 2+|`EL_AGENT`

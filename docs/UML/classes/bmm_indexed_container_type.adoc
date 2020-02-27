@@ -25,9 +25,4 @@ h|*Functions*
 h|(effected)
 |*type_name* (): `String`
 a|Return full type name, e.g. `HashMap<String, ELEMENT>`.
-
-h|(effected)
-|*is_abstract* (): `Boolean` +
-*_Post_is_abstract_*: `Result = precursor or index_type.is_abstract`
-a|Result = `precursor` or `_index_type.is_abstract_`.
 |===

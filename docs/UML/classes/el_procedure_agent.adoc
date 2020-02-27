@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_PROCEDURE_AGENT*
 
 h|*Description*
-2+a|A literal procedure call.
+2+a|An agent whose signature is of a procedure, i.e. has no result type.
 
 h|*Inherit*
 2+|`EL_AGENT`

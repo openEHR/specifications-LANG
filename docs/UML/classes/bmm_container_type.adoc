@@ -40,18 +40,20 @@ a|Return full type name, e.g. `List<ELEMENT>`.
 
 h|(effected)
 |*is_abstract* (): `Boolean` +
-*_Post_is_abstract_*: `Result = item_type.is_abstract or container_type.is_abstract`
-a|True if `_item_type.is_abstract_` or `_container_class.is_abstract_`.
+*_Post_is_abstract_*: `Result = container_type.is_abstract`
+a|True if the container class is abstract.
 
 h|(effected)
-|*flattened_type_list* (): `List<String>`
-a|Flattened list of type names with container type name abstracted away. Result = `_item_type.flattened_type_list_`.
+|*flattened_type_list* (): `List<String>` +
+*_Post_result_*: `Result = item_type.flattened_type_list`
+a|Flattened list of type names with container type name abstracted away.
 
 h|(effected)
 |*unitary_type* (): `BMM_UNITARY_TYPE`
 a|Return `_item_type_`.
 
 h|(effected)
-|*is_primitive* (): `Boolean`
-a|Result = `_item_type.is_primitive_`.
+|*is_primitive* (): `Boolean` +
+*_Post_result_*: `Result = item_type.is_primitive`
+a|True if `_item_type_` is primitive.
 |===

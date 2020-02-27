@@ -955,7 +955,7 @@ for the purposes of explanation, an abstract syntax is used throughout this docu
 <p><code>model</code>: meta-types representing models and packages;</p>
 </li>
 <li>
-<p><code>entity</code>: meta-types representing classes and types;</p>
+<p><code>entity</code>: meta-types representing classes and types including enumeration types, represented in the <code>range_constrained</code> sub-package;</p>
 </li>
 <li>
 <p><code>feature</code>: meta-types representing classes features, i.e. constants, routines, properties;</p>
@@ -2547,9 +2547,6 @@ a_type: <code>String[1]</code><br>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the following sub-sections, the various Type meta-types are described, along with the type conformance rules.</p>
-</div>
-<div class="paragraph">
 <p>Below <code>BMM_TYPE</code> are the abstract meta-type <code>BMM_UNITARY_TYPE</code> and the concrete meta-type <code>BMM_CONTAINER_TYPE</code> and its specialisation <code>BMM_INDEXED_CONTAINER_TYPE</code>. <code>BMM_UNITARY_TYPE</code> is a meta-type for types whose <em>instances are unitary</em> i.e. singular, while the container meta-types correspond to <em>collections of instances</em>. The latter are further described below. This distinction is made to enable BMM to directly represent the notion of collections in the type system rather than treating them in the same way as any other type, which would force modellers (i.e. authors of actual BMM models) to state concrete containment types such as <code>ArrayedList&lt;Packet&gt;</code>, where <code>ArrayedList</code> would have to be defined in the model as well as <code>Packet</code>.</p>
 </div>
 <div class="paragraph">
@@ -2559,7 +2556,7 @@ a_type: <code>String[1]</code><br>
 <p>Effective types have as their meta-type <code>BMM_EFFECTIVE_TYPE</code>. Its subtypes are <code>BMM_MODEL_TYPE</code>, a meta-type for types defined by classes in the model (thus characterised by the property <code><em>base_class</em>: BMM_CLASS</code>), <code>BMM_TUPLE_TYPE</code>, a meta-type for tuples (a list of objects of varying types), and <code>BMM_SIGNATURE</code>, a meta-type representing signatures of routines and typed model elements (properties, variables etc).</p>
 </div>
 <div class="paragraph">
-<p><code>BMM_MODEL_TYPE</code> divides into <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, corresponding to the standard notions of types familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property <code><em>defining_class</em></code>, of meta-type <code>BMM_CLASS</code> for a BMM simple type, and <code>BMM_GENERIC_CLASS</code> for BMM generic type.</p>
+<p><code>BMM_MODEL_TYPE</code> divides into <code>BMM_SIMPLE_TYPE</code> and <code>BMM_GENERIC_TYPE</code>, corresponding to the standard notions of types familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property <code><em>base_class</em></code>, of meta-type <code>BMM_CLASS</code> for a BMM simple type, and <code>BMM_GENERIC_CLASS</code> for BMM generic type.</p>
 </div>
 <div class="paragraph">
 <p>These various concrete meta-types are described in more detail below.</p>
@@ -2568,7 +2565,7 @@ a_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_simple_type"><a class="anchor" href="#_simple_type"></a>6.2. Simple Type</h3>
 <div class="paragraph">
-<p>A <em>simple type</em> is a type based only on a <em>simple class</em>, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class <code>Organisation</code> may have a property <code><em>managers</em></code> of static type <code>List&lt;Person&gt;</code>. An instance of the simple type <code>Organisation</code> might have its <code><em>managers</em></code> property attached to an instance of <code>List&lt;Manager&gt;</code>, which is legal as long as <code>Manager</code> conforms to <code>Person</code>, which it will do if the same-named classes inherit in the usual sense.</p>
+<p>A <em>simple type</em> is a type based only on a <em>simple class</em>, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the only difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class <code>Organisation</code> may have a property <code><em>manager</em></code> of static type <code>Employee</code>. An instance of the simple type <code>Organisation</code> might have its <code><em>manager</em></code> property attached to an instance of <code>Manager</code>, which is legal as long as <code>Manager</code> conforms to <code>Employee</code>, which it will do if <code>Manager</code> is defined as a subtype of <code>Employee</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="_conformance_2"><a class="anchor" href="#_conformance_2"></a>6.2.1. Conformance</h4>
@@ -3761,16 +3758,17 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_abstract</strong> (): <code>Boolean</code><br>
-<strong><em>Post_is_abstract</em></strong>: <code>Result = item_type.is_abstract or container_type.is_abstract</code></p></td>
+<strong><em>Post_is_abstract</em></strong>: <code>Result = container_type.is_abstract</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>True if <code><em>item_type.is_abstract</em></code> or <code><em>container_class.is_abstract</em></code>.</p>
+<p>True if the container class is abstract.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = item_type.flattened_type_list</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Flattened list of type names with container type name abstracted away. Result = <code><em>item_type.flattened_type_list</em></code>.</p>
+<p>Flattened list of type names with container type name abstracted away.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3782,9 +3780,10 @@ a_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_primitive</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_primitive</strong> (): <code>Boolean</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = item_type.is_primitive</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result = <code><em>item_type.is_primitive</em></code>.</p>
+<p>True if <code><em>item_type</em></code> is primitive.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3835,14 +3834,6 @@ a_type: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return full type name, e.g. <code>HashMap&lt;String, ELEMENT&gt;</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_abstract</strong> (): <code>Boolean</code><br>
-<strong><em>Post_is_abstract</em></strong>: <code>Result = precursor or index_type.is_abstract</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result = <code>precursor</code> or <code><em>index_type.is_abstract</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7365,7 +7356,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>An agent whose signa</p>
+<p>An agent whose signature is of a function, i.e. has a result type.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7404,7 +7395,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A literal procedure call.</p>
+<p>An agent whose signature is of a procedure, i.e. has no result type.</p>
 </div></div></td>
 </tr>
 <tr>

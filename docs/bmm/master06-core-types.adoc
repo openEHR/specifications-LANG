@@ -21,21 +21,19 @@ image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align=
 * _type_name_: the effective type name of an entity; for simple classes, this will just be the class name (`BMM_CLASS._name_`); for generic and container classes it will be generic name such as `List<T>`, `Interval<T>` etc; for feature types it will be the declared type, i.e. a simple name, an open type name (e.g. `T`) or a generic type name (e.g. `Interval<Time>`);
 * _type_signature_: a form of the type name that can be used as a fully-defined type signature, which for generic classes includes generic constrainer types, giving a signature such as `Interval<T:Ordered>`.
 
-In the following sub-sections, the various Type meta-types are described, along with the type conformance rules.
-
 Below `BMM_TYPE` are the abstract meta-type `BMM_UNITARY_TYPE` and the concrete meta-type `BMM_CONTAINER_TYPE` and its specialisation `BMM_INDEXED_CONTAINER_TYPE`. `BMM_UNITARY_TYPE` is a meta-type for types whose _instances are unitary_ i.e. singular, while the container meta-types correspond to _collections of instances_. The latter are further described below. This distinction is made to enable BMM to directly represent the notion of collections in the type system rather than treating them in the same way as any other type, which would force modellers (i.e. authors of actual BMM models) to state concrete containment types such as `ArrayedList<Packet>`, where `ArrayedList` would have to be defined in the model as well as `Packet`. 
 
 Unitary meta-types are further distinguished as formal generic parameters (`BMM_PARAMETER TYPE`) and _effective_ types, i.e. concrete unitary types. The former meta-type is used to represent replaceable formal generic parameters (typically 'T', 'U' within types such as `List<T>` etc) within generic type declarations.
 
 Effective types have as their meta-type `BMM_EFFECTIVE_TYPE`. Its subtypes are `BMM_MODEL_TYPE`, a meta-type for types defined by classes in the model (thus characterised by the property `_base_class_: BMM_CLASS`), `BMM_TUPLE_TYPE`, a meta-type for tuples (a list of objects of varying types), and `BMM_SIGNATURE`, a meta-type representing signatures of routines and typed model elements (properties, variables etc).
 
-`BMM_MODEL_TYPE` divides into `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of types familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property `_defining_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
+`BMM_MODEL_TYPE` divides into `BMM_SIMPLE_TYPE` and `BMM_GENERIC_TYPE`, corresponding to the standard notions of types familiar in modern programming languages. The class definitions of instances (i.e. BMM model class definitions) of these meta-types are available via the property `_base_class_`, of meta-type `BMM_CLASS` for a BMM simple type, and `BMM_GENERIC_CLASS` for BMM generic type.
 
 These various concrete meta-types are described in more detail below.
 
 == Simple Type
 
-A _simple type_ is a type based only on a _simple class_, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the ony difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class `Organisation` may have a property `_managers_` of static type `List<Person>`. An instance of the simple type `Organisation` might have its `_managers_` property attached to an instance of `List<Manager>`, which is legal as long as `Manager` conforms to `Person`, which it will do if the same-named classes inherit in the usual sense.
+A _simple type_ is a type based only on a _simple class_, which is a class with no formal generic parameters. An instance of a simple type is fully described by the class on which it is based, with the only difference being the usual object-oriented possibility of polymorphic attachments of sub-objects whose dynamic types conform to their static type counterparts in the original simple type. Thus, for example, a class `Organisation` may have a property `_manager_` of static type `Employee`. An instance of the simple type `Organisation` might have its `_manager_` property attached to an instance of `Manager`, which is legal as long as `Manager` conforms to `Employee`, which it will do if `Manager` is defined as a subtype of `Employee`.
 
 === Conformance
 
