@@ -269,5 +269,6 @@ include::{uml_export_dir}/classes/bmm_procedure.adoc[]
 include::{uml_export_dir}/classes/bmm_variable.adoc[]
 include::{uml_export_dir}/classes/bmm_local.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter.adoc[]
+include::{uml_export_dir}/classes/bmm_result.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_direction.adoc[]
 

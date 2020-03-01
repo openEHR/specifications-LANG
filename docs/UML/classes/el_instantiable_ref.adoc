@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*0..1*
 |*definition*: `T`
-a|Type definition of the constant, property or variable, inferred by inspection of the current scoping instance.
+a|Definition of the constant, property or variable, inferred by inspection of the current scoping instance.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

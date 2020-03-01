@@ -39,7 +39,7 @@ h|*Functions*
 h|(effected)
 |*eval_type* (): `BMM_SIGNATURE` +
 *_Post_result_*: `Result = definition.signature`
-a|Effective type is the signature corresponding to the (remaining) open arguments and return type, if any.
+a|Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.
 
 h|
 |*is_callable* (): `Boolean` +

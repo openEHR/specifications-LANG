@@ -56,11 +56,15 @@ Function calls are described in detail in the following section.
 
 ==== Self Reference
 
-A special meta-type, `EL_SELF_REF` is provided to represent references to the current scoping object for expressions. And instance of this meta-class corresponds to references such as 'this' or 'self' found in object-oriented programming languages.
+A special meta-type, `EL_SELF_REF` is provided for references to the current scoping object for any expressions in which it appears. An instance of this meta-class corresponds to references such as 'this' or 'self' found in object-oriented programming languages.
+
+==== Anonymous Reference
+
+A special meta-type, `EL_ANONYMOUS_REF` is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing constants, enumeration values and class-level (i.e. 'static') functions without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as `{ClassName}._feature_`. A typical example of such use is `{Env}._current_time_` to access the class function `_current_time_` defined on the class (or interface) `Env`.
 
 ==== Agents
 
-An agent is the BMM term for a delayed routine call, and has the meta-type `BMM_SIGNATURE`. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.
+An agent is the BMM term for a delayed routine call, and has the meta-type `EL_AGENT`, which in turn has as its formal evaluation type (`_eval_type_`) is the meta-type `BMM_SIGNATURE`. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.
 
 ==== Predicates
 
@@ -123,7 +127,7 @@ The first example is a comparison of a property value to a value, where the `>=`
     heart_rate >= 80
 ----
 
-The following shows the comparison of a property value to a constant, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
+The following shows the comparison of a property value with a constant, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
 
 [source, typescript]
 ----
@@ -148,14 +152,13 @@ The following shows a function call whose argument is an expression.
 
 [source, typescript]
 ----
-    date_of_birth.earlier (env.current_date - P10Y)
+    date_of_birth.earlier ({Env}.current_date - P10Y)
 ----
 
 The following shows the use of an inline agent as an argument to the function `List._for_all_()`.
 
 [source, typescript]
 ----
-    // use of an agent
     bp_samples.for_all (
         agent (a_quantity: Quantity) {
             a_quantity.units.is_equal (Blood_pressure_units);
@@ -241,6 +244,7 @@ include::{uml_export_dir}/classes/el_instance_ref.adoc[]
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_self_ref.adoc[]
+include::{uml_export_dir}/classes/el_anonymous_ref.adoc[]
 include::{uml_export_dir}/classes/el_literal.adoc[]
 
 include::{uml_export_dir}/classes/el_tuple.adoc[]
