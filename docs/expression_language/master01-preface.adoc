@@ -2,7 +2,7 @@
 
 == Purpose
 
-This document specifies the openEHR Expression Language Object Model (ELOM) and an abstract syntax, denoted the openEHR Expression Language (openEHR EL). The ELOM defines the semantics of a first order predicate style logic that can be used to express assertions (e.g. in archetypes).
+This document specifies an abstract openEHR Expression Language (openEHR EL) that provides a syntax counterpart to the `expression` package in the {openehr_bmm}[openEHR Basic Meta-Model (BMM)^]. This may be used within BMM models, to specify archetype rules, and in decision language expressions.
 
 The intended audience includes:
 
@@ -14,16 +14,16 @@ The intended audience includes:
 
 Prerequisite documents for reading this document include:
 
-* The {openehr_overview}[openEHR Architecture Overview^].
+* The {openehr_overview}[openEHR Architecture Overview^];
+* The {openehr_bmm}[openEHR Basic Meta-Model (BMM)^]
 
 Releated documents include:
 
-* The {openehr_am_aom2}[Archetype Object Model 2 (AOM2)^], Assertions section.
+* The {openehr_am_aom2}[Archetype Object Model 2 (AOM2)^], Assertions section;
+* The {openehr_task_planning}[Task Planning specification^];
 * The {openehr_cds_gdl}[Guideline Definition Language (GDL)^].
 
 == Status
-
-The contents of this specification were separated out from the {openehr_am_aom2}[AOM2 specification^] in order to provide a common model of expressions and rules structures for AOM, GDL and other specifications requiring it.
 
 This specification is in the {spec_status} state. The development version of this document can be found at {openehr_expression_language}[{openehr_expression_language}^].
 
@@ -33,7 +33,7 @@ Known omissions or questions are indicated in the text with a 'to be determined'
 
 == Feedback
 
-Feedback may be provided on the {openehr_technical_list}[technical mailing list^].
+Feedback may be provided on the {openehr_technical_list}[technical discussion forum^].
 
 Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
 

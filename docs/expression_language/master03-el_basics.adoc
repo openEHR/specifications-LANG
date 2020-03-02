@@ -1,94 +1,64 @@
 = EL Basics
 
-== Overview
-
-The openEHR Expression Language (EL) syntax is defined in a number of layers. The core of the language defines _expressions_, which are value-returning entities formed by reference or invocation of declared entities such as variables, functions and constants. Expressions may be used in isolation within some larger context in an openEHR system (e.g. Plan or Guideline), with the connection of variables to real-world data being determined implicitly, as described above.
-
-The next layer includes non-expression elements, allowing explicit declarations, assignments and control structures, including rules. These are known as _statements_. A collection of statements may be used within another context in the same way as bare expressions.
-
-The fullest form of EL syntax is an _EL Module_ which provides all of the context, terminology, meta-data and so on, enabling the representation of fully-formed guidelines and other similar artefacts.
-
-These layers are shown below.
-
-[.text-center]
-.EL language structure
-image::{diagrams_uri}/EL_language_structure.svg[id=EL_language_structure, align="center"]
-
 == Syntax style
 
-The syntax style used in EL is of the Pascal variety, i.e. words rather than programming symbols such as braces (`{}`). The intention is to provide a syntax that is more easily readable to non-IT professionals as well as IT professionals, since it is likely that healthcare professionals will be among the principle authors of EL texts. This choice leads to syntax such as the following.
+The syntax style used in EL is inspired by elements of common languages available today, including TypeScript, Kotlin, Java, etc, with divergences to provide a syntax that is more easily readable to non-IT professionals as well as IT professionals.
 
-----
-    -- a universal quantifier expression
-    if for_all v in $systolic_bp_samples : v <= Systolic_bp_threshold then
-        -- statements
-    end
-    
-    -- a when/then block
-    when $systolic_bp
-        matches |>= 200.0| then
-            -- statements to raise emergency alert
+The lexical style used in EL is a form of so-called 'snake_case' rather than so-called 'CamelCase', in common with other openEHR specifications, but either may be used in real applications. One reason for using snake-case is be to render EL Modules more readable to the non-IT professional. Upper- and lower-case are not formally distinguished, and the use of upper case is a matter of style only, as follows:
 
-        matches |>= 180.0| then
-            -- statements to request nurse check
+* _class names_: upper-case first letter followed by alphanumerics with underscores where spaces would occur in natural language, e.g. `Iso8601_date_time`, `Arrayed_list<T>`;
+* _property, routine and variable names_: lower-case first letter, followed by alphanumerics with underscores, e.g. `_employee_group_`, `_average_pressure_()`;
+* _constants and class (static) functions_: upper-case first letter, followed by alphanumerics with underscores, e.g. `Maximum_speed`.
 
-        ...
-    end    
-----
+[.tbd]
+TBD: specify equivalence between snake-case and CamelCase, or a tool-level switch?
 
-In the above, nearly all lexical elements are words, such as `if`, `in`, `when`, `then` and so on, leading to a more natural reading experience.
+== Typing
 
-The style chosen here should not be regarded as fixed, and indeed it is a relatively simple matter to create alternative 'syntax skins', such as one for developers used to C language syntax descendants such as Java, TypeScript and so on.
+The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the {openehr_bmm}[openEHR BMM specification^]. *All operators are assumed to be implemented by and map to functions defined on types*, including operators such as '+' mapping to the function `add()` defined on primitive types such as `Integer`. Accordingly, such operators are defined within the BMM as being operator _aliases_ of their implementing function, which is made possible by the BMM meta-types `BMM_ROUTINE` and descendants. 
 
-The lexical style used is so-called 'snake_case' rather than so-called 'CamelCase', in common with other openEHR specifications, but either may be used in real applications. One reason for using snake-case may be to render EL Modules more readable to the non-IT professional.
+An important implementation consequence of this approach is that an expression that is parsed to a classic operator-based AST may be evaluated by progressively searching for operator-aliased functions within the model definition, invoking with the arguments found in the AST structure, and returning Results for the next such computation. Of course, use of built-in native types and functions  (rather than always dispatching via a BMM) to handle primitive type operators is likely to be used in the interests of efficiency. Function-matching can be implemented by matching the inferred signature of the operator and its argument(s) with functions having both a conformant (not necessarily identical) signature, and the same operator.
 
-== Types
+Such model definitions will therefore include primitive type definitions, either the openEHR {openehr_foundation_types}[Foundation Types^], i.e. primitive types, container types and interval types, or ones that correspond very closely. In the interests of completeness, EL _assumes_ the openEHR Foundation Types, so as to provide syntax and grammar for them. 
 
-The Expression language is fully typed, and _assumes_ the same set of {openehr_foundation_types}[Foundation Types] as other openEHR components, namely:
+== EL Foundation Types
 
-* primitive types;
-* container types:
-** `List<T>`, i.e. an ordered list of elements of primitive type T;
-** `Set<T>`, i.e. a set of elements of primitive type T;
-** `Hash<K:Ordered,V>`, i.e. a Hash table or dictionary;
-* an interval type:
-** `Interval<T: Ordered>` where T is any ordered primitive type, i.e. `Integer`, `Real`, and any of the Date/time types.
-
-Complex types based on these types may also be used in EL.
+The EL syntax for these is described below.
 
 === Primitive Types
 
-The primitive types are shown below.
+The EL primitive types are shown below.
 
 [cols="1,3",options="header"]
 |=================================================================
 |Name                   |Description
-
 | `Boolean`             |Boolean value
+|                       |
 | `Integer`             |Integer value
+| `Integer64`           |Large integer value
 | `Real`                |Real value
+| `Double`              |Large real value
+|                       |
 | `Date`                |ISO 8601-format date
 | `Date_time`           |ISO 8601-format date/time
 | `Time`                |ISO 8601-format time
 | `Duration`            |ISO 8601-format duration
+|                       |
 | `String`              |String
+|                       |
 | `Uri`                 |Uri in {rfc3986}[IETF RFC 3986^] format
 | `Terminology_code`    |Terminology code reference
 |=================================================================
 
 Automatic type promotion from `Integer` to `Real` applies to all integer and real values and expressions, in the same fashion as most programming languages.
 
-[.tbd]
-TBD: do we need `Integer64` and `Real64`?
-
 === Container Types
 
-The same container types as defined in the {openehr_foundation_types}#_structure_types[BASE Foundation Types specification] are supported in EL, as follows.
+The same container types as defined in the {openehr_foundation_types}#_structure_types[Foundation Types, `structure` package^] are assumed in EL, under the following names.
 
 [cols="1,3",options="header"]
 |=================================================================
 |Name                   |Description
-
 | `Container<T>`        |Abstract parent of `List`, `Set` and `Hash` types
 | `List<T>`             |Linear list of items of any primitive type, allowing order and repeated membership
 | `Set<T>`              |Set of items of any primitive type; no order, unique membership
@@ -98,90 +68,21 @@ The same container types as defined in the {openehr_foundation_types}#_structure
 [.tbd]
 TBD: the following is functional style; we would need keywords to enable it in the EL syntax, e.g. `has` etc. Also, `has()` can be done via `there_exists()`.
 
-The above types each have an assumed interface consisting of functions and procedures that apply to all members of the container, consistent with the semantics of the container. These include the following.
-
-----
-    has (v: T): Boolean
-            -- True if container contains v
-----
-
-Any such method may be accessed in the usual way, using dot notation, i.e. as shown below for the method `_has()_`.
-
-----
-    heart_rate_samples: List<Real>
-    High_threshold: Real = 200.0
-    
-    if heart_rate_samples.has (High_threshold) then
-        -- statements
-    end
-----
-
 === Interval Type
 
-The same `Interval` type as defined in the {openehr_foundation_types}#_interval[BASE Foundation Types specification] is supported in EL, as follows.
+The same `Interval` type as defined in the {openehr_foundation_types}#_interval[Foundation Types, `interval` package^] is assumed in EL, under the following names.
 
 [cols="1,2",options="header"]
 |=================================================================
 |Name                   |Description
 
-| `Interval<T>`         |Interval of any ordered primitive
+| `Interval<T>`         |Interval of any ordered type
+| `Point_interval<T>`   |Sub-type used to efficiently represent closed intervals whose boundaries are the same
+| `Proper_interval<T>`  |Sub-type used to efficiently represent intervals whose boundaries are different
 |=================================================================
 
 Automatic type promotion from `Interval<Integer>` to `Interval<Real>` applies to all integer and real values and expressions, in the same fashion as most programming languages.
 
-[.tbd]
-TBD: the following is functional style; we would need keywords to enable it in the EL syntax, e.g. `contains`, `overlaps` etc.
-
-Various methods are defined for `Interval<T>`, as follows.
-
-----
-    has (v: T): Boolean
-            -- True if for Interval contains v
-
-    overlaps (other: like Current): Boolean
-            -- True if this Interval overlaps other
-            
-    contains (other: like Current): Boolean
-            -- True if this Interval contains other
-----
-
 === Complex Types
 
-Complex types may be implicitly accessible, or explicitly imported from formal model definitions specified in the `use_model` section of an EL Module. Such models need to be specified in {openehr_bmm}[openEHR BMM format], or any functional equivalent. The types in models included in this way become available within the formalism in the same way as the foundation types, and may be used in declarations etc in the normal way.
-
-Access to interior elements of instances of non-primitive types is obtained using 'dot' notation, i.e. the standard way for object-oriented languages.
-
-== Function and Procedure Calls
-
-In EL, the function and procedure calls are the primary means to make complex logic available to expressions. Both functions and procedures are supported, and are collectively known as _routines_, as per the {openehr_bmm}#_elements[openEHR Basic Meta-Model (BMM)].
-
-In EL, a function is a routine that returns a result and is assumed to have no side-effects on previously declared entities. It has a signature of the form:
-
-----
-    <T_arg1, T_arg2, ....>: T_result
-----
-
-Typical examples of function signatures:
-
-----
-    : Date                          -- signature of a 0-order function like current_date()
-    <Real, Real>: Real              -- signature of a 2nd-order function like '*' for the domain R
-    <Integer, Integer>: Integer     -- signature of a 2nd-order function like 'add' for the domain I
-----
-
-A procedure is a routine with a signature of the form:
-
-----
-    <T_arg1, T_arg2, ....>
-----
-
-This represents a call taking 0 or more arguments, with no return type. Typical procedure signatures include the following:
-
-----
-    <Real>                          -- a 1st-order procedure for the domain R
-    <String, Integer>               -- signature of a procedure taking a String and an Integer argument
-----
-
-EL does not provide a way to programmatically define routines (i.e. it does not try to be a programming language), instead, it provides a way of _declaring routine signatures_, using the `func` and `proc` keywords. This is similar to the declaration of methods in interface classes in languages like C# and Java.
-
-Functions and procedures are mapped to class methods in external libraries in the <<_computing_bindings, Computing Bindings>> section of an EL Module.
+Complex types are imported from a formal model definition, expressed in {openehr_bmm}[openEHR BMM format^], or any fomral equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.

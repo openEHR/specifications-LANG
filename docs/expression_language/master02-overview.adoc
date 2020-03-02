@@ -1,75 +1,46 @@
 = Overview
 
-The openEHR Expression Language Object Model (ELOM) defines the semantics of all of the elements of computable expressions that are used in openEHR, and are likely to be used in healthcare and life sciences computing where rules and expressions are needed. The model is designed as an extensible core formalism suitable for use and extension in other formalisms.
+The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the `expression` package in the {openehr_bmm}[openEHR Basic Meta-Model (BMM)^]. As such it may be considered the default syntax. Other syntaxes or syntax variants are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc.
 
-The openEHR Expression Language (EL) specified here is an abstract syntax counterpart to the Expression Language Object Model, and may be considered a default syntax. Other syntaxes or syntax variants are certainly possible, and other serialisation methods are possible, such as object graph serialisation into XML, JSON, YAML etc. The EL is provided firstly as a way of specifying and explaining the semantics of the ELOM, and secondly, as one way of actually authoring expressions and rules in textual form. This approach is the same as with any programming language, where the usual form for learning and programming is the abstract language form, while the computational form is an abstract syntax tree (AST) or similar.
-
-Accordingly, the ELOM should be considered the normative definition of the openEHR Expression formalism, and indeed not all implementations need support the language: they might for example only serialse in JSON or use purely graphical visualisation.
-
-[.tbd]
-TBD: possibly the following is no longer true.
-
-The formalism as defined here requires extensions for use, at a minimum to provide concrete value referencing. 
-Extensions would also typically provide more operators, functions, leaf types and other features that are needed in specific circumstances.
+Consequently, the BMM `expression` package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.
 
 Key features of the formalism include:
 
 * variable declarations, assignments and expressions;
 * strong typing;
-* the ability to use externally defined information models;
 * standard logical operators including universal and existential quantification, as well as user-defined operators;
 * standard arithmetic and relational comparison operators, enabling the use of numerics;
 * parentheses for overridding operator precedence;
-* functions, including built-ins like `current_date`, standard functions like `max()` as well as user-defined functions.
-
-For reasons of comprehensibility and explanation, the Expression Language is defined first in this specification.
+* functions and agents (lambdas).
 
 == Design Background
 
-The openEHR Expression formalism is based on a limited first-order predicate logic language with extensions for numeric sub-expressions. It has similarities with OMG's OCL (Object Constraint Language) syntax, and is also similar to the assertion syntax used in the citenp:[Object_Z] language (see citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling). None of these languages has been used directly, for reasons including:
+The openEHR Expression formalism is based on a limited first-order predicate logic language with extensions for numeric sub-expressions. It has similarities with OMG's OCL (Object Constraint Language) syntax, and is also similar to the assertion syntax used in the citenp:[Object_Z] language (see citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling). It is not exactly the same as any of these languages because:
 
-* OCL has a complex type system connected to the UML meta-model, and includes some undecidable procedural semantics;
-* none have adequate variable referencing mechanisms, such as to paths and external queries.
-
-There are also similarities with other languages developed in the health arena for expressing 'medical logic', including {hl7v3_arden}[HL7 Arden Syntax^], Guideline Interchange Format cite:[GLIF] and many others, as well as decision support languages such as {hl7v3_gello}[HL7 Gello^]. These languages were not directly used, for reasons including:
-
-* none have an easily extensible value referencing mechanism;
-* some are too procedural (Arden, GLIF);
-* current versions of some of these languages have been made specific to the HL7v3 RIM, a particular (and now obsolete) model of health information designed for message representation (GLIF 3.x, GELLO).
-
-Nevertheless, various elements of Arden provided useful inspiration for the formalism described here.
-
-Modern syntaxes that provide a more generic inspiration for the expression syntax described here include the {w3c_xpath}[W3C Xpath syntax^] and {typescript}[TypeScript^].
+* it has a different target meta-model, namely the BMM `expression` package;
+* the syntax is designed to be comprehensible to developers familiar with modern mainstream object-oriented and functional languages such as Java, C#, Python, TypeScript etc.
 
 == Requirements
 
-The semantic requirements are for expressions including arithmetic, boolean, and relational operators, functions, logical quantifiers, operator precedence, constant values, and variables. 
+The semantic requirements including the usual arithmetic, boolean, and relational operators, functions, logical quantifiers, operator precedence, constant values, and variables. In addition, there is a need to support multi-lingual translations for symbolic variables, in a similar way to the {openehr_am_adl2}[openEHR Archetype Definition Language (ADL2)^].
 
-In addition, there is a need to be able to provide:
-
-* multi-lingual translations for symbolic variables, in a similar way to the {openehr_am_adl2}[openEHR Archetype Definition Language (ADL2)^];
-* bindings that connect variables to external data sources;
-* an ability to use externally defined information models that supply types that may be used in EL statements.
-
-== Design Paradigm
+== Execution Model
 
 The assumed execution model of the Expression language is that EL statements are evaluated by an _evaluator_ against a _data context_, which determines the truth values of the expression(s). The data context is the origin for some or all of the variables mentioned in the expressions, which may be read from and written to. It may concretely be a retrieved data structure, or data via an API call to the EHR, demographics, laboratory system etc.
 
-The data context may be specified in two ways. It may be visible within the artefact or computing context in which the EL statements appear, or it may be specified explicitly. In the first case, the EL instance is minimally a value-returning logical proposition such as `$systolic_pressure > 0`. This is shown below.
+The data context may be specified in two ways. It may be inferrable from the artefact or computing context in which the EL statements appear, or it may be specified explicitly. In the former case, the EL instance is minimally a value-returning logical proposition such as `systolic_pressure > 0`, where the declaration of variables or properties such as `systolic_pressure` are inferred from e.g. a data binding, and any manifest values obey this EL specification. The implicit case is shown below.
 
 [.text-center]
-.EL design structure - implicit context
+.EL execution model - implicit context
 image::{diagrams_uri}/EL_design_structure-implicit.svg[id=EL_design_structure_implicit, align="center"]
 
-In the explicit form, an _EL Module_ consisting of multiple _statements_ and an explicit context definition is used, as shown below.
+In the explicit form, an EL expressions appear within a BMM model definition, or within a context that explicitly imports a BMM model.
 
 [.text-center]
-.EL design structure - explicit context
+.EL execution model - explicit context
 image::{diagrams_uri}/EL_design_structure-explicit.svg[id=EL_design_structure_explicit, align="center"]
 
-In both cases, the result of parsing into computable form for evaluation must result in an instance of the Expression Language Object Model (ELOM), which will include instances of BMM classes, as these are used to represent the definitions of which expression elements (function calls, variable references etc) are _uses_.
-
-This specification first describes the elements of the EL expression syntax, then the ELOM.
+In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.
 
 == Expressions and Ontic Truth
 
