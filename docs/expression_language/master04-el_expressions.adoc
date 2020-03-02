@@ -15,8 +15,6 @@ Formally, an openEHR EL expression is any of the following evaluable entities:
 
 These correspond to the meta-types defined in the {openehr_bmm}##_expressions[BMM `expression` package^], each of which is described in detail in the following sub-sections.
 
-EL is not intended for writing functions or classes, rather it is designed as a minimalist logic-based language in which expressions can be written, but whose programming is undertaken inside libraries in existing programming languages. Routine declarations in EL are the primary mechanism to connect external software libraries to the EL context. In EL, both functions and procedures are supported, and are collectively known as _routines_.
-
 == Terminal Entities
 
 Terminal entities in EL correspond to the `EL_TERMINAL` meta-type in BMM, and its descendants. These come in three categories: 
@@ -31,7 +29,7 @@ The following sub-sections describe these types.
 
 ==== Literals
 
-Literal values are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN syntax^], with the exception of `List<T>` and `Set<T>` which are distinguished in EL with specific types of brackets. The corresponding classes are described in the {openehr_foundation_types}[openEHR Foundation Types specification^].
+Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN syntax^], with the exception of `List<T>`, `Set<T>` and `Hash<>`, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the {openehr_foundation_types}[openEHR Foundation Types specification^].
 
 [cols="1,2,3",options="header"]
 |=================================================================
@@ -39,43 +37,49 @@ Literal values are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN
 
 | `Boolean`             |`True`, `False`                        |
 |                       |                                       |
-| `Integer`             |`10`, `-4`, `1024`                     |Signed values from −2^31^ to 2^31^-1
-| `Real`                |`10.0`, `0.345`                        |Signed values from 3.4028235 × 10^38^
-| `Double`              |`10`, `-4`, `1024`                     |
+| `Integer`             |`10`, `-4`, `1024`                     |Signed integer values from −2^31^ to 2^31^-1
+| `Real`                |`10.0`, `0.345`                        |Signed real values from 3.4028235 × 10^38^
+| `Double`              |`10.0`, `0.345`                        |Double precision real values
 |                       |                                       |
 | `Date`                |`2004-08-12`                           |ISO 8601-format date
 | `Date_time`           |`2004-08-12T12:00:59+0100`             |ISO 8601-format date/time
 | `Time`                |`12:00:59`                             |ISO 8601-format time
-| `Duration`            |`P39W`                                 |ISO 8601-format duration
+| `Duration`            |`P2Y8M`                                |ISO 8601-format duration
 |                       |                                       |
 | `String`              |`"this is a string"`                   |
-|                       |`[blood_pressure]`                     |Extract the string value for the symbol `blood_pressure` from the EL terminology
 | `Uri`                 |`https://en.wikipedia.org/wiki/Everest`|Uri in {rfc3986}[IETF RFC 3986^] format
 | `Terminology_code`    |`[snomed_ct::389086002]` +
                          `[snomed_ct::389086002\|Hypoxia\|]`    |Terminology code in openEHR format
 |                       |                                       |
-| `List<T>`             |`[val, val, ...]`                      |
+| `Array<T>`            |`[val, val, ...]`                      |
+| `List<T>`             |`(val, val, ...)`                      |
 | `Set<T>`              |`{val, val, ...}`                      |
-| `Hash<K:Ordered, V>`  |`< +
-                              ["key1"] = <val1> +
-                              ["key2"] = <val2> +
+| `Hash<K:Ordered, V>`  |`{ +
+                              "key1" = <val1> +
+                              "key2" = <val2> +
                               ... +
-                              ["keyN"] = <valN> +
-                         >`                                     |A table of values of any type V, +
+                              "keyN" = <valN> +
+                         }`                                     |A table of values of any type V, +
                                                                  keyed by values of any `Ordered` descendant K, +
-                                                                 typically `String` or `Integer`
+                                                                 typically `String` or `Integer`. `<valN>` +
+                                                                 are of any other types.
 |                       |                                       |
 | `Interval<T>`         |                                       |
-|                       |`\|N..M\|`                             |the two-sided interval N >= x \<= M
-|                       |`\|>N..M\|`                            |the two-sided interval N > x \<= M
-|                       |`\|N..<M\|`                            |the two-sided interval N >= x < M
+|                       |`\|N..M\|`                             |the two-sided interval N ≥ x ≤ M
+|                       |`\|>N..M\|`                            |the two-sided interval N > x ≤ M
+|                       |`\|N..<M\|`                            |the two-sided interval N ≥ x < M
 |                       |`\|<N\|`                               |the one-sided interval x < N
 |                       |`\|>N\|`                               |the one-sided interval x > N
-|                       |`\|\<=N\|`                             |the one-sided interval x \<= N
-|                       |`\|>=N\|`                              |the one-sided interval x >= N
+|                       |`\|\<=N\|`                             |the one-sided interval x ≤ N
+|                       |`\|>=N\|`                              |the one-sided interval x ≥ N
 |                       |`\|N +/-M\|`                           |the two-sided interval of N ±M
 |                       |`\|N±M\|`                              |the two-sided interval of N ±M
 |=================================================================
+
+One exception to the above is tuples, which are direct instances of the BMM meta-type `BMM_TUPLE`. They take the literal form `[a, b, c]`, where `a`, `b`, and `c` are generally of different types.
+
+[.tbd]
+TBD: consider to not bother with `Array` and reserve `[]` for tuples.
 
 ==== Constants
 
@@ -89,7 +93,11 @@ Constants are syntactically represented using labels of which the first letter i
 
 ==== Variables
 
-Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as `is_smoker`. An EL variable reference corresponds to a descendant of the BMM meta-type `EL_INSTANTIABLE_REF<BMM_VARIABLE>`, either `EL_INSTANTIABLE_REF<BMM_PARAMETER>` (declared in the routine signature) or `EL_INSTANTIABLE_REF<BMM_LOCAL>` (declared as a routine local variable).
+Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as `is_smoker`. An EL variable reference corresponds to a descendant of the BMM meta-type `EL_INSTANTIABLE_REF<BMM_VARIABLE>`, i.e. one of:
+
+* `EL_INSTANTIABLE_REF<BMM_PARAMETER>` (declared in the routine signature);
+* `EL_INSTANTIABLE_REF<BMM_LOCAL>` (declared as a routine local variable); or
+* `EL_INSTANTIABLE_REF<BMM_RESULT>` (the variable `Result` representing a function return value).
 
 ==== Property References
 
@@ -129,30 +137,40 @@ As a consequence, the total set of available utility functions for use in an EL 
     {Locale}.language                                       // the primary language in the locale as a Coded_term
 ----
 
+==== Container Item Access
+
+Access to members of instances of a container type is achieved by operators that are aliases for functions defined on the relevant types, as follows.
+
+[cols="1,3,3",options="header"]
+|=================================================================
+|Operator        |Function   	                              |Meaning
+                               
+|`[i]`            |`Array<T>.item(i: Integer): T`              |i-th element of an array; 1-based
+|`[i]`            |`List<T>.item(i: Integer): T`               |i-th element of a list; 1-based
+|`[k]`            |`Hash<K,V>.item(i: Integer): V`             |element at key k of a hash
+
+|=================================================================
+
+Container element access may be used on any expression whose effective type is a container, including function calls.
+
 ==== Self Reference
 
 As with many programming languages, a pre-defined reference to the current object is available via the plain name `self`. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.
 
 === Predicates
 
-EL predicates are special meta-operators that enable execution to be modified depending on the truth values and availability of referenced data items.
+EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).
 
-==== defined() Predicate
+==== attached() Predicate
 
-[.tbd]
-TBD: to be rewritten
+The `attached()` predicate is the EL equivalent of the expressions such as `someVar == null` (C, C++, C#, Java), `some_var is None` (Python) and similar. In EL, a reference is understood as being _attached_ (or not) to a value. Attached status is therefore tested using `attached(ref)`, and may be applied to any target of a {openehr_bmm}#_expressions[BMM `EL_INSTANCE_REF`^], which includes references to variables, properties, constants, functions and tuples.
 
-Variables that are bound to entities in the data context function differently from local variables, since their availability is predicated on the existence of the relevant entities. For example, the variable `body_weight` may be bound to a call that retrieves a patient weight from the EHR, via an appropriate API call. There is no guarantee that the value is available, so `body_weight` may therefore be undefined in a sense not applicable to local variables. In a programming language, if a variable is not explicitly set, it has either the default value of the type (e.g. `0` for `Integer`) or a random value of the correct type. This behaviour is appropriate for local variables, but for external variables that cannot be evaluated because the external entity does not exist, an explicit mechanism is needed to test for validity.
+`Attached()` returns a Boolean value, and thus may be negated, to form expressions such as:
 
-The approach used for EL is to allow external variables to be used freely, as for local variables, but if an external variable cannot be evaluated from the data context, an `'undefined value'` exception is generated, indicating which variable could not be evaluated. The `defined()` predicate provides a way of making an explicit check to avoid an exception, as follows.
-
+[source,typescript]
 ----
-    if defined (heart_rate) and defined (blood_pressure) then
-        -- statements mentioning heart_rate and blood_pressure
-    end
+    not attached (test_result) or else test_result.data.events[1].data.value > 6.5
 ----
-
-Another difference between external and local variables is when they are evaluated. In the execution of a larger EL Module containing multiple mentions of an external variable `v`, is `v` read from the data context only once, at the first mention, or is it evaluated new each time, or on some other basis? The approach used in EL is to allow the evaluation basis to be stated in the context binding section of an EL Module using the `_currency_` property.
 
 === Agents
 
@@ -237,7 +255,7 @@ For convenience, the operators for the `Numeric` and `Boolean` types from the {o
 |`not_equal()`              |`!=`, `≠`     |Inequality relation
 |`less_than()`              |`<`           |Less than relation
 |`less_than_or_equal()`     |`\<=`, `≤`    |Less than or equal relation
-|`greater_than()`           |`>`     `     |Greater than relation
+|`greater_than()`           |`>`           |Greater than relation
 |`greater_than_or_equal()`  |`>=`, `≥`     |Greater than or equal relation
 
 3+^h|Logical Operators - Boolean operands and result; descending precendence order
@@ -250,7 +268,7 @@ For convenience, the operators for the `Numeric` and `Boolean` types from the {o
 
 |=================================================================
 
-In addition, some operators are defined on the other primitive types, including the following.
+In addition, some operators are defined on the other primitive types, including the following on the `time` types.
 
 [cols="1,4,2",options="header"]
 |=================================================================

@@ -39,7 +39,6 @@
 <li><a href="#_design_background">2.1. Design Background</a></li>
 <li><a href="#_requirements">2.2. Requirements</a></li>
 <li><a href="#_execution_model">2.3. Execution Model</a></li>
-<li><a href="#_expressions_and_ontic_truth">2.4. Expressions and Ontic Truth</a></li>
 </ul>
 </li>
 <li><a href="#_el_basics">3. EL Basics</a>
@@ -69,12 +68,13 @@
 <li><a href="#_property_references">4.2.1.4. Property References</a></li>
 <li><a href="#_function_calls">4.2.1.5. Function Calls</a></li>
 <li><a href="#_built_in_functions">4.2.1.6. 'Built-in' Functions</a></li>
-<li><a href="#_self_reference">4.2.1.7. Self Reference</a></li>
+<li><a href="#_container_item_access">4.2.1.7. Container Item Access</a></li>
+<li><a href="#_self_reference">4.2.1.8. Self Reference</a></li>
 </ul>
 </li>
 <li><a href="#_predicates">4.2.2. Predicates</a>
 <ul class="sectlevel4">
-<li><a href="#_defined_predicate">4.2.2.1. defined() Predicate</a></li>
+<li><a href="#_attached_predicate">4.2.2.1. attached() Predicate</a></li>
 </ul>
 </li>
 <li><a href="#_agents">4.2.3. Agents</a></li>
@@ -199,15 +199,15 @@
 <p><a href="https://specifications.openehr.org/tickets/SPECLANG-1" target="_blank" rel="noopener">SPECLANG-1</a>. Add Expression Language specification.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>19 Feb 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>03 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Update to be based on BMM <code>expression</code>.</p>
+<p>Update to be based on BMM <code>expression</code> package.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">02 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">03 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -397,13 +397,32 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntax variants are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc.</p>
+<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntaxes are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc. Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
 </div>
 <div class="paragraph">
-<p>Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
+<p>Within openEHR, the uses of EL include expressing the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>pre-, post-conditions and class invariants in BMM model definition files;</p>
+</li>
+<li>
+<p>rules in archetypes;</p>
+</li>
+<li>
+<p>rules in openEHR <a href="https://specifications.openehr.org/releases/CDS/latest/GDL2.html" target="_blank" rel="noopener">Guideline Definition Language (GDL)</a>;</p>
+</li>
+<li>
+<p>expressions within decision logic models (DLMs) designed for use with openEHR <a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html" target="_blank" rel="noopener">Task Planning</a>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Key features of the formalism include:</p>
+<p>It may also be used in any other suitable context.</p>
+</div>
+<div class="paragraph">
+<p>Key features of EL include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -430,12 +449,12 @@
 <div class="sect2">
 <h3 id="_design_background"><a class="anchor" href="#_design_background"></a>2.1. Design Background</h3>
 <div class="paragraph">
-<p>The openEHR Expression formalism is based on a limited first-order predicate logic language with extensions for numeric sub-expressions. It has similarities with OMG&#8217;s OCL (Object Constraint Language) syntax, and is also similar to the assertion syntax used in the <a href="#Object_Z">Smith (2000)</a> language (see <a href="#Sowa2000">Sowa (2000)</a>, <a href="#Hein2002">Hein (2002)</a>, <a href="#Kilov1994">Kilov &amp; Ross (1994)</a> for an explanation of predicate logic in information modelling). It is not exactly the same as any of these languages because:</p>
+<p>The openEHR Expression Language is based on a limited first-order predicate logic language. It has similarities with <a href="https://www.omg.org//spec/OCL/" target="_blank" rel="noopener">OMG&#8217;s OCL (Object Constraint Language)</a>, and to the assertion syntax used in the Object-Z language (<a href="#Object_Z">Smith&#44; 2000</a>). See <a href="#Sowa2000">Sowa (2000)</a>, <a href="#Hein2002">Hein (2002)</a>, <a href="#Kilov1994">Kilov &amp; Ross (1994)</a> for an explanation of predicate logic in information modelling. It also draws on the semantics and some of the syntax (particularly agent-related) of the Eiffel Language (<a href="http://www.ecma-international.org/publications/standards/Ecma-367.htm" target="_blank" rel="noopener">ECMA-367</a>). It is not exactly the same as any of these languages because:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>it has a different target meta-model, namely the BMM <code>expression</code> package;</p>
+<p>it has a different target meta-model, namely the BMM <code>expression</code> model;</p>
 </li>
 <li>
 <p>the syntax is designed to be comprehensible to developers familiar with modern mainstream object-oriented and functional languages such as Java, C#, Python, TypeScript etc.</p>
@@ -474,12 +493,6 @@
 </div>
 <div class="paragraph">
 <p>In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_expressions_and_ontic_truth"><a class="anchor" href="#_expressions_and_ontic_truth"></a>2.4. Expressions and Ontic Truth</h3>
-<div class="paragraph">
-<p>No assumption is made about whether the data context used is complete or faithful to reality. Consequently, the <em>expression universe</em> is technically speaking an 'open world' in the sense of the <a href="https://en.wikipedia.org/wiki//Open-world_assumption" target="_blank" rel="noopener">open-world assumption</a>. However, higher-level applications or components (or users) may have sufficient knowledge about the data as to be able to treat it in a closed world fashion, for example to treat absence of X as negation of X.</p>
 </div>
 </div>
 </div>
@@ -521,7 +534,7 @@
 <p>An important implementation consequence of this approach is that an expression that is parsed to a classic operator-based AST may be evaluated by progressively searching for operator-aliased functions within the model definition, invoking with the arguments found in the AST structure, and returning Results for the next such computation. Of course, use of built-in native types and functions  (rather than always dispatching via a BMM) to handle primitive type operators is likely to be used in the interests of efficiency. Function-matching can be implemented by matching the inferred signature of the operator and its argument(s) with functions having both a conformant (not necessarily identical) signature, and the same operator.</p>
 </div>
 <div class="paragraph">
-<p>Such model definitions will therefore include primitive type definitions, either the openEHR <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">Foundation Types</a>, i.e. primitive types, container types and interval types, or ones that correspond very closely. In the interests of completeness, EL <em>assumes</em> the openEHR Foundation Types, so as to provide syntax and grammar for them.</p>
+<p>Such model definitions will therefore include primitive type definitions, either the openEHR <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">Foundation Types</a>, i.e. primitive types, container types and interval types, or ones that correspond very closely. In the interests of completeness, EL <em>assumes</em> the openEHR Foundation Types, so as to have a minimal basis.</p>
 </div>
 </div>
 <div class="sect2">
@@ -651,9 +664,6 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph tbd">
-<p>TBD: the following is functional style; we would need keywords to enable it in the EL syntax, e.g. <code>has</code> etc. Also, <code>has()</code> can be done via <code>there_exists()</code>.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_interval_type"><a class="anchor" href="#_interval_type"></a>3.3.3. Interval Type</h4>
@@ -693,7 +703,7 @@
 <div class="sect3">
 <h4 id="_complex_types"><a class="anchor" href="#_complex_types"></a>3.3.4. Complex Types</h4>
 <div class="paragraph">
-<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any fomral equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
+<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
 </div>
 </div>
 </div>
@@ -746,9 +756,6 @@
 <div class="paragraph">
 <p>These correspond to the meta-types defined in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html##_expressions" target="_blank" rel="noopener">BMM <code>expression</code> package</a>, each of which is described in detail in the following sub-sections.</p>
 </div>
-<div class="paragraph">
-<p>EL is not intended for writing functions or classes, rather it is designed as a minimalist logic-based language in which expressions can be written, but whose programming is undertaken inside libraries in existing programming languages. Routine declarations in EL are the primary mechanism to connect external software libraries to the EL context. In EL, both functions and procedures are supported, and are collectively known as <em>routines</em>.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>4.2. Terminal Entities</h3>
@@ -776,7 +783,7 @@
 <div class="sect4">
 <h5 id="_literals"><a class="anchor" href="#_literals"></a>4.2.1.1. Literals</h5>
 <div class="paragraph">
-<p>Literal values are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code> and <code>Set&lt;T&gt;</code> which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
+<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Hash&lt;&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -805,17 +812,17 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code>, <code>-4</code>, <code>1024</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Signed values from −2<sup>31</sup> to 2<sup>31</sup>-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signed integer values from −2<sup>31</sup> to 2<sup>31</sup>-1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Signed values from 3.4028235 × 10<sup>38</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signed real values from 3.4028235 × 10<sup>38</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Double</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code>, <code>-4</code>, <code>1024</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Double precision real values</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -839,7 +846,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Duration</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>P39W</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>P2Y8M</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ISO 8601-format duration</p></td>
 </tr>
 <tr>
@@ -851,11 +858,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"this is a string"</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[blood_pressure]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extract the string value for the symbol <code>blood_pressure</code> from the EL terminology</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
@@ -874,8 +876,13 @@
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array&lt;T&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>[val, val, &#8230;&#8203;]</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(val, val, &#8230;&#8203;)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -885,15 +892,16 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K:Ordered, V&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;<br>
-                              ["key1"] = &lt;val1&gt;<br>
-                              ["key2"] = &lt;val2&gt;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{<br>
+                              "key1" = &lt;val1&gt;<br>
+                              "key2" = &lt;val2&gt;<br>
                               &#8230;&#8203;<br>
-                              ["keyN"] = &lt;valN&gt;<br>
-                         &gt;</code></p></td>
+                              "keyN" = &lt;valN&gt;<br>
+                         }</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A table of values of any type V,<br>
                                                                  keyed by values of any <code>Ordered</code> descendant K,<br>
-                                                                 typically <code>String</code> or <code>Integer</code></p></td>
+                                                                 typically <code>String</code> or <code>Integer</code>. <code>&lt;valN&gt;</code><br>
+                                                                 are of any other types.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -908,17 +916,17 @@
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N..M|</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt;= x &lt;= M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N ≥ x ≤ M</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;N..M|</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt; x &lt;= M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt; x ≤ M</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N..&lt;M|</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt;= x &lt; M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N ≥ x &lt; M</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -933,12 +941,12 @@
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&lt;=N|</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &lt;= N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x ≤ N</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;=N|</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &gt;= N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x ≥ N</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -952,6 +960,12 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>One exception to the above is tuples, which are direct instances of the BMM meta-type <code>BMM_TUPLE</code>. They take the literal form <code>[a, b, c]</code>, where <code>a</code>, <code>b</code>, and <code>c</code> are generally of different types.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: consider to not bother with <code>Array</code> and reserve <code>[]</code> for tuples.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_constants"><a class="anchor" href="#_constants"></a>4.2.1.2. Constants</h5>
@@ -968,7 +982,20 @@
 <div class="sect4">
 <h5 id="_variables"><a class="anchor" href="#_variables"></a>4.2.1.3. Variables</h5>
 <div class="paragraph">
-<p>Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as <code>is_smoker</code>. An EL variable reference corresponds to a descendant of the BMM meta-type <code>EL_INSTANTIABLE_REF&lt;BMM_VARIABLE&gt;</code>, either <code>EL_INSTANTIABLE_REF&lt;BMM_PARAMETER&gt;</code> (declared in the routine signature) or <code>EL_INSTANTIABLE_REF&lt;BMM_LOCAL&gt;</code> (declared as a routine local variable).</p>
+<p>Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as <code>is_smoker</code>. An EL variable reference corresponds to a descendant of the BMM meta-type <code>EL_INSTANTIABLE_REF&lt;BMM_VARIABLE&gt;</code>, i.e. one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EL_INSTANTIABLE_REF&lt;BMM_PARAMETER&gt;</code> (declared in the routine signature);</p>
+</li>
+<li>
+<p><code>EL_INSTANTIABLE_REF&lt;BMM_LOCAL&gt;</code> (declared as a routine local variable); or</p>
+</li>
+<li>
+<p><code>EL_INSTANTIABLE_REF&lt;BMM_RESULT&gt;</code> (the variable <code>Result</code> representing a function return value).</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect4">
@@ -1021,7 +1048,47 @@
 </div>
 </div>
 <div class="sect4">
-<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.1.7. Self Reference</h5>
+<h5 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.2.1.7. Container Item Access</h5>
+<div class="paragraph">
+<p>Access to members of instances of a container type is achieved by operators that are aliases for functions defined on the relevant types, as follows.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Operator</th>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[i]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array&lt;T&gt;.item(i: Integer): T</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i-th element of an array; 1-based</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[i]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;.item(i: Integer): T</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i-th element of a list; 1-based</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[k]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K,V&gt;.item(i: Integer): V</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">element at key k of a hash</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Container element access may be used on any expression whose effective type is a container, including function calls.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.1.8. Self Reference</h5>
 <div class="paragraph">
 <p>As with many programming languages, a pre-defined reference to the current object is available via the plain name <code>self</code>. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
 </div>
@@ -1030,28 +1097,20 @@
 <div class="sect3">
 <h4 id="_predicates"><a class="anchor" href="#_predicates"></a>4.2.2. Predicates</h4>
 <div class="paragraph">
-<p>EL predicates are special meta-operators that enable execution to be modified depending on the truth values and availability of referenced data items.</p>
+<p>EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).</p>
 </div>
 <div class="sect4">
-<h5 id="_defined_predicate"><a class="anchor" href="#_defined_predicate"></a>4.2.2.1. defined() Predicate</h5>
-<div class="paragraph tbd">
-<p>TBD: to be rewritten</p>
+<h5 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.2.2.1. attached() Predicate</h5>
+<div class="paragraph">
+<p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached(ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
 <div class="paragraph">
-<p>Variables that are bound to entities in the data context function differently from local variables, since their availability is predicated on the existence of the relevant entities. For example, the variable <code>body_weight</code> may be bound to a call that retrieves a patient weight from the EHR, via an appropriate API call. There is no guarantee that the value is available, so <code>body_weight</code> may therefore be undefined in a sense not applicable to local variables. In a programming language, if a variable is not explicitly set, it has either the default value of the type (e.g. <code>0</code> for <code>Integer</code>) or a random value of the correct type. This behaviour is appropriate for local variables, but for external variables that cannot be evaluated because the external entity does not exist, an explicit mechanism is needed to test for validity.</p>
-</div>
-<div class="paragraph">
-<p>The approach used for EL is to allow external variables to be used freely, as for local variables, but if an external variable cannot be evaluated from the data context, an <code>'undefined value'</code> exception is generated, indicating which variable could not be evaluated. The <code>defined()</code> predicate provides a way of making an explicit check to avoid an exception, as follows.</p>
+<p><code>Attached()</code> returns a Boolean value, and thus may be negated, to form expressions such as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    if defined (heart_rate) and defined (blood_pressure) then
-        -- statements mentioning heart_rate and blood_pressure
-    end</pre>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">not</span> <span class="tok-nx">attached</span> <span class="tok-p">(</span><span class="tok-nx">test_result</span><span class="tok-p">)</span> <span class="tok-nx">or</span> <span class="tok-k">else</span> <span class="tok-nx">test_result</span><span class="tok-p">.</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">events</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">].</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">value</span> <span class="tok-o">&gt;</span> <span class="tok-mf">6.5</span></code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Another difference between external and local variables is when they are evaluated. In the execution of a larger EL Module containing multiple mentions of an external variable <code>v</code>, is <code>v</code> read from the data context only once, at the first mention, or is it evaluated new each time, or on some other basis? The approach used in EL is to allow the evaluation basis to be stated in the context binding section of an EL Module using the <code><em>currency</em></code> property.</p>
 </div>
 </div>
 </div>
@@ -1206,7 +1265,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater_than()</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code>     `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Greater than relation</p></td>
 </tr>
 <tr>
@@ -1245,7 +1304,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition, some operators are defined on the other primitive types, including the following.</p>
+<p>In addition, some operators are defined on the other primitive types, including the following on the <code>time</code> types.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
