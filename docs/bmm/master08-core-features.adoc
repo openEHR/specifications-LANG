@@ -265,6 +265,10 @@ Creators and converters might be distinguished among other procedures in an abst
     }
 ----
 
+=== Routine Implementation
+
+BMM supports the definition of statements, i.e. implementation within a `ROUTINE`. This is described in detail in <<_routine_implementation>>.
+
 == Variables
 
 At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively.

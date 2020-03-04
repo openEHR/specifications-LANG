@@ -214,6 +214,7 @@
 <ul class="sectlevel3">
 <li><a href="#_pre_and_post_conditions">8.4.1. Pre- and Post-conditions</a></li>
 <li><a href="#_creators_and_converters">8.4.2. Creators and Converters</a></li>
+<li><a href="#_routine_implementation">8.4.3. Routine Implementation</a></li>
 </ul>
 </li>
 <li><a href="#_variables">8.5. Variables</a></li>
@@ -321,14 +322,25 @@
 <li><a href="#_calls">11.3. Calls</a></li>
 </ul>
 </li>
-<li><a href="#_model_semantics">12. Model Semantics</a>
+<li><a href="#_routine_implementation_2">12. Routine Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#inheritance_semantics">12.1. Inheritance</a>
+<li><a href="#_overview_11">12.1. Overview</a></li>
+<li><a href="#_class_descriptions_2">12.2. Class Descriptions</a>
 <ul class="sectlevel3">
-<li><a href="#_simple_inheritance">12.1.1. Simple Inheritance</a></li>
-<li><a href="#_generic_inheritance">12.1.2. Generic Inheritance</a></li>
-<li><a href="#_multiple_inheritance">12.1.3. Multiple Inheritance</a></li>
-<li><a href="#_inheritance_and_invariants_pre_conditions_and_post_conditions">12.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</a></li>
+<li><a href="#_bmm_statement_block_class">12.2.1. BMM_STATEMENT_BLOCK Class</a></li>
+<li><a href="#_bmm_statement_class">12.2.2. BMM_STATEMENT Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_model_semantics">13. Model Semantics</a>
+<ul class="sectlevel2">
+<li><a href="#inheritance_semantics">13.1. Inheritance</a>
+<ul class="sectlevel3">
+<li><a href="#_simple_inheritance">13.1.1. Simple Inheritance</a></li>
+<li><a href="#_generic_inheritance">13.1.2. Generic Inheritance</a></li>
+<li><a href="#_multiple_inheritance">13.1.3. Multiple Inheritance</a></li>
+<li><a href="#_inheritance_and_invariants_pre_conditions_and_post_conditions">13.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</a></li>
 </ul>
 </li>
 </ul>
@@ -445,6 +457,7 @@
  Add abstract syntax examples to text;<br>
  Add description of default <code>Any</code> class and type;<br>
  Add creators and converters;<br>
+ Add <code>ROUTINE.<em>body</em></code> hook;<br>
  Add <code>EL_RESULT_REF</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">04 Mar 2020</p></td>
@@ -4162,7 +4175,7 @@ a_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_inheritance"><a class="anchor" href="#_inheritance"></a>7.7. Inheritance</h3>
 <div class="paragraph">
-<p>Inheritance in BMM is a relation between a class and one or more types, rather than classes, as in many class-based formalisms. This is primarily to allow classes to be based on specific generic types, rather than just the 'open' type represented by the underlying classes. Multiple inheritance is permitted, with same-named features from different types being treated as clashes needing resolution. See <a href="#inheritance_semantics">Section 12.1</a> for a detailed description.</p>
+<p>Inheritance in BMM is a relation between a class and one or more types, rather than classes, as in many class-based formalisms. This is primarily to allow classes to be based on specific generic types, rather than just the 'open' type represented by the underlying classes. Multiple inheritance is permitted, with same-named features from different types being treated as clashes needing resolution. See <a href="#inheritance_semantics">Section 13.1</a> for a detailed description.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4832,7 +4845,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect3">
 <h4 id="_synthesis_due_to_generic_parameter_substitution"><a class="anchor" href="#_synthesis_due_to_generic_parameter_substitution"></a>8.1.7. Synthesis due to Generic Parameter Substitution</h4>
 <div class="paragraph">
-<p>Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag <code><em>is_synthesised_generic</em></code> on the class <code>BMM_CLASS_ENTITY</code> to mark any such synthesised feature. An example of the use of this is described below in <a href="#_generic_inheritance">Section 12.1.2</a>.</p>
+<p>Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag <code><em>is_synthesised_generic</em></code> on the class <code>BMM_CLASS_ENTITY</code> to mark any such synthesised feature. An example of the use of this is described below in <a href="#_generic_inheritance">Section 13.1.2</a>.</p>
 </div>
 </div>
 </div>
@@ -5106,6 +5119,12 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
             <span class="tok-nx">procedure</span> <span class="tok-nx">set_day</span> <span class="tok-p">(</span><span class="tok-nx">a_day</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
     <span class="tok-p">}</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_routine_implementation"><a class="anchor" href="#_routine_implementation"></a>8.4.3. Routine Implementation</h4>
+<div class="paragraph">
+<p>BMM supports the definition of statements, i.e. implementation within a <code>ROUTINE</code>. This is described in detail in <a href="#_routine_implementation">Section 8.4.3</a>.</p>
 </div>
 </div>
 </div>
@@ -5668,6 +5687,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>body</strong>: <code>BMM_STATEMENT_BLOCK</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Body of a routine, i.e. executable program.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -7740,12 +7766,101 @@ probably to be removed.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>12. Model Semantics</h2>
+<h2 id="_routine_implementation_2"><a class="anchor" href="#_routine_implementation_2"></a>12. Routine Implementation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="inheritance_semantics"><a class="anchor" href="#inheritance_semantics"></a>12.1. Inheritance</h3>
+<h3 id="_overview_11"><a class="anchor" href="#_overview_11"></a>12.1. Overview</h3>
+<div class="paragraph">
+<p>BMM provides a hook for defining routine implementations, i.e. add a routine <em>body</em> consisting of <em>statements</em>. This is formalised using two classes <code>BMM_STATEMENT_BLOCK</code> and <code>BMM_STATEMENT</code>, as shown in the UML view below.</p>
+</div>
+<div id="LANG-routine_definition" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-bmm.core.feature-routine.svg" alt="LANG bmm.core.feature routine">
+</div>
+<div class="title">Figure 36. Features for routine definition</div>
+</div>
+<div class="paragraph">
+<p>The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.</p>
+</div>
+<div class="paragraph">
+<p>This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_2"><a class="anchor" href="#_class_descriptions_2"></a>12.2. Class Descriptions</h3>
 <div class="sect3">
-<h4 id="_simple_inheritance"><a class="anchor" href="#_simple_inheritance"></a>12.1.1. Simple Inheritance</h4>
+<h4 id="_bmm_statement_block_class"><a class="anchor" href="#_bmm_statement_block_class"></a>12.2.1. BMM_STATEMENT_BLOCK Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_STATEMENT_BLOCK</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A 'block' corresponding to the programming language concept of the same name. May be used to establish scope for specific languages.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>statements</strong>: <code>List&lt;BMM_STATEMENT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Statements contained within this block.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>blocks</strong>: <code>List&lt;BMM_STATEMENT_BLOCK&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Child blocks of the current block.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_statement_class"><a class="anchor" href="#_bmm_statement_class"></a>12.2.2. BMM_STATEMENT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_STATEMENT (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of 'statement' types that may be defined to specify a language for implementing BMM Routines.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>13. Model Semantics</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="inheritance_semantics"><a class="anchor" href="#inheritance_semantics"></a>13.1. Inheritance</h3>
+<div class="sect3">
+<h4 id="_simple_inheritance"><a class="anchor" href="#_simple_inheritance"></a>13.1.1. Simple Inheritance</h4>
 <div class="paragraph">
 <p>The BMM supports single and multiple inheritance, although it does not distinguish between different types of inheritance relation as some programming languages do. Inheritance is formally defined to be between a class definition (an instance of <code>BMM_CLASS</code>) and a defined type, i.e. a <code>BMM_SIMPLE_TYPE</code> or <code>BMM_GENERIC_TYPE</code>. This is because the inheritance parents of a class may be any of:</p>
 </div>
@@ -7772,7 +7887,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 36. BMM class - ancestors view</div>
+<div class="title">Figure 37. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -7781,11 +7896,11 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 37. BMM class - descendants view</div>
+<div class="title">Figure 38. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generic_inheritance"><a class="anchor" href="#_generic_inheritance"></a>12.1.2. Generic Inheritance</h4>
+<h4 id="_generic_inheritance"><a class="anchor" href="#_generic_inheritance"></a>13.1.2. Generic Inheritance</h4>
 <div class="paragraph">
 <p>Inheritance between generic classes works in the same way as for simple classes, with the additional semantics of formal parameter inheritance, which are as follows:</p>
 </div>
@@ -7806,7 +7921,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 38. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 39. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -7818,7 +7933,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 39. Generic inheritance, closed</div>
+<div class="title">Figure 40. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -7830,7 +7945,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 40. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 41. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -7839,11 +7954,11 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 41. Generic inheritance, open parameter</div>
+<div class="title">Figure 42. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multiple_inheritance"><a class="anchor" href="#_multiple_inheritance"></a>12.1.3. Multiple Inheritance</h4>
+<h4 id="_multiple_inheritance"><a class="anchor" href="#_multiple_inheritance"></a>13.1.3. Multiple Inheritance</h4>
 <div class="paragraph">
 <p>Multiple inheritance is typically used in the definition of classes that have a Liskov substitution inheritance relation as well as a re-use inheritance relation. The following shows a class <code>DV_INTERVAL&lt;T&gt;</code> multiply inheriting from <code>Interval&lt;T&gt;</code> and <code>DATA_VALUE</code>, where the latter is considered the substitutable type, and the former an interface re-use.</p>
 </div>
@@ -7851,11 +7966,11 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 42. Multiple inheritance</div>
+<div class="title">Figure 43. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_inheritance_and_invariants_pre_conditions_and_post_conditions"><a class="anchor" href="#_inheritance_and_invariants_pre_conditions_and_post_conditions"></a>12.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</h4>
+<h4 id="_inheritance_and_invariants_pre_conditions_and_post_conditions"><a class="anchor" href="#_inheritance_and_invariants_pre_conditions_and_post_conditions"></a>13.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</h4>
 <div class="paragraph tbd">
 <p>TBD</p>
 </div>
@@ -7880,7 +7995,7 @@ probably to be removed.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-20 15:18:22 UTC
+Last updated 2020-03-04 16:09:05 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">

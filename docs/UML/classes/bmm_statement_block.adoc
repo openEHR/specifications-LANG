@@ -1,0 +1,22 @@
+=== BMM_STATEMENT_BLOCK Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_STATEMENT_BLOCK*
+
+h|*Description*
+2+a|A 'block' corresponding to the programming language concept of the same name. May be used to establish scope for specific languages.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*statements*: `List<BMM_STATEMENT>`
+a|Statements contained within this block.
+
+h|*0..1*
+|*blocks*: `List<BMM_STATEMENT_BLOCK>`
+a|Child blocks of the current block.
+|===

@@ -1,0 +1,18 @@
+= Routine Implementation
+
+== Overview
+
+BMM provides a hook for defining routine implementations, i.e. add a routine _body_ consisting of _statements_. This is formalised using two classes `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT`, as shown in the UML view below.
+
+[.text-center]
+.Features for routine definition
+image::{uml_diagrams_uri}/LANG-bmm.core.feature-routine.svg[id=LANG-routine_definition, align="center"]
+
+The class `BMM_STATEMENT` is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.
+
+This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.
+
+== Class Descriptions
+
+include::{uml_export_dir}/classes/bmm_statement_block.adoc[]
+include::{uml_export_dir}/classes/bmm_statement.adoc[]

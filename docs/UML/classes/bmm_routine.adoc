@@ -30,6 +30,10 @@ a|
 h|*0..1*
 |*post_conditions*: `List<EL_ASSERTION>`
 a|
+
+h|*0..1*
+|*body*: `BMM_STATEMENT_BLOCK`
+a|Body of a routine, i.e. executable program.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
