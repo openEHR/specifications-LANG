@@ -17,12 +17,14 @@ BMM distinguishes between simple and generic class definitions via two descendan
 The simplest type of class definition in a model is an instance of the meta-type `BMM_SIMPLE_CLASS`, and has a 1:1 relationship with its type. Such classes might be specified in the following abstract syntax:
 
 ----
-    class DvQuantity {
+    class DvQuantity
+    {
         feature
             // feature definitions
     }
     
-    class Observation {
+    class Observation
+    {
         feature
             // feature definitions
     }    
@@ -34,19 +36,22 @@ The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_
 
 ----
     // a primitive generic class with an open type parameter
-    primitive class List <T> {
+    primitive class List <T>
+    {
         feature
             // feature definitions
     }
     
     // a generic class with a constrained type parameter
-    class DvInterval <T:DvOrdered> {
+    class DvInterval <T:DvOrdered>
+    {
         feature
             // feature definitions
     }
     
     // a primitive generic class two type parameters
-    primitive class HashMap <K:Ordered, V> {
+    primitive class HashMap <K:Ordered, V> 
+    {
         feature
             // feature definitions
     }    
@@ -88,7 +93,8 @@ The following shows the same class in an abstract syntax.
 
 ----
     // an Integer-based enumeration
-    enumeration class TASK_LIFECYCLE {
+    enumeration class TASK_LIFECYCLE
+    {
         planned   = 0;
         available = 1;
         cancelled = 2;
@@ -111,7 +117,8 @@ The following shows another enumeration class, this time based on the `String` t
 
 ----
     // a String-based enumeration
-    enumeration class ContractStatus {
+    enumeration class ContractStatus
+    {
         initial   = "Initial";
         cancelled = "Cancelled";
         active    = "Active";
@@ -141,7 +148,8 @@ The following shows a possible abstract syntax value-set type definition.
 
 ----
     // a Value-set type
-    class Document {
+    class Document
+    {
         feature
             property language: CodedText <<"iso::iso_639-2">> [1];
     }
@@ -156,7 +164,8 @@ The following sub-sections describe qualifiers that may be used on any class def
 Any class definition in a BMM model may be marked as 'abstract', to indicate that it cannot be directly instantiated. This qualifier generally maps to the concept of abstract classes in most OOPLs. It may be specified in an abstract syntax as follows.
 
 ----
-    abstract class ENTRY {
+    abstract class ENTRY
+    {
         feature
             // feature definitions
     }
@@ -167,12 +176,14 @@ Any class definition in a BMM model may be marked as 'abstract', to indicate tha
 Class definitions within a BMM model may be marked as 'primitive', enabling them to be visualised and queried as a separate group without otherwise changing the semantics of the entity in the BMM meta-type system. This is normally done to distinguish 'built-in' types used by a model from the classes for which the model was created. An abstract syntax definition may look as follows:
 
 ----
-    primitive class Integer {
+    primitive class Integer 
+    {
         feature
             // feature definitions
     }
     
-    primitive class String {
+    primitive class String
+    {
         feature
             // feature definitions
     }
@@ -194,7 +205,8 @@ The following shows classes with invariants.
 
 ----
     // a class with simple invariants
-    class COMPOSITION {
+    class COMPOSITION
+    {
         feature
             // feature definitions
         
@@ -204,7 +216,8 @@ The following shows classes with invariants.
     }
     
     // a class with more complex invariants
-    class VERSIONED_COMPOSITION {
+    class VERSIONED_COMPOSITION
+    {
         feature
             // feature definitions
         

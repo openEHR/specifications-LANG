@@ -15,4 +15,12 @@ h|*Attributes*
 h|*1..1*
 |*type*: `BMM_TYPE`
 a|Declared or inferred static type of the entity.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*is_boolean* (): `Boolean` +
+*_Post_result_*: `Result = type().equal( {BMM_MODEL}.boolean_type_definition())`
+a|True if `_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `'Boolean'`).
 |===

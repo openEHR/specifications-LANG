@@ -83,7 +83,8 @@ The following abstract syntax illustrates how constants may be defined in a BMM 
 [source,typescript]
 ----
     // a class with simple invariants
-    class BASIC_DEFINITIONS {
+    class BASIC_DEFINITIONS
+    {
         feature
             // some simple constants
             constant CR: Character '\015';
@@ -128,10 +129,10 @@ The following illustrates how various kinds of properties may appear in a BMM mo
 
 [source,typescript]
 ----
-    abstract class ENTRY {
+    abstract class ENTRY
         inherit
             CARE_ENTRY
-
+    {
         feature -- Locale
             association property language: CODE_PHRASE <<"iso::iso_639-2">> [0..1];
             association property encoding: CODE_PHRASE <<"iana::character-sets">> [0..1];
@@ -171,10 +172,10 @@ The following abstract syntax illustrates the various elements of function defin
 
 [source,typescript]
 ----
-    abstract class DV_AMOUNT {
+    abstract class DV_AMOUNT
         inherit
             DV_QUANTIFIED
-
+    {
         feature -- Arithmetic Operations
         
             function equal (other: DV_AMOUNT[1]): Boolean[1] 
@@ -219,8 +220,8 @@ The following shows how a routine contract may be specified in an abstract synta
 
 [source,typescript]
 ----
-    class I_EHR_SERVICE {
-        
+    class I_EHR_SERVICE
+    {
         feature -- Creation
             
             create_ehr_with_id (
@@ -231,6 +232,36 @@ The following shows how a routine contract may be specified in an abstract synta
                     No_duplicate: not has_ehr (an_ehr_id)
                 post_condition
                     Has_ehr: has_ehr (Result)
+    }
+----
+
+=== Creators and Converters
+
+In common with may OOPLs, BMM classes may specify _creators_, i.e. instance-creating procedures, known as 'constructors' in some OOPLs. These are just a subset of all procedures known in `BMM_CLASS._procedures_` that when executed will satisfy the class invariants. A further subset of the creators are single-argument _converters_ which can initialise a new instance from an instance of another type. Converter routines are typically used to support type conversion in expressions, e.g. `String` to `Date` etc. These two subsets are formally defined as the `_creators_` and `_converters_` reference lists of procedures on `BMM_CLASS`, as shown in the following UML view.
+
+[.text-center]
+.Class creators and converters
+image::{uml_diagrams_uri}/LANG-bmm.core.class-creators.svg[id=core_class_creators, align="center"]
+
+Creators and converters might be distinguished among other procedures in an abstract syntax as follows.
+
+[source,typescript]
+----
+    class Date
+        inherit
+            Temporal
+        convert
+            create_from_string
+    {
+        feature -- Creators
+        
+            procedure create_from_string (a_date_str: String[1])
+            
+            procedure create (a_day, a_month, a_year: Integer[1])
+            
+        feature -- Modification
+        
+            procedure set_day (a_day: Integer[1])
     }
 ----
 

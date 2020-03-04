@@ -114,8 +114,8 @@ This indicates that both have a return type, being the type of the value they ar
 The general form of routine signatures is as follows:
 
 ----
-    Function<[T_arg1, T_arg2, ...], T_result>    -- Function type
-    Function<[T_arg1, T_arg2, ...]>              -- Procedure type
+    <[T_arg1, T_arg2, ...], T_result>    -- Function type
+    <[T_arg1, T_arg2, ...]>              -- Procedure type
 ----
 
 In the above, the construction `[Type, ...]` represents a type-tuple.
@@ -123,26 +123,26 @@ In the above, the construction `[Type, ...]` represents a type-tuple.
 Typical examples of function signatures are as follows:
 
 ----
-    Function<[], Date>                          -- a 0-order function like current_date()
-    Function<[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
-    Function<[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
+    <[], Date>                          -- a 0-order function like current_date
+    <[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
+    <[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
 ----
 
 Typical procedure signatures include the following:
 
 ----
-    Procedure<[]>                               -- a 0-order (argumentless) procedure
-    Procedure<[Real]>                           -- a 1st-order procedure for the domain R
-    Procedure<[String, Integer]>                -- a procedure taking a String and an Integer argument
+    <[]>                               -- a 0-order (argumentless) procedure
+    <[Real]>                           -- a 1st-order procedure for the domain R
+    <[String, Integer]>                -- a procedure taking a String and an Integer argument
 ----
 
 In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type.
 
-Two special signatures are used to state the types 'any function' and 'any procedure':
+The following signatures state the types 'any function' and 'any procedure':
 
 ----
-    Function                                    -- any function
-    Procedure                                   -- any procedure
+    Function                             -- any function
+    Procedure                            -- any procedure
 ----
 
 === Conformance
@@ -200,7 +200,8 @@ An algorithm to determine conformance of two type-names (e.g. to implement `BMM_
 
 [source,java]
 --------
-Boolean type_conforms_to (String a_type, anc_type) {
+Boolean type_conforms_to (String a_type, anc_type)
+{
     BMM_TYPE_NAME a_type_name, anc_type_name;
 
     if attached create_type_name_from_string (a_a_type) as a_type_name and

@@ -78,7 +78,8 @@ The `attached` predicate is used to test for an instance reference (including a 
 
 [source,typescript]
 ----
-class SmartRef {
+class SmartRef
+{
     property url: Url;
     property value: Base64String;
     

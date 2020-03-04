@@ -44,13 +44,13 @@
 <li><a href="#_overview">2. Overview</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction">2.1. Introduction</a></li>
-<li><a href="#_current_state_of_the_art">2.2. Current State of the Art</a>
+<li><a href="#_features">2.2. Features</a></li>
+<li><a href="#_current_state_of_the_art">2.3. Current State of the Art</a>
 <ul class="sectlevel3">
-<li><a href="#_uml">2.2.1. UML</a></li>
-<li><a href="#_xml_schema">2.2.2. XML Schema</a></li>
+<li><a href="#_uml">2.3.1. UML</a></li>
+<li><a href="#_xml_schema">2.3.2. XML Schema</a></li>
 </ul>
 </li>
-<li><a href="#_design_approach">2.3. Design Approach</a></li>
 <li><a href="#_computational_model">2.4. Computational Model</a></li>
 <li><a href="#_uses_of_the_bmm">2.5. Uses of the BMM</a>
 <ul class="sectlevel3">
@@ -213,6 +213,7 @@
 <li><a href="#_functions_and_procedures">8.4. Functions and Procedures</a>
 <ul class="sectlevel3">
 <li><a href="#_pre_and_post_conditions">8.4.1. Pre- and Post-conditions</a></li>
+<li><a href="#_creators_and_converters">8.4.2. Creators and Converters</a></li>
 </ul>
 </li>
 <li><a href="#_variables">8.5. Variables</a></li>
@@ -433,7 +434,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>27 Feb 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>04 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -443,9 +444,10 @@
  Add Expression language meta-model;<br>
  Add abstract syntax examples to text;<br>
  Add description of default <code>Any</code> class and type;<br>
+ Add creators and converters;<br>
  Add <code>EL_RESULT_REF</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">27 Feb 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">04 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -744,13 +746,69 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 <p>As a result, openEHR introduced the Basic Meta-Model (BMM) in 2009 as a way of representing correct object-oriented semantics of information models for use in tools, along with a serial format by default expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN syntax</a>.</p>
 </div>
 <div class="paragraph">
-<p>The BMM provides a standalone alternative to UML/XMI which correctly represents all types, including open and closed generic types, inheritance of generic types, and various other problems with UML. As a meta-model it is adapted to the task, i.e. representing entity types that can appear in object models, rather than the over-generalised semantics of the UML meta-model. This reduced scope, and the fact that it contains no diagram semantics enables its serial form to be very human-readable.</p>
+<p>The BMM provides a standalone alternative to UML/XMI which correctly represents all types, including open and closed generic types, inheritance of generic types, and various other problems with UML. As a meta-model it is adapted to the task, i.e. representing entity types that can appear in object models, rather than the over-generalised semantics of the UML meta-model. This reduced scope, and the fact that it contains no diagram semantics enables its serial form to be human-readable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_current_state_of_the_art"><a class="anchor" href="#_current_state_of_the_art"></a>2.2. Current State of the Art</h3>
+<h3 id="_features"><a class="anchor" href="#_features"></a>2.2. Features</h3>
+<div class="paragraph">
+<p>The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>definition of classes, properties and methods;</p>
+</li>
+<li>
+<p>delayed routine calls as first-class objects;</p>
+</li>
+<li>
+<p>expressions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is designed to enable both human authoring and machine processing, including e.g. extraction of BMM textual schemas from a UML tool or programming language classes. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction (<a href="#Meyer_OOSC2">Meyer&#44; 1997</a>) and also the <a href="http://www.ecma-international.org/publications/standards/Ecma-367.htm" target="_blank" rel="noopener">Eiffel language</a>, which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in some aspects (e.g. direct meta-type suport for container types). Its key features are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>OO+FP</em>: the Basic Meta-Model is directly based on a combination of Object-oriented class model, functional programming concepts and expression language, rather than being a highly general model like the UML meta-model;</p>
+</li>
+<li>
+<p><em>Proper type meta-model</em>: types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;</p>
+</li>
+<li>
+<p><em>Full generic types</em>: types as first-order entities enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;</p>
+</li>
+<li>
+<p><em>Container types</em>: such as <code>List&lt;T&gt;</code> and <code>Hash&lt;K,V&gt;</code> have their own meta-types;</p>
+</li>
+<li>
+<p><em>Enumerated types</em>: supported via the notion of 'range-constrained' classes and also references to external value sets;</p>
+</li>
+<li>
+<p><em>Built-in Expression Language</em>: fully defined expression meta-model supporting literals, properties, variables, function calls and agents; includes qualifiers;</p>
+</li>
+<li>
+<p><em>Design by contract (DbC)</em>: formally supported via class invariants and routine pre- and post-conditions;</p>
+</li>
+<li>
+<p><em>Operator / function aliasing</em>: support for mapping symbolic operators to function definitions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Functional elements are supported via the inclusion of meta-types representing <em>signatures</em> and <em>tuples</em>, enabling the construction of delayed agent calls, known here as <em>agents</em>, and function applications (i.e. function calls).</p>
+</div>
+<div class="paragraph">
+<p>Note that there is no BMM entity for graphical diagramming semantics. Thus, there is no idea of 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_current_state_of_the_art"><a class="anchor" href="#_current_state_of_the_art"></a>2.3. Current State of the Art</h3>
 <div class="sect3">
-<h4 id="_uml"><a class="anchor" href="#_uml"></a>2.2.1. UML</h4>
+<h4 id="_uml"><a class="anchor" href="#_uml"></a>2.3.1. UML</h4>
 <div class="paragraph">
 <p>One would expect that the IT industry would have fully computable representations of models and diagramming solved, but it is not yet the case. <a href="https://www.omg.org//spec/UML/" target="_blank" rel="noopener">UML 2.x</a> and its associated serialisation format XMI 2.x should in theory mean that complete, interoperable machine expressions of object models would be available in all tools. However the evolution of UML and XMI has not been toward a clear meta-model and language for each of its sub-languages (i.e. static class model, state machine, interaction diagram etc) but rather toward a single universal model of everything in which elements of all of its needs are confusingly buried.</p>
 </div>
@@ -818,57 +876,10 @@ Other tools may perform as well or better, and in any case, all tools change ove
 </div>
 </div>
 <div class="sect3">
-<h4 id="_xml_schema"><a class="anchor" href="#_xml_schema"></a>2.2.2. XML Schema</h4>
+<h4 id="_xml_schema"><a class="anchor" href="#_xml_schema"></a>2.3.2. XML Schema</h4>
 <div class="paragraph">
 <p>For some, <a href="https://www.w3.org/XML/Schema" target="_blank" rel="noopener">W3C XML schema</a> represents a way of expressing object models, but it is not semantically suitable for this purpose, primarily due to its problematic non-object-oriented inheritance semantics, lack of generic classes, lack of representation of non-data members, and only marginal support for design by contract. It can be and is often used (including in openEHR) as a derivative serialisation representation.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_design_approach"><a class="anchor" href="#_design_approach"></a>2.3. Design Approach</h3>
-<div class="paragraph">
-<p>The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>definition of classes, properties and methods;</p>
-</li>
-<li>
-<p>delayed routine calls as first-class objects;</p>
-</li>
-<li>
-<p>expressions.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>It is designed to enable both human authoring and machine processing, including e.g. extraction of BMM textual schemas from a UML tool or programming language classes. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction (<a href="#Meyer_OOSC2">Meyer&#44; 1997</a>) and also the <a href="http://www.ecma-international.org/publications/standards/Ecma-367.htm" target="_blank" rel="noopener">Eiffel language</a>, which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in some aspects (e.g. direct meta-type suport for container types). Its key design concepts are as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Basic Meta-Model is directly based on a combination of Object-oriented class model, functional programming concepts and expression language, rather than being a highly general model like the UML meta-model;</p>
-</li>
-<li>
-<p>Types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;</p>
-</li>
-<li>
-<p>Types as first-order entities enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;</p>
-</li>
-<li>
-<p>Container types are treated as partially built-in, meaning that class features in a model are always typed to either 'unitary' or 'container' types;</p>
-</li>
-<li>
-<p>Enumerated types are supported via the notion of 'range-constrained' classes and also references to external value sets;</p>
-</li>
-<li>
-<p>There is no concept of an 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Functional elements are supported via the inclusion of meta-types representing <em>signatures</em> and <em>tuples</em>, enabling the construction of delayed agent calls, known here as <em>agents</em>, and function applications (i.e. function calls).</p>
 </div>
 </div>
 <div class="sect2">
@@ -2739,8 +2750,8 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    Function&lt;[T_arg1, T_arg2, ...], T_result&gt;    -- Function type
-    Function&lt;[T_arg1, T_arg2, ...]&gt;              -- Procedure type</pre>
+<pre>    &lt;[T_arg1, T_arg2, ...], T_result&gt;    -- Function type
+    &lt;[T_arg1, T_arg2, ...]&gt;              -- Procedure type</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2751,9 +2762,9 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    Function&lt;[], Date&gt;                          -- a 0-order function like current_date()
-    Function&lt;[Real, Real], Real&gt;                -- a 2nd-order function like '*' for the domain R
-    Function&lt;[Integer, Integer], Integer&gt;       -- a 2nd-order function like 'add' for the domain I</pre>
+<pre>    &lt;[], Date&gt;                          -- a 0-order function like current_date
+    &lt;[Real, Real], Real&gt;                -- a 2nd-order function like '*' for the domain R
+    &lt;[Integer, Integer], Integer&gt;       -- a 2nd-order function like 'add' for the domain I</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2761,21 +2772,21 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    Procedure&lt;[]&gt;                               -- a 0-order (argumentless) procedure
-    Procedure&lt;[Real]&gt;                           -- a 1st-order procedure for the domain R
-    Procedure&lt;[String, Integer]&gt;                -- a procedure taking a String and an Integer argument</pre>
+<pre>    &lt;[]&gt;                               -- a 0-order (argumentless) procedure
+    &lt;[Real]&gt;                           -- a 1st-order procedure for the domain R
+    &lt;[String, Integer]&gt;                -- a procedure taking a String and an Integer argument</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, <code>BMM_SIGNATURE</code>. Instances of this meta-type represent any kind of signature, and consist of <code><em>argument_types</em></code>, whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#Tuple Type">[Tuple Type]</a>), and <code><em>result_type</em></code>, representing the result type.</p>
 </div>
 <div class="paragraph">
-<p>Two special signatures are used to state the types 'any function' and 'any procedure':</p>
+<p>The following signatures state the types 'any function' and 'any procedure':</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    Function                                    -- any function
-    Procedure                                   -- any procedure</pre>
+<pre>    Function                             -- any function
+    Procedure                            -- any procedure</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2911,7 +2922,8 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Boolean</span> <span class="tok-nf">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">a_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Boolean</span> <span class="tok-nf">type_conforms_to</span> <span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">a_type</span><span class="tok-o">,</span> <span class="tok-n">anc_type</span><span class="tok-o">)</span>
+<span class="tok-o">{</span>
     <span class="tok-n">BMM_TYPE_NAME</span> <span class="tok-n">a_type_name</span><span class="tok-o">,</span> <span class="tok-n">anc_type_name</span><span class="tok-o">;</span>
 
     <span class="tok-k">if</span> <span class="tok-n">attached</span> <span class="tok-nf">create_type_name_from_string</span> <span class="tok-o">(</span><span class="tok-n">a_a_type</span><span class="tok-o">)</span> <span class="tok-n">as</span> <span class="tok-n">a_type_name</span> <span class="tok-n">and</span>
@@ -3874,12 +3886,14 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    class DvQuantity {
+<pre>    class DvQuantity
+    {
         feature
             // feature definitions
     }
 
-    class Observation {
+    class Observation
+    {
         feature
             // feature definitions
     }</pre>
@@ -3894,19 +3908,22 @@ a_type: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre>    // a primitive generic class with an open type parameter
-    primitive class List &lt;T&gt; {
+    primitive class List &lt;T&gt;
+    {
         feature
             // feature definitions
     }
 
     // a generic class with a constrained type parameter
-    class DvInterval &lt;T:DvOrdered&gt; {
+    class DvInterval &lt;T:DvOrdered&gt;
+    {
         feature
             // feature definitions
     }
 
     // a primitive generic class two type parameters
-    primitive class HashMap &lt;K:Ordered, V&gt; {
+    primitive class HashMap &lt;K:Ordered, V&gt;
+    {
         feature
             // feature definitions
     }</pre>
@@ -3965,7 +3982,8 @@ a_type: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre>    // an Integer-based enumeration
-    enumeration class TASK_LIFECYCLE {
+    enumeration class TASK_LIFECYCLE
+    {
         planned   = 0;
         available = 1;
         cancelled = 2;
@@ -3993,7 +4011,8 @@ a_type: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre>    // a String-based enumeration
-    enumeration class ContractStatus {
+    enumeration class ContractStatus
+    {
         initial   = "Initial";
         cancelled = "Cancelled";
         active    = "Active";
@@ -4034,7 +4053,8 @@ a_type: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre>    // a Value-set type
-    class Document {
+    class Document
+    {
         feature
             property language: CodedText &lt;&lt;"iso::iso_639-2"&gt;&gt; [1];
     }</pre>
@@ -4054,7 +4074,8 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    abstract class ENTRY {
+<pre>    abstract class ENTRY
+    {
         feature
             // feature definitions
     }</pre>
@@ -4068,12 +4089,14 @@ a_type: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    primitive class Integer {
+<pre>    primitive class Integer
+    {
         feature
             // feature definitions
     }
 
-    primitive class String {
+    primitive class String
+    {
         feature
             // feature definitions
     }</pre>
@@ -4104,7 +4127,8 @@ a_type: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre>    // a class with simple invariants
-    class COMPOSITION {
+    class COMPOSITION
+    {
         feature
             // feature definitions
 
@@ -4114,7 +4138,8 @@ a_type: <code>String[1]</code><br>
     }
 
     // a class with more complex invariants
-    class VERSIONED_COMPOSITION {
+    class VERSIONED_COMPOSITION
+    {
         feature
             // feature definitions
 
@@ -4227,7 +4252,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>immediate_descendants</strong>: <code>List&lt;BMM_CLASS&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>List of references to base classes of immediate inheritance descendants, derived when members of <code><em>ancestors</em></code> are attached at creation time.</p>
+<p>List of computed references to base classes of immediate inheritance descendants, derived when members of <code><em>ancestors</em></code> are attached at creation time.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4276,6 +4301,20 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creators</strong>: <code>Hash&lt;String,BMM_PROCEDURE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subset of <code><em>procedures</em></code> that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>converters</strong>: <code>Hash&lt;String,BMM_PROCEDURE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subset of <code><em>constructors</em></code> that create a new instance from a single argument of another type.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
@@ -4376,9 +4415,21 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_properties</strong> ()</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_properties</strong> (): <code>List&lt;BMM_PROPERTY&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of all properties due to current and ancestor classes, keyed by property name.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_constructors</em></strong>: <code>for_all p in creators : procedures.has(p)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_converters</em></strong>: <code>for_all p in converters : creators.has(p) and p.arity() = 1</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4809,7 +4860,8 @@ a_name: <code>String[1]</code><br>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
-    <span class="tok-kr">class</span> <span class="tok-nx">BASIC_DEFINITIONS</span> <span class="tok-p">{</span>
+    <span class="tok-kr">class</span> <span class="tok-nx">BASIC_DEFINITIONS</span>
+    <span class="tok-p">{</span>
         <span class="tok-nx">feature</span>
             <span class="tok-c1">// some simple constants</span>
             <span class="tok-nx">constant</span> <span class="tok-nx">CR</span>: <span class="tok-kt">Character</span> <span class="tok-s1">&#39;\015&#39;</span><span class="tok-p">;</span>
@@ -4862,10 +4914,10 @@ a_name: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">ENTRY</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">ENTRY</span>
         <span class="tok-nx">inherit</span>
             <span class="tok-nx">CARE_ENTRY</span>
-
+    <span class="tok-p">{</span>
         <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Locale</span>
             <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">language</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iso::iso_639-2&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
             <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">encoding</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iana::character-sets&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
@@ -4924,10 +4976,10 @@ a_name: <code>String[1]</code><br>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">DV_AMOUNT</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">DV_AMOUNT</span>
         <span class="tok-nx">inherit</span>
             <span class="tok-nx">DV_QUANTIFIED</span>
-
+    <span class="tok-p">{</span>
         <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Arithmetic</span> <span class="tok-nx">Operations</span>
 
             <span class="tok-kd">function</span> <span class="tok-nx">equal</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
@@ -5005,8 +5057,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">I_EHR_SERVICE</span> <span class="tok-p">{</span>
-
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">I_EHR_SERVICE</span>
+    <span class="tok-p">{</span>
         <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Creation</span>
 
             <span class="tok-nx">create_ehr_with_id</span> <span class="tok-p">(</span>
@@ -5017,6 +5069,41 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
                     <span class="tok-nx">No_duplicate</span>: <span class="tok-kt">not</span> <span class="tok-nx">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">an_ehr_id</span><span class="tok-p">)</span>
                 <span class="tok-nx">post_condition</span>
                     <span class="tok-nx">Has_ehr</span>: <span class="tok-kt">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">Result</span><span class="tok-p">)</span>
+    <span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creators_and_converters"><a class="anchor" href="#_creators_and_converters"></a>8.4.2. Creators and Converters</h4>
+<div class="paragraph">
+<p>In common with may OOPLs, BMM classes may specify <em>creators</em>, i.e. instance-creating procedures, known as 'constructors' in some OOPLs. These are just a subset of all procedures known in <code>BMM_CLASS.<em>procedures</em></code> that when executed will satisfy the class invariants. A further subset of the creators are single-argument <em>converters</em> which can initialise a new instance from an instance of another type. Converter routines are typically used to support type conversion in expressions, e.g. <code>String</code> to <code>Date</code> etc. These two subsets are formally defined as the <code><em>creators</em></code> and <code><em>converters</em></code> reference lists of procedures on <code>BMM_CLASS</code>, as shown in the following UML view.</p>
+</div>
+<div id="core_class_creators" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-bmm.core.class-creators.svg" alt="LANG bmm.core.class creators">
+</div>
+<div class="title">Figure 30. Class creators and converters</div>
+</div>
+<div class="paragraph">
+<p>Creators and converters might be distinguished among other procedures in an abstract syntax as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nb">Date</span>
+        <span class="tok-nx">inherit</span>
+            <span class="tok-nx">Temporal</span>
+        <span class="tok-nx">convert</span>
+            <span class="tok-nx">create_from_string</span>
+    <span class="tok-p">{</span>
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Creators</span>
+
+            <span class="tok-nx">procedure</span> <span class="tok-nx">create_from_string</span> <span class="tok-p">(</span><span class="tok-nx">a_date_str</span>: <span class="tok-kt">String</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+
+            <span class="tok-nx">procedure</span> <span class="tok-nx">create</span> <span class="tok-p">(</span><span class="tok-nx">a_day</span><span class="tok-p">,</span> <span class="tok-nx">a_month</span><span class="tok-p">,</span> <span class="tok-nx">a_year</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+
+        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Modification</span>
+
+            <span class="tok-nx">procedure</span> <span class="tok-nx">set_day</span> <span class="tok-p">(</span><span class="tok-nx">a_day</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
     <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -5068,6 +5155,19 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>BMM_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Declared or inferred static type of the entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code><br>
+<strong><em>Post_result</em></strong>: <code>Result = type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>type</em></code> is notionally Boolean (i.e. a <code>BMM_SIMPLE_TYPE</code> with <code><em>type_name()</em></code> = <code>'Boolean'</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5630,6 +5730,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code>BMM_RESULT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Automatically created Result variable, usable in body and post-condition.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><strong><em>Operator_validity</em></strong>: <code>operator_def /= Void implies arity in &#124;1..2&#124;</code></p>
@@ -5639,6 +5746,12 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><strong><em>Inv_signature_has_result</em></strong>: <code>signature.result /= Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Inv_result_type</em></strong>: <code>type = Result.type</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5988,7 +6101,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core.literal_value.svg" alt="LANG bmm.core.literal value">
 </div>
-<div class="title">Figure 30. <code>base.bmm.core.literal_value</code> package - Literal Values</div>
+<div class="title">Figure 31. <code>base.bmm.core.literal_value</code> package - Literal Values</div>
 </div>
 <div class="paragraph">
 <p>When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. <code>Real Pi = 3.1415926</code>), default values (e.g. <code>Person.name: String = "(unknown)"</code>) etc are instances of 'two types':</p>
@@ -6250,7 +6363,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression.svg" alt="LANG bmm.expression">
 </div>
-<div class="title">Figure 31. bmm.expression Package</div>
+<div class="title">Figure 32. bmm.expression Package</div>
 </div>
 <div class="paragraph">
 <p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>eval_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
@@ -6262,7 +6375,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
 </div>
-<div class="title">Figure 32. bmm.expression Package - Type hierarchy</div>
+<div class="title">Figure 33. bmm.expression Package - Type hierarchy</div>
 </div>
 </div>
 <div class="sect2">
@@ -6342,7 +6455,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">SmartRef</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">SmartRef</span>
+<span class="tok-p">{</span>
     <span class="tok-nx">property</span> <span class="tok-nx">url</span>: <span class="tok-kt">Url</span><span class="tok-p">;</span>
     <span class="tok-nx">property</span> <span class="tok-nx">value</span>: <span class="tok-kt">Base64String</span><span class="tok-p">;</span>
 
@@ -7590,7 +7704,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 33. <code>bmm.expression</code> package - Functional Elements</div>
+<div class="title">Figure 34. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -7620,7 +7734,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 34. Function call example - Body Mass index (BMI)</div>
+<div class="title">Figure 35. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 </div>
@@ -7658,7 +7772,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 35. BMM class - ancestors view</div>
+<div class="title">Figure 36. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -7667,7 +7781,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 36. BMM class - descendants view</div>
+<div class="title">Figure 37. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -7692,7 +7806,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 37. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 38. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -7704,7 +7818,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 38. Generic inheritance, closed</div>
+<div class="title">Figure 39. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -7716,7 +7830,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 39. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 40. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -7725,7 +7839,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 40. Generic inheritance, open parameter</div>
+<div class="title">Figure 41. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -7737,7 +7851,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 41. Multiple inheritance</div>
+<div class="title">Figure 42. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">

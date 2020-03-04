@@ -19,9 +19,16 @@ h|*0..1*
 |*operator_definition*: `BMM_OPERATOR`
 a|Optional details enabling a function to be represented as an operator in a syntactic representation.
 
+h|*1..1*
+|*result*: `BMM_RESULT`
+a|Automatically created Result variable, usable in body and post-condition.
+
 h|*Invariants*
 2+a|*_Operator_validity_*: `operator_def /= Void implies arity in &#124;1..2&#124;`
 
 h|
 2+a|*_Inv_signature_has_result_*: `signature.result /= Void`
+
+h|
+2+a|*_Inv_result_type_*: `type = Result.type`
 |===

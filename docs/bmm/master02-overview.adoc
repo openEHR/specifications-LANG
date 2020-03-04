@@ -10,7 +10,30 @@ The primary use of the UML expression is for specification publishing. In this r
 
 As a result, openEHR introduced the Basic Meta-Model (BMM) in 2009 as a way of representing correct object-oriented semantics of information models for use in tools, along with a serial format by default expressed in the {openehr_odin}[openEHR ODIN syntax^]. 
 
-The BMM provides a standalone alternative to UML/XMI which correctly represents all types, including open and closed generic types, inheritance of generic types, and various other problems with UML. As a meta-model it is adapted to the task, i.e. representing entity types that can appear in object models, rather than the over-generalised semantics of the UML meta-model. This reduced scope, and the fact that it contains no diagram semantics enables its serial form to be very human-readable. 
+The BMM provides a standalone alternative to UML/XMI which correctly represents all types, including open and closed generic types, inheritance of generic types, and various other problems with UML. As a meta-model it is adapted to the task, i.e. representing entity types that can appear in object models, rather than the over-generalised semantics of the UML meta-model. This reduced scope, and the fact that it contains no diagram semantics enables its serial form to be human-readable. 
+
+== Features
+
+The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms:
+
+* definition of classes, properties and methods;
+* delayed routine calls as first-class objects;
+* expressions.
+
+It is designed to enable both human authoring and machine processing, including e.g. extraction of BMM textual schemas from a UML tool or programming language classes. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction cite:[Meyer_OOSC2] and also the {eiffel_ecma_367}[Eiffel language^], which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in some aspects (e.g. direct meta-type suport for container types). Its key features are as follows:
+
+* _OO+FP_: the Basic Meta-Model is directly based on a combination of Object-oriented class model, functional programming concepts and expression language, rather than being a highly general model like the UML meta-model;
+* _Proper type meta-model_: types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;
+* _Full generic types_: types as first-order entities enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;
+* _Container types_: such as `List<T>` and `Hash<K,V>` have their own meta-types;
+* _Enumerated types_: supported via the notion of 'range-constrained' classes and also references to external value sets;
+* _Built-in Expression Language_: fully defined expression meta-model supporting literals, properties, variables, function calls and agents; includes qualifiers;
+* _Design by contract (DbC)_: formally supported via class invariants and routine pre- and post-conditions;
+* _Operator / function aliasing_: support for mapping symbolic operators to function definitions.
+
+Functional elements are supported via the inclusion of meta-types representing _signatures_ and _tuples_, enabling the construction of delayed agent calls, known here as _agents_, and function applications (i.e. function calls).
+
+Note that there is no BMM entity for graphical diagramming semantics. Thus, there is no idea of 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.
 
 == Current State of the Art
 
@@ -43,25 +66,6 @@ NOTE: Other tools may perform as well or better, and in any case, all tools chan
 === XML Schema
 
 For some, {w3c_xml_schema}[W3C XML schema^] represents a way of expressing object models, but it is not semantically suitable for this purpose, primarily due to its problematic non-object-oriented inheritance semantics, lack of generic classes, lack of representation of non-data members, and only marginal support for design by contract. It can be and is often used (including in openEHR) as a derivative serialisation representation.
-
-== Design Approach
-
-The Basic Meta-Model supports the representation of object models in the ISO RM/ODP information and computational points of view, i.e. in programming terms:
-
-* definition of classes, properties and methods;
-* delayed routine calls as first-class objects;
-* expressions.
-
-It is designed to enable both human authoring and machine processing, including e.g. extraction of BMM textual schemas from a UML tool or programming language classes. The semantics of the model are heavily influenced by the formal approach to object-orientation described by Bertrand Meyer in Object-oriented Software Construction cite:[Meyer_OOSC2] and also the {eiffel_ecma_367}[Eiffel language^], which is significantly better basis for object modelling than the UML 2.x meta-model. The BMM consequently departs from UML in a number of significant ways, and also from the OOSC/Eiffel approach in some aspects (e.g. direct meta-type suport for container types). Its key design concepts are as follows:
-
-* The Basic Meta-Model is directly based on a combination of Object-oriented class model, functional programming concepts and expression language, rather than being a highly general model like the UML meta-model;
-* Types and Classes are distinguished in the meta-model, unlike UML which has no proper formal concept of type beyond a textual name;
-* Types as first-order entities enables the proper representation of generic typing and inheritance from open, closed, or partially open generic types, unlike in UML;
-* Container types are treated as partially built-in, meaning that class features in a model are always typed to either 'unitary' or 'container' types;
-* Enumerated types are supported via the notion of 'range-constrained' classes and also references to external value sets;
-* There is no concept of an 'association' distinct from an 'attribute', as per UML, which treats lines between class boxes as formal elements.
-
-Functional elements are supported via the inclusion of meta-types representing _signatures_ and _tuples_, enabling the construction of delayed agent calls, known here as _agents_, and function applications (i.e. function calls).
 
 == Computational Model
 

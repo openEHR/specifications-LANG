@@ -35,7 +35,7 @@ a|Reference to original source schema defining this class. Useful for UI tools t
 
 h|*0..1*
 |*immediate_descendants*: `List<BMM_CLASS>`
-a|List of references to base classes of immediate inheritance descendants, derived when members of `_ancestors_` are attached at creation time.
+a|List of computed references to base classes of immediate inheritance descendants, derived when members of `_ancestors_` are attached at creation time.
 
 h|*1..1*
 |*is_override*: `Boolean`
@@ -64,6 +64,14 @@ a|True if this class is marked as abstract, i.e. direct instances cannot be crea
 h|*0..1*
 |*invariants*: `List<EL_ASSERTION>`
 a|
+
+h|*0..1*
+|*creators*: `Hash<String,BMM_PROCEDURE>`
+a|Subset of `_procedures_` that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied.
+
+h|*0..1*
+|*converters*: `Hash<String,BMM_PROCEDURE>`
+a|Subset of `_constructors_` that create a new instance from a single argument of another type.
 
 h|*1..1 +
 (redefined)*
@@ -122,6 +130,12 @@ h|
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|
-|*flat_properties* ()
+|*flat_properties* (): `List<BMM_PROPERTY>`
 a|List of all properties due to current and ancestor classes, keyed by property name.
+
+h|*Invariants*
+2+a|*_Inv_constructors_*: `for_all p in creators : procedures.has(p)`
+
+h|
+2+a|*_Inv_converters_*: `for_all p in converters : creators.has(p) and p.arity() = 1`
 |===
