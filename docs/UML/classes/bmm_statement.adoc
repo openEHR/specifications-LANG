@@ -6,6 +6,9 @@ h|*Class*
 2+^h|*_BMM_STATEMENT (abstract)_*
 
 h|*Description*
-2+a|Abstract parent of 'statement' types that may be defined to specify a language for implementing BMM Routines.
+2+a|Abstract parent of 'statement' types that may be defined to implement BMM Routines.
+
+h|*Inherit*
+2+|`BMM_STATEMENT_ITEM`
 
 |===

@@ -118,6 +118,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_statement_block_class[BMM_STATEMENT_BLOCK^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_statement_item_class[BMM_STATEMENT_ITEM^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_string_value_class[BMM_STRING_VALUE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_tuple_type_class[BMM_TUPLE_TYPE^]

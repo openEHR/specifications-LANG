@@ -32,7 +32,7 @@ h|*0..1*
 a|
 
 h|*0..1*
-|*body*: `BMM_STATEMENT_BLOCK`
+|*body*: `BMM_STATEMENT_ITEM`
 a|Body of a routine, i.e. executable program.
 h|*Functions*
 ^h|*Signature*

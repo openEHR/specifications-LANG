@@ -6,17 +6,16 @@ h|*Class*
 2+^h|*BMM_STATEMENT_BLOCK*
 
 h|*Description*
-2+a|A 'block' corresponding to the programming language concept of the same name. May be used to establish scope for specific languages.
+2+a|A statement 'block' corresponding to the programming language concept of the same name. May be used to establish scope in specific languages.
+
+h|*Inherit*
+2+|`BMM_STATEMENT_ITEM`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*statements*: `List<BMM_STATEMENT>`
-a|Statements contained within this block.
-
-h|*0..1*
-|*blocks*: `List<BMM_STATEMENT_BLOCK>`
+|*items*: `List<BMM_STATEMENT_ITEM>`
 a|Child blocks of the current block.
 |===
