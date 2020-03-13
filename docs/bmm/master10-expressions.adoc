@@ -60,7 +60,23 @@ A special meta-type, `EL_SELF_REF` is provided for references to the current sco
 
 ==== Anonymous Reference
 
-A special meta-type, `EL_ANONYMOUS_REF` is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing constants, enumeration values and class-level (i.e. 'static') functions without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as `{ClassName}._feature_`. A typical example of such use is `{Env}._current_time_` to access the class function `_current_time_` defined on the class (or interface) `Env`.
+A special meta-type, `EL_ANONYMOUS_REF` is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing _class features_ that do not depend on instance properties (i.e. 'constant', 'enum', and 'static' members in C-based languages) without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as `{ClassName}._feature_`, or with arguments, `{ClassName}._function (args...)_`.
+
+A class feature is defined as one that is:
+
+* a constant;
+* an enumeration literal;
+* a function that does not reference any class property or make any call that does, in its `_body_`, `_pre_conditions_` or `_post_conditions_`.
+
+The last category typically includes 'external' functions that are wrappers for calls to the operating system or other external resource that maintains its own state independently.
+
+Since an anonymous reference can be made without instantiation, it may be made to an abstract class as well as a concrete one. This facilitates the use of so-called 'utility' classes containing groups of useful functions e.g. for handling specific kinds of strings.
+
+Examples of anonymous reference are:
+
+* `{Env}._current_time_` to access the class function `_current_time_` defined on the class (or interface) `Env`;
+* `{Colours}.red`;
+* `{Version_utils}.version_higher ("1.5.40", "11.5.4")`.
 
 ==== Agents
 

@@ -447,7 +447,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>04 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>13 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -461,7 +461,7 @@
  Add <code>ROUTINE.<em>body</em></code> hook;<br>
  Add <code>EL_RESULT_REF</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">04 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -6458,7 +6458,45 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="sect4">
 <h5 id="_anonymous_reference"><a class="anchor" href="#_anonymous_reference"></a>10.2.1.5. Anonymous Reference</h5>
 <div class="paragraph">
-<p>A special meta-type, <code>EL_ANONYMOUS_REF</code> is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing constants, enumeration values and class-level (i.e. 'static') functions without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as <code>{ClassName}.<em>feature</em></code>. A typical example of such use is <code>{Env}.<em>current_time</em></code> to access the class function <code><em>current_time</em></code> defined on the class (or interface) <code>Env</code>.</p>
+<p>A special meta-type, <code>EL_ANONYMOUS_REF</code> is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing <em>class features</em> that do not depend on instance properties (i.e. 'constant', 'enum', and 'static' members in C-based languages) without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as <code>{ClassName}.<em>feature</em></code>, or with arguments, <code>{ClassName}.<em>function (args&#8230;&#8203;)</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>A class feature is defined as one that is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a constant;</p>
+</li>
+<li>
+<p>an enumeration literal;</p>
+</li>
+<li>
+<p>a function that does not reference any class property or make any call that does, in its <code><em>body</em></code>, <code><em>pre_conditions</em></code> or <code><em>post_conditions</em></code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The last category typically includes 'external' functions that are wrappers for calls to the operating system or other external resource that maintains its own state independently.</p>
+</div>
+<div class="paragraph">
+<p>Since an anonymous reference can be made without instantiation, it may be made to an abstract class as well as a concrete one. This facilitates the use of so-called 'utility' classes containing groups of useful functions e.g. for handling specific kinds of strings.</p>
+</div>
+<div class="paragraph">
+<p>Examples of anonymous reference are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>{Env}.<em>current_time</em></code> to access the class function <code><em>current_time</em></code> defined on the class (or interface) <code>Env</code>;</p>
+</li>
+<li>
+<p><code>{Colours}.red</code>;</p>
+</li>
+<li>
+<p><code>{Version_utils}.version_higher ("1.5.40", "11.5.4")</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect4">
