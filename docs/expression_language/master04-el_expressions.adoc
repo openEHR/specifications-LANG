@@ -234,7 +234,7 @@ Primitive operators in EL are the infix or prefix syntax form of various functio
 
 This means that where the expression `100 - 5` is encountered in EL, what is really invoked is `Integer._subtract_()`, specifically `100._subtract_(5)`.
 
-For convenience, the operators for the `Numeric` and `Boolean` types from the {openehr_foundation_types}[openEHR Foundation Types^] are shown below.
+For convenience, the operators for the `Numeric` and `Boolean` types from the {openehr_foundation_types}[openEHR Foundation Types^] are reproduced below.
 
 [cols="1,1,3",options="header"]
 |=================================================================
@@ -333,13 +333,19 @@ TBD: describe
 
 The two standard quantification operators from predicate logic `there exists` (∃ operator) and `for all` (∀ operator) are defined in EL for the container types found in the {openehr_foundation_types}[openEHR Foundation Types^].
 
-One syntax of `there exists` is as follows:
+The textual syntax of `there exists` is as follows:
 
 ----
-    there_exists v in container_var : <Boolean expression mentioning v> 
+    there_exists v in container_var | <Boolean expression mentioning v> 
 ----
 
-Here, the `:` symbol is usually read in English as 'such that'. The above may also be expressed in EL as its functional equivalent:
+Here, the `|` symbol is usually read in English as 'such that'. The above may also be expressed in EL as its functional equivalent:
+
+The symbolic equivalent may also be used.
+
+----
+    ∃ v : container_var | <Boolean expression mentioning v>
+----
 
 [source,typescript]
 ----
@@ -354,13 +360,19 @@ Here, the `:` symbol is usually read in English as 'such that'. The above may al
     )
 ----
 
-The `for_all` operator has similar syntax:
+The `for_all` operator has similar textual syntax:
 
 ----
-    for_all v in container_var : <Boolean expression mentioning v>
+    for_all v in container_var | <Boolean expression mentioning v>
 ----
 
-Here, the `:` symbol is normally read as 'it holds that' The above may also be expressed in EL as its functional equivalent:
+Here, the `|` symbol is normally read in English as as 'it holds that' The above may also be expressed in EL as its functional equivalent:
+
+The symbolic equivalent may also be used.
+
+----
+    ∀ v : container_var | <Boolean expression mentioning v>
+----
 
 [source,typescript]
 ----
