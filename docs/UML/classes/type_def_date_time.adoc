@@ -17,7 +17,8 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*type_name*: `String{nbsp}={nbsp}"Date_time"`
+|*type_name*: `String +
+{default{nbsp}={nbsp}"Date_time"}`
 a|
 
 h|*1..1 +

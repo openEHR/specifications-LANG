@@ -20,6 +20,7 @@ Effected in descendants.
 
 h|
 |*is_boolean* (): `Boolean` +
-*_Post_result_*: `Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())`
+ +
+_Post_result_: `Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())`
 a|True if `_eval_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `Boolean`).
 |===

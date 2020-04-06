@@ -824,10 +824,10 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 <div class="sect3">
 <h4 id="_uml"><a class="anchor" href="#_uml"></a>2.3.1. UML</h4>
 <div class="paragraph">
-<p>One would expect that the IT industry would have fully computable representations of models and diagramming solved, but it is not yet the case. <a href="https://www.omg.org//spec/UML/" target="_blank" rel="noopener">UML 2.x</a> and its associated serialisation format XMI 2.x should in theory mean that complete, interoperable machine expressions of object models would be available in all tools. However the evolution of UML and XMI has not been toward a clear meta-model and language for each of its sub-languages (i.e. static class model, state machine, interaction diagram etc) but rather toward a single universal model of everything in which elements of all of its needs are confusingly buried.</p>
+<p>One would expect that the IT industry would have fully computable representations of models and diagramming solved, but it is not yet the case. <a href="https://www.omg.org/spec/UML/" target="_blank" rel="noopener">UML 2.x</a> and its associated serialisation format XMI 2.x should in theory mean that complete, interoperable machine expressions of object models would be available in all tools. However the evolution of UML and XMI has not been toward a clear meta-model and language for each of its sub-languages (i.e. static class model, state machine, interaction diagram etc) but rather toward a single universal model of everything in which elements of all of its needs are confusingly buried.</p>
 </div>
 <div class="paragraph">
-<p>The UML 2.x specifications are exceedingly complex: UML 2.1.2 was specified by two documents, 'Superstructure' (738pp) and 'Infrastructure' (224pp); the UML 2.5.1 specification is only slightly smaller at 796 pages (see the <a href="https://www.omg.org//spec/UML/" target="_blank" rel="noopener">OMG UML page</a> for current specifications). The XMI 2.x specification is correspondingly complex, which seems to have so far prevented reliable tool interoperability (recognised as a critical issue by OMG in 2015). Despite the complexity, there are significant limitations in the UML meta-model, including:</p>
+<p>The UML 2.x specifications are exceedingly complex: UML 2.1.2 was specified by two documents, 'Superstructure' (738pp) and 'Infrastructure' (224pp); the UML 2.5.1 specification is only slightly smaller at 796 pages (see the <a href="https://www.omg.org/spec/UML/" target="_blank" rel="noopener">OMG UML page</a> for current specifications). The XMI 2.x specification is correspondingly complex, which seems to have so far prevented reliable tool interoperability (recognised as a critical issue by OMG in 2015). Despite the complexity, there are significant limitations in the UML meta-model, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1486,8 +1486,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>validate_created</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_created</code><br>
-<strong><em>Post_state</em></strong>: <code>passed implies state = State_validated_created</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_created</code><br>
+<em>Post_state</em>: <code>passed implies state = State_validated_created</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Do some basic validation post initial creation</p>
 </div>
@@ -1518,8 +1519,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_finalise</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_validated_created</code><br>
-<strong><em>Post_state</em></strong>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_validated_created</code><br>
+<em>Post_state</em>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Finalisation work:</p>
 </div>
@@ -1539,8 +1541,9 @@ Persisted attribute.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>merge</strong> (<br>
 other: <code>BMM_SCHEMA[1]</code><br>
 )<br>
-<strong><em>Pre_state</em></strong>: <code>state = State_includes_pending</code><br>
-<strong><em>Pre_other_valid</em></strong>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_includes_pending</code><br>
+<em>Pre_other_valid</em>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Merge in class and package definitions from <code><em>other</em></code>, except where the current schema already has a definition for the given type or package.</p>
 </div></div></td>
@@ -1555,7 +1558,8 @@ other: <code>BMM_SCHEMA[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(abstract)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_model</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Populate <code><em>bmm_model</em></code> from schema.</p>
 </div></div></td>
@@ -1563,7 +1567,8 @@ other: <code>BMM_SCHEMA[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>read_to_validate</strong> (): <code>Boolean</code><br>
-<strong><em>Post_state</em></strong>: <code>state = State_includes_processed</code></p></td>
+<br>
+<em>Post_state</em>: <code>state = State_includes_processed</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True when validation may be commenced.</p>
 </div></div></td>
@@ -1773,8 +1778,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>validate_created</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_created</code><br>
-<strong><em>Post_state</em></strong>: <code>passed implies state = State_validated_created</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_created</code><br>
+<em>Post_state</em>: <code>passed implies state = State_validated_created</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>validate_created()</em></code></p>
 </div></div></td>
@@ -1782,8 +1788,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_finalise</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_validated_created</code><br>
-<strong><em>Post_state</em></strong>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_validated_created</code><br>
+<em>Post_state</em>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>load_finalise()</em></code></p>
 </div></div></td>
@@ -1793,8 +1800,9 @@ Persisted attribute.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>merge</strong> (<br>
 other: <code>P_BMM_SCHEMA[1]</code><br>
 )<br>
-<strong><em>Pre_state</em></strong>: <code>state = State_includes_pending</code><br>
-<strong><em>Pre_other_valid</em></strong>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_includes_pending</code><br>
+<em>Pre_other_valid</em>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>merge()</em></code></p>
 </div></div></td>
@@ -1809,7 +1817,8 @@ other: <code>P_BMM_SCHEMA[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_model</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>create_bmm_model()</em></code></p>
 </div></div></td>
@@ -2030,7 +2039,8 @@ a future version of BMM may define an option to import schemas using differing n
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_root_scope</strong> (): <code>Boolean</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = (scope = self)</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = (scope = self)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this declaration entity is the root of the declaration hierarchy.</p>
 </div></div></td>
@@ -2412,7 +2422,7 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_top_level_scope</em></strong>: <code>scope = self</code></p>
+<p><em>Inv_top_level_scope</em>: <code>scope = self</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3301,7 +3311,7 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_generic_name</em></strong>: <code>name.count = 1 and name.is_upper</code></p>
+<p><em>Inv_generic_name</em>: <code>name.count = 1 and name.is_upper</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3597,7 +3607,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_base_name</strong> (): <code>String</code><br>
-<strong><em>Post_result</em></strong>: <code>Result.is_equal (base_name())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result.is_equal (base_name())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>base_name</em></code>.</p>
 </div></div></td>
@@ -3619,7 +3630,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code><br>
-<strong><em>Post_result</em></strong>: <code>Result.is_equal (base_name())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result.is_equal (base_name())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>base_name</em></code>.</p>
 </div></div></td>
@@ -3687,7 +3699,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_base_name</strong> (): <code>String</code><br>
-<strong><em>Post_result</em></strong>: <code>Result.is_equal (base_name())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result.is_equal (base_name())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>base_name</em></code>.</p>
 </div></div></td>
@@ -3709,7 +3722,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code><br>
-<strong><em>Post_result</em></strong>: <code>Result.is_equal (base_name())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result.is_equal (base_name())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>base_name</em></code></p>
 </div></div></td>
@@ -3761,14 +3775,16 @@ a_type: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_ordered</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_ordered</strong>: <code>Boolean<br>
+{default&#160;=&#160;true}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unique</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unique</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics.</p>
 </div></div></td>
@@ -3788,7 +3804,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_abstract</strong> (): <code>Boolean</code><br>
-<strong><em>Post_is_abstract</em></strong>: <code>Result = container_type.is_abstract</code></p></td>
+<br>
+<em>Post_is_abstract</em>: <code>Result = container_type.is_abstract</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if the container class is abstract.</p>
 </div></div></td>
@@ -3796,7 +3813,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = item_type.flattened_type_list</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = item_type.flattened_type_list</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Flattened list of type names with container type name abstracted away.</p>
 </div></div></td>
@@ -3811,7 +3829,8 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_primitive</strong> (): <code>Boolean</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = item_type.is_primitive</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = item_type.is_primitive</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if <code><em>item_type</em></code> is primitive.</p>
 </div></div></td>
@@ -4437,13 +4456,13 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_constructors</em></strong>: <code>for_all p in creators : procedures.has(p)</code></p>
+<p><em>Inv_constructors</em>: <code>for_all p in creators : procedures.has(p)</code></p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_converters</em></strong>: <code>for_all p in converters : creators.has(p) and p.arity() = 1</code></p>
+<p><em>Inv_converters</em>: <code>for_all p in converters : creators.has(p) and p.arity() = 1</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5064,7 +5083,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </ul>
 </div>
 <div class="paragraph">
-<p>The use of pre- and post-conditions is also known as <em>design by contract (DbC)</em>, a term introduced by Meyer, and is widely used in general IT, particularly in specification languages such as <a href="https://www.omg.org//spec/IDL/" target="_blank" rel="noopener">OMG Interface Definition Language (IDL)</a>.</p>
+<p>The use of pre- and post-conditions is also known as <em>design by contract (DbC)</em>, a term introduced by Meyer, and is widely used in general IT, particularly in specification languages such as <a href="https://www.omg.org/spec/IDL/" target="_blank" rel="noopener">OMG Interface Definition Language (IDL)</a>.</p>
 </div>
 <div class="paragraph">
 <p>The following shows how a routine contract may be specified in an abstract syntax.</p>
@@ -5185,7 +5204,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if <code><em>type</em></code> is notionally Boolean (i.e. a <code>BMM_SIMPLE_TYPE</code> with <code><em>type_name()</em></code> = <code>'Boolean'</code>).</p>
 </div></div></td>
@@ -5223,7 +5243,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_synthesised_generic</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_synthesised_generic</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.</p>
 </div></div></td>
@@ -5328,7 +5349,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_nullable</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_nullable</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes..</p>
 </div></div></td>
@@ -5400,13 +5422,13 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_not_nullable</em></strong>: <code>is_nullable = False</code></p>
+<p><em>Inv_not_nullable</em>: <code>is_nullable = False</code></p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_signature_no_args</em></strong>: <code>signature.arguments = Void</code></p>
+<p><em>Inv_signature_no_args</em>: <code>signature.arguments = Void</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5442,21 +5464,24 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_im_runtime</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_im_runtime</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this property is marked with info model <code><em>im_runtime</em></code> property.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_im_infrastructure</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_im_infrastructure</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this property was marked with info model <code><em>im_infrastructure</em></code> flag.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_composition</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_composition</strong>: <code>Boolean<br>
+{default&#160;=&#160;false}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas.</p>
 </div></div></td>
@@ -5483,7 +5508,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_signature_no_args</em></strong>: <code>signature.arguments = Void</code></p>
+<p><em>Inv_signature_no_args</em>: <code>signature.arguments = Void</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5766,19 +5791,19 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Operator_validity</em></strong>: <code>operator_def /= Void implies arity in &#124;1..2&#124;</code></p>
+<p><em>Operator_validity</em>: <code>operator_def /= Void implies arity in &#124;1..2&#124;</code></p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_signature_has_result</em></strong>: <code>signature.result /= Void</code></p>
+<p><em>Inv_signature_has_result</em>: <code>signature.result /= Void</code></p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_result_type</em></strong>: <code>type = Result.type</code></p>
+<p><em>Inv_result_type</em>: <code>type = Result.type</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5899,7 +5924,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_signature_no_result</em></strong>: <code>signature.result = Void</code></p>
+<p><em>Inv_signature_no_result</em>: <code>signature.result = Void</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5956,7 +5981,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_signature_no_args</em></strong>: <code>signature.arguments = Void</code></p>
+<p><em>Inv_signature_no_args</em>: <code>signature.arguments = Void</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6057,7 +6082,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String&#160;=&#160;"Result"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String<br>
+{default&#160;=&#160;"Result"}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Name of this model element.</p>
 </div></div></td>
@@ -6736,7 +6762,8 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_boolean</strong> (): <code>Boolean</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if <code><em>eval_type</em></code> is notionally Boolean (i.e. a <code>BMM_SIMPLE_TYPE</code> with <code><em>type_name()</em></code> = <code>Boolean</code>).</p>
 </div></div></td>
@@ -6785,7 +6812,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_boolean_expression</em></strong>: <code>expression.is_boolean()</code></p>
+<p><em>Inv_boolean_expression</em>: <code>expression.is_boolean()</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7359,7 +7386,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
+<p><em>Inv_boolean_result</em>: <code>is_boolean()</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7463,7 +7490,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_valid_call</em></strong>: <code>agent.is_callable()</code></p>
+<p><em>Inv_valid_call</em>: <code>agent.is_callable()</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7587,7 +7614,8 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code>BMM_SIGNATURE</code><br>
-<strong><em>Post_result</em></strong>: <code>Result = definition.signature</code></p></td>
+<br>
+<em>Post_result</em>: <code>Result = definition.signature</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.</p>
 </div></div></td>
@@ -7595,7 +7623,8 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_callable</strong> (): <code>Boolean</code><br>
-<strong><em>Post_result_validity</em></strong>: <code>Result = open_arguments = Void</code></p></td>
+<br>
+<em>Post_result_validity</em>: <code>Result = open_arguments = Void</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if there are no open arguments.</p>
 </div></div></td>
@@ -7726,7 +7755,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_boolean_result</em></strong>: <code>is_boolean()</code></p>
+<p><em>Inv_boolean_result</em>: <code>is_boolean()</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -7741,7 +7770,7 @@ probably to be removed.
 <div class="sect2">
 <h3 id="_overview_10"><a class="anchor" href="#_overview_10"></a>11.1. Overview</h3>
 <div class="paragraph">
-<p>BMM provides support for representing functional entities, often known as <a href="https://en.wikipedia.org/wiki//Lambda_calculus" target="_blank" rel="noopener">lambdas</a>. The two key functional entities are known in the calculus as a <em>lambda term</em> and an <em>application</em>. The first is more commonly understood by programmers as a <em>delayed routine call</em>, here denoted by the term <em>agent</em>. The latter is what programmers understand as a 'call', i.e. an application of a lambda term.</p>
+<p>BMM provides support for representing functional entities, often known as <a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="noopener">lambdas</a>. The two key functional entities are known in the calculus as a <em>lambda term</em> and an <em>application</em>. The first is more commonly understood by programmers as a <em>delayed routine call</em>, here denoted by the term <em>agent</em>. The latter is what programmers understand as a 'call', i.e. an application of a lambda term.</p>
 </div>
 <div class="paragraph">
 <p>An agent is formed by reference to a function or procedure in an expression context, potentially with provision of some or all arguments. This creates an entity whose type is an instance of the meta-type <code>BMM_SIGNATURE</code>. There are three variations as follows:</p>
@@ -7778,7 +7807,7 @@ probably to be removed.
 <p>In the model the three classes <code>EL_AGENT</code>, <code>EL_FUNCTION_AGENT</code>, and <code>EL_PROCEDURE_AGENT</code> (centre) define respectively, Agent and its Function and Procedure forms. An Agent is understood as one kind of terminal expression element (<code>EL_TERMINAL</code>), since it is concretely a <em>reference</em> that generates a value, in this case, to a routine that generates a delayed call object. It potentially has <code><em>closed_args</em></code>, in the form of an <code>EL_TUPLE</code> which is a meta-type for tuple instances, which instantiate an instance <code>BMM_TUPLE_TYPE</code> (such as <code>[String, Integer]</code>). The items of the tuple are each in the form of an <code>EL_TUPLE_ITEM</code> consisting of the argument name (optional) and an <code><em>item</em></code>, which is an <code>EL_EXPRESSION</code>, having an <code><em>eval_type</em></code> of <code>BMM_TYPE</code>. By this means, the actual arguments to a routine call may be any expression, including operators, and (as shown), terminal expressions. This includes other agent expressions, and also function calls (but not procedure calls, since they are not value-generating entities).</p>
 </div>
 <div class="paragraph">
-<p>An example of a delayed function call in syntax form is <code>nodeCount (struct=?, depth=3)</code> (the exact syntax will vary according to programming language). Here, the <code><em>struct</em></code> argument is left open, while the <code><em>depth</em></code> argument is closed with the supplied value <code>3</code>. This expression generates an agent whose signature is <code>[StructType]:Integer</code> (assuming the concrete type of the <code>struct</code> argument is <code>StructType</code>). This capability is known as <a href="https://en.wikipedia.org/wiki//Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.</p>
+<p>An example of a delayed function call in syntax form is <code>nodeCount (struct=?, depth=3)</code> (the exact syntax will vary according to programming language). Here, the <code><em>struct</em></code> argument is left open, while the <code><em>depth</em></code> argument is closed with the supplied value <code>3</code>. This expression generates an agent whose signature is <code>[StructType]:Integer</code> (assuming the concrete type of the <code>struct</code> argument is <code>StructType</code>). This capability is known as <a href="https://en.wikipedia.org/wiki/Currying" target="_blank" rel="noopener">function currying</a> and is the basis for enabling delayed routine calls to have their arguments progressively filled before final execution, each time generating a new agent with a reduced signature.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7819,7 +7848,7 @@ probably to be removed.
 <div class="title">Figure 36. Features for routine definition</div>
 </div>
 <div class="paragraph">
-<p>The use of the three-class hierarchy pattern allows a Routine <code>_body _</code> to just be a simple statement, with no block structure. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.</p>
+<p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to just be a simple statement, with no block structure. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.</p>
 </div>
 <div class="paragraph">
 <p>This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.</p>

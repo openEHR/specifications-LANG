@@ -36,22 +36,25 @@ h|*Functions*
 
 h|(effected)
 |*validate_created* +
-*_Pre_state_*: `state = State_created` +
-*_Post_state_*: `passed implies state = State_validated_created`
+ +
+_Pre_state_: `state = State_created` +
+_Post_state_: `passed implies state = State_validated_created`
 a|Implementation of `_validate_created()_`
 
 h|(effected)
 |*load_finalise* +
-*_Pre_state_*: `state = State_validated_created` +
-*_Post_state_*: `state = State_includes_processed or state = State_includes_pending`
+ +
+_Pre_state_: `state = State_validated_created` +
+_Post_state_: `state = State_includes_processed or state = State_includes_pending`
 a|Implementation of `_load_finalise()_`
 
 h|(effected)
 |*merge* ( +
 other: `P_BMM_SCHEMA[1]` +
 ) +
-*_Pre_state_*: `state = State_includes_pending` +
-*_Pre_other_valid_*: `includes_to_process.has (included_schema.schema_id)`
+ +
+_Pre_state_: `state = State_includes_pending` +
+_Pre_other_valid_: `includes_to_process.has (included_schema.schema_id)`
 a|Implementation of `_merge()_`
 
 h|(effected)
@@ -60,7 +63,8 @@ a|Implementation of `_validate()_`
 
 h|(effected)
 |*create_bmm_model* +
-*_Pre_state_*: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
+ +
+_Pre_state_: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
 a|Implementation of `_create_bmm_model()_`
 
 h|

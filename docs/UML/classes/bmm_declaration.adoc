@@ -46,6 +46,7 @@ h|*Functions*
 
 h|
 |*is_root_scope* (): `Boolean` +
-*_Post_result_*: `Result = (scope = self)`
+ +
+_Post_result_: `Result = (scope = self)`
 a|True if this declaration entity is the root of the declaration hierarchy.
 |===

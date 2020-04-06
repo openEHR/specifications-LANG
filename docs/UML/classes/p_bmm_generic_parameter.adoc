@@ -37,5 +37,5 @@ a_bmm_schema: `BMM_MODEL[1]` +
 a|Create `_bmm_generic_parameter_`.
 
 h|*Invariants*
-2+a|*_Inv_generic_name_*: `name.count = 1 and name.is_upper`
+2+a|_Inv_generic_name_: `name.count = 1 and name.is_upper`
 |===

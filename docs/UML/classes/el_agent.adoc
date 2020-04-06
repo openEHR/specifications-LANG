@@ -38,11 +38,13 @@ h|*Functions*
 
 h|(effected)
 |*eval_type* (): `BMM_SIGNATURE` +
-*_Post_result_*: `Result = definition.signature`
+ +
+_Post_result_: `Result = definition.signature`
 a|Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.
 
 h|
 |*is_callable* (): `Boolean` +
-*_Post_result_validity_*: `Result = open_arguments = Void`
+ +
+_Post_result_validity_: `Result = open_arguments = Void`
 a|True if there are no open arguments.
 |===

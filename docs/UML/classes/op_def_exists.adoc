@@ -16,11 +16,13 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `String{nbsp}={nbsp}"exists"`
+|*identifier*: `String +
+{default{nbsp}={nbsp}"exists"}`
 a|
 
 h|*0..1*
-|*symbols*: `List<String>{nbsp}={nbsp}"exists", "∃"`
+|*symbols*: `List<String> +
+{default{nbsp}={nbsp}"exists", "∃"}`
 a|
 
 h|*1..1 +

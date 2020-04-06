@@ -33,7 +33,8 @@ h|*Functions*
 
 h|(effected)
 |*type_base_name* (): `String` +
-*_Post_result_*: `Result.is_equal (base_name())`
+ +
+_Post_result_: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 
 h|(effected)
@@ -46,6 +47,7 @@ a|Result = `False`.
 
 h|(effected)
 |*type_name* (): `String` +
-*_Post_result_*: `Result.is_equal (base_name())`
+ +
+_Post_result_: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 |===

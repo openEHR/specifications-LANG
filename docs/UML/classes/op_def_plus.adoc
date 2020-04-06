@@ -13,10 +13,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `String{nbsp}={nbsp}"plus"`
+|*name*: `String +
+{default{nbsp}={nbsp}"plus"}`
 a|
 
 h|*0..1*
-|*symbols*: `List<String>{nbsp}={nbsp}"+"`
+|*symbols*: `List<String> +
+{default{nbsp}={nbsp}"+"}`
 a|
 |===

@@ -27,5 +27,5 @@ h|(effected)
 a|Return `{BMM_MODEL}._boolean_type_definition_()`.
 
 h|*Invariants*
-2+a|*_Inv_boolean_result_*: `is_boolean()`
+2+a|_Inv_boolean_result_: `is_boolean()`
 |===

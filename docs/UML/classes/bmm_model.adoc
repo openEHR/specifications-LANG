@@ -138,5 +138,5 @@ h|
 a|`BMM_SIMPLE_TYPE` instance for the `Boolean` type.
 
 h|*Invariants*
-2+a|*_Inv_top_level_scope_*: `scope = self`
+2+a|_Inv_top_level_scope_: `scope = self`
 |===

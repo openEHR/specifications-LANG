@@ -17,6 +17,7 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*type_name*: `String{nbsp}={nbsp}"Object_ref"`
+|*type_name*: `String +
+{default{nbsp}={nbsp}"Object_ref"}`
 a|
 |===

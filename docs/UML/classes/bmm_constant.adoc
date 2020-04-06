@@ -20,8 +20,8 @@ h|*1..1*
 a|The value of the constant.
 
 h|*Invariants*
-2+a|*_Inv_not_nullable_*: `is_nullable = False`
+2+a|_Inv_not_nullable_: `is_nullable = False`
 
 h|
-2+a|*_Inv_signature_no_args_*: `signature.arguments = Void`
+2+a|_Inv_signature_no_args_: `signature.arguments = Void`
 |===

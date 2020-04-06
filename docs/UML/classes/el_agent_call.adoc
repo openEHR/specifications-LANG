@@ -17,5 +17,5 @@ h|*1..1*
 a|The agent being called.
 
 h|*Invariants*
-2+a|*_Inv_valid_call_*: `agent.is_callable()`
+2+a|_Inv_valid_call_: `agent.is_callable()`
 |===

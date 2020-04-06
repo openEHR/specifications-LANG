@@ -73,8 +73,9 @@ h|*Functions*
 
 h|(abstract)
 |*validate_created* +
-*_Pre_state_*: `state = State_created` +
-*_Post_state_*: `passed implies state = State_validated_created`
+ +
+_Pre_state_: `state = State_created` +
+_Post_state_: `passed implies state = State_validated_created`
 a|Do some basic validation post initial creation
 
 * check that package structure is regular:
@@ -85,8 +86,9 @@ a|Do some basic validation post initial creation
 
 h|(abstract)
 |*load_finalise* +
-*_Pre_state_*: `state = State_validated_created` +
-*_Post_state_*: `state = State_includes_processed or state = State_includes_pending`
+ +
+_Pre_state_: `state = State_validated_created` +
+_Post_state_: `state = State_includes_processed or state = State_includes_pending`
 a|Finalisation work:
 
 * convert packages to canonical form, i.e. full hierarchy with no packages with names like aa.bb.cc
@@ -96,8 +98,9 @@ h|(abstract)
 |*merge* ( +
 other: `BMM_SCHEMA[1]` +
 ) +
-*_Pre_state_*: `state = State_includes_pending` +
-*_Pre_other_valid_*: `includes_to_process.has (included_schema.schema_id)`
+ +
+_Pre_state_: `state = State_includes_pending` +
+_Pre_other_valid_: `includes_to_process.has (included_schema.schema_id)`
 a|Merge in class and package definitions from `_other_`, except where the current schema already has a definition for the given type or package.
 
 h|(abstract)
@@ -106,12 +109,14 @@ a|Main validation prior to generation of `_bmm_model_`.
 
 h|(abstract)
 |*create_bmm_model* +
-*_Pre_state_*: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
+ +
+_Pre_state_: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
 a|Populate `_bmm_model_` from schema.
 
 h|
 |*read_to_validate* (): `Boolean` +
-*_Post_state_*: `state = State_includes_processed`
+ +
+_Post_state_: `state = State_includes_processed`
 a|True when validation may be commenced.
 
 h|

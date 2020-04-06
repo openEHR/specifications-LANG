@@ -17,6 +17,7 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*name*: `String{nbsp}={nbsp}"Result"`
+|*name*: `String +
+{default{nbsp}={nbsp}"Result"}`
 a|Name of this model element.
 |===

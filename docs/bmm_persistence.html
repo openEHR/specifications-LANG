@@ -549,8 +549,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>validate_created</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_created</code><br>
-<strong><em>Post_state</em></strong>: <code>passed implies state = State_validated_created</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_created</code><br>
+<em>Post_state</em>: <code>passed implies state = State_validated_created</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>validate_created()</em></code></p>
 </div></div></td>
@@ -558,8 +559,9 @@ Persisted attribute.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_finalise</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = State_validated_created</code><br>
-<strong><em>Post_state</em></strong>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_validated_created</code><br>
+<em>Post_state</em>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>load_finalise()</em></code></p>
 </div></div></td>
@@ -569,8 +571,9 @@ Persisted attribute.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>merge</strong> (<br>
 other: <code>P_BMM_SCHEMA[1]</code><br>
 )<br>
-<strong><em>Pre_state</em></strong>: <code>state = State_includes_pending</code><br>
-<strong><em>Pre_other_valid</em></strong>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = State_includes_pending</code><br>
+<em>Pre_other_valid</em>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>merge()</em></code></p>
 </div></div></td>
@@ -585,7 +588,8 @@ other: <code>P_BMM_SCHEMA[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_model</strong><br>
-<strong><em>Pre_state</em></strong>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
+<br>
+<em>Pre_state</em>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Implementation of <code><em>create_bmm_model()</em></code></p>
 </div></div></td>
@@ -835,7 +839,8 @@ a_class_def: <code>BMM_CLASS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_generic</strong> (): <code>Boolean</code><br>
-<strong><em>Post</em></strong>: <code>Result := generic_parameter_defs /= Void</code></p></td>
+<br>
+<em>Post</em>: <code>Result := generic_parameter_defs /= Void</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if this class is a generic class.</p>
 </div></div></td>
@@ -925,7 +930,7 @@ a_bmm_schema: <code>BMM_MODEL[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Inv_generic_name</em></strong>: <code>name.count = 1 and name.is_upper</code></p>
+<p><em>Inv_generic_name</em>: <code>name.count = 1 and name.is_upper</code></p>
 </div></div></td>
 </tr>
 </tbody>

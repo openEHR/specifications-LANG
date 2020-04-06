@@ -28,5 +28,5 @@ h|(effected)
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 
 h|*Invariants*
-2+a|*_Inv_signature_no_args_*: `signature.arguments = Void`
+2+a|_Inv_signature_no_args_: `signature.arguments = Void`
 |===

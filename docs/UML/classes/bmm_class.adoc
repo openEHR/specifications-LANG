@@ -134,8 +134,8 @@ h|
 a|List of all properties due to current and ancestor classes, keyed by property name.
 
 h|*Invariants*
-2+a|*_Inv_constructors_*: `for_all p in creators : procedures.has(p)`
+2+a|_Inv_constructors_: `for_all p in creators : procedures.has(p)`
 
 h|
-2+a|*_Inv_converters_*: `for_all p in converters : creators.has(p) and p.arity() = 1`
+2+a|_Inv_converters_: `for_all p in converters : creators.has(p) and p.arity() = 1`
 |===

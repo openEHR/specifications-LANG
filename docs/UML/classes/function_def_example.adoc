@@ -18,7 +18,8 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `String{nbsp}={nbsp}"funny"`
+|*identifier*: `String +
+{default{nbsp}={nbsp}"funny"}`
 a|
 
 h|*1..1 +

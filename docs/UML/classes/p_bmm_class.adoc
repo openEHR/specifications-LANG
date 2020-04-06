@@ -60,7 +60,8 @@ h|*Functions*
 
 h|
 |*is_generic* (): `Boolean` +
-*_Post_*: `Result := generic_parameter_defs /= Void`
+ +
+_Post_: `Result := generic_parameter_defs /= Void`
 a|True if this class is a generic class.
 
 h|

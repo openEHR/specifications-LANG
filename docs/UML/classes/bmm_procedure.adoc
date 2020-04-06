@@ -13,5 +13,5 @@ h|*Inherit*
 
 
 h|*Invariants*
-2+a|*_Inv_signature_no_result_*: `signature.result = Void`
+2+a|_Inv_signature_no_result_: `signature.result = Void`
 |===

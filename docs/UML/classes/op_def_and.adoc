@@ -16,11 +16,13 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `String{nbsp}={nbsp}"and"`
+|*identifier*: `String +
+{default{nbsp}={nbsp}"and"}`
 a|
 
 h|*0..1*
-|*symbols*: `List<String>{nbsp}={nbsp}"and","∧"`
+|*symbols*: `List<String> +
+{default{nbsp}={nbsp}"and","∧"}`
 a|
 
 h|*1..1 +
