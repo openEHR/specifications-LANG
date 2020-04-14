@@ -8,10 +8,10 @@ h|*Class*
 h|*Description*
 2+a|A delayed routine call, whose arguments may be open, partially closed or closed. Instances may include closed delayed calls like `calculate_age (dob="1987-09-13", today="2019-06-03")` but also partially open calls such as `format_structure (struct=?, style=3)`, where `struct` is an open argument.
 
-Effective type (i.e. type of runtime evaluated form) is `BMM_SIGNATURE`.
+Evaluation type (i.e. type of runtime evaluated form) is `BMM_SIGNATURE`.
 
 h|*Inherit*
-2+|`EL_TERMINAL`
+2+|`EL_OWNED_REF`
 
 h|*Attributes*
 ^h|*Signature*

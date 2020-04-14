@@ -115,7 +115,7 @@ TBD: this might be replaced by another approach.
 
 BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function call. This  has to be inferred from the types of its operands.
 
-The following abstract syntax examples illustrate expressions containing the various kinds of terminal reference.
+A number of examples illustrate expressions containing the various kinds of terminal reference, based on the following assumed declarations.
 
 [source, typescript]
 ----
@@ -158,7 +158,7 @@ The following is a logical condition, where the `=` operator maps to a function 
     heart_rhythm = Erratic and heart_rate >= Atrial_fibrillation_heart_rate
 ----
 
-The following is the same logical condition, but with the use of object context specified with typical 'dot notation', here `patient.`.
+The following is the same logical condition, but with the use of object context specified with typical 'dot notation', here `'patient.'`.
 
 [source, typescript]
 ----
@@ -200,7 +200,7 @@ Simple assertions may be formed from common operators and operands, including th
 
 === Existential and Universal Quantifier Expressions
 
-A common kind of expression to use in class invariants particularly functions over collections and uses the existential and universal quantifier operators, respectively ∃ and ∀ in most predicate logic syntaxes. A typical such expression to use within a class invariant is shown below in an abstract syntax.
+A common kind of expression used in class invariants operates over collections and uses the existential and universal quantifier operators, i.e. ∃ and ∀, from predicate logic. A typical expression to use within a class invariant is shown below in an abstract syntax.
 
 [source,typescript]
 ----
@@ -256,26 +256,26 @@ include::{uml_export_dir}/classes/el_binary_operator.adoc[]
 
 include::{uml_export_dir}/classes/el_terminal.adoc[]
 
-include::{uml_export_dir}/classes/el_instance_ref.adoc[]
+include::{uml_export_dir}/classes/el_predicate.adoc[]
+include::{uml_export_dir}/classes/el_defined.adoc[]
+include::{uml_export_dir}/classes/el_attached.adoc[]
 
-include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
+include::{uml_export_dir}/classes/el_instance_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_self_ref.adoc[]
 include::{uml_export_dir}/classes/el_anonymous_ref.adoc[]
 include::{uml_export_dir}/classes/el_literal.adoc[]
 
-include::{uml_export_dir}/classes/el_tuple.adoc[]
-include::{uml_export_dir}/classes/el_tuple_item.adoc[]
-
-include::{uml_export_dir}/classes/el_predicate.adoc[]
-include::{uml_export_dir}/classes/el_defined.adoc[]
-include::{uml_export_dir}/classes/el_attached.adoc[]
-
+include::{uml_export_dir}/classes/el_owned_ref.adoc[]
+include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
 include::{uml_export_dir}/classes/el_agent_call.adoc[]
 include::{uml_export_dir}/classes/el_function_call.adoc[]
 
 include::{uml_export_dir}/classes/el_agent.adoc[]
 include::{uml_export_dir}/classes/el_function_agent.adoc[]
 include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
+
+include::{uml_export_dir}/classes/el_tuple.adoc[]
+include::{uml_export_dir}/classes/el_tuple_item.adoc[]
 
 include::{uml_export_dir}/classes/el_constraint_expression.adoc[]

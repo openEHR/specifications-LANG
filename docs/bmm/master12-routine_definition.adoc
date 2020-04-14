@@ -2,7 +2,7 @@
 
 == Overview
 
-BMM provides a hook for defining routine implementations, i.e. add a routine _body_ consisting of _statements_. This is formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT`, as shown in the UML view below.
+BMM provides a hook for defining routine implementations, i.e. adding a routine _body_ consisting of _statements_. This is formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT`, as shown in the UML view below.
 
 [.text-center]
 .Features for routine definition

@@ -168,6 +168,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_operator_class[EL_OPERATOR^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_el_owned_ref_class[EL_OWNED_REF^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_predicate_class[EL_PREDICATE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_procedure_agent_class[EL_PROCEDURE_AGENT^]
