@@ -83,8 +83,8 @@
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="105" gradientUnits="userSpaceOnUse" x2="176" y1="413" y2="437" id="linearGradient20" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,204,255)" offset="0%"
-        /><stop stop-opacity="1" stop-color="white" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,255,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="637" gradientUnits="userSpaceOnUse" x2="707" y1="413" y2="437" id="linearGradient21" spreadMethod="pad"
       ><stop stop-opacity="1" stop-color="rgb(214,214,214)" offset="0%"

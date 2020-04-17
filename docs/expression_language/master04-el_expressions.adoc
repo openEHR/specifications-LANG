@@ -232,7 +232,7 @@ Primitive operators in EL are the infix or prefix syntax form of various functio
     subtract (other: Integer): Integer
 ----
 
-This means that where the expression `100 - 5` is encountered in EL, what is really invoked is `Integer._subtract_()`, specifically `100._subtract_(5)`.
+This means that where the expression `100 - 5` is encountered in EL, what is really invoked is `{Integer}._subtract_()`, specifically `100._subtract_(5)`.
 
 For convenience, the operators for the `Numeric` and `Boolean` types from the {openehr_foundation_types}[openEHR Foundation Types^] are reproduced below.
 
