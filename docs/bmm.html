@@ -84,17 +84,21 @@
 <ul class="sectlevel2">
 <li><a href="#_overview_3">4.1. Overview</a></li>
 <li><a href="#_naming_convention">4.2. Naming Convention</a></li>
-<li><a href="#_packages">4.3. Packages</a></li>
-<li><a href="#_documentation">4.4. Documentation</a></li>
-<li><a href="#_other_meta_data">4.5. Other Meta-data</a></li>
-<li><a href="#_model">4.6. Model</a></li>
-<li><a href="#_the_any_class_and_type">4.7. The Any Class and Type</a></li>
-<li><a href="#_class_definitions_2">4.8. Class Definitions</a>
+<li><a href="#_model_semantics">4.3. Model Semantics</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_declaration_class">4.8.1. BMM_DECLARATION Class</a></li>
-<li><a href="#_bmm_package_container_class">4.8.2. BMM_PACKAGE_CONTAINER Class</a></li>
-<li><a href="#_bmm_package_class">4.8.3. BMM_PACKAGE Class</a></li>
-<li><a href="#_bmm_model_class">4.8.4. BMM_MODEL Class</a></li>
+<li><a href="#_packages">4.3.1. Packages</a></li>
+<li><a href="#_use_of_other_models">4.3.2. Use of other Models</a></li>
+<li><a href="#_documentation">4.3.3. Documentation</a></li>
+<li><a href="#_other_meta_data">4.3.4. Other Meta-data</a></li>
+</ul>
+</li>
+<li><a href="#_the_any_class_and_type">4.4. The Any Class and Type</a></li>
+<li><a href="#_class_definitions_2">4.5. Class Definitions</a>
+<ul class="sectlevel3">
+<li><a href="#_bmm_declaration_class">4.5.1. BMM_DECLARATION Class</a></li>
+<li><a href="#_bmm_package_container_class">4.5.2. BMM_PACKAGE_CONTAINER Class</a></li>
+<li><a href="#_bmm_package_class">4.5.3. BMM_PACKAGE Class</a></li>
+<li><a href="#_bmm_model_class">4.5.4. BMM_MODEL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -335,7 +339,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_model_semantics">13. Model Semantics</a>
+<li><a href="#_model_semantics_2">13. Model Semantics</a>
 <ul class="sectlevel2">
 <li><a href="#inheritance_semantics">13.1. Inheritance</a>
 <ul class="sectlevel3">
@@ -458,10 +462,10 @@
  Add Expression language meta-model;<br>
  Add abstract syntax examples to text;<br>
  Add description of default <code>Any</code> class and type;<br>
+ Add <code>BMM_MODEL.<em>used_models</em></code>;<br>
  Add creators and converters;<br>
  Add <code>ROUTINE.<em>body</em></code> hook;<br>
- Add <code>BMM_RESULT</code>;<br>
- Add <code>EL_SCOPED_REF</code>.</p></td>
+ Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">13 Mar 2020</p></td>
 </tr>
@@ -1852,15 +1856,6 @@ other: <code>P_BMM_SCHEMA[1]</code><br>
 </div>
 <div class="title">Figure 7. <code>base.bmm.core.model</code> Package - Model structure</div>
 </div>
-<div class="paragraph">
-<p>A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'.</p>
-</div>
-<div id="bmm_structure" class="imageblock text-center text-center">
-<div class="content">
-<img src="bmm/diagrams/bmm_structure.svg" alt="bmm structure">
-</div>
-<div class="title">Figure 8. BMM model structure</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_naming_convention"><a class="anchor" href="#_naming_convention"></a>4.2. Naming Convention</h3>
@@ -1881,16 +1876,36 @@ a future version of BMM may define an option to import schemas using differing n
 </div>
 </div>
 <div class="sect2">
-<h3 id="_packages"><a class="anchor" href="#_packages"></a>4.3. Packages</h3>
+<h3 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>4.3. Model Semantics</h3>
+<div class="paragraph">
+<p>In BMM, a <em>model</em> is understood as a set of package and class definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'.</p>
+</div>
+<div id="bmm_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_structure.svg" alt="bmm structure">
+</div>
+<div class="title">Figure 8. BMM model structure</div>
+</div>
+<div class="paragraph">
+<p>The <code>BMM_MODEL</code> class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the <code>model_access</code> package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (the inherited <code><em>name</em></code> attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.</p>
+</div>
+<div class="sect3">
+<h4 id="_packages"><a class="anchor" href="#_packages"></a>4.3.1. Packages</h4>
 <div class="paragraph">
 <p>In BMM, packages have the same role as in UML - as non-semantic organisational logical containers of classes, usually corresponding to file system folders in software implementations. They provide an organisational convenience, and in an instantiated BMM model, contain references to class definitions. A model validity checker ensures that every class is contained within exactly one package.</p>
 </div>
 <div class="paragraph">
-<p>Package paths are only used in BMM to specify package structures in the serialsed form in an efficient way, i.e. by using paths to avoid defining a hierarchy in which only lower packages contain classes. They are not used as namespaces as in UML. Consequently, <strong>all classes in a BMM model should be uniquely named</strong>.</p>
+<p>Package paths are only used in BMM to specify package structures in the serialised form in an efficient way, i.e. by using paths to avoid defining a hierarchy in which only lower packages contain classes. They are not used as namespaces as in UML. Consequently, <strong>all classes in a BMM model should be uniquely named</strong>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_documentation"><a class="anchor" href="#_documentation"></a>4.4. Documentation</h3>
+<div class="sect3">
+<h4 id="_use_of_other_models"><a class="anchor" href="#_use_of_other_models"></a>4.3.2. Use of other Models</h4>
+<div class="paragraph">
+<p>A model may <em>use</em> another model. This is the same kind of relationship denoted by the 'import' keyword in many programming languages. In BMM, the use of other models is declared once only, in the using model, rather than on a per-class level as in some languages (e.g. Java). The use of another model makes its contents available for use in declarations (e.g. inheritance) and expressions within the using model. This is achieved by populating the <code>BMM_CLASS.<em>scope</em></code> attribute with a reference to the used model. In a serial form, a typical syntax such as <code>other_model_name::Class</code> would be used.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_documentation"><a class="anchor" href="#_documentation"></a>4.3.3. Documentation</h4>
 <div class="paragraph">
 <p>A <code><em>documentation</em></code> attribute is inherited from <code>BMM_DECLARATION</code> into <code>BMM_CLASS</code>, <code>BMM_PROPERTY</code>, <code>BMM_MODEL</code> and <code>BMM_PACKAGE</code> (the latter two via <code>BMM_PACKAGE_CONTAINER</code>), enabling packages, classes and properties to be individually documented using a keyed table (i.e. Hash) of values.</p>
 </div>
@@ -1920,20 +1935,15 @@ a future version of BMM may define an option to import schemas using differing n
 <p>Other keys and value types may be freely added.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_other_meta_data"><a class="anchor" href="#_other_meta_data"></a>4.5. Other Meta-data</h3>
+<div class="sect3">
+<h4 id="_other_meta_data"><a class="anchor" href="#_other_meta_data"></a>4.3.4. Other Meta-data</h4>
 <div class="paragraph">
 <p>The <code>BMM_DECLARATION</code> meta-class also defines the attribute <code><em>extensions</em></code> of type <code>Hash&lt;String, Any&gt;</code>, to enable representation of meta-data of any type on any model node. This provides a means of extending BMM.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_model"><a class="anchor" href="#_model"></a>4.6. Model</h3>
-<div class="paragraph">
-<p>The <code>BMM_MODEL</code> class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the <code>model_access</code> package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (<code><em>model_name</em></code> attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.</p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_the_any_class_and_type"><a class="anchor" href="#_the_any_class_and_type"></a>4.7. The Any Class and Type</h3>
+<h3 id="_the_any_class_and_type"><a class="anchor" href="#_the_any_class_and_type"></a>4.4. The Any Class and Type</h3>
 <div class="paragraph">
 <p>While a BMM model defines a model in terms of class declarations, it must always have a top class named <code>Any</code> from which all others inherit. Similar to root classes in typical OOPL type systems (sometimes called 'Object'), the <code>Any</code> class defines semantics true for all objects such as equality (i.e. semantics for an '=' operator) and copying.</p>
 </div>
@@ -1951,9 +1961,9 @@ a future version of BMM may define an option to import schemas using differing n
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.8. Class Definitions</h3>
+<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.5. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_declaration_class"><a class="anchor" href="#_bmm_declaration_class"></a>4.8.1. BMM_DECLARATION Class</h4>
+<h4 id="_bmm_declaration_class"><a class="anchor" href="#_bmm_declaration_class"></a>4.5.1. BMM_DECLARATION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2051,7 +2061,7 @@ a future version of BMM may define an option to import schemas using differing n
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_package_container_class"><a class="anchor" href="#_bmm_package_container_class"></a>4.8.2. BMM_PACKAGE_CONTAINER Class</h4>
+<h4 id="_bmm_package_container_class"><a class="anchor" href="#_bmm_package_container_class"></a>4.5.2. BMM_PACKAGE_CONTAINER Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2129,7 +2139,7 @@ a_path: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_package_class"><a class="anchor" href="#_bmm_package_class"></a>4.8.3. BMM_PACKAGE Class</h4>
+<h4 id="_bmm_package_class"><a class="anchor" href="#_bmm_package_class"></a>4.5.3. BMM_PACKAGE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2189,7 +2199,7 @@ a_path: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_model_class"><a class="anchor" href="#_bmm_model_class"></a>4.8.4. BMM_MODEL Class</h4>
+<h4 id="_bmm_model_class"><a class="anchor" href="#_bmm_model_class"></a>4.5.4. BMM_MODEL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2221,6 +2231,13 @@ a_path: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code>Hash&lt;String,BMM_CLASS&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>All classes in this schema, keyed by type name.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>used_models</strong>: <code>List&lt;BMM_MODEL&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of other models 'used' (i.e. 'imported' by this model). Classes in the current model may refer to classes in a used model by specifying the other class&#8217;s <code><em>scope</em></code> meta-attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4348,7 +4365,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>converters</strong>: <code>Hash&lt;String,BMM_PROCEDURE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Subset of <code><em>constructors</em></code> that create a new instance from a single argument of another type.</p>
+<p>Subset of <code><em>creators</em></code> that create a new instance from a single argument of another type.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8047,7 +8064,7 @@ probably to be removed.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>13. Model Semantics</h2>
+<h2 id="_model_semantics_2"><a class="anchor" href="#_model_semantics_2"></a>13. Model Semantics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes various semantics that apply at a whole-of-model level rather than within single entities such as a class, type or property.</p>

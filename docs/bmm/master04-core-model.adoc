@@ -8,25 +8,33 @@ The `core` package defines the main BMM meta-model, within which the `model` sub
 .`base.bmm.core.model` Package - Model structure
 image::{uml_diagrams_uri}/LANG-bmm.core.model.svg[id=core_model, align="center"]
 
-A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'. 
-
-[.text-center]
-.BMM model structure
-image::{diagrams_uri}/bmm_structure.svg[id=bmm_structure, align="center"]
-
 == Naming Convention
 
 In a BMM model, names typically appear in the common case-sensitive form used by the model users, and may therefore follow one of a number of common conventions, including 'camel case', 'snake-case' and so on. When used computationally within an instantiated BMM model, it is assumed that case-insensitive matching is used. This means that the class name `"Hashable"` refers to the same class as `"HASHABLE"`. Note however that underscores are not removed during matching, so that the classes `"HashMap"` and `"HASH_MAP"` are understood as different classes.
 
 NOTE: a future version of BMM may define an option to import schemas using differing naming styles, with transformation into a single style for the target model.
 
-== Packages
+== Model Semantics
+
+In BMM, a _model_ is understood as a set of package and class definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'. 
+
+[.text-center]
+.BMM model structure
+image::{diagrams_uri}/bmm_structure.svg[id=bmm_structure, align="center"]
+
+The `BMM_MODEL` class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the `model_access` package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (the inherited `_name_` attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.
+
+=== Packages
 
 In BMM, packages have the same role as in UML - as non-semantic organisational logical containers of classes, usually corresponding to file system folders in software implementations. They provide an organisational convenience, and in an instantiated BMM model, contain references to class definitions. A model validity checker ensures that every class is contained within exactly one package.
 
-Package paths are only used in BMM to specify package structures in the serialsed form in an efficient way, i.e. by using paths to avoid defining a hierarchy in which only lower packages contain classes. They are not used as namespaces as in UML. Consequently, *all classes in a BMM model should be uniquely named*.
+Package paths are only used in BMM to specify package structures in the serialised form in an efficient way, i.e. by using paths to avoid defining a hierarchy in which only lower packages contain classes. They are not used as namespaces as in UML. Consequently, *all classes in a BMM model should be uniquely named*.
 
-== Documentation
+=== Use of other Models
+
+A model may _use_ another model. This is the same kind of relationship denoted by the 'import' keyword in many programming languages. In BMM, the use of other models is declared once only, in the using model, rather than on a per-class level as in some languages (e.g. Java). The use of another model makes its contents available for use in declarations (e.g. inheritance) and expressions within the using model. This is achieved by populating the `BMM_CLASS._scope_` attribute with a reference to the used model. In a serial form, a typical syntax such as `other_model_name::Class` would be used.
+
+=== Documentation
 
 A `_documentation_` attribute is inherited from `BMM_DECLARATION` into `BMM_CLASS`, `BMM_PROPERTY`, `BMM_MODEL` and `BMM_PACKAGE` (the latter two via `BMM_PACKAGE_CONTAINER`), enabling packages, classes and properties to be individually documented using a keyed table (i.e. Hash) of values.
 
@@ -40,13 +48,9 @@ It is strongly recommended to use the following key /type combinations for the r
 
 Other keys and value types may be freely added.
 
-== Other Meta-data
+=== Other Meta-data
 
 The `BMM_DECLARATION` meta-class also defines the attribute `_extensions_` of type `Hash<String, Any>`, to enable representation of meta-data of any type on any model node. This provides a means of extending BMM.
-
-== Model
-
-The `BMM_MODEL` class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the `model_access` package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (`_model_name_` attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.
 
 == The Any Class and Type
 

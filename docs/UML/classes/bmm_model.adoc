@@ -18,6 +18,10 @@ h|*Attributes*
 h|*0..1*
 |*class_definitions*: `Hash<String,BMM_CLASS>`
 a|All classes in this schema, keyed by type name.
+
+h|*0..1*
+|*used_models*: `List<BMM_MODEL>`
+a|List of other models 'used' (i.e. 'imported' by this model). Classes in the current model may refer to classes in a used model by specifying the other class's `_scope_` meta-attribute.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

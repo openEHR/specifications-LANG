@@ -18,10 +18,10 @@
  Add Expression language meta-model; +
  Add abstract syntax examples to text; +
  Add description of default `Any` class and type; +
+ Add `BMM_MODEL._used_models_`; +
  Add creators and converters; +
  Add `ROUTINE._body_` hook; +
- Add `BMM_RESULT`; + 
- Add `EL_SCOPED_REF`.
+ Add `BMM_RESULT`, `EL_SCOPED_REF`.
 |T Beale 
 |13 Mar 2020
 
