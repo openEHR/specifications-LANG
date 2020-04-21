@@ -11,7 +11,7 @@ h|*Description*
 Evaluation type (i.e. type of runtime evaluated form) is `BMM_SIGNATURE`.
 
 h|*Inherit*
-2+|`EL_OWNED_REF`
+2+|`EL_SCOPED_REF`
 
 h|*Attributes*
 ^h|*Signature*

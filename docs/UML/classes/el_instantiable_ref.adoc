@@ -9,7 +9,7 @@ h|*Description*
 2+a|Terminal item corresponding to a reference to a directly instantiable entity, i.e. a variable, constant, or property.
 
 h|*Inherit*
-2+|`EL_OWNED_REF`
+2+|`EL_SCOPED_REF`
 
 h|*Attributes*
 ^h|*Signature*

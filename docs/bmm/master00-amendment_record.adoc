@@ -21,7 +21,7 @@
  Add creators and converters; +
  Add `ROUTINE._body_` hook; +
  Add `BMM_RESULT`; + 
- Add `EL_OWNED_REF`.
+ Add `EL_SCOPED_REF`.
 |T Beale 
 |13 Mar 2020
 
