@@ -1038,12 +1038,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-p">{</span><span class="tok-nx">Env</span><span class="tok-p">}.</span><span class="tok-nx">current_date</span>                                      <span class="tok-c1">// obtain today&#39;s date as a Iso8601_date</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-p">{</span><span class="tok-nx">Env</span><span class="tok-p">}.</span><span class="tok-nx">current_date</span>                                <span class="tok-c1">// obtain today&#39;s date as a Iso8601_date</span>
 
     <span class="tok-nx">blood_glucose_list</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Real</span><span class="tok-o">&gt;</span>
-    <span class="tok-p">{</span><span class="tok-nx">Statistical_evaluator</span><span class="tok-p">}.</span><span class="tok-nx">max</span> <span class="tok-p">(</span><span class="tok-nx">blood_glucose_list</span><span class="tok-p">)</span>        <span class="tok-c1">// compute a maximum of Numerics</span>
+    <span class="tok-p">{</span><span class="tok-nx">Statistical_evaluator</span><span class="tok-p">}.</span><span class="tok-nx">max</span> <span class="tok-p">(</span><span class="tok-nx">blood_glucose_list</span><span class="tok-p">)</span>  <span class="tok-c1">// compute a maximum of Numerics</span>
 
-    <span class="tok-p">{</span><span class="tok-nx">Locale</span><span class="tok-p">}.</span><span class="tok-nx">language</span>                                       <span class="tok-c1">// the primary language in the locale as a Coded_term</span></code></pre>
+    <span class="tok-p">{</span><span class="tok-nx">Locale</span><span class="tok-p">}.</span><span class="tok-nx">language</span>                                 <span class="tok-c1">// the primary language in the locale as a Coded_term</span></code></pre>
 </div>
 </div>
 </div>
@@ -1201,8 +1201,8 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Function</th>
 <th class="tableblock halign-left valign-top">Operators</th>
+<th class="tableblock halign-left valign-top">Function</th>
 <th class="tableblock halign-left valign-top">Meaning</th>
 </tr>
 </thead>
@@ -1211,100 +1211,100 @@
 <th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Arithmetic Operators - Numeric operands and result; descending precendence order</p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exponent()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>^</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exponent()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exponentiation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multiply()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multiply()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Multiplication</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>divide()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>divide()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Division</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modulus()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modulus()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modulo (whole number) division</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Addition</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Subtraction</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Relational Operators - Numeric, Date/time operands and Boolean result; equal precedence</p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Value equality</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>!=</code>, <code>≠</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inequality relation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>less_than()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>less_than()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Less than relation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>less_than_or_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;=</code>, <code>≤</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>less_than_or_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal relation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater_than()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater_than()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Greater than relation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater_than_or_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;=</code>, <code>≥</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater_than_or_equal()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal relation</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Logical Operators - Boolean operands and result; descending precendence order</p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>not</code>, <code>~</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Negation, "not p"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>and</code>, <code>∧</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Logical conjunction, "p and q"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>or</code>, <code>∨</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Logical disjunction, "p or q"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exclusive_disjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>xor</code>, <code>⊻</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exclusive_disjunction()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exclusive or, "only one of p or q"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>implication()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>implies</code>, <code>⇒</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>implication()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Material implication, "p implies q", or "if p then q"</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition, some operators are defined on the other primitive types, including the following on the <code>time</code> types.</p>
+<p>In addition, some operators are defined on the other primitive types, including the following.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1321,7 +1321,7 @@
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">String Operators</p></th>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><code>String</code> Operators</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
@@ -1329,64 +1329,90 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">String concatenation, appending</p></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Date/time arithmetic operators</p></th>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><code>Iso8601_date</code> arithmetic operators</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date.add(d: Iso8601_duration): Iso8601_date</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a duration to a date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add(d: Iso8601_duration): Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a precise duration to a date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add_nominal(d: Iso8601_duration): Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a nominal duration to a date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract(d: Iso8601_duration): Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a precise duration from a date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract_nominal(d: Iso8601_duration): Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a nominal duration from a date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>diff(d: Date): Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difference of two dates</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><code>Iso8601_date_time</code> arithmetic operators</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_time.add(d: Iso8601_duration): Iso8601_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add(d: Iso8601_duration): Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a precise duration to a date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add(d: Iso8601_duration): Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a nominal duration to a date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract(d: Iso8601_duration): Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a precise duration from a date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract_nominal(d: Iso8601_duration): Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a nominal duration from a date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>diff(d: Date_time): Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difference of two date/times</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><code>Iso8601_time</code> arithmetic operators</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add(d: Iso8601_duration): Iso8601_time</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a duration to a time</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date_time.add(d: Iso8601_duration): Iso8601_date_time</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a duration to a date/time</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date.subtract(d: Iso8601_duration): Iso8601_date</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a duration from a date</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_time.subtract(d: Iso8601_duration): Iso8601_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract(d: Iso8601_duration): Iso8601_time</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a duration from a time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date_time.subtract(d: Iso8601_duration): Iso8601_date_time</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a duration from a date/time</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date.diff(d: Date): Iso8601_duration</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Difference of two dates</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_time.diff(d: Time): Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>diff(d: Time): Iso8601_duration</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Difference of two times</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date_time.diff(d: Date_time): Iso8601_duration</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Difference of two date/times</p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Duration arithmetic operators</p></th>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><code>Iso8601_duration</code> arithmetic operators</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_duration.add(d: Iso8601_duration): Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add(d: Iso8601_duration): Iso8601_duration</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a duration to a duration</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_duration.subtract(d: Iso8601_duration):Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtract(d: Iso8601_duration):Iso8601_duration</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Subtract a duration from a duration</p></td>
 </tr>
 </tbody>
