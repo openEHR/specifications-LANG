@@ -465,9 +465,10 @@
  Add <code>BMM_MODEL.<em>used_models</em></code>;<br>
  Add creators and converters;<br>
  Add <code>ROUTINE.<em>body</em></code> hook;<br>
- Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>.</p></td>
+ Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>;<br>
+ Add <code>BMM_MODULE</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">13 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Apr 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -1878,7 +1879,7 @@ a future version of BMM may define an option to import schemas using differing n
 <div class="sect2">
 <h3 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>4.3. Model Semantics</h3>
 <div class="paragraph">
-<p>In BMM, a <em>model</em> is understood as a set of package and class definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of class definitions. Class definitions consist of property definitions, each of which refers to a type, which in turn refers to a 'base class'.</p>
+<p>In BMM, a <em>model</em> is understood as a set of <em>package</em> and <em>module</em> definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of module definitions, where the most common type of module is the <em>class</em>.</p>
 </div>
 <div id="bmm_structure" class="imageblock text-center text-center">
 <div class="content">
@@ -2230,7 +2231,7 @@ a_path: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code>Hash&lt;String,BMM_CLASS&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>All classes in this schema, keyed by type name.</p>
+<p>All classes in this model, keyed by type name.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4265,7 +4266,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENTITY</code>, <code>BMM_DECLARATION</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ENTITY</code>, <code>BMM_MODULE</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -4366,14 +4367,6 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>converters</strong>: <code>Hash&lt;String,BMM_PROCEDURE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Subset of <code><em>creators</em></code> that create a new instance from a single argument of another type.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_MODEL</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Model within which class is defined.</p>
 </div></div></td>
 </tr>
 <tr>

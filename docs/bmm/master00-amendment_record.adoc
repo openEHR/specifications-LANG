@@ -21,9 +21,10 @@
  Add `BMM_MODEL._used_models_`; +
  Add creators and converters; +
  Add `ROUTINE._body_` hook; +
- Add `BMM_RESULT`, `EL_SCOPED_REF`.
+ Add `BMM_RESULT`, `EL_SCOPED_REF`; +
+ Add `BMM_MODULE`.
 |T Beale 
-|13 Mar 2020
+|22 Apr 2020
 
 |
 |Rename `BMM_MODEL_ELEMENT` to `BMM_DECLARATION`; +

@@ -78,6 +78,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_model_type_class[BMM_MODEL_TYPE^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_module_class[BMM_MODULE^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_operator_class[BMM_OPERATOR^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_operator_position_enumeration[BMM_OPERATOR_POSITION^]

@@ -11,7 +11,7 @@ h|*Description*
 NOTE: unlike UML, the `_name_` is just the root name, even if the class is generic. Use `_type_name()_` to obtain the qualified type name.
 
 h|*Inherit*
-2+|`BMM_ENTITY`, `BMM_DECLARATION`
+2+|`BMM_ENTITY`, `BMM_MODULE`
 
 h|*Attributes*
 ^h|*Signature*
@@ -72,11 +72,6 @@ a|Subset of `_procedures_` that may be used to initialise a new instance of an o
 h|*0..1*
 |*converters*: `Hash<String,BMM_PROCEDURE>`
 a|Subset of `_creators_` that create a new instance from a single argument of another type.
-
-h|*1..1 +
-(redefined)*
-|*scope*: `BMM_MODEL`
-a|Model within which class is defined.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
