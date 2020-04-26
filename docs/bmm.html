@@ -276,7 +276,7 @@
 <li><a href="#_tuples">10.2.1.2. Tuples</a></li>
 <li><a href="#_feature_references">10.2.1.3. Feature References</a></li>
 <li><a href="#_self_reference">10.2.1.4. Self Reference</a></li>
-<li><a href="#_anonymous_reference">10.2.1.5. Anonymous Reference</a></li>
+<li><a href="#_type_reference">10.2.1.5. Type Reference</a></li>
 <li><a href="#_agents">10.2.1.6. Agents</a></li>
 <li><a href="#_predicates">10.2.1.7. Predicates</a></li>
 </ul>
@@ -304,7 +304,7 @@
 <li><a href="#_el_attached_class">10.4.9. EL_ATTACHED Class</a></li>
 <li><a href="#_el_instance_ref_class">10.4.10. EL_INSTANCE_REF Class</a></li>
 <li><a href="#_el_self_ref_class">10.4.11. EL_SELF_REF Class</a></li>
-<li><a href="#_el_anonymous_ref_class">10.4.12. EL_ANONYMOUS_REF Class</a></li>
+<li><a href="#_el_type_ref_class">10.4.12. EL_TYPE_REF Class</a></li>
 <li><a href="#_el_literal_class">10.4.13. EL_LITERAL Class</a></li>
 <li><a href="#_el_scoped_ref_class">10.4.14. EL_SCOPED_REF Class</a></li>
 <li><a href="#_el_instantiable_reft_class">10.4.15. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
@@ -465,7 +465,7 @@
  Add <code>BMM_MODEL.<em>used_models</em></code>;<br>
  Add creators and converters;<br>
  Add <code>ROUTINE.<em>body</em></code> hook;<br>
- Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>;<br>
+ Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>, <code>EL_TYPE_REF</code>;<br>
  Add <code>BMM_MODULE</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">22 Apr 2020</p></td>
@@ -6488,7 +6488,7 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p>a specified scoping object, usually achieved through 'dot-notation' in most languages;</p>
 </li>
 <li>
-<p>an anonymous object that is assumed to be created on the fly, or may resolve to a singleton;</p>
+<p>an anonymous object representing a type;</p>
 </li>
 </ul>
 </div>
@@ -6567,9 +6567,9 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_anonymous_reference"><a class="anchor" href="#_anonymous_reference"></a>10.2.1.5. Anonymous Reference</h5>
+<h5 id="_type_reference"><a class="anchor" href="#_type_reference"></a>10.2.1.5. Type Reference</h5>
 <div class="paragraph">
-<p>A special meta-type, <code>EL_ANONYMOUS_REF</code> is provided for references to an anonymous instance created via reference to its class. This is exclusively used as a convenient way (common in many programming languages) of accessing <em>class features</em> that do not depend on instance properties (i.e. 'constant', 'enum', and 'static' members in C-based languages) without having to explicitly create an instance. As an expression, an anonymous reference will accordingly only appear as a qualifier of a feature reference, using syntax such as <code>{ClassName}.<em>feature</em></code>, or with arguments, <code>{ClassName}.<em>function (args&#8230;&#8203;)</em></code>.</p>
+<p>A special meta-type, <code>EL_TYPE_REF</code> is provided to refer to a type as an object. This is exclusively used as a convenient way (common in many programming languages) of accessing <em>class features</em> that do not depend on instance properties (i.e. 'constant', 'enum', and 'static' members in C-based languages) without having to explicitly create an instance. As an expression, a type reference will normally only appear as a qualifier of a feature reference, using syntax such as <code>{TypeName}.<em>feature</em></code>, or with arguments, <code>{TypeName}.<em>function (args&#8230;&#8203;)</em></code>.</p>
 </div>
 <div class="paragraph">
 <p>A class feature is defined as one that is:</p>
@@ -6591,10 +6591,10 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p>The last category typically includes 'external' functions that are wrappers for calls to the operating system or other external resource that maintains its own state independently.</p>
 </div>
 <div class="paragraph">
-<p>Since an anonymous reference can be made without instantiation, it may be made to an abstract class as well as a concrete one. This facilitates the use of so-called 'utility' classes containing groups of useful functions e.g. for handling specific kinds of strings.</p>
+<p>Since a type reference can be made without instantiation, it may be made to an abstract class as well as a concrete one. This facilitates the use of so-called 'utility' classes containing groups of useful functions e.g. for handling specific kinds of strings.</p>
 </div>
 <div class="paragraph">
-<p>Examples of anonymous reference are:</p>
+<p>Examples of type references as qualifiers of class features include the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6602,10 +6602,20 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <p><code>{Env}.<em>current_time</em></code> to access the class function <code><em>current_time</em></code> defined on the class (or interface) <code>Env</code>;</p>
 </li>
 <li>
-<p><code>{Colours}.red</code>;</p>
+<p><code>{Colours}.red</code>, to access an enumeration literal;</p>
 </li>
 <li>
 <p><code>{Version_utils}.version_higher ("1.5.40", "11.5.4")</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A type reference may also be used on its own, such as in the following type test, which is the EL equivalent of programming language operators like <code>type_of()</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>admission_dates.type = {Interval&lt;Iso8601_date_time&gt;}</code>.</p>
 </li>
 </ul>
 </div>
@@ -7296,7 +7306,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_anonymous_ref_class"><a class="anchor" href="#_el_anonymous_ref_class"></a>10.4.12. EL_ANONYMOUS_REF Class</h4>
+<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>10.4.12. EL_TYPE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7306,12 +7316,15 @@ probably to be removed.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_ANONYMOUS_REF</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_TYPE_REF</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Meta-type for reference to anonymous instance of some class, assumed to be generated by expression run-time. Normally created by the use of the class name rather than a feature name as the qualifier for a function or constant access. Typically represented syntactically as <code>ClassName</code> or <code>{ClassName}</code>.</p>
+<p>Meta-type for reference to a non-abstract type as an object. Assumed to be accessible at run-time. Typically represented syntactically as <code>TypeName</code> or <code>{TypeName}</code>.</p>
+</div>
+<div class="paragraph">
+<p>May be used as a value, or as the qualifier for a function or constant access.</p>
 </div></div></td>
 </tr>
 <tr>

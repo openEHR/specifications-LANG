@@ -161,7 +161,7 @@ As with many programming languages, a pre-defined reference to the current objec
 
 EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).
 
-==== attached() Predicate
+==== Attached() Predicate
 
 The `attached()` predicate is the EL equivalent of the expressions such as `someVar == null` (C, C++, C#, Java), `some_var is None` (Python) and similar. In EL, a reference is understood as being _attached_ (or not) to a value. Attached status is therefore tested using `attached(ref)`, and may be applied to any target of a {openehr_bmm}#_expressions[BMM `EL_INSTANCE_REF`^], which includes references to variables, properties, constants, functions and tuples.
 
@@ -197,7 +197,7 @@ Agents for procedure calls can be created in the same way as described above. In
 
 === Qualified Referencing
 
-Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the `EL_TERMINAL` property `_context_`. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:
+Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the `EL_SCOPED_REF` property `_scope_`. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:
 
 [source,typescript]
 ----

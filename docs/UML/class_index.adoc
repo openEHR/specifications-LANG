@@ -144,8 +144,6 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_agent_call_class[EL_AGENT_CALL^]
 [.xcode]
-* link:/releases/LANG/{lang_release}/bmm.html#_el_anonymous_ref_class[EL_ANONYMOUS_REF^]
-[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_assertion_class[EL_ASSERTION^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_attached_class[EL_ATTACHED^]
@@ -183,6 +181,8 @@
 * link:/releases/LANG/{lang_release}/bmm.html#_el_tuple_class[EL_TUPLE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_tuple_item_class[EL_TUPLE_ITEM^]
+[.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_el_type_ref_class[EL_TYPE_REF^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_el_unary_operator_class[EL_UNARY_OPERATOR^]
 
