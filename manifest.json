@@ -1,0 +1,70 @@
+{
+    "id": "LANG",
+    "title": "Generic Languages",
+    "description": "openEHR Languages Component",
+    "keywords": "language models, lang component, openehr",
+    "specifications": [
+        {
+            "id": "odin",
+            "title": "ODIN - Object Data Instance Notation",
+            "title_short": "ODIN",
+            "description": "Object Data Instance Notation (ODIN) specification",
+            "summary": "This is the JSON-like notation used to express various sections of ADL archetypes including description, terminology and annotations, and also BMM files.",
+            "copyright_year": "2003",
+            "spec_status": "STABLE",
+            "keywords": "data, notation, JSON, syntax"
+        },
+        {
+            "id": "bmm",
+            "title": "BMM - Basic Meta-Model",
+            "title_short": "BMM",
+            "description": "Basic Meta-Model (BMM) specification",
+            "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.",
+            "copyright_year": "2016",
+            "spec_status": "TRIAL",
+            "keywords": "reflection, meta-model, UML"
+        },
+        {
+            "id": "bmm_persistence",
+            "title": "P_BMM - BMM Persistence",
+            "title_short": "P_BMM",
+            "description": "BMM Persistence (P_BMM)",
+            "summary": "A human-readable and machine-processable save format for BMM.",
+            "copyright_year": "2016",
+            "spec_status": "STABLE",
+            "keywords": "reflection, meta-model, UML"
+        },
+        {
+            "id": "expression_language",
+            "title": "EL - Expression Language",
+            "title_short": "Expression Language",
+            "description": "openEHR Expression Language specification",
+            "summary": "The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.",
+            "copyright_year": "2016",
+            "spec_status": "DEVELOPMENT",
+            "keywords": "openehr, expressions, rules"
+        }
+    ],
+    "expressions": [
+        {
+            "id": "openEHR_UML-LANG.mdzip",
+            "type": "uml",
+            "title": "LANG UML",
+            "description": "UML file for openEHR Language model classes, as MagicDraw 18.5. Contains UML 2.5 standard XMI file."
+        }
+    ],
+    "jira": {
+        "open_issues": "11116",
+        "roadmap": "SPECLANG"
+    },
+    "releases": [
+        {
+            "id": "1.0.0",
+            "date": "",
+            "jira": {
+                "crs": "SPECLANG/versions/12518",
+                "prs": "SPECPR/versions/12519"
+            }
+        }
+    ]
+}
