@@ -99,6 +99,7 @@
 <li><a href="#_bmm_package_container_class">4.5.2. BMM_PACKAGE_CONTAINER Class</a></li>
 <li><a href="#_bmm_package_class">4.5.3. BMM_PACKAGE Class</a></li>
 <li><a href="#_bmm_model_class">4.5.4. BMM_MODEL Class</a></li>
+<li><a href="#_bmm_module_class">4.5.5. BMM_MODULE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -1879,7 +1880,7 @@ a future version of BMM may define an option to import schemas using differing n
 <div class="sect2">
 <h3 id="_model_semantics"><a class="anchor" href="#_model_semantics"></a>4.3. Model Semantics</h3>
 <div class="paragraph">
-<p>In BMM, a <em>model</em> is understood as a set of <em>package</em> and <em>module</em> definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of module definitions, where the most common type of module is the <em>class</em>.</p>
+<p>In BMM, a <em>model</em> is understood as a set of <em>package</em> and <em>module</em> definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. The abstract <code>BMM_MODULE</code> class is the ancestor for any kind of module, which is understood as a container for <em>features</em> of various kinds, including the usual <em>properties</em>, <em>routines</em>, and so on. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of module definitions, where a commonly used type of module is the <em>class</em>.  The following illustrates the structure of a typical 'class' or 'object' model.</p>
 </div>
 <div id="bmm_structure" class="imageblock text-center text-center">
 <div class="content">
@@ -2443,6 +2444,45 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><em>Inv_top_level_scope</em>: <code>scope = self</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_module_class"><a class="anchor" href="#_bmm_module_class"></a>4.5.5. BMM_MODULE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_MODULE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type defining a generalised module concept. Descendants define actual structure and contents.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DECLARATION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_MODEL</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Model within which module is defined.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -8203,7 +8243,7 @@ probably to be removed.
 <p><a id="Djikstra_DOP_1976"></a>Dijkstra, E. W. (1976). <em>A discipline of programming</em>. Prentice-Hall Englewood Cliffs, N.J.</p>
 </div>
 <div class="paragraph">
-<p><a id="Meyer_OOSC2"></a>Meyer, B. (1997). <em>Object-oriented Software Construction</em> (second.). Prentice Hall.</p>
+<p><a id="Meyer_OOSC2"></a>Meyer, B. (1997). <em>Object-oriented Software Construction</em> (Second.). Prentice Hall.</p>
 </div>
 <div class="paragraph">
 <p><a id="Object_Z"></a>Smith, G. (2000). <em>The Object Z Specification Language</em>. Kluwer Academic Publishers. Retrieved from <a href="http://www.itee.uq.edu.au/ smith/objectz.html" class="bare">http://www.itee.uq.edu.au/ smith/objectz.html</a></p>
@@ -8216,6 +8256,6 @@ probably to be removed.
 Last updated 2020-03-04 21:04:33 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
 </body>
 </html>

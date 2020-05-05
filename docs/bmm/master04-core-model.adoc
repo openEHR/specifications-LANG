@@ -16,7 +16,7 @@ NOTE: a future version of BMM may define an option to import schemas using diffe
 
 == Model Semantics
 
-In BMM, a _model_ is understood as a set of _package_ and _module_ definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of module definitions, where the most common type of module is the _class_.  
+In BMM, a _model_ is understood as a set of _package_ and _module_ definitions that are developed and maintained as a unit, by some organisation, and usually having an associated hierarchical namespace. The abstract `BMM_MODULE` class is the ancestor for any kind of module, which is understood as a container for _features_ of various kinds, including the usual _properties_, _routines_, and so on. A BMM model is structured in the same general way as a UML model, i.e. with a hierarchical package containment structure and a set of module definitions, where a commonly used type of module is the _class_.  The following illustrates the structure of a typical 'class' or 'object' model.
 
 [.text-center]
 .BMM model structure
@@ -70,4 +70,5 @@ include::{uml_export_dir}/classes/bmm_declaration.adoc[]
 include::{uml_export_dir}/classes/bmm_package_container.adoc[]
 include::{uml_export_dir}/classes/bmm_package.adoc[]
 include::{uml_export_dir}/classes/bmm_model.adoc[]
+include::{uml_export_dir}/classes/bmm_module.adoc[]
 
