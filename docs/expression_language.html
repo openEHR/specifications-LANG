@@ -1124,7 +1124,8 @@
 <pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// define a naive obstetric risk function</span>
     <span class="tok-nx">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-nx">age</span>: <span class="tok-kt">Duration</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span> <span class="tok-nx">previous_pregnancies</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">Coded_term</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
 
-    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span>                <span class="tok-c1">// generate an agent with signature &lt;[Duration, Integer], Coded_term&gt;</span></code></pre>
+    <span class="tok-c1">// generate an agent with signature &lt;[Duration, Integer], Coded_term&gt;</span>
+    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1132,7 +1133,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-s1">&#39;P38Y&#39;</span><span class="tok-p">,</span> <span class="tok-o">?</span><span class="tok-p">)</span>    <span class="tok-c1">// generate an agent with signature &lt;[Integer], Coded_term&gt;</span></code></pre>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// generate an agent with signature &lt;[Integer], Coded_term&gt;</span>
+    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-s1">&#39;P38Y&#39;</span><span class="tok-p">,</span> <span class="tok-o">?</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1482,15 +1484,15 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Here, the <code>|</code> symbol is usually read in English as 'such that'. The above may also be expressed in EL as its functional equivalent:</p>
-</div>
-<div class="paragraph">
-<p>The symbolic equivalent may also be used.</p>
+<p>Here, the <code>|</code> symbol is usually read in English as 'such that'. The symbolic equivalent may also be used:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>    ∃ v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The above may also be expressed in EL as its functional equivalent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1514,15 +1516,15 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Here, the <code>|</code> symbol is normally read in English as as 'it holds that' The above may also be expressed in EL as its functional equivalent:</p>
-</div>
-<div class="paragraph">
-<p>The symbolic equivalent may also be used.</p>
+<p>Here, the <code>|</code> symbol is normally read in English as as 'it holds that'. The symbolic equivalent may also be used:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>    ∀ v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The above may also be expressed in EL as its functional equivalent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1545,7 +1547,7 @@
 <h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a id="Hein2002"></a>Hein, J. L. (2002). <em>Discrete Structures, Logic and Computability</em> (second.). Jones and Bartlett.</p>
+<p><a id="Hein2002"></a>Hein, J. L. (2002). <em>Discrete Structures, Logic and Computability</em> (Second.). Jones and Bartlett.</p>
 </div>
 <div class="paragraph">
 <p><a id="Kilov1994"></a>Kilov, H., &amp; Ross, J. (1994). <em>Information Modelling - an object-oriented approach</em>. Prentice Hall.</p>
@@ -1561,9 +1563,9 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-04 21:20:22 UTC
+Last updated 2020-04-27 18:11:12 +0100
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
 </body>
 </html>

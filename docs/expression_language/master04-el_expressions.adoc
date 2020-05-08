@@ -180,15 +180,17 @@ Delayed routine calls for both functions and procedures may occur as terminals i
 ----
     // define a naive obstetric risk function
     obstetric_risk (age: Duration[1]; previous_pregnancies: Integer[1]): Coded_term[1] 
-    
-    agent obstetric_risk                // generate an agent with signature <[Duration, Integer], Coded_term>
+
+    // generate an agent with signature <[Duration, Integer], Coded_term>
+    agent obstetric_risk                
 ----
 
 For a partial argument list, `?` symbols are used for the non-filled arguments. This generates an agent whose signature corresponds to the remaining open arguments. In the following example, an agent of the signature `<[Integer], Coded_term>` is generated, which, since the age of 38 years is supplied, may be thought of as a new function called `obstetric_risk_38_years()`.
 
 [source,typescript]
 ----
-    agent obstetric_risk ('P38Y', ?)    // generate an agent with signature <[Integer], Coded_term>
+    // generate an agent with signature <[Integer], Coded_term>
+    agent obstetric_risk ('P38Y', ?)
 ----
 
 Theoretically, an agent could be created with all arguments supplied, without the intention of immediate execution, e.g. `agent obstetric_risk ('P38Y', 2)`, which would generate an agent of signature `<[],Coded_term>`. This could be later executed by simply using the receiver variable or parameter reference in the normal way, in a later expression.
@@ -347,13 +349,13 @@ The textual syntax of `there exists` is as follows:
     there_exists v in container_var | <Boolean expression mentioning v> 
 ----
 
-Here, the `|` symbol is usually read in English as 'such that'. The above may also be expressed in EL as its functional equivalent:
-
-The symbolic equivalent may also be used.
+Here, the `|` symbol is usually read in English as 'such that'. The symbolic equivalent may also be used:
 
 ----
     ∃ v : container_var | <Boolean expression mentioning v>
 ----
+
+The above may also be expressed in EL as its functional equivalent:
 
 [source,typescript]
 ----
@@ -374,13 +376,13 @@ The `for_all` operator has similar textual syntax:
     for_all v in container_var | <Boolean expression mentioning v>
 ----
 
-Here, the `|` symbol is normally read in English as as 'it holds that' The above may also be expressed in EL as its functional equivalent:
-
-The symbolic equivalent may also be used.
+Here, the `|` symbol is normally read in English as as 'it holds that'. The symbolic equivalent may also be used:
 
 ----
     ∀ v : container_var | <Boolean expression mentioning v>
 ----
+
+The above may also be expressed in EL as its functional equivalent:
 
 [source,typescript]
 ----
