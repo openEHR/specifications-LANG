@@ -10,6 +10,7 @@
             "title_short": "ODIN",
             "description": "Object Data Instance Notation (ODIN) specification",
             "summary": "This is the JSON-like notation used to express various sections of ADL archetypes including description, terminology and annotations, and also BMM files.",
+            "micro_summary": "Object Data Instance Notation",
             "copyright_year": "2003",
             "spec_status": "STABLE",
             "keywords": "data, notation, JSON, syntax"
@@ -20,6 +21,14 @@
             "title_short": "BMM",
             "description": "Basic Meta-Model (BMM) specification",
             "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.",
+            "micro_summary": "Basic Meta-Model - BmmSchema, BmmModel, BmmClass, BmmType, BmmProperty",
+            "classes": [
+                "BMM_SCHEMA",
+                "BMM_MODEL",
+                "BMM_CLASS",
+                "BMM_TYPE",
+                "BMM_PROPERTY"
+            ],
             "copyright_year": "2016",
             "spec_status": "TRIAL",
             "keywords": "reflection, meta-model, UML"
@@ -30,6 +39,13 @@
             "title_short": "P_BMM",
             "description": "BMM Persistence (P_BMM)",
             "summary": "A human-readable and machine-processable save format for BMM.",
+            "micro_summary": "BMM Human-readable serial format",
+            "classes": [
+                "P_BMM_SCHEMA",
+                "P_BMM_CLASS",
+                "P_BMM_TYPE",
+                "P_BMM_PROPERTY"
+            ],
             "copyright_year": "2016",
             "spec_status": "STABLE",
             "keywords": "reflection, meta-model, UML"
@@ -40,6 +56,7 @@
             "title_short": "Expression Language",
             "description": "openEHR Expression Language specification",
             "summary": "The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.",
+            "micro_summary": "A syntax for formal expressions",
             "copyright_year": "2016",
             "spec_status": "DEVELOPMENT",
             "keywords": "openehr, expressions, rules"
