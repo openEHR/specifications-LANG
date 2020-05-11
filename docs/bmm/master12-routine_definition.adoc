@@ -12,7 +12,7 @@ The use of the three-class hierarchy pattern allows a Routine `_body_` to just b
 
 This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.
 
-== Class Descriptions
+== Class Definitions
 
 include::{uml_export_dir}/classes/bmm_statement_item.adoc[]
 include::{uml_export_dir}/classes/bmm_statement_block.adoc[]

@@ -71,7 +71,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*validate_created* +
  +
 _Pre_state_: `state = State_created` +
@@ -84,7 +85,8 @@ a|Do some basic validation post initial creation
 * check that all classes are mentioned in the package structure
 * check that all models refer to valid packages
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*load_finalise* +
  +
 _Pre_state_: `state = State_validated_created` +
@@ -94,7 +96,8 @@ a|Finalisation work:
 * convert packages to canonical form, i.e. full hierarchy with no packages with names like aa.bb.cc
 * set up include processing list
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*merge* ( +
 other: `BMM_SCHEMA[1]` +
 ) +
@@ -103,27 +106,29 @@ _Pre_state_: `state = State_includes_pending` +
 _Pre_other_valid_: `includes_to_process.has (included_schema.schema_id)`
 a|Merge in class and package definitions from `_other_`, except where the current schema already has a definition for the given type or package.
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*validate*
 a|Main validation prior to generation of `_bmm_model_`.
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*create_bmm_model* +
  +
 _Pre_state_: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
 a|Populate `_bmm_model_` from schema.
 
-h|
+h|*1..1*
 |*read_to_validate* (): `Boolean` +
  +
 _Post_state_: `state = State_includes_processed`
 a|True when validation may be commenced.
 
-h|
+h|*1..1*
 |*schema_id* (): `String`
 a|Identifier of this schema, used for stating inclusions and identifying files. Formed as:
 
-`_rm_publisher_` '_' `_schema_name_` '_' `_rm_release_`
+`{BMM_DEFINITIONS}.create_schema_id( _rm_publisher_,  _schema_name_,   _rm_release_`)
 
 E.g. `'openehr_rm_ehr_1.0.4'`.
 |===

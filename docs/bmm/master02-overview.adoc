@@ -127,3 +127,7 @@ These are illustrated below.
 [.text-center]
 .Package Overview
 image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/bmm_definitions.adoc[]

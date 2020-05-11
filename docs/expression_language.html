@@ -69,7 +69,8 @@
 <li><a href="#_function_calls">4.2.1.5. Function Calls</a></li>
 <li><a href="#_built_in_functions">4.2.1.6. 'Built-in' Functions</a></li>
 <li><a href="#_container_item_access">4.2.1.7. Container Item Access</a></li>
-<li><a href="#_self_reference">4.2.1.8. Self Reference</a></li>
+<li><a href="#_container_item_selection_and_matching">4.2.1.8. Container Item Selection and Matching</a></li>
+<li><a href="#_self_reference">4.2.1.9. Self Reference</a></li>
 </ul>
 </li>
 <li><a href="#_predicates">4.2.2. Predicates</a>
@@ -198,8 +199,16 @@
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><a href="https://specifications.openehr.org/tickets/SPECLANG-1" target="_blank" rel="noopener">SPECLANG-1</a>. Add Expression Language specification.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>23 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>10 May 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add Container selectors.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 May 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -1050,7 +1059,7 @@
 <div class="sect4">
 <h5 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.2.1.7. Container Item Access</h5>
 <div class="paragraph">
-<p>Access to members of instances of a container type is achieved by operators that are aliases for functions defined on the relevant types, as follows.</p>
+<p>Access to members of instances of a container type is achieved by the <code>[]</code> operator, which is an alias for various functions defined on the relevant types, as follows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1078,17 +1087,63 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>[k]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K,V&gt;.item(i: Integer): V</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K,V&gt;.item(k: K): V</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">element at key k of a hash</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph tbd">
+<p>TBD: to achieve this generically, the above map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
+</div>
 <div class="paragraph">
 <p>Container element access may be used on any expression whose effective type is a container, including function calls.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.1.8. Self Reference</h5>
+<h5 id="_container_item_selection_and_matching"><a class="anchor" href="#_container_item_selection_and_matching"></a>4.2.1.8. Container Item Selection and Matching</h5>
+<div class="paragraph">
+<p>Selection of a container item matching a predicate may be achieved with an extension to the <code>[]</code> syntax, by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>. Here, 'selection' is understood to mean: obtain the first matching item, if it exists. This enables a reference of the following form to be constructed (final line).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">Book</span> <span class="tok-p">{</span>
+        <span class="tok-nx">title</span>: <span class="tok-kt">String</span>
+        <span class="tok-nx">pub_date</span>: <span class="tok-kt">Date</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-nx">book_list</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Book</span><span class="tok-o">&gt;</span>
+
+    <span class="tok-nx">book_list</span><span class="tok-p">[(</span><span class="tok-nx">b</span>:<span class="tok-kt">Book</span><span class="tok-p">){</span><span class="tok-nx">b</span><span class="tok-p">.</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since the signature is invariant with respect to the container type (here, <code>List&lt;Book&gt;</code>), a shorter form can be used in which the <code>b</code> is assumed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly, any expression constructable based on the container type may be used. The following example contains an operator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">pub_date</span> <span class="tok-o">&gt;=</span> <span class="tok-nx">PY2003</span><span class="tok-p">}]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is <code>select (&lt;[T], Boolean&gt;): T?</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: to achieve this generically, the map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: different syntax for <code>Container::matches()</code>? Or could use matches plus <code>[1]</code> to get same effect e.g. <code>book_list[{pub_date &gt;= PY2003}][1]</code> gives first book with matching <code>pub_date</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.1.9. Self Reference</h5>
 <div class="paragraph">
 <p>As with many programming languages, a pre-defined reference to the current object is available via the plain name <code>self</code>. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
 </div>
@@ -1152,10 +1207,18 @@
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">person1</span><span class="tok-p">.</span><span class="tok-nx">name</span>
-    <span class="tok-nx">employees</span><span class="tok-p">.</span><span class="tok-nx">first</span><span class="tok-p">().</span><span class="tok-nx">name</span><span class="tok-p">.</span><span class="tok-nx">first_name</span>
-    <span class="tok-nx">blood_pressure</span><span class="tok-p">.</span><span class="tok-nx">history</span><span class="tok-p">.</span><span class="tok-nx">events</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">).</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">systolic</span>
+    <span class="tok-nx">employees</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">].</span><span class="tok-nx">name</span><span class="tok-p">.</span><span class="tok-nx">first_name</span>
+    <span class="tok-nx">blood_pressure</span><span class="tok-p">.</span><span class="tok-nx">history</span><span class="tok-p">.</span><span class="tok-nx">events</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">].</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">systolic</span>
 
     <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risks</span><span class="tok-p">.</span><span class="tok-nx">basic_risk</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Qualified referencing can be combined with selector agents to obtain an effect similar to the use of Xpath on XML data, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}].</span><span class="tok-nx">pub_date</span><span class="tok-p">.</span><span class="tok-nx">year</span></code></pre>
 </div>
 </div>
 </div>
@@ -1168,7 +1231,7 @@
 <div class="sect3">
 <h4 id="_equality_operator"><a class="anchor" href="#_equality_operator"></a>4.3.1. Equality Operator</h4>
 <div class="paragraph">
-<p>The equality operator <code>=</code> in EL is understood as the function <code><em>equal</em>()</code> defined on the openEHR Foundation type <code>Any</code>, of which every other class is a descendant. For all primitive value types (types for which use in expressions directly generates values rather than instance references), the semantics are value comparison, while for all other types, the semantics are reference comparison. For non-openEHR models, <code>=</code> will normally map to a similarly-named method, e.g. <code><em>equals</em>()</code>.</p>
+<p>The equality operator <code>=</code> in EL is understood as the function <code><em>equal</em>()</code> defined on the openEHR Foundation type <code>Any</code>, of which every other class is a descendant. For all primitive value types (types for which use in expressions directly generates values rather than instance references), the semantics are value comparison, while for all other types, the semantics are reference comparison. For non-openEHR models, <code>'='</code> will normally map to a similarly-named method, e.g. <code><em>equals</em>()</code>.</p>
 </div>
 <div class="paragraph">
 <p>To obtain value comparison for non-value types, the function <code>Any.<em>is_equal</em>()</code>, which may be redefined in any sub-type, is used.</p>

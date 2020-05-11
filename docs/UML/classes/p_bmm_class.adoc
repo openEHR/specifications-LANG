@@ -58,17 +58,17 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*is_generic* (): `Boolean` +
  +
 _Post_: `Result := generic_parameter_defs /= Void`
 a|True if this class is a generic class.
 
-h|
+h|*0..1*
 |*create_bmm_class*
 a|Create `_bmm_class_definition_`.
 
-h|
+h|*0..1*
 |*populate_bmm_class* ( +
 a_bmm_schema: `BMM_MODEL[1]` +
 )

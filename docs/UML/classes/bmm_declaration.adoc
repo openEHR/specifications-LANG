@@ -8,9 +8,6 @@ h|*Class*
 h|*Description*
 2+a|Meta-type of BMM declared model elements. A _declaration_ is a an element of a model _specified by an author within a model definition_ within a context, which defines the _scope_ of the element. Thus, a class definition and its property and routine definitions are model elements, but Types are not, since they are derived from model elements.
 
-h|*Inherit*
-2+|`BMM_DEFINITIONS`
-
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
@@ -44,7 +41,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*is_root_scope* (): `Boolean` +
  +
 _Post_result_: `Result = (scope = self)`

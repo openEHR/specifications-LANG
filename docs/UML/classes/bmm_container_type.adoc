@@ -36,27 +36,32 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_name* (): `String`
 a|Return full type name, e.g. `List<ELEMENT>`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_abstract* (): `Boolean` +
  +
 _Post_is_abstract_: `Result = container_type.is_abstract`
 a|True if the container class is abstract.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*flattened_type_list* (): `List<String>` +
  +
 _Post_result_: `Result = item_type.flattened_type_list`
 a|Flattened list of type names with container type name abstracted away.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*unitary_type* (): `BMM_UNITARY_TYPE`
 a|Return `_item_type_`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_primitive* (): `Boolean` +
  +
 _Post_result_: `Result = item_type.is_primitive`

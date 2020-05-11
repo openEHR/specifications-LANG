@@ -19,14 +19,16 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*0..1 +
+(abstract)*
 |*create_bmm_type* ( +
 a_schema: `BMM_MODEL[1]`, +
 a_class_def: `BMM_CLASS[1]` +
 )
 a|Create appropriate `BMM_XXX` object; effected in descendants.
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*as_type_string* (): `String`
 a|Formal name of the type for display.
 |===

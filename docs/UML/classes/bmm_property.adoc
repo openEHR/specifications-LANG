@@ -33,11 +33,11 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*existence* (): `Multiplicity_interval`
 a|Interval form of `0..1`, `1..1` etc, derived from `_is_nullable_`.
 
-h|
+h|*1..1*
 |*display_name* (): `String`
 a|Name of this property to display in UI.
 

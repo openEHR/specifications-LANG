@@ -15,11 +15,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*effective_type* (): `BMM_EFFECTIVE_TYPE`
 a|Result = self.
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*type_base_name* (): `String`
 a|Name of base generator type, i.e. excluding any generic parts if present.
 |===

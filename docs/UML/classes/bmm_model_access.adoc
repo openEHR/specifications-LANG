@@ -8,9 +8,6 @@ h|*Class*
 h|*Description*
 2+a|Access to BMM models that have been loaded and validated from one or more schema sets.
 
-h|*Inherit*
-2+|`BMM_DEFINITIONS`
-
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
@@ -34,30 +31,30 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*initialise_with_load_list* ( +
 a_schema_dirs: `List<String>[1]`, +
 a_schema_load_list: `List<String>[0..1]` +
 )
 a|Initialise with a specific schema load list, usually a sub-set of schemas that will be found in a specified directories `_a_schema_dirs_`.
 
-h|
+h|*0..1*
 |*initialise_all* ( +
 a_schema_dirs: `List<String>[1]` +
 )
 a|Load all schemas found in a specified directories `_a_schema_dirs_`.
 
-h|
+h|*0..1*
 |*reload_schemas*
 a|Reload BMM schemas.
 
-h|
+h|*1..1*
 |*bmm_model* ( +
 a_model_key: `String[1]` +
 ): `BMM_MODEL`
 a|Return ref model containing the model key which is a `_model_id_` or any shorter form e.g. model id minus the version. If a shorter key is used, the `BMM_MODEL` with the highest version will be selected.
 
-h|
+h|*1..1*
 |*has_bmm_model* ( +
 a_model_key: `String[1]` +
 ): `Boolean`

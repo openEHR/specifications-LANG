@@ -23,7 +23,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*signature* (): `BMM_SIGNATURE`
 a|Formal signature of this element, in the form:
 

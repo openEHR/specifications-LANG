@@ -22,7 +22,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_name* (): `String`
 a|Return full type name, e.g. `HashMap<String, ELEMENT>`.
 |===

@@ -12,13 +12,14 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*eval_type* (): `BMM_TYPE`
 a|Meta-type of expression entity used in type-checking and evaluation.
 
 Effected in descendants.
 
-h|
+h|*1..1*
 |*is_boolean* (): `Boolean` +
  +
 _Post_result_: `Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())`

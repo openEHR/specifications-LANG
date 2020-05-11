@@ -31,21 +31,25 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_base_name* (): `String` +
  +
 _Post_result_: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_primitive* (): `Boolean`
 a|Result = `True`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_abstract* (): `Boolean`
 a|Result = `False`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_name* (): `String` +
  +
 _Post_result_: `Result.is_equal (base_name())`

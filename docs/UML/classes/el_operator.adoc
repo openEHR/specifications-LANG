@@ -30,11 +30,11 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*operator_definition* (): `BMM_OPERATOR`
 a|Operator definition derived from `_definition.operator_definition()_`.
 
-h|
+h|*1..1*
 |*equivalent_call* (): `EL_FUNCTION_CALL`
 a|Function call equivalent to this operator.
 |===

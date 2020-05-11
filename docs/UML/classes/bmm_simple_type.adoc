@@ -23,19 +23,22 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_name* (): `String`
 a|Result is `_base_class.name_`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_abstract* (): `Boolean`
 a|Result is `_base_class.is_abstract_`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*flattened_type_list* (): `List<String>`
 a|Result is `_base_class.name_` .
 
-h|
+h|*1..1*
 |*effective_base_class* (): `BMM_SIMPLE_CLASS`
 a|Main design class for this type, from which properties etc can be extracted.
 |===

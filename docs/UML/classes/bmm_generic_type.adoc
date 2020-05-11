@@ -27,31 +27,35 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_name* (): `String`
 a|Return the full name of the type including generic parameters, e.g. `DV_INTERVAL<T>`, `TABLE<List<THING>,String>`.
 
-h|(redefined)
+h|*1..1 +
+(redefined)*
 |*type_signature* (): `String`
 a|Signature form of the type, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_abstract* (): `Boolean`
 a|True if `_base_class.is_abstract_` or if any (non-open) parameter type is abstract.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*flattened_type_list* (): `List<String>`
 a|Result is `_base_class.name_` followed by names of all generic parameter type names, which may be open or closed.
 
-h|
+h|*1..1*
 |*is_partially_closed* (): `Boolean`
 a|Returns True if there is any substituted generic parameter.
 
-h|
+h|*1..1*
 |*effective_base_class* (): `BMM_GENERIC_CLASS`
 a|Effective underlying class for this type, abstracting away any container type.
 
-h|
+h|*1..1*
 |*is_open* (): `Boolean`
 a|True if all generic parameters from ancestor generic types have been substituted in this type.
 |===

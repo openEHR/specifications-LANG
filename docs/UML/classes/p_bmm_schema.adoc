@@ -34,21 +34,24 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*0..1 +
+(effected)*
 |*validate_created* +
  +
 _Pre_state_: `state = State_created` +
 _Post_state_: `passed implies state = State_validated_created`
 a|Implementation of `_validate_created()_`
 
-h|(effected)
+h|*0..1 +
+(effected)*
 |*load_finalise* +
  +
 _Pre_state_: `state = State_validated_created` +
 _Post_state_: `state = State_includes_processed or state = State_includes_pending`
 a|Implementation of `_load_finalise()_`
 
-h|(effected)
+h|*0..1 +
+(effected)*
 |*merge* ( +
 other: `P_BMM_SCHEMA[1]` +
 ) +
@@ -57,17 +60,19 @@ _Pre_state_: `state = State_includes_pending` +
 _Pre_other_valid_: `includes_to_process.has (included_schema.schema_id)`
 a|Implementation of `_merge()_`
 
-h|(effected)
+h|*0..1 +
+(effected)*
 |*validate*
 a|Implementation of `_validate()_`
 
-h|(effected)
+h|*0..1 +
+(effected)*
 |*create_bmm_model* +
  +
 _Pre_state_: `state = P_BMM_PACKAGE_STATE.State_includes_processed`
 a|Implementation of `_create_bmm_model()_`
 
-h|
+h|*1..1*
 |*canonical_packages* (): `P_BMM_PACKAGE`
 a|Package structure in which all top-level qualified package names like `xx.yy.zz` have been expanded out to a hierarchy of `BMM_PACKAGE` objects.
 |===

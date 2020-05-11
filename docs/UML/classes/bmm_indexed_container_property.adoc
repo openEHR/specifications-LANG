@@ -23,7 +23,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(redefined)
+h|*1..1 +
+(redefined)*
 |*display_name* (): `String`
 a|Name of this property in form `name: ContainerTypeName<IndexTypeName, ...>`.
 |===

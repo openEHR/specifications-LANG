@@ -22,7 +22,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*eval_type* (): `BMM_SIMPLE_TYPE`
 a|Return `{BMM_MODEL}._boolean_type_definition_()`.
 

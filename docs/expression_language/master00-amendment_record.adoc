@@ -8,8 +8,13 @@
 
 |[[latest_issue]]2.0.0
 |{spec_tickets}/SPECLANG-1[SPECLANG-1^]. Add Expression Language specification.
-|openEHR SEC
-|[[latest_issue_date]]23 Mar 2020
+|T Beale
+|[[latest_issue_date]]10 May 2020
+
+|
+|Add Container selectors.
+|T Beale
+|10 May 2020
 
 |
 |Update to be based on BMM `expression` package.

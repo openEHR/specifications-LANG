@@ -8,9 +8,6 @@ h|*Class*
 h|*Description*
 2+a|Descriptor for a BMM schema. Contains a meta-data table of attributes obtained from a mini-ODIN parse of the  schema file.
 
-h|*Inherit*
-2+|`BMM_DEFINITIONS`
-
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
@@ -25,15 +22,18 @@ a|Computable form of model.
 
 h|*1..1*
 |*schema_id*: `String`
-a|Schema id, formed from:
+a|Schema id, formed by
 
-* `meta_data.item(Metadata_model_publisher)` '-' `meta_data.item(metadata_schema_name)` '-' `meta_data.item(Metadata_model_release)`
+`{BMM_DEFINITIONS}.create_schema_id(
+meta_data.item({BMM_DEFINITIONS}.Metadata_model_publisher),
+meta_data.item({BMM_DEFINITIONS}.Metadata_schema_name),
+meta_data.item({BMM_DEFINITIONS}.Metadata_model_release)`
 
 e.g. `openehr_rm_1.0.3`, `openehr_test_1.0.1`, `iso_13606_1_2008_2.1.2`.
 
 h|*1..1*
 |*meta_data*: `Hash<String, String>`
-a|Table of `{key, value}` pairs of schema meta-data, keys are string values corresponding to values in `P_BMM_SCHEMA_METADATA_KEY`.
+a|Table of `{key, value}` of schema meta-data, keys are string values defined by `{BMM_DEFINITIONS}.Metadata_*` constants.
 
 h|*0..1*
 |*includes*: `List<String>`
@@ -42,29 +42,29 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*is_top_level* (): `Boolean`
 a|True if this is a top-level schema, i.e. not included by some other schema.
 
-h|
+h|*1..1*
 |*is_bmm_compatible* (): `Boolean`
 a|True if the BMM version found in the schema (or assumed, if none) is compatible with that in this software.
 
-h|
+h|*0..1*
 |*load*
 a|Load schema into in-memory form, i.e. a `P_BMM_SCHEMA` instance, if structurally valid. If successful, `_p_schema_` will be set.
 
-h|
+h|*0..1*
 |*validate_merged*
 a|Validate loaded schema and report errors.
 
-h|
+h|*0..1*
 |*validate_includes* ( +
 all_schemas_list: `List<String>[0..1]` +
 )
 a|Validate includes list for this schema, to see if each mentioned schema exists in `_all_schemas_` list.
 
-h|
+h|*0..1*
 |*create_model*
 a|Create `schema`, i.e. the `BMM_MODEL` from one `P_BMM_SCHEMA` schema.
 |===

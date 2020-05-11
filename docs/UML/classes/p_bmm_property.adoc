@@ -46,7 +46,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*create_bmm_property* ( +
 a_bmm_schema: `BMM_MODEL[1]`, +
 a_class_def: `BMM_CLASS[1]` +

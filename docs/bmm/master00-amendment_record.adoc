@@ -9,7 +9,13 @@
 |[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to BASE component.
 |openEHR SEC
-|[[latest_issue_date]]13 Apr 2020
+|[[latest_issue_date]]11 May 2020
+
+|
+|Remove inheritance to `BMM_DEFINITIONS` (assume static access).
+|B Verhees, +
+ T Beale
+|11 May 2020
 
 |
 |Rename `BMM_DEFINED_TYPE` to `BMM_EFFECTIVE_TYPE`; +

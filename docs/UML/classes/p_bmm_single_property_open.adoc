@@ -31,7 +31,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*type_def* (): `P_BMM_OPEN_TYPE`
 a|Generate `_type_ref_` from `_type_` and save.
 |===

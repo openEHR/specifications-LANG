@@ -271,7 +271,7 @@ class Container<T> {
 }
 ----
 
-== Class Descriptions
+== Class Definitions
 
 include::{uml_export_dir}/classes/el_expression.adoc[]
 include::{uml_export_dir}/classes/el_assertion.adoc[]

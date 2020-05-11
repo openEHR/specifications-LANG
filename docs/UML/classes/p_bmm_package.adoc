@@ -30,13 +30,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*merge* ( +
 other: `P_BMM_PACKAGE[1]` +
 )
 a|Merge packages and classes from other (from an included `P_BMM_SCHEMA`) into this package.
 
-h|
+h|*0..1*
 |*create_bmm_package_definition*
 a|Generate a `BMM_PACKAGE_DEFINITION` object and write it to `_bmm_package_definition_`.
 |===

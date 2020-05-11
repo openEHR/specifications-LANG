@@ -38,11 +38,12 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*arity* (): `Integer`
 a|Return number of arguments of this routine.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*signature* ()
 a|Formal signature of this element, in the form
 

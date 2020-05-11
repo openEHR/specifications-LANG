@@ -35,7 +35,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*type_ref* (): `P_BMM_BASE_TYPE`
 a|The target type; this converts to the first parameter in `_generic_parameters_` in `BMM_GENERIC_TYPE`. Persisted attribute.
 |===

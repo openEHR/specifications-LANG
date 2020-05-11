@@ -22,15 +22,17 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(redefined)
+h|*0..1 +
+(redefined)*
 |*suppliers* (): `List<String>`
 a|Add suppliers from generic parameters.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type* (): `BMM_GENERIC_TYPE`
 a|Generate a fully open `BMM_GENERIC_TYPE` instance that corresponds to this class definition
 
-h|
+h|*1..1*
 |*generic_parameter_conformance_type* ( +
 a_name: `String[1]` +
 ): `String`

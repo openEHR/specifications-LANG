@@ -26,11 +26,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*type_base_name* (): `String`
 a|Result = `_defining_class.name_`.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_primitive* (): `Boolean`
 a|Result = `_defining_class.is_primitive_`.
 |===

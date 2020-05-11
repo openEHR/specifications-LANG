@@ -8,18 +8,17 @@ h|*Class*
 h|*Description*
 2+a|Abstract parent of type and class meta-types.
 
-h|*Inherit*
-2+|`BMM_DEFINITIONS`
-
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*is_abstract* (): `Boolean`
 a|If true, indicates an abstract class in a BMM model, or a type based on an abstract class, i.e. a type that cannot be directly instantiated.
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*is_primitive* (): `Boolean`
 a|If True, indicates that the entity in a BMM model is considered to relate to a primitive type set, i.e. be a primitive type, or be a definer of one.
 |===

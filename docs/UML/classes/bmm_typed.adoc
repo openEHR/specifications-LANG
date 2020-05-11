@@ -19,7 +19,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*is_boolean* (): `Boolean` +
  +
 _Post_result_: `Result = type().equal( {BMM_MODEL}.boolean_type_definition())`

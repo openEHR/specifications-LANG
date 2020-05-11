@@ -27,21 +27,21 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*package_at_path* ( +
 a_path: `String[1]` +
 ): `BMM_PACKAGE`
 a|Package at the path `_a_path_`.
 
-h|
+h|*0..1*
 |*do_recursive_packages* ( +
 action: `EL_PROCEDURE_AGENT[1]` +
 )
 a|Recursively execute `_action_`, which is a procedure taking a `BMM_PACKAGE` argument, on all members of packages.
 
-h|
+h|*1..1*
 |*has_package_path* ( +
 a_path: `String[1]` +
 ): `Boolean`
-a|True if there is a package at the path `_a_path_`; paths are delimited with delimiter `_Package_name_delimiter_`.
+a|True if there is a package at the path `_a_path_`; paths are delimited with delimiter `{BMM_DEFINITIONS}_Package_name_delimiter_`.
 |===

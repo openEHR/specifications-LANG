@@ -76,55 +76,58 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(abstract)
+h|*1..1 +
+(abstract)*
 |*type* (): `BMM_MODEL_TYPE`
 a|Generate a type object that represents the type for which this class is the definer.
 
-h|
+h|*0..1*
 |*all_ancestors* (): `List<String>`
 a|List of all inheritance parent class names, recursively.
 
-h|
+h|*0..1*
 |*all_descendants* (): `List<String>`
 a|Compute all descendants by following `_immediate_descendants_`.
 
-h|
+h|*0..1*
 |*suppliers* (): `List<String>`
 a|List of names of immediate supplier classes, including concrete generic parameters, concrete descendants of abstract statically defined types, and inherited suppliers. (Where generics are unconstrained, no class name is added, since logically it would be `Any` and this can always be assumed anyway). This list includes primitive types.
 
-h|
+h|*0..1*
 |*suppliers_non_primitive* (): `List<String>`
 a|Same as `suppliers` minus primitive types, as defined in input schema.
 
-h|
+h|*0..1*
 |*supplier_closure* (): `List<String>`
 a|List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be `Any` and this can always be assumed anyway).  This list includes primitive types.
 
-h|
+h|*1..1*
 |*package_path* (): `String`
 a|Fully qualified package name, of form: `package.package`.
 
-h|
+h|*1..1*
 |*class_path* (): `String`
 a|Fully qualified class name, of form: `package.package.CLASS` with package path in lower-case and class in original case.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_primitive* (): `Boolean`
 a|True if this class is designated a primitive type within the overall type system of the schema. Set from schema.
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*is_abstract* (): `Boolean`
 a|True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time.
 
-h|
+h|*0..1*
 |*features* (): `List<BMM_CLASS_SCOPED>`
 a|List of all feature definitions introduced in this class.
 
-h|
+h|*0..1*
 |*flat_features* (): `List<BMM_CLASS_SCOPED>`
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
-h|
+h|*0..1*
 |*flat_properties* (): `List<BMM_PROPERTY>`
 a|List of all properties due to current and ancestor classes, keyed by property name.
 

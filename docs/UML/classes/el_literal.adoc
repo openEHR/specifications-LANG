@@ -22,7 +22,8 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|(effected)
+h|*1..1 +
+(effected)*
 |*eval_type* (): `BMM_TYPE`
 a|Return `_value.type_`.
 |===
