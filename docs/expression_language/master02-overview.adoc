@@ -48,3 +48,18 @@ In the explicit form, an EL expressions appear within a BMM model definition, or
 image::{diagrams_uri}/EL_design_structure-explicit.svg[id=EL_design_structure_explicit, align="center"]
 
 In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.
+
+== Formal Representation
+
+Formally, an openEHR EL expression is any of the following evaluable entities:
+
+* _terminal entities_:
+** _instance references_, including _literals_, _constants_, _variables_ and _function calls_;
+** _predicates_: Boolean tests on instance structures;
+** _agents_: i.e. delayed routine calls;
+* _complex expressions_ created from:
+** _equality operator_: equality operator;
+** _primitive operators_: arithmetic operators, relational operators, boolean operators;
+** _collection operators_: logical quantification operators.
+
+These correspond to the meta-types defined in the {openehr_bmm}##_expressions[BMM `expression` package^], each of which is described in detail in the following sections.

@@ -60,8 +60,8 @@ The work reported in this paper has been funded by the following organisations:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-el_basics.adoc[leveloffset=+1]
-include::master04-el_expressions.adoc[leveloffset=+1]
-
+include::master04-el_terminal_entities.adoc[leveloffset=+1]
+include::master05-el_expressions.adoc[leveloffset=+1]
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //

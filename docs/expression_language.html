@@ -39,6 +39,7 @@
 <li><a href="#_design_background">2.1. Design Background</a></li>
 <li><a href="#_requirements">2.2. Requirements</a></li>
 <li><a href="#_execution_model">2.3. Execution Model</a></li>
+<li><a href="#_formal_representation">2.4. Formal Representation</a></li>
 </ul>
 </li>
 <li><a href="#_el_basics">3. EL Basics</a>
@@ -55,46 +56,41 @@
 </li>
 </ul>
 </li>
-<li><a href="#_el_expressions">4. EL Expressions</a>
+<li><a href="#_terminal_entities">4. Terminal Entities</a>
 <ul class="sectlevel2">
-<li><a href="#_overview_2">4.1. Overview</a></li>
-<li><a href="#_terminal_entities">4.2. Terminal Entities</a>
+<li><a href="#_instance_references">4.1. Instance References</a>
 <ul class="sectlevel3">
-<li><a href="#_instance_references">4.2.1. Instance References</a>
-<ul class="sectlevel4">
-<li><a href="#_literals">4.2.1.1. Literals</a></li>
-<li><a href="#_constants">4.2.1.2. Constants</a></li>
-<li><a href="#_variables">4.2.1.3. Variables</a></li>
-<li><a href="#_property_references">4.2.1.4. Property References</a></li>
-<li><a href="#_function_calls">4.2.1.5. Function Calls</a></li>
-<li><a href="#_built_in_functions">4.2.1.6. 'Built-in' Functions</a></li>
-<li><a href="#_container_item_access">4.2.1.7. Container Item Access</a></li>
-<li><a href="#_container_item_selection_and_matching">4.2.1.8. Container Item Selection and Matching</a></li>
-<li><a href="#_self_reference">4.2.1.9. Self Reference</a></li>
+<li><a href="#_literals">4.1.1. Literals</a></li>
+<li><a href="#_constants">4.1.2. Constants</a></li>
+<li><a href="#_variables">4.1.3. Variables</a></li>
+<li><a href="#_property_references">4.1.4. Property References</a></li>
+<li><a href="#_function_calls">4.1.5. Function Calls</a></li>
+<li><a href="#_built_in_functions">4.1.6. 'Built-in' Functions</a></li>
+<li><a href="#_container_item_access">4.1.7. Container Item Access</a></li>
+<li><a href="#_container_item_selection_and_matching">4.1.8. Container Item Selection and Matching</a></li>
+<li><a href="#_self_reference">4.1.9. Self Reference</a></li>
 </ul>
 </li>
-<li><a href="#_predicates">4.2.2. Predicates</a>
-<ul class="sectlevel4">
-<li><a href="#_attached_predicate">4.2.2.1. Attached() Predicate</a></li>
-</ul>
-</li>
-<li><a href="#_agents">4.2.3. Agents</a></li>
-<li><a href="#_qualified_referencing">4.2.4. Qualified Referencing</a></li>
-</ul>
-</li>
-<li><a href="#_complex_expressions">4.3. Complex Expressions</a>
+<li><a href="#_predicates">4.2. Predicates</a>
 <ul class="sectlevel3">
-<li><a href="#_equality_operator">4.3.1. Equality Operator</a></li>
-<li><a href="#_primitive_operators">4.3.2. Primitive Operators</a>
-<ul class="sectlevel4">
-<li><a href="#_logical_negation">4.3.2.1. Logical Negation</a></li>
-<li><a href="#_precedence_and_parentheses">4.3.2.2. Precedence and Parentheses</a></li>
+<li><a href="#_attached_predicate">4.2.1. Attached() Predicate</a></li>
 </ul>
 </li>
-<li><a href="#_matches_operator">4.3.3. Matches Operator</a></li>
-<li><a href="#_collection_operators">4.3.4. Collection Operators</a></li>
+<li><a href="#_agents">4.3. Agents</a></li>
+<li><a href="#_qualified_referencing">4.4. Qualified Referencing</a></li>
 </ul>
 </li>
+<li><a href="#_complex_expressions">5. Complex Expressions</a>
+<ul class="sectlevel2">
+<li><a href="#_equality_operator">5.1. Equality Operator</a></li>
+<li><a href="#_primitive_operators">5.2. Primitive Operators</a>
+<ul class="sectlevel3">
+<li><a href="#_logical_negation">5.2.1. Logical Negation</a></li>
+<li><a href="#_precedence_and_parentheses">5.2.2. Precedence and Parentheses</a></li>
+</ul>
+</li>
+<li><a href="#_matches_operator">5.3. Matches Operator</a></li>
+<li><a href="#_collection_operators">5.4. Collection Operators</a></li>
 </ul>
 </li>
 <li><a href="#_references">References</a></li>
@@ -504,6 +500,51 @@
 <p>In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_formal_representation"><a class="anchor" href="#_formal_representation"></a>2.4. Formal Representation</h3>
+<div class="paragraph">
+<p>Formally, an openEHR EL expression is any of the following evaluable entities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>terminal entities</em>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>instance references</em>, including <em>literals</em>, <em>constants</em>, <em>variables</em> and <em>function calls</em>;</p>
+</li>
+<li>
+<p><em>predicates</em>: Boolean tests on instance structures;</p>
+</li>
+<li>
+<p><em>agents</em>: i.e. delayed routine calls;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>complex expressions</em> created from:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>equality operator</em>: equality operator;</p>
+</li>
+<li>
+<p><em>primitive operators</em>: arithmetic operators, relational operators, boolean operators;</p>
+</li>
+<li>
+<p><em>collection operators</em>: logical quantification operators.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These correspond to the meta-types defined in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html##_expressions" target="_blank" rel="noopener">BMM <code>expression</code> package</a>, each of which is described in detail in the following sections.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -719,55 +760,8 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_el_expressions"><a class="anchor" href="#_el_expressions"></a>4. EL Expressions</h2>
+<h2 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>4. Terminal Entities</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>4.1. Overview</h3>
-<div class="paragraph">
-<p>Formally, an openEHR EL expression is any of the following evaluable entities:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>terminal entities</em>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>instance references</em>, including <em>literals</em>, <em>constants</em>, <em>variables</em> and <em>function calls</em>;</p>
-</li>
-<li>
-<p><em>predicates</em>: Boolean tests on instance structures;</p>
-</li>
-<li>
-<p><em>agents</em>: i.e. delayed routine calls;</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>complex expressions</em> created from:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>equality operator</em>: equality operator;</p>
-</li>
-<li>
-<p><em>primitive operators</em>: arithmetic operators, relational operators, boolean operators;</p>
-</li>
-<li>
-<p><em>collection operators</em>: logical quantification operators.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These correspond to the meta-types defined in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html##_expressions" target="_blank" rel="noopener">BMM <code>expression</code> package</a>, each of which is described in detail in the following sub-sections.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>4.2. Terminal Entities</h3>
 <div class="paragraph">
 <p>Terminal entities in EL correspond to the <code>EL_TERMINAL</code> meta-type in BMM, and its descendants. These come in three categories:</p>
 </div>
@@ -787,10 +781,10 @@
 <div class="paragraph">
 <p>The following sub-sections describe these types.</p>
 </div>
+<div class="sect2">
+<h3 id="_instance_references"><a class="anchor" href="#_instance_references"></a>4.1. Instance References</h3>
 <div class="sect3">
-<h4 id="_instance_references"><a class="anchor" href="#_instance_references"></a>4.2.1. Instance References</h4>
-<div class="sect4">
-<h5 id="_literals"><a class="anchor" href="#_literals"></a>4.2.1.1. Literals</h5>
+<h4 id="_literals"><a class="anchor" href="#_literals"></a>4.1.1. Literals</h4>
 <div class="paragraph">
 <p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Hash&lt;&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
@@ -976,8 +970,8 @@
 <p>TBD: consider to not bother with <code>Array</code> and reserve <code>[]</code> for tuples.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_constants"><a class="anchor" href="#_constants"></a>4.2.1.2. Constants</h5>
+<div class="sect3">
+<h4 id="_constants"><a class="anchor" href="#_constants"></a>4.1.2. Constants</h4>
 <div class="paragraph">
 <p>Constants are syntactically represented using labels of which the first letter is capitalised, and may be of any type, including complex types. The following are EL expressions containing constants.</p>
 </div>
@@ -988,8 +982,8 @@
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_variables"><a class="anchor" href="#_variables"></a>4.2.1.3. Variables</h5>
+<div class="sect3">
+<h4 id="_variables"><a class="anchor" href="#_variables"></a>4.1.3. Variables</h4>
 <div class="paragraph">
 <p>Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as <code>is_smoker</code>. An EL variable reference corresponds to a descendant of the BMM meta-type <code>EL_INSTANTIABLE_REF&lt;BMM_VARIABLE&gt;</code>, i.e. one of:</p>
 </div>
@@ -1007,14 +1001,14 @@
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_property_references"><a class="anchor" href="#_property_references"></a>4.2.1.4. Property References</h5>
+<div class="sect3">
+<h4 id="_property_references"><a class="anchor" href="#_property_references"></a>4.1.4. Property References</h4>
 <div class="paragraph">
 <p>Property references are valid within the scope of the class in which they are declared, and may be used in any routine definition or assertion in the class. They are represented by plain names such as <code>diabetic_status</code>.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.2.1.5. Function Calls</h5>
+<div class="sect3">
+<h4 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.1.5. Function Calls</h4>
 <div class="paragraph">
 <p>In EL expressions, computational functions may be called in the same way as for typical programming languages. An EL property reference corresponds to the BMM meta-type <code>EL_FUNCTION_CALL</code>, which contains an instance of the BMM meta-type <code>EL_FUNCTION_AGENT</code>, which in turn has as its <code><em>closed_args</em></code> a tuple containing a set of items each of which is in turn an expression of any kind.</p>
 </div>
@@ -1037,8 +1031,8 @@
 <p>To be evaluated, function calls must be mappable to class methods in external libraries that are available at expression evaluation time.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.2.1.6. 'Built-in' Functions</h5>
+<div class="sect3">
+<h4 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.1.6. 'Built-in' Functions</h4>
 <div class="paragraph">
 <p>Some commonly used functions such as <code>current_date()</code> or similar are often thought of as 'built-in' to a language environment. In the openEHR EL context, there are no built-in functions as such; useful utility functions must be supplied by classes or interfaces included as part of an imported model. In the openEHR environment, many utility calls are available in the <a href="https://specifications.openehr.org/releases/BASE/latest/base_types.html" target="_blank" rel="noopener">openEHR Base Types</a>. They will resolve correctly as long as this model is imported, which it normally will be as part of a larger model, such as the <a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR RM</a>.</p>
 </div>
@@ -1056,8 +1050,8 @@
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.2.1.7. Container Item Access</h5>
+<div class="sect3">
+<h4 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.1.7. Container Item Access</h4>
 <div class="paragraph">
 <p>Access to members of instances of a container type is achieved by the <code>[]</code> operator, which is an alias for various functions defined on the relevant types, as follows.</p>
 </div>
@@ -1099,8 +1093,8 @@
 <p>Container element access may be used on any expression whose effective type is a container, including function calls.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_container_item_selection_and_matching"><a class="anchor" href="#_container_item_selection_and_matching"></a>4.2.1.8. Container Item Selection and Matching</h5>
+<div class="sect3">
+<h4 id="_container_item_selection_and_matching"><a class="anchor" href="#_container_item_selection_and_matching"></a>4.1.8. Container Item Selection and Matching</h4>
 <div class="paragraph">
 <p>Selection of a container item matching a predicate may be achieved with an extension to the <code>[]</code> syntax, by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>. Here, 'selection' is understood to mean: obtain the first matching item, if it exists. This enables a reference of the following form to be constructed (final line).</p>
 </div>
@@ -1142,20 +1136,20 @@
 <p>TBD: different syntax for <code>Container::matches()</code>? Or could use matches plus <code>[1]</code> to get same effect e.g. <code>book_list[{pub_date &gt;= PY2003}][1]</code> gives first book with matching <code>pub_date</code>.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.1.9. Self Reference</h5>
+<div class="sect3">
+<h4 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.1.9. Self Reference</h4>
 <div class="paragraph">
 <p>As with many programming languages, a pre-defined reference to the current object is available via the plain name <code>self</code>. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_predicates"><a class="anchor" href="#_predicates"></a>4.2.2. Predicates</h4>
+<div class="sect2">
+<h3 id="_predicates"><a class="anchor" href="#_predicates"></a>4.2. Predicates</h3>
 <div class="paragraph">
 <p>EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).</p>
 </div>
-<div class="sect4">
-<h5 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.2.2.1. Attached() Predicate</h5>
+<div class="sect3">
+<h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.2.1. Attached() Predicate</h4>
 <div class="paragraph">
 <p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached(ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
@@ -1169,8 +1163,8 @@
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_agents"><a class="anchor" href="#_agents"></a>4.2.3. Agents</h4>
+<div class="sect2">
+<h3 id="_agents"><a class="anchor" href="#_agents"></a>4.3. Agents</h3>
 <div class="paragraph">
 <p>Delayed routine calls for both functions and procedures may occur as terminals in an EL expression. The evaluation type (<code><em>eval_type</em></code>) of an agent is its <code><em>signature</em></code>. Syntactically, these take various forms. An agent can be created using a function or procedure visible in the current scope, using the keyword <code>agent</code>. The arguments list may range from empty to full. For a completely empty list, the routine name on its own may be used.</p>
 </div>
@@ -1199,8 +1193,8 @@
 <p>Agents for procedure calls can be created in the same way as described above. In each case, the evaluation type is a signature of the form <code>&lt;[args]&gt;</code>, i.e. having no return type.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.2.4. Qualified Referencing</h4>
+<div class="sect2">
+<h3 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.4. Qualified Referencing</h3>
 <div class="paragraph">
 <p>Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the <code>EL_SCOPED_REF</code> property <code><em>scope</em></code>. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:</p>
 </div>
@@ -1223,13 +1217,15 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_complex_expressions"><a class="anchor" href="#_complex_expressions"></a>4.3. Complex Expressions</h3>
+</div>
+<div class="sect1">
+<h2 id="_complex_expressions"><a class="anchor" href="#_complex_expressions"></a>5. Complex Expressions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Complex expressions in EL consist of non-atomic value-returning expressions, in a typed, operator-based syntax common to many programming languages and logics. In EL, the syntactic use of operators is understood as a shorthand for specific functions assumed to be available on types inferred from the context of the operator use. An EL implementation would therefore map such operators to the appropriate methods in a class library.</p>
 </div>
-<div class="sect3">
-<h4 id="_equality_operator"><a class="anchor" href="#_equality_operator"></a>4.3.1. Equality Operator</h4>
+<div class="sect2">
+<h3 id="_equality_operator"><a class="anchor" href="#_equality_operator"></a>5.1. Equality Operator</h3>
 <div class="paragraph">
 <p>The equality operator <code>=</code> in EL is understood as the function <code><em>equal</em>()</code> defined on the openEHR Foundation type <code>Any</code>, of which every other class is a descendant. For all primitive value types (types for which use in expressions directly generates values rather than instance references), the semantics are value comparison, while for all other types, the semantics are reference comparison. For non-openEHR models, <code>'='</code> will normally map to a similarly-named method, e.g. <code><em>equals</em>()</code>.</p>
 </div>
@@ -1237,8 +1233,8 @@
 <p>To obtain value comparison for non-value types, the function <code>Any.<em>is_equal</em>()</code>, which may be redefined in any sub-type, is used.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_primitive_operators"><a class="anchor" href="#_primitive_operators"></a>4.3.2. Primitive Operators</h4>
+<div class="sect2">
+<h3 id="_primitive_operators"><a class="anchor" href="#_primitive_operators"></a>5.2. Primitive Operators</h3>
 <div class="paragraph">
 <p>Primitive operators in EL are the infix or prefix syntax form of various functions available on primitive types. For example, the operator <code>-</code> (minus) is defined on the class <code>Numeric</code> (an inheritance ancestor of the classes <code>Integer</code>, <code>Real</code> etc) as the following:</p>
 </div>
@@ -1485,14 +1481,14 @@
 <div class="paragraph">
 <p>Operator semantics that require further explanation are described below.</p>
 </div>
-<div class="sect4">
-<h5 id="_logical_negation"><a class="anchor" href="#_logical_negation"></a>4.3.2.1. Logical Negation</h5>
+<div class="sect3">
+<h4 id="_logical_negation"><a class="anchor" href="#_logical_negation"></a>5.2.1. Logical Negation</h4>
 <div class="paragraph">
 <p>All Boolean operators take Boolean operands and generate a Boolean result. The <code>not</code> operator can be applied as a prefix operator to all operators returning a Boolean result as well as a parenthesised Boolean expression.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_precedence_and_parentheses"><a class="anchor" href="#_precedence_and_parentheses"></a>4.3.2.2. Precedence and Parentheses</h5>
+<div class="sect3">
+<h4 id="_precedence_and_parentheses"><a class="anchor" href="#_precedence_and_parentheses"></a>5.2.2. Precedence and Parentheses</h4>
 <div class="paragraph">
 <p>The precedence of operators follows the order shown in the operator tables above. To change precedence, parentheses can be used in the fashion typical of most programming languages, as shown below.</p>
 </div>
@@ -1503,8 +1499,8 @@
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_matches_operator"><a class="anchor" href="#_matches_operator"></a>4.3.3. Matches Operator</h4>
+<div class="sect2">
+<h3 id="_matches_operator"><a class="anchor" href="#_matches_operator"></a>5.3. Matches Operator</h3>
 <div class="paragraph tbd">
 <p>TBD: describe</p>
 </div>
@@ -1533,8 +1529,8 @@
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_collection_operators"><a class="anchor" href="#_collection_operators"></a>4.3.4. Collection Operators</h4>
+<div class="sect2">
+<h3 id="_collection_operators"><a class="anchor" href="#_collection_operators"></a>5.4. Collection Operators</h3>
 <div class="paragraph">
 <p>The two standard quantification operators from predicate logic <code>there exists</code> (∃ operator) and <code>for all</code> (∀ operator) are defined in EL for the container types found in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a>.</p>
 </div>
@@ -1605,7 +1601,6 @@
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
 <div class="sectionbody">
@@ -1626,7 +1621,7 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-27 18:11:12 +0100
+Last updated 2020-05-11 16:56:51 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
