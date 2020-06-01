@@ -12,10 +12,11 @@
 |[[latest_issue_date]]11 May 2020
 
 |
-|Remove inheritance to `BMM_DEFINITIONS` (assume static access).
+|Remove inheritance to `BMM_DEFINITIONS` (assume static access); +
+ Remove BMM_ENTITY class and 'Entities` section of document.
 |B Verhees, +
  T Beale
-|11 May 2020
+|01 Jun 2020
 
 |
 |Rename `BMM_DEFINED_TYPE` to `BMM_EFFECTIVE_TYPE`; +

@@ -8,22 +8,9 @@ h|*Class*
 h|*Description*
 2+a|Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A type specification is essentially a reference of some kind, that defines the type of an attribute, or function result or argument. It may include generic parameters that might or might not be bound. See subtypes.
 
-h|*Inherit*
-2+|`BMM_ENTITY`
-
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
-
-h|*1..1 +
-(effected)*
-|*is_primitive* (): `Boolean`
-a|True if type is based only on a primitive class, or a collection thereof. Effected in descendants.
-
-h|*1..1 +
-(abstract)*
-|*type_name* (): `String`
-a|Formal string form of the type as per UML.
 
 h|*1..1 +
 (abstract)*
@@ -35,6 +22,21 @@ h|*1..1*
 a|Signature form of the type name, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
 Defaults to the value of `_type_name()_`.
+
+h|*1..1 +
+(abstract)*
+|*is_abstract* (): `Boolean`
+a|If true, indicates an abstract class in a BMM model, or a type based on an abstract class, i.e. a type that cannot be directly instantiated.
+
+h|*1..1 +
+(abstract)*
+|*is_primitive* (): `Boolean`
+a|If True, indicates that the entity in a BMM model is considered to relate to a primitive type set, i.e. be a primitive type, or be a definer of one.
+
+h|*1..1 +
+(abstract)*
+|*type_name* (): `String`
+a|Formal string form of the type as per UML.
 
 h|*1..1 +
 (abstract)*

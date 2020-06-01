@@ -10,6 +10,8 @@ image::{uml_diagrams_uri}/LANG-bmm.core-class.svg[id=core_class, align="center"]
 
 Class definitions are the _definitional_ basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus _derived_ entities.
 
+The top meta-class `BMM_CLASS` defines two properties inherent in classes defined in a model, and derived in resulting types: `_is_abstract_` and `_is_primitive_`. The Boolean attribute `_is_abstract_` indicates a class that cannot be directly instantiated. The attribute `_is_primitive_` indicates that a class is considered to be part of a primitive type set (typically corresponding to primitive types in another type system). Primitive status has no effect on BMM model semantics, and is provided as a convenience for visualisation and type-system mapping.
+
 BMM distinguishes between simple and generic class definitions via two descendants of `BMM_CLASS`, i.e. `BMM_SIMPLE_CLASS` and `BMM_GENERIC_CLASS`, with the first providing a concrete form of `BMM_CLASS` that applies to non-generic classes, and the latter defining the additional semantics of generic classes. The meta-type `BMM_ENUMERATION` is a specialisation of `BMM_SIMPLE_CLASS` used to represent enumeration classes in BMM models. The meta-types are further described below.
 
 == Simple Classes

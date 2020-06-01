@@ -42,8 +42,6 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE^]
 [.xcode]
-* link:/releases/LANG/{lang_release}/bmm.html#_bmm_entity_class[BMM_ENTITY^]
-[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_entity_metatype_enumeration[BMM_ENTITY_METATYPE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_enumeration_class[BMM_ENUMERATION^]
