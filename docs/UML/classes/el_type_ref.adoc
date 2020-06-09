@@ -19,5 +19,13 @@ h|*Attributes*
 
 h|*1..1*
 |*type*: `BMM_TYPE`
-a|
+a|Type, directly from the name of the reference, e.g. `{SOME_TYPE}`.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1 +
+(effected)*
+|*eval_type* (): `BMM_TYPE`
+a|Return `_type_`.
 |===
