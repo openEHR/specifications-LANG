@@ -56,4 +56,9 @@ h|*1..1 +
  +
 _Post_result_: `Result.is_equal (base_name())`
 a|Return `_base_name_`
+
+h|*1..1 +
+(effected)*
+|*flattened_type_list* (): `List<String>`
+a|Return the logical set (i.e. unique items) consisting of `_argument_types.flattened_type_list_()` and `_result_type.flattened_type_list_()`.
 |===

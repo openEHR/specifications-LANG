@@ -53,7 +53,7 @@ h|*1..1 +
 |*flattened_type_list* (): `List<String>` +
  +
 _Post_result_: `Result = item_type.flattened_type_list`
-a|Flattened list of type names with container type name abstracted away.
+a|Flattened list of type names of `_item_type_`, i.e. `_item_type.flattened_type_list_()`.
 
 h|*1..1 +
 (effected)*

@@ -3885,6 +3885,14 @@ a_type: <code>String[1]</code><br>
 <p>Return <code><em>base_name</em></code>.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the logical set (i.e. unique types) from the merge of <code><em>flattened_type_list</em>()</code> called on each member of <code><em>item_types</em></code>.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3981,6 +3989,14 @@ a_type: <code>String[1]</code><br>
 <p>Return <code><em>base_name</em></code></p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the logical set (i.e. unique items) consisting of <code><em>argument_types.flattened_type_list</em>()</code> and <code><em>result_type.flattened_type_list</em>()</code>.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4072,7 +4088,7 @@ a_type: <code>String[1]</code><br>
 <br>
 <em>Post_result</em>: <code>Result = item_type.flattened_type_list</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Flattened list of type names with container type name abstracted away.</p>
+<p>Flattened list of type names of <code><em>item_type</em></code>, i.e. <code><em>item_type.flattened_type_list</em>()</code>.</p>
 </div></div></td>
 </tr>
 <tr>
