@@ -66,4 +66,9 @@ h|*1..1 +
  +
 _Post_result_: `Result = item_type.is_primitive`
 a|True if `_item_type_` is primitive.
+
+h|*1..1 +
+(effected)*
+|*effective_type* (): `BMM_EFFECTIVE_TYPE`
+a|Return `_item_type.effective_type_()`.
 |===
