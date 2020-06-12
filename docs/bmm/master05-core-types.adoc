@@ -20,7 +20,7 @@ Classes are _definitional_ entities, while types are understood in BMM as the _f
 A simple example of typing of properties is shown in the instance diagram below.
 
 [.text-center]
-.BMM entities
+.BMM Typing
 image::{diagrams_uri}/bmm_entities.svg[id=bmm_entities, align="center"]
 
 Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are formal generic parameters (e.g. the `T` in `List<T>`) and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
@@ -106,7 +106,7 @@ Conformance of Generic types is according to the rules:
 
 == Tuple Meta-type
 
-The meta-type `BMM_TUPLE_TYPE` is a specialised type that enables the _type_ of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or `struct`, in C/C++).
+The meta-type `BMM_TUPLE_TYPE` enables the _type_ of a tuple i.e. an array of objects each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or a `struct` in C/C++).The notional type `Tuple` defined by `BMM_TUPLE_TYPE` is treadted as a BMM built-in, and is therefore not stated in any BMM model.
 
 === Conformance
 
@@ -159,6 +159,8 @@ The following signatures state the types 'any function' and 'any procedure':
     Function                             -- any function
     Procedure                            -- any procedure
 ----
+
+As for the Tuple meta-type, the notional `Signature` meta-type is a BMM built-in, and is not itself defined in any BMM model.
 
 === Conformance
 

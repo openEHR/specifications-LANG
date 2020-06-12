@@ -2773,7 +2773,7 @@ a_type: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_entities.svg" alt="bmm entities">
 </div>
-<div class="title">Figure 11. BMM entities</div>
+<div class="title">Figure 11. BMM Typing</div>
 </div>
 <div class="paragraph">
 <p>Most types are based on one or more <em>defining</em> class(es), which provide the formal definition for the type. The exceptions are formal generic parameters (e.g. the <code>T</code> in <code>List&lt;T&gt;</code>) and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type <code>BMM_TYPE</code> and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between <em>unitary</em> and <em>container</em> meta-types. The taxonomy is illustrated below, including differentiae.</p>
@@ -2948,7 +2948,7 @@ a_type: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_tuple_meta_type"><a class="anchor" href="#_tuple_meta_type"></a>5.4. Tuple Meta-type</h3>
 <div class="paragraph">
-<p>The meta-type <code>BMM_TUPLE_TYPE</code> is a specialised type that enables the <em>type</em> of a tuple i.e. an array of objects, each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the <code>BMM_SIGNATURE</code> class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or <code>struct</code>, in C/C++).</p>
+<p>The meta-type <code>BMM_TUPLE_TYPE</code> enables the <em>type</em> of a tuple i.e. an array of objects each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the <code>BMM_SIGNATURE</code> class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or a <code>struct</code> in C/C++).The notional type <code>Tuple</code> defined by <code>BMM_TUPLE_TYPE</code> is treadted as a BMM built-in, and is therefore not stated in any BMM model.</p>
 </div>
 <div class="sect3">
 <h4 id="_conformance_4"><a class="anchor" href="#_conformance_4"></a>5.4.1. Conformance</h4>
@@ -3030,6 +3030,9 @@ a_type: <code>String[1]</code><br>
 <pre>    Function                             -- any function
     Procedure                            -- any procedure</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>As for the Tuple meta-type, the notional <code>Signature</code> meta-type is a BMM built-in, and is not itself defined in any BMM model.</p>
 </div>
 <div class="sect3">
 <h4 id="_conformance_5"><a class="anchor" href="#_conformance_5"></a>5.5.1. Conformance</h4>
@@ -6943,10 +6946,48 @@ not currently supported: 'static' (non-instance dependent) methods; anchored typ
 <div class="sect3">
 <h4 id="_operator_expressions"><a class="anchor" href="#_operator_expressions"></a>9.2.2. Operator Expressions</h4>
 <div class="paragraph">
-<p>BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by <code>EL_OPERATOR</code>, contains the attribute <code><em>definition</em></code> to refer to the corresponding function call. This  has to be inferred from the types of its operands.</p>
+<p>BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented an instance of a descendant of <code>EL_OPERATOR</code>, contains the attribute <code><em>definition</em></code> to refer to the corresponding function definition. This has to be inferred from the types of its operands. Consequently, 'operator expressions' as commonly understood are simply function calls (often nested) in BMM. The following example illustrates the general meta-model of expressions, using a typical use of expression, the class invariant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Account</span> <span class="tok-p">{</span>
+
+    <span class="tok-nx">feature</span>
+        <span class="tok-nx">balance</span>: <span class="tok-kt">Decimal</span>
+        <span class="tok-nx">overdraft_limit</span>: <span class="tok-kt">Decimal</span>
+
+    <span class="tok-nx">invariant</span>
+        <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span>
+<span class="tok-p">}</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A number of examples illustrate expressions containing the various kinds of terminal reference, based on the following assumed declarations.</p>
+<p>The expression <code>balance + overdraft_limit &gt; 0</code> makes use of two operators <code>+ and `&gt;</code>, which are really functions defined on the type <code>Decimal</code>, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Decimal</span> <span class="tok-p">{</span>
+
+    <span class="tok-nx">feature</span>
+        <span class="tok-nx">greater_than</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">Decimal</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span>
+            <span class="tok-nx">alias</span> <span class="tok-s1">&#39;&gt;&#39;</span>
+
+        <span class="tok-nx">addition</span><span class="tok-o">:</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">Decimal</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nx">Decimal</span>
+            <span class="tok-nx">alias</span> <span class="tok-s1">&#39;+&#39;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A parser processing this expression would produce the result shown below, assuming that the BMM model containing these classes had already been instantiated.</p>
+</div>
+<div id="bmm_expression_property_ref" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_expression_property_ref.svg" alt="bmm expression property ref">
+</div>
+<div class="title">Figure 34. Instantiated Operator Expression</div>
+</div>
+<div class="paragraph">
+<p>Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8222,7 +8263,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 34. <code>bmm.expression</code> package - Functional Elements</div>
+<div class="title">Figure 35. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -8252,7 +8293,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 35. Function call example - Body Mass index (BMI)</div>
+<div class="title">Figure 36. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 </div>
@@ -8269,7 +8310,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core.feature-routine.svg" alt="LANG bmm.core.feature routine">
 </div>
-<div class="title">Figure 36. Features for routine definition</div>
+<div class="title">Figure 37. Features for routine definition</div>
 </div>
 <div class="paragraph">
 <p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to just be a simple statement, with no block structure. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.</p>
@@ -8405,7 +8446,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 37. BMM class - ancestors view</div>
+<div class="title">Figure 38. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -8414,7 +8455,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 38. BMM class - descendants view</div>
+<div class="title">Figure 39. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -8439,7 +8480,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 39. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 40. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -8451,7 +8492,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 40. Generic inheritance, closed</div>
+<div class="title">Figure 41. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -8463,7 +8504,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 41. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 42. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -8472,7 +8513,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 42. Generic inheritance, open parameter</div>
+<div class="title">Figure 43. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -8484,7 +8525,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 43. Multiple inheritance</div>
+<div class="title">Figure 44. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">

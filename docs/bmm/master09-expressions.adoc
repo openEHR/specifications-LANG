@@ -139,9 +139,43 @@ TBD: this might be replaced by another approach.
 
 === Operator Expressions
 
-BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented by `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function call. This  has to be inferred from the types of its operands.
+BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented an instance of a descendant of `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function definition. This has to be inferred from the types of its operands. Consequently, 'operator expressions' as commonly understood are simply function calls (often nested) in BMM. The following example illustrates the general meta-model of expressions, using a typical use of expression, the class invariant.
 
-A number of examples illustrate expressions containing the various kinds of terminal reference, based on the following assumed declarations.
+[source, typescript]
+----
+class Account {
+
+    feature
+        balance: Decimal
+        overdraft_limit: Decimal
+
+    invariant
+        balance + overdraft_limit > 0
+}
+----
+
+The expression `balance + overdraft_limit > 0` makes use of two operators `+ and `>`, which are really functions defined on the type `Decimal`, as follows.
+
+[source, typescript]
+----
+class Decimal {
+
+    feature
+        greater_than (other: Decimal): Boolean
+            alias '>'
+
+        addition: (other: Decimal): Decimal
+            alias '+'
+}
+----
+
+A parser processing this expression would produce the result shown below, assuming that the BMM model containing these classes had already been instantiated.
+
+[.text-center]
+.Instantiated Operator Expression
+image::{diagrams_uri}/bmm_expression_property_ref.svg[id=bmm_expression_property_ref, align="center"]
+
+Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.
 
 [source, typescript]
 ----
