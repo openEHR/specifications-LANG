@@ -201,8 +201,6 @@ The following abstract syntax illustrates the various elements of function defin
     }
 ----
 
-NOTE: not currently supported: 'static' (non-instance dependent) methods; anchored types.
-
 === Pre- and Post-conditions
 
 All BMM routine definitions may include pre- and/or post-conditions, with the semantics of Djikstra's weakest pre-condition logic (citenp:[Djikstra_DOP_1976]), Object-Z (citenp:[Object_Z]) and the Eiffel language (citenp:[Meyer_OOSC2]).
