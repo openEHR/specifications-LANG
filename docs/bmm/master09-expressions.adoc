@@ -252,7 +252,7 @@ TBD: it might also be supplied by the type `C_OBJECT` from the AOM.
 
 == Usage in BMM Models
 
-Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `ASSERTION`, i.e. a tagged Boolean-returning `EL_EXPRESSION`.
+Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `EL_ASSERTION`, i.e. a tagged Boolean-returning form of `EL_EXPRESSION`.
 
 === Simple Expressions
 
@@ -308,6 +308,7 @@ class Container<T> {
 == Class Definitions
 
 include::{uml_export_dir}/classes/el_expression.adoc[]
+include::{uml_export_dir}/classes/el_boolean_expression.adoc[]
 include::{uml_export_dir}/classes/el_assertion.adoc[]
 
 include::{uml_export_dir}/classes/el_operator.adoc[]

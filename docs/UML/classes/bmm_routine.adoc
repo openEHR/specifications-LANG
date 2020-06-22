@@ -24,11 +24,11 @@ h|*0..1*
 a|Local variables of the routine.
 
 h|*0..1*
-|*pre_conditions*: `List<EL_ASSERTION>`
+|*pre_conditions*: `List<EL_BOOLEAN_EXPRESSION>`
 a|
 
 h|*0..1*
-|*post_conditions*: `List<EL_ASSERTION>`
+|*post_conditions*: `List<EL_BOOLEAN_EXPRESSION>`
 a|
 
 h|*0..1*

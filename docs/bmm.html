@@ -289,28 +289,29 @@
 <li><a href="#_class_definitions_8">9.4. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_el_expression_class">9.4.1. EL_EXPRESSION Class</a></li>
-<li><a href="#_el_assertion_class">9.4.2. EL_ASSERTION Class</a></li>
-<li><a href="#_el_operator_class">9.4.3. EL_OPERATOR Class</a></li>
-<li><a href="#_el_unary_operator_class">9.4.4. EL_UNARY_OPERATOR Class</a></li>
-<li><a href="#_el_binary_operator_class">9.4.5. EL_BINARY_OPERATOR Class</a></li>
-<li><a href="#_el_terminal_class">9.4.6. EL_TERMINAL Class</a></li>
-<li><a href="#_el_predicate_class">9.4.7. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">9.4.8. EL_DEFINED Class</a></li>
-<li><a href="#_el_attached_class">9.4.9. EL_ATTACHED Class</a></li>
-<li><a href="#_el_instance_ref_class">9.4.10. EL_INSTANCE_REF Class</a></li>
-<li><a href="#_el_self_ref_class">9.4.11. EL_SELF_REF Class</a></li>
-<li><a href="#_el_type_ref_class">9.4.12. EL_TYPE_REF Class</a></li>
-<li><a href="#_el_literal_class">9.4.13. EL_LITERAL Class</a></li>
-<li><a href="#_el_scoped_ref_class">9.4.14. EL_SCOPED_REF Class</a></li>
-<li><a href="#_el_instantiable_reft_class">9.4.15. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
-<li><a href="#_el_agent_call_class">9.4.16. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">9.4.17. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_agent_class">9.4.18. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">9.4.19. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">9.4.20. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_tuple_class">9.4.21. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">9.4.22. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_constraint_expression_class">9.4.23. EL_CONSTRAINT_EXPRESSION Class</a></li>
+<li><a href="#_el_boolean_expression_class">9.4.2. EL_BOOLEAN_EXPRESSION Class</a></li>
+<li><a href="#_el_assertion_class">9.4.3. EL_ASSERTION Class</a></li>
+<li><a href="#_el_operator_class">9.4.4. EL_OPERATOR Class</a></li>
+<li><a href="#_el_unary_operator_class">9.4.5. EL_UNARY_OPERATOR Class</a></li>
+<li><a href="#_el_binary_operator_class">9.4.6. EL_BINARY_OPERATOR Class</a></li>
+<li><a href="#_el_terminal_class">9.4.7. EL_TERMINAL Class</a></li>
+<li><a href="#_el_predicate_class">9.4.8. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">9.4.9. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">9.4.10. EL_ATTACHED Class</a></li>
+<li><a href="#_el_instance_ref_class">9.4.11. EL_INSTANCE_REF Class</a></li>
+<li><a href="#_el_self_ref_class">9.4.12. EL_SELF_REF Class</a></li>
+<li><a href="#_el_type_ref_class">9.4.13. EL_TYPE_REF Class</a></li>
+<li><a href="#_el_literal_class">9.4.14. EL_LITERAL Class</a></li>
+<li><a href="#_el_scoped_ref_class">9.4.15. EL_SCOPED_REF Class</a></li>
+<li><a href="#_el_instantiable_reft_class">9.4.16. EL_INSTANTIABLE_REF&lt;T&gt; Class</a></li>
+<li><a href="#_el_agent_call_class">9.4.17. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">9.4.18. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_agent_class">9.4.19. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">9.4.20. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">9.4.21. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_tuple_class">9.4.22. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">9.4.23. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_constraint_expression_class">9.4.24. EL_CONSTRAINT_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -325,11 +326,24 @@
 <li><a href="#_routine_implementation_2">11. Routine Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_10">11.1. Overview</a></li>
-<li><a href="#_class_definitions_9">11.2. Class Definitions</a>
+<li><a href="#_assignment">11.2. Assignment</a></li>
+<li><a href="#_procedure_call">11.3. Procedure Call</a></li>
+<li><a href="#_assertions">11.4. Assertions</a></li>
+<li><a href="#_decision_structures">11.5. Decision Structures</a></li>
+<li><a href="#_class_definitions_9">11.6. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_statement_item_class">11.2.1. BMM_STATEMENT_ITEM Class</a></li>
-<li><a href="#_bmm_statement_block_class">11.2.2. BMM_STATEMENT_BLOCK Class</a></li>
-<li><a href="#_bmm_statement_class">11.2.3. BMM_STATEMENT Class</a></li>
+<li><a href="#_bmm_statement_item_class">11.6.1. BMM_STATEMENT_ITEM Class</a></li>
+<li><a href="#_bmm_statement_block_class">11.6.2. BMM_STATEMENT_BLOCK Class</a></li>
+<li><a href="#_bmm_statement_class">11.6.3. BMM_STATEMENT Class</a></li>
+<li><a href="#_bmm_procedure_call_class">11.6.4. BMM_PROCEDURE_CALL Class</a></li>
+<li><a href="#_bmm_assignment_class">11.6.5. BMM_ASSIGNMENT Class</a></li>
+<li><a href="#_bmm_assertion_class">11.6.6. BMM_ASSERTION Class</a></li>
+<li><a href="#_bmm_decision_group_class">11.6.7. BMM_DECISION_GROUP Class</a></li>
+<li><a href="#_bmm_decision_branch_class">11.6.8. BMM_DECISION_BRANCH Class</a></li>
+<li><a href="#_bmm_condition_chain_class">11.6.9. BMM_CONDITION_CHAIN Class</a></li>
+<li><a href="#_bmm_condition_branch_class">11.6.10. BMM_CONDITION_BRANCH Class</a></li>
+<li><a href="#_bmm_case_group_class">11.6.11. BMM_CASE_GROUP Class</a></li>
+<li><a href="#_bmm_case_branch_class">11.6.12. BMM_CASE_BRANCH Class</a></li>
 </ul>
 </li>
 </ul>
@@ -344,6 +358,13 @@
 <li><a href="#_inheritance_and_invariants_pre_conditions_and_post_conditions">12.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#_bmm_extensions">13. BMM Extensions</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_11">13.1. Overview</a></li>
+<li><a href="#_general_extensions">13.2. General Extensions</a></li>
+<li><a href="#_feature_extensions">13.3. Feature Extensions</a></li>
 </ul>
 </li>
 <li><a href="#_references">References</a></li>
@@ -451,8 +472,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>EL_ASSERTION</code> to <code>EL_BOOLEAN_EXPRESSION</code>;<br>
+ Add basic statement types to BMM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Jun 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove inheritance to <code>BMM_DEFINITIONS</code> (assume static access);<br>
- Remove BMM_ENTITY class and 'Entities` section of document.</p></td>
+ Remove <code>BMM_ENTITY</code> class and 'Entities` section of document.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">B Verhees,<br>
  T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">01 Jun 2020</p></td>
@@ -4623,7 +4651,7 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code>List&lt;EL_BOOLEAN_EXPRESSION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -5585,6 +5613,13 @@ a_name: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feature_extensions</strong>: <code>List&lt;BMM_FEATURE_EXTENSION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extensions to feature-level meta-types.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scope</strong>: <code>BMM_CLASS</code></p></td>
@@ -5984,12 +6019,12 @@ a_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;EL_BOOLEAN_EXPRESSION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;EL_ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code>List&lt;EL_BOOLEAN_EXPRESSION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -7063,7 +7098,7 @@ a_name: <code>String[1]</code><br>
 <div class="sect2">
 <h3 id="_usage_in_bmm_models"><a class="anchor" href="#_usage_in_bmm_models"></a>9.3. Usage in BMM Models</h3>
 <div class="paragraph">
-<p>Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an <code>ASSERTION</code>, i.e. a tagged Boolean-returning <code>EL_EXPRESSION</code>.</p>
+<p>Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an <code>EL_ASSERTION</code>, i.e. a tagged Boolean-returning form of <code>EL_EXPRESSION</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="_simple_expressions"><a class="anchor" href="#_simple_expressions"></a>9.3.1. Simple Expressions</h4>
@@ -7174,7 +7209,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_assertion_class"><a class="anchor" href="#_el_assertion_class"></a>9.4.2. EL_ASSERTION Class</h4>
+<h4 id="_el_boolean_expression_class"><a class="anchor" href="#_el_boolean_expression_class"></a>9.4.2. EL_BOOLEAN_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7184,7 +7219,7 @@ a_name: <code>String[1]</code><br>
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_ASSERTION</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_BOOLEAN_EXPRESSION</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -7196,13 +7231,6 @@ a_name: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
-</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -7221,7 +7249,43 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>9.4.3. EL_OPERATOR Class</h4>
+<h4 id="_el_assertion_class"><a class="anchor" href="#_el_assertion_class"></a>9.4.3. EL_ASSERTION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_ASSERTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_BOOLEAN_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>9.4.4. EL_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7292,7 +7356,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>9.4.4. EL_UNARY_OPERATOR Class</h4>
+<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>9.4.5. EL_UNARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7330,7 +7394,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>9.4.5. EL_BINARY_OPERATOR Class</h4>
+<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>9.4.6. EL_BINARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7375,7 +7439,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>9.4.6. EL_TERMINAL Class</h4>
+<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>9.4.7. EL_TERMINAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7417,7 +7481,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.4.7. EL_PREDICATE Class</h4>
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.4.8. EL_PREDICATE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7474,7 +7538,7 @@ a_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.4.8. EL_DEFINED Class</h4>
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.4.9. EL_DEFINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7512,7 +7576,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.4.9. EL_ATTACHED Class</h4>
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.4.10. EL_ATTACHED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7538,7 +7602,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>9.4.10. EL_INSTANCE_REF Class</h4>
+<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>9.4.11. EL_INSTANCE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7564,7 +7628,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>9.4.11. EL_SELF_REF Class</h4>
+<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>9.4.12. EL_SELF_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7615,7 +7679,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.4.12. EL_TYPE_REF Class</h4>
+<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.4.13. EL_TYPE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7669,7 +7733,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.4.13. EL_LITERAL Class</h4>
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.4.14. EL_LITERAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7720,7 +7784,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_scoped_ref_class"><a class="anchor" href="#_el_scoped_ref_class"></a>9.4.14. EL_SCOPED_REF Class</h4>
+<h4 id="_el_scoped_ref_class"><a class="anchor" href="#_el_scoped_ref_class"></a>9.4.15. EL_SCOPED_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7758,7 +7822,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>9.4.15. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
+<h4 id="_el_instantiable_reft_class"><a class="anchor" href="#_el_instantiable_reft_class"></a>9.4.16. EL_INSTANTIABLE_REF&lt;T&gt; Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7809,7 +7873,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.4.16. EL_AGENT_CALL Class</h4>
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.4.17. EL_AGENT_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7849,7 +7913,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.4.17. EL_FUNCTION_CALL Class</h4>
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.4.18. EL_FUNCTION_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7901,7 +7965,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.4.18. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.4.19. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7987,7 +8051,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.4.19. EL_FUNCTION_AGENT Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.4.20. EL_FUNCTION_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8026,7 +8090,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.4.20. EL_PROCEDURE_AGENT Class</h4>
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.4.21. EL_PROCEDURE_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8065,7 +8129,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.4.21. EL_TUPLE Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.4.22. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8123,7 +8187,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.4.22. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.4.23. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8164,7 +8228,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>9.4.23. EL_CONSTRAINT_EXPRESSION Class</h4>
+<h4 id="_el_constraint_expression_class"><a class="anchor" href="#_el_constraint_expression_class"></a>9.4.24. EL_CONSTRAINT_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8294,9 +8358,9 @@ probably to be removed.
 <div class="paragraph">
 <p>BMM provides a hook for defining routine implementations, i.e. adding a routine <em>body</em> consisting of <em>statements</em>. This is formalised using the classes <code>BMM_STATEMENT_ITEM</code>, <code>BMM_STATEMENT_BLOCK</code> and <code>BMM_STATEMENT</code>, as shown in the UML view below.</p>
 </div>
-<div id="LANG-routine_definition" class="imageblock text-center text-center">
+<div id="LANG-statement" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/LANG-bmm.core.feature-routine.svg" alt="LANG bmm.core.feature routine">
+<img src="UML/diagrams/LANG-bmm.statement.svg" alt="LANG bmm.statement">
 </div>
 <div class="title">Figure 37. Features for routine definition</div>
 </div>
@@ -8308,9 +8372,33 @@ probably to be removed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.2. Class Definitions</h3>
+<h3 id="_assignment"><a class="anchor" href="#_assignment"></a>11.2. Assignment</h3>
+<div class="paragraph">
+<p>xxx</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_procedure_call"><a class="anchor" href="#_procedure_call"></a>11.3. Procedure Call</h3>
+<div class="paragraph">
+<p>xxxx</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.4. Assertions</h3>
+<div class="paragraph">
+<p>xxx</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decision_structures"><a class="anchor" href="#_decision_structures"></a>11.5. Decision Structures</h3>
+<div class="paragraph">
+<p>xxx</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.6. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_statement_item_class"><a class="anchor" href="#_bmm_statement_item_class"></a>11.2.1. BMM_STATEMENT_ITEM Class</h4>
+<h4 id="_bmm_statement_item_class"><a class="anchor" href="#_bmm_statement_item_class"></a>11.6.1. BMM_STATEMENT_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8332,7 +8420,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_statement_block_class"><a class="anchor" href="#_bmm_statement_block_class"></a>11.2.2. BMM_STATEMENT_BLOCK Class</h4>
+<h4 id="_bmm_statement_block_class"><a class="anchor" href="#_bmm_statement_block_class"></a>11.6.2. BMM_STATEMENT_BLOCK Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8370,7 +8458,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_statement_class"><a class="anchor" href="#_bmm_statement_class"></a>11.2.3. BMM_STATEMENT Class</h4>
+<h4 id="_bmm_statement_class"><a class="anchor" href="#_bmm_statement_class"></a>11.6.3. BMM_STATEMENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8391,6 +8479,343 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_STATEMENT_ITEM</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>11.6.4. BMM_PROCEDURE_CALL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_CALL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A call made on a closed procedure agent.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EL_AGENT_CALL</code>, <code>BMM_STATEMENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code>EL_PROCEDURE_AGENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The procedure agent being called.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_assignment_class"><a class="anchor" href="#_bmm_assignment_class"></a>11.6.5. BMM_ASSIGNMENT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ASSIGNMENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_STATEMENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code>EL_INSTANTIABLE_REF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The target variable on the notional left-hand side of this assignment.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source right hand side) of the assignment.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>11.6.6. BMM_ASSERTION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ASSERTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_STATEMENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EL_BOOLEAN_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_decision_group_class"><a class="anchor" href="#_bmm_decision_group_class"></a>11.6.7. BMM_DECISION_GROUP Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_DECISION_GROUP (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of multi-branch control structures.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_STATEMENT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branches</strong>: <code>List&lt;BMM_DECISION_BRANCH&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_decision_branch_class"><a class="anchor" href="#_bmm_decision_branch_class"></a>11.6.8. BMM_DECISION_BRANCH Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_DECISION_BRANCH (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of branch in a multi-branch control structure.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>block</strong>: <code>BMM_STATEMENT_BLOCK</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_condition_chain_class"><a class="anchor" href="#_bmm_condition_chain_class"></a>11.6.9. BMM_CONDITION_CHAIN Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CONDITION_CHAIN</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Structural representation of an if/then statement.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DECISION_GROUP</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branches</strong>: <code>List&lt;BMM_CONDITION_BRANCH&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_condition_branch_class"><a class="anchor" href="#_bmm_condition_branch_class"></a>11.6.10. BMM_CONDITION_BRANCH Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CONDITION_BRANCH</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Representation of one conditional branch of an if/then statement.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DECISION_BRANCH</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>test</strong>: <code>EL_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The test expression to evaluate for this branch.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_case_group_class"><a class="anchor" href="#_bmm_case_group_class"></a>11.6.11. BMM_CASE_GROUP Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CASE_GROUP</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DECISION_GROUP</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>test_value</strong>: <code>EL_SCOPED_REF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branches</strong>: <code>List&lt;BMM_CASE_BRANCH&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_case_branch_class"><a class="anchor" href="#_bmm_case_branch_class"></a>11.6.12. BMM_CASE_BRANCH Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CASE_BRANCH</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_DECISION_BRANCH</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>range</strong>: <code>EL_CONSTRAINT_EXPRESSION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
@@ -8526,6 +8951,23 @@ probably to be removed.
 </div>
 </div>
 <div class="sect1">
+<h2 id="_bmm_extensions"><a class="anchor" href="#_bmm_extensions"></a>13. BMM Extensions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_11"><a class="anchor" href="#_overview_11"></a>13.1. Overview</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_general_extensions"><a class="anchor" href="#_general_extensions"></a>13.2. General Extensions</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_feature_extensions"><a class="anchor" href="#_feature_extensions"></a>13.3. Feature Extensions</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -8542,7 +8984,7 @@ probably to be removed.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-01 14:43:34 +0100
+Last updated 2020-06-19 16:01:12 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

@@ -6,7 +6,10 @@ h|*Class*
 2+^h|*EL_ASSERTION*
 
 h|*Description*
-2+a|Optionally tagged Boolean-returning expression.
+2+a|
+
+h|*Inherit*
+2+|`EL_BOOLEAN_EXPRESSION`
 
 h|*Attributes*
 ^h|*Signature*
@@ -15,11 +18,4 @@ h|*Attributes*
 h|*0..1*
 |*tag*: `String`
 a|Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".
-
-h|*1..1*
-|*expression*: `EL_EXPRESSION`
-a|The expression of this assertion.
-
-h|*Invariants*
-2+a|_Inv_boolean_expression_: `expression.is_boolean()`
 |===

@@ -64,7 +64,7 @@ h|*0..1*
 a|True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type.
 
 h|*0..1*
-|*invariants*: `List<EL_ASSERTION>`
+|*invariants*: `List<EL_BOOLEAN_EXPRESSION>`
 a|
 
 h|*0..1*

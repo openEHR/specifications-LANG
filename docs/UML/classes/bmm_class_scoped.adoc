@@ -21,6 +21,10 @@ a|Visibility of this item to client entities.
 
 TODO: define scheme; probably need to support C++/Java scheme as well as better type-based schemes.
 
+h|*0..1*
+|*feature_extensions*: `List<BMM_FEATURE_EXTENSION>`
+a|Extensions to feature-level meta-types.
+
 h|*1..1 +
 (redefined)*
 |*scope*: `BMM_CLASS`

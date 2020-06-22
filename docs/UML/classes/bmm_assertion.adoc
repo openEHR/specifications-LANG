@@ -1,0 +1,21 @@
+=== BMM_ASSERTION Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_ASSERTION*
+
+h|*Description*
+2+a|A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).
+
+h|*Inherit*
+2+|`BMM_STATEMENT`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*expression*: `EL_BOOLEAN_EXPRESSION`
+a|
+|===
