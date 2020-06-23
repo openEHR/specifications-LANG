@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_ASSIGNMENT*
 
 h|*Description*
-2+a|Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference.
+2+a|Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.
 
 h|*Inherit*
 2+|`BMM_STATEMENT`

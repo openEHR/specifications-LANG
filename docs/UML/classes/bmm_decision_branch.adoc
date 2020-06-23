@@ -6,13 +6,13 @@ h|*Class*
 2+^h|*_BMM_DECISION_BRANCH (abstract)_*
 
 h|*Description*
-2+a|Abstract parent of branch in a multi-branch control structure.
+2+a|Abstract parent of branch in a multi-branch decision structure.
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*block*: `BMM_STATEMENT_BLOCK`
-a|
+h|*1..1*
+|*item*: `BMM_STATEMENT_ITEM`
+a|Statement(s) to execute within this branch.
 |===

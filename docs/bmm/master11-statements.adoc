@@ -1,0 +1,151 @@
+= Statements
+
+== Overview
+
+BMM provides meta-model elements for defining the _body_ of a routine, consisting of _statements_. This facility is not needed for achieving the original purpose of BMM, i.e. a computable in-memory representation of a model at the interface level (classes, types and signatures), rather it provides a basis for representing program logic, such as function definitions. 
+
+BMM statements are formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT` and various recognisable descendant types, as shown in the UML view below.
+
+[.text-center]
+.Features for routine definition
+image::{uml_diagrams_uri}/LANG-bmm.statement.svg[id=LANG-statement, align="center"]
+
+The use of the three-class hierarchy pattern allows a Routine `_body_` to be a simple statement or a _block_, containing statements and/or more blocks. The class `BMM_STATEMENT` is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.
+
+This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.
+
+== Assignment
+
+A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of `_definition.type_` of the target and `_eval_type_()` of the source.
+
+The following example shows a simple assignment in the definition of the function `_position_`.
+
+[source,typescript]
+----
+class Simple_bank_account {
+
+    feature // Definitions
+
+        overdraft_limit: Decimal = 250;
+
+    feature // State
+    
+        balance: Decimal;
+    
+    feature // Interface
+    
+        position: Decimal {
+            Result := balance + overdraft_limit
+        }
+    
+    invariant
+        Solvent: position >= 0.0
+
+}
+----
+
+The BMM meta-model for this statement is shown below.
+
+[.text-center]
+.Assignment to function Result
+image::{diagrams_uri}/bmm_assignment.svg[id=bmm_assignment, align="center"]
+
+== Procedure Call
+
+A procedure call is represented in BMM by the meta-type `BMM_PROCEDURE_CALL`, which refers to an instance of `EL_PROCEDURE_AGENT`, the same way that a function call is represented in terms of an `EL_FUNCTION_AGENT`. In the following example, the procedure `_put_()` is called from the `_deposit_()` and `_withdraw_()` functions in the class `Account_access`.
+
+[source,typescript]
+----
+class Simple_bank_account {
+
+    feature // Modification
+    
+        put (val: Decimal)
+            precondition
+                valid_amount: val + overdraft_limit >= 0.0
+        {
+            balance := balance + val
+        }
+}
+
+class Account_access {
+
+    feature // Command
+    
+        deposit (v: Decimal; ac: Simple_bank_account)
+            pre_condition
+                valid_amount: v > 0.0
+        {
+            ac.put (v);
+        }
+
+        withdraw (v: Decimal; ac: Simple_bank_account)
+            pre_condition
+                valid_amount: ac.overdraft_limit - v >= 0.0
+        {
+            ac.put (-v);
+        }
+}
+----
+
+The BMM meta-model for the call is shown below.
+
+[.text-center]
+.Procedure call
+image::{diagrams_uri}/bmm_procedure_call.svg[id=bmm_procedure_call, align="center"]
+
+== Decision Structures
+
+The BMM `statement` package provides two decision structures, corresponding closely to the common notions of 'if/then/elseif' and the case statement. These are respectively represented in BMM as the meta-types `BMM_CONDITION_CHAIN` and `BMM_CASE_GROUP`, both of which inherit from `BMM_DECISION_GROUP`.
+
+The following example shows a typical instance of the BMM Condition Chain meta-type, within a function that returns a coded term for a breast cancer classification that depends on various patient-related variables. In the following, the notation `'|abc|'` is assumed to be a literal of the type `Terminology_term`.
+
+[source,typescript]
+----
+    molecular_subtype: Terminology_term
+        if P.er_positive and P.her2_negative and not ki67_high
+            Result := |Luminal A|
+
+        elseif P.er_positive and P.her2_negative and ki67_high
+            Result := |Luminal B (HER2 negative)|
+
+        elseif P.er_positive and P.her2_positive
+            Result := |Luminal B (HER2 positive)|
+
+        elseif P.er_negative and P.pr_negative and P.her2_positive and ki67_high
+            Result := |HER2|
+
+        elseif P.er_negative and P.pr_negative and P.her2_negative and ki67_high
+            Result := |Triple negative|
+
+        else
+            Result := |none|
+----
+
+The BMM meta-model for the first branch of the above statement is shown below.
+
+[.text-center]
+.Condition chain (if/then/elseif)
+image::{diagrams_uri}/bmm_condition_chain.svg[id=bmm_condition_chain, align="center"]
+
+== Assertions
+
+xxx
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/bmm_statement_item.adoc[]
+include::{uml_export_dir}/classes/bmm_statement_block.adoc[]
+include::{uml_export_dir}/classes/bmm_statement.adoc[]
+
+include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
+include::{uml_export_dir}/classes/bmm_assignment.adoc[]
+include::{uml_export_dir}/classes/bmm_assertion.adoc[]
+
+include::{uml_export_dir}/classes/bmm_decision_group.adoc[]
+include::{uml_export_dir}/classes/bmm_decision_branch.adoc[]
+include::{uml_export_dir}/classes/bmm_condition_chain.adoc[]
+include::{uml_export_dir}/classes/bmm_condition_branch.adoc[]
+include::{uml_export_dir}/classes/bmm_case_group.adoc[]
+include::{uml_export_dir}/classes/bmm_case_branch.adoc[]
+

@@ -323,13 +323,13 @@
 <li><a href="#_calls">10.3. Calls</a></li>
 </ul>
 </li>
-<li><a href="#_routine_implementation_2">11. Routine Implementation</a>
+<li><a href="#_statements">11. Statements</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_10">11.1. Overview</a></li>
 <li><a href="#_assignment">11.2. Assignment</a></li>
 <li><a href="#_procedure_call">11.3. Procedure Call</a></li>
-<li><a href="#_assertions">11.4. Assertions</a></li>
-<li><a href="#_decision_structures">11.5. Decision Structures</a></li>
+<li><a href="#_decision_structures">11.4. Decision Structures</a></li>
+<li><a href="#_assertions">11.5. Assertions</a></li>
 <li><a href="#_class_definitions_9">11.6. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_bmm_statement_item_class">11.6.1. BMM_STATEMENT_ITEM Class</a></li>
@@ -8351,12 +8351,15 @@ probably to be removed.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routine_implementation_2"><a class="anchor" href="#_routine_implementation_2"></a>11. Routine Implementation</h2>
+<h2 id="_statements"><a class="anchor" href="#_statements"></a>11. Statements</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_10"><a class="anchor" href="#_overview_10"></a>11.1. Overview</h3>
 <div class="paragraph">
-<p>BMM provides a hook for defining routine implementations, i.e. adding a routine <em>body</em> consisting of <em>statements</em>. This is formalised using the classes <code>BMM_STATEMENT_ITEM</code>, <code>BMM_STATEMENT_BLOCK</code> and <code>BMM_STATEMENT</code>, as shown in the UML view below.</p>
+<p>BMM provides meta-model elements for defining the <em>body</em> of a routine, consisting of <em>statements</em>. This facility is not needed for achieving the original purpose of BMM, i.e. a computable in-memory representation of a model at the interface level (classes, types and signatures), rather it provides a basis for representing program logic, such as function definitions.</p>
+</div>
+<div class="paragraph">
+<p>BMM statements are formalised using the classes <code>BMM_STATEMENT_ITEM</code>, <code>BMM_STATEMENT_BLOCK</code> and <code>BMM_STATEMENT</code> and various recognisable descendant types, as shown in the UML view below.</p>
 </div>
 <div id="LANG-statement" class="imageblock text-center text-center">
 <div class="content">
@@ -8365,7 +8368,7 @@ probably to be removed.
 <div class="title">Figure 37. Features for routine definition</div>
 </div>
 <div class="paragraph">
-<p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to just be a simple statement, with no block structure. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed in which the 'statement' meta-types inherit from this class.</p>
+<p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to be a simple statement or a <em>block</em>, containing statements and/or more blocks. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.</p>
 </div>
 <div class="paragraph">
 <p>This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.</p>
@@ -8374,23 +8377,136 @@ probably to be removed.
 <div class="sect2">
 <h3 id="_assignment"><a class="anchor" href="#_assignment"></a>11.2. Assignment</h3>
 <div class="paragraph">
-<p>xxx</p>
+<p>A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of <code><em>definition.type</em></code> of the target and <code><em>eval_type</em>()</code> of the source.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a simple assignment in the definition of the function <code><em>position</em></code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span> <span class="tok-p">{</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-c1">// Definitions</span>
+
+        <span class="tok-nx">overdraft_limit</span>: <span class="tok-kt">Decimal</span> <span class="tok-o">=</span> <span class="tok-mi">250</span><span class="tok-p">;</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-c1">// State</span>
+
+        <span class="tok-nx">balance</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-c1">// Interface</span>
+
+        <span class="tok-nx">position</span>: <span class="tok-kt">Decimal</span> <span class="tok-p">{</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span>
+        <span class="tok-p">}</span>
+
+    <span class="tok-nx">invariant</span>
+        <span class="tok-nx">Solvent</span>: <span class="tok-kt">position</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
+
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The BMM meta-model for this statement is shown below.</p>
+</div>
+<div id="bmm_assignment" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_assignment.svg" alt="bmm assignment">
+</div>
+<div class="title">Figure 38. Assignment to function Result</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_procedure_call"><a class="anchor" href="#_procedure_call"></a>11.3. Procedure Call</h3>
 <div class="paragraph">
-<p>xxxx</p>
+<p>A procedure call is represented in BMM by the meta-type <code>BMM_PROCEDURE_CALL</code>, which refers to an instance of <code>EL_PROCEDURE_AGENT</code>, the same way that a function call is represented in terms of an <code>EL_FUNCTION_AGENT</code>. In the following example, the procedure <code><em>put</em>()</code> is called from the <code><em>deposit</em>()</code> and <code><em>withdraw</em>()</code> functions in the class <code>Account_access</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span> <span class="tok-p">{</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-c1">// Modification</span>
+
+        <span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Decimal</span><span class="tok-p">)</span>
+            <span class="tok-nx">precondition</span>
+                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">val</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nx">balance</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">val</span>
+        <span class="tok-p">}</span>
+<span class="tok-p">}</span>
+
+<span class="tok-kr">class</span> <span class="tok-nx">Account_access</span> <span class="tok-p">{</span>
+
+    <span class="tok-nx">feature</span> <span class="tok-c1">// Command</span>
+
+        <span class="tok-nx">deposit</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
+            <span class="tok-nx">pre_condition</span>
+                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">v</span> <span class="tok-o">&gt;</span> <span class="tok-mf">0.0</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">v</span><span class="tok-p">);</span>
+        <span class="tok-p">}</span>
+
+        <span class="tok-nx">withdraw</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
+            <span class="tok-nx">pre_condition</span>
+                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">ac.overdraft_limit</span> <span class="tok-o">-</span> <span class="tok-nx">v</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-nx">v</span><span class="tok-p">);</span>
+        <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.4. Assertions</h3>
 <div class="paragraph">
-<p>xxx</p>
+<p>The BMM meta-model for the call is shown below.</p>
+</div>
+<div id="bmm_procedure_call" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_procedure_call.svg" alt="bmm procedure call">
+</div>
+<div class="title">Figure 39. Procedure call</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_decision_structures"><a class="anchor" href="#_decision_structures"></a>11.5. Decision Structures</h3>
+<h3 id="_decision_structures"><a class="anchor" href="#_decision_structures"></a>11.4. Decision Structures</h3>
+<div class="paragraph">
+<p>The BMM <code>statement</code> package provides two decision structures, corresponding closely to the common notions of 'if/then/elseif' and the case statement. These are respectively represented in BMM as the meta-types <code>BMM_CONDITION_CHAIN</code> and <code>BMM_CASE_GROUP</code>, both of which inherit from <code>BMM_DECISION_GROUP</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a typical instance of the BMM Condition Chain meta-type, within a function that returns a coded term for a breast cancer classification that depends on various patient-related variables. In the following, the notation <code>'|abc|'</code> is assumed to be a literal of the type <code>Terminology_term</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">molecular_subtype</span>: <span class="tok-kt">Terminology_term</span>
+        <span class="tok-k">if</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">er_positive</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">her2_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">not</span> <span class="tok-nx">ki67_high</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">Luminal</span> <span class="tok-nx">A</span><span class="tok-o">|</span>
+
+        <span class="tok-nx">elseif</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">er_positive</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">her2_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">ki67_high</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">Luminal</span> <span class="tok-nx">B</span> <span class="tok-p">(</span><span class="tok-nx">HER2</span> <span class="tok-nx">negative</span><span class="tok-p">)</span><span class="tok-o">|</span>
+
+        <span class="tok-nx">elseif</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">er_positive</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">her2_positive</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">Luminal</span> <span class="tok-nx">B</span> <span class="tok-p">(</span><span class="tok-nx">HER2</span> <span class="tok-nx">positive</span><span class="tok-p">)</span><span class="tok-o">|</span>
+
+        <span class="tok-nx">elseif</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">er_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">pr_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">her2_positive</span> <span class="tok-nx">and</span> <span class="tok-nx">ki67_high</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">HER2</span><span class="tok-o">|</span>
+
+        <span class="tok-nx">elseif</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">er_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">pr_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">P</span><span class="tok-p">.</span><span class="tok-nx">her2_negative</span> <span class="tok-nx">and</span> <span class="tok-nx">ki67_high</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">Triple</span> <span class="tok-nx">negative</span><span class="tok-o">|</span>
+
+        <span class="tok-k">else</span>
+            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-o">|</span><span class="tok-nx">none</span><span class="tok-o">|</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The BMM meta-model for the first branch of the above statement is shown below.</p>
+</div>
+<div id="bmm_condition_chain" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_condition_chain.svg" alt="bmm condition chain">
+</div>
+<div class="title">Figure 40. Condition chain (if/then/elseif)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.5. Assertions</h3>
 <div class="paragraph">
 <p>xxx</p>
 </div>
@@ -8538,7 +8654,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference.</p>
+<p>Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8619,7 +8735,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent of multi-branch control structures.</p>
+<p>Abstract parent of multi-branch decision structures.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8634,7 +8750,9 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branches</strong>: <code>List&lt;BMM_DECISION_BRANCH&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Decision branches.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8655,7 +8773,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent of branch in a multi-branch control structure.</p>
+<p>Abstract parent of branch in a multi-branch decision structure.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8664,9 +8782,11 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>block</strong>: <code>BMM_STATEMENT_BLOCK</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code>BMM_STATEMENT_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Statement(s) to execute within this branch.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8687,7 +8807,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Structural representation of an if/then statement.</p>
+<p>Structural representation of a condition chain, i.e. an if/elseif/else statement.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8703,7 +8823,9 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branches</strong>: <code>List&lt;BMM_CONDITION_BRANCH&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Condition chain branches.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8761,7 +8883,9 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Structural representation of case statement.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -8775,7 +8899,9 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>test_value</strong>: <code>EL_SCOPED_REF</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value on which the case branches are based.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
@@ -8801,7 +8927,9 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Branch of a case statement.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -8815,7 +8943,9 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>range</strong>: <code>EL_CONSTRAINT_EXPRESSION</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value range of this case branch.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8859,7 +8989,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 38. BMM class - ancestors view</div>
+<div class="title">Figure 41. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -8868,7 +8998,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 39. BMM class - descendants view</div>
+<div class="title">Figure 42. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -8893,7 +9023,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 40. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 43. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -8905,7 +9035,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 41. Generic inheritance, closed</div>
+<div class="title">Figure 44. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -8917,7 +9047,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 42. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 45. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -8926,7 +9056,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 43. Generic inheritance, open parameter</div>
+<div class="title">Figure 46. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -8938,7 +9068,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 44. Multiple inheritance</div>
+<div class="title">Figure 47. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">
@@ -8984,7 +9114,7 @@ probably to be removed.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-19 16:01:12 +0100
+Last updated 2020-06-23 16:41:57 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
