@@ -6,6 +6,9 @@ h|*Class*
 2+^h|*_BMM_STATEMENT_ITEM (abstract)_*
 
 h|*Description*
-2+a|Abstract parent of statement types.
+2+a|Abstract parent of statement types representing a locally defined routine body.
+
+h|*Inherit*
+2+|`BMM_ROUTINE_BODY`
 
 |===

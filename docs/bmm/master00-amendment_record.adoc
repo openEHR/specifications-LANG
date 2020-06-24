@@ -13,7 +13,8 @@
 
 |
 |Rename `EL_ASSERTION` to `EL_BOOLEAN_EXPRESSION`; +
- Add basic statement types to BMM
+ Add basic statement types to BMM; +
+ Add external routine support.
 |T Beale
 |22 Jun 2020
 

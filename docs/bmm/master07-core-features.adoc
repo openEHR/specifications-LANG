@@ -263,9 +263,15 @@ Creators and converters might be distinguished among other procedures in an abst
     }
 ----
 
-=== Routine Implementation
+=== Routine Body
 
-BMM supports the definition of statements, i.e. implementation within a `ROUTINE`. This is described in detail in <<_routine_implementation>>.
+BMM supports the definition of statements, i.e. implementation within a `ROUTINE` as well as 'external' routines, which are represented by an instance of the meta-class `BMM_ROUTINE_EXTERNAL`. These classes are shown in the following UML view.
+
+[.text-center]
+.Routine body
+image::{uml_diagrams_uri}/LANG-bmm.core.feature-routine.svg[id=core_feature_routine, align="center"]
+
+The meta-model of statements is described in detail in <<_statements>>.
 
 == Variables
 
@@ -305,3 +311,5 @@ include::{uml_export_dir}/classes/bmm_parameter.adoc[]
 include::{uml_export_dir}/classes/bmm_result.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_direction.adoc[]
 
+include::{uml_export_dir}/classes/bmm_routine_body.adoc[]
+include::{uml_export_dir}/classes/bmm_routine_external.adoc[]

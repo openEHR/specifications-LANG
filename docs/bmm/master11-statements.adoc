@@ -130,7 +130,7 @@ image::{diagrams_uri}/bmm_condition_chain.svg[id=bmm_condition_chain, align="cen
 
 == Assertions
 
-xxx
+The BMM `statement` model includes a statement type to represent the notion of an _assertion_ as a statement, typically expressed in syntax such as `assert (<boolean expression>)`. This kind of statement is understood as an executable instruction to check that the condition is true, and if not, to generate an exception of the appropriate type, assuming exceptions are available.
 
 == Class Definitions
 

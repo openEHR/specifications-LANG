@@ -213,7 +213,7 @@
 <ul class="sectlevel3">
 <li><a href="#_pre_and_post_conditions">7.4.1. Pre- and Post-conditions</a></li>
 <li><a href="#_creators_and_converters">7.4.2. Creators and Converters</a></li>
-<li><a href="#_routine_implementation">7.4.3. Routine Implementation</a></li>
+<li><a href="#_routine_body">7.4.3. Routine Body</a></li>
 </ul>
 </li>
 <li><a href="#_variables">7.5. Variables</a></li>
@@ -240,6 +240,8 @@
 <li><a href="#_bmm_parameter_class">7.7.18. BMM_PARAMETER Class</a></li>
 <li><a href="#_bmm_result_class">7.7.19. BMM_RESULT Class</a></li>
 <li><a href="#_bmm_parameter_direction_enumeration">7.7.20. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_routine_body_class">7.7.21. BMM_ROUTINE_BODY Class</a></li>
+<li><a href="#_bmm_routine_external_class">7.7.22. BMM_ROUTINE_EXTERNAL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -473,7 +475,8 @@
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>EL_ASSERTION</code> to <code>EL_BOOLEAN_EXPRESSION</code>;<br>
- Add basic statement types to BMM</p></td>
+ Add basic statement types to BMM;<br>
+ Add external routine support.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">22 Jun 2020</p></td>
 </tr>
@@ -5445,9 +5448,18 @@ a_name: <code>String[1]</code><br>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_routine_implementation"><a class="anchor" href="#_routine_implementation"></a>7.4.3. Routine Implementation</h4>
+<h4 id="_routine_body"><a class="anchor" href="#_routine_body"></a>7.4.3. Routine Body</h4>
 <div class="paragraph">
-<p>BMM supports the definition of statements, i.e. implementation within a <code>ROUTINE</code>. This is described in detail in <a href="#_routine_implementation">Section 7.4.3</a>.</p>
+<p>BMM supports the definition of statements, i.e. implementation within a <code>ROUTINE</code> as well as 'external' routines, which are represented by an instance of the meta-class <code>BMM_ROUTINE_EXTERNAL</code>. These classes are shown in the following UML view.</p>
+</div>
+<div id="core_feature_routine" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-bmm.core.feature-routine.svg" alt="LANG bmm.core.feature routine">
+</div>
+<div class="title">Figure 31. Routine body</div>
+</div>
+<div class="paragraph">
+<p>The meta-model of statements is described in detail in <a href="#_statements">Section 11</a>.</p>
 </div>
 </div>
 </div>
@@ -6029,7 +6041,7 @@ a_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>body</strong>: <code>BMM_STATEMENT_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>body</strong>: <code>BMM_ROUTINE_BODY</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Body of a routine, i.e. executable program.</p>
 </div></div></td>
@@ -6454,6 +6466,73 @@ a_name: <code>String[1]</code><br>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_bmm_routine_body_class"><a class="anchor" href="#_bmm_routine_body_class"></a>7.7.21. BMM_ROUTINE_BODY Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_ROUTINE_BODY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract ancestor of routine body meta-types.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_routine_external_class"><a class="anchor" href="#_bmm_routine_external_class"></a>7.7.22. BMM_ROUTINE_EXTERNAL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ROUTINE_EXTERNAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE_BODY</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meta_data</strong>: <code>Hash&lt;String, String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>External call general meta-data, including target routine name, type mapping etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument_mapping</strong>: <code>Hash&lt;String, String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional argument-mapping meta-data.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -6469,7 +6548,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.core.literal_value.svg" alt="LANG bmm.core.literal value">
 </div>
-<div class="title">Figure 31. <code>base.bmm.core.literal_value</code> package - Literal Values</div>
+<div class="title">Figure 32. <code>base.bmm.core.literal_value</code> package - Literal Values</div>
 </div>
 <div class="paragraph">
 <p>When a BMM model is instantiated in its in-memory form, e.g. in a BMM modelling tool, any literal values in the model such as constant values (e.g. <code>Real Pi = 3.1415926</code>), default values (e.g. <code>Person.name: String = "(unknown)"</code>) etc are instances of 'two types':</p>
@@ -6739,7 +6818,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression.svg" alt="LANG bmm.expression">
 </div>
-<div class="title">Figure 32. bmm.expression Package</div>
+<div class="title">Figure 33. bmm.expression Package</div>
 </div>
 <div class="paragraph">
 <p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>eval_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
@@ -6821,7 +6900,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
 </div>
-<div class="title">Figure 33. bmm.expression Package - Type hierarchy</div>
+<div class="title">Figure 34. bmm.expression Package - Type hierarchy</div>
 </div>
 <div class="sect4">
 <h5 id="_literals"><a class="anchor" href="#_literals"></a>9.2.1.1. Literals</h5>
@@ -7007,7 +7086,7 @@ a_name: <code>String[1]</code><br>
 <div class="content">
 <img src="bmm/diagrams/bmm_expression_property_ref.svg" alt="bmm expression property ref">
 </div>
-<div class="title">Figure 34. Instantiated Operator Expression</div>
+<div class="title">Figure 35. Instantiated Operator Expression</div>
 </div>
 <div class="paragraph">
 <p>Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.</p>
@@ -8315,7 +8394,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 35. <code>bmm.expression</code> package - Functional Elements</div>
+<div class="title">Figure 36. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -8345,7 +8424,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 36. Function call example - Body Mass index (BMI)</div>
+<div class="title">Figure 37. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 </div>
@@ -8365,7 +8444,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.statement.svg" alt="LANG bmm.statement">
 </div>
-<div class="title">Figure 37. Features for routine definition</div>
+<div class="title">Figure 38. Features for routine definition</div>
 </div>
 <div class="paragraph">
 <p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to be a simple statement or a <em>block</em>, containing statements and/or more blocks. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.</p>
@@ -8413,7 +8492,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_assignment.svg" alt="bmm assignment">
 </div>
-<div class="title">Figure 38. Assignment to function Result</div>
+<div class="title">Figure 39. Assignment to function Result</div>
 </div>
 </div>
 <div class="sect2">
@@ -8462,7 +8541,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_procedure_call.svg" alt="bmm procedure call">
 </div>
-<div class="title">Figure 39. Procedure call</div>
+<div class="title">Figure 40. Procedure call</div>
 </div>
 </div>
 <div class="sect2">
@@ -8502,13 +8581,13 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_condition_chain.svg" alt="bmm condition chain">
 </div>
-<div class="title">Figure 40. Condition chain (if/then/elseif)</div>
+<div class="title">Figure 41. Condition chain (if/then/elseif)</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.5. Assertions</h3>
 <div class="paragraph">
-<p>xxx</p>
+<p>The BMM <code>statement</code> model includes a statement type to represent the notion of an <em>assertion</em> as a statement, typically expressed in syntax such as <code>assert (&lt;boolean expression&gt;)</code>. This kind of statement is understood as an executable instruction to check that the condition is true, and if not, to generate an exception of the appropriate type, assuming exceptions are available.</p>
 </div>
 </div>
 <div class="sect2">
@@ -8529,8 +8608,12 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent of statement types.</p>
+<p>Abstract parent of statement types representing a locally defined routine body.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BMM_ROUTINE_BODY</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -8989,7 +9072,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 41. BMM class - ancestors view</div>
+<div class="title">Figure 42. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -8998,7 +9081,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 42. BMM class - descendants view</div>
+<div class="title">Figure 43. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -9023,7 +9106,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 43. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 44. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -9035,7 +9118,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 44. Generic inheritance, closed</div>
+<div class="title">Figure 45. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -9047,7 +9130,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 45. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 46. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -9056,7 +9139,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 46. Generic inheritance, open parameter</div>
+<div class="title">Figure 47. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -9068,7 +9151,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 47. Multiple inheritance</div>
+<div class="title">Figure 48. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">
