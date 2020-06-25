@@ -9,7 +9,7 @@ h|*Description*
 2+a|Meta-type for a literal Boolean value, for which `_type_` is fixed to the `BMM_TYPE` representing `Boolean` and `_value_` is of type `Boolean`.
 
 h|*Inherit*
-2+|`BMM_LITERAL_VALUE`
+2+|`BMM_PRIMITIVE_VALUE`
 
 h|*Attributes*
 ^h|*Signature*

@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*BMM_LITERAL_VALUE*
+2+^h|*_BMM_LITERAL_VALUE (abstract)_*
 
 h|*Description*
 2+a|Meta-type for literal instance values declared in a model. Instance values may be inline values of primitive types in the usual fashion or complex objects in syntax form, e.g. JSON.

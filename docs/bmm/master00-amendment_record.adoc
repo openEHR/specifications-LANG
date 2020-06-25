@@ -13,10 +13,11 @@
 
 |
 |Rename `EL_ASSERTION` to `EL_BOOLEAN_EXPRESSION`; +
+ Extend literal meta-types to directly support container literals; +
  Add basic statement types to BMM; +
  Add external routine support.
 |T Beale
-|22 Jun 2020
+|25 Jun 2020
 
 |
 |Remove inheritance to `BMM_DEFINITIONS` (assume static access); +

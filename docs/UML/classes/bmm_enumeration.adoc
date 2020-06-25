@@ -24,7 +24,7 @@ h|*0..1*
 a|The list of names of the enumeration. If no values are supplied, the integer values 0, 1, 2, ... are assumed.
 
 h|*0..1*
-|*item_values*: `List<BMM_LITERAL_VALUE>`
+|*item_values*: `List<BMM_PRIMITIVE_VALUE>`
 a|Optional list of specific values. Must be 1:1 with `_item_names_` list.
 h|*Functions*
 ^h|*Signature*
