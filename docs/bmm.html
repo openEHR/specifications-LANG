@@ -195,7 +195,11 @@
 <ul class="sectlevel3">
 <li><a href="#_feature_declarations">7.1.1. Feature Declarations</a></li>
 <li><a href="#_typed_entities">7.1.2. Typed Entities</a></li>
-<li><a href="#_class_model">7.1.3. Class Model</a></li>
+<li><a href="#_class_model">7.1.3. Class Model</a>
+<ul class="sectlevel4">
+<li><a href="#_a_note_on_multiple_inheritance">7.1.3.1. A Note on Multiple Inheritance</a></li>
+</ul>
+</li>
 <li><a href="#_differential_and_flat_form">7.1.4. Differential and Flat Form</a></li>
 <li><a href="#_signatures">7.1.5. Signatures</a></li>
 <li><a href="#_feature_visibility">7.1.6. Feature Visibility</a></li>
@@ -482,7 +486,8 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>EL_ASSERTION</code> to <code>EL_BOOLEAN_EXPRESSION</code>;<br>
  Extend literal meta-types to directly support container literals;<br>
  Add basic statement types to BMM;<br>
- Add external routine support.</p></td>
+ Add external routine support;<br>
+ Added note on multiple inheritance in Class Features section.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">25 Jun 2020</p></td>
 </tr>
@@ -5151,6 +5156,41 @@ a_name: <code>String[1]</code><br>
 <img src="UML/diagrams/LANG-bmm.core.feature.svg" alt="LANG bmm.core.feature">
 </div>
 <div class="title">Figure 27. <code>base.bmm.core.feature</code> package - Features</div>
+</div>
+<div class="sect4">
+<h5 id="_a_note_on_multiple_inheritance"><a class="anchor" href="#_a_note_on_multiple_inheritance"></a>7.1.3.1. A Note on Multiple Inheritance</h5>
+<div class="paragraph">
+<p>In the above model, multiple inheritance is used in order to retain the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the 'true' inheritance hierarchy under the class <code>BMM_TYPED</code>, corresponding to the type taxonomy illustrated above (green);</p>
+</li>
+<li>
+<p>a second hierarchy used to obtain structural elements, under <code>BMM_DECLARAION</code>, corresponding to the feature taxonomy illustrated above.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>BMM_TYPED</code> hierarchy is the one requiring type substitutability, and is thus implemented using class inheritance (e.g. <code>extends</code> in Java), while the other should be implemented by inheritance of interfaces. This can be achieved as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>define the BMM classes <code>BMM_ROUTINE</code>, <code>BMM_CLASS_SCOPED</code>, <code>BMM_CLASS_ENTITY</code>, <code>BMM_DECLARATION</code> etc as interfaces, with the attributes (such as <code>BMM_ROUTINE.<em>parameters</em></code>) declared as methods and declare the inheritance as interface inheritance (e.g. <code>implements</code> in Java);</p>
+</li>
+<li>
+<p>define a parallel class hierarchy <code>BMM_ROUTINE_IMPL</code>, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. <code>BMM_FUNCTION</code>, in order to obtain the attributes logically defined by <code>BMM_ROUTINE</code> in the UML);</p>
+</li>
+<li>
+<p><em>implement</em> the methods inherited from the interface hierarchy via a declaration via the appropriate dispatch code referencing the relevant private data member.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above approach should result in the same semantics as defined by the model shown above.</p>
+</div>
 </div>
 </div>
 <div class="sect3">

@@ -15,7 +15,8 @@
 |Rename `EL_ASSERTION` to `EL_BOOLEAN_EXPRESSION`; +
  Extend literal meta-types to directly support container literals; +
  Add basic statement types to BMM; +
- Add external routine support.
+ Add external routine support; +
+ Added note on multiple inheritance in Class Features section.
 |T Beale
 |25 Jun 2020
 
