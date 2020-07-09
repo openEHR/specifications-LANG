@@ -44,10 +44,10 @@ image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="cent
 
 ==== A Note on Multiple Inheritance
 
-In the above model, multiple inheritance is used in order to retain the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:
+In the above model, multiple inheritance is used in order to express the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:
 
-* the 'true' inheritance hierarchy under the class `BMM_TYPED`, corresponding to the type taxonomy illustrated above (green);
-* a second hierarchy used to obtain structural elements, under `BMM_DECLARAION`, corresponding to the feature taxonomy illustrated above.
+* the 'true' inheritance hierarchy under the class `BMM_TYPED` (shown in green), corresponding to the type taxonomy illustrated in <<typed_taxonomy>> above;
+* a second hierarchy used to obtain structural elements, under `BMM_DECLARAION` (shown in blue), corresponding to the feature taxonomy illustrated in <<feature_taxonomy>> above.
 
 The `BMM_TYPED` hierarchy is the one requiring type substitutability, and is thus implemented using class inheritance (e.g. `extends` in Java), while the other should be implemented by inheritance of interfaces. This can be achieved as follows:
 
