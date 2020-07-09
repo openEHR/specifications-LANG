@@ -706,7 +706,7 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 <div class="sect2">
 <h3 id="_feedback"><a class="anchor" href="#_feedback"></a>1.3. Feedback</h3>
 <div class="paragraph">
-<p>Feedback may be provided on the <a href="https://forums.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
+<p>Feedback may be provided on the <a href="https://discourse.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
 </div>
 <div class="paragraph">
 <p>Issues may be raised on the <a href="https://specifications.openehr.org/components/LANG/open_issues" target="_blank" rel="noopener">specifications Problem Report tracker</a>.</p>
@@ -3336,9 +3336,9 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (abstract)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Completely flattened list of type names, flattening out all generic parameters.</p>
+<p>Formal string form of the type as per UML.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3370,17 +3370,9 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (abstract)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong> (): <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Formal string form of the type as per UML.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(abstract)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unitary_type</strong> (): <code>BMM_UNITARY_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type with any container abstracted away.</p>
+<p>Type with any container abstracted away; may be a formal generic type.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3389,6 +3381,14 @@ a_type: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_EFFECTIVE_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type with any container abstracted away, and any formal parameter replaced by its effective constraint type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flattened_type_list</strong> (): <code>List&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Completely flattened list of type names, flattening out all generic parameters.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3449,7 +3449,7 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Meta-type for a A concrete, unitary type that can be used as an actual parameter type in a generic type declaration.</p>
+<p>Meta-type for a concrete, unitary type that can be used as an actual parameter type in a generic type declaration.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3586,7 +3586,7 @@ a_type: <code>String[1]</code><br>
 (effected)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_type</strong> (): <code>BMM_EFFECTIVE_TYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Generate ultimate conformance type, which is either <code><em>flattened_conforms_to_type</em></code> or if not set, <code>Any</code>.</p>
+<p>Generate ultimate conformance type, which is either <code><em>flattened_conforms_to_type</em></code> or if not set, <code>'Any'</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3635,7 +3635,7 @@ a_type: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_class</strong>: <code>BMM_CLASS</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defining class of this type.</p>
+<p>Base class of this type.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3648,7 +3648,7 @@ a_type: <code>String[1]</code><br>
 (effected)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_base_name</strong> (): <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result = <code><em>defining_class.name</em></code>.</p>
+<p>Result = <code><em>base_class.name</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3656,7 +3656,7 @@ a_type: <code>String[1]</code><br>
 (effected)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_primitive</strong> (): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result = <code><em>defining_class.is_primitive</em></code>.</p>
+<p>Result = <code><em>base_class.is_primitive</em></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3777,7 +3777,7 @@ a_type: <code>String[1]</code><br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_class</strong>: <code>BMM_GENERIC_CLASS</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The target type; this converts to the first parameter in <code><em>generic_parameters</em></code> in <code>BMM_GENERIC_TYPE</code>.</p>
+<p>Defining generic class of this type.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3875,7 +3875,9 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code>String&#160;=&#160;"Tuple"</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Base name (built-in).</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3972,7 +3974,9 @@ a_type: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code>String&#160;=&#160;"Signature"</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Base name (built-in).</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5160,15 +5164,15 @@ a_name: <code>String[1]</code><br>
 <div class="sect4">
 <h5 id="_a_note_on_multiple_inheritance"><a class="anchor" href="#_a_note_on_multiple_inheritance"></a>7.1.3.1. A Note on Multiple Inheritance</h5>
 <div class="paragraph">
-<p>In the above model, multiple inheritance is used in order to retain the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:</p>
+<p>In the above model, multiple inheritance is used in order to express the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>the 'true' inheritance hierarchy under the class <code>BMM_TYPED</code>, corresponding to the type taxonomy illustrated above (green);</p>
+<p>the 'true' inheritance hierarchy under the class <code>BMM_TYPED</code> (shown in green), corresponding to the type taxonomy illustrated in <a href="#typed_taxonomy">Figure 26</a> above;</p>
 </li>
 <li>
-<p>a second hierarchy used to obtain structural elements, under <code>BMM_DECLARAION</code>, corresponding to the feature taxonomy illustrated above.</p>
+<p>a second hierarchy used to obtain structural elements, under <code>BMM_DECLARAION</code> (shown in blue), corresponding to the feature taxonomy illustrated in <a href="#feature_taxonomy">Figure 25</a> above.</p>
 </li>
 </ul>
 </div>

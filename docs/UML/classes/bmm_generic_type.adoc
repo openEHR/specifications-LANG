@@ -22,7 +22,7 @@ a|Generic parameters of the `_root_type_` in this type specifier. The order must
 h|*1..1 +
 (redefined)*
 |*base_class*: `BMM_GENERIC_CLASS`
-a|The target type; this converts to the first parameter in `_generic_parameters_` in `BMM_GENERIC_TYPE`.
+a|Defining generic class of this type.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

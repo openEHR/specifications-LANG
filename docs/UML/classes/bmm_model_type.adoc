@@ -21,7 +21,7 @@ a|
 
 h|*1..1*
 |*base_class*: `BMM_CLASS`
-a|Defining class of this type.
+a|Base class of this type.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -29,10 +29,10 @@ h|*Functions*
 h|*1..1 +
 (effected)*
 |*type_base_name* (): `String`
-a|Result = `_defining_class.name_`.
+a|Result = `_base_class.name_`.
 
 h|*1..1 +
 (effected)*
 |*is_primitive* (): `Boolean`
-a|Result = `_defining_class.is_primitive_`.
+a|Result = `_base_class.is_primitive_`.
 |===

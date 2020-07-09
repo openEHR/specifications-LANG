@@ -62,7 +62,7 @@ a|Result is either `_flattened_conforms_to_type.flattened_type_list_` or the `An
 h|*1..1 +
 (effected)*
 |*effective_type* (): `BMM_EFFECTIVE_TYPE`
-a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `Any`.
+a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `'Any'`.
 
 h|*Invariants*
 2+a|_Inv_generic_name_: `name.count = 1 and name.is_upper`

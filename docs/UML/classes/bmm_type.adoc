@@ -14,8 +14,8 @@ h|*Functions*
 
 h|*1..1 +
 (abstract)*
-|*flattened_type_list* (): `List<String>`
-a|Completely flattened list of type names, flattening out all generic parameters.
+|*type_name* (): `String`
+a|Formal string form of the type as per UML.
 
 h|*1..1*
 |*type_signature* (): `String`
@@ -35,16 +35,16 @@ a|If True, indicates that the entity in a BMM model is considered to relate to a
 
 h|*1..1 +
 (abstract)*
-|*type_name* (): `String`
-a|Formal string form of the type as per UML.
-
-h|*1..1 +
-(abstract)*
 |*unitary_type* (): `BMM_UNITARY_TYPE`
-a|Type with any container abstracted away.
+a|Type with any container abstracted away; may be a formal generic type.
 
 h|*1..1 +
 (abstract)*
 |*effective_type* (): `BMM_EFFECTIVE_TYPE`
 a|Type with any container abstracted away, and any formal parameter replaced by its effective constraint type.
+
+h|*1..1 +
+(abstract)*
+|*flattened_type_list* (): `List<String>`
+a|Completely flattened list of type names, flattening out all generic parameters.
 |===
