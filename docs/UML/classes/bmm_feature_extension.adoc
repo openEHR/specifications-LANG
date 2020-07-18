@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_BMM_FEATURE_EXTENSION (abstract)_*
+2+^h|*__BMM_FEATURE_EXTENSION (abstract)__*
 
 h|*Description*
 2+a|Abstract parent of feature extensions.

@@ -9,17 +9,17 @@ h|*Description*
 2+a|Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.
 
 h|*Inherit*
-2+|`BMM_STATEMENT`
+2+|`<<_bmm_statement_class,BMM_STATEMENT>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*target*: `EL_INSTANTIABLE_REF`
+|*target*: `<<_el_instantiable_ref_class,EL_INSTANTIABLE_REF>>`
 a|The target variable on the notional left-hand side of this assignment.
 
 h|*1..1*
-|*source*: `EL_EXPRESSION`
+|*source*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|Source right hand side) of the assignment.
 |===

@@ -9,18 +9,18 @@ h|*Description*
 2+a|Structural representation of case statement.
 
 h|*Inherit*
-2+|`BMM_DECISION_GROUP`
+2+|`<<_bmm_decision_group_class,BMM_DECISION_GROUP>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*test_value*: `EL_SCOPED_REF`
+|*test_value*: `<<_el_scoped_ref_class,EL_SCOPED_REF>>`
 a|Value on which the case branches are based.
 
 h|*1..1 +
 (redefined)*
-|*branches*: `List<BMM_CASE_BRANCH>`
+|*branches*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_case_branch_class,BMM_CASE_BRANCH>>>`
 a|
 |===

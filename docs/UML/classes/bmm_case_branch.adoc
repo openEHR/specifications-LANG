@@ -9,13 +9,13 @@ h|*Description*
 2+a|Branch of a case statement.
 
 h|*Inherit*
-2+|`BMM_DECISION_BRANCH`
+2+|`<<_bmm_decision_branch_class,BMM_DECISION_BRANCH>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*range*: `EL_CONSTRAINT_EXPRESSION`
+|*range*: `<<_el_constraint_expression_class,EL_CONSTRAINT_EXPRESSION>>`
 a|Value range of this case branch.
 |===

@@ -3,30 +3,30 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_BMM_CLASS_SCOPED (abstract)_*
+2+^h|*__BMM_CLASS_SCOPED (abstract)__*
 
 h|*Description*
 2+a|A class entity having a signature and a class as its scope.
 
 h|*Inherit*
-2+|`BMM_CLASS_ENTITY`
+2+|`<<_bmm_class_entity_class,BMM_CLASS_ENTITY>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*visibility*: `Any`
+|*visibility*: `link:/releases/BASE/{lang_release}/foundation_types.html#_any_class[Any^]`
 a|Visibility of this item to client entities.
 
 TODO: define scheme; probably need to support C++/Java scheme as well as better type-based schemes.
 
 h|*0..1*
-|*feature_extensions*: `List<BMM_FEATURE_EXTENSION>`
+|*feature_extensions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_extension_class,BMM_FEATURE_EXTENSION>>>`
 a|Extensions to feature-level meta-types.
 
 h|*1..1 +
 (redefined)*
-|*scope*: `BMM_CLASS`
+|*scope*: `<<_bmm_class_class,BMM_CLASS>>`
 a|Class within which a referenceable element is known.
 |===

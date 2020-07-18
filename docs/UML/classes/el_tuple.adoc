@@ -9,18 +9,18 @@ h|*Description*
 2+a|Defines an array of optionally named items each of any type.
 
 h|*Inherit*
-2+|`EL_INSTANCE_REF`
+2+|`<<_el_instance_ref_class,EL_INSTANCE_REF>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `List<EL_TUPLE_ITEM>`
+|*items*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_el_tuple_item_class,EL_TUPLE_ITEM>>>`
 a|Items in the tuple, potentially with names. Typical use is to represent an argument list to routine call.
 
 h|*1..1*
-|*type*: `BMM_TUPLE_TYPE`
+|*type*: `<<_bmm_tuple_type_class,BMM_TUPLE_TYPE>>`
 a|Static type inferred from literal value.
 h|*Functions*
 ^h|*Signature*
@@ -28,6 +28,6 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*eval_type* (): `BMM_TYPE`
+|*eval_type* (): `<<_bmm_type_class,BMM_TYPE>>`
 a|Return `_type_`.
 |===

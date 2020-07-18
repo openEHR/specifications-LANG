@@ -9,17 +9,17 @@ h|*Description*
 2+a|Binary operator expression node.
 
 h|*Inherit*
-2+|`EL_OPERATOR`
+2+|`<<_el_operator_class,EL_OPERATOR>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*left_operand*: `EL_EXPRESSION`
+|*left_operand*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|Left operand node.
 
 h|*1..1*
-|*right_operand*: `EL_TERMINAL`
+|*right_operand*: `<<_el_terminal_class,EL_TERMINAL>>`
 a|Right operand node.
 |===

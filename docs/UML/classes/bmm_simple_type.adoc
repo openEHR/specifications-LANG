@@ -9,7 +9,7 @@ h|*Description*
 2+a|Type reference to a single type i.e. not generic or container type.
 
 h|*Inherit*
-2+|`BMM_MODEL_TYPE`
+2+|`<<_bmm_model_type_class,BMM_MODEL_TYPE>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*base_class*: `BMM_SIMPLE_CLASS`
+|*base_class*: `<<_bmm_simple_class_class,BMM_SIMPLE_CLASS>>`
 a|Defining class of this type.
 h|*Functions*
 ^h|*Signature*
@@ -25,20 +25,20 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `String`
+|*type_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
 a|Result is `_base_class.name_`.
 
 h|*1..1 +
 (effected)*
-|*is_abstract* (): `Boolean`
+|*is_abstract* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result is `_base_class.is_abstract_`.
 
 h|*1..1 +
 (effected)*
-|*flattened_type_list* (): `List<String>`
+|*flattened_type_list* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
 a|Result is `_base_class.name_` .
 
 h|*1..1*
-|*effective_base_class* (): `BMM_SIMPLE_CLASS`
+|*effective_base_class* (): `<<_bmm_simple_class_class,BMM_SIMPLE_CLASS>>`
 a|Main design class for this type, from which properties etc can be extracted.
 |===

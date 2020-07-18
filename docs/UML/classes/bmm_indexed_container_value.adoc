@@ -9,7 +9,7 @@ h|*Description*
 2+a|Meta-type for literals whose concrete type is an indexed container, i.e. Hash table, Map etc.
 
 h|*Inherit*
-2+|`BMM_CONTAINER_VALUE`
+2+|`<<_bmm_container_value_class,BMM_CONTAINER_VALUE>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*type*: `BMM_INDEXED_CONTAINER_TYPE`
+|*type*: `<<_bmm_indexed_container_type_class,BMM_INDEXED_CONTAINER_TYPE>>`
 a|Declared or inferred static type of the entity.
 |===

@@ -13,12 +13,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `String +
+|*name*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^] +
 {default{nbsp}={nbsp}"plus"}`
 a|
 
 h|*0..1*
-|*symbols*: `List<String> +
+|*symbols*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]> +
 {default{nbsp}={nbsp}"+"}`
 a|
 |===

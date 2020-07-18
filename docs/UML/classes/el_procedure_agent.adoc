@@ -9,7 +9,7 @@ h|*Description*
 2+a|An agent whose signature is of a procedure, i.e. has no result type.
 
 h|*Inherit*
-2+|`EL_AGENT`
+2+|`<<_el_agent_class,EL_AGENT>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*0..1 +
 (redefined)*
-|*definition*: `BMM_PROCEDURE`
+|*definition*: `<<_bmm_procedure_class,BMM_PROCEDURE>>`
 a|Reference to definition of routine for which this is a call instance.
 |===

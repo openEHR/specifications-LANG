@@ -9,13 +9,13 @@ h|*Description*
 2+a|
 
 h|*Inherit*
-2+|`EL_BOOLEAN_EXPRESSION`
+2+|`<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*tag*: `String`
+|*tag*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
 a|Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".
 |===

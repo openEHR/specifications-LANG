@@ -9,13 +9,13 @@ h|*Description*
 2+a|Unary operator expression node.
 
 h|*Inherit*
-2+|`EL_OPERATOR`
+2+|`<<_el_operator_class,EL_OPERATOR>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `EL_EXPRESSION`
+|*operand*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|Operand node.
 |===

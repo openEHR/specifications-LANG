@@ -9,13 +9,13 @@ h|*Description*
 2+a|A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).
 
 h|*Inherit*
-2+|`BMM_STATEMENT`
+2+|`<<_bmm_statement_class,BMM_STATEMENT>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*expression*: `EL_BOOLEAN_EXPRESSION`
+|*expression*: `<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>`
 a|
 |===

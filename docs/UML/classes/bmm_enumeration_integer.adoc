@@ -9,7 +9,7 @@ h|*Description*
 2+a|Integer-based enumeration meta-type.
 
 h|*Inherit*
-2+|`BMM_ENUMERATION`
+2+|`<<_bmm_enumeration_class,BMM_ENUMERATION>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*0..1 +
 (redefined)*
-|*item_values*: `List<BMM_INTEGER_VALUE>`
+|*item_values*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_integer_value_class,BMM_INTEGER_VALUE>>>`
 a|Optional list of specific values. Must be 1:1 with `_item_names_` list.
 |===

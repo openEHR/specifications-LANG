@@ -9,6 +9,6 @@ h|*Description*
 2+a|A predicate on any object reference (including function call) that returns True if the reference is attached, i.e. non-Void.
 
 h|*Inherit*
-2+|`EL_PREDICATE`
+2+|`<<_el_predicate_class,EL_PREDICATE>>`
 
 |===

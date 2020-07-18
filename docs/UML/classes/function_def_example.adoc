@@ -11,19 +11,19 @@ h|*Description*
 func (v: Numeric): Numeric
 
 h|*Inherit*
-2+|`FUNCTION_DEF_EXTERNAL`
+2+|`<<_function_def_external_class,FUNCTION_DEF_EXTERNAL>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `String +
+|*identifier*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^] +
 {default{nbsp}={nbsp}"funny"}`
 a|
 
 h|*1..1 +
 (redefined)*
-|*evaluation_agent*: `FUNCTION<<Numeric>,Numeric>`
+|*evaluation_agent*: `link:/releases/BASE/{lang_release}/foundation_types.html#_function_class[FUNCTION^]<<link:/releases/BASE/{lang_release}/foundation_types.html#_numeric_class[Numeric^]>,link:/releases/BASE/{lang_release}/foundation_types.html#_numeric_class[Numeric^]>`
 a|
 |===

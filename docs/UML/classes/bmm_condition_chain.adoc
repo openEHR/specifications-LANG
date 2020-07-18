@@ -9,7 +9,7 @@ h|*Description*
 2+a|Structural representation of a condition chain, i.e. an if/elseif/else statement.
 
 h|*Inherit*
-2+|`BMM_DECISION_GROUP`
+2+|`<<_bmm_decision_group_class,BMM_DECISION_GROUP>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*branches*: `List<BMM_CONDITION_BRANCH>`
+|*branches*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_condition_branch_class,BMM_CONDITION_BRANCH>>>`
 a|Condition chain branches.
 |===

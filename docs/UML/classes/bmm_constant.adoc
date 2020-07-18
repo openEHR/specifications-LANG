@@ -9,19 +9,19 @@ h|*Description*
 2+a|An immutable, static value-returning element scoped to a class.
 
 h|*Inherit*
-2+|`BMM_INSTANTIABLE`, `BMM_CLASS_SCOPED`
+2+|`<<_bmm_instantiable_class,BMM_INSTANTIABLE>>`, `<<_bmm_class_scoped_class,BMM_CLASS_SCOPED>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*value*: `BMM_LITERAL_VALUE`
+|*value*: `<<_bmm_literal_value_class,BMM_LITERAL_VALUE>>`
 a|The value of the constant.
 
 h|*Invariants*
-2+a|_Inv_not_nullable_: `is_nullable = False`
+2+a|__Inv_not_nullable__: `is_nullable = False`
 
 h|
-2+a|_Inv_signature_no_args_: `signature.arguments = Void`
+2+a|__Inv_signature_no_args__: `signature.arguments = Void`
 |===

@@ -9,13 +9,13 @@ h|*Description*
 2+a|A statement 'block' corresponding to the programming language concept of the same name. May be used to establish scope in specific languages.
 
 h|*Inherit*
-2+|`BMM_STATEMENT_ITEM`
+2+|`<<_bmm_statement_item_class,BMM_STATEMENT_ITEM>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `List<BMM_STATEMENT_ITEM>`
+|*items*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_statement_item_class,BMM_STATEMENT_ITEM>>>`
 a|Child blocks of the current block.
 |===

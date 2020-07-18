@@ -9,7 +9,7 @@ h|*Description*
 2+a|An agent whose signature is of a function, i.e. has a result type.
 
 h|*Inherit*
-2+|`EL_AGENT`
+2+|`<<_el_agent_class,EL_AGENT>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*0..1 +
 (redefined)*
-|*definition*: `BMM_FUNCTION`
+|*definition*: `<<_bmm_function_class,BMM_FUNCTION>>`
 a|Reference to definition of a routine for which this is a direct call instance, if one exists.
 |===

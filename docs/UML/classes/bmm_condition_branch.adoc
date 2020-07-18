@@ -9,13 +9,13 @@ h|*Description*
 2+a|Representation of one conditional branch of an if/then statement.
 
 h|*Inherit*
-2+|`BMM_DECISION_BRANCH`
+2+|`<<_bmm_decision_branch_class,BMM_DECISION_BRANCH>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*test*: `EL_EXPRESSION`
+|*test*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|The test expression to evaluate for this branch.
 |===

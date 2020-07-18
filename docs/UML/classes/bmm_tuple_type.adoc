@@ -11,21 +11,21 @@ h|*Description*
 Note that both open and closed generic parameters are allowed, as with any generic type, but open generic parameters are only valid within the scope of a generic class.
 
 h|*Inherit*
-2+|`BMM_EFFECTIVE_TYPE`
+2+|`<<_bmm_effective_type_class,BMM_EFFECTIVE_TYPE>>`
 
 h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*base_name*: `String{nbsp}={nbsp}"Tuple"`
+|*base_name*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Tuple"`
 a|Base name (built-in).
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*item_types*: `Hash<String,BMM_TYPE>`
+|*item_types*: `link:/releases/BASE/{lang_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^],<<_bmm_type_class,BMM_TYPE>>>`
 a|List of types of the items of the tuple, keyed by purpose in the tuple.
 h|*Functions*
 ^h|*Signature*
@@ -33,30 +33,30 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*type_base_name* (): `String` +
+|*type_base_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]` +
  +
-_Post_result_: `Result.is_equal (base_name())`
+__Post_result__: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `Boolean`
+|*is_primitive* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result = `True`.
 
 h|*1..1 +
 (effected)*
-|*is_abstract* (): `Boolean`
+|*is_abstract* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result = `False`.
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `String` +
+|*type_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]` +
  +
-_Post_result_: `Result.is_equal (base_name())`
+__Post_result__: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 
 h|*1..1 +
 (effected)*
-|*flattened_type_list* (): `List<String>`
+|*flattened_type_list* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
 a|Return the logical set (i.e. unique types) from the merge of `_flattened_type_list_()` called on each member of `_item_types_`.
 |===

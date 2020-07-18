@@ -9,24 +9,24 @@ h|*Description*
 2+a|Illustrative class showing what the normally built-in logical 'exists' operator looks like as an external definition.
 
 h|*Inherit*
-2+|`OPERATOR_DEF_EXTERNAL`
+2+|`<<_operator_def_external_class,OPERATOR_DEF_EXTERNAL>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `String +
+|*identifier*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^] +
 {default{nbsp}={nbsp}"exists"}`
 a|
 
 h|*0..1*
-|*symbols*: `List<String> +
+|*symbols*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]> +
 {default{nbsp}={nbsp}"exists", "∃"}`
 a|
 
 h|*1..1 +
 (redefined)*
-|*evaluation_agent*: `FUNCTION<<Any>,Boolean>`
+|*evaluation_agent*: `link:/releases/BASE/{lang_release}/foundation_types.html#_function_class[FUNCTION^]<<link:/releases/BASE/{lang_release}/foundation_types.html#_any_class[Any^]>,link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]>`
 a|
 |===
