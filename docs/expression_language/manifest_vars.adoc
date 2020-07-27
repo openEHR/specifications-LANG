@@ -1,4 +1,4 @@
-:spec_title: EL - Expression Language
+:spec_title: Expression Language (EL)
 :copyright_year: 2016
 :spec_status: DEVELOPMENT
 :keywords: openehr, expressions, rules

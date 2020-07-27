@@ -1,4 +1,4 @@
-:spec_title: ODIN - Object Data Instance Notation
+:spec_title: Object Data Instance Notation (ODIN)
 :copyright_year: 2003
 :spec_status: STABLE
 :keywords: data, notation, JSON, syntax

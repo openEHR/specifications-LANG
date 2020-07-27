@@ -6,7 +6,7 @@
     "specifications": [
         {
             "id": "odin",
-            "title": "ODIN - Object Data Instance Notation",
+            "title": "Object Data Instance Notation (ODIN)",
             "title_short": "ODIN",
             "description": "Object Data Instance Notation (ODIN) specification",
             "summary": "This is the JSON-like notation used to express various sections of ADL archetypes including description, terminology and annotations, and also BMM files.",
@@ -17,7 +17,7 @@
         },
         {
             "id": "bmm",
-            "title": "BMM - Basic Meta-Model",
+            "title": "Basic Meta-Model (BMM)",
             "title_short": "BMM",
             "description": "Basic Meta-Model (BMM) specification",
             "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.",
@@ -35,9 +35,9 @@
         },
         {
             "id": "bmm_persistence",
-            "title": "P_BMM - BMM Persistence",
+            "title": "BMM Persistence Model and Syntax",
             "title_short": "P_BMM",
-            "description": "BMM Persistence (P_BMM)",
+            "description": "BMM Persistence Model and Syntax",
             "summary": "A human-readable and machine-processable save format for BMM.",
             "micro_summary": "BMM Human-readable serial format",
             "classes": [
@@ -52,7 +52,7 @@
         },
         {
             "id": "expression_language",
-            "title": "EL - Expression Language",
+            "title": "Expression Language (EL)",
             "title_short": "Expression Language",
             "description": "openEHR Expression Language specification",
             "summary": "The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.",
