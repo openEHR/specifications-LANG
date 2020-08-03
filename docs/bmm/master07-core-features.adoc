@@ -6,6 +6,15 @@ Within the definition of each class in a BMM model are found the declarations of
 
 The taxonomy of meta-types that classify the concrete meta-types representing features is somewhat complicated in an object-oriented approach by the presence of _procedures_, which are declared features (sometimes called commands or modifiers) that change internal object state, rather than returning a value as is the case with all other kinds of features. The consequence is that the cleanest approach to definition of meta-attributes is the use of two taxonomies, one corresponding to _feature declarations_ (including procedures) and one to do with _typed value-returning entities_, which excludes procedures.
 
+=== Feature Groups
+
+Features are arranged within a class in _feature groups_. By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
+
+* meta-type, e.g. a group called `"rules"` limited to publicly visible functions only;
+* logical feature type, e.g. commands, queries, factory methods etc.
+
+Each feature group may have its own meta-data in thee `_properties_` attribute, and may also set default visibility for all features in the group.
+
 === Feature Declarations
 
 _Features_ are understood in BMM as entities referenceable within a module or lower context. The 'module' in BMM is the class. Class features consist of the formal sub-parts of a class, namely:
@@ -51,7 +60,7 @@ In the above model, multiple inheritance is used in order to express the design 
 
 The `BMM_TYPED` hierarchy is the one requiring type substitutability, and is thus implemented using class inheritance (e.g. `extends` in Java), while the other should be implemented by inheritance of interfaces. This can be achieved as follows:
 
-* define the BMM classes `BMM_ROUTINE`, `BMM_CLASS_SCOPED`, `BMM_CLASS_ENTITY`, `BMM_DECLARATION` etc as interfaces, with the attributes (such as `BMM_ROUTINE._parameters_`) declared as methods and declare the inheritance as interface inheritance (e.g. `implements` in Java);
+* define the BMM classes `BMM_ROUTINE`, `BMM_CLASS_FEATURE`, `BMM_CLASS_ENTITY`, `BMM_DECLARATION` etc as interfaces, with the attributes (such as `BMM_ROUTINE._parameters_`) declared as methods and declare the inheritance as interface inheritance (e.g. `implements` in Java);
 * define a parallel class hierarchy `BMM_ROUTINE_IMPL`, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. `BMM_FUNCTION`, in order to obtain the attributes logically defined by `BMM_ROUTINE` in the UML);
 * _implement_ the methods inherited from the interface hierarchy via a declaration via the appropriate dispatch code referencing the relevant private data member.
 
@@ -75,7 +84,7 @@ image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="cente
 
 === Feature Visibility
 
-Selective _visibility_ of features to external clients is expressed in the attribute `BMM_CLASS_SCOPED._visibility_`.
+Selective _visibility_ of features to external clients is expressed in the attributes `BMM_FEATURE_GROUP._visibility_` with potential overrides achieved using `BMM_CLASS_FEATURE._visibility_`, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class `BMM_VISIBILITY`.
 
 [.tbd]
 TBD: define visibility meta-model; probably need to support C/Java approach and type-based.
@@ -300,8 +309,11 @@ Ultimately this difficulty arises from the decision to include procedures at all
 
 include::{uml_export_dir}/classes/bmm_typed.adoc[]
 
+include::{uml_export_dir}/classes/bmm_feature_group.adoc[]
+include::{uml_export_dir}/classes/bmm_visibility.adoc[]
+
 include::{uml_export_dir}/classes/bmm_class_entity.adoc[]
-include::{uml_export_dir}/classes/bmm_class_scoped.adoc[]
+include::{uml_export_dir}/classes/bmm_class_feature.adoc[]
 include::{uml_export_dir}/classes/bmm_typed_feature.adoc[]
 include::{uml_export_dir}/classes/bmm_instantiable.adoc[]
 

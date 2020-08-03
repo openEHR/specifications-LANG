@@ -191,17 +191,18 @@
 <ul class="sectlevel2">
 <li><a href="#_overview_6">7.1. Overview</a>
 <ul class="sectlevel3">
-<li><a href="#_feature_declarations">7.1.1. Feature Declarations</a></li>
-<li><a href="#_typed_entities">7.1.2. Typed Entities</a></li>
-<li><a href="#_class_model">7.1.3. Class Model</a>
+<li><a href="#_feature_groups">7.1.1. Feature Groups</a></li>
+<li><a href="#_feature_declarations">7.1.2. Feature Declarations</a></li>
+<li><a href="#_typed_entities">7.1.3. Typed Entities</a></li>
+<li><a href="#_class_model">7.1.4. Class Model</a>
 <ul class="sectlevel4">
-<li><a href="#_a_note_on_multiple_inheritance">7.1.3.1. A Note on Multiple Inheritance</a></li>
+<li><a href="#_a_note_on_multiple_inheritance">7.1.4.1. A Note on Multiple Inheritance</a></li>
 </ul>
 </li>
-<li><a href="#_differential_and_flat_form">7.1.4. Differential and Flat Form</a></li>
-<li><a href="#_signatures">7.1.5. Signatures</a></li>
-<li><a href="#_feature_visibility">7.1.6. Feature Visibility</a></li>
-<li><a href="#_synthesis_due_to_generic_parameter_substitution">7.1.7. Synthesis due to Generic Parameter Substitution</a></li>
+<li><a href="#_differential_and_flat_form">7.1.5. Differential and Flat Form</a></li>
+<li><a href="#_signatures">7.1.6. Signatures</a></li>
+<li><a href="#_feature_visibility">7.1.7. Feature Visibility</a></li>
+<li><a href="#_synthesis_due_to_generic_parameter_substitution">7.1.8. Synthesis due to Generic Parameter Substitution</a></li>
 </ul>
 </li>
 <li><a href="#_constants">7.2. Constants</a></li>
@@ -223,27 +224,29 @@
 <li><a href="#_class_definitions_6">7.7. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_bmm_typed_class">7.7.1. BMM_TYPED Class</a></li>
-<li><a href="#_bmm_class_entity_class">7.7.2. BMM_CLASS_ENTITY Class</a></li>
-<li><a href="#_bmm_class_scoped_class">7.7.3. BMM_CLASS_SCOPED Class</a></li>
-<li><a href="#_bmm_typed_feature_class">7.7.4. BMM_TYPED_FEATURE Class</a></li>
-<li><a href="#_bmm_instantiable_class">7.7.5. BMM_INSTANTIABLE Class</a></li>
-<li><a href="#_bmm_constant_class">7.7.6. BMM_CONSTANT Class</a></li>
-<li><a href="#_bmm_property_class">7.7.7. BMM_PROPERTY Class</a></li>
-<li><a href="#_bmm_unitary_property_class">7.7.8. BMM_UNITARY_PROPERTY Class</a></li>
-<li><a href="#_bmm_container_property_class">7.7.9. BMM_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_bmm_indexed_container_property_class">7.7.10. BMM_INDEXED_CONTAINER_PROPERTY Class</a></li>
-<li><a href="#_bmm_routine_class">7.7.11. BMM_ROUTINE Class</a></li>
-<li><a href="#_bmm_function_class">7.7.12. BMM_FUNCTION Class</a></li>
-<li><a href="#_bmm_operator_class">7.7.13. BMM_OPERATOR Class</a></li>
-<li><a href="#_bmm_operator_position_enumeration">7.7.14. BMM_OPERATOR_POSITION Enumeration</a></li>
-<li><a href="#_bmm_procedure_class">7.7.15. BMM_PROCEDURE Class</a></li>
-<li><a href="#_bmm_variable_class">7.7.16. BMM_VARIABLE Class</a></li>
-<li><a href="#_bmm_local_class">7.7.17. BMM_LOCAL Class</a></li>
-<li><a href="#_bmm_parameter_class">7.7.18. BMM_PARAMETER Class</a></li>
-<li><a href="#_bmm_result_class">7.7.19. BMM_RESULT Class</a></li>
-<li><a href="#_bmm_parameter_direction_enumeration">7.7.20. BMM_PARAMETER_DIRECTION Enumeration</a></li>
-<li><a href="#_bmm_routine_body_class">7.7.21. BMM_ROUTINE_BODY Class</a></li>
-<li><a href="#_bmm_routine_external_class">7.7.22. BMM_ROUTINE_EXTERNAL Class</a></li>
+<li><a href="#_bmm_feature_group_class">7.7.2. BMM_FEATURE_GROUP Class</a></li>
+<li><a href="#_bmm_visibility_class">7.7.3. BMM_VISIBILITY Class</a></li>
+<li><a href="#_bmm_class_entity_class">7.7.4. BMM_CLASS_ENTITY Class</a></li>
+<li><a href="#_bmm_class_feature_class">7.7.5. BMM_CLASS_FEATURE Class</a></li>
+<li><a href="#_bmm_typed_feature_class">7.7.6. BMM_TYPED_FEATURE Class</a></li>
+<li><a href="#_bmm_instantiable_class">7.7.7. BMM_INSTANTIABLE Class</a></li>
+<li><a href="#_bmm_constant_class">7.7.8. BMM_CONSTANT Class</a></li>
+<li><a href="#_bmm_property_class">7.7.9. BMM_PROPERTY Class</a></li>
+<li><a href="#_bmm_unitary_property_class">7.7.10. BMM_UNITARY_PROPERTY Class</a></li>
+<li><a href="#_bmm_container_property_class">7.7.11. BMM_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_bmm_indexed_container_property_class">7.7.12. BMM_INDEXED_CONTAINER_PROPERTY Class</a></li>
+<li><a href="#_bmm_routine_class">7.7.13. BMM_ROUTINE Class</a></li>
+<li><a href="#_bmm_function_class">7.7.14. BMM_FUNCTION Class</a></li>
+<li><a href="#_bmm_operator_class">7.7.15. BMM_OPERATOR Class</a></li>
+<li><a href="#_bmm_operator_position_enumeration">7.7.16. BMM_OPERATOR_POSITION Enumeration</a></li>
+<li><a href="#_bmm_procedure_class">7.7.17. BMM_PROCEDURE Class</a></li>
+<li><a href="#_bmm_variable_class">7.7.18. BMM_VARIABLE Class</a></li>
+<li><a href="#_bmm_local_class">7.7.19. BMM_LOCAL Class</a></li>
+<li><a href="#_bmm_parameter_class">7.7.20. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_result_class">7.7.21. BMM_RESULT Class</a></li>
+<li><a href="#_bmm_parameter_direction_enumeration">7.7.22. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_routine_body_class">7.7.23. BMM_ROUTINE_BODY Class</a></li>
+<li><a href="#_bmm_routine_external_class">7.7.24. BMM_ROUTINE_EXTERNAL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -478,6 +481,15 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to BASE component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>11 May 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>BMM_FEATURE_GROUP</code> and <code>BMM_VISIBILITY</code> classes;<br>
+ Rename <code>BMM_SCHEMA.<em>bmm_schema</em></code> to <code><em>bmm_model</em></code>;<br>
+ Remove unintended inheritance from <code>BMM_SCHEMA</code> to <code>P_BMM_PACKAGE_CONTAINER</code>;<br>
+ Improve documentation in <a href="#_model_access_package">Section 3</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">03 Aug 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -4525,6 +4537,11 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feature_groups</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_feature_group_class">BMM_FEATURE_GROUP</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -4602,14 +4619,14 @@ unlike UML, the <code><em>name</em></code> is just the root name, even if the cl
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>features</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_class_scoped_class">BMM_CLASS_SCOPED</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>features</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of all feature definitions introduced in this class.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_features</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_class_scoped_class">BMM_CLASS_SCOPED</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>flat_features</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Consolidated list of all feature definitions from this class and all inheritance ancestors.</p>
 </div></div></td>
@@ -4940,7 +4957,26 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>The taxonomy of meta-types that classify the concrete meta-types representing features is somewhat complicated in an object-oriented approach by the presence of <em>procedures</em>, which are declared features (sometimes called commands or modifiers) that change internal object state, rather than returning a value as is the case with all other kinds of features. The consequence is that the cleanest approach to definition of meta-attributes is the use of two taxonomies, one corresponding to <em>feature declarations</em> (including procedures) and one to do with <em>typed value-returning entities</em>, which excludes procedures.</p>
 </div>
 <div class="sect3">
-<h4 id="_feature_declarations"><a class="anchor" href="#_feature_declarations"></a>7.1.1. Feature Declarations</h4>
+<h4 id="_feature_groups"><a class="anchor" href="#_feature_groups"></a>7.1.1. Feature Groups</h4>
+<div class="paragraph">
+<p>Features are arranged within a class in <em>feature groups</em>. By default there is at least one feature group called <code>"feature"</code>. Feature groups may be given any name, and are usually used to group features on the basis of things like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>meta-type, e.g. a group called <code>"rules"</code> limited to publicly visible functions only;</p>
+</li>
+<li>
+<p>logical feature type, e.g. commands, queries, factory methods etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each feature group may have its own meta-data in thee <code><em>properties</em></code> attribute, and may also set default visibility for all features in the group.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_feature_declarations"><a class="anchor" href="#_feature_declarations"></a>7.1.2. Feature Declarations</h4>
 <div class="paragraph">
 <p><em>Features</em> are understood in BMM as entities referenceable within a module or lower context. The 'module' in BMM is the class. Class features consist of the formal sub-parts of a class, namely:</p>
 </div>
@@ -4974,7 +5010,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect3">
-<h4 id="_typed_entities"><a class="anchor" href="#_typed_entities"></a>7.1.2. Typed Entities</h4>
+<h4 id="_typed_entities"><a class="anchor" href="#_typed_entities"></a>7.1.3. Typed Entities</h4>
 <div class="paragraph">
 <p>For entities with a <em>type</em>, i.e. which can potentially produce a value, the following taxonomy of typing applies.</p>
 </div>
@@ -4989,7 +5025,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect3">
-<h4 id="_class_model"><a class="anchor" href="#_class_model"></a>7.1.3. Class Model</h4>
+<h4 id="_class_model"><a class="anchor" href="#_class_model"></a>7.1.4. Class Model</h4>
 <div class="paragraph">
 <p>The class model that results from the above considerations is shown below.</p>
 </div>
@@ -5000,7 +5036,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="title">Figure 27. <code>base.bmm.core.feature</code> package - Features</div>
 </div>
 <div class="sect4">
-<h5 id="_a_note_on_multiple_inheritance"><a class="anchor" href="#_a_note_on_multiple_inheritance"></a>7.1.3.1. A Note on Multiple Inheritance</h5>
+<h5 id="_a_note_on_multiple_inheritance"><a class="anchor" href="#_a_note_on_multiple_inheritance"></a>7.1.4.1. A Note on Multiple Inheritance</h5>
 <div class="paragraph">
 <p>In the above model, multiple inheritance is used in order to express the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:</p>
 </div>
@@ -5020,7 +5056,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="ulist">
 <ul>
 <li>
-<p>define the BMM classes <code>BMM_ROUTINE</code>, <code>BMM_CLASS_SCOPED</code>, <code>BMM_CLASS_ENTITY</code>, <code>BMM_DECLARATION</code> etc as interfaces, with the attributes (such as <code>BMM_ROUTINE.<em>parameters</em></code>) declared as methods and declare the inheritance as interface inheritance (e.g. <code>implements</code> in Java);</p>
+<p>define the BMM classes <code>BMM_ROUTINE</code>, <code>BMM_CLASS_FEATURE</code>, <code>BMM_CLASS_ENTITY</code>, <code>BMM_DECLARATION</code> etc as interfaces, with the attributes (such as <code>BMM_ROUTINE.<em>parameters</em></code>) declared as methods and declare the inheritance as interface inheritance (e.g. <code>implements</code> in Java);</p>
 </li>
 <li>
 <p>define a parallel class hierarchy <code>BMM_ROUTINE_IMPL</code>, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. <code>BMM_FUNCTION</code>, in order to obtain the attributes logically defined by <code>BMM_ROUTINE</code> in the UML);</p>
@@ -5036,7 +5072,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect3">
-<h4 id="_differential_and_flat_form"><a class="anchor" href="#_differential_and_flat_form"></a>7.1.4. Differential and Flat Form</h4>
+<h4 id="_differential_and_flat_form"><a class="anchor" href="#_differential_and_flat_form"></a>7.1.5. Differential and Flat Form</h4>
 <div class="paragraph">
 <p>In modelling or programming terms, the features defined on a particular class within a model constitute the features it <em>introduces with respect to its inheritance parent(s)</em>. We can think of this list of features as the <em>differential</em> set. A 'top-level' class with no declared inheritance ancestor is considered to inherit by default from the <code>Any</code> class, and its feature set is relationally differential to the top class.</p>
 </div>
@@ -5045,7 +5081,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect3">
-<h4 id="_signatures"><a class="anchor" href="#_signatures"></a>7.1.5. Signatures</h4>
+<h4 id="_signatures"><a class="anchor" href="#_signatures"></a>7.1.6. Signatures</h4>
 <div class="paragraph">
 <p>All class-scoped features have formal signatures (described in <a href="#_signature_meta_type">Section 5.5</a>), realised as <code>BMM_CLASS_ENTITY.<em>signature</em></code>. This includes procedures, even though they have no return type.</p>
 </div>
@@ -5060,16 +5096,16 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect3">
-<h4 id="_feature_visibility"><a class="anchor" href="#_feature_visibility"></a>7.1.6. Feature Visibility</h4>
+<h4 id="_feature_visibility"><a class="anchor" href="#_feature_visibility"></a>7.1.7. Feature Visibility</h4>
 <div class="paragraph">
-<p>Selective <em>visibility</em> of features to external clients is expressed in the attribute <code>BMM_CLASS_SCOPED.<em>visibility</em></code>.</p>
+<p>Selective <em>visibility</em> of features to external clients is expressed in the attributes <code>BMM_FEATURE_GROUP.<em>visibility</em></code> with potential overrides achieved using <code>BMM_CLASS_FEATURE.<em>visibility</em></code>, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class <code>BMM_VISIBILITY</code>.</p>
 </div>
 <div class="paragraph tbd">
 <p>TBD: define visibility meta-model; probably need to support C/Java approach and type-based.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_synthesis_due_to_generic_parameter_substitution"><a class="anchor" href="#_synthesis_due_to_generic_parameter_substitution"></a>7.1.7. Synthesis due to Generic Parameter Substitution</h4>
+<h4 id="_synthesis_due_to_generic_parameter_substitution"><a class="anchor" href="#_synthesis_due_to_generic_parameter_substitution"></a>7.1.8. Synthesis due to Generic Parameter Substitution</h4>
 <div class="paragraph">
 <p>Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag <code><em>is_synthesised_generic</em></code> on the class <code>BMM_CLASS_ENTITY</code> to mark any such synthesised feature. An example of the use of this is described below in <a href="#_generic_inheritance">Section 12.1.2</a>.</p>
 </div>
@@ -5415,7 +5451,88 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_class_entity_class"><a class="anchor" href="#_bmm_class_entity_class"></a>7.7.2. BMM_CLASS_ENTITY Class</h4>
+<h4 id="_bmm_feature_group_class"><a class="anchor" href="#_bmm_feature_group_class"></a>7.7.2. BMM_FEATURE_GROUP Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_FEATURE_GROUP</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A logical group of features, with a name and set of properties that applies to the group.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a><br>
+{default&#160;=&#160;"feature"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of this feature group; defaults to 'feature'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>properties</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>, <a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of properties of this group, represented as name/value pairs. These are understood to apply logically to all of the features contained within the group.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>features</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of features in this group.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>visibility</strong>: <code><a href="#_bmm_visibility_class">BMM_VISIBILITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional visibility to apply to all features in this group.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_visibility_class"><a class="anchor" href="#_bmm_visibility_class"></a>7.7.3. BMM_VISIBILITY Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_VISIBILITY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of visibility representation.</p>
+</div>
+<div class="paragraph">
+<p>TODO: define schemes; probably need to support C++/Java scheme as well as better type-based schemes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_class_entity_class"><a class="anchor" href="#_bmm_class_entity_class"></a>7.7.4. BMM_CLASS_ENTITY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5473,7 +5590,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_class_scoped_class"><a class="anchor" href="#_bmm_class_scoped_class"></a>7.7.3. BMM_CLASS_SCOPED Class</h4>
+<h4 id="_bmm_class_feature_class"><a class="anchor" href="#_bmm_class_feature_class"></a>7.7.5. BMM_CLASS_FEATURE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5483,7 +5600,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_CLASS_SCOPED (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_CLASS_FEATURE (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -5502,12 +5619,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>visibility</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>visibility</strong>: <code><a href="#_bmm_visibility_class">BMM_VISIBILITY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Visibility of this item to client entities.</p>
-</div>
-<div class="paragraph">
-<p>TODO: define scheme; probably need to support C++/Java scheme as well as better type-based schemes.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5515,6 +5629,13 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feature_extensions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_feature_extension_class">BMM_FEATURE_EXTENSION</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Extensions to feature-level meta-types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>group</strong>: <code><a href="#_bmm_feature_group_class">BMM_FEATURE_GROUP</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Group containing this feature.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5529,7 +5650,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_typed_feature_class"><a class="anchor" href="#_bmm_typed_feature_class"></a>7.7.4. BMM_TYPED_FEATURE Class</h4>
+<h4 id="_bmm_typed_feature_class"><a class="anchor" href="#_bmm_typed_feature_class"></a>7.7.6. BMM_TYPED_FEATURE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5568,7 +5689,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_instantiable_class"><a class="anchor" href="#_bmm_instantiable_class"></a>7.7.5. BMM_INSTANTIABLE Class</h4>
+<h4 id="_bmm_instantiable_class"><a class="anchor" href="#_bmm_instantiable_class"></a>7.7.7. BMM_INSTANTIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5594,7 +5715,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>7.7.6. BMM_CONSTANT Class</h4>
+<h4 id="_bmm_constant_class"><a class="anchor" href="#_bmm_constant_class"></a>7.7.8. BMM_CONSTANT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5614,7 +5735,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_instantiable_class">BMM_INSTANTIABLE</a></code>, <code><a href="#_bmm_class_scoped_class">BMM_CLASS_SCOPED</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_instantiable_class">BMM_INSTANTIABLE</a></code>, <code><a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5644,7 +5765,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>7.7.7. BMM_PROPERTY Class</h4>
+<h4 id="_bmm_property_class"><a class="anchor" href="#_bmm_property_class"></a>7.7.9. BMM_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5664,7 +5785,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_instantiable_class">BMM_INSTANTIABLE</a></code>, <code><a href="#_bmm_class_scoped_class">BMM_CLASS_SCOPED</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_instantiable_class">BMM_INSTANTIABLE</a></code>, <code><a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5724,7 +5845,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>7.7.8. BMM_UNITARY_PROPERTY Class</h4>
+<h4 id="_bmm_unitary_property_class"><a class="anchor" href="#_bmm_unitary_property_class"></a>7.7.10. BMM_UNITARY_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5763,7 +5884,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>7.7.9. BMM_CONTAINER_PROPERTY Class</h4>
+<h4 id="_bmm_container_property_class"><a class="anchor" href="#_bmm_container_property_class"></a>7.7.11. BMM_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5822,7 +5943,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_indexed_container_property_class"><a class="anchor" href="#_bmm_indexed_container_property_class"></a>7.7.10. BMM_INDEXED_CONTAINER_PROPERTY Class</h4>
+<h4 id="_bmm_indexed_container_property_class"><a class="anchor" href="#_bmm_indexed_container_property_class"></a>7.7.12. BMM_INDEXED_CONTAINER_PROPERTY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5874,7 +5995,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>7.7.11. BMM_ROUTINE Class</h4>
+<h4 id="_bmm_routine_class"><a class="anchor" href="#_bmm_routine_class"></a>7.7.13. BMM_ROUTINE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5894,7 +6015,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_class_scoped_class">BMM_CLASS_SCOPED</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_class_feature_class">BMM_CLASS_FEATURE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5959,7 +6080,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>7.7.12. BMM_FUNCTION Class</h4>
+<h4 id="_bmm_function_class"><a class="anchor" href="#_bmm_function_class"></a>7.7.14. BMM_FUNCTION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6022,7 +6143,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>7.7.13. BMM_OPERATOR Class</h4>
+<h4 id="_bmm_operator_class"><a class="anchor" href="#_bmm_operator_class"></a>7.7.15. BMM_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6070,7 +6191,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>7.7.14. BMM_OPERATOR_POSITION Enumeration</h4>
+<h4 id="_bmm_operator_position_enumeration"><a class="anchor" href="#_bmm_operator_position_enumeration"></a>7.7.16. BMM_OPERATOR_POSITION Enumeration</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6111,7 +6232,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>7.7.15. BMM_PROCEDURE Class</h4>
+<h4 id="_bmm_procedure_class"><a class="anchor" href="#_bmm_procedure_class"></a>7.7.17. BMM_PROCEDURE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6143,7 +6264,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>7.7.16. BMM_VARIABLE Class</h4>
+<h4 id="_bmm_variable_class"><a class="anchor" href="#_bmm_variable_class"></a>7.7.18. BMM_VARIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6201,7 +6322,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>7.7.17. BMM_LOCAL Class</h4>
+<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>7.7.19. BMM_LOCAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6227,7 +6348,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>7.7.18. BMM_PARAMETER Class</h4>
+<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>7.7.20. BMM_PARAMETER Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6265,7 +6386,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_result_class"><a class="anchor" href="#_bmm_result_class"></a>7.7.19. BMM_RESULT Class</h4>
+<h4 id="_bmm_result_class"><a class="anchor" href="#_bmm_result_class"></a>7.7.21. BMM_RESULT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6305,7 +6426,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>7.7.20. BMM_PARAMETER_DIRECTION Enumeration</h4>
+<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>7.7.22. BMM_PARAMETER_DIRECTION Enumeration</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6353,7 +6474,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_body_class"><a class="anchor" href="#_bmm_routine_body_class"></a>7.7.21. BMM_ROUTINE_BODY Class</h4>
+<h4 id="_bmm_routine_body_class"><a class="anchor" href="#_bmm_routine_body_class"></a>7.7.23. BMM_ROUTINE_BODY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6375,7 +6496,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_external_class"><a class="anchor" href="#_bmm_routine_external_class"></a>7.7.22. BMM_ROUTINE_EXTERNAL Class</h4>
+<h4 id="_bmm_routine_external_class"><a class="anchor" href="#_bmm_routine_external_class"></a>7.7.24. BMM_ROUTINE_EXTERNAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9238,7 +9359,7 @@ probably to be removed.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-16 15:34:04 +0100
+Last updated 2020-07-27 10:29:40 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

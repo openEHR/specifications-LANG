@@ -74,6 +74,10 @@ a|Subset of `_procedures_` that may be used to initialise a new instance of an o
 h|*0..1*
 |*converters*: `link:/releases/BASE/{lang_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^],<<_bmm_procedure_class,BMM_PROCEDURE>>>`
 a|Subset of `_creators_` that create a new instance from a single argument of another type.
+
+h|*0..1*
+|*feature_groups*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_group_class,BMM_FEATURE_GROUP>>>`
+a|
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -120,11 +124,11 @@ h|*1..1*
 a|True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time.
 
 h|*0..1*
-|*features* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_scoped_class,BMM_CLASS_SCOPED>>>`
+|*features* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_feature_class,BMM_CLASS_FEATURE>>>`
 a|List of all feature definitions introduced in this class.
 
 h|*0..1*
-|*flat_features* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_scoped_class,BMM_CLASS_SCOPED>>>`
+|*flat_features* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_feature_class,BMM_CLASS_FEATURE>>>`
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|*0..1*

@@ -9,7 +9,7 @@ h|*Description*
 2+a|An immutable, static value-returning element scoped to a class.
 
 h|*Inherit*
-2+|`<<_bmm_instantiable_class,BMM_INSTANTIABLE>>`, `<<_bmm_class_scoped_class,BMM_CLASS_SCOPED>>`
+2+|`<<_bmm_instantiable_class,BMM_INSTANTIABLE>>`, `<<_bmm_class_feature_class,BMM_CLASS_FEATURE>>`
 
 h|*Attributes*
 ^h|*Signature*

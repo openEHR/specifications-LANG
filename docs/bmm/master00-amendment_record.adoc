@@ -12,6 +12,14 @@
 |[[latest_issue_date]]11 May 2020
 
 |
+|Add `BMM_FEATURE_GROUP` and `BMM_VISIBILITY` classes; +
+ Rename `BMM_SCHEMA._bmm_schema_` to `_bmm_model_`; + 
+ Remove unintended inheritance from `BMM_SCHEMA` to `P_BMM_PACKAGE_CONTAINER`; +
+ Improve documentation in <<Model Access Package>>.
+|T Beale
+|03 Aug 2020
+
+|
 |Rename `EL_ASSERTION` to `EL_BOOLEAN_EXPRESSION`; +
  Extend literal meta-types to directly support container literals; +
  Add basic statement types to BMM; +
