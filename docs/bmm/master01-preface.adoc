@@ -16,7 +16,7 @@ NOTE: Other than for working with particular tools designed to use BMM, BMM is n
 
 == Feedback
 
-Feedback may be provided on the {openehr_technical_list}[technical mailing list^].
+Feedback may be provided on the {openehr_lang_forum}[openEHR languages specifications forum^].
 
 Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
 
