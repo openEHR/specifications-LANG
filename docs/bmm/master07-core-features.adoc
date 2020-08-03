@@ -95,7 +95,7 @@ A constant has a `_value_`, which may be of any type, including complex types.
 
 The following abstract syntax illustrates how constants may be defined in a BMM model.
 
-[source,typescript]
+[source,kotlin]
 ----
     // a class with simple invariants
     class BASIC_DEFINITIONS
@@ -142,11 +142,9 @@ image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="cen
 
 The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than `other_participations`, which is defined as a container property with cardinality `[\*]` (i.e. `0..*`) and 'set' semantics.
 
-[source,typescript]
+[source,kotlin]
 ----
-    abstract class ENTRY
-        inherit
-            CARE_ENTRY
+    abstract class ENTRY extend CARE_ENTRY
     {
         feature -- Locale
             association property language: CODE_PHRASE <<"iso::iso_639-2">> [0..1];
@@ -185,7 +183,7 @@ Any routine may have pre- and/or post-conditions defined for it, represented in 
 
 The following abstract syntax illustrates the various elements of function definitions.
 
-[source,typescript]
+[source,kotlin]
 ----
     abstract class DV_AMOUNT
         inherit
@@ -231,7 +229,7 @@ The use of pre- and post-conditions is also known as _design by contract (DbC)_,
 
 The following shows how a routine contract may be specified in an abstract syntax.
 
-[source,typescript]
+[source,kotlin]
 ----
     class I_EHR_SERVICE
     {
@@ -258,7 +256,7 @@ image::{uml_diagrams_uri}/LANG-bmm.core.class-creators.svg[id=core_class_creator
 
 Creators and converters might be distinguished among other procedures in an abstract syntax as follows.
 
-[source,typescript]
+[source,kotlin]
 ----
     class Date
         inherit

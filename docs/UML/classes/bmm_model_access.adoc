@@ -22,11 +22,11 @@ a|All schemas found and loaded from `_schema_directory_`. Keyed by `_schema_id_`
 
 h|*0..1*
 |*bmm_models*: `link:/releases/BASE/{lang_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^],<<_bmm_model_class,BMM_MODEL>>>`
-a|Top-level (root) schemas in use. Table is keyed by `_model_id_`.
+a|Top-level (root) models in use, keyed by `_model_id_`.
 
 h|*0..1*
 |*matching_bmm_models*: `link:/releases/BASE/{lang_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^],<<_bmm_model_class,BMM_MODEL>>>`
-a|`BMM_MODELs` keyed by `_model_id()_` and any shorter form used in calls to
+a|Validated models, keyed by `_model_id()_` and any shorter forms of id, with some or no versioning information. For example, the keys `"openEHR_EHR_1.0.4"`, `"openEHR_EHR_1.0"`, `"openEHR_EHR_1"`, and `"openEHR_EHR"` will all match the `"openEHR_EHR_1.0.4"` model, assuming it is the most recent version available.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -52,7 +52,7 @@ h|*1..1*
 |*bmm_model* ( +
 a_model_key: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^][1]` +
 ): `<<_bmm_model_class,BMM_MODEL>>`
-a|Return ref model containing the model key which is a `_model_id_` or any shorter form e.g. model id minus the version. If a shorter key is used, the `BMM_MODEL` with the highest version will be selected.
+a|Return model containing the model key which is a `_model_id_` or any shorter form e.g. model id minus the version. If a shorter key is used, the `BMM_MODEL` with the most recent version will be selected. Uses `_matching_bmm_models_` table to find matches if partial version information is supplied in key.
 
 h|*1..1*
 |*has_bmm_model* ( +

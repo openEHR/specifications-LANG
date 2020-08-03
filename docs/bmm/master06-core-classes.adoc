@@ -2,7 +2,7 @@
 
 == Overview
 
-This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.
+This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties, which appear in feature groups. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.
 
 [.text-center]
 .`base.bmm.core` Package - Classes
@@ -18,6 +18,7 @@ BMM distinguishes between simple and generic class definitions via two descendan
 
 The simplest type of class definition in a model is an instance of the meta-type `BMM_SIMPLE_CLASS`, and has a 1:1 relationship with its type. Such classes might be specified in the following abstract syntax:
 
+[source,kotlin]
 ----
     class DvQuantity
     {
@@ -36,6 +37,7 @@ The simplest type of class definition in a model is an instance of the meta-type
 
 The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_CLASS`, enabling formal generic parameters to be represented. Each such parameter is expressed using an instance of `BMM_PARAMETER_TYPE` which names the parameter and optionally allows a type constraint to be associated with it, in the usual object-oriented fashion. In BMM, formal parameters have single-letter names, such as 'T', 'U' etc, following typical usage in programming languages. A generic class may also be primitive. Generic classes can be defined in a syntax similar to the following.
 
+[source,kotlin]
 ----
     // a primitive generic class with an open type parameter
     primitive class List <T>
@@ -93,6 +95,7 @@ image::{diagrams_uri}/bmm_structure-enumeration.svg[id=bmm_structure_enumeration
 
 The following shows the same class in an abstract syntax.
 
+[source,kotlin]
 ----
     // an Integer-based enumeration
     enumeration class TASK_LIFECYCLE
@@ -117,6 +120,7 @@ image::{images_uri}/awb_enumeration.png[id=awb_enumeration, align="center", widt
 
 The following shows another enumeration class, this time based on the `String` type. 
 
+[source,kotlin]
 ----
     // a String-based enumeration
     enumeration class ContractStatus
@@ -148,6 +152,7 @@ image::{diagrams_uri}/bmm_structure-value_set.svg[id=bmm_structure_value_set, al
 
 The following shows a possible abstract syntax value-set type definition.
 
+[source,kotlin]
 ----
     // a Value-set type
     class Document
@@ -165,6 +170,7 @@ The following sub-sections describe qualifiers that may be used on any class def
 
 Any class definition in a BMM model may be marked as 'abstract', to indicate that it cannot be directly instantiated. This qualifier generally maps to the concept of abstract classes in most OOPLs. It may be specified in an abstract syntax as follows.
 
+[source,kotlin]
 ----
     abstract class ENTRY
     {
@@ -177,6 +183,7 @@ Any class definition in a BMM model may be marked as 'abstract', to indicate tha
 
 Class definitions within a BMM model may be marked as 'primitive', enabling them to be visualised and queried as a separate group without otherwise changing the semantics of the entity in the BMM meta-type system. This is normally done to distinguish 'built-in' types used by a model from the classes for which the model was created. An abstract syntax definition may look as follows:
 
+[source,kotlin]
 ----
     primitive class Integer 
     {
@@ -205,6 +212,7 @@ A class defined within a model may include _invariants_, i.e. assertions relatin
 
 The following shows classes with invariants. 
 
+[source,kotlin]
 ----
     // a class with simple invariants
     class COMPOSITION

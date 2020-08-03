@@ -79,8 +79,6 @@
 <li><a href="#_bmm_schema_class">3.2.4. BMM_SCHEMA Class</a></li>
 <li><a href="#_bmm_schema_state_enumeration">3.2.5. BMM_SCHEMA_STATE Enumeration</a></li>
 <li><a href="#_bmm_include_spec_class">3.2.6. BMM_INCLUDE_SPEC Class</a></li>
-<li><a href="#_p_bmm_schema_descriptor_class">3.2.7. P_BMM_SCHEMA_DESCRIPTOR Class</a></li>
-<li><a href="#_p_bmm_schema_class">3.2.8. P_BMM_SCHEMA Class</a></li>
 </ul>
 </li>
 </ul>
@@ -1332,28 +1330,28 @@ This package is considered informative within this specification.
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>model_access</code> package provides an interface for the application to load BMM schemas and convert them to BMM model form, and is shown below. In this model, a <em>schema</em> is a concrete serial form of a <em>model</em> or part of a model. One or more schema files are parsed, validated and then converted to create a single <code>BMM_MODEL</code> instance.</p>
+<p>The <code>org.openehr.lang.bmm.model_access</code> package provides an interface for the application to load BMM schemas and convert them to BMM model form, and is shown below. In this model, a <em>schema</em> is the serial form of a <em>model</em> or part of a model (i.e. instances of a persistence model like the <code>lang.bmm_persistence</code> model <code>P_XXX</code> classes). One or more schema files are parsed, validated and then converted to create a single <code>BMM_MODEL</code> instance.</p>
 </div>
 <div id="model_access_package" class="imageblock text-center text-center">
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.model_access.svg" alt="LANG bmm.model access">
 </div>
-<div class="title">Figure 4. <code>base.bmm.model_access</code> Package</div>
+<div class="title">Figure 4. <code>lang.bmm.model_access</code> Package</div>
 </div>
 <div class="paragraph">
 <p>More than one format for representing serialised BMM models is possible, each having its load, validation and error-reporting logic. The common elements of the load, validate and convert logic are defined by the non format-specific classes in the package, with specific forms of the classes <code>BMM_SCHEMA_DESCRIPTOR</code> and <code>BMM_SCHEMA</code> required for each concrete format. The package above shows the relevant classes for the <code>P_BMM</code> version 2.x format, which is normally saved in <code>.bmm</code> files. Other formats may be saved in files with different extensions.</p>
 </div>
 <div class="paragraph">
-<p>The singleton class <code>BMM_MODEL_ACCESS</code> acts as the entry point for client software to obtain access to loaded BMM models. Since the latter start as schema files which are typically nested according to an 'include' hierarchy, they must be parsed, validated and merged to create each 'top-level' <em>model</em>. The schemas are accessed via instances of the <code>BMM_SCHEMA_DESCRIPTOR</code> object, one for each schema file. The <code><em>load()</em></code> routine loads a BMM schema file by direct deserialisation.</p>
+<p>The singleton class <code>BMM_MODEL_ACCESS</code> acts as the entry point for client software to obtain access to loaded BMM models. Since the latter start as schema files which are typically nested according to an 'include' hierarchy, they must be parsed, validated and merged to create each 'top-level' <em>model</em>. The schemas are accessed via instances of the <code>BMM_SCHEMA_DESCRIPTOR</code> object, one for each schema file. The <code><em>load()</em></code> routine of this class loads a BMM schema file by direct deserialisation.</p>
 </div>
 <div class="paragraph">
-<p>If the file is structurally correct (say ODIN, JSON etc), an in-memory schema instance will result (e.g. <code>P_BMM_SCHEMA</code> in the case of the <code>P_BMM</code> format), and its <code><em>validate_created</em></code> method called. If this succeeds, <code>SCHEMA_DESCRIPTOR.<em>schema</em></code> will be set to this instance. Subsequently, <code><em>schema.merge()</em></code> will be called repeatedly, which results in each <code><em>schema</em></code> instance being the merged result of its include children and itself. After merging, <code>BMM_SCHEMA_DESCRIPTOR.<em>validate_merged()</em></code> will be called, and if successful, a call to <code><em>create_model()</em></code> will result in <code>BMM_SCHEMA_DESCRIPTOR.<em>model</em></code> being populated.</p>
+<p>If the file is structurally correct (say ODIN, JSON etc), an in-memory schema instance will result (e.g. <code>P_BMM_SCHEMA</code> in the case of the <code>P_BMM</code> format), and its <code><em>validate_created</em></code> method called. If this succeeds, <code>BMM_SCHEMA_DESCRIPTOR.<em>bmm_schema</em></code> will be set to this instance, of type <code>BMM_SCHEMA</code>. Subsequently, <code>BMM_SCHEMA.<em>merge()</em></code> will be called repeatedly, which results in each <code><em>bmm_schema</em></code> instance being the merged result of its include children and itself. After merging, <code>BMM_SCHEMA_DESCRIPTOR.<em>validate_merged()</em></code> will be called, and if successful, a call to <code><em>create_model()</em></code> will result in <code>BMM_SCHEMA_DESCRIPTOR.<em>model</em></code> being populated.</p>
 </div>
 <div class="paragraph">
-<p>Each successfully loaded model is thus instantiated as a <code>BMM_MODEL</code>, and referenceable via <code>BMM_MODEL_ACCESS.<em>valid_models</em></code>, which keys models by model identifiers (<code>BMM_SCHEMA_CORE.<em>identifier</em></code>). The methods <code><em>model_for_namespace()</em></code> and <code><em>model_for_namespace()</em></code> are used to access a given model for a namespace to which the model applies.</p>
+<p>Each successfully loaded model is thus instantiated as a <code>BMM_MODEL</code>, and retrievable by calling <code>BMM_MODEL_ACCESS.<em>bmm_model()</em></code> with a <em>model key</em>, which is a model identifier with full, partial or no version part. In the latter cases, the most recent version model is retrieved for the key. For example, the keys <code>"openEHR_EHR_1.0.4"</code>, <code>"openEHR_EHR_1.0"</code>, <code>"openEHR_EHR_1"</code>, and <code>"openEHR_EHR"</code> will all match the <code>"openEHR_EHR_1.0.4"</code> model, assuming it is the most recent version available. This is convenient for matching models to artefacts (e.g. archetypes) that only mention the model publisher and name, but no version.</p>
 </div>
 <div class="paragraph">
-<p>The following screenshot shows the BMM schema configuration dialog in the AWB, including some meta-data, validation status etc, and also the schema nesting structure. A single hierarchy of schemas corresponds to a single instantiated BMM model.</p>
+<p>The following screenshot shows the BMM schema configuration dialog in the openEHR ADL Workbench, including some meta-data, validation status etc, and also the schema nesting structure. A single hierarchy of schemas corresponds to a single instantiated BMM model.</p>
 </div>
 <div id="awb_schemas_config" class="imageblock text-center text-center">
 <div class="content">
@@ -1415,14 +1413,14 @@ This package is considered informative within this specification.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_models</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_bmm_model_class">BMM_MODEL</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Top-level (root) schemas in use. Table is keyed by <code><em>model_id</em></code>.</p>
+<p>Top-level (root) models in use, keyed by <code><em>model_id</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>matching_bmm_models</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_bmm_model_class">BMM_MODEL</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><code>BMM_MODELs</code> keyed by <code><em>model_id()</em></code> and any shorter form used in calls to</p>
+<p>Validated models, keyed by <code><em>model_id()</em></code> and any shorter forms of id, with some or no versioning information. For example, the keys <code>"openEHR_EHR_1.0.4"</code>, <code>"openEHR_EHR_1.0"</code>, <code>"openEHR_EHR_1"</code>, and <code>"openEHR_EHR"</code> will all match the <code>"openEHR_EHR_1.0.4"</code> model, assuming it is the most recent version available.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1462,7 +1460,7 @@ a_schema_dirs: <code><a href="/releases/BASE/latest/foundation_types.html#_list_
 a_model_key: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 ): <code><a href="#_bmm_model_class">BMM_MODEL</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return ref model containing the model key which is a <code><em>model_id</em></code> or any shorter form e.g. model id minus the version. If a shorter key is used, the <code>BMM_MODEL</code> with the highest version will be selected.</p>
+<p>Return model containing the model key which is a <code><em>model_id</em></code> or any shorter form e.g. model id minus the version. If a shorter key is used, the <code>BMM_MODEL</code> with the most recent version will be selected. Uses <code><em>matching_bmm_models</em></code> table to find matches if partial version information is supplied in key.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1659,7 +1657,7 @@ all_schemas_list: <code><a href="/releases/BASE/latest/foundation_types.html#_li
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/LANG/latest/bmm_persistence.html#_p_bmm_package_container_class" target="_blank" rel="noopener">P_BMM_PACKAGE_CONTAINER</a></code>, <code><a href="#_bmm_model_metadata_class">BMM_MODEL_METADATA</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_model_metadata_class">BMM_MODEL_METADATA</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1697,9 +1695,9 @@ Persisted attribute.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_schema</strong>: <code><a href="#_bmm_model_class">BMM_MODEL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_model</strong>: <code><a href="#_bmm_model_class">BMM_MODEL</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Generated by create_bmm_schema from persisted elements.</p>
+<p>Generated by <code><em>create_bmm_model</em></code> from persisted elements.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1865,10 +1863,10 @@ other: <code><a href="#_bmm_schema_class">BMM_SCHEMA</a>[1]</code><br>
 <p>Identifier of this schema, used for stating inclusions and identifying files. Formed as:</p>
 </div>
 <div class="paragraph">
-<p><code>{BMM_DEFINITIONS}.create_schema_id( <em>rm_publisher</em>,  <em>schema_name</em>,   <em>rm_release</em></code>)</p>
+<p><code>{BMM_DEFINITIONS}.create_schema_id ( <em>rm_publisher</em>,  <em>schema_name</em>,   <em>rm_release</em>)</code></p>
 </div>
 <div class="paragraph">
-<p>E.g. <code>'openehr_rm_ehr_1.0.4'</code>.</p>
+<p>E.g. <code>"openehr_rm_ehr_1.0.4"</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1958,166 +1956,6 @@ other: <code><a href="#_bmm_schema_class">BMM_SCHEMA</a>[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Full identifier of the included schema, e.g. <code>"openehr_primitive_types_1.0.2"</code>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_p_bmm_schema_descriptor_class"><a class="anchor" href="#_p_bmm_schema_descriptor_class"></a>3.2.7. P_BMM_SCHEMA_DESCRIPTOR Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>P_BMM_SCHEMA_DESCRIPTOR</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Concrete descendant of <code>BMM_SCHEMA_DESCRIPTOR</code> that provides a way to read an ODIN or other similarly encoded P_BMM schema file.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/LANG/latest/bmm.html#_bmm_schema_descriptor_class" target="_blank" rel="noopener">BMM_SCHEMA_DESCRIPTOR</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_schema</strong>: <code><a href="#_p_bmm_schema_class">P_BMM_SCHEMA</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Persistent form of model.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_p_bmm_schema_class"><a class="anchor" href="#_p_bmm_schema_class"></a>3.2.8. P_BMM_SCHEMA Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>P_BMM_SCHEMA</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Persisted form of <code>BMM_SCHEMA</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_p_bmm_package_container_class">P_BMM_PACKAGE_CONTAINER</a></code>, <code><a href="/releases/LANG/latest/bmm.html#_bmm_schema_class" target="_blank" rel="noopener">BMM_SCHEMA</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primitive_types</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Primitive type definitions. Persisted attribute.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Class definitions. Persisted attribute.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>includes</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_bmm_include_spec_class">BMM_INCLUDE_SPEC</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Inclusion list, in the form of a hash of individual include specifications, each of which at least specifies the id of another schema, and may specify a namespace via which types from the included schemas are known in this schema.
-Persisted attribute.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>validate_created</strong><br>
-<br>
-<em>Pre_state</em>: <code>state = State_created</code><br>
-<em>Post_state</em>: <code>passed implies state = State_validated_created</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Implementation of <code><em>validate_created()</em></code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_finalise</strong><br>
-<br>
-<em>Pre_state</em>: <code>state = State_validated_created</code><br>
-<em>Post_state</em>: <code>state = State_includes_processed or state = State_includes_pending</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Implementation of <code><em>load_finalise()</em></code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>merge</strong> (<br>
-other: <code><a href="#_p_bmm_schema_class">P_BMM_SCHEMA</a>[1]</code><br>
-)<br>
-<br>
-<em>Pre_state</em>: <code>state = State_includes_pending</code><br>
-<em>Pre_other_valid</em>: <code>includes_to_process.has (included_schema.schema_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Implementation of <code><em>merge()</em></code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>validate</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Implementation of <code><em>validate()</em></code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_model</strong><br>
-<br>
-<em>Pre_state</em>: <code>state = P_BMM_PACKAGE_STATE.State_includes_processed</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Implementation of <code><em>create_bmm_model()</em></code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>canonical_packages</strong> (): <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Package structure in which all top-level qualified package names like <code>xx.yy.zz</code> have been expanded out to a hierarchy of <code>BMM_PACKAGE</code> objects.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2532,10 +2370,10 @@ a_path: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>Identifier of this model, lower-case, formed from:</p>
 </div>
 <div class="paragraph">
-<p><code>rm_publisher</code> '<em>' <code>model_name</code> '</em>' <code>rm_release</code></p>
+<p><code>&lt;rm_publisher&gt;_&lt;model_name&gt;_&lt;rm_release&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>E.g. <code>'openehr_ehr_1.0.4'</code>.</p>
+<p>E.g. <code>"openehr_ehr_1.0.4"</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4229,7 +4067,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>This section describes the semantics of the <code>BMM_CLASS</code> meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as <em>features</em>, and consist of functions, procedures, constants and properties. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.</p>
+<p>This section describes the semantics of the <code>BMM_CLASS</code> meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as <em>features</em>, and consist of functions, procedures, constants and properties, which appear in feature groups. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.</p>
 </div>
 <div id="core_class" class="imageblock text-center text-center">
 <div class="content">
@@ -4254,17 +4092,17 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    class DvQuantity
-    {
-        feature
-            // feature definitions
-    }
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">DvQuantity</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span>
 
-    class Observation
-    {
-        feature
-            // feature definitions
-    }</pre>
+    <span class="tok-k">class</span> <span class="tok-nc">Observation</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4275,26 +4113,26 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // a primitive generic class with an open type parameter
-    primitive class List &lt;T&gt;
-    {
-        feature
-            // feature definitions
-    }
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a primitive generic class with an open type parameter</span>
+    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">List</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span>
 
-    // a generic class with a constrained type parameter
-    class DvInterval &lt;T:DvOrdered&gt;
-    {
-        feature
-            // feature definitions
-    }
+    <span class="tok-c1">// a generic class with a constrained type parameter</span>
+    <span class="tok-k">class</span> <span class="tok-nc">DvInterval</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">:</span><span class="tok-n">DvOrdered</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span>
 
-    // a primitive generic class two type parameters
-    primitive class HashMap &lt;K:Ordered, V&gt;
-    {
-        feature
-            // feature definitions
-    }</pre>
+    <span class="tok-c1">// a primitive generic class two type parameters</span>
+    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">HashMap</span> <span class="tok-p">&lt;</span><span class="tok-n">K</span><span class="tok-p">:</span><span class="tok-n">Ordered</span><span class="tok-p">,</span> <span class="tok-n">V</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4349,19 +4187,19 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // an Integer-based enumeration
-    enumeration class TASK_LIFECYCLE
-    {
-        planned   = 0;
-        available = 1;
-        cancelled = 2;
-        aborted   = 3;
-        abandoned = 4;
-        underway  = 5;
-        suspended = 6;
-        resumed   = 7;
-        completed = 8;
-    }</pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// an Integer-based enumeration</span>
+    <span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">TASK_LIFECYCLE</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">planned</span>   <span class="tok-p">=</span> <span class="tok-m">0</span><span class="tok-p">;</span>
+        <span class="tok-n">available</span> <span class="tok-p">=</span> <span class="tok-m">1</span><span class="tok-p">;</span>
+        <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
+        <span class="tok-n">aborted</span>   <span class="tok-p">=</span> <span class="tok-m">3</span><span class="tok-p">;</span>
+        <span class="tok-n">abandoned</span> <span class="tok-p">=</span> <span class="tok-m">4</span><span class="tok-p">;</span>
+        <span class="tok-n">underway</span>  <span class="tok-p">=</span> <span class="tok-m">5</span><span class="tok-p">;</span>
+        <span class="tok-n">suspended</span> <span class="tok-p">=</span> <span class="tok-m">6</span><span class="tok-p">;</span>
+        <span class="tok-n">resumed</span>   <span class="tok-p">=</span> <span class="tok-m">7</span><span class="tok-p">;</span>
+        <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-m">8</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4378,14 +4216,14 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // a String-based enumeration
-    enumeration class ContractStatus
-    {
-        initial   = "Initial";
-        cancelled = "Cancelled";
-        active    = "Active";
-        completed = "Completed";
-    }</pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a String-based enumeration</span>
+    <span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">ContractStatus</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">initial</span>   <span class="tok-p">=</span> <span class="tok-s">&quot;Initial&quot;</span><span class="tok-p">;</span>
+        <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Cancelled&quot;</span><span class="tok-p">;</span>
+        <span class="tok-n">active</span>    <span class="tok-p">=</span> <span class="tok-s">&quot;Active&quot;</span><span class="tok-p">;</span>
+        <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Completed&quot;</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4420,12 +4258,12 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // a Value-set type
-    class Document
-    {
-        feature
-            property language: CodedText &lt;&lt;"iso::iso_639-2"&gt;&gt; [1];
-    }</pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a Value-set type</span>
+    <span class="tok-k">class</span> <span class="tok-nc">Document</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CodedText</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4442,11 +4280,11 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    abstract class ENTRY
-    {
-        feature
-            // feature definitions
-    }</pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4457,17 +4295,17 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    primitive class Integer
-    {
-        feature
-            // feature definitions
-    }
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">Integer</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span>
 
-    primitive class String
-    {
-        feature
-            // feature definitions
-    }</pre>
+    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">String</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4494,36 +4332,36 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    // a class with simple invariants
-    class COMPOSITION
-    {
-        feature
-            // feature definitions
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
+    <span class="tok-k">class</span> <span class="tok-nc">COMPOSITION</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
 
-        invariant
-            Is_archetype_root: is_archetype_root
-            Content_valid: content /= Void implies not content.is_empty
-    }
+        <span class="tok-n">invariant</span>
+            <span class="tok-n">Is_archetype_root</span><span class="tok-p">:</span> <span class="tok-n">is_archetype_root</span>
+            <span class="tok-n">Content_valid</span><span class="tok-p">:</span> <span class="tok-n">content</span> <span class="tok-p">/=</span> <span class="tok-n">Void</span> <span class="tok-n">implies</span> <span class="tok-n">not</span> <span class="tok-n">content</span><span class="tok-p">.</span><span class="tok-n">is_empty</span>
+    <span class="tok-p">}</span>
 
-    // a class with more complex invariants
-    class VERSIONED_COMPOSITION
-    {
-        feature
-            // feature definitions
+    <span class="tok-c1">// a class with more complex invariants</span>
+    <span class="tok-k">class</span> <span class="tok-nc">VERSIONED_COMPOSITION</span>
+    <span class="tok-p">{</span>
+        <span class="tok-n">feature</span>
+            <span class="tok-c1">// feature definitions</span>
 
-        invariant
-            Archetype_node_id_valid: all_versions.for_all (
-                agent (v: VERSION) {
-                    v.archetype_node_id.is_equal (all_versions.first.archetype_node_id);
-                }
-            )
+        <span class="tok-n">invariant</span>
+            <span class="tok-n">Archetype_node_id_valid</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
+                <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+                    <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">.</span><span class="tok-n">is_equal</span> <span class="tok-p">(</span><span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">);</span>
+                <span class="tok-p">}</span>
+            <span class="tok-p">)</span>
 
-            Persistent_validity: all_versions.for_all (
-                agent (v: VERSION) {
-                    v.is_persistent = all_versions.first.data.is_persistent;
-                }
-            )
-    }</pre>
+            <span class="tok-n">Persistent_validity</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
+                <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+                    <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span> <span class="tok-p">=</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span><span class="tok-p">;</span>
+                <span class="tok-p">}</span>
+            <span class="tok-p">)</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -5260,26 +5098,26 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
-    <span class="tok-kr">class</span> <span class="tok-nx">BASIC_DEFINITIONS</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
+    <span class="tok-k">class</span> <span class="tok-nc">BASIC_DEFINITIONS</span>
     <span class="tok-p">{</span>
-        <span class="tok-nx">feature</span>
+        <span class="tok-n">feature</span>
             <span class="tok-c1">// some simple constants</span>
-            <span class="tok-nx">constant</span> <span class="tok-nx">CR</span>: <span class="tok-kt">Character</span> <span class="tok-s1">&#39;\015&#39;</span><span class="tok-p">;</span>
-            <span class="tok-nx">constant</span> <span class="tok-nx">LF</span>: <span class="tok-kt">Character</span> <span class="tok-s1">&#39;\012&#39;</span><span class="tok-p">;</span>
+            <span class="tok-n">constant</span> <span class="tok-n">CR</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-err">&#39;\</span><span class="tok-m">015</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
+            <span class="tok-n">constant</span> <span class="tok-n">LF</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-err">&#39;\</span><span class="tok-m">012</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
 
             <span class="tok-c1">// constant of complex type</span>
-            <span class="tok-nx">constant</span> <span class="tok-nx">SafeSpeed</span>: <span class="tok-kt">Interval</span><span class="tok-o">&lt;</span><span class="tok-nx">Quantity</span><span class="tok-o">&gt;</span> <span class="tok-p">{</span>
-                <span class="tok-s2">&quot;lower&quot;</span><span class="tok-o">:</span> <span class="tok-p">{</span>
-                    <span class="tok-s2">&quot;value&quot;</span><span class="tok-o">:</span> <span class="tok-mf">0.0</span><span class="tok-p">,</span>
-                    <span class="tok-s2">&quot;units&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;km/h&quot;</span>
+            <span class="tok-n">constant</span> <span class="tok-n">SafeSpeed</span><span class="tok-p">:</span> <span class="tok-n">Interval</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">{</span>
+                <span class="tok-s">&quot;lower&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                    <span class="tok-s">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-m">0.0</span><span class="tok-p">,</span>
+                    <span class="tok-s">&quot;units&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;km/h&quot;</span>
                 <span class="tok-p">},</span>
-                <span class="tok-s2">&quot;upper&quot;</span><span class="tok-o">:</span> <span class="tok-p">{</span>
-                    <span class="tok-s2">&quot;value&quot;</span><span class="tok-o">:</span> <span class="tok-mf">60.0</span><span class="tok-p">,</span>
-                    <span class="tok-s2">&quot;units&quot;</span><span class="tok-o">:</span> <span class="tok-s2">&quot;km/h&quot;</span>
+                <span class="tok-s">&quot;upper&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                    <span class="tok-s">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-m">60.0</span><span class="tok-p">,</span>
+                    <span class="tok-s">&quot;units&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;km/h&quot;</span>
                 <span class="tok-p">},</span>
-                <span class="tok-s2">&quot;lower_included&quot;</span><span class="tok-o">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
-                <span class="tok-s2">&quot;upper_included&quot;</span><span class="tok-o">:</span> <span class="tok-kc">true</span>
+                <span class="tok-s">&quot;lower_included&quot;</span><span class="tok-p">:</span> <span class="tok-k">true</span><span class="tok-p">,</span>
+                <span class="tok-s">&quot;upper_included&quot;</span><span class="tok-p">:</span> <span class="tok-k">true</span>
             <span class="tok-p">}</span>
     <span class="tok-p">}</span></code></pre>
 </div>
@@ -5315,19 +5153,17 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">ENTRY</span>
-        <span class="tok-nx">inherit</span>
-            <span class="tok-nx">CARE_ENTRY</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span> <span class="tok-n">extend</span> <span class="tok-n">CARE_ENTRY</span>
     <span class="tok-p">{</span>
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Locale</span>
-            <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">language</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iso::iso_639-2&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
-            <span class="tok-nx">association</span> <span class="tok-nx">property</span> <span class="tok-nx">encoding</span>: <span class="tok-kt">CODE_PHRASE</span> <span class="tok-o">&lt;&lt;</span><span class="tok-s2">&quot;iana::character-sets&quot;</span><span class="tok-o">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Locale</span>
+            <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+            <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">encoding</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iana::character-sets&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
 
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Access</span>
-            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">protocol</span>: <span class="tok-kt">ITEM_STRUCTURE</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span>
-            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">guideline_id</span>: <span class="tok-kt">OBJECT_REF</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
-            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">subject</span>: <span class="tok-kt">PARTY_PROXY</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">];</span>
-            <span class="tok-nx">composition</span> <span class="tok-nx">property</span> <span class="tok-nx">other_participations</span>: <span class="tok-kt">PARTICIPATION</span><span class="tok-p">[</span><span class="tok-o">*</span><span class="tok-p">]{</span><span class="tok-nx">set</span><span class="tok-p">};</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Access</span>
+            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">protocol</span><span class="tok-p">:</span> <span class="tok-n">ITEM_STRUCTURE</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
+            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">guideline_id</span><span class="tok-p">:</span> <span class="tok-n">OBJECT_REF</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">subject</span><span class="tok-p">:</span> <span class="tok-n">PARTY_PROXY</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">other_participations</span><span class="tok-p">:</span> <span class="tok-n">PARTICIPATION</span><span class="tok-p">[*]{</span><span class="tok-k">set</span><span class="tok-p">};</span>
     <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -5377,31 +5213,31 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">abstract</span> <span class="tok-kr">class</span> <span class="tok-nx">DV_AMOUNT</span>
-        <span class="tok-nx">inherit</span>
-            <span class="tok-nx">DV_QUANTIFIED</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">DV_AMOUNT</span>
+        <span class="tok-n">inherit</span>
+            <span class="tok-n">DV_QUANTIFIED</span>
     <span class="tok-p">{</span>
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Arithmetic</span> <span class="tok-nx">Operations</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">equal</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;=&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">equal</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;=&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">less_than</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;&lt;&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">less_than</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;&lt;&#39;</span><span class="tok-p">};</span>
 
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Arithmetic</span> <span class="tok-nx">Operations</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">add</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;+&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">add</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;+&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">subtract</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;-&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;-&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">multiply</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Real</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;*&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">multiply</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;*&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-kd">function</span> <span class="tok-nx">divide</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Real</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">alias</span> <span class="tok-p">{</span><span class="tok-nx">infix</span> <span class="tok-s1">&#39;/&#39;</span><span class="tok-p">,</span> <span class="tok-nx">infix</span> <span class="tok-s1">&#39;÷&#39;</span><span class="tok-p">};</span>
+            <span class="tok-n">function</span> <span class="tok-n">divide</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;/&#39;</span><span class="tok-p">,</span> <span class="tok-k">infix</span> <span class="tok-sc">&#39;÷&#39;</span><span class="tok-p">};</span>
 
     <span class="tok-p">}</span></code></pre>
 </div>
@@ -5446,18 +5282,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">I_EHR_SERVICE</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">I_EHR_SERVICE</span>
     <span class="tok-p">{</span>
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Creation</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creation</span>
 
-            <span class="tok-nx">create_ehr_with_id</span> <span class="tok-p">(</span>
-                <span class="tok-nx">an_ehr_id</span>: <span class="tok-kt">UUID</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span>
-                <span class="tok-nx">an_ehr_status</span>: <span class="tok-kt">EHR_STATUS</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">..</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-            <span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nx">UUID</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-                <span class="tok-nx">pre_condition</span>
-                    <span class="tok-nx">No_duplicate</span>: <span class="tok-kt">not</span> <span class="tok-nx">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">an_ehr_id</span><span class="tok-p">)</span>
-                <span class="tok-nx">post_condition</span>
-                    <span class="tok-nx">Has_ehr</span>: <span class="tok-kt">has_ehr</span> <span class="tok-p">(</span><span class="tok-nx">Result</span><span class="tok-p">)</span>
+            <span class="tok-n">create_ehr_with_id</span> <span class="tok-p">(</span>
+                <span class="tok-n">an_ehr_id</span><span class="tok-p">:</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
+                <span class="tok-n">an_ehr_status</span><span class="tok-p">:</span> <span class="tok-n">EHR_STATUS</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">]</span>
+            <span class="tok-p">):</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+                <span class="tok-n">pre_condition</span>
+                    <span class="tok-n">No_duplicate</span><span class="tok-p">:</span> <span class="tok-n">not</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">an_ehr_id</span><span class="tok-p">)</span>
+                <span class="tok-n">post_condition</span>
+                    <span class="tok-n">Has_ehr</span><span class="tok-p">:</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">Result</span><span class="tok-p">)</span>
     <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -5478,21 +5314,21 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nb">Date</span>
-        <span class="tok-nx">inherit</span>
-            <span class="tok-nx">Temporal</span>
-        <span class="tok-nx">convert</span>
-            <span class="tok-nx">create_from_string</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">Date</span>
+        <span class="tok-n">inherit</span>
+            <span class="tok-n">Temporal</span>
+        <span class="tok-n">convert</span>
+            <span class="tok-n">create_from_string</span>
     <span class="tok-p">{</span>
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Creators</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creators</span>
 
-            <span class="tok-nx">procedure</span> <span class="tok-nx">create_from_string</span> <span class="tok-p">(</span><span class="tok-nx">a_date_str</span>: <span class="tok-kt">String</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+            <span class="tok-n">procedure</span> <span class="tok-n">create_from_string</span> <span class="tok-p">(</span><span class="tok-n">a_date_str</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
 
-            <span class="tok-nx">procedure</span> <span class="tok-nx">create</span> <span class="tok-p">(</span><span class="tok-nx">a_day</span><span class="tok-p">,</span> <span class="tok-nx">a_month</span><span class="tok-p">,</span> <span class="tok-nx">a_year</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+            <span class="tok-n">procedure</span> <span class="tok-n">create</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">,</span> <span class="tok-n">a_month</span><span class="tok-p">,</span> <span class="tok-n">a_year</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
 
-        <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Modification</span>
+        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Modification</span>
 
-            <span class="tok-nx">procedure</span> <span class="tok-nx">set_day</span> <span class="tok-p">(</span><span class="tok-nx">a_day</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+            <span class="tok-n">procedure</span> <span class="tok-n">set_day</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
     <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -7545,7 +7381,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Tagged Boolean expression, suitable for use as a pre- or post-condition or class invariant.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -7560,7 +7398,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".</p>
+<p>Optional tag, typically used to designate design intention of the assertion, e.g. <code>"Inv_all_members_valid"</code>.</p>
 </div></div></td>
 </tr>
 </tbody>

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_ASSERTION*
 
 h|*Description*
-2+a|
+2+a|Tagged Boolean expression, suitable for use as a pre- or post-condition or class invariant.
 
 h|*Inherit*
 2+|`<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>`
@@ -17,5 +17,5 @@ h|*Attributes*
 
 h|*0..1*
 |*tag*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
-a|Optional tag, typically used to designate design intention of the assertion, e.g. "Inv_all_members_valid".
+a|Optional tag, typically used to designate design intention of the assertion, e.g. `"Inv_all_members_valid"`.
 |===

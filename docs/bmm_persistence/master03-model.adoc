@@ -2,11 +2,11 @@
 
 == Overview
 
-The `p_nmm.persistence` package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The {openehr_its_bmm_releases}[openEHR BMM schemas] are authored in the `P_BMM` form of the BMM, using the {openehr_odin}[openEHR ODIN syntax].
+The `org.openehr.lang.bmm_persistence` package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The {openehr_its_bmm_releases}[openEHR BMM schemas] are authored in the `P_BMM` form of the BMM, using the {openehr_odin}[openEHR ODIN syntax].
 
 [.text-center]
-.`base.p_bmm.persistence` Package
-image::{uml_diagrams_uri}/LANG-p_bmm.persistence.svg[id=p_bmm_persistence_package, align="center"]
+.`lang.bmm_persistence` Package
+image::{uml_diagrams_uri}/LANG-bmm_persistence.svg[id=p_bmm_persistence_package, align="center"]
 
 The general approach taken in this model is that attributes named `_bmm_xxx_` and of type `BMM_XXX` are derived from the persisted attributes of the `P_BMM_XXX` classes of this model. In other words, they are in-memory only references to reconstructed instances of `BMM_XXX` types.
 

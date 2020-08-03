@@ -30,9 +30,9 @@ h|*1..1*
 |*model_id* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of this model, lower-case, formed from:
 
-`rm_publisher` '_' `model_name` '_' `rm_release`
+`<rm_publisher>_<model_name>_<rm_release>`
 
-E.g. `'openehr_ehr_1.0.4'`.
+E.g. `"openehr_ehr_1.0.4"`.
 
 h|*1..1*
 |*class_definition* ( +

@@ -406,13 +406,13 @@
 <div class="sect2">
 <h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>p_nmm.persistence</code> package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The <a href="https://specifications.openehr.org/releases/ITS/latest">openEHR BMM schemas</a> are authored in the <code>P_BMM</code> form of the BMM, using the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">openEHR ODIN syntax</a>.</p>
+<p>The <code>org.openehr.lang.bmm_persistence</code> package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The <a href="https://specifications.openehr.org/releases/ITS/latest">openEHR BMM schemas</a> are authored in the <code>P_BMM</code> form of the BMM, using the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">openEHR ODIN syntax</a>.</p>
 </div>
 <div id="p_bmm_persistence_package" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/LANG-p_bmm.persistence.svg" alt="LANG p bmm.persistence">
+<img src="UML/diagrams/LANG-bmm_persistence.svg" alt="LANG bmm persistence">
 </div>
-<div class="title">Figure 1. <code>base.p_bmm.persistence</code> Package</div>
+<div class="title">Figure 1. <code>lang.bmm_persistence</code> Package</div>
 </div>
 <div class="paragraph">
 <p>The general approach taken in this model is that attributes named <code><em>bmm_xxx</em></code> and of type <code>BMM_XXX</code> are derived from the persisted attributes of the <code>P_BMM_XXX</code> classes of this model. In other words, they are in-memory only references to reconstructed instances of <code>BMM_XXX</code> types.</p>
