@@ -64,7 +64,7 @@ h|*0..1*
 a|True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type.
 
 h|*0..1*
-|*invariants*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>>`
+|*invariants*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
 a|
 
 h|*0..1*

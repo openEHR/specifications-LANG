@@ -24,11 +24,11 @@ h|*0..1*
 a|Local variables of the routine.
 
 h|*0..1*
-|*pre_conditions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>>`
+|*pre_conditions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
 a|
 
 h|*0..1*
-|*post_conditions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>>`
+|*post_conditions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
 a|
 
 h|*0..1*
