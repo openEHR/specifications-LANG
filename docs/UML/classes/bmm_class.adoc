@@ -77,7 +77,7 @@ a|Subset of `_creators_` that create a new instance from a single argument of an
 
 h|*0..1*
 |*feature_groups*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_group_class,BMM_FEATURE_GROUP>>>`
-a|
+a|List of feature groups in this class.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

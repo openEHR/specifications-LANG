@@ -8,12 +8,19 @@ The taxonomy of meta-types that classify the concrete meta-types representing fe
 
 === Feature Groups
 
-Features are arranged within a class in _feature groups_. By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
+Features are arranged within a class in _feature groups_, each represented by an instance of the meta-type `BMM_FEATURE_GROUP`. By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
 
 * meta-type, e.g. a group called `"rules"` limited to publicly visible functions only;
 * logical feature type, e.g. commands, queries, factory methods etc.
 
-Each feature group may have its own meta-data in thee `_properties_` attribute, and may also set default visibility for all features in the group.
+The primary purpose of feature groups is to represent specific meta-data that naturally applies to more than one feature in general, and is thus convenient to represent on a logical container rather than repeat individually. Feature group meta-data is recorded in the `_properties_` attribute. A feature group may also set default visibility for all features in the group.
+
+=== Feature Visibility
+
+Selective _visibility_ of features to external clients is expressed in the attributes `BMM_FEATURE_GROUP._visibility_` with potential overrides achieved using `BMM_CLASS_FEATURE._visibility_`, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class `BMM_VISIBILITY`.
+
+[.tbd]
+TBD: define visibility meta-model; probably need to support C/Java approach and type-based.
 
 === Feature Declarations
 
@@ -81,13 +88,6 @@ The two types of routines, i.e. functions and procedures, include zero or more f
 [.text-center]
 .Signature taxonomy
 image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="40%"]
-
-=== Feature Visibility
-
-Selective _visibility_ of features to external clients is expressed in the attributes `BMM_FEATURE_GROUP._visibility_` with potential overrides achieved using `BMM_CLASS_FEATURE._visibility_`, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class `BMM_VISIBILITY`.
-
-[.tbd]
-TBD: define visibility meta-model; probably need to support C/Java approach and type-based.
 
 === Synthesis due to Generic Parameter Substitution
 
@@ -297,13 +297,13 @@ The meta-model of statements is described in detail in <<_statements>>.
 
 == Variables
 
-At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively.
+At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively. The special pre-defined variable `Result` is automatically available within any function, and is represented by the meta-model type `BMM_RESULT`.
 
 == Model Theoretic Questions
 
-The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a _procedure is not a typed entity_, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the BMM meta-model. The alternative would have been to treat procedures as Void-returning entities, and thus `Void` as a pseudo-type. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
+The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a _procedure is not a typed entity_, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the BMM meta-model. The alternative would have been to treat procedures as Void-returning entities, and thus of type `Void` (a pseudo-type), as per languages such as C++ and Java, or an equivalent, such as the `Unit` pseudo-type of {kotlin}[Kotlin^]. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
 
-Ultimately this difficulty arises from the decision to include procedures at all within the formal framework, when from a purely functional perspective they would not exist. Avoiding procedures means going down a pure functional route, which, although providing a cleaner model of computation, inevitably entails various artificial and non-intuitive means of making a computational entity _do_ something. In BMM we have taken the route of objects as black boxes having displays (functions) and controls (procedures), with well-behaved models relying on command-query separation, i.e. side-effect free functions. The latter principle is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
+Ultimately this difficulty arises from the decision to include procedures at all within the formal framework, when from a purely functional perspective they would not exist. Avoiding procedures means going down a pure functional route, which, although providing a cleaner model of pure computation, inevitably entails various artificial and non-intuitive means of making a computational entity _do_ something. BMM has taken the route of objects as black boxes having queries (functions, properties) and commands (procedures), with well-behaved models relying on the principle of {cqs}[command-query separation (CQS)^], i.e. side-effect free functions. CQS is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
 
 == Class Definitions
 
