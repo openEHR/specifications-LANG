@@ -1664,7 +1664,7 @@ all_schemas_list: <code><a href="/releases/BASE/latest/foundation_types.html#_li
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Parent of pesistable forms of <code>BMM_MODEL</code>. Defines the abstract interface and some common implementation elements for descendants, which provide concrete persistence formats.</p>
+<p>Abstract parent of instantiable forms of BMM model, either in-memory (<code>BMM_MODEL</code>) or serialised (e.g. <code>P_BMM_SCHEMA</code>).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1685,23 +1685,9 @@ all_schemas_list: <code><a href="/releases/BASE/latest/foundation_types.html#_li
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primitive_types</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/LANG/latest/bmm_persistence.html#_p_bmm_class_class">P_BMM_CLASS</sup></a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Primitive type definitions. Persisted attribute.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/LANG/latest/bmm_persistence.html#_p_bmm_class_class">P_BMM_CLASS</sup></a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Class definitions. Persisted attribute.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>includes</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="/releases/LANG/latest/bmm_persistence.html#_bmm_include_spec_class" target="_blank" rel="noopener">BMM_INCLUDE_SPEC</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Inclusion list, in the form of a hash of individual include specifications, each of which at least specifies the id of another schema, and may specify a namespace via which types from the included schemas are known in this schema.
+<p>Inclusion list of any form of BMM model, in the form of a hash of individual include specifications, each of which at least specifies the id of another schema, and may specify a namespace via which types from the included schemas are known in this schema.
 Persisted attribute.</p>
 </div></div></td>
 </tr>
