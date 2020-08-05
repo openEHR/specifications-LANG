@@ -34,7 +34,13 @@ This version made major changes to the `BMM_TYPE` hierarchy and semantics, enabl
 
 === Version 3.1.0
 
-This version adds meta-classes for routines, variables and constants to the BMM, and makes some small adjustments to the existing model attributes and classes. The BMM remains compatible with P_BMM 2.x, i.e. any existing `.bmm` file can be parsed to create a v 3.1.0 BMM instance.
+This version adds meta-classes for computational elements to BMM, including:
+
+* routines, variables, constants;
+* expressions (including assertions);
+* statements.
+
+It makes various adjustments to the existing model attributes and classes. The BMM remains compatible with P_BMM 2.x, i.e. any existing `.bmm` file can be parsed to create a v 3.1.0 BMM instance.
 
 == A Note on Language
 

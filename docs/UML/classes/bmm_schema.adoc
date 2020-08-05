@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*__BMM_SCHEMA (abstract)__*
 
 h|*Description*
-2+a|Abstract parent of instantiable forms of BMM model, either in-memory (`BMM_MODEL`) or serialised (e.g. `P_BMM_SCHEMA`).
+2+a|Abstract parent of any persistable form of a BMM model, e.g. `P_BMM_SCHEMA`.
 
 h|*Inherit*
 2+|`<<_bmm_model_metadata_class,BMM_MODEL_METADATA>>`

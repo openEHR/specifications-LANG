@@ -742,7 +742,23 @@ Other than for working with particular tools designed to use BMM, BMM is not a r
 <div class="sect3">
 <h4 id="_version_3_1_0"><a class="anchor" href="#_version_3_1_0"></a>1.5.2. Version 3.1.0</h4>
 <div class="paragraph">
-<p>This version adds meta-classes for routines, variables and constants to the BMM, and makes some small adjustments to the existing model attributes and classes. The BMM remains compatible with P_BMM 2.x, i.e. any existing <code>.bmm</code> file can be parsed to create a v 3.1.0 BMM instance.</p>
+<p>This version adds meta-classes for computational elements to BMM, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>routines, variables, constants;</p>
+</li>
+<li>
+<p>expressions (including assertions);</p>
+</li>
+<li>
+<p>statements.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It makes various adjustments to the existing model attributes and classes. The BMM remains compatible with P_BMM 2.x, i.e. any existing <code>.bmm</code> file can be parsed to create a v 3.1.0 BMM instance.</p>
 </div>
 </div>
 </div>
@@ -1664,7 +1680,7 @@ all_schemas_list: <code><a href="/releases/BASE/latest/foundation_types.html#_li
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent of instantiable forms of BMM model, either in-memory (<code>BMM_MODEL</code>) or serialised (e.g. <code>P_BMM_SCHEMA</code>).</p>
+<p>Abstract parent of any persistable form of a BMM model, e.g. <code>P_BMM_SCHEMA</code>.</p>
 </div></div></td>
 </tr>
 <tr>
