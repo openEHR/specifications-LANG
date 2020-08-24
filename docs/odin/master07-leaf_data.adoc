@@ -146,7 +146,7 @@ Intervals of any ordered primitive type, i.e., Integer, Real, Date, Time, Date_t
 
 The allowable values for N and M include any value in the range of the relevant type.
 
-NOTE: for the plus/minus form (N ± M format), spaces are not significant either side of the '±' sign or the equivalent '+/' string.
+NOTE: for the plus/minus form (N ± M format), spaces are not significant either side of the '±' sign or the equivalent '+/-' string.
 
 Examples of this syntax include:
 
