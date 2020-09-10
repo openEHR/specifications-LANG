@@ -12,7 +12,7 @@ The following sub-sections describe these types.
 
 === Literals
 
-Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN syntax^], with the exception of `List<T>`, `Set<T>` and `Hash<>`, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the {openehr_foundation_types}[openEHR Foundation Types specification^].
+Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN syntax^], with the exception of `List<T>`, `Set<T>` and `Hash<K,V>`, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the {openehr_foundation_types}[openEHR Foundation Types specification^].
 
 [cols="1,2,3",options="header"]
 |=================================================================
@@ -31,17 +31,19 @@ Literal values are mostly instances of the types declared in the imported models
 |                       |                                       |
 | `String`              |`"this is a string"`                   |
 | `Uri`                 |`https://en.wikipedia.org/wiki/Everest`|Uri in {rfc3986}[IETF RFC 3986^] format
-| `Terminology_code`    |`[snomed_ct::389086002]` +
-                         `[snomed_ct::389086002\|Hypoxia\|]`    |Terminology code in openEHR format
+| `Terminology_code`    |`[is_diabetic]` +
+                         `[snomed_ct::389086002]` +
+                         `[snomed_ct::389086002\|Hypoxia\|]`    |Local terminology code +
+                                                                 Terminology code in openEHR format
 |                       |                                       |
 | `Array<T>`            |`[val, val, ...]`                      |
 | `List<T>`             |`(val, val, ...)`                      |
 | `Set<T>`              |`{val, val, ...}`                      |
 | `Hash<K:Ordered, V>`  |`{ +
-                              "key1" = <val1> +
-                              "key2" = <val2> +
+                              "key1" : <val1> +
+                              "key2" : <val2> +
                               ... +
-                              "keyN" = <valN> +
+                              "keyN" : <valN> +
                          }`                                     |A table of values of any type V, +
                                                                  keyed by values of any `Ordered` descendant K, +
                                                                  typically `String` or `Integer`. `<valN>` +
@@ -68,7 +70,7 @@ TBD: consider to not bother with `Array` and reserve `[]` for tuples.
 
 Constants are syntactically represented using labels of which the first letter is capitalised, and may be of any type, including complex types. The following are EL expressions containing constants.
 
-[source,typescript]
+[source,kotlin]
 --------
     Mph_to_kmh_factor = 1.6
     Safe_glucose_limits.has (3.5)
@@ -94,7 +96,7 @@ Consequently, EL function calls (similarly to most programming languages) may be
 
 The following example assumes a function `tnm_major_number (tnm_val: String): Integer` that extracts various elements of {wikipedia_tnm}[Tumour/Node/Metastasis ('TNM')^] cancer staging values, such as `'Tis'`, `'G3'` and so on, and shows two forms of call to this function.
 
-[source,typescript]
+[source,kotlin]
 ----
     tnm_major_number (tnm_t)
     tnm_major_number ("Tis")
@@ -110,14 +112,14 @@ Some commonly used functions such as `current_date()` or similar are often thoug
 
 As a consequence, the total set of available utility functions for use in an EL expression is just what is available from the sum of all imported models. Assuming the openEHR Foundation and Base Types, the following kinds of functions are available for use in EL expressions:
 
-[source,typescript]
+[source,kotlin]
 ----
-    {Env}.current_date                                // obtain today's date as a Iso8601_date
+    {Env}.current_date                                -- obtain today's date as a Iso8601_date
     
     blood_glucose_list: List<Real>
-    {Statistical_evaluator}.max (blood_glucose_list)  // compute a maximum of Numerics
+    {Statistical_evaluator}.max (blood_glucose_list)  -- compute a maximum of Numerics
 
-    {Locale}.language                                 // the primary language in the locale as a Coded_term
+    {Locale}.language                                 -- the primary language in the locale as a Coded_term
 ----
 
 === Container Item Access
@@ -143,7 +145,7 @@ Container element access may be used on any expression whose effective type is a
 
 Selection of a container item matching a predicate may be achieved with an extension to the `[]` syntax, by supplying an agent argument whose signature is `<[T], Boolean>`, or in functional form, `(v:T): Boolean`. Here, 'selection' is understood to mean: obtain the first matching item, if it exists. This enables a reference of the following form to be constructed (final line).
 
-[source,typescript]
+[source,kotlin]
 ----
     class Book {
         title: String
@@ -157,14 +159,14 @@ Selection of a container item matching a predicate may be achieved with an exten
 
 Since the signature is invariant with respect to the container type (here, `List<Book>`), a shorter form can be used in which the `b` is assumed:
 
-[source,typescript]
+[source,kotlin]
 ----
     book_list[{title.contains("Quixote")}]
 ----
 
 Similarly, any expression constructable based on the container type may be used. The following example contains an operator.
 
-[source,typescript]
+[source,kotlin]
 ----
     book_list[{pub_date >= PY2003}]
 ----
@@ -191,7 +193,7 @@ The `attached()` predicate is the EL equivalent of the expressions such as `some
 
 `Attached()` returns a Boolean value, and thus may be negated, to form expressions such as:
 
-[source,typescript]
+[source,kotlin]
 ----
     not attached (test_result) or else test_result.data.events[1].data.value > 6.5
 ----
@@ -200,20 +202,20 @@ The `attached()` predicate is the EL equivalent of the expressions such as `some
 
 Delayed routine calls for both functions and procedures may occur as terminals in an EL expression. The evaluation type (`_eval_type_`) of an agent is its `_signature_`. Syntactically, these take various forms. An agent can be created using a function or procedure visible in the current scope, using the keyword `agent`. The arguments list may range from empty to full. For a completely empty list, the routine name on its own may be used.
 
-[source,typescript]
+[source,kotlin]
 ----
-    // define a naive obstetric risk function
+    | define a naive obstetric risk function
     obstetric_risk (age: Duration[1]; previous_pregnancies: Integer[1]): Coded_term[1] 
 
-    // generate an agent with signature <[Duration, Integer], Coded_term>
+    | generate an agent with signature <[Duration, Integer], Coded_term>
     agent obstetric_risk                
 ----
 
 For a partial argument list, `?` symbols are used for the non-filled arguments. This generates an agent whose signature corresponds to the remaining open arguments. In the following example, an agent of the signature `<[Integer], Coded_term>` is generated, which, since the age of 38 years is supplied, may be thought of as a new function called `obstetric_risk_38_years()`.
 
-[source,typescript]
+[source,kotlin]
 ----
-    // generate an agent with signature <[Integer], Coded_term>
+    | generate an agent with signature <[Integer], Coded_term>
     agent obstetric_risk ('P38Y', ?)
 ----
 
@@ -225,7 +227,7 @@ Agents for procedure calls can be created in the same way as described above. In
 
 Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the `EL_SCOPED_REF` property `_scope_`. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:
 
-[source,typescript]
+[source,kotlin]
 ----
     person1.name
     employees[1].name.first_name
@@ -236,7 +238,7 @@ Any terminal entity may appear as itself (in the relevant syntactic form describ
 
 Qualified referencing can be combined with selector agents to obtain an effect similar to the use of Xpath on XML data, as follows.
 
-[source,typescript]
+[source,kotlin]
 ----
     book_list[{title.contains("Quixote")}].pub_date.year
 ----

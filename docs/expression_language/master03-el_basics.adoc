@@ -13,6 +13,25 @@ The lexical style used in EL is a form of so-called 'snake_case' rather than so-
 [.tbd]
 TBD: specify equivalence between snake-case and CamelCase, or a tool-level switch?
 
+== Commenting
+
+Comments are of two styles. For end-of-line commenting, and for creating visual dividing lines, the leader pattern `'--'` is used. Dividing lines are simply a longer line, e.g `'---------'`.
+
+Comment-only lines start with the bar character (`'|'`). The example below shows both forms.
+
+----
+    |
+    | patient fit to undertake regime
+    |
+    patient_fit:
+        Result := not
+            (platelets.in_range ([very_low]) or  -- platelets can't be too low
+             neutrophils.in_range ([very_low]))
+----
+
+[.tbd]
+TBD: allow comment-lines using '========'?
+
 == Typing
 
 The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the {openehr_bmm}[openEHR BMM specification^]. *All operators are assumed to be implemented by and map to functions defined on types*, including operators such as '+' mapping to the function `add()` defined on primitive types such as `Integer`. Accordingly, such operators are defined within the BMM as being operator _aliases_ of their implementing function, which is made possible by the BMM meta-types `BMM_ROUTINE` and descendants. 

@@ -18,4 +18,8 @@ h|*Attributes*
 h|*1..1*
 |*expression*: `<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>`
 a|
+
+h|*0..1*
+|*tag*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+a|Optional tag, typically used to designate design intention of the assertion, e.g. `"Inv_all_members_valid"`.
 |===

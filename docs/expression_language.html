@@ -45,13 +45,14 @@
 <li><a href="#_el_basics">3. EL Basics</a>
 <ul class="sectlevel2">
 <li><a href="#_syntax_style">3.1. Syntax style</a></li>
-<li><a href="#_typing">3.2. Typing</a></li>
-<li><a href="#_el_foundation_types">3.3. EL Foundation Types</a>
+<li><a href="#_commenting">3.2. Commenting</a></li>
+<li><a href="#_typing">3.3. Typing</a></li>
+<li><a href="#_el_foundation_types">3.4. EL Foundation Types</a>
 <ul class="sectlevel3">
-<li><a href="#_primitive_types">3.3.1. Primitive Types</a></li>
-<li><a href="#_container_types">3.3.2. Container Types</a></li>
-<li><a href="#_interval_type">3.3.3. Interval Type</a></li>
-<li><a href="#_complex_types">3.3.4. Complex Types</a></li>
+<li><a href="#_primitive_types">3.4.1. Primitive Types</a></li>
+<li><a href="#_container_types">3.4.2. Container Types</a></li>
+<li><a href="#_interval_type">3.4.3. Interval Type</a></li>
+<li><a href="#_complex_types">3.4.4. Complex Types</a></li>
 </ul>
 </li>
 </ul>
@@ -89,8 +90,8 @@
 <li><a href="#_precedence_and_parentheses">5.2.2. Precedence and Parentheses</a></li>
 </ul>
 </li>
-<li><a href="#_matches_operator">5.3. Matches Operator</a></li>
-<li><a href="#_collection_operators">5.4. Collection Operators</a></li>
+<li><a href="#_collection_operators">5.3. Collection Operators</a></li>
+<li><a href="#_decision_table_expressions">5.4. Decision Table Expressions</a></li>
 </ul>
 </li>
 <li><a href="#_references">References</a></li>
@@ -197,6 +198,14 @@
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>10 May 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove <code>matches</code> operator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Sep 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -534,7 +543,10 @@
 <p><em>primitive operators</em>: arithmetic operators, relational operators, boolean operators;</p>
 </li>
 <li>
-<p><em>collection operators</em>: logical quantification operators.</p>
+<p><em>collection operators</em>: logical quantification operators;</p>
+</li>
+<li>
+<p><em>decision tables</em>: if/then/else like structures containing conditional expressions.</p>
 </li>
 </ul>
 </div>
@@ -576,7 +588,30 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_typing"><a class="anchor" href="#_typing"></a>3.2. Typing</h3>
+<h3 id="_commenting"><a class="anchor" href="#_commenting"></a>3.2. Commenting</h3>
+<div class="paragraph">
+<p>Comments are of two styles. For end-of-line commenting, and for creating visual dividing lines, the leader pattern <code>'--'</code> is used. Dividing lines are simply a longer line, e.g <code>'---------'</code>.</p>
+</div>
+<div class="paragraph">
+<p>Comment-only lines start with the bar character (<code>'|'</code>). The example below shows both forms.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    |
+    | patient fit to undertake regime
+    |
+    patient_fit:
+        Result := not
+            (platelets.in_range ([very_low]) or  -- platelets can't be too low
+             neutrophils.in_range ([very_low]))</pre>
+</div>
+</div>
+<div class="paragraph tbd">
+<p>TBD: allow comment-lines using '========'?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_typing"><a class="anchor" href="#_typing"></a>3.3. Typing</h3>
 <div class="paragraph">
 <p>The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM specification</a>. <strong>All operators are assumed to be implemented by and map to functions defined on types</strong>, including operators such as '+' mapping to the function <code>add()</code> defined on primitive types such as <code>Integer</code>. Accordingly, such operators are defined within the BMM as being operator <em>aliases</em> of their implementing function, which is made possible by the BMM meta-types <code>BMM_ROUTINE</code> and descendants.</p>
 </div>
@@ -588,12 +623,12 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_el_foundation_types"><a class="anchor" href="#_el_foundation_types"></a>3.3. EL Foundation Types</h3>
+<h3 id="_el_foundation_types"><a class="anchor" href="#_el_foundation_types"></a>3.4. EL Foundation Types</h3>
 <div class="paragraph">
 <p>The EL syntax for these is described below.</p>
 </div>
 <div class="sect3">
-<h4 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a>3.3.1. Primitive Types</h4>
+<h4 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a>3.4.1. Primitive Types</h4>
 <div class="paragraph">
 <p>The EL primitive types are shown below.</p>
 </div>
@@ -680,7 +715,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_container_types"><a class="anchor" href="#_container_types"></a>3.3.2. Container Types</h4>
+<h4 id="_container_types"><a class="anchor" href="#_container_types"></a>3.4.2. Container Types</h4>
 <div class="paragraph">
 <p>The same container types as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_structure_types" target="_blank" rel="noopener">Foundation Types, <code>structure</code> package</a> are assumed in EL, under the following names.</p>
 </div>
@@ -716,7 +751,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_interval_type"><a class="anchor" href="#_interval_type"></a>3.3.3. Interval Type</h4>
+<h4 id="_interval_type"><a class="anchor" href="#_interval_type"></a>3.4.3. Interval Type</h4>
 <div class="paragraph">
 <p>The same <code>Interval</code> type as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_interval" target="_blank" rel="noopener">Foundation Types, <code>interval</code> package</a> is assumed in EL, under the following names.</p>
 </div>
@@ -751,7 +786,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_complex_types"><a class="anchor" href="#_complex_types"></a>3.3.4. Complex Types</h4>
+<h4 id="_complex_types"><a class="anchor" href="#_complex_types"></a>3.4.4. Complex Types</h4>
 <div class="paragraph">
 <p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
 </div>
@@ -786,7 +821,7 @@
 <div class="sect3">
 <h4 id="_literals"><a class="anchor" href="#_literals"></a>4.1.1. Literals</h4>
 <div class="paragraph">
-<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Hash&lt;&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
+<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Hash&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -869,9 +904,11 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[snomed_ct::389086002]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[is_diabetic]</code><br>
+                         <code>[snomed_ct::389086002]</code><br>
                          <code>[snomed_ct::389086002|Hypoxia|]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminology code in openEHR format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Local terminology code<br>
+                                                                 Terminology code in openEHR format</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -896,10 +933,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K:Ordered, V&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>{<br>
-                              "key1" = &lt;val1&gt;<br>
-                              "key2" = &lt;val2&gt;<br>
+                              "key1" : &lt;val1&gt;<br>
+                              "key2" : &lt;val2&gt;<br>
                               &#8230;&#8203;<br>
-                              "keyN" = &lt;valN&gt;<br>
+                              "keyN" : &lt;valN&gt;<br>
                          }</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A table of values of any type V,<br>
                                                                  keyed by values of any <code>Ordered</code> descendant K,<br>
@@ -977,8 +1014,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">Mph_to_kmh_factor</span> <span class="tok-o">=</span> <span class="tok-mf">1.6</span>
-    <span class="tok-nx">Safe_glucose_limits</span><span class="tok-p">.</span><span class="tok-nx">has</span> <span class="tok-p">(</span><span class="tok-mf">3.5</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">Mph_to_kmh_factor</span> <span class="tok-p">=</span> <span class="tok-m">1.6</span>
+    <span class="tok-n">Safe_glucose_limits</span><span class="tok-p">.</span><span class="tok-n">has</span> <span class="tok-p">(</span><span class="tok-m">3.5</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -1020,8 +1057,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-nx">tnm_t</span><span class="tok-p">)</span>
-    <span class="tok-nx">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-s2">&quot;Tis&quot;</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-n">tnm_t</span><span class="tok-p">)</span>
+    <span class="tok-n">tnm_major_number</span> <span class="tok-p">(</span><span class="tok-s">&quot;Tis&quot;</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1041,12 +1078,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-p">{</span><span class="tok-nx">Env</span><span class="tok-p">}.</span><span class="tok-nx">current_date</span>                                <span class="tok-c1">// obtain today&#39;s date as a Iso8601_date</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">{</span><span class="tok-n">Env</span><span class="tok-p">}.</span><span class="tok-n">current_date</span>                                <span class="tok-p">--</span> <span class="tok-n">obtain</span> <span class="tok-n">today</span><span class="tok-err">&#39;</span><span class="tok-n">s</span> <span class="tok-n">date</span> <span class="tok-k">as</span> <span class="tok-n">a</span> <span class="tok-n">Iso8601_date</span>
 
-    <span class="tok-nx">blood_glucose_list</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Real</span><span class="tok-o">&gt;</span>
-    <span class="tok-p">{</span><span class="tok-nx">Statistical_evaluator</span><span class="tok-p">}.</span><span class="tok-nx">max</span> <span class="tok-p">(</span><span class="tok-nx">blood_glucose_list</span><span class="tok-p">)</span>  <span class="tok-c1">// compute a maximum of Numerics</span>
+    <span class="tok-n">blood_glucose_list</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Real</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">{</span><span class="tok-n">Statistical_evaluator</span><span class="tok-p">}.</span><span class="tok-n">max</span> <span class="tok-p">(</span><span class="tok-n">blood_glucose_list</span><span class="tok-p">)</span>  <span class="tok-p">--</span> <span class="tok-n">compute</span> <span class="tok-n">a</span> <span class="tok-n">maximum</span> <span class="tok-n">of</span> <span class="tok-n">Numerics</span>
 
-    <span class="tok-p">{</span><span class="tok-nx">Locale</span><span class="tok-p">}.</span><span class="tok-nx">language</span>                                 <span class="tok-c1">// the primary language in the locale as a Coded_term</span></code></pre>
+    <span class="tok-p">{</span><span class="tok-n">Locale</span><span class="tok-p">}.</span><span class="tok-n">language</span>                                 <span class="tok-p">--</span> <span class="tok-n">the</span> <span class="tok-n">primary</span> <span class="tok-n">language</span> <span class="tok-k">in</span> <span class="tok-n">the</span> <span class="tok-n">locale</span> <span class="tok-k">as</span> <span class="tok-n">a</span> <span class="tok-n">Coded_term</span></code></pre>
 </div>
 </div>
 </div>
@@ -1100,14 +1137,14 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-kr">class</span> <span class="tok-nx">Book</span> <span class="tok-p">{</span>
-        <span class="tok-nx">title</span>: <span class="tok-kt">String</span>
-        <span class="tok-nx">pub_date</span>: <span class="tok-kt">Date</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">Book</span> <span class="tok-p">{</span>
+        <span class="tok-n">title</span><span class="tok-p">:</span> <span class="tok-n">String</span>
+        <span class="tok-n">pub_date</span><span class="tok-p">:</span> <span class="tok-n">Date</span>
     <span class="tok-p">}</span>
 
-    <span class="tok-nx">book_list</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Book</span><span class="tok-o">&gt;</span>
+    <span class="tok-n">book_list</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Book</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-nx">book_list</span><span class="tok-p">[(</span><span class="tok-nx">b</span>:<span class="tok-kt">Book</span><span class="tok-p">){</span><span class="tok-nx">b</span><span class="tok-p">.</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+    <span class="tok-n">book_list</span><span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">){</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1115,7 +1152,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span><span class="tok-p">[{</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1123,7 +1160,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">pub_date</span> <span class="tok-o">&gt;=</span> <span class="tok-nx">PY2003</span><span class="tok-p">}]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span><span class="tok-p">[{</span><span class="tok-n">pub_date</span> <span class="tok-p">&gt;=</span> <span class="tok-n">PY2003</span><span class="tok-p">}]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1158,7 +1195,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">not</span> <span class="tok-nx">attached</span> <span class="tok-p">(</span><span class="tok-nx">test_result</span><span class="tok-p">)</span> <span class="tok-nx">or</span> <span class="tok-k">else</span> <span class="tok-nx">test_result</span><span class="tok-p">.</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">events</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">].</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">value</span> <span class="tok-o">&gt;</span> <span class="tok-mf">6.5</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">not</span> <span class="tok-n">attached</span> <span class="tok-p">(</span><span class="tok-n">test_result</span><span class="tok-p">)</span> <span class="tok-n">or</span> <span class="tok-k">else</span> <span class="tok-n">test_result</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">events</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">].</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">value</span> <span class="tok-p">&gt;</span> <span class="tok-m">6.5</span></code></pre>
 </div>
 </div>
 </div>
@@ -1170,11 +1207,11 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// define a naive obstetric risk function</span>
-    <span class="tok-nx">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-nx">age</span>: <span class="tok-kt">Duration</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">];</span> <span class="tok-nx">previous_pregnancies</span>: <span class="tok-kt">Integer</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span><span class="tok-o">:</span> <span class="tok-nx">Coded_term</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">|</span> <span class="tok-n">define</span> <span class="tok-n">a</span> <span class="tok-n">naive</span> <span class="tok-n">obstetric</span> <span class="tok-n">risk</span> <span class="tok-n">function</span>
+    <span class="tok-n">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-n">age</span><span class="tok-p">:</span> <span class="tok-n">Duration</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span> <span class="tok-n">previous_pregnancies</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Coded_term</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
 
-    <span class="tok-c1">// generate an agent with signature &lt;[Duration, Integer], Coded_term&gt;</span>
-    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span></code></pre>
+    <span class="tok-p">|</span> <span class="tok-n">generate</span> <span class="tok-n">an</span> <span class="tok-n">agent</span> <span class="tok-n">with</span> <span class="tok-n">signature</span> <span class="tok-p">&lt;[</span><span class="tok-n">Duration</span><span class="tok-p">,</span> <span class="tok-n">Integer</span><span class="tok-p">],</span> <span class="tok-n">Coded_term</span><span class="tok-p">&gt;</span>
+    <span class="tok-n">agent</span> <span class="tok-n">obstetric_risk</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1182,8 +1219,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// generate an agent with signature &lt;[Integer], Coded_term&gt;</span>
-    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-s1">&#39;P38Y&#39;</span><span class="tok-p">,</span> <span class="tok-o">?</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">|</span> <span class="tok-n">generate</span> <span class="tok-n">an</span> <span class="tok-n">agent</span> <span class="tok-n">with</span> <span class="tok-n">signature</span> <span class="tok-p">&lt;[</span><span class="tok-n">Integer</span><span class="tok-p">],</span> <span class="tok-n">Coded_term</span><span class="tok-p">&gt;</span>
+    <span class="tok-n">agent</span> <span class="tok-n">obstetric_risk</span> <span class="tok-p">(</span><span class="tok-err">&#39;</span><span class="tok-n">P38Y</span><span class="tok-err">&#39;</span><span class="tok-p">,</span> <span class="tok-p">?)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1200,11 +1237,11 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">person1</span><span class="tok-p">.</span><span class="tok-nx">name</span>
-    <span class="tok-nx">employees</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">].</span><span class="tok-nx">name</span><span class="tok-p">.</span><span class="tok-nx">first_name</span>
-    <span class="tok-nx">blood_pressure</span><span class="tok-p">.</span><span class="tok-nx">history</span><span class="tok-p">.</span><span class="tok-nx">events</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">].</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">data</span><span class="tok-p">.</span><span class="tok-nx">systolic</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">person1</span><span class="tok-p">.</span><span class="tok-n">name</span>
+    <span class="tok-n">employees</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">].</span><span class="tok-n">name</span><span class="tok-p">.</span><span class="tok-n">first_name</span>
+    <span class="tok-n">blood_pressure</span><span class="tok-p">.</span><span class="tok-n">history</span><span class="tok-p">.</span><span class="tok-n">events</span><span class="tok-p">[</span><span class="tok-m">3</span><span class="tok-p">].</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">systolic</span>
 
-    <span class="tok-nx">agent</span> <span class="tok-nx">obstetric_risks</span><span class="tok-p">.</span><span class="tok-nx">basic_risk</span></code></pre>
+    <span class="tok-n">agent</span> <span class="tok-n">obstetric_risks</span><span class="tok-p">.</span><span class="tok-n">basic_risk</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1212,7 +1249,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">book_list</span><span class="tok-p">[{</span><span class="tok-nx">title</span><span class="tok-p">.</span><span class="tok-nx">contains</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quixote&quot;</span><span class="tok-p">)}].</span><span class="tok-nx">pub_date</span><span class="tok-p">.</span><span class="tok-nx">year</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span><span class="tok-p">[{</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}].</span><span class="tok-n">pub_date</span><span class="tok-p">.</span><span class="tok-n">year</span></code></pre>
 </div>
 </div>
 </div>
@@ -1240,12 +1277,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-c1">// in Numeric</span>
-    <span class="tok-nx">subtract</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">Numeric</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nx">Numeric</span>
-        <span class="tok-nx">alias</span> <span class="tok-nx">infix</span> <span class="tok-s1">&#39;-&#39;</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">|</span> <span class="tok-k">in</span> <span class="tok-n">Numeric</span>
+    <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Numeric</span><span class="tok-p">):</span> <span class="tok-n">Numeric</span>
+        <span class="tok-n">alias</span> <span class="tok-k">infix</span> <span class="tok-sc">&#39;-&#39;</span>
 
-    <span class="tok-c1">// redefined in Integer as</span>
-    <span class="tok-nx">subtract</span> <span class="tok-p">(</span><span class="tok-nx">other</span>: <span class="tok-kt">Integer</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nx">Integer</span></code></pre>
+    <span class="tok-p">|</span> <span class="tok-n">redefined</span> <span class="tok-k">in</span> <span class="tok-n">Integer</span> <span class="tok-k">as</span>
+    <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">):</span> <span class="tok-n">Integer</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1494,43 +1531,13 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">systolic_bp</span> <span class="tok-o">&gt;</span> <span class="tok-mi">140</span> <span class="tok-nx">and</span> <span class="tok-p">(</span><span class="tok-nx">is_smoker</span> <span class="tok-nx">or</span> <span class="tok-nx">is_hypertensive</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">systolic_bp</span> <span class="tok-p">&gt;</span> <span class="tok-m">140</span> <span class="tok-n">and</span> <span class="tok-p">(</span><span class="tok-n">is_smoker</span> <span class="tok-n">or</span> <span class="tok-n">is_hypertensive</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_matches_operator"><a class="anchor" href="#_matches_operator"></a>5.3. Matches Operator</h3>
-<div class="paragraph tbd">
-<p>TBD: describe</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Function</th>
-<th class="tableblock halign-left valign-top">Operators</th>
-<th class="tableblock halign-left valign-top">Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Constraint Operators - Boolean result</p></th>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">matches</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>∈</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set membership, as per <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html">openEHR ADL</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_collection_operators"><a class="anchor" href="#_collection_operators"></a>5.4. Collection Operators</h3>
+<h3 id="_collection_operators"><a class="anchor" href="#_collection_operators"></a>5.3. Collection Operators</h3>
 <div class="paragraph">
 <p>The two standard quantification operators from predicate logic <code>there exists</code> (∃ operator) and <code>for all</code> (∀ operator) are defined in EL for the container types found in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a>.</p>
 </div>
@@ -1555,13 +1562,15 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">list_of_reals</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Real</span><span class="tok-o">&gt;</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">list_of_reals</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Real</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-c1">// an expression that will return true if list_of_reals</span>
-    <span class="tok-c1">// contains a value greater than 140.0</span>
-    <span class="tok-nx">list_of_reals</span><span class="tok-p">.</span><span class="tok-nx">there_exists</span> <span class="tok-p">(</span>
-        <span class="tok-nx">agent</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Real</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span> <span class="tok-p">{</span>
-            <span class="tok-nx">v</span> <span class="tok-o">&gt;</span> <span class="tok-mf">140.0</span>
+    <span class="tok-p">|</span>
+    <span class="tok-p">|</span> <span class="tok-n">an</span> <span class="tok-n">expression</span> <span class="tok-n">that</span> <span class="tok-n">will</span> <span class="tok-k">return</span> <span class="tok-k">true</span> <span class="tok-k">if</span> <span class="tok-n">list_of_reals</span>
+    <span class="tok-p">|</span> <span class="tok-n">contains</span> <span class="tok-n">a</span> <span class="tok-n">value</span> <span class="tok-n">greater</span> <span class="tok-n">than</span> <span class="tok-m">140.0</span>
+    <span class="tok-p">|</span>
+    <span class="tok-n">list_of_reals</span><span class="tok-p">.</span><span class="tok-n">there_exists</span> <span class="tok-p">(</span>
+        <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">):</span> <span class="tok-n">Boolean</span> <span class="tok-p">{</span>
+            <span class="tok-n">v</span> <span class="tok-p">&gt;</span> <span class="tok-m">140.0</span>
         <span class="tok-p">}</span>
     <span class="tok-p">)</span></code></pre>
 </div>
@@ -1587,15 +1596,71 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span>    <span class="tok-nx">list_of_reals</span>: <span class="tok-kt">List</span><span class="tok-o">&lt;</span><span class="tok-nx">Real</span><span class="tok-o">&gt;</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">list_of_reals</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Real</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-c1">// an expression that will return true if list_of_reals</span>
-    <span class="tok-c1">// consists of values all greater than 140.0</span>
-    <span class="tok-nx">list_of_reals</span><span class="tok-p">.</span><span class="tok-nx">for_all</span> <span class="tok-p">(</span>
-        <span class="tok-nx">agent</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Real</span><span class="tok-p">)</span><span class="tok-o">:</span> <span class="tok-nb">Boolean</span> <span class="tok-p">{</span>
-            <span class="tok-nx">v</span> <span class="tok-o">&gt;</span> <span class="tok-mf">140.0</span>
+    <span class="tok-p">|</span>
+    <span class="tok-p">|</span> <span class="tok-n">an</span> <span class="tok-n">expression</span> <span class="tok-n">that</span> <span class="tok-n">will</span> <span class="tok-k">return</span> <span class="tok-k">true</span> <span class="tok-k">if</span> <span class="tok-n">list_of_reals</span>
+    <span class="tok-p">|</span> <span class="tok-n">consists</span> <span class="tok-n">of</span> <span class="tok-n">values</span> <span class="tok-n">all</span> <span class="tok-n">greater</span> <span class="tok-n">than</span> <span class="tok-m">140.0</span>
+    <span class="tok-p">|</span>
+    <span class="tok-n">list_of_reals</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
+        <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">):</span> <span class="tok-n">Boolean</span> <span class="tok-p">{</span>
+            <span class="tok-n">v</span> <span class="tok-p">&gt;</span> <span class="tok-m">140.0</span>
         <span class="tok-p">}</span>
     <span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decision_table_expressions"><a class="anchor" href="#_decision_table_expressions"></a>5.4. Decision Table Expressions</h3>
+<div class="paragraph">
+<p>In EL, a <em>decision table</em> is a complex expression that expresses the equivalent logic as an if/then/else chain or case statement that returns values (i.e. not one whose statements are procedure calls).</p>
+</div>
+<div class="paragraph">
+<p>The syntax is of the following general form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-na">    [[</span>
+<span class="tok-na">        &lt;condition_1&gt;:  &lt;expression_1&gt;,</span>
+<span class="tok-na">        &lt;condition_2&gt;:  &lt;expression_2&gt;,</span>
+<span class="tok-na">        ...</span>
+<span class="tok-na">        &lt;condition_N&gt;:  &lt;expression_N&gt;,</span>
+<span class="tok-na">        *:              &lt;else expression&gt;</span>
+<span class="tok-na">    ]</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A realistic example is illustrated below, making use of line comments to visually aid the author.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-p">[[</span>
+            <span class="tok-p">=========================================================</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">not</span> <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>    <span class="tok-p">[</span><span class="tok-n">luminal_A</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_negative</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_positive</span><span class="tok-p">:</span>                 <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_positive</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">HER2</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">triple_negative</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
+            <span class="tok-p">=========================================================</span>
+        <span class="tok-p">]]</span></code></pre>
 </div>
 </div>
 </div>

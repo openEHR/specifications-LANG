@@ -23,9 +23,7 @@ image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="cent
 
 Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_eval_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
-== Semantics
-
-=== Terminal Entities
+== Terminal Entities
 
 The underlying semantic concept of expressions in BMM, as for any language, is of a construct that refers to _instantiated model entities_ and which _generates values when evaluated_ at execution time. The notion of a _reference_ is fundamentally different from a _definition_, which is the concern of the rest of the meta-model, in that it operates at the instance level rather than at the type level. The primitive elements of a BMM expression may take the form of any of the following:
 
@@ -55,17 +53,17 @@ The model described in this section supports these primitive elements via descen
 .bmm.expression Package - Type hierarchy
 image::{uml_diagrams_uri}/LANG-bmm.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
 
-==== Literals
+=== Literals
 
 A literal value may appear in an expression as a separate entity within an operator expression, as well as a functional call or agent parameter. The literal values that may be used are either instances of the {openehr_foundation_types}[openEHR Foundation Types^] in {openehr_odin}#_leaf_data[ODIN format^], or a complex object instance in structured serial format, specified by `BMM_SERIAL_FORMALISM` if not a primitive type.
 
-==== Tuples
+=== Tuples
 
 Although rarely useful in class definitions, a Tuple of any degree may be formed from any combination of other EL expressions and used on its own as an expression terminal element. The main use for this construct is to express a literal tuple, i.e. one whose constituents consist only of proper literal values.
 
 For more general uses of BMM Expressions, tuple instances are the basis of representing ad hoc query results which have a formal type such as `List<[T~a~, T~b~, T~c~]>`, where `[T~a~, T~b~, T~c~]` represents a tuple of three types.
 
-==== Feature References
+=== Feature References
 
 In BMM, a _feature reference_ is any symbolic reference to a class feature or variable that resolves to an object at evaluation time. This includes all referenceable entities within classes except procedures, which have no return value. Concretely, a feature reference takes the form of one of:
 
@@ -76,11 +74,11 @@ In BMM, a _feature reference_ is any symbolic reference to a class feature or va
 
 Function calls are described in detail in the following section.
 
-==== Self Reference
+=== Self Reference
 
 A special meta-type, `EL_SELF_REF` is provided for references to the current scoping object for any expressions in which it appears. An instance of this meta-class corresponds to references such as 'this' or 'self' found in object-oriented programming languages.
 
-==== Type Reference
+=== Type Reference
 
 A special meta-type, `EL_TYPE_REF` is provided to refer to a type as an object. This is exclusively used as a convenient way (common in many programming languages) of accessing _class features_ that do not depend on instance properties (i.e. 'constant', 'enum', and 'static' members in C-based languages) without having to explicitly create an instance. As an expression, a type reference will normally only appear as a qualifier of a feature reference, using syntax such as `{TypeName}._feature_`, or with arguments, `{TypeName}._function (args...)_`.
 
@@ -104,21 +102,21 @@ A type reference may also be used on its own, such as in the following type test
 
 * `admission_dates.type = {Interval<Iso8601_date_time>}`.
 
-==== Agents
+=== Agents
 
 An agent is the BMM term for a delayed routine call, and has the meta-type `EL_AGENT`, which in turn has as its formal evaluation type (`_eval_type_`) is the meta-type `BMM_SIGNATURE`. It usually appears as a standalone expression, or else a parameter within another agent or function call. Agents are described in detail in the following section.
 
-==== Predicates
+=== Predicates
 
 Predicates in BMM are Boolean-returning terminal expressions taking one feature reference operand, and are represented by the meta-type `EL_PREDICATE`. Predicates conceptually apply to data instance structures and may be understood as queries on data. Any number of specific predicates might be added as extensions via inheritance. In particular, Xpath-style predicates could be supported by addition of meta-types descending from `EL_PREDICATE`.
 
 The following predicates are pre-defined.
 
-===== Attached (x)
+==== Attached (x)
 
 The `attached` predicate is used to test for an instance reference (including a function call result) being `Void`. It may be used in expressions such as the following class invariant.
 
-[source,typescript]
+[source,kotlin]
 ----
 class SmartRef
 {
@@ -130,18 +128,22 @@ class SmartRef
 }
 ----
 
-===== Defined (x)
+==== Defined (x)
 
 The `defined` predicate is used to test whether an instance that is mapped to an external data access method exists in the data context (regardless of its value there).
 
 [.tbd]
 TBD: this might be replaced by another approach.
 
-=== Operator Expressions
+== Constrained Expressions
+
+In some cases there is a need to define a constrained form of an existing expression meta-type, such that the constraint can be conveniently asserted in other contexts. The meta-class `EL_CONSTRAINED` is provided for this purpose. It has an attribute `_base_expression_` referring to the underlying expression meta-type to be constrained. Any descendant of `EL_CONSTRAINED` may then be defined in order to add specific type or other constraints. One commonly used meta-type, `EL_BOOLEAN_EXPRESSION`, is defined, which constrains the base expression to being one whose evaluation type (`_eval_type_`) is `Boolean`.
+
+== Operator Expressions
 
 BMM contains meta-types representing operators, but assumes that all operators are surface aliases for functions defined on some class. For this reason, an occurrence of an operator within an expression, represented an instance of a descendant of `EL_OPERATOR`, contains the attribute `_definition_` to refer to the corresponding function definition. This has to be inferred from the types of its operands. Consequently, 'operator expressions' as commonly understood are simply function calls (often nested) in BMM. The following example illustrates the general meta-model of expressions, using a typical use of expression, the class invariant.
 
-[source, typescript]
+[source, kotlin]
 ----
 class Account {
 
@@ -156,7 +158,7 @@ class Account {
 
 The expression `balance + overdraft_limit > 0` makes use of two operators `+ and `>`, which are really functions defined on the type `Decimal`, as follows.
 
-[source, typescript]
+[source, kotlin]
 ----
 class Decimal {
 
@@ -177,7 +179,7 @@ image::{diagrams_uri}/bmm_expression_property_ref.svg[id=bmm_expression_property
 
 Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.
 
-[source, typescript]
+[source, kotlin]
 ----
     feature -- Definitions
     
@@ -199,42 +201,42 @@ Below, we consider a number of examples illustrating expressions containing the 
 
 The first example is a comparison of a property value to a value, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
 
-[source, typescript]
+[source, kotlin]
 ----
     heart_rate >= 80
 ----
 
 The following shows the comparison of a property value with a constant, where the `>=` operator maps to the function `Real._greater_than_or_equal_()`
 
-[source, typescript]
+[source, kotlin]
 ----
     heart_rate >= Fast_resting_heart_rate
 ----
 
 The following is a logical condition, where the `=` operator maps to a function such as `Terminology_code._equal_()`; `and` maps to `Boolean._and_()`; and `>=` maps to `Real._greater_than_or_equal_()`.
 
-[source, typescript]
+[source, kotlin]
 ----
     heart_rhythm = Erratic and heart_rate >= Atrial_fibrillation_heart_rate
 ----
 
 The following is the same logical condition, but with the use of object scope specified with 'dot notation', here `'patient.'`.
 
-[source, typescript]
+[source, kotlin]
 ----
     patient.heart_rhythm = Erratic and patient.heart_rate >= Atrial_fibrillation_heart_rate
 ----
 
 The following shows a function call whose argument is an expression.
 
-[source, typescript]
+[source, kotlin]
 ----
     date_of_birth.earlier ({Env}.current_date - P10Y)
 ----
 
 The following shows the use of an inline agent as an argument to the function `List._for_all_()`.
 
-[source, typescript]
+[source, kotlin]
 ----
     bp_samples.for_all (
         agent (a_quantity: Quantity) {
@@ -243,26 +245,67 @@ The following shows the use of an inline agent as an argument to the function `L
     );
 ----
 
-=== Constraint Expressions
+== Decision Tables
 
-One class, `EL_CONSTRAINT_EXPRESSION` is included as a hook for specialisation in other models. This class represents a constraint matching expression of the form `<expr> matches <constraint>`. The concrete representation of the constraint is not modelled here, and could be supplied by subtypes.
+The BMM `expression` package contains two meta-classes `EL_DECISION_TABLE` and `EL_CONDITION` that together enable a _decision table_ to be constructed, each of whose 'rows' is a _gated expression_, i.e. an expression 'gated' by a Boolean-returning expression. The following UML illustrates. 
+
+[.text-center]
+.bmm.expression Decision Table
+image::{uml_diagrams_uri}/LANG-bmm.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
+
+An instance of `EL_DECISION_TABLE` is itself an Expression and can therefore be evaluated by evaluating the `_condition_` of each `_item_` (or branch) in order, until one returns True, in which case the corresponding `_expression_` becomes the result of the table evaluation. The `_else_ branch will be used to provide the result expression in the case that all other branches fail, guaranteeing a result.
+
+This logic is essentially the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:
+
+[source, kotlin]
+----
+molecular_subtype: Terminology_term
+    Result := [[
+        
+        er_positive and 
+        her2_negative and 
+        not ki67.in_range (high):    [luminal_A],
+        
+        er_positive and 
+        her2_negative and 
+        ki67.in_range (high):        [luminal_B_HER2_negative],
+        
+        er_positive and 
+        her2_positive:               [luminal_B_HER2_positive],
+        
+        er_negative and 
+        pr_negative and 
+        her2_positive and 
+        ki67.in_range (high):        [HER2],
+        
+        er_negative and
+        pr_negative and 
+        her2_negative and 
+        ki67.in_range (high):        [triple_negative],
+        
+        *:                           [none]
+        
+    ]]
+----
+
+The above is a function that computes the molecular subtype of breast cancer using a decision table whose branches are based on a number of input variables that appear in expressions down the left-hand side and which returns a `Terminology_code` instance (the notation `[identifier]` is represents a literal `Terminology_code` instance).
 
 [.tbd]
-TBD: it might also be supplied by the type `C_OBJECT` from the AOM.
+TBD: determine if a separate structure is needed for a case table, which can also be represented with the above.
 
 == Usage in BMM Models
 
-Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `EL_ASSERTION`, i.e. a tagged Boolean-returning form of `EL_EXPRESSION`.
+Expressions as used in BMM models to express class invariants and routine pre- and post-conditions are always in the form of an `BMM_ASSERTION`, i.e. a tagged Boolean-returning `EL_EXPRESSION`.
 
-=== Simple Expressions
+=== Simple Assertions
 
 Simple assertions may be formed from common operators and operands, including the usual logical arithmetic and comparison operators, as well as any operators relating to specific data types. Normally the top-level operator in the Expression graph is a logical or relational operator. Since all operators are mapped to functions defined on types, there are no 'floating' or 'built-in' operators as such.
 
-=== Existential and Universal Quantifier Expressions
+=== Existential and Universal Quantifier Invariants
 
 A common kind of expression used in class invariants operates over collections and uses the existential and universal quantifier operators, i.e. ∃ and ∀, from predicate logic. A typical expression to use within a class invariant is shown below in an abstract syntax.
 
-[source,typescript]
+[source,kotlin]
 ----
 class PersonName {
     property items: String[1..*];
@@ -274,7 +317,7 @@ class PersonName {
 
 A different syntax might express it as follows.
 
-[source,typescript]
+[source,kotlin]
 ----
     invariant
         for nameItem in items all 
@@ -284,7 +327,7 @@ A different syntax might express it as follows.
 
 A similar invariant, this time using ∃, is shown below.
 
-[source,typescript]
+[source,kotlin]
 ----
     invariant
         for nameItem in items 
@@ -293,7 +336,7 @@ A similar invariant, this time using ∃, is shown below.
 
 Regardless of the surface syntax, expressions such as the above map to functions such as `_for_all_` and `there_exists` defined on relevant linear container types. These functions have the following signatures in which the 'test' expression appears as a Function agent type.
 
-[source,typescript]
+[source,kotlin]
 ----
 class Container<T> {
 
@@ -309,7 +352,6 @@ class Container<T> {
 
 include::{uml_export_dir}/classes/el_expression.adoc[]
 include::{uml_export_dir}/classes/el_boolean_expression.adoc[]
-include::{uml_export_dir}/classes/el_assertion.adoc[]
 
 include::{uml_export_dir}/classes/el_operator.adoc[]
 include::{uml_export_dir}/classes/el_unary_operator.adoc[]
@@ -339,4 +381,5 @@ include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
 include::{uml_export_dir}/classes/el_tuple.adoc[]
 include::{uml_export_dir}/classes/el_tuple_item.adoc[]
 
-include::{uml_export_dir}/classes/el_constraint_expression.adoc[]
+include::{uml_export_dir}/classes/el_decision_table.adoc[]
+include::{uml_export_dir}/classes/el_conditional_expression.adoc[]

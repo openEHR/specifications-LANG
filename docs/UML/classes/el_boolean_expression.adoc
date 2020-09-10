@@ -6,16 +6,12 @@ h|*Class*
 2+^h|*EL_BOOLEAN_EXPRESSION*
 
 h|*Description*
-2+a|Optionally tagged Boolean-returning expression.
+2+a|Boolean-returning expression.
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
+h|*Inherit*
+2+|`<<_el_constrained_class,EL_CONSTRAINED>>`
 
-h|*1..1*
-|*expression*: `<<_el_expression_class,EL_EXPRESSION>>`
-a|The expression of this assertion.
 
 h|*Invariants*
-2+a|__Inv_boolean_expression__: `expression.is_boolean()`
+2+a|__Inv_boolean_expression__: `base_expression.is_boolean()`
 |===

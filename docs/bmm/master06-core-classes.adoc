@@ -208,7 +208,7 @@ Primitive classes are normal BMM classes, other than being marked primitive for 
 
 == Class Invariants
 
-A class defined within a model may include _invariants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `EL_ASSERTION`, which is a tagged Boolean-valued Expression.
+A class defined within a model may include _invariants_, i.e. assertions relating to its state that hold true before and after all _public_ routine calls. Assertions are instances of the class `BMM_ASSERTION`, which is a tagged Boolean-valued Expression.
 
 The following shows classes with invariants. 
 

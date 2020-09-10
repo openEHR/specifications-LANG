@@ -27,4 +27,7 @@ h|*1..1 +
 (effected)*
 |*eval_type* (): `<<_bmm_type_class,BMM_TYPE>>`
 a|Return `_agent.definition.type_`.
+
+h|*Invariants*
+2+a|__Inv_valid_agent__: `agent.is_callable()`
 |===

@@ -19,4 +19,7 @@ h|*1..1 +
 (redefined)*
 |*agent*: `<<_el_procedure_agent_class,EL_PROCEDURE_AGENT>>`
 a|The procedure agent being called.
+
+h|*Invariants*
+2+a|__Inv_valid_agent__: `agent.is_callable()`
 |===

@@ -12,6 +12,11 @@
 |[[latest_issue_date]]10 May 2020
 
 |
+|Remove `matches` operator.
+|T Beale
+|10 Sep 2020
+
+|
 |Add Container selectors.
 |T Beale
 |10 May 2020

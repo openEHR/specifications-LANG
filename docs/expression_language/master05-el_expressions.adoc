@@ -12,13 +12,13 @@ To obtain value comparison for non-value types, the function `Any._is_equal_()`,
 
 Primitive operators in EL are the infix or prefix syntax form of various functions available on primitive types. For example, the operator `-` (minus) is defined on the class `Numeric` (an inheritance ancestor of the classes `Integer`, `Real` etc) as the following:
 
-[source,typescript]
+[source,kotlin]
 ----
-    // in Numeric
+    | in Numeric
     subtract (other: Numeric): Numeric
         alias infix '-'
     
-    // redefined in Integer as
+    | redefined in Integer as
     subtract (other: Integer): Integer
 ----
 
@@ -107,25 +107,10 @@ All Boolean operators take Boolean operands and generate a Boolean result. The `
 
 The precedence of operators follows the order shown in the operator tables above. To change precedence, parentheses can be used in the fashion typical of most programming languages, as shown below.
 
-[source,typescript]
+[source,kotlin]
 --------
     systolic_bp > 140 and (is_smoker or is_hypertensive)
 --------
-
-== Matches Operator
-
-[.tbd]
-TBD: describe
-
-[cols="1,1,3",options="header"]
-|=================================================================
-|Function               |Operators     |Meaning
-                               
-3+^h|Constraint Operators - Boolean result
-
-|matches         		|`∈`  		  |Set membership, as per {openehr_am_adl2}[openEHR ADL]
-
-|=================================================================
 
 == Collection Operators
 
@@ -145,12 +130,14 @@ Here, the `|` symbol is usually read in English as 'such that'. The symbolic equ
 
 The above may also be expressed in EL as its functional equivalent:
 
-[source,typescript]
+[source,kotlin]
 ----
     list_of_reals: List<Real>
     
-    // an expression that will return true if list_of_reals
-    // contains a value greater than 140.0
+    |
+    | an expression that will return true if list_of_reals
+    | contains a value greater than 140.0
+    |
     list_of_reals.there_exists (
         agent (v: Real): Boolean {
             v > 140.0
@@ -172,15 +159,67 @@ Here, the `|` symbol is normally read in English as as 'it holds that'. The symb
 
 The above may also be expressed in EL as its functional equivalent:
 
-[source,typescript]
+[source,kotlin]
 ----
     list_of_reals: List<Real>
     
-    // an expression that will return true if list_of_reals
-    // consists of values all greater than 140.0
+    |
+    | an expression that will return true if list_of_reals
+    | consists of values all greater than 140.0
+    |
     list_of_reals.for_all (
         agent (v: Real): Boolean {
             v > 140.0
         }
     )
 ----
+
+== Decision Table Expressions
+
+In EL, a _decision table_ is a complex expression that expresses the equivalent logic as an if/then/else chain or case statement that returns values (i.e. not one whose statements are procedure calls). 
+
+The syntax is of the following general form:
+
+[source,kotlin]
+----
+    [[        
+        <condition_1>:  <expression_1>,
+        <condition_2>:  <expression_2>,
+        ...
+        <condition_N>:  <expression_N>,
+        *:              <else expression>
+    ]]
+----
+
+A realistic example is illustrated below, making use of line comments to visually aid the author.
+
+[source,kotlin]
+----
+    molecular_subtype: Terminology_term
+        Result := [[
+            =========================================================
+            er_positive and 
+            her2_negative and 
+            not ki67.in_range ([high]):    [luminal_A],
+            ---------------------------------------------------------
+            er_positive and 
+            her2_negative and 
+            ki67.in_range ([high]):        [luminal_B_HER2_negative],
+            ---------------------------------------------------------
+            er_positive and 
+            her2_positive:                 [luminal_B_HER2_positive],
+            ---------------------------------------------------------
+            er_negative and 
+            pr_negative and 
+            her2_positive and 
+            ki67.in_range ([high]):        [HER2],
+            ---------------------------------------------------------
+            er_negative and
+            pr_negative and 
+            her2_negative and 
+            ki67.in_range ([high]):        [triple_negative],
+            ---------------------------------------------------------
+            *:                             [none]
+            =========================================================
+        ]]
+----    

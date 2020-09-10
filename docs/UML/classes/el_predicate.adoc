@@ -26,7 +26,4 @@ h|*1..1 +
 (effected)*
 |*eval_type* (): `<<_bmm_simple_type_class,BMM_SIMPLE_TYPE>>`
 a|Return `{BMM_MODEL}._boolean_type_definition_()`.
-
-h|*Invariants*
-2+a|__Inv_boolean_result__: `is_boolean()`
 |===

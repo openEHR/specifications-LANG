@@ -94,43 +94,25 @@ The BMM meta-model for the call is shown below.
 .Procedure call
 image::{diagrams_uri}/bmm_procedure_call.svg[id=bmm_procedure_call, align="center"]
 
-== Decision Structures
+== Action Tables
 
-The BMM `statement` package provides two decision structures, corresponding closely to the common notions of 'if/then/elseif' and the case statement. These are respectively represented in BMM as the meta-types `BMM_CONDITION_CHAIN` and `BMM_CASE_GROUP`, both of which inherit from `BMM_DECISION_GROUP`.
+The BMM `statement` package includes the meta-classes `BMM_ACTION_TABLE` and `BMM_CONDITIONAL_ACTION`, which together provide a way of representing a decision table whose outputs are statements (rather than values, as in the case of the related Expression meta-classes `EL_DECISION_TABLE` and `EL_CONDITIONAL_EXPRESSION`). An action table corresponds closely to the standard constructs 'if/then/elseif' and the case statement.
 
-The following example shows a typical instance of the BMM Condition Chain meta-type, within a function that returns a coded term for a breast cancer classification that depends on various patient-related variables. In the following, the notation `'|abc|'` is assumed to be a literal of the type `Terminology_term`.
+The following example shows a typical instance of the BMM Action table meta-type, within a procedure that generates appropriate alerts or alarms based on patient vital signs.
 
 [source,typescript]
 ----
-    molecular_subtype: Terminology_term
-        if P.er_positive and P.her2_negative and not ki67_high
-            Result := |Luminal A|
+    check_vital_signs
+        if systolic_pressure.in_range ([critical_high])
+            raise_alarm ([emergency])
 
-        elseif P.er_positive and P.her2_negative and ki67_high
-            Result := |Luminal B (HER2 negative)|
-
-        elseif P.er_positive and P.her2_positive
-            Result := |Luminal B (HER2 positive)|
-
-        elseif P.er_negative and P.pr_negative and P.her2_positive and ki67_high
-            Result := |HER2|
-
-        elseif P.er_negative and P.pr_negative and P.her2_negative and ki67_high
-            Result := |Triple negative|
-
-        else
-            Result := |none|
+        elseif systolic_pressure.in_range ([high]) and oxygen_sat.in_range([low])
+            call_staff
 ----
-
-The BMM meta-model for the first branch of the above statement is shown below.
-
-[.text-center]
-.Condition chain (if/then/elseif)
-image::{diagrams_uri}/bmm_condition_chain.svg[id=bmm_condition_chain, align="center"]
 
 == Assertions
 
-The BMM `statement` model includes a statement type to represent the notion of an _assertion_ as a statement, typically expressed in syntax such as `assert (<boolean expression>)`. This kind of statement is understood as an executable instruction to check that the condition is true, and if not, to generate an exception of the appropriate type, assuming exceptions are available.
+The BMM `statement` model includes a statement meta-type to represent the notion of an _assertion_ as a statement, typically expressed in syntax such as `assert (<boolean expression>)`. This kind of statement is understood as an executable instruction to check that the condition is true, and if not, to generate an exception of the appropriate type, assuming exceptions are available.
 
 == Class Definitions
 
@@ -142,10 +124,6 @@ include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
 include::{uml_export_dir}/classes/bmm_assignment.adoc[]
 include::{uml_export_dir}/classes/bmm_assertion.adoc[]
 
-include::{uml_export_dir}/classes/bmm_decision_group.adoc[]
-include::{uml_export_dir}/classes/bmm_decision_branch.adoc[]
-include::{uml_export_dir}/classes/bmm_condition_chain.adoc[]
-include::{uml_export_dir}/classes/bmm_condition_branch.adoc[]
-include::{uml_export_dir}/classes/bmm_case_group.adoc[]
-include::{uml_export_dir}/classes/bmm_case_branch.adoc[]
+include::{uml_export_dir}/classes/bmm_action_table.adoc[]
+include::{uml_export_dir}/classes/bmm_conditional_action.adoc[]
 

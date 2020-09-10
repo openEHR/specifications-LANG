@@ -188,7 +188,7 @@ The formal parameter definitions of both kinds of routines are represented by an
 
 An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
 
-Any routine may have pre- and/or post-conditions defined for it, represented in BMM by `EL_ASSERTIONs` populating the `_pre_conditions_` and `_post_conditions_` attributes of `BMM_ROUINE`. An Assertion is a <<_bmm_assertion_class,tagged Boolean Expression>>.
+Any routine may have pre- and/or post-conditions defined for it, represented in BMM by `BMM_ASSERTIONs` populating the `_pre_conditions_` and `_post_conditions_` attributes of `BMM_ROUINE`. An Assertion is a <<_bmm_assertion_class,tagged Boolean Expression>>.
 
 The following abstract syntax illustrates the various elements of function definitions.
 
