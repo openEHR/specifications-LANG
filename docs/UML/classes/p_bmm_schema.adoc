@@ -16,11 +16,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*primitive_types*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_p_bmm_class_class,P_BMM_CLASS>>>`
+|*primitive_types*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_p_bmm_class_class,P_BMM_CLASS>>>`
 a|Primitive type definitions. Persisted attribute.
 
 h|*0..1*
-|*class_definitions*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_p_bmm_class_class,P_BMM_CLASS>>>`
+|*class_definitions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_p_bmm_class_class,P_BMM_CLASS>>>`
 a|Class definitions. Persisted attribute.
 h|*Functions*
 ^h|*Signature*

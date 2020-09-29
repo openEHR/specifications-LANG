@@ -16,23 +16,23 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Name of this property within its class. Persisted attribute.
 
 h|*0..1*
-|*is_mandatory*: `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_mandatory*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is mandatory in its class. Persisted attribute.
 
 h|*0..1*
-|*is_computed*: `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_computed*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is computed rather than stored in objects of this class. Persisted Attribute.
 
 h|*0..1*
-|*is_im_infrastructure*: `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_im_infrastructure*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is info model 'infrastructure' rather than 'data'. Persisted attribute.
 
 h|*0..1*
-|*is_im_runtime*: `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_im_runtime*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is info model 'runtime' settable property. Persisted attribute.
 
 h|*0..1*

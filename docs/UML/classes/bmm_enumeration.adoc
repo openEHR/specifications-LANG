@@ -20,17 +20,17 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*item_names*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
+|*item_names*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|The list of names of the enumeration. If no values are supplied, the integer values 0, 1, 2, ... are assumed.
 
 h|*0..1*
-|*item_values*: `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<<<_bmm_primitive_value_class,BMM_PRIMITIVE_VALUE>>>`
+|*item_values*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_primitive_value_class,BMM_PRIMITIVE_VALUE>>>`
 a|Optional list of specific values. Must be 1:1 with `_item_names_` list.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*name_map* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
+|*name_map* (): `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Map of `_item_names_` to `_item_values_` (stringified).
 |===

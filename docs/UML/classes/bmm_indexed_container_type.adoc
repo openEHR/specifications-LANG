@@ -24,6 +24,6 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Return full type name, e.g. `HashMap<String, ELEMENT>`.
 |===

@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*cardinality*: `link:/releases/BASE/{lang_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{lang_release}/foundation_types.html#_integer_class[Integer^]>`
+|*cardinality*: `link:/releases/BASE/{base_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]>`
 a|Cardinality of this property in its class. Persistent attribute.
 
 h|*0..1 +

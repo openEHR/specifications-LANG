@@ -16,7 +16,7 @@ h|*Constants*
 ^h|*Meaning*
 
 h|*1..1*
-|*base_name*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Signature"`
+|*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Signature"`
 a|Base name (built-in).
 h|*Attributes*
 ^h|*Signature*
@@ -35,30 +35,30 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*type_base_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]` +
+|*type_base_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]` +
  +
 __Post_result__: `Result.is_equal (base_name())`
 a|Return `_base_name_`.
 
 h|*1..1 +
 (effected)*
-|*is_abstract* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result = `False`.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result = `True`.
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]` +
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]` +
  +
 __Post_result__: `Result.is_equal (base_name())`
 a|Return `_base_name_`
 
 h|*1..1 +
 (effected)*
-|*flattened_type_list* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
+|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Return the logical set (i.e. unique items) consisting of `_argument_types.flattened_type_list_()` and `_result_type.flattened_type_list_()`.
 |===

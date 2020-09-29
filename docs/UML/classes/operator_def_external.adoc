@@ -13,6 +13,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*evaluation_agent*: `link:/releases/BASE/{lang_release}/foundation_types.html#_function_class[FUNCTION^]<link:/releases/BASE/{lang_release}/foundation_types.html#_tuple_class[TUPLE^],link:/releases/BASE/{lang_release}/foundation_types.html#_any_class[Any^]>`
+|*evaluation_agent*: `link:/releases/BASE/{base_release}/foundation_types.html#_function_class[FUNCTION^]<link:/releases/BASE/{base_release}/foundation_types.html#_tuple_class[TUPLE^],link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]>`
 a|
 |===

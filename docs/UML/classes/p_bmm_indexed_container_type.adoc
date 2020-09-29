@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*index_type*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*index_type*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1 +

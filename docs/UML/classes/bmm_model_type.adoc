@@ -28,11 +28,11 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*type_base_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*type_base_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Result = `_base_class.name_`.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Result = `_base_class.is_primitive_`.
 |===

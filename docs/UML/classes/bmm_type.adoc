@@ -14,23 +14,23 @@ h|*Functions*
 
 h|*1..1 +
 (abstract)*
-|*type_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Formal string form of the type as per UML.
 
 h|*1..1*
-|*type_signature* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*type_signature* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Signature form of the type name, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
 Defaults to the value of `_type_name()_`.
 
 h|*1..1 +
 (abstract)*
-|*is_abstract* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|If true, indicates an abstract class in a BMM model, or a type based on an abstract class, i.e. a type that cannot be directly instantiated.
 
 h|*1..1 +
 (abstract)*
-|*is_primitive* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|If True, indicates that the entity in a BMM model is considered to relate to a primitive type set, i.e. be a primitive type, or be a definer of one.
 
 h|*1..1 +
@@ -45,6 +45,6 @@ a|Type with any container abstracted away, and any formal parameter replaced by 
 
 h|*1..1 +
 (abstract)*
-|*flattened_type_list* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]>`
+|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Completely flattened list of type names, flattening out all generic parameters.
 |===

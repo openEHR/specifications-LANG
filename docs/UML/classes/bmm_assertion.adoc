@@ -8,6 +8,8 @@ h|*Class*
 h|*Description*
 2+a|A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).
 
+May be rendered in syntax as `assert condition` or similar.
+
 h|*Inherit*
 2+|`<<_bmm_statement_class,BMM_STATEMENT>>`
 
@@ -20,6 +22,6 @@ h|*1..1*
 a|
 
 h|*0..1*
-|*tag*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*tag*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Optional tag, typically used to designate design intention of the assertion, e.g. `"Inv_all_members_valid"`.
 |===

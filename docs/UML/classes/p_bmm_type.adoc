@@ -29,6 +29,6 @@ a|Create appropriate `BMM_XXX` object; effected in descendants.
 
 h|*1..1 +
 (abstract)*
-|*as_type_string* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*as_type_string* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Formal name of the type for display.
 |===

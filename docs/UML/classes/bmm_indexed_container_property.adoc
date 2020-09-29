@@ -25,6 +25,6 @@ h|*Functions*
 
 h|*1..1 +
 (redefined)*
-|*display_name* (): `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^]`
+|*display_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Name of this property in form `name: ContainerTypeName<IndexTypeName, ...>`.
 |===

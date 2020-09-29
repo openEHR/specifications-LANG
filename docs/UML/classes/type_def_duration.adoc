@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*type_name*: `link:/releases/BASE/{lang_release}/foundation_types.html#_string_class[String^] +
+|*type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^] +
 {default{nbsp}={nbsp}"Duration"}`
 a|
 
