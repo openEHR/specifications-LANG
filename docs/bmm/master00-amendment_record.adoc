@@ -12,13 +12,15 @@
 |[[latest_issue_date]]11 May 2020
 
 |
-|Add `EL_DECISION_TABLE`, `BMM_ACTION_TABLE` classes; +
+|Adjust `BMM_CONSTANT` to support computed constants; +
+ Add `EL_DECISION_TABLE`, `BMM_ACTION_TABLE` classes; +
+ Add `BMM_INTERVAL_VALUE`; +
  Add `BMM_FEATURE_GROUP` and `BMM_VISIBILITY` classes; +
  Rename `BMM_SCHEMA._bmm_schema_` to `_bmm_model_`; + 
  Remove unintended inheritance from `BMM_SCHEMA` to `P_BMM_PACKAGE_CONTAINER`; +
  Improve documentation in <<Model Access Package>>.
 |T Beale
-|10 Sep 2020
+|30 Sep 2020
 
 |
 |Rename `EL_ASSERTION` to `EL_BOOLEAN_EXPRESSION`; +

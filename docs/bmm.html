@@ -482,13 +482,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>EL_DECISION_TABLE</code>, <code>BMM_ACTION_TABLE</code> classes;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust <code>BMM_CONSTANT</code> to support computed constants;<br>
+ Add <code>EL_DECISION_TABLE</code>, <code>BMM_ACTION_TABLE</code> classes;<br>
+ Add <code>BMM_INTERVAL_VALUE</code>;<br>
  Add <code>BMM_FEATURE_GROUP</code> and <code>BMM_VISIBILITY</code> classes;<br>
  Rename <code>BMM_SCHEMA.<em>bmm_schema</em></code> to <code><em>bmm_model</em></code>;<br>
  Remove unintended inheritance from <code>BMM_SCHEMA</code> to <code>P_BMM_PACKAGE_CONTAINER</code>;<br>
  Improve documentation in <a href="#_model_access_package">Section 3</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10 Sep 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30 Sep 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -5130,39 +5132,34 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </ul>
 </div>
 <div class="paragraph">
-<p>A constant has a <code><em>value</em></code>, which may be of any type, including complex types.</p>
+<p>At runtime a constant has a value, which may be of any type, including complex types, and which is set using its <code><em>generator</em></code> expression (i.e. an instance of the meta-type <code>EL_INSTANCE_REF</code>). In the common degenerate case, <code><em>generator</em></code> consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which <em>computed constants</em> are supported.</p>
 </div>
 <div class="paragraph">
 <p>The following abstract syntax illustrates how constants may be defined in a BMM model.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
-    <span class="tok-k">class</span> <span class="tok-nc">BASIC_DEFINITIONS</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">BASIC_DEFINITIONS</span>
     <span class="tok-p">{</span>
         <span class="tok-n">feature</span>
-            <span class="tok-c1">// some simple constants</span>
-            <span class="tok-n">constant</span> <span class="tok-n">CR</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-err">&#39;\</span><span class="tok-m">015</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
-            <span class="tok-n">constant</span> <span class="tok-n">LF</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-err">&#39;\</span><span class="tok-m">012</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
+            <span class="tok-c1">//</span>
+            <span class="tok-c1">// simple constants</span>
+            <span class="tok-c1">//</span>
+            <span class="tok-n">constant</span> <span class="tok-n">CR</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">015</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
+            <span class="tok-n">constant</span> <span class="tok-n">LF</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">012</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
 
+            <span class="tok-c1">//</span>
             <span class="tok-c1">// constant of complex type</span>
-            <span class="tok-n">constant</span> <span class="tok-n">SafeSpeed</span><span class="tok-p">:</span> <span class="tok-n">Interval</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">{</span>
-                <span class="tok-s">&quot;lower&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-s">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-m">0.0</span><span class="tok-p">,</span>
-                    <span class="tok-s">&quot;units&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;km/h&quot;</span>
-                <span class="tok-p">},</span>
-                <span class="tok-s">&quot;upper&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-s">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-m">60.0</span><span class="tok-p">,</span>
-                    <span class="tok-s">&quot;units&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;km/h&quot;</span>
-                <span class="tok-p">},</span>
-                <span class="tok-s">&quot;lower_included&quot;</span><span class="tok-p">:</span> <span class="tok-k">true</span><span class="tok-p">,</span>
-                <span class="tok-s">&quot;upper_included&quot;</span><span class="tok-p">:</span> <span class="tok-k">true</span>
-            <span class="tok-p">}</span>
+            <span class="tok-c1">// TODO: correct JSON (maybe YAML?) or other syntax</span>
+            <span class="tok-c1">//</span>
+            <span class="tok-n">constant</span> <span class="tok-n">SafeSpeed</span><span class="tok-p">:</span> <span class="tok-n">Interval</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">|</span><span class="tok-m">0.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span> <span class="tok-p">..</span> <span class="tok-m">60.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span><span class="tok-p">|;</span>
+
+            <span class="tok-c1">//</span>
+            <span class="tok-c1">// constant generated by a one-time expression evaluation</span>
+            <span class="tok-c1">//</span>
+            <span class="tok-n">constant</span> <span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">{</span><span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;}(</span><span class="tok-n">arg1</span><span class="tok-p">,</span> <span class="tok-n">arg2</span><span class="tok-p">);</span>
     <span class="tok-p">}</span></code></pre>
 </div>
-</div>
-<div class="paragraph tbd">
-<p>TBD: add support for computed constants.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5707,7 +5704,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Meta-type representing instantiable features, i.e. features that are created as value objccts.</p>
+<p>Meta-type representing instantiable features, i.e. features that are created as value objects.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5733,7 +5730,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>An immutable, static value-returning element scoped to a class.</p>
+<p>An immutable, static value-returning element scoped to a class. The <code><em>value</em></code> is the result of the evaluation of the <code><em>generator</em></code>, which may be as simple as a literal value, or may be any expression, including a function call.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5747,9 +5744,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="#_bmm_literal_value_class">BMM_LITERAL_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generator</strong>: <code><a href="#_el_instance_ref_class">EL_INSTANCE_REF</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The value of the constant.</p>
+<p>Generator expression for the constant value. In the  degenerate case, this is just a literal value, but may also be any other expression valid in the context.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8983,6 +8980,9 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p>A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).</p>
+</div>
+<div class="paragraph">
+<p>May be rendered in syntax as <code>assert condition</code> or similar.</p>
 </div></div></td>
 </tr>
 <tr>

@@ -64,6 +64,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_integer_value_class[BMM_INTEGER_VALUE^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_interval_value_class[BMM_INTERVAL_VALUE^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_literal_value_class[BMM_LITERAL_VALUE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_local_class[BMM_LOCAL^]
