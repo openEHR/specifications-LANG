@@ -178,7 +178,7 @@ The above may also be expressed in EL as its functional equivalent:
 
 In EL, a _decision table_ is a complex expression that expresses the equivalent logic as an if/then/else chain or case statement that returns values (i.e. not one whose statements are procedure calls). 
 
-The syntax is of the following general form:
+The syntax takes a standard form and a compact form. The standard form is as follows, and is used for multi-branch decision structures.
 
 [source,kotlin]
 ----
@@ -190,6 +190,8 @@ The syntax is of the following general form:
         *:              <else expression>
     ]]
 ----
+
+In the above, the `'*'` character is understood as a wildcard, meaning 'all other cases'. A final row containing `'*'` is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.
 
 A realistic example is illustrated below, making use of line comments to visually aid the author.
 
@@ -222,4 +224,42 @@ A realistic example is illustrated below, making use of line comments to visuall
             *:                             [none]
             =========================================================
         ]]
-----    
+----
+
+For the common degenerate case where there is a single condition, the standard form looks as follows:
+
+[source,kotlin]
+----
+    calculate_score: Integer
+        Result := [[
+            ============
+            expr1:    2,
+            ------------
+            *:        0
+            ============
+        ]]
+----
+
+While perfectly understandable (and legal syntax), the following compact form may be used instead:
+
+[source,kotlin]
+----
+    calculate_score: Integer
+        Result := expr1 ? 2 : 0
+----
+
+The above syntax is adopted from the C language family. It may be used to construct intelligible conditional arithmetic operations such as summing, e.g.:
+
+[source,kotlin]
+----
+    ipi_raw_score: Integer
+        Result := Result.add (
+            =============================================
+            age > 60                             ? 1 : 0,
+            staging ∈ {[stage_III], [stage_IV]} ? 1 : 0,
+            ldh.in_range ([normal])              ? 1 : 0,
+            ecog > 1                             ? 1 : 0,
+            extranodal_sites > 1                 ? 1 : 0
+            =============================================
+        )
+----

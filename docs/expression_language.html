@@ -1616,7 +1616,7 @@
 <p>In EL, a <em>decision table</em> is a complex expression that expresses the equivalent logic as an if/then/else chain or case statement that returns values (i.e. not one whose statements are procedure calls).</p>
 </div>
 <div class="paragraph">
-<p>The syntax is of the following general form:</p>
+<p>The syntax takes a standard form and a compact form. The standard form is as follows, and is used for multi-branch decision structures.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1628,6 +1628,9 @@
 <span class="tok-na">        *:              &lt;else expression&gt;</span>
 <span class="tok-na">    ]</span><span class="tok-p">]</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In the above, the <code>'<strong>'</code> character is understood as a wildcard, meaning 'all other cases'. A final row containing <code>'</strong>'</code> is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.</p>
 </div>
 <div class="paragraph">
 <p>A realistic example is illustrated below, making use of line comments to visually aid the author.</p>
@@ -1661,6 +1664,47 @@
             <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
             <span class="tok-p">=========================================================</span>
         <span class="tok-p">]]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the common degenerate case where there is a single condition, the standard form looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">calculate_score</span><span class="tok-p">:</span> <span class="tok-n">Integer</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-p">[[</span>
+            <span class="tok-p">============</span>
+            <span class="tok-n">expr1</span><span class="tok-p">:</span>    <span class="tok-m">2</span><span class="tok-p">,</span>
+            <span class="tok-p">------------</span>
+            <span class="tok-p">*:</span>        <span class="tok-m">0</span>
+            <span class="tok-p">============</span>
+        <span class="tok-p">]]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While perfectly understandable (and legal syntax), the following compact form may be used instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">calculate_score</span><span class="tok-p">:</span> <span class="tok-n">Integer</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">expr1</span> <span class="tok-p">?</span> <span class="tok-m">2</span> <span class="tok-p">:</span> <span class="tok-m">0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above syntax is adopted from the C language family. It may be used to construct intelligible conditional arithmetic operations such as summing, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">ipi_raw_score</span><span class="tok-p">:</span> <span class="tok-n">Integer</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">Result</span><span class="tok-p">.</span><span class="tok-n">add</span> <span class="tok-p">(</span>
+            <span class="tok-p">=============================================</span>
+            <span class="tok-n">age</span> <span class="tok-p">&gt;</span> <span class="tok-m">60</span>                             <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">staging</span> <span class="tok-err">∈</span> <span class="tok-p">{[</span><span class="tok-n">stage_III</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-n">stage_IV</span><span class="tok-p">]}</span> <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">ldh</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">normal</span><span class="tok-p">])</span>              <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">ecog</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                             <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">extranodal_sites</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                 <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span>
+            <span class="tok-p">=============================================</span>
+        <span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
