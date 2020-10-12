@@ -308,29 +308,30 @@
 <li><a href="#_el_operator_class">9.7.3. EL_OPERATOR Class</a></li>
 <li><a href="#_el_unary_operator_class">9.7.4. EL_UNARY_OPERATOR Class</a></li>
 <li><a href="#_el_binary_operator_class">9.7.5. EL_BINARY_OPERATOR Class</a></li>
-<li><a href="#_el_terminal_class">9.7.6. EL_TERMINAL Class</a></li>
-<li><a href="#_el_predicate_class">9.7.7. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">9.7.8. EL_DEFINED Class</a></li>
-<li><a href="#_el_attached_class">9.7.9. EL_ATTACHED Class</a></li>
-<li><a href="#_el_instance_ref_class">9.7.10. EL_INSTANCE_REF Class</a></li>
-<li><a href="#_el_self_ref_class">9.7.11. EL_SELF_REF Class</a></li>
-<li><a href="#_el_type_ref_class">9.7.12. EL_TYPE_REF Class</a></li>
-<li><a href="#_el_literal_class">9.7.13. EL_LITERAL Class</a></li>
-<li><a href="#_el_scoped_ref_class">9.7.14. EL_SCOPED_REF Class</a></li>
-<li><a href="#_el_instantiable_ref_class">9.7.15. EL_INSTANTIABLE_REF Class</a></li>
-<li><a href="#_el_agent_call_class">9.7.16. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">9.7.17. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_agent_class">9.7.18. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">9.7.19. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">9.7.20. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_tuple_class">9.7.21. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">9.7.22. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_decision_table_class">9.7.23. EL_DECISION_TABLE Class</a></li>
-<li><a href="#_el_decision_branch_class">9.7.24. EL_DECISION_BRANCH Class</a></li>
-<li><a href="#_el_condition_chain_class">9.7.25. EL_CONDITION_CHAIN Class</a></li>
-<li><a href="#_el_conditional_expression_class">9.7.26. EL_CONDITIONAL_EXPRESSION Class</a></li>
-<li><a href="#_el_case_table_class">9.7.27. EL_CASE_TABLE Class</a></li>
-<li><a href="#_el_case_class">9.7.28. EL_CASE Class</a></li>
+<li><a href="#_el_simple_class">9.7.6. EL_SIMPLE Class</a></li>
+<li><a href="#_el_terminal_class">9.7.7. EL_TERMINAL Class</a></li>
+<li><a href="#_el_predicate_class">9.7.8. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">9.7.9. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">9.7.10. EL_ATTACHED Class</a></li>
+<li><a href="#_el_instance_ref_class">9.7.11. EL_INSTANCE_REF Class</a></li>
+<li><a href="#_el_self_ref_class">9.7.12. EL_SELF_REF Class</a></li>
+<li><a href="#_el_type_ref_class">9.7.13. EL_TYPE_REF Class</a></li>
+<li><a href="#_el_literal_class">9.7.14. EL_LITERAL Class</a></li>
+<li><a href="#_el_scoped_ref_class">9.7.15. EL_SCOPED_REF Class</a></li>
+<li><a href="#_el_instantiable_ref_class">9.7.16. EL_INSTANTIABLE_REF Class</a></li>
+<li><a href="#_el_agent_call_class">9.7.17. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">9.7.18. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_agent_class">9.7.19. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">9.7.20. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">9.7.21. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_tuple_class">9.7.22. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">9.7.23. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_decision_table_class">9.7.24. EL_DECISION_TABLE Class</a></li>
+<li><a href="#_el_decision_branch_class">9.7.25. EL_DECISION_BRANCH Class</a></li>
+<li><a href="#_el_condition_chain_class">9.7.26. EL_CONDITION_CHAIN Class</a></li>
+<li><a href="#_el_conditional_expression_class">9.7.27. EL_CONDITIONAL_EXPRESSION Class</a></li>
+<li><a href="#_el_case_table_class">9.7.28. EL_CASE_TABLE Class</a></li>
+<li><a href="#_el_case_class">9.7.29. EL_CASE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -6966,51 +6967,28 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_overview_8"><a class="anchor" href="#_overview_8"></a>9.1. Overview</h3>
 <div class="paragraph">
-<p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model supports the representation of the following:</p>
+<p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model is based on the following taxonomy of expression entities:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>classical expressions using unary and binary operators with functional equivalents;</p>
-</li>
-<li>
-<p>terminal elements, including:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>literals;</p>
-</li>
-<li>
-<p>tuples containing items of any meta-type and concrete type;</p>
-</li>
-<li>
-<p>references to instantiable entities, i.e. object properties and routine variables;</p>
-</li>
-<li>
-<p>function calls;</p>
-</li>
-<li>
-<p>agents, i.e. delayed routine calls with possibly open parameters;</p>
-</li>
-<li>
-<p>predicates on other terminal entities, including 'attached' test for Void (null) instance values.</p>
-</li>
-</ul>
+<div id="bmm_expression_taxonomy" class="imageblock text-center text-center">
+<div class="content">
+<img src="bmm/diagrams/bmm_expression_taxonomy.svg" alt="bmm expression taxonomy">
 </div>
-</li>
-</ul>
+<div class="title">Figure 33. Expression Taxonomy</div>
 </div>
 <div class="paragraph">
-<p>The meta-types defined in this part of the model may be understood as the types of entities in a parse tree or syntax tree (AST). Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM-EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.</p>
+<p>The meta-types defined in this part of the BMM model may be understood as the types of entities in an abstract syntax tree (AST) generated from expression parsing. Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM EL meta-model described here. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.</p>
 </div>
 <div class="paragraph">
-<p>The UML model of the BMM <code>expression</code> package is shown below.</p>
+<p>The key abstract meta-types shown in the taxonomy are Simple (<code>EL_SIMPLE</code>), Complex (<code>EL_COMPLEX</code>) and under Simple, Terminal (<code>EL_TERMINAL</code>) and Predicate (<code>EL_PREDICATE</code>). The first split between Simple and Complex distinguishes 'simple' expressions that are either Terminals or classical operator trees of Terminals, from 'complex' constructs, such as those used to represent multi-way decision structures. The split between Terminal and Predicate distinguishes 'real' expression entities (the former), and meta-level predicates having a Terminal expression as a target. The Predicate meta-type is the parent of 'existence' and also path-based meta-expressions targetting instance entities (such as defined by Xpath etc).</p>
+</div>
+<div class="paragraph">
+<p>The UML model of the BMM <code>expression</code> package, consisting of mostly direct equivalents of the taxonomy classes above, is shown below.</p>
 </div>
 <div id="bmm_expression" class="imageblock text-center text-center">
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression.svg" alt="LANG bmm.expression">
 </div>
-<div class="title">Figure 33. bmm.expression Package</div>
+<div class="title">Figure 34. <code>bmm.expression</code> Package</div>
 </div>
 <div class="paragraph">
 <p>Most <code>EL</code> classes are descendants of the class <code>EL_EXPRESSION</code>, which is characterised by the feature <code><em>eval_type()</em></code>. This is the BMM meta-type of the <em>result type</em> of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type <code>BMM_SIGNATURE</code>.</p>
@@ -7090,7 +7068,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
 </div>
-<div class="title">Figure 34. bmm.expression Package - Type hierarchy</div>
+<div class="title">Figure 35. bmm.expression Package - Type hierarchy</div>
 </div>
 <div class="sect3">
 <h4 id="_literals"><a class="anchor" href="#_literals"></a>9.2.1. Literals</h4>
@@ -7282,7 +7260,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="bmm/diagrams/bmm_expression_property_ref.svg" alt="bmm expression property ref">
 </div>
-<div class="title">Figure 35. Instantiated Operator Expression</div>
+<div class="title">Figure 36. Instantiated Operator Expression</div>
 </div>
 <div class="paragraph">
 <p>Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.</p>
@@ -7388,7 +7366,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-decision_table.svg" alt="LANG bmm.expression decision table">
 </div>
-<div class="title">Figure 36. bmm.expression Decision Table</div>
+<div class="title">Figure 37. bmm.expression Decision Table</div>
 </div>
 <div class="paragraph">
 <p>The logic of a <code>EL_CONDITION_CHAIN</code> is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:</p>
@@ -7750,7 +7728,33 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>9.7.6. EL_TERMINAL Class</h4>
+<h4 id="_el_simple_class"><a class="anchor" href="#_el_simple_class"></a>9.7.6. EL_SIMPLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_SIMPLE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Simple expression type that may be used in other simple expressions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_terminal_class"><a class="anchor" href="#_el_terminal_class"></a>9.7.7. EL_TERMINAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7792,7 +7796,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.7.7. EL_PREDICATE Class</h4>
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.7.8. EL_PREDICATE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7843,7 +7847,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.7.8. EL_DEFINED Class</h4>
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.7.9. EL_DEFINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7881,7 +7885,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.7.9. EL_ATTACHED Class</h4>
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.7.10. EL_ATTACHED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7907,7 +7911,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>9.7.10. EL_INSTANCE_REF Class</h4>
+<h4 id="_el_instance_ref_class"><a class="anchor" href="#_el_instance_ref_class"></a>9.7.11. EL_INSTANCE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7933,7 +7937,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>9.7.11. EL_SELF_REF Class</h4>
+<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>9.7.12. EL_SELF_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7984,7 +7988,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.7.12. EL_TYPE_REF Class</h4>
+<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.7.13. EL_TYPE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8038,7 +8042,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.7.13. EL_LITERAL Class</h4>
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.7.14. EL_LITERAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8089,7 +8093,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_scoped_ref_class"><a class="anchor" href="#_el_scoped_ref_class"></a>9.7.14. EL_SCOPED_REF Class</h4>
+<h4 id="_el_scoped_ref_class"><a class="anchor" href="#_el_scoped_ref_class"></a>9.7.15. EL_SCOPED_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8127,7 +8131,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instantiable_ref_class"><a class="anchor" href="#_el_instantiable_ref_class"></a>9.7.15. EL_INSTANTIABLE_REF Class</h4>
+<h4 id="_el_instantiable_ref_class"><a class="anchor" href="#_el_instantiable_ref_class"></a>9.7.16. EL_INSTANTIABLE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8178,7 +8182,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.7.16. EL_AGENT_CALL Class</h4>
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.7.17. EL_AGENT_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8218,7 +8222,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.7.17. EL_FUNCTION_CALL Class</h4>
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.7.18. EL_FUNCTION_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8276,7 +8280,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.7.18. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.7.19. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8362,7 +8366,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.7.19. EL_FUNCTION_AGENT Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.7.20. EL_FUNCTION_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8401,7 +8405,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.7.20. EL_PROCEDURE_AGENT Class</h4>
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.7.21. EL_PROCEDURE_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8440,7 +8444,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.7.21. EL_TUPLE Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.7.22. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8498,7 +8502,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.7.22. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.7.23. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8539,7 +8543,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_decision_table_class"><a class="anchor" href="#_el_decision_table_class"></a>9.7.23. EL_DECISION_TABLE Class</h4>
+<h4 id="_el_decision_table_class"><a class="anchor" href="#_el_decision_table_class"></a>9.7.24. EL_DECISION_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8584,7 +8588,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_decision_branch_class"><a class="anchor" href="#_el_decision_branch_class"></a>9.7.24. EL_DECISION_BRANCH Class</h4>
+<h4 id="_el_decision_branch_class"><a class="anchor" href="#_el_decision_branch_class"></a>9.7.25. EL_DECISION_BRANCH Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8616,7 +8620,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_condition_chain_class"><a class="anchor" href="#_el_condition_chain_class"></a>9.7.25. EL_CONDITION_CHAIN Class</h4>
+<h4 id="_el_condition_chain_class"><a class="anchor" href="#_el_condition_chain_class"></a>9.7.26. EL_CONDITION_CHAIN Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8661,7 +8665,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.7.26. EL_CONDITIONAL_EXPRESSION Class</h4>
+<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.7.27. EL_CONDITIONAL_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8705,7 +8709,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_case_table_class"><a class="anchor" href="#_el_case_table_class"></a>9.7.27. EL_CASE_TABLE Class</h4>
+<h4 id="_el_case_table_class"><a class="anchor" href="#_el_case_table_class"></a>9.7.28. EL_CASE_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8757,7 +8761,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_case_class"><a class="anchor" href="#_el_case_class"></a>9.7.28. EL_CASE Class</h4>
+<h4 id="_el_case_class"><a class="anchor" href="#_el_case_class"></a>9.7.29. EL_CASE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8827,7 +8831,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 37. <code>bmm.expression</code> package - Functional Elements</div>
+<div class="title">Figure 38. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -8857,7 +8861,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 38. Function call example - Body Mass index (BMI)</div>
+<div class="title">Figure 39. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 </div>
@@ -8877,7 +8881,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.statement.svg" alt="LANG bmm.statement">
 </div>
-<div class="title">Figure 39. Features for routine definition</div>
+<div class="title">Figure 40. Features for routine definition</div>
 </div>
 <div class="paragraph">
 <p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to be a simple statement or a <em>block</em>, containing statements and/or more blocks. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.</p>
@@ -8925,7 +8929,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_assignment.svg" alt="bmm assignment">
 </div>
-<div class="title">Figure 40. Assignment to function Result</div>
+<div class="title">Figure 41. Assignment to function Result</div>
 </div>
 </div>
 <div class="sect2">
@@ -8974,7 +8978,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_procedure_call.svg" alt="bmm procedure call">
 </div>
-<div class="title">Figure 41. Procedure call</div>
+<div class="title">Figure 42. Procedure call</div>
 </div>
 </div>
 <div class="sect2">
@@ -9348,7 +9352,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 42. BMM class - ancestors view</div>
+<div class="title">Figure 43. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -9357,7 +9361,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 43. BMM class - descendants view</div>
+<div class="title">Figure 44. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -9382,7 +9386,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 44. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 45. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -9394,7 +9398,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 45. Generic inheritance, closed</div>
+<div class="title">Figure 46. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -9406,7 +9410,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 46. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 47. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -9415,7 +9419,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 47. Generic inheritance, open parameter</div>
+<div class="title">Figure 48. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -9427,7 +9431,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 48. Multiple inheritance</div>
+<div class="title">Figure 49. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">

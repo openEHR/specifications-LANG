@@ -2,23 +2,20 @@
 
 == Overview
 
-Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model supports the representation of the following:
-
-* classical expressions using unary and binary operators with functional equivalents;
-* terminal elements, including:
-** literals;
-** tuples containing items of any meta-type and concrete type;
-** references to instantiable entities, i.e. object properties and routine variables;
-** function calls;
-** agents, i.e. delayed routine calls with possibly open parameters;
-** predicates on other terminal entities, including 'attached' test for Void (null) instance values.
-
-The meta-types defined in this part of the model may be understood as the types of entities in a parse tree or syntax tree (AST). Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM-EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
-
-The UML model of the BMM `expression` package is shown below. 
+Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model is based on the following taxonomy of expression entities:
 
 [.text-center]
-.bmm.expression Package
+.Expression Taxonomy
+image::{diagrams_uri}/bmm_expression_taxonomy.svg[id=bmm_expression_taxonomy, align="center"]
+
+The meta-types defined in this part of the BMM model may be understood as the types of entities in an abstract syntax tree (AST) generated from expression parsing. Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM EL meta-model described here. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
+
+The key abstract meta-types shown in the taxonomy are Simple (`EL_SIMPLE`), Complex (`EL_COMPLEX`) and under Simple, Terminal (`EL_TERMINAL`) and Predicate (`EL_PREDICATE`). The first split between Simple and Complex distinguishes 'simple' expressions that are either Terminals or classical operator trees of Terminals, from 'complex' constructs, such as those used to represent multi-way decision structures. The split between Terminal and Predicate distinguishes 'real' expression entities (the former), and meta-level predicates having a Terminal expression as a target. The Predicate meta-type is the parent of 'existence' and also path-based meta-expressions targetting instance entities (such as defined by Xpath etc).
+
+The UML model of the BMM `expression` package, consisting of mostly direct equivalents of the taxonomy classes above, is shown below. 
+
+[.text-center]
+.`bmm.expression` Package
 image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
 
 Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_eval_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
@@ -382,6 +379,7 @@ include::{uml_export_dir}/classes/el_operator.adoc[]
 include::{uml_export_dir}/classes/el_unary_operator.adoc[]
 include::{uml_export_dir}/classes/el_binary_operator.adoc[]
 
+include::{uml_export_dir}/classes/el_simple.adoc[]
 include::{uml_export_dir}/classes/el_terminal.adoc[]
 
 include::{uml_export_dir}/classes/el_predicate.adoc[]
