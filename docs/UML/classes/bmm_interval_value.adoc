@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_INTERVAL_VALUE*
 
 h|*Description*
-2+a|
+2+a|Meta-type for literal intervals of type `Interval<Ordered>`.
 
 h|*Inherit*
 2+|`<<_bmm_literal_value_class,BMM_LITERAL_VALUE>>`

@@ -247,51 +247,76 @@ The following shows the use of an inline agent as an argument to the function `L
 
 == Decision Tables
 
-The BMM `expression` package contains two meta-classes `EL_DECISION_TABLE` and `EL_CONDITION` that together enable a _decision table_ to be constructed, each of whose 'rows' is a _gated expression_, i.e. an expression 'gated' by a Boolean-returning expression. The following UML illustrates. 
+The BMM `expression` package contains the meta-class `EL_DECISION_TABLE` that defines an abstract _decision table_ construct, consisting of an ordered set of `_items_`, each of type `EL_DECISION_BRANCH`, and having a `_result_` of any expression type (including another decision table). Two concrete subtypes of each of these abstract meta-types are used to represent two common kinds of decision table: 
+
+* an if/then/elseif/else condition chain (meta-classes `EL_CONDITION_CHAIN` and `EL_CONDITIONAL_EXPRESSION`); and
+* a case statement style table (meta-classes `EL_CASE_TABLE` and `EL_CASE`), whose conditions are value intervals against which the table's `_input_` value expression is evaluated to determine the result.
+
+The `_else_` branch will be used to provide the result expression in the case that all other branches fail, guaranteeing a result. 
+
+`EL_DECISION_TABLE` and its descendants are also kind of expression, enabling them to be used as value-returning entities in certain other expression contexts, including inside other decision tables.
+
+The following UML illustrates. 
 
 [.text-center]
 .bmm.expression Decision Table
 image::{uml_diagrams_uri}/LANG-bmm.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
 
-An instance of `EL_DECISION_TABLE` is itself an Expression and can therefore be evaluated by evaluating the `_condition_` of each `_item_` (or branch) in order, until one returns True, in which case the corresponding `_expression_` becomes the result of the table evaluation. The `_else_ branch will be used to provide the result expression in the case that all other branches fail, guaranteeing a result.
-
-This logic is essentially the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:
+The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:
 
 [source, kotlin]
 ----
-molecular_subtype: Terminology_term
-    Result := [[
-        
-        er_positive and 
-        her2_negative and 
-        not ki67.in_range (high):    [luminal_A],
-        
-        er_positive and 
-        her2_negative and 
-        ki67.in_range (high):        [luminal_B_HER2_negative],
-        
-        er_positive and 
-        her2_positive:               [luminal_B_HER2_positive],
-        
-        er_negative and 
-        pr_negative and 
-        her2_positive and 
-        ki67.in_range (high):        [HER2],
-        
-        er_negative and
-        pr_negative and 
-        her2_negative and 
-        ki67.in_range (high):        [triple_negative],
-        
-        *:                           [none]
-        
-    ]]
+    molecular_subtype: Terminology_term
+        Result := [[
+            =========================================================
+            er_positive and 
+            her2_negative and 
+            not ki67.in_range ([high]):    [luminal_A],
+            ---------------------------------------------------------
+            er_positive and 
+            her2_negative and 
+            ki67.in_range ([high]):        [luminal_B_HER2_negative],
+            ---------------------------------------------------------
+            er_positive and 
+            her2_positive:                 [luminal_B_HER2_positive],
+            ---------------------------------------------------------
+            er_negative and 
+            pr_negative and 
+            her2_positive and 
+            ki67.in_range ([high]):        [HER2],
+            ---------------------------------------------------------
+            er_negative and
+            pr_negative and 
+            her2_negative and 
+            ki67.in_range ([high]):        [triple_negative],
+            ---------------------------------------------------------
+            *:                             [none]
+            =========================================================
+        ]]
 ----
 
 The above is a function that computes the molecular subtype of breast cancer using a decision table whose branches are based on a number of input variables that appear in expressions down the left-hand side and which returns a `Terminology_code` instance (the notation `[identifier]` is represents a literal `Terminology_code` instance).
 
-[.tbd]
-TBD: determine if a separate structure is needed for a case table, which can also be represented with the above.
+An example of `EL_CASE_TABLE` is shown below. Here, two case tables are used, with each generating a numeric result based on the values of the `platelets` and `gfr` variables respectively.
+
+[source, kotlin]
+----
+    cyclophosphamide_dose: Quantity
+        Result := cyclophosphamide_dose_per_m2 * BSA.bsa_m2
+            * case platelets.range in [[
+                ===================
+                [normal]:      1,
+                [low]:         0.75
+                ===================
+            ]]
+            * case gfr.range in [[
+                ===================
+                [normal]:      1,
+                [low]:         0.75,
+                [very_low]:    0.5
+                ===================
+            ]]
+----
 
 == Usage in BMM Models
 
@@ -382,4 +407,10 @@ include::{uml_export_dir}/classes/el_tuple.adoc[]
 include::{uml_export_dir}/classes/el_tuple_item.adoc[]
 
 include::{uml_export_dir}/classes/el_decision_table.adoc[]
+include::{uml_export_dir}/classes/el_decision_branch.adoc[]
+
+include::{uml_export_dir}/classes/el_condition_chain.adoc[]
 include::{uml_export_dir}/classes/el_conditional_expression.adoc[]
+
+include::{uml_export_dir}/classes/el_case_table.adoc[]
+include::{uml_export_dir}/classes/el_case.adoc[]

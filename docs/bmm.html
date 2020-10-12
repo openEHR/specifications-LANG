@@ -268,6 +268,7 @@
 <li><a href="#_bmm_string_value_class">8.6.6. BMM_STRING_VALUE Class</a></li>
 <li><a href="#_bmm_integer_value_class">8.6.7. BMM_INTEGER_VALUE Class</a></li>
 <li><a href="#_bmm_boolean_value_class">8.6.8. BMM_BOOLEAN_VALUE Class</a></li>
+<li><a href="#_bmm_interval_value_class">8.6.9. BMM_INTERVAL_VALUE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -325,7 +326,11 @@
 <li><a href="#_el_tuple_class">9.7.21. EL_TUPLE Class</a></li>
 <li><a href="#_el_tuple_item_class">9.7.22. EL_TUPLE_ITEM Class</a></li>
 <li><a href="#_el_decision_table_class">9.7.23. EL_DECISION_TABLE Class</a></li>
-<li><a href="#_el_conditional_expression_class">9.7.24. EL_CONDITIONAL_EXPRESSION Class</a></li>
+<li><a href="#_el_decision_branch_class">9.7.24. EL_DECISION_BRANCH Class</a></li>
+<li><a href="#_el_condition_chain_class">9.7.25. EL_CONDITION_CHAIN Class</a></li>
+<li><a href="#_el_conditional_expression_class">9.7.26. EL_CONDITIONAL_EXPRESSION Class</a></li>
+<li><a href="#_el_case_table_class">9.7.27. EL_CASE_TABLE Class</a></li>
+<li><a href="#_el_case_class">9.7.28. EL_CASE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -482,15 +487,16 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust <code>BMM_CONSTANT</code> to support computed constants;<br>
- Add <code>EL_DECISION_TABLE</code>, <code>BMM_ACTION_TABLE</code> classes;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>EL_SIMPLE</code> to distinguish complex expressions from terminals and operator expressions;
+ Adjust <code>BMM_CONSTANT</code> to support computed constants;<br>
+ Add <code>EL_DECISION_TABLE</code>, <code>BMM_ACTION_TABLE</code> classes and descendants;<br>
  Add <code>BMM_INTERVAL_VALUE</code>;<br>
  Add <code>BMM_FEATURE_GROUP</code> and <code>BMM_VISIBILITY</code> classes;<br>
  Rename <code>BMM_SCHEMA.<em>bmm_schema</em></code> to <code><em>bmm_model</em></code>;<br>
  Remove unintended inheritance from <code>BMM_SCHEMA</code> to <code>P_BMM_PACKAGE_CONTAINER</code>;<br>
  Improve documentation in <a href="#_model_access_package">Section 3</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">30 Sep 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Oct 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -6925,6 +6931,32 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_bmm_interval_value_class"><a class="anchor" href="#_bmm_interval_value_class"></a>8.6.9. BMM_INTERVAL_VALUE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INTERVAL_VALUE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for literal intervals of type <code>Interval&lt;Ordered&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_literal_value_class">BMM_LITERAL_VALUE</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -7331,7 +7363,26 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_decision_tables"><a class="anchor" href="#_decision_tables"></a>9.5. Decision Tables</h3>
 <div class="paragraph">
-<p>The BMM <code>expression</code> package contains two meta-classes <code>EL_DECISION_TABLE</code> and <code>EL_CONDITION</code> that together enable a <em>decision table</em> to be constructed, each of whose 'rows' is a <em>gated expression</em>, i.e. an expression 'gated' by a Boolean-returning expression. The following UML illustrates.</p>
+<p>The BMM <code>expression</code> package contains the meta-class <code>EL_DECISION_TABLE</code> that defines an abstract <em>decision table</em> construct, consisting of an ordered set of <code><em>items</em></code>, each of type <code>EL_DECISION_BRANCH</code>, and having a <code><em>result</em></code> of any expression type (including another decision table). Two concrete subtypes of each of these abstract meta-types are used to represent two common kinds of decision table:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an if/then/elseif/else condition chain (meta-classes <code>EL_CONDITION_CHAIN</code> and <code>EL_CONDITIONAL_EXPRESSION</code>); and</p>
+</li>
+<li>
+<p>a case statement style table (meta-classes <code>EL_CASE_TABLE</code> and <code>EL_CASE</code>), whose conditions are value intervals against which the table&#8217;s <code><em>input</em></code> value expression is evaluated to determine the result.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code><em>else</em></code> branch will be used to provide the result expression in the case that all other branches fail, guaranteeing a result.</p>
+</div>
+<div class="paragraph">
+<p><code>EL_DECISION_TABLE</code> and its descendants are also kind of expression, enabling them to be used as value-returning entities in certain other expression contexts, including inside other decision tables.</p>
+</div>
+<div class="paragraph">
+<p>The following UML illustrates.</p>
 </div>
 <div id="bmm_expression_decision_table" class="imageblock text-center text-center">
 <div class="content">
@@ -7340,47 +7391,63 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="title">Figure 36. bmm.expression Decision Table</div>
 </div>
 <div class="paragraph">
-<p>An instance of <code>EL_DECISION_TABLE</code> is itself an Expression and can therefore be evaluated by evaluating the <code><em>condition</em></code> of each <code><em>item</em></code> (or branch) in order, until one returns True, in which case the corresponding <code><em>expression</em></code> becomes the result of the table evaluation. The `<em>else</em> branch will be used to provide the result expression in the case that all other branches fail, guaranteeing a result.</p>
-</div>
-<div class="paragraph">
-<p>This logic is essentially the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:</p>
+<p>The logic of a <code>EL_CONDITION_CHAIN</code> is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
-    <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-p">[[</span>
-
-        <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
-        <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">not</span> <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">(</span><span class="tok-n">high</span><span class="tok-p">):</span>    <span class="tok-p">[</span><span class="tok-n">luminal_A</span><span class="tok-p">],</span>
-
-        <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
-        <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">(</span><span class="tok-n">high</span><span class="tok-p">):</span>        <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_negative</span><span class="tok-p">],</span>
-
-        <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
-        <span class="tok-n">her2_positive</span><span class="tok-p">:</span>               <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_positive</span><span class="tok-p">],</span>
-
-        <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">her2_positive</span> <span class="tok-n">and</span>
-        <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">(</span><span class="tok-n">high</span><span class="tok-p">):</span>        <span class="tok-p">[</span><span class="tok-n">HER2</span><span class="tok-p">],</span>
-
-        <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-        <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">(</span><span class="tok-n">high</span><span class="tok-p">):</span>        <span class="tok-p">[</span><span class="tok-n">triple_negative</span><span class="tok-p">],</span>
-
-        <span class="tok-p">*:</span>                           <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
-
-    <span class="tok-p">]]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-p">[[</span>
+            <span class="tok-p">=========================================================</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">not</span> <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>    <span class="tok-p">[</span><span class="tok-n">luminal_A</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_negative</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_positive</span><span class="tok-p">:</span>                 <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_positive</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_positive</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">HER2</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">triple_negative</span><span class="tok-p">],</span>
+            <span class="tok-p">---------------------------------------------------------</span>
+            <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
+            <span class="tok-p">=========================================================</span>
+        <span class="tok-p">]]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The above is a function that computes the molecular subtype of breast cancer using a decision table whose branches are based on a number of input variables that appear in expressions down the left-hand side and which returns a <code>Terminology_code</code> instance (the notation <code>[identifier]</code> is represents a literal <code>Terminology_code</code> instance).</p>
 </div>
-<div class="paragraph tbd">
-<p>TBD: determine if a separate structure is needed for a case table, which can also be represented with the above.</p>
+<div class="paragraph">
+<p>An example of <code>EL_CASE_TABLE</code> is shown below. Here, two case tables are used, with each generating a numeric result based on the values of the <code>platelets</code> and <code>gfr</code> variables respectively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">cyclophosphamide_dose</span><span class="tok-p">:</span> <span class="tok-n">Quantity</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">cyclophosphamide_dose_per_m2</span> <span class="tok-p">*</span> <span class="tok-n">BSA</span><span class="tok-p">.</span><span class="tok-n">bsa_m2</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">platelets</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">[[</span>
+                <span class="tok-p">===================</span>
+<span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
+<span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span>
+                <span class="tok-p">===================</span>
+            <span class="tok-p">]]</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">gfr</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">[[</span>
+                <span class="tok-p">===================</span>
+<span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
+<span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span><span class="tok-p">,</span>
+<span class="tok-na">                [very_low]</span><span class="tok-p">:</span>    <span class="tok-m">0.5</span>
+                <span class="tok-p">===================</span>
+            <span class="tok-p">]]</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -7465,7 +7532,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent of all typed expression tree items.</p>
+<p>Abstract parent of all typed expression meta-types.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7549,7 +7616,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7629,7 +7696,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Operand node.</p>
 </div></div></td>
@@ -7667,7 +7734,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>left_operand</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>left_operand</strong>: <code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Left operand node.</p>
 </div></div></td>
@@ -7719,7 +7786,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -8482,18 +8549,12 @@ probably to be removed.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_DECISION_TABLE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_DECISION_TABLE (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Compound expression consisting of a chain of condition-gated expressions, and an ungated <code><em>else</em></code> member that as a whole, represents a decision table.</p>
-</div>
-<div class="paragraph">
-<p>Evaluated by iterating through <code><em>items</em></code> and for each one, evaluating its <code><em>condition</em></code>, which if True, causes the evaluation result of the chain to be that item&#8217;s <code><em>expression</em></code> evaluation result. If no member of <code><em>items</em></code> has a True-returning <code><em>condition</em></code>, the evaluation result is the result of evaluating the <code><em>else</em></code> expression.</p>
-</div>
-<div class="paragraph">
-<p>This structure may be used to represent value-returning if/then/else chains and case statements.</p>
+<p>Complex expression structure representing a logical decision table.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8507,23 +8568,100 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_el_conditional_expression_class">EL_CONDITIONAL_EXPRESSION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>else</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement.</p>
+<p>Result expression of the chain if no member of <code><em>items</em></code> succeeds in evaluation.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>else</strong>: <code><a href="#_el_instance_ref_class">EL_INSTANCE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_el_decision_branch_class">EL_DECISION_BRANCH</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result expression of the chain if no member of <code><em>items</em></code> succeeds in evaluation.</p>
+<p>Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.7.24. EL_CONDITIONAL_EXPRESSION Class</h4>
+<h4 id="_el_decision_branch_class"><a class="anchor" href="#_el_decision_branch_class"></a>9.7.24. EL_DECISION_BRANCH Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_DECISION_BRANCH (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result expression of conditional, if its <code><em>condition</em></code> evaluates to True.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_condition_chain_class"><a class="anchor" href="#_el_condition_chain_class"></a>9.7.25. EL_CONDITION_CHAIN Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_CONDITION_CHAIN</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Compound expression consisting of a chain of condition-gated expressions, and an ungated <code><em>else</em></code> member that as a whole, represents an if/then/elseif/else chains.</p>
+</div>
+<div class="paragraph">
+<p>Evaluated by iterating through <code><em>items</em></code> and for each one, evaluating its <code><em>condition</em></code>, which if True, causes the evaluation result of the chain to be that item&#8217;s <code><em>result</em></code> evaluation result.</p>
+</div>
+<div class="paragraph">
+<p>If no member of <code><em>items</em></code> has a True-returning <code><em>condition</em></code>, the evaluation result is the result of evaluating the <code><em>else</em></code> expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_decision_table_class">EL_DECISION_TABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_el_conditional_expression_class">EL_CONDITIONAL_EXPRESSION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.7.26. EL_CONDITIONAL_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8542,22 +8680,19 @@ probably to be removed.
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_decision_branch_class">EL_DECISION_BRANCH</a></code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>condition</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>condition</strong>: <code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Gate expression that acts as the condition under which the target <code><em>expression</em></code> is returned.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code><a href="#_el_instance_ref_class">EL_INSTANCE_REF</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Result expression of conditional, if its <code><em>condition</em></code> evaluates to True.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8565,6 +8700,92 @@ probably to be removed.
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><em>Inv_condition_boolean</em>: <code>condition.is_boolean()</code></p>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_case_table_class"><a class="anchor" href="#_el_case_table_class"></a>9.7.27. EL_CASE_TABLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_CASE_TABLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Compound expression consisting of a list of value-range / expression pairs, and an  <code><em>else</em></code> member that as a whole, represents a case statement flavour of decision table.</p>
+</div>
+<div class="paragraph">
+<p>Evaluated by iterating through <code><em>items</em></code> and for each one, comparing <code><em>input</em></code> to the item <code><em>value_range</em></code>. If the <code><em>input</em></code> is in the range, the evaluation result of the table is that item&#8217;s <code><em>result</em></code> evaluation result.</p>
+</div>
+<div class="paragraph">
+<p>If no member of <code><em>items</em></code> has a True-returning <code><em>condition</em></code>, the evaluation result is the result of evaluating the <code><em>else</em></code> expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_decision_table_class">EL_DECISION_TABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>input</strong>: <code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Input value that is compared against each <code><em>items</em>[i].<em>value_range</em></code> to determine the overall result.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_el_case_class">EL_CASE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_case_class"><a class="anchor" href="#_el_case_class"></a>9.7.28. EL_CASE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_CASE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_decision_branch_class">EL_DECISION_BRANCH</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_constraint</strong>: <code><a href="/releases/AM/latest/AOM2.html#_c_object_class" target="_blank" rel="noopener">C_OBJECT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>

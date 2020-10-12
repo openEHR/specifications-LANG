@@ -8,17 +8,16 @@ h|*Class*
 h|*Description*
 2+a|Conditional structure used in condition chain expressions. Evaluated by evaluating its `_condition_`, which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of `_expression_`.
 
+h|*Inherit*
+2+|`<<_el_decision_branch_class,EL_DECISION_BRANCH>>`
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*condition*: `<<_el_expression_class,EL_EXPRESSION>>`
+|*condition*: `<<_el_simple_class,EL_SIMPLE>>`
 a|Gate expression that acts as the condition under which the target `_expression_` is returned.
-
-h|*1..1*
-|*expression*: `<<_el_instance_ref_class,EL_INSTANCE_REF>>`
-a|Result expression of conditional, if its `_condition_` evaluates to True.
 
 h|*Invariants*
 2+a|__Inv_condition_boolean__: `condition.is_boolean()`

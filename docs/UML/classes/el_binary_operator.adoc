@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*left_operand*: `<<_el_expression_class,EL_EXPRESSION>>`
+|*left_operand*: `<<_el_simple_class,EL_SIMPLE>>`
 a|Left operand node.
 
 h|*1..1*
