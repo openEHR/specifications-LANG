@@ -176,9 +176,11 @@ The above may also be expressed in EL as its functional equivalent:
 
 == Decision Table Expressions
 
-In EL, a _decision table_ is a complex expression that expresses the equivalent logic as an if/then/else chain or case statement that returns values (i.e. not one whose statements are procedure calls). 
+In EL, a _decision table_ is a construct that expresses the equivalent logic of a multi-branch construct that returns a single expression as a result. There are two flavours, both familiar to programmers in mainstream languages: the _condition chain_ (i.e. an if/then/else construct) and the _case table_ (i.e. a case statement). The evaluation of both constructs determines which of a number of possible expressions to return as the result, based on the prior evaluation of branch conditions, whose particular form depends on which flavour of construct is used. Both constructs are thus purely functional, i.e. their branches cannot contain statements (i.e. assignments, procedure calls etc), only expressions.
 
-The syntax takes a standard form and a compact form. The standard form is as follows, and is used for multi-branch decision structures.
+=== Condition Chain (if/then)
+
+The syntax for a condition chain (the if/then equivalent) takes a standard form and a compact form. The standard form is as follows, and is used for multi-branch decision structures.
 
 [source,kotlin]
 ----
@@ -263,3 +265,22 @@ The above syntax is adopted from the C language family. It may be used to constr
             =============================================
         )
 ----
+
+=== Case Table
+
+The Case Table syntax form (case statement equivalent) is logically no different from the more general condition chain, except that every branch condition expression takes the form `Expr ∈ Constr~i~`, where `Expr` is the same expression left-hand side for all branches, each having a variable right-hand side in the form of a value range constraint. Here the `∈` operator is read as 'is in', i.e. set-membership. The case table construct is designed to enable the value of a single determining expression to be tested against any number of value ranges. This is illustrated in the following examples:
+
+[source,kotlin]
+----
+    gfr_range: Real
+    
+    case gfr_range in [[
+        =================
+        |>20|:      1,
+        |10 - 20|:  0.75,
+        |<10|:      0.5
+        =================
+    ]]
+----
+
+This expression returns one of the values 1, 0.75 or 0.5, depending on the evaluated value of `gfr_range`, but it could equally return the value of a more complex expression, including further instances of Case tables, Condition chains, operator expressions etc.
