@@ -19,12 +19,12 @@
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="266" gradientUnits="userSpaceOnUse" x2="394" y1="481" y2="505" id="linearGradient4" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,153,153)" offset="0%"
-        /><stop stop-opacity="1" stop-color="rgb(255,218,218)" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="302" gradientUnits="userSpaceOnUse" x2="428" y1="469" y2="487" id="linearGradient5" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,153,153)" offset="0%"
-        /><stop stop-opacity="1" stop-color="rgb(255,218,218)" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="315" gradientUnits="userSpaceOnUse" x2="465" y1="63" y2="114" id="linearGradient6" spreadMethod="pad"
       ><stop stop-opacity="1" stop-color="rgb(255,229,203)" offset="0%"
@@ -47,15 +47,15 @@
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="434" gradientUnits="userSpaceOnUse" x2="549" y1="476" y2="509" id="linearGradient11" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,153,153)" offset="0%"
-        /><stop stop-opacity="1" stop-color="rgb(255,218,218)" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="168" gradientUnits="userSpaceOnUse" x2="280" y1="238" y2="262" id="linearGradient12" spreadMethod="pad"
       ><stop stop-opacity="1" stop-color="rgb(255,229,255)" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="294" gradientUnits="userSpaceOnUse" x2="405" y1="350" y2="374" id="linearGradient13" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,204,204)" offset="0%"
+      ><stop stop-opacity="1" stop-color="rgb(188,221,255)" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="105" gradientUnits="userSpaceOnUse" x2="213" y1="70" y2="94" id="linearGradient14" spreadMethod="pad"
@@ -63,7 +63,7 @@
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="413" gradientUnits="userSpaceOnUse" x2="515" y1="413" y2="437" id="linearGradient15" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,204,204)" offset="0%"
+      ><stop stop-opacity="1" stop-color="rgb(188,221,255)" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="35" gradientUnits="userSpaceOnUse" x2="126" y1="350" y2="374" id="linearGradient16" spreadMethod="pad"
@@ -83,19 +83,19 @@
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="168" gradientUnits="userSpaceOnUse" x2="246" y1="455" y2="479" id="linearGradient20" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,204,255)" offset="0%"
-        /><stop stop-opacity="1" stop-color="white" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="224" gradientUnits="userSpaceOnUse" x2="301" y1="413" y2="437" id="linearGradient21" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,204,204)" offset="0%"
-        /><stop stop-opacity="1" stop-color="white" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="112" gradientUnits="userSpaceOnUse" x2="183" y1="413" y2="437" id="linearGradient22" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(255,153,153)" offset="0%"
-        /><stop stop-opacity="1" stop-color="rgb(255,218,218)" offset="100%"
+      ><stop stop-opacity="1" stop-color="rgb(153,204,255)" offset="0%"
+        /><stop stop-opacity="1" stop-color="rgb(218,255,255)" offset="100%"
       /></linearGradient
       ><linearGradient x1="637" gradientUnits="userSpaceOnUse" x2="707" y1="413" y2="437" id="linearGradient23" spreadMethod="pad"
-      ><stop stop-opacity="1" stop-color="rgb(214,214,214)" offset="0%"
+      ><stop stop-opacity="1" stop-color="rgb(188,221,255)" offset="0%"
         /><stop stop-opacity="1" stop-color="white" offset="100%"
       /></linearGradient
       ><linearGradient x1="21" gradientUnits="userSpaceOnUse" x2="89" y1="413" y2="437" id="linearGradient24" spreadMethod="pad"
