@@ -78,10 +78,10 @@ The same container types as defined in the {openehr_foundation_types}#_structure
 [cols="1,3",options="header"]
 |=================================================================
 |Name                   |Description
-| `Container<T>`        |Abstract parent of `List`, `Set` and `Hash` types
+| `Container<T>`        |Abstract parent of `List`, `Set` and `Map` types
 | `List<T>`             |Linear list of items of any primitive type, allowing order and repeated membership
 | `Set<T>`              |Set of items of any primitive type; no order, unique membership
-| `Hash<K:Ordered, V>`  |Indexed linear container
+| `Map<K:Ordered, V>`  |Indexed linear container
 |=================================================================
 
 === Interval Type
