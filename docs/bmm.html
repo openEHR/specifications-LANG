@@ -7374,7 +7374,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
-        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-p">[[</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
             <span class="tok-p">=========================================================</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
@@ -7399,7 +7399,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
             <span class="tok-p">=========================================================</span>
-        <span class="tok-p">]]</span></code></pre>
+        <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7412,19 +7412,19 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">cyclophosphamide_dose</span><span class="tok-p">:</span> <span class="tok-n">Quantity</span>
         <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">cyclophosphamide_dose_per_m2</span> <span class="tok-p">*</span> <span class="tok-n">BSA</span><span class="tok-p">.</span><span class="tok-n">bsa_m2</span>
-            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">platelets</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">[[</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">platelets</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
                 <span class="tok-p">===================</span>
 <span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
 <span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span>
                 <span class="tok-p">===================</span>
-            <span class="tok-p">]]</span>
-            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">gfr</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">[[</span>
+            <span class="tok-p">}</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">gfr</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
                 <span class="tok-p">===================</span>
 <span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
 <span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span><span class="tok-p">,</span>
 <span class="tok-na">                [very_low]</span><span class="tok-p">:</span>    <span class="tok-m">0.5</span>
                 <span class="tok-p">===================</span>
-            <span class="tok-p">]]</span></code></pre>
+            <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>

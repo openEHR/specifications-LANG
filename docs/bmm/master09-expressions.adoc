@@ -264,7 +264,7 @@ The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain 
 [source, kotlin]
 ----
     molecular_subtype: Terminology_term
-        Result := [[
+        Result := choice in {
             =========================================================
             er_positive and 
             her2_negative and 
@@ -289,7 +289,7 @@ The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain 
             ---------------------------------------------------------
             *:                             [none]
             =========================================================
-        ]]
+        }
 ----
 
 The above is a function that computes the molecular subtype of breast cancer using a decision table whose branches are based on a number of input variables that appear in expressions down the left-hand side and which returns a `Terminology_code` instance (the notation `[identifier]` is represents a literal `Terminology_code` instance).
@@ -300,19 +300,19 @@ An example of `EL_CASE_TABLE` is shown below. Here, two case tables are used, wi
 ----
     cyclophosphamide_dose: Quantity
         Result := cyclophosphamide_dose_per_m2 * BSA.bsa_m2
-            * case platelets.range in [[
+            * case platelets.range in {
                 ===================
                 [normal]:      1,
                 [low]:         0.75
                 ===================
-            ]]
-            * case gfr.range in [[
+            }
+            * case gfr.range in {
                 ===================
                 [normal]:      1,
                 [low]:         0.75,
                 [very_low]:    0.5
                 ===================
-            ]]
+            }
 ----
 
 == Usage in BMM Models
