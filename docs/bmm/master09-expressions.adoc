@@ -373,6 +373,7 @@ class Container<T> {
 == Class Definitions
 
 include::{uml_export_dir}/classes/el_expression.adoc[]
+include::{uml_export_dir}/classes/el_constrained.adoc[]
 include::{uml_export_dir}/classes/el_boolean_expression.adoc[]
 
 include::{uml_export_dir}/classes/el_operator.adoc[]
