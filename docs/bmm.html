@@ -4115,17 +4115,17 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">DvQuantity</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">DvQuantity</span>
+<span class="tok-p">{</span>
+    <span class="tok-n">feature</span>
+        <span class="tok-c1">// feature definitions</span>
+<span class="tok-p">}</span>
 
-    <span class="tok-k">class</span> <span class="tok-nc">Observation</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span></code></pre>
+<span class="tok-k">class</span> <span class="tok-nc">Observation</span>
+<span class="tok-p">{</span>
+    <span class="tok-n">feature</span>
+        <span class="tok-c1">// feature definitions</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4136,26 +4136,30 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a primitive generic class with an open type parameter</span>
-    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">List</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
+<span class="tok-c1">// a primitive generic class with an open type parameter</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">List</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-c1">// a generic class with a constrained type parameter</span>
-    <span class="tok-k">class</span> <span class="tok-nc">DvInterval</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">:</span><span class="tok-n">DvOrdered</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span>
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span>
 
-    <span class="tok-c1">// a primitive generic class two type parameters</span>
-    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">HashMap</span> <span class="tok-p">&lt;</span><span class="tok-n">K</span><span class="tok-p">:</span><span class="tok-n">Ordered</span><span class="tok-p">,</span> <span class="tok-n">V</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span></code></pre>
+
+<span class="tok-c1">//</span>
+<span class="tok-c1">// a generic class with a constrained type parameter</span>
+<span class="tok-c1">//</span>
+<span class="tok-k">class</span> <span class="tok-nc">DvInterval</span> <span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">:</span><span class="tok-n">DvOrdered</span><span class="tok-p">&gt;</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span>
+
+<span class="tok-c1">//</span>
+<span class="tok-c1">// a primitive generic class two type parameters</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">HashMap</span> <span class="tok-p">&lt;</span><span class="tok-n">K</span><span class="tok-p">:</span><span class="tok-n">Ordered</span><span class="tok-p">,</span> <span class="tok-n">V</span><span class="tok-p">&gt;</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4210,19 +4214,20 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// an Integer-based enumeration</span>
-    <span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">TASK_LIFECYCLE</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">planned</span>   <span class="tok-p">=</span> <span class="tok-m">0</span><span class="tok-p">;</span>
-        <span class="tok-n">available</span> <span class="tok-p">=</span> <span class="tok-m">1</span><span class="tok-p">;</span>
-        <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
-        <span class="tok-n">aborted</span>   <span class="tok-p">=</span> <span class="tok-m">3</span><span class="tok-p">;</span>
-        <span class="tok-n">abandoned</span> <span class="tok-p">=</span> <span class="tok-m">4</span><span class="tok-p">;</span>
-        <span class="tok-n">underway</span>  <span class="tok-p">=</span> <span class="tok-m">5</span><span class="tok-p">;</span>
-        <span class="tok-n">suspended</span> <span class="tok-p">=</span> <span class="tok-m">6</span><span class="tok-p">;</span>
-        <span class="tok-n">resumed</span>   <span class="tok-p">=</span> <span class="tok-m">7</span><span class="tok-p">;</span>
-        <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-m">8</span><span class="tok-p">;</span>
-    <span class="tok-p">}</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">// an Integer-based enumeration</span>
+<span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">TASK_LIFECYCLE</span>
+
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Enumeration</span> <span class="tok-n">Literals</span>
+
+    <span class="tok-n">planned</span>   <span class="tok-p">=</span> <span class="tok-m">0</span><span class="tok-p">;</span>
+    <span class="tok-n">available</span> <span class="tok-p">=</span> <span class="tok-m">1</span><span class="tok-p">;</span>
+    <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
+    <span class="tok-n">aborted</span>   <span class="tok-p">=</span> <span class="tok-m">3</span><span class="tok-p">;</span>
+    <span class="tok-n">abandoned</span> <span class="tok-p">=</span> <span class="tok-m">4</span><span class="tok-p">;</span>
+    <span class="tok-n">underway</span>  <span class="tok-p">=</span> <span class="tok-m">5</span><span class="tok-p">;</span>
+    <span class="tok-n">suspended</span> <span class="tok-p">=</span> <span class="tok-m">6</span><span class="tok-p">;</span>
+    <span class="tok-n">resumed</span>   <span class="tok-p">=</span> <span class="tok-m">7</span><span class="tok-p">;</span>
+    <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-m">8</span><span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4239,14 +4244,14 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a String-based enumeration</span>
-    <span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">ContractStatus</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">initial</span>   <span class="tok-p">=</span> <span class="tok-s">&quot;Initial&quot;</span><span class="tok-p">;</span>
-        <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Cancelled&quot;</span><span class="tok-p">;</span>
-        <span class="tok-n">active</span>    <span class="tok-p">=</span> <span class="tok-s">&quot;Active&quot;</span><span class="tok-p">;</span>
-        <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Completed&quot;</span><span class="tok-p">;</span>
-    <span class="tok-p">}</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">// a String-based enumeration</span>
+<span class="tok-n">enumeration</span> <span class="tok-k">class</span> <span class="tok-nc">ContractStatus</span>
+
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Enumeration</span> <span class="tok-n">Literals</span>
+    <span class="tok-n">initial</span>   <span class="tok-p">=</span> <span class="tok-s">&quot;Initial&quot;</span><span class="tok-p">;</span>
+    <span class="tok-n">cancelled</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Cancelled&quot;</span><span class="tok-p">;</span>
+    <span class="tok-n">active</span>    <span class="tok-p">=</span> <span class="tok-s">&quot;Active&quot;</span><span class="tok-p">;</span>
+    <span class="tok-n">completed</span> <span class="tok-p">=</span> <span class="tok-s">&quot;Completed&quot;</span><span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4281,12 +4286,11 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a Value-set type</span>
-    <span class="tok-k">class</span> <span class="tok-nc">Document</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CodedText</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
-    <span class="tok-p">}</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">// a Value-set type</span>
+<span class="tok-k">class</span> <span class="tok-nc">Document</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CodedText</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span></code></pre>
 </div>
 </div>
 </div>
@@ -4303,11 +4307,10 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span></code></pre>
 </div>
 </div>
 </div>
@@ -4318,17 +4321,16 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">Integer</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">Integer</span>
 
-    <span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">String</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
-    <span class="tok-p">}</span></code></pre>
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span>
+
+
+<span class="tok-n">primitive</span> <span class="tok-k">class</span> <span class="tok-nc">String</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4355,36 +4357,39 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-c1">// a class with simple invariants</span>
-    <span class="tok-k">class</span> <span class="tok-nc">COMPOSITION</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
+<span class="tok-c1">// a class with simple invariants</span>
+<span class="tok-c1">//</span>
+<span class="tok-k">class</span> <span class="tok-nc">COMPOSITION</span>
 
-        <span class="tok-n">invariant</span>
-            <span class="tok-n">Is_archetype_root</span><span class="tok-p">:</span> <span class="tok-n">is_archetype_root</span>
-            <span class="tok-n">Content_valid</span><span class="tok-p">:</span> <span class="tok-n">content</span> <span class="tok-p">/=</span> <span class="tok-n">Void</span> <span class="tok-n">implies</span> <span class="tok-n">not</span> <span class="tok-n">content</span><span class="tok-p">.</span><span class="tok-n">is_empty</span>
-    <span class="tok-p">}</span>
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span>
 
-    <span class="tok-c1">// a class with more complex invariants</span>
-    <span class="tok-k">class</span> <span class="tok-nc">VERSIONED_COMPOSITION</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">// feature definitions</span>
+<span class="tok-n">invariant</span>
+    <span class="tok-n">Is_archetype_root</span><span class="tok-p">:</span> <span class="tok-n">is_archetype_root</span>
+    <span class="tok-n">Content_valid</span><span class="tok-p">:</span> <span class="tok-n">content</span> <span class="tok-p">/=</span> <span class="tok-n">Void</span> <span class="tok-n">implies</span> <span class="tok-n">not</span> <span class="tok-n">content</span><span class="tok-p">.</span><span class="tok-n">is_empty</span>
 
-        <span class="tok-n">invariant</span>
-            <span class="tok-n">Archetype_node_id_valid</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
-                <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
-                    <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">.</span><span class="tok-n">is_equal</span> <span class="tok-p">(</span><span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">);</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">)</span>
 
-            <span class="tok-n">Persistent_validity</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
-                <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
-                    <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span> <span class="tok-p">=</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span><span class="tok-p">;</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">)</span>
-    <span class="tok-p">}</span></code></pre>
+<span class="tok-c1">//</span>
+<span class="tok-c1">// a class with more complex invariants</span>
+<span class="tok-c1">//</span>
+<span class="tok-k">class</span> <span class="tok-nc">VERSIONED_COMPOSITION</span>
+
+<span class="tok-n">feature</span>
+    <span class="tok-c1">// feature definitions</span>
+
+<span class="tok-n">invariant</span>
+    <span class="tok-n">Archetype_node_id_valid</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
+        <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+            <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">.</span><span class="tok-n">is_equal</span> <span class="tok-p">(</span><span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-n">archetype_node_id</span><span class="tok-p">);</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">)</span>
+
+    <span class="tok-n">Persistent_validity</span><span class="tok-p">:</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">for_all</span> <span class="tok-p">(</span>
+        <span class="tok-n">agent</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">:</span> <span class="tok-n">VERSION</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+            <span class="tok-n">v</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span> <span class="tok-p">=</span> <span class="tok-n">all_versions</span><span class="tok-p">.</span><span class="tok-n">first</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">is_persistent</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -5147,26 +5152,25 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">BASIC_DEFINITIONS</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span>
-            <span class="tok-c1">//</span>
-            <span class="tok-c1">// simple constants</span>
-            <span class="tok-c1">//</span>
-            <span class="tok-n">constant</span> <span class="tok-n">CR</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">015</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
-            <span class="tok-n">constant</span> <span class="tok-n">LF</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">012</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">BASIC_DEFINITIONS</span>
 
-            <span class="tok-c1">//</span>
-            <span class="tok-c1">// constant of complex type</span>
-            <span class="tok-c1">// TODO: correct JSON (maybe YAML?) or other syntax</span>
-            <span class="tok-c1">//</span>
-            <span class="tok-n">constant</span> <span class="tok-n">SafeSpeed</span><span class="tok-p">:</span> <span class="tok-n">Interval</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">|</span><span class="tok-m">0.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span> <span class="tok-p">..</span> <span class="tok-m">60.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span><span class="tok-p">|;</span>
+<span class="tok-n">feature</span>
+    <span class="tok-c1">//</span>
+    <span class="tok-c1">// simple constants</span>
+    <span class="tok-c1">//</span>
+    <span class="tok-n">constant</span> <span class="tok-n">CR</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">015</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
+    <span class="tok-n">constant</span> <span class="tok-n">LF</span><span class="tok-p">:</span> <span class="tok-n">Character</span> <span class="tok-p">=</span> <span class="tok-err">&#39;\</span><span class="tok-m">012</span><span class="tok-err">&#39;</span><span class="tok-p">;</span>
 
-            <span class="tok-c1">//</span>
-            <span class="tok-c1">// constant generated by a one-time expression evaluation</span>
-            <span class="tok-c1">//</span>
-            <span class="tok-n">constant</span> <span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">{</span><span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;}(</span><span class="tok-n">arg1</span><span class="tok-p">,</span> <span class="tok-n">arg2</span><span class="tok-p">);</span>
-    <span class="tok-p">}</span></code></pre>
+    <span class="tok-c1">//</span>
+    <span class="tok-c1">// constant of complex type</span>
+    <span class="tok-c1">// TODO: correct JSON (maybe YAML?) or other syntax</span>
+    <span class="tok-c1">//</span>
+    <span class="tok-n">constant</span> <span class="tok-n">SafeSpeed</span><span class="tok-p">:</span> <span class="tok-n">Interval</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">|</span><span class="tok-m">0.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span> <span class="tok-p">..</span> <span class="tok-m">60.0</span> <span class="tok-n">km</span><span class="tok-p">/</span><span class="tok-n">h</span><span class="tok-p">|;</span>
+
+    <span class="tok-c1">//</span>
+    <span class="tok-c1">// constant generated by a one-time expression evaluation</span>
+    <span class="tok-c1">//</span>
+    <span class="tok-n">constant</span> <span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;</span> <span class="tok-p">=</span> <span class="tok-p">{</span><span class="tok-n">ProxyVar</span><span class="tok-p">&lt;</span><span class="tok-n">Quantity</span><span class="tok-p">&gt;}(</span><span class="tok-n">arg1</span><span class="tok-p">,</span> <span class="tok-n">arg2</span><span class="tok-p">);</span></code></pre>
 </div>
 </div>
 </div>
@@ -5197,18 +5201,17 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span> <span class="tok-n">extend</span> <span class="tok-n">CARE_ENTRY</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Locale</span>
-            <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
-            <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">encoding</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iana::character-sets&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">ENTRY</span> <span class="tok-n">extend</span> <span class="tok-n">CARE_ENTRY</span>
 
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Access</span>
-            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">protocol</span><span class="tok-p">:</span> <span class="tok-n">ITEM_STRUCTURE</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
-            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">guideline_id</span><span class="tok-p">:</span> <span class="tok-n">OBJECT_REF</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
-            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">subject</span><span class="tok-p">:</span> <span class="tok-n">PARTY_PROXY</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
-            <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">other_participations</span><span class="tok-p">:</span> <span class="tok-n">PARTICIPATION</span><span class="tok-p">[*]{</span><span class="tok-k">set</span><span class="tok-p">};</span>
-    <span class="tok-p">}</span></code></pre>
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Locale</span>
+    <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">language</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iso::iso_639-2&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+    <span class="tok-n">association</span> <span class="tok-n">property</span> <span class="tok-n">encoding</span><span class="tok-p">:</span> <span class="tok-n">CODE_PHRASE</span> <span class="tok-p">&lt;&lt;</span><span class="tok-s">&quot;iana::character-sets&quot;</span><span class="tok-p">&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Access</span>
+    <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">protocol</span><span class="tok-p">:</span> <span class="tok-n">ITEM_STRUCTURE</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
+    <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">guideline_id</span><span class="tok-p">:</span> <span class="tok-n">OBJECT_REF</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+    <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">subject</span><span class="tok-p">:</span> <span class="tok-n">PARTY_PROXY</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">];</span>
+    <span class="tok-n">composition</span> <span class="tok-n">property</span> <span class="tok-n">other_participations</span><span class="tok-p">:</span> <span class="tok-n">PARTICIPATION</span><span class="tok-p">[*]{</span><span class="tok-k">set</span><span class="tok-p">};</span></code></pre>
 </div>
 </div>
 </div>
@@ -5257,33 +5260,31 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">DV_AMOUNT</span>
-        <span class="tok-n">inherit</span>
-            <span class="tok-n">DV_QUANTIFIED</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">abstract</span> <span class="tok-k">class</span> <span class="tok-nc">DV_AMOUNT</span>
+    <span class="tok-n">inherit</span>
+        <span class="tok-n">DV_QUANTIFIED</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">equal</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;=&#39;</span><span class="tok-p">};</span>
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">less_than</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;&lt;&#39;</span><span class="tok-p">};</span>
+    <span class="tok-n">function</span> <span class="tok-n">equal</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;=&#39;</span><span class="tok-p">};</span>
 
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
+    <span class="tok-n">function</span> <span class="tok-n">less_than</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">Boolean</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;&lt;&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">add</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;+&#39;</span><span class="tok-p">};</span>
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Arithmetic</span> <span class="tok-n">Operations</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;-&#39;</span><span class="tok-p">};</span>
+    <span class="tok-n">function</span> <span class="tok-n">add</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;+&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">multiply</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;*&#39;</span><span class="tok-p">};</span>
+    <span class="tok-n">function</span> <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;-&#39;</span><span class="tok-p">};</span>
 
-            <span class="tok-n">function</span> <span class="tok-n">divide</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;/&#39;</span><span class="tok-p">,</span> <span class="tok-k">infix</span> <span class="tok-sc">&#39;÷&#39;</span><span class="tok-p">};</span>
+    <span class="tok-n">function</span> <span class="tok-n">multiply</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;*&#39;</span><span class="tok-p">};</span>
 
-    <span class="tok-p">}</span></code></pre>
+    <span class="tok-n">function</span> <span class="tok-n">divide</span> <span class="tok-p">(</span><span class="tok-k">val</span><span class="tok-p">:</span> <span class="tok-n">Real</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]):</span> <span class="tok-n">DV_AMOUNT</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">alias</span> <span class="tok-p">{</span><span class="tok-k">infix</span> <span class="tok-sc">&#39;/&#39;</span><span class="tok-p">,</span> <span class="tok-k">infix</span> <span class="tok-sc">&#39;÷&#39;</span><span class="tok-p">};</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -5326,19 +5327,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">I_EHR_SERVICE</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creation</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">I_EHR_SERVICE</span>
 
-            <span class="tok-n">create_ehr_with_id</span> <span class="tok-p">(</span>
-                <span class="tok-n">an_ehr_id</span><span class="tok-p">:</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
-                <span class="tok-n">an_ehr_status</span><span class="tok-p">:</span> <span class="tok-n">EHR_STATUS</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">]</span>
-            <span class="tok-p">):</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
-                <span class="tok-n">pre_condition</span>
-                    <span class="tok-n">No_duplicate</span><span class="tok-p">:</span> <span class="tok-n">not</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">an_ehr_id</span><span class="tok-p">)</span>
-                <span class="tok-n">post_condition</span>
-                    <span class="tok-n">Has_ehr</span><span class="tok-p">:</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">Result</span><span class="tok-p">)</span>
-    <span class="tok-p">}</span></code></pre>
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creation</span>
+
+    <span class="tok-n">create_ehr_with_id</span> <span class="tok-p">(</span>
+        <span class="tok-n">an_ehr_id</span><span class="tok-p">:</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">];</span>
+        <span class="tok-n">an_ehr_status</span><span class="tok-p">:</span> <span class="tok-n">EHR_STATUS</span><span class="tok-p">[</span><span class="tok-m">0.</span><span class="tok-p">.</span><span class="tok-m">1</span><span class="tok-p">]</span>
+    <span class="tok-p">):</span> <span class="tok-n">UUID</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">]</span>
+        <span class="tok-n">pre_condition</span>
+            <span class="tok-n">No_duplicate</span><span class="tok-p">:</span> <span class="tok-n">not</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">an_ehr_id</span><span class="tok-p">)</span>
+        <span class="tok-n">post_condition</span>
+            <span class="tok-n">Has_ehr</span><span class="tok-p">:</span> <span class="tok-n">has_ehr</span> <span class="tok-p">(</span><span class="tok-n">Result</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -5358,22 +5358,23 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">Date</span>
-        <span class="tok-n">inherit</span>
-            <span class="tok-n">Temporal</span>
-        <span class="tok-n">convert</span>
-            <span class="tok-n">create_from_string</span>
-    <span class="tok-p">{</span>
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creators</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Date</span>
 
-            <span class="tok-n">procedure</span> <span class="tok-n">create_from_string</span> <span class="tok-p">(</span><span class="tok-n">a_date_str</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
+<span class="tok-n">inherit</span>
+    <span class="tok-n">Temporal</span>
 
-            <span class="tok-n">procedure</span> <span class="tok-n">create</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">,</span> <span class="tok-n">a_month</span><span class="tok-p">,</span> <span class="tok-n">a_year</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
+<span class="tok-n">convert</span>
+    <span class="tok-n">create_from_string</span>
 
-        <span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Modification</span>
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Creators</span>
 
-            <span class="tok-n">procedure</span> <span class="tok-n">set_day</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
-    <span class="tok-p">}</span></code></pre>
+    <span class="tok-n">procedure</span> <span class="tok-n">create_from_string</span> <span class="tok-p">(</span><span class="tok-n">a_date_str</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
+
+    <span class="tok-n">procedure</span> <span class="tok-n">create</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">,</span> <span class="tok-n">a_month</span><span class="tok-p">,</span> <span class="tok-n">a_year</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span>
+
+<span class="tok-n">feature</span> <span class="tok-p">--</span> <span class="tok-n">Modification</span>
+
+    <span class="tok-n">procedure</span> <span class="tok-n">set_day</span> <span class="tok-p">(</span><span class="tok-n">a_day</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">])</span></code></pre>
 </div>
 </div>
 </div>
@@ -7193,13 +7194,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">SmartRef</span>
-<span class="tok-p">{</span>
+
+<span class="tok-n">feature</span>
+
     <span class="tok-n">property</span> <span class="tok-n">url</span><span class="tok-p">:</span> <span class="tok-n">Url</span><span class="tok-p">;</span>
     <span class="tok-n">property</span> <span class="tok-n">value</span><span class="tok-p">:</span> <span class="tok-n">Base64String</span><span class="tok-p">;</span>
 
     <span class="tok-n">invariant</span>
-        <span class="tok-n">Validity</span><span class="tok-p">:</span> <span class="tok-n">attached</span><span class="tok-p">(</span><span class="tok-n">url</span><span class="tok-p">)</span> <span class="tok-n">or</span> <span class="tok-n">attached</span><span class="tok-p">(</span><span class="tok-n">value</span><span class="tok-p">)</span>
-<span class="tok-p">}</span></code></pre>
+        <span class="tok-n">Validity</span><span class="tok-p">:</span> <span class="tok-n">attached</span><span class="tok-p">(</span><span class="tok-n">url</span><span class="tok-p">)</span> <span class="tok-n">or</span> <span class="tok-n">attached</span><span class="tok-p">(</span><span class="tok-n">value</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -7227,15 +7229,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Account</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Account</span>
 
-    <span class="tok-n">feature</span>
-        <span class="tok-n">balance</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span>
-        <span class="tok-n">overdraft_limit</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span>
+<span class="tok-n">feature</span>
+    <span class="tok-n">balance</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span>
+    <span class="tok-n">overdraft_limit</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span>
 
-    <span class="tok-n">invariant</span>
-        <span class="tok-n">balance</span> <span class="tok-p">+</span> <span class="tok-n">overdraft_limit</span> <span class="tok-p">&gt;</span> <span class="tok-m">0</span>
-<span class="tok-p">}</span></code></pre>
+<span class="tok-n">invariant</span>
+    <span class="tok-n">balance</span> <span class="tok-p">+</span> <span class="tok-n">overdraft_limit</span> <span class="tok-p">&gt;</span> <span class="tok-m">0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7243,15 +7244,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Decimal</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Decimal</span>
 
-    <span class="tok-n">feature</span>
-        <span class="tok-n">greater_than</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span><span class="tok-p">):</span> <span class="tok-n">Boolean</span>
-            <span class="tok-n">alias</span> <span class="tok-sc">&#39;&gt;&#39;</span>
+<span class="tok-n">feature</span>
+    <span class="tok-n">greater_than</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span><span class="tok-p">):</span> <span class="tok-n">Boolean</span>
+        <span class="tok-n">alias</span> <span class="tok-sc">&#39;&gt;&#39;</span>
 
-        <span class="tok-n">addition</span><span class="tok-p">:</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span><span class="tok-p">):</span> <span class="tok-n">Decimal</span>
-            <span class="tok-n">alias</span> <span class="tok-sc">&#39;+&#39;</span>
-<span class="tok-p">}</span></code></pre>
+    <span class="tok-n">addition</span><span class="tok-p">:</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Decimal</span><span class="tok-p">):</span> <span class="tok-n">Decimal</span>
+        <span class="tok-n">alias</span> <span class="tok-sc">&#39;+&#39;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7375,7 +7375,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
-        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span>
             <span class="tok-p">=========================================================</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
@@ -7400,7 +7400,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
             <span class="tok-p">=========================================================</span>
-        <span class="tok-p">}</span></code></pre>
+        <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7413,19 +7413,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">cyclophosphamide_dose</span><span class="tok-p">:</span> <span class="tok-n">Quantity</span>
         <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">cyclophosphamide_dose_per_m2</span> <span class="tok-p">*</span> <span class="tok-n">BSA</span><span class="tok-p">.</span><span class="tok-n">bsa_m2</span>
-            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">platelets</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">platelets</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span>
                 <span class="tok-p">===================</span>
 <span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
 <span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span>
                 <span class="tok-p">===================</span>
-            <span class="tok-p">}</span>
-            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">gfr</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+            <span class="tok-p">*</span> <span class="tok-n">case</span> <span class="tok-n">gfr</span><span class="tok-p">.</span><span class="tok-n">range</span> <span class="tok-k">in</span>
                 <span class="tok-p">===================</span>
 <span class="tok-na">                [normal]</span><span class="tok-p">:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
 <span class="tok-na">                [low]</span><span class="tok-p">:</span>         <span class="tok-m">0.75</span><span class="tok-p">,</span>
 <span class="tok-na">                [very_low]</span><span class="tok-p">:</span>    <span class="tok-m">0.5</span>
                 <span class="tok-p">===================</span>
-            <span class="tok-p">}</span></code></pre>
+            <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 </div>
@@ -7447,12 +7446,11 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">PersonName</span> <span class="tok-p">{</span>
-    <span class="tok-n">property</span> <span class="tok-n">items</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">[</span><span class="tok-m">1.</span><span class="tok-p">.*];</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">PersonName</span>
+<span class="tok-n">property</span> <span class="tok-n">items</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">[</span><span class="tok-m">1.</span><span class="tok-p">.*];</span>
 
-    <span class="tok-n">invariant</span>
-        <span class="tok-err">∀</span> <span class="tok-n">nameItem</span><span class="tok-p">:</span> <span class="tok-n">items</span> <span class="tok-p">|</span> <span class="tok-n">not</span> <span class="tok-n">nameItem</span><span class="tok-p">.</span><span class="tok-n">isEmpty</span><span class="tok-p">()</span>
-<span class="tok-p">}</span></code></pre>
+<span class="tok-n">invariant</span>
+    <span class="tok-err">∀</span> <span class="tok-n">nameItem</span><span class="tok-p">:</span> <span class="tok-n">items</span> <span class="tok-p">|</span> <span class="tok-n">not</span> <span class="tok-n">nameItem</span><span class="tok-p">.</span><span class="tok-n">isEmpty</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7481,14 +7479,15 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Container</span><span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">&gt;</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-k">class</span> <span class="tok-nc">Container</span><span class="tok-p">&lt;</span><span class="tok-n">T</span><span class="tok-p">&gt;</span>
+
+<span class="tok-n">feature</span>
 
     <span class="tok-n">for_all</span> <span class="tok-p">(</span><span class="tok-n">test</span><span class="tok-p">:</span> <span class="tok-n">Function</span><span class="tok-p">&lt;[</span><span class="tok-n">T</span><span class="tok-p">],</span> <span class="tok-n">Boolean</span><span class="tok-p">&gt;):</span> <span class="tok-n">Boolean</span><span class="tok-p">;</span>
             <span class="tok-p">--</span> <span class="tok-n">True</span> <span class="tok-k">if</span> <span class="tok-k">for</span> <span class="tok-n">every</span> <span class="tok-n">v</span> <span class="tok-k">in</span> <span class="tok-n">container</span><span class="tok-p">,</span> <span class="tok-n">test</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">)</span> <span class="tok-k">is</span> <span class="tok-n">True</span>
 
     <span class="tok-n">there_exists</span> <span class="tok-p">(</span><span class="tok-n">test</span><span class="tok-p">:</span> <span class="tok-n">Function</span><span class="tok-p">&lt;[</span><span class="tok-n">T</span><span class="tok-p">],</span> <span class="tok-n">Boolean</span><span class="tok-p">&gt;):</span> <span class="tok-n">Boolean</span><span class="tok-p">;</span>
-            <span class="tok-p">--</span> <span class="tok-n">True</span> <span class="tok-k">if</span> <span class="tok-n">there</span> <span class="tok-k">is</span> <span class="tok-n">any</span> <span class="tok-n">v</span> <span class="tok-k">in</span> <span class="tok-n">container</span> <span class="tok-k">for</span> <span class="tok-n">which</span> <span class="tok-n">test</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">)</span> <span class="tok-k">is</span> <span class="tok-n">True</span>
-<span class="tok-p">}</span></code></pre>
+            <span class="tok-p">--</span> <span class="tok-n">True</span> <span class="tok-k">if</span> <span class="tok-n">there</span> <span class="tok-k">is</span> <span class="tok-n">any</span> <span class="tok-n">v</span> <span class="tok-k">in</span> <span class="tok-n">container</span> <span class="tok-k">for</span> <span class="tok-n">which</span> <span class="tok-n">test</span> <span class="tok-p">(</span><span class="tok-n">v</span><span class="tok-p">)</span> <span class="tok-k">is</span> <span class="tok-n">True</span></code></pre>
 </div>
 </div>
 </div>
@@ -8935,26 +8934,24 @@ probably to be removed.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span>
 
-    <span class="tok-nx">feature</span> <span class="tok-c1">// Definitions</span>
+<span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Definitions</span>
 
-        <span class="tok-nx">overdraft_limit</span>: <span class="tok-kt">Decimal</span> <span class="tok-o">=</span> <span class="tok-mi">250</span><span class="tok-p">;</span>
+    <span class="tok-nx">overdraft_limit</span>: <span class="tok-kt">Decimal</span> <span class="tok-o">=</span> <span class="tok-mi">250</span><span class="tok-p">;</span>
 
-    <span class="tok-nx">feature</span> <span class="tok-c1">// State</span>
+<span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">State</span>
 
-        <span class="tok-nx">balance</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span>
+    <span class="tok-nx">balance</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span>
 
-    <span class="tok-nx">feature</span> <span class="tok-c1">// Interface</span>
+<span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Interface</span>
 
-        <span class="tok-nx">position</span>: <span class="tok-kt">Decimal</span> <span class="tok-p">{</span>
-            <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span>
-        <span class="tok-p">}</span>
+    <span class="tok-nx">position</span>: <span class="tok-kt">Decimal</span> <span class="tok-p">{</span>
+        <span class="tok-nx">Result</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span>
+    <span class="tok-p">}</span>
 
-    <span class="tok-nx">invariant</span>
-        <span class="tok-nx">Solvent</span>: <span class="tok-kt">position</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
-
-<span class="tok-p">}</span></code></pre>
+<span class="tok-nx">invariant</span>
+    <span class="tok-nx">Solvent</span>: <span class="tok-kt">position</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8974,36 +8971,34 @@ probably to be removed.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="typescript"><span></span><span class="tok-kr">class</span> <span class="tok-nx">Simple_bank_account</span>
 
-    <span class="tok-nx">feature</span> <span class="tok-c1">// Modification</span>
+<span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Modification</span>
 
-        <span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Decimal</span><span class="tok-p">)</span>
-            <span class="tok-nx">precondition</span>
-                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">val</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
-        <span class="tok-p">{</span>
-            <span class="tok-nx">balance</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">val</span>
-        <span class="tok-p">}</span>
-<span class="tok-p">}</span>
+    <span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">val</span>: <span class="tok-kt">Decimal</span><span class="tok-p">)</span>
+        <span class="tok-nx">precondition</span>
+            <span class="tok-nx">valid_amount</span>: <span class="tok-kt">val</span> <span class="tok-o">+</span> <span class="tok-nx">overdraft_limit</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
+    <span class="tok-p">{</span>
+        <span class="tok-nx">balance</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">val</span>
+    <span class="tok-p">}</span>
 
 <span class="tok-kr">class</span> <span class="tok-nx">Account_access</span> <span class="tok-p">{</span>
 
-    <span class="tok-nx">feature</span> <span class="tok-c1">// Command</span>
+<span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Command</span>
 
-        <span class="tok-nx">deposit</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
-            <span class="tok-nx">pre_condition</span>
-                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">v</span> <span class="tok-o">&gt;</span> <span class="tok-mf">0.0</span>
-        <span class="tok-p">{</span>
-            <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">v</span><span class="tok-p">);</span>
-        <span class="tok-p">}</span>
+    <span class="tok-nx">deposit</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
+        <span class="tok-nx">pre_condition</span>
+            <span class="tok-nx">valid_amount</span>: <span class="tok-kt">v</span> <span class="tok-o">&gt;</span> <span class="tok-mf">0.0</span>
+    <span class="tok-p">{</span>
+        <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-nx">v</span><span class="tok-p">);</span>
+    <span class="tok-p">}</span>
 
-        <span class="tok-nx">withdraw</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
-            <span class="tok-nx">pre_condition</span>
-                <span class="tok-nx">valid_amount</span>: <span class="tok-kt">ac.overdraft_limit</span> <span class="tok-o">-</span> <span class="tok-nx">v</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
-        <span class="tok-p">{</span>
-            <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-nx">v</span><span class="tok-p">);</span>
-        <span class="tok-p">}</span>
-<span class="tok-p">}</span></code></pre>
+    <span class="tok-nx">withdraw</span> <span class="tok-p">(</span><span class="tok-nx">v</span>: <span class="tok-kt">Decimal</span><span class="tok-p">;</span> <span class="tok-nx">ac</span>: <span class="tok-kt">Simple_bank_account</span><span class="tok-p">)</span>
+        <span class="tok-nx">pre_condition</span>
+            <span class="tok-nx">valid_amount</span>: <span class="tok-kt">ac.overdraft_limit</span> <span class="tok-o">-</span> <span class="tok-nx">v</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.0</span>
+    <span class="tok-p">{</span>
+        <span class="tok-nx">ac</span><span class="tok-p">.</span><span class="tok-nx">put</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-nx">v</span><span class="tok-p">);</span>
+    <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

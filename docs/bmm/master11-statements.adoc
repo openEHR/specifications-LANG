@@ -22,26 +22,24 @@ The following example shows a simple assignment in the definition of the functio
 
 [source,typescript]
 ----
-class Simple_bank_account {
+class Simple_bank_account
 
-    feature // Definitions
+feature -- Definitions
 
-        overdraft_limit: Decimal = 250;
+    overdraft_limit: Decimal = 250;
 
-    feature // State
-    
-        balance: Decimal;
-    
-    feature // Interface
-    
-        position: Decimal {
-            Result := balance + overdraft_limit
-        }
-    
-    invariant
-        Solvent: position >= 0.0
+feature -- State
 
-}
+    balance: Decimal;
+
+feature -- Interface
+
+    position: Decimal {
+        Result := balance + overdraft_limit
+    }
+
+invariant
+    Solvent: position >= 0.0
 ----
 
 The BMM meta-model for this statement is shown below.
@@ -56,36 +54,34 @@ A procedure call is represented in BMM by the meta-type `BMM_PROCEDURE_CALL`, wh
 
 [source,typescript]
 ----
-class Simple_bank_account {
+class Simple_bank_account
 
-    feature // Modification
-    
-        put (val: Decimal)
-            precondition
-                valid_amount: val + overdraft_limit >= 0.0
-        {
-            balance := balance + val
-        }
-}
+feature -- Modification
+
+    put (val: Decimal)
+        precondition
+            valid_amount: val + overdraft_limit >= 0.0
+    {
+        balance := balance + val
+    }
 
 class Account_access {
 
-    feature // Command
-    
-        deposit (v: Decimal; ac: Simple_bank_account)
-            pre_condition
-                valid_amount: v > 0.0
-        {
-            ac.put (v);
-        }
+feature -- Command
 
-        withdraw (v: Decimal; ac: Simple_bank_account)
-            pre_condition
-                valid_amount: ac.overdraft_limit - v >= 0.0
-        {
-            ac.put (-v);
-        }
-}
+    deposit (v: Decimal; ac: Simple_bank_account)
+        pre_condition
+            valid_amount: v > 0.0
+    {
+        ac.put (v);
+    }
+
+    withdraw (v: Decimal; ac: Simple_bank_account)
+        pre_condition
+            valid_amount: ac.overdraft_limit - v >= 0.0
+    {
+        ac.put (-v);
+    }
 ----
 
 The BMM meta-model for the call is shown below.

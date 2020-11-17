@@ -20,17 +20,17 @@ The simplest type of class definition in a model is an instance of the meta-type
 
 [source,kotlin]
 ----
-    class DvQuantity
-    {
-        feature
-            // feature definitions
-    }
-    
-    class Observation
-    {
-        feature
-            // feature definitions
-    }    
+class DvQuantity
+{
+    feature
+        // feature definitions
+}
+
+class Observation
+{
+    feature
+        // feature definitions
+}    
 ----
 
 == Generic Classes
@@ -39,26 +39,30 @@ The generic class meta-type `BMM_GENERIC_CLASS` adds generic parameters to `BMM_
 
 [source,kotlin]
 ----
-    // a primitive generic class with an open type parameter
-    primitive class List <T>
-    {
-        feature
-            // feature definitions
-    }
-    
-    // a generic class with a constrained type parameter
-    class DvInterval <T:DvOrdered>
-    {
-        feature
-            // feature definitions
-    }
-    
-    // a primitive generic class two type parameters
-    primitive class HashMap <K:Ordered, V> 
-    {
-        feature
-            // feature definitions
-    }    
+//
+// a primitive generic class with an open type parameter
+//
+primitive class List <T>
+
+feature
+    // feature definitions
+
+
+//
+// a generic class with a constrained type parameter
+//
+class DvInterval <T:DvOrdered>
+
+feature
+    // feature definitions
+
+//
+// a primitive generic class two type parameters
+//
+primitive class HashMap <K:Ordered, V> 
+
+feature
+    // feature definitions
 ----
 
 The following example shows a generic class `Interval<T:Ordered>`, which is a class `Interval` with one formal parameter `T` constrained to be of type `Ordered` or any descendant.
@@ -97,19 +101,20 @@ The following shows the same class in an abstract syntax.
 
 [source,kotlin]
 ----
-    // an Integer-based enumeration
-    enumeration class TASK_LIFECYCLE
-    {
-        planned   = 0;
-        available = 1;
-        cancelled = 2;
-        aborted   = 3;
-        abandoned = 4;
-        underway  = 5;
-        suspended = 6;
-        resumed   = 7;
-        completed = 8;
-    }
+// an Integer-based enumeration
+enumeration class TASK_LIFECYCLE
+
+feature -- Enumeration Literals
+
+    planned   = 0;
+    available = 1;
+    cancelled = 2;
+    aborted   = 3;
+    abandoned = 4;
+    underway  = 5;
+    suspended = 6;
+    resumed   = 7;
+    completed = 8;
 ----
 
 The following screenshot shows how this enumeration class appears within a BMM model.
@@ -122,14 +127,14 @@ The following shows another enumeration class, this time based on the `String` t
 
 [source,kotlin]
 ----
-    // a String-based enumeration
-    enumeration class ContractStatus
-    {
-        initial   = "Initial";
-        cancelled = "Cancelled";
-        active    = "Active";
-        completed = "Completed";
-    }
+// a String-based enumeration
+enumeration class ContractStatus
+
+feature -- Enumeration Literals
+    initial   = "Initial";
+    cancelled = "Cancelled";
+    active    = "Active";
+    completed = "Completed";
 ----
 
 The types `String` and `Integer` are assumed to be defined via primitive classes of the same names.
@@ -154,12 +159,11 @@ The following shows a possible abstract syntax value-set type definition.
 
 [source,kotlin]
 ----
-    // a Value-set type
-    class Document
-    {
-        feature
-            property language: CodedText <<"iso::iso_639-2">> [1];
-    }
+// a Value-set type
+class Document
+
+feature
+    property language: CodedText <<"iso::iso_639-2">> [1];
 ----
 
 == Class Qualifiers
@@ -172,11 +176,10 @@ Any class definition in a BMM model may be marked as 'abstract', to indicate tha
 
 [source,kotlin]
 ----
-    abstract class ENTRY
-    {
-        feature
-            // feature definitions
-    }
+abstract class ENTRY
+
+feature
+    // feature definitions
 ----
 
 === Primitive Type Classes
@@ -185,17 +188,16 @@ Class definitions within a BMM model may be marked as 'primitive', enabling them
 
 [source,kotlin]
 ----
-    primitive class Integer 
-    {
-        feature
-            // feature definitions
-    }
-    
-    primitive class String
-    {
-        feature
-            // feature definitions
-    }
+primitive class Integer 
+
+feature
+    // feature definitions
+
+
+primitive class String
+
+feature
+    // feature definitions
 ----
 
 The following shows part of a BMM model in which a number of classes are classified as primitive (shown in light and dark grey).
@@ -214,36 +216,39 @@ The following shows classes with invariants.
 
 [source,kotlin]
 ----
-    // a class with simple invariants
-    class COMPOSITION
-    {
-        feature
-            // feature definitions
-        
-        invariant
-            Is_archetype_root: is_archetype_root
-            Content_valid: content /= Void implies not content.is_empty
-    }
-    
-    // a class with more complex invariants
-    class VERSIONED_COMPOSITION
-    {
-        feature
-            // feature definitions
-        
-        invariant
-            Archetype_node_id_valid: all_versions.for_all (
-                agent (v: VERSION) {
-                    v.archetype_node_id.is_equal (all_versions.first.archetype_node_id);
-                }
-            )
-            
-            Persistent_validity: all_versions.for_all (
-                agent (v: VERSION) {            
-                    v.is_persistent = all_versions.first.data.is_persistent;
-                }
-            )
-    }
+//
+// a class with simple invariants
+//
+class COMPOSITION
+
+feature
+    // feature definitions
+
+invariant
+    Is_archetype_root: is_archetype_root
+    Content_valid: content /= Void implies not content.is_empty
+
+
+//
+// a class with more complex invariants
+//
+class VERSIONED_COMPOSITION
+
+feature
+    // feature definitions
+
+invariant
+    Archetype_node_id_valid: all_versions.for_all (
+        agent (v: VERSION) {
+            v.archetype_node_id.is_equal (all_versions.first.archetype_node_id);
+        }
+    )
+
+    Persistent_validity: all_versions.for_all (
+        agent (v: VERSION) {            
+            v.is_persistent = all_versions.first.data.is_persistent;
+        }
+    )
 ----
 
 == Inheritance

@@ -1631,13 +1631,13 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">choice</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">choice</span> <span class="tok-k">in</span>
         <span class="tok-p">&lt;</span><span class="tok-n">condition_1</span><span class="tok-p">&gt;:</span>  <span class="tok-p">&lt;</span><span class="tok-n">expression_1</span><span class="tok-p">&gt;,</span>
         <span class="tok-p">&lt;</span><span class="tok-n">condition_2</span><span class="tok-p">&gt;:</span>  <span class="tok-p">&lt;</span><span class="tok-n">expression_2</span><span class="tok-p">&gt;,</span>
         <span class="tok-p">...</span>
         <span class="tok-p">&lt;</span><span class="tok-n">condition_N</span><span class="tok-p">&gt;:</span>  <span class="tok-p">&lt;</span><span class="tok-n">expression_N</span><span class="tok-p">&gt;,</span>
         <span class="tok-p">*:</span>              <span class="tok-p">&lt;</span><span class="tok-k">else</span> <span class="tok-n">expression</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">}</span></code></pre>
+    <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1649,7 +1649,7 @@
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">molecular_subtype</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
-        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span>
             <span class="tok-p">=========================================================</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
@@ -1674,7 +1674,7 @@
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
             <span class="tok-p">=========================================================</span>
-        <span class="tok-p">}</span></code></pre>
+        <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1683,13 +1683,13 @@
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">calculate_score</span><span class="tok-p">:</span> <span class="tok-n">Integer</span>
-        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">choice</span> <span class="tok-k">in</span>
             <span class="tok-p">============</span>
             <span class="tok-n">expr1</span><span class="tok-p">:</span>    <span class="tok-m">2</span><span class="tok-p">,</span>
             <span class="tok-p">------------</span>
             <span class="tok-p">*:</span>        <span class="tok-m">0</span>
             <span class="tok-p">============</span>
-        <span class="tok-p">}</span></code></pre>
+        <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1728,13 +1728,14 @@
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">gfr_range</span><span class="tok-p">:</span> <span class="tok-n">Real</span>
 
-    <span class="tok-n">case</span> <span class="tok-n">gfr_range</span> <span class="tok-k">in</span> <span class="tok-p">{</span>
-        <span class="tok-p">=================</span>
-        <span class="tok-p">|&gt;</span><span class="tok-m">20</span><span class="tok-p">|:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
-        <span class="tok-p">|</span><span class="tok-m">10</span> <span class="tok-p">-</span> <span class="tok-m">20</span><span class="tok-p">|:</span>  <span class="tok-m">0.75</span><span class="tok-p">,</span>
-        <span class="tok-p">|&lt;</span><span class="tok-m">10</span><span class="tok-p">|:</span>      <span class="tok-m">0.5</span>
-        <span class="tok-p">=================</span>
-    <span class="tok-p">}</span></code></pre>
+    <span class="tok-n">risk_assessment</span><span class="tok-p">:</span> <span class="tok-n">Real</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">case</span> <span class="tok-n">gfr_range</span> <span class="tok-k">in</span>
+            <span class="tok-p">=================</span>
+            <span class="tok-p">|&gt;</span><span class="tok-m">20</span><span class="tok-p">|:</span>      <span class="tok-m">1</span><span class="tok-p">,</span>
+            <span class="tok-p">|</span><span class="tok-m">10</span> <span class="tok-p">-</span> <span class="tok-m">20</span><span class="tok-p">|:</span>  <span class="tok-m">0.75</span><span class="tok-p">,</span>
+            <span class="tok-p">|&lt;</span><span class="tok-m">10</span><span class="tok-p">|:</span>      <span class="tok-m">0.5</span>
+            <span class="tok-p">=================</span>
+        <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1744,21 +1745,21 @@
 <div class="sect3">
 <h4 id="_two_dimensional_tables_experimental"><a class="anchor" href="#_two_dimensional_tables_experimental"></a>5.4.3. Two-dimensional Tables (experimental)</h4>
 <div class="paragraph">
-<p>Two-dimensional decision tables are extremely common in all sectors. Although they can be reduced to a condition chain, EL provides a more direct syntax that enables them to be expressed in a form visually very close to their logical form.</p>
+<p>Two-dimensional decision tables are common in all sectors. Although they can be reduced to a condition chain, EL provides a more direct syntax that enables them to be expressed in a form visually very close to their logical form.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-n">item</span> <span class="tok-k">in</span> <span class="tok-p">[</span>
-    <span class="tok-p">=========================================================================</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-n">item</span> <span class="tok-k">in</span>
+    <span class="tok-p">==========================================================================</span>
                    <span class="tok-p">{</span>    <span class="tok-n">isEconomy</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">),</span>   <span class="tok-n">isBusiness</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">),</span>      <span class="tok-n">isFirstClass</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">)</span> <span class="tok-p">},</span>
-    <span class="tok-p">-------------------------------------------------------------------------</span>
+    <span class="tok-p">--------------------------------------------------------------------------</span>
     <span class="tok-n">isChild</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">):</span>    <span class="tok-p">{</span>    <span class="tok-m">50</span><span class="tok-p">,</span>             <span class="tok-m">250</span><span class="tok-p">,</span>                <span class="tok-m">1000</span>            <span class="tok-p">},</span>
-    <span class="tok-p">-------------------------------------------------------------------------</span>
+    <span class="tok-p">--------------------------------------------------------------------------</span>
     <span class="tok-n">isAdult</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">):</span>    <span class="tok-p">{</span>    <span class="tok-m">250</span> <span class="tok-p">+</span> <span class="tok-n">trip</span><span class="tok-p">.</span><span class="tok-n">d</span><span class="tok-p">,</span>   <span class="tok-m">450</span> <span class="tok-p">+</span> <span class="tok-n">trip</span><span class="tok-p">.</span><span class="tok-n">d</span><span class="tok-p">,</span>       <span class="tok-m">750</span> <span class="tok-p">+</span> <span class="tok-n">trip</span><span class="tok-p">.</span><span class="tok-n">d</span>    <span class="tok-p">},</span>
-    <span class="tok-p">-------------------------------------------------------------------------</span>
+    <span class="tok-p">--------------------------------------------------------------------------</span>
     <span class="tok-n">isMilitary</span><span class="tok-p">(</span><span class="tok-n">p</span><span class="tok-p">):</span> <span class="tok-p">{</span>    <span class="tok-m">90</span><span class="tok-p">,</span>             <span class="tok-m">250</span><span class="tok-p">,</span>                <span class="tok-m">750</span> <span class="tok-p">-</span> <span class="tok-m">2</span> <span class="tok-p">*</span> <span class="tok-n">p</span><span class="tok-p">.</span><span class="tok-n">age</span> <span class="tok-p">}</span>
-    <span class="tok-p">=========================================================================</span>
-<span class="tok-p">]</span></code></pre>
+    <span class="tok-p">==========================================================================</span>
+<span class="tok-p">;</span></code></pre>
 </div>
 </div>
 </div>

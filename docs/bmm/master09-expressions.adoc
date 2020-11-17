@@ -116,13 +116,14 @@ The `attached` predicate is used to test for an instance reference (including a 
 [source,kotlin]
 ----
 class SmartRef
-{
+
+feature
+
     property url: Url;
     property value: Base64String;
     
     invariant
         Validity: attached(url) or attached(value)
-}
 ----
 
 ==== Defined (x)
@@ -142,30 +143,28 @@ BMM contains meta-types representing operators, but assumes that all operators a
 
 [source, kotlin]
 ----
-class Account {
+class Account
 
-    feature
-        balance: Decimal
-        overdraft_limit: Decimal
+feature
+    balance: Decimal
+    overdraft_limit: Decimal
 
-    invariant
-        balance + overdraft_limit > 0
-}
+invariant
+    balance + overdraft_limit > 0
 ----
 
 The expression `balance + overdraft_limit > 0` makes use of two operators `+ and `>`, which are really functions defined on the type `Decimal`, as follows.
 
 [source, kotlin]
 ----
-class Decimal {
+class Decimal
 
-    feature
-        greater_than (other: Decimal): Boolean
-            alias '>'
+feature
+    greater_than (other: Decimal): Boolean
+        alias '>'
 
-        addition: (other: Decimal): Decimal
-            alias '+'
-}
+    addition: (other: Decimal): Decimal
+        alias '+'
 ----
 
 A parser processing this expression would produce the result shown below, assuming that the BMM model containing these classes had already been instantiated.
@@ -264,7 +263,7 @@ The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain 
 [source, kotlin]
 ----
     molecular_subtype: Terminology_term
-        Result := choice in {
+        Result := choice in
             =========================================================
             er_positive and 
             her2_negative and 
@@ -289,7 +288,7 @@ The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain 
             ---------------------------------------------------------
             *:                             [none]
             =========================================================
-        }
+        ;
 ----
 
 The above is a function that computes the molecular subtype of breast cancer using a decision table whose branches are based on a number of input variables that appear in expressions down the left-hand side and which returns a `Terminology_code` instance (the notation `[identifier]` is represents a literal `Terminology_code` instance).
@@ -300,19 +299,18 @@ An example of `EL_CASE_TABLE` is shown below. Here, two case tables are used, wi
 ----
     cyclophosphamide_dose: Quantity
         Result := cyclophosphamide_dose_per_m2 * BSA.bsa_m2
-            * case platelets.range in {
+            * case platelets.range in 
                 ===================
                 [normal]:      1,
                 [low]:         0.75
                 ===================
-            }
-            * case gfr.range in {
+            * case gfr.range in
                 ===================
                 [normal]:      1,
                 [low]:         0.75,
                 [very_low]:    0.5
                 ===================
-            }
+            ;
 ----
 
 == Usage in BMM Models
@@ -329,12 +327,11 @@ A common kind of expression used in class invariants operates over collections a
 
 [source,kotlin]
 ----
-class PersonName {
-    property items: String[1..*];
-    
-    invariant
-        ∀ nameItem: items | not nameItem.isEmpty()
-}
+class PersonName
+property items: String[1..*];
+
+invariant
+    ∀ nameItem: items | not nameItem.isEmpty()
 ----
 
 A different syntax might express it as follows.
@@ -360,14 +357,15 @@ Regardless of the surface syntax, expressions such as the above map to functions
 
 [source,kotlin]
 ----
-class Container<T> {
+class Container<T>
+
+feature
 
     for_all (test: Function<[T], Boolean>): Boolean;
             -- True if for every v in container, test (v) is True    
 
     there_exists (test: Function<[T], Boolean>): Boolean;
             -- True if there is any v in container for which test (v) is True
-}
 ----
 
 == Class Definitions
