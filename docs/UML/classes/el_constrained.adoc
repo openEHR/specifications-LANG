@@ -8,6 +8,9 @@ h|*Class*
 h|*Description*
 2+a|Abstract parent for second-order or constrained forms of first-order expression meta-types.
 
+h|*Inherit*
+2+|`<<_el_expression_class,EL_EXPRESSION>>`
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*

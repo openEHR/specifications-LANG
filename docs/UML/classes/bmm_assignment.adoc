@@ -9,7 +9,7 @@ h|*Description*
 2+a|Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.
 
 h|*Inherit*
-2+|`<<_bmm_statement_class,BMM_STATEMENT>>`
+2+|`<<_bmm_simple_statement_class,BMM_SIMPLE_STATEMENT>>`
 
 h|*Attributes*
 ^h|*Signature*

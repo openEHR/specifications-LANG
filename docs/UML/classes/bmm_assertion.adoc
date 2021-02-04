@@ -11,7 +11,7 @@ h|*Description*
 May be rendered in syntax as `assert condition` or similar.
 
 h|*Inherit*
-2+|`<<_bmm_statement_class,BMM_STATEMENT>>`
+2+|`<<_bmm_simple_statement_class,BMM_SIMPLE_STATEMENT>>`
 
 h|*Attributes*
 ^h|*Signature*

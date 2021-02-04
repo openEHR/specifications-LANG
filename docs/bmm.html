@@ -356,11 +356,12 @@
 <li><a href="#_bmm_statement_item_class">11.6.1. BMM_STATEMENT_ITEM Class</a></li>
 <li><a href="#_bmm_statement_block_class">11.6.2. BMM_STATEMENT_BLOCK Class</a></li>
 <li><a href="#_bmm_statement_class">11.6.3. BMM_STATEMENT Class</a></li>
-<li><a href="#_bmm_procedure_call_class">11.6.4. BMM_PROCEDURE_CALL Class</a></li>
-<li><a href="#_bmm_assignment_class">11.6.5. BMM_ASSIGNMENT Class</a></li>
-<li><a href="#_bmm_assertion_class">11.6.6. BMM_ASSERTION Class</a></li>
-<li><a href="#_bmm_action_table_class">11.6.7. BMM_ACTION_TABLE Class</a></li>
-<li><a href="#_bmm_conditional_action_class">11.6.8. BMM_CONDITIONAL_ACTION Class</a></li>
+<li><a href="#_bmm_simple_statement_class">11.6.4. BMM_SIMPLE_STATEMENT Class</a></li>
+<li><a href="#_bmm_procedure_call_class">11.6.5. BMM_PROCEDURE_CALL Class</a></li>
+<li><a href="#_bmm_assignment_class">11.6.6. BMM_ASSIGNMENT Class</a></li>
+<li><a href="#_bmm_assertion_class">11.6.7. BMM_ASSERTION Class</a></li>
+<li><a href="#_bmm_action_table_class">11.6.8. BMM_ACTION_TABLE Class</a></li>
+<li><a href="#_bmm_conditional_action_class">11.6.9. BMM_CONDITIONAL_ACTION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -439,7 +440,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2020 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2021 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -7561,6 +7562,10 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -9129,7 +9134,33 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>11.6.4. BMM_PROCEDURE_CALL Class</h4>
+<h4 id="_bmm_simple_statement_class"><a class="anchor" href="#_bmm_simple_statement_class"></a>11.6.4. BMM_SIMPLE_STATEMENT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_SIMPLE_STATEMENT (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Simple statement, i.e. statement with one logical element - a single expression, procedure call etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_statement_class">BMM_STATEMENT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>11.6.5. BMM_PROCEDURE_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9149,7 +9180,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code>, <code><a href="#_bmm_statement_class">BMM_STATEMENT</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code>, <code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -9174,7 +9205,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_assignment_class"><a class="anchor" href="#_bmm_assignment_class"></a>11.6.5. BMM_ASSIGNMENT Class</h4>
+<h4 id="_bmm_assignment_class"><a class="anchor" href="#_bmm_assignment_class"></a>11.6.6. BMM_ASSIGNMENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9194,7 +9225,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_statement_class">BMM_STATEMENT</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -9219,7 +9250,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>11.6.6. BMM_ASSERTION Class</h4>
+<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>11.6.7. BMM_ASSERTION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9242,7 +9273,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_statement_class">BMM_STATEMENT</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -9265,7 +9296,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_action_table_class"><a class="anchor" href="#_bmm_action_table_class"></a>11.6.7. BMM_ACTION_TABLE Class</h4>
+<h4 id="_bmm_action_table_class"><a class="anchor" href="#_bmm_action_table_class"></a>11.6.8. BMM_ACTION_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9303,7 +9334,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_conditional_action_class"><a class="anchor" href="#_bmm_conditional_action_class"></a>11.6.8. BMM_CONDITIONAL_ACTION Class</h4>
+<h4 id="_bmm_conditional_action_class"><a class="anchor" href="#_bmm_conditional_action_class"></a>11.6.9. BMM_CONDITIONAL_ACTION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
