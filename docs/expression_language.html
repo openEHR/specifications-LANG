@@ -155,7 +155,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2020 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2021 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -708,7 +708,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Uri in <a href="https://www.ietf.org/rfc/rfc3986" target="_blank" rel="noopener">IETF RFC 3986</a> format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri in <a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">IETF RFC 3986</a> format</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
@@ -905,12 +905,12 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://en.wikipedia.org/wiki/Everest" class="bare">https://en.wikipedia.org/wiki/Everest</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Uri in <a href="https://www.ietf.org/rfc/rfc3986" target="_blank" rel="noopener">IETF RFC 3986</a> format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;https://en.wikipedia.org&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri in <a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">IETF RFC 3986</a> format</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[is_diabetic]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[identifier]</code><br>
                          <code>[snomed_ct::389086002]</code><br>
                          <code>[snomed_ct::389086002|Hypoxia|]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local terminology code<br>
@@ -938,16 +938,32 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map&lt;K:Ordered, V&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{<br>
-                              key1 : val1,<br>
-                              key2 : val2,<br>
-                              &#8230;&#8203;<br>
-                              keyN : valN<br>
-                         }</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>{
+    prim_val : val,
+    prim_val : val,
+    ...
+    prim_val : val
+}</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A table of values of any type V,<br>
-                                                                 keyed by values of any <code>Ordered</code> descendant K,<br>
-                                                                 typically <code>String</code> or <code>Integer</code>. <code>&lt;valN&gt;</code><br>
-                                                                 are of any other types.</p></td>
+                                                                 keyed by primitive values of any <code>Ordered</code> descendant K,<br>
+                                                                 typically <code>String</code>, <code>Integer</code> or Date/time types.<br>
+                                                                 <code>&lt;val&gt;</code> are literals of any other type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>{
+    identifier = val,
+    identifier = val,
+    ...
+    identifier = val
+}</pre></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An object of any type T,<br>
+                                                                 whose property names are <code>identifier</code>. Note the use of the <code>=</code> symbol.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>

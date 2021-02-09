@@ -30,8 +30,8 @@ Literal values are mostly instances of the types declared in the imported models
 | `Duration`            |`P2Y8M`                                |ISO 8601-format duration
 |                       |                                       |
 | `String`              |`"this is a string"`                   |
-| `Uri`                 |`https://en.wikipedia.org/wiki/Everest`|Uri in {rfc3986}[IETF RFC 3986^] format
-| `Terminology_code`    |`[is_diabetic]` +
+| `Uri`                 |`++<++https://en.wikipedia.org++>++`|Uri in {rfc3986}[IETF RFC 3986^] format
+| `Terminology_code`    |`[identifier]` +
                          `[snomed_ct::389086002]` +
                          `[snomed_ct::389086002\|Hypoxia\|]`    |Local terminology code +
                                                                  Terminology code in openEHR format
@@ -39,15 +39,27 @@ Literal values are mostly instances of the types declared in the imported models
 | `Array<T>`            |`[val, val, ...]`                      |
 | `List<T>`             |`(val, val, ...)`                      |
 | `Set<T>`              |`{val, val, ...}`                      |
-| `Map<K:Ordered, V>`   |`{ +
-                              key1 : val1, +
-                              key2 : val2, +
-                              ... +
-                              keyN : valN +
-                         }`                                     |A table of values of any type V, +
-                                                                 keyed by values of any `Ordered` descendant K, +
-                                                                 typically `String` or `Integer`. `<valN>` +
-                                                                 are of any other types.
+| `Map<K:Ordered, V>`   l|
+{
+    prim_val : val,
+    prim_val : val,
+    ...
+    prim_val : val
+}
+                                                                |A table of values of any type V, +
+                                                                 keyed by primitive values of any `Ordered` descendant K, +
+                                                                 typically `String`, `Integer` or Date/time types. +
+                                                                 `<val>` are literals of any other type.
+|                       |                                       |
+| Object                l|
+{
+    identifier = val,
+    identifier = val,
+    ...
+    identifier = val
+}
+                                                                |An object of any type T, +
+                                                                 whose property names are `identifier`. Note the use of the `=` symbol.
 |                       |                                       |
 | `Interval<T>`         |                                       |
 |                       |`\|N..M\|`                             |the two-sided interval N ≥ x ≤ M
