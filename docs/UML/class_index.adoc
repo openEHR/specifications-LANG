@@ -122,6 +122,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_simple_class_class[BMM_SIMPLE_CLASS^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_simple_statement_class[BMM_SIMPLE_STATEMENT^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_simple_type_class[BMM_SIMPLE_TYPE^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_statement_class[BMM_STATEMENT^]

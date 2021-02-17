@@ -193,7 +193,7 @@ The syntax for a condition chain (the if/then equivalent) takes a standard form 
     ;
 ----
 
-In the above, the `'*'` character is understood as a wildcard, meaning 'all other cases'. A final row containing `'*'` is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.
+In the above, the `'\*'` character is understood as a wildcard, meaning 'all other cases'. A final row containing `'*'` is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.
 
 A realistic example is illustrated below, making use of line comments to visually aid the author.
 
@@ -264,6 +264,7 @@ The above syntax is adopted from the C language family. It may be used to constr
             extranodal_sites > 1                 ? 1 : 0
             =============================================
         )
+        ;
 ----
 
 === Case Table

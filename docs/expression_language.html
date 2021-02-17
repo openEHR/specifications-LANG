@@ -774,15 +774,15 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Interval&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Interval&lt;T:Ordered&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Interval of any ordered type</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Point_interval&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Point_interval&lt;T:Ordered&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub-type used to efficiently represent closed intervals whose boundaries are the same</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Proper_interval&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Proper_interval&lt;T:Ordered&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub-type used to efficiently represent intervals whose boundaries are different</p></td>
 </tr>
 </tbody>
@@ -957,13 +957,13 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
 <td class="tableblock halign-left valign-top"><div class="literal"><pre>{
-    identifier = val,
-    identifier = val,
+    identifier : val,
+    identifier : val,
     ...
-    identifier = val
+    identifier : val
 }</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An object of any type T,<br>
-                                                                 whose property names are <code>identifier</code>. Note the use of the <code>=</code> symbol.</p></td>
+                                                                 whose property names are <code>identifier</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -1657,7 +1657,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>In the above, the <code>'<strong>'</code> character is understood as a wildcard, meaning 'all other cases'. A final row containing <code>'</strong>'</code> is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.</p>
+<p>In the above, the <code>'*'</code> character is understood as a wildcard, meaning 'all other cases'. A final row containing <code>'*'</code> is thus equivalent to a catch-all 'else' branch in the if/then/else chain of a procedural language.</p>
 </div>
 <div class="paragraph">
 <p>A realistic example is illustrated below, making use of line comments to visually aid the author.</p>
@@ -1731,7 +1731,8 @@
             <span class="tok-n">ecog</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                             <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
             <span class="tok-n">extranodal_sites</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                 <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span>
             <span class="tok-p">=============================================</span>
-        <span class="tok-p">)</span></code></pre>
+        <span class="tok-p">)</span>
+        <span class="tok-p">;</span></code></pre>
 </div>
 </div>
 </div>
