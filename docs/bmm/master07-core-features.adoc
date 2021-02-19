@@ -67,8 +67,8 @@ In the above model, multiple inheritance is used in order to express the design 
 
 The `BMM_TYPED` hierarchy is the one requiring type substitutability, and is thus implemented using class inheritance (e.g. `extends` in Java), while the other should be implemented by inheritance of interfaces. This can be achieved as follows:
 
-* define the BMM classes `BMM_ROUTINE`, `BMM_CLASS_FEATURE`, `BMM_CLASS_ENTITY`, `BMM_DECLARATION` etc as interfaces, with the attributes (such as `BMM_ROUTINE._parameters_`) declared as methods and declare the inheritance as interface inheritance (e.g. `implements` in Java);
-* define a parallel class hierarchy `BMM_ROUTINE_IMPL`, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. `BMM_FUNCTION`, in order to obtain the attributes logically defined by `BMM_ROUTINE` in the UML);
+* define the interfaces `IBmmRoutine`, `IBmmClassFeature`, `IBmmClassEntity`, `IBmmDeclaration` etc, with attributes from the UML model (such as `BMM_ROUTINE._parameters_`) declared as methods and declare the inheritance as interface inheritance (e.g. `implements` in Java);
+* define a parallel class hierarchy `BmmRoutine`, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. `BmmFunction`, in order to obtain the attributes logically defined by `BMM_ROUTINE` in the UML);
 * _implement_ the methods inherited from the interface hierarchy via a declaration via the appropriate dispatch code referencing the relevant private data member.
 
 The above approach should result in the same semantics as defined by the model shown above.
