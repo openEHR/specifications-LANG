@@ -2,7 +2,7 @@
 
 == Overview
 
-This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties, which appear in feature groups. The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.
+This section describes the semantics of the `BMM_CLASS` meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as _features_, and consist of functions, procedures, constants and properties, which appear in _feature groups_. Within a class, all features are contained in the `_features_` attribute (inherited from `BMM_MODULE`), with features of each specific type being referenced in a dedicated map (`BMM_CLASS._properties_` etc). The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.
 
 [.text-center]
 .`base.bmm.core` Package - Classes

@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*EL_CONDITION_CHAIN*
+2+^h|*EL_CONDITION_CHAIN<T>*
 
 h|*Description*
 2+a|Compound expression consisting of a chain of condition-gated expressions, and an ungated `_else_` member that as a whole, represents an if/then/elseif/else chains.

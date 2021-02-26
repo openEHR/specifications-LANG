@@ -6,18 +6,19 @@ h|*Class*
 2+^h|*BMM_TUPLE_TYPE*
 
 h|*Description*
-2+a|Special type representing the type of a tuple, i.e. an array of any number of other types. This includes both container and unitary types, since tuple instances represent concrete objects.
+2+a|Built-in meta-type representing the type of a tuple, i.e. an array of any number of other types. This includes both container and unitary types, since tuple instances represent concrete objects.
 
 Note that both open and closed generic parameters are allowed, as with any generic type, but open generic parameters are only valid within the scope of a generic class.
 
 h|*Inherit*
-2+|`<<_bmm_effective_type_class,BMM_EFFECTIVE_TYPE>>`
+2+|`<<_bmm_builtin_type_class,BMM_BUILTIN_TYPE>>`
 
 h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
+h|*1..1 +
+(redefined)*
 |*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Tuple"`
 a|Base name (built-in).
 h|*Attributes*
@@ -30,30 +31,6 @@ a|List of types of the items of the tuple, keyed by purpose in the tuple.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
-
-h|*1..1 +
-(effected)*
-|*type_base_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]` +
- +
-__Post_result__: `Result.is_equal (base_name())`
-a|Return `_base_name_`.
-
-h|*1..1 +
-(effected)*
-|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|Result = `True`.
-
-h|*1..1 +
-(effected)*
-|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|Result = `False`.
-
-h|*1..1 +
-(effected)*
-|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]` +
- +
-__Post_result__: `Result.is_equal (base_name())`
-a|Return `_base_name_`.
 
 h|*1..1 +
 (effected)*

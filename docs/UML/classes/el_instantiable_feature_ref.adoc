@@ -1,0 +1,21 @@
+=== EL_INSTANTIABLE_FEATURE_REF Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*EL_INSTANTIABLE_FEATURE_REF*
+
+h|*Description*
+2+a|Reference to an instantiable feature, i.e. constant or property.
+
+h|*Inherit*
+2+|`<<_el_instantiable_ref_class,EL_INSTANTIABLE_REF>>`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*definition*: `<<_bmm_instantiable_feature_class,BMM_INSTANTIABLE_FEATURE>>`
+a|Feature definition (within class).
+|===

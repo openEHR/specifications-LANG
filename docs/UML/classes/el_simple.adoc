@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*__EL_SIMPLE (abstract)__*
 
 h|*Description*
-2+a|Simple expression type that may be used in other simple expressions.
+2+a|Simple expression type that is either a terminal or an operator expression ultimately of terminals.
 
 h|*Inherit*
 2+|`<<_el_expression_class,EL_EXPRESSION>>`

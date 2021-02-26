@@ -2,35 +2,15 @@
 
 == Overview
 
-Within the definition of each class in a BMM model are found the declarations of its _features_, consisting of _routines_, _properties_ and _constants_. The overall meta-model of features, as well as the elements that occur within them, namely parameters and local variables is shown below, and described in this section.
+Within the definition of each class in a BMM model are found the declarations of its _features_. _Variables_ are declared within routines. Features and variables are kinds of _formal elements_, i.e. _typed_ entities having a _signature_ (`BMM_FORMAL_ELEMENT`). This section describes class features, their parts, and their semantics.
 
-The taxonomy of meta-types that classify the concrete meta-types representing features is somewhat complicated in an object-oriented approach by the presence of _procedures_, which are declared features (sometimes called commands or modifiers) that change internal object state, rather than returning a value as is the case with all other kinds of features. The consequence is that the cleanest approach to definition of meta-attributes is the use of two taxonomies, one corresponding to _feature declarations_ (including procedures) and one to do with _typed value-returning entities_, which excludes procedures.
+=== Feature Taxonomy
 
-=== Feature Groups
-
-Features are arranged within a class in _feature groups_, each represented by an instance of the meta-type `BMM_FEATURE_GROUP`. By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
-
-* meta-type, e.g. a group called `"rules"` limited to publicly visible functions only;
-* logical feature type, e.g. commands, queries, factory methods etc.
-
-The primary purpose of feature groups is to represent specific meta-data that naturally applies to more than one feature in general, and is thus convenient to represent on a logical container rather than repeat individually. Feature group meta-data is recorded in the `_properties_` attribute. A feature group may also set default visibility for all features in the group.
-
-=== Feature Visibility
-
-Selective _visibility_ of features to external clients is expressed in the attributes `BMM_FEATURE_GROUP._visibility_` with potential overrides achieved using `BMM_CLASS_FEATURE._visibility_`, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class `BMM_VISIBILITY`.
-
-[.tbd]
-TBD: define visibility meta-model; probably need to support C/Java approach and type-based.
-
-=== Feature Declarations
-
-_Features_ are understood in BMM as entities referenceable within a module or lower context. The 'module' in BMM is the class. Class features consist of the formal sub-parts of a class, namely:
+_Features_ are understood in BMM as typed entities referenceable within a module context. Class features consist of the formal sub-parts of a class, namely:
 
 * _routines_: _procedures_ and _functions_;
 * _properties_: mutable static definitions, described in detail in previous sections;
-* _constants_: immutable static definitions.
-
-Variables are also understood as a kind of class feature, whose scoping entity is further restricted to a containing routine.
+* _constants_: immutable static values.
 
 The taxonomy of feature declarations is shown below.
 
@@ -38,40 +18,33 @@ The taxonomy of feature declarations is shown below.
 .Feature taxonomy
 image::{diagrams_uri}/feature_taxonomy.svg[id=feature_taxonomy, align="center"]
 
-This taxonomy is concerned with model elements that can be lexically declared within some _scope_. Those elements defined within a class scope have a _type signature_, i.e. a formal 'shape' in terms of types. This applies even to _procedures_, which are formal entities despite having no return type.
-
-=== Typed Entities
-
-For entities with a _type_, i.e. which can potentially produce a value, the following taxonomy of typing applies.
-
-[.text-center]
-.Typed taxonomy
-image::{diagrams_uri}/typed_taxonomy.svg[id=typed_taxonomy, align="center"]
-
-This taxonomy is concerned with typedness, valuedness, and mutability, which is the notion that a typed value-producing entity may be Void (null) at execution time. Features, which are declarations _in context_ can be mutable, but value objects (e.g. literal values, delayed routine calls) cannot.
-
 === Class Model
 
-The class model that results from the above considerations is shown below.
+The meta-model that results from the above taxonomy is shown below.
 
 [.text-center]
-.`base.bmm.core.feature` package - Features
+.`base.bmm.core.feature` package
 image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
 
-==== A Note on Multiple Inheritance
+=== Feature Groups and Visibility
 
-In the above model, multiple inheritance is used in order to express the design intention of the model. In many modern languages, multiple inheritance of classes containing attributes is not possible. Accordingly, to aid implementation in these languages, the diagram distinguishes the two inheritance hierarchies as follows:
+Features are arranged within a class in _feature groups_, each represented by an instance of a meta-type `BMM_FEATURE_GROUP`, shown in the following UML view.
 
-* the 'true' inheritance hierarchy under the class `BMM_TYPED` (shown in green), corresponding to the type taxonomy illustrated in <<typed_taxonomy>> above;
-* a second hierarchy used to obtain structural elements, under `BMM_DECLARAION` (shown in blue), corresponding to the feature taxonomy illustrated in <<feature_taxonomy>> above.
+[.text-center]
+.Feature Groups
+image::{uml_diagrams_uri}/LANG-bmm.core.feature-group.svg[id=core_feature_group, align="center"]
 
-The `BMM_TYPED` hierarchy is the one requiring type substitutability, and is thus implemented using class inheritance (e.g. `extends` in Java), while the other should be implemented by inheritance of interfaces. This can be achieved as follows:
+By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
 
-* define the interfaces `IBmmRoutine`, `IBmmClassFeature`, `IBmmClassEntity`, `IBmmDeclaration` etc, with attributes from the UML model (such as `BMM_ROUTINE._parameters_`) declared as methods and declare the inheritance as interface inheritance (e.g. `implements` in Java);
-* define a parallel class hierarchy `BmmRoutine`, etc whose design follows the UML model above (i.e. defines real attributes) and which are declared as the types of private data elements in the main classes (e.g. `BmmFunction`, in order to obtain the attributes logically defined by `BMM_ROUTINE` in the UML);
-* _implement_ the methods inherited from the interface hierarchy via a declaration via the appropriate dispatch code referencing the relevant private data member.
+* meta-type, e.g. a group called `"rules"` limited to publicly visible functions only;
+* logical feature type, e.g. commands, queries, factory methods etc.
 
-The above approach should result in the same semantics as defined by the model shown above.
+The primary purpose of feature groups is to represent specific meta-data that naturally applies to more than one feature in general, and is thus convenient to represent on a logical container rather than repeat individually. Feature group meta-data is recorded in the `_properties_` attribute. A feature group may also set default visibility for all features in the group.
+
+Selective _visibility_ of features to external clients is expressed in the attributes `BMM_FEATURE_GROUP._visibility_` with potential overrides achieved using `BMM_FEATURE._visibility_`, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class `BMM_VISIBILITY`.
+
+[.tbd]
+TBD: define visibility meta-model; probably need to support C++/Java approach and type-based.
 
 === Differential and Flat Form
 
@@ -81,9 +54,7 @@ In contrast, the _effective_ set of features for an instance at runtime is the r
 
 === Signatures
 
-All class-scoped features have formal signatures (described in <<Signature Meta-type>>), realised as `BMM_CLASS_ENTITY._signature_`. This includes procedures, even though they have no return type.
-
-The two types of routines, i.e. functions and procedures, include zero or more formal parameters in their signatures, with functions also having a return type. The standard taxonomy of feature signature types is illustrated below, with each form being controlled by invariants stated in the relevant containing meta-classes (e.g. `BMM_FUNCTION`, representing a function definition has an invariant requiring `signature.result /= Void`).
+All features are formal computational entities, and therefore have formal signatures (described in <<Signature Meta-type>>), represented by `BMM_FORMAL_ELEMENT._signature_`. A standard taxonomy of feature signature types is illustrated below, in which properties have signatures with no arguments (this is also true for argument-less functions), and procedures have the special built-in Status result type (`BMM_STATUS_TYPE`), following the meta-model of various functional languages, e.g. Haskell (in which procedure invocations return the special 'unit' type).
 
 [.text-center]
 .Signature taxonomy
@@ -91,16 +62,13 @@ image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="cente
 
 === Synthesis due to Generic Parameter Substitution
 
-Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on the class `BMM_CLASS_ENTITY` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
+Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on `BMM_FEATURE` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
 
 == Constants
 
-Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is:
+Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is a descendant of `BMM_INSTANTIABLE` whose `_signature_` has no arguments and that is not run-time nullable.
 
-* a descendant of `BMM_CLASS_ENTITY` whose `_signature_` has no arguments; and
-* a descendant of `BMM_INSTANTIABLE` that is not run-time nullable.
-
-At runtime a constant has a value, which may be of any type, including complex types, and which is set using its `_generator_` expression (i.e. an instance of the meta-type `EL_INSTANCE_REF`). In the common degenerate case, `_generator_` consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which _computed constants_ are supported.
+At runtime a constant has a value, which may be of any type, including complex types, and which is set using its `_generator_` expression, which is an instance of a concrete descendant of the meta-type `EL_INSTANCE_REF`. In the common degenerate case, `_generator_` consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which _computed constants_ are supported.
 
 The following abstract syntax illustrates how constants may be defined in a BMM model.
 
@@ -135,7 +103,7 @@ The `BMM_PROPERTY` meta-type defines semantics common to all properties, includi
 
 === Unitary versus Container Properties
 
-Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
+Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `BMM_UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
 
 A typical example of properties of class is shown below, in which the flattened property view of a class `OBSERVATION` includes the inherited properties `_other_participations_` and `_links_` properties exemplifying the container property meta-type:
 
@@ -160,12 +128,12 @@ feature -- Access
     composition property other_participations: PARTICIPATION[*]{set};
 ----
 
-=== Semantic level
+=== Semantic Level
 
 [.tbd]
 TBD: this BMM feature requires review
 
-Properties also include two other Boolean meta-data items, `_is_im_runtime_` and `_is_im_infrastructure_`, which can be used to classify property values in a model according to 'semantic level', which roughly corresponds to the continuum from domain-specific to infrastructure. These may be individually set, or both may be False. The three meaningful value settings are as follows:
+Properties also include two other Boolean meta-data items, `_is_im_runtime_` and `_is_im_infrastructure_`, which can be used to classify property values in a model according to a 'semantic level', which roughly corresponds to the continuum from domain-specific to infrastructure. These may be individually set, or both may be False. The three meaningful value settings are as follows:
 
 * _both False_: the value of the property is considered to be design-time constrainable;
 * _is IM runtime_: True if the property value is only knowable at runtime, as is typically the case for identifiers, dates etc;
@@ -177,7 +145,7 @@ The above screenshot also includes properties have different settings of the `_i
 
 Functions and procedures are kinds of _routine_, which are computational features of a class. The classes `BMM_FUNCTION`, `BMM_PROCEDURE` and `BMM_ROUTINE` respectively provide the meta-model for _definitions_ of the two types of routine.
 
-The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is defined as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_TYPED_FEATURE` indicates whether each parameter is mandatory or not.
+The formal parameter definitions of both kinds of routines are represented by an ordered list of instances of the meta-class `BMM_PARAMETER`, which is defined as a kind of _variable_. A formal parameter may optionally have the read/write direction defined, which indicates whether the variable contains an input value, should only be written to, or both, i.e. read then written to. The `_is_nullable_` meta-attribute inherited from `BMM_FEATURE` indicates whether each parameter is mandatory or not.
 
 An additional feature of the meta-model for functions is the notion of _operator_, which supports the representation of a function call in a formal expression as an operator symbol with one or two operands, in the typical form found in programming languages and first order logics. The BMM approach considers an operator as an optional addition to any function of `_arity_` 1 or 2 that may reasonably be represented in an abstract syntax using operator syntax. Operators thus support the use of expressions like `weight > 90` to mean `weight.gt (90)`, where `weight` is of type `Real`, and the function `gt(other: Real)` is defined.
 
@@ -288,28 +256,24 @@ The meta-model of statements is described in detail in <<_statements>>.
 
 == Variables
 
-At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) and parameter variables (declared in the arguments part of a routine declaration). Local variables and parameters have the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively. The special pre-defined variable `Result` is automatically available within any function, and is represented by the meta-model type `BMM_RESULT`.
+At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) or _parameters_ (declared in the arguments part of a routine declaration), having the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively. The special pre-defined variable `Result` is automatically available within any function, and is represented by the meta-model type `BMM_RESULT`.
 
 == Model Theoretic Questions
 
-The features meta-model as defined here entails certain choices that have consequences. The primary choice that affects this part of the meta-model is not to treat `Void` as a type, with the result a _procedure is not a typed entity_, meaning its signature has no result part. This makes procedures an anomaly within an otherwise typed system of entities, and complicates the inheritance structure of the BMM meta-model. The alternative would have been to treat procedures as Void-returning entities, and thus of type `Void` (a pseudo-type), as per languages such as C++ and Java, or an equivalent, such as the `Unit` pseudo-type of {kotlin}[Kotlin^]. The major disadvantage of the latter is that it makes procedure definitions (`BMM_PROCEDURE` instances within a BMM model) look like typed entities, and as a result, procedure calls look like value-returning entities that could be used within expressions (i.e. no different than function calls).
+The features meta-model as defined here entails certain choices that have consequences. One question is how to treat procedures. In a mathematical sense, procedures have no return type, and therefore should not be allowed within 'normal' expressions. However in a computational sense, a procedure call normally performs some state-changing action (for example, authenticating to a database), and it is potentially useful to obtain an execution status and use it in further logic. The choice made in BMM is to treat _procedures as typed entities_, with a result meta-type and concrete type of `Status` (represented by `BMM_STATUS_TYPE`). This is similar to the approach in various languages such as Haskell and {kotlin}[Kotlin^], which both have a 'unit' type for the same purpose. This approach allows procedures to fit within the typed framework without complicating the model.
 
-Ultimately this difficulty arises from the decision to include procedures at all within the formal framework, when from a purely functional perspective they would not exist. Avoiding procedures means going down a pure functional route, which, although providing a cleaner model of pure computation, inevitably entails various artificial and non-intuitive means of making a computational entity _do_ something. BMM has taken the route of objects as black boxes having queries (functions, properties) and commands (procedures), with well-behaved models relying on the principle of {cqs}[command-query separation (CQS)^], i.e. side-effect free functions. CQS is not enforced by BMM, but its use would make a formal model expressed in BMM more tractable to proof-based tools.
+Procedure calls are prevented from appearing in expressions by the <<_expressions, expressions>> part of the meta-model, and can only appear on their own (the usual case) or in an assignment statement in which a result status value may be obtained from the Status object. This value may then be used in normal expressions, e.g. a case statement.
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_typed.adoc[]
+include::{uml_export_dir}/classes/bmm_formal_element.adoc[]
+include::{uml_export_dir}/classes/bmm_feature.adoc[]
 
 include::{uml_export_dir}/classes/bmm_feature_group.adoc[]
 include::{uml_export_dir}/classes/bmm_visibility.adoc[]
 
-include::{uml_export_dir}/classes/bmm_class_entity.adoc[]
-include::{uml_export_dir}/classes/bmm_class_feature.adoc[]
-include::{uml_export_dir}/classes/bmm_typed_feature.adoc[]
-include::{uml_export_dir}/classes/bmm_instantiable.adoc[]
-
+include::{uml_export_dir}/classes/bmm_instantiable_feature.adoc[]
 include::{uml_export_dir}/classes/bmm_constant.adoc[]
-
 include::{uml_export_dir}/classes/bmm_property.adoc[]
 include::{uml_export_dir}/classes/bmm_unitary_property.adoc[]
 include::{uml_export_dir}/classes/bmm_container_property.adoc[]

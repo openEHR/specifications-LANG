@@ -23,7 +23,7 @@ A simple example of typing of properties is shown in the instance diagram below.
 .BMM Typing
 image::{diagrams_uri}/bmm_entities.svg[id=bmm_entities, align="center"]
 
-Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are formal generic parameters (e.g. the `T` in `List<T>`) and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
+Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are formal generic parameters (e.g. the `T` in `List<T>`) and the special built-in types for tuples and routine signatures. The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
 
 [.text-center]
 .BMM meta-type taxonomy
@@ -104,76 +104,6 @@ Conformance of Generic types is according to the rules:
 *** `Tb~i~` is an open formal parameter, and `Tai` conforms to any generic constraint type, or;
 *** `Ta~i~` conforms to `Tb~i~`.
 
-== Tuple Meta-type
-
-The meta-type `BMM_TUPLE_TYPE` enables the _type_ of a tuple i.e. an array of objects each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or a `struct` in C/C++).The notional type `Tuple` defined by `BMM_TUPLE_TYPE` is treadted as a BMM built-in, and is therefore not stated in any BMM model.
-
-=== Conformance
-
-Conformance of Tuple types is according to the rules:
-
-* _meta-rule_: A Tuple type can only conform to another Tuple type;
-* _concrete rules_: A Tuple type `Tuple[Ta~i~, ...]` conforms to Tuple type `Tuple[Tb~i~, ...]` iff:
-** for each `Ta~i~`, `Ta~i~` conforms to `Tb~i~`.
-
-== Signature Meta-type
-
-Within any typed formalism, any entity declared as having a type also has a _signature_. In BMM, this is is the case for any kind of feature of a class, including constants, properties, and routines. The signature of a feature is a formal construct capturing the type structure of the feature. The simplest type of signature is that of properties and constants, which may be expressed formally in a typical abstract syntax as follows:
-
-----
-    T_result
-----
-
-This indicates that both have a return type, being the type of the value they are attached to at execution time.
-
-The general form of routine signatures is as follows:
-
-----
-    <[T_arg1, T_arg2, ...], T_result>    -- Function type
-    <[T_arg1, T_arg2, ...]>              -- Procedure type
-----
-
-In the above, the construction `[Type, ...]` represents a type-tuple.
-
-Typical examples of function signatures are as follows:
-
-----
-    <[], Date>                          -- a 0-order function like current_date
-    <[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
-    <[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
-----
-
-Typical procedure signatures include the following:
-
-----
-    <[]>                               -- a 0-order (argumentless) procedure
-    <[Real]>                           -- a 1st-order procedure for the domain R
-    <[String, Integer]>                -- a procedure taking a String and an Integer argument
-----
-
-In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type.
-
-The following signatures state the types 'any function' and 'any procedure':
-
-----
-    Function                             -- any function
-    Procedure                            -- any procedure
-----
-
-As for the Tuple meta-type, the notional `Signature` meta-type is a BMM built-in, and is not itself defined in any BMM model.
-
-=== Conformance
-
-Conformance of Signature types is as follows:
-
-* _meta-rule_: A Signature type can only conform to another Signature type;
-* _concrete rules_: 
-** all specific Function signatures conform to the signature `Function`);
-** all specific Procedure signatures conform to the signature `Procedure`;
-** the conformance of specific Function or Procedure signatures to another Function or Procedure signature is such that:
-*** the number of argument types accord and;
-*** the type conformance of each corresponding argument and result type (for functions) follows the rules for conformance given by the meta-types of those types.
-
 == Container Meta-types
 
 In object-oriented type theory, 'container' types are generic types whose outer class happens to have the semantics of a container object, such as a list, set etc. Container types such as `List<T>`, `Set<T>` and `Hash<K,V>` are used ubiquitously in object models. In the BMM, containers and non-container generic types are distinguished via the meta-classes `BMM_CONTAINER_TYPE` and `BMM_GENERIC_TYPE` respectively. This allows the BMM to treat container types in a special way. A `BMM_CONTAINER_TYPE` can be thought of as a 1:N counterpart to a `BMM_UNITARY_TYPE`, such as the type `List<Paragraph>` with respect to `Paragraph`. `BMM_GENERIC_TYPE` is thus used for objects considered to be singular, but whose types are a product of the base class and one or more parameter types, e.g. `Interval<Quantity>`. 
@@ -210,6 +140,84 @@ Conformance of Container types is according to the rules:
 *** for `_base_class_` of `C~a~`, `_all_ancestors()_` contains `C~b~`; and `V~a~` conforms to `V~b~`.
 ** An indexed Container type `C~a~<K~a~, V~a~>` conforms to indexed Container type `G~b~<K~b~, V~b~>` iff:
 *** for `_base_class_` of `C~a~`, `_all_ancestors()_` contains `C~b~`; `K~b~` conforms to `K~b~` and `V~a~` conforms to `V~b~`.
+
+== Bult-in Meta-types
+
+BMM includes a small number of built-in meta-types that do not have corresponding model-source classes.
+
+=== Tuple Meta-type
+
+The meta-type `BMM_TUPLE_TYPE` enables the _type_ of a tuple i.e. an array of objects each of which may be of any type, to be stated in terms of other types. This is mostly used to state the type of a set of arguments in the `BMM_SIGNATURE` class, but standalone tuple types may also be used in a model, providing roughly the effect of an anonymous class (or a `struct` in C/C++).The notional type `Tuple` defined by `BMM_TUPLE_TYPE` is treadted as a BMM built-in, and is therefore not stated in any BMM model.
+
+==== Conformance
+
+Conformance of Tuple types is according to the rules:
+
+* _meta-rule_: A Tuple type can only conform to another Tuple type;
+* _concrete rules_: A Tuple type `Tuple[Ta~i~, ...]` conforms to Tuple type `Tuple[Tb~i~, ...]` iff:
+** for each `Ta~i~`, `Ta~i~` conforms to `Tb~i~`.
+
+=== Signature Meta-type
+
+Within any typed formalism, any entity declared as having a type also has a _signature_. In BMM, this is is the case for any kind of feature of a class, including constants, properties, and routines. The signature of a feature is a formal construct capturing the type structure of the feature. The simplest type of signature is that of properties and constants, which may be expressed formally in a typical abstract syntax as follows:
+
+----
+    T_result
+----
+
+This indicates that both have a return type, being the type of the value they are attached to at execution time.
+
+The general form of routine signatures is as follows:
+
+----
+    <[T_arg1, T_arg2, ...], T_result>    -- Function type
+    <[T_arg1, T_arg2, ...]>              -- Procedure type
+----
+
+In the above, the construction `[Type, ...]` represents a type-tuple.
+
+Typical examples of function signatures are as follows:
+
+----
+    <[], Date>                          -- a 0-order function like current_date
+    <[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
+    <[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
+----
+
+Typical procedure signatures include the following:
+
+----
+    <[]>                               -- a 0-order (argumentless) procedure
+    <[Real]>                           -- a 1st-order procedure for the domain R
+    <[String, Integer]>                -- a procedure taking a String and an Integer argument
+----
+
+In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type. The descendant `BMM_PROCEDURE_SIGNATURE` specialises the return type to the built-in type `BMM_STATUS_TYPE` (see below), used to represent the status of a procedure call.
+
+The following signatures state the types 'any function' and 'any procedure':
+
+----
+    Function                             -- any function
+    Procedure                            -- any procedure
+----
+
+As for the Tuple meta-type, the notional `Signature` meta-type is a BMM built-in, and is not itself defined in any BMM model.
+
+==== Conformance
+
+Conformance of Signature types is as follows:
+
+* _meta-rule_: A Signature type can only conform to another Signature type;
+* _concrete rules_: 
+** all specific Function signatures conform to the signature `Function`);
+** all specific Procedure signatures conform to the signature `Procedure`;
+** the conformance of specific Function or Procedure signatures to another Function or Procedure signature is such that:
+*** the number of argument types accord and;
+*** the type conformance of each corresponding argument and result type (for functions) follows the rules for conformance given by the meta-types of those types.
+
+=== Status Meta-type
+
+The meta-type `BMM_STATUS_TYPE` is provided to represent the return type of procedure calls, i.e. of which the pure formal type is often denoted `Void` or `None` in programming languages. Using a special return type simplifies the meta-model of routines, since without it, procedures create an anomaly within a system in which all other class features have a result type. Within BMM, procedures are considered to be _state-changing actions_, and the Status return type enables call and/or execution status information to be returned. Usually this can be ignored, and procedures can be called without assignment. This approach is similar to that of Haskell, in which procedure calls return the 'unit' type.
 
 == Type Conformance
 
@@ -314,6 +322,8 @@ include::{uml_export_dir}/classes/bmm_generic_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
 include::{uml_export_dir}/classes/bmm_signature.adoc[]
+include::{uml_export_dir}/classes/bmm_procedure_signature.adoc[]
+include::{uml_export_dir}/classes/bmm_status_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]
 include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]

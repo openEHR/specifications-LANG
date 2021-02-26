@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_conditional_action_class,BMM_CONDITIONAL_ACTION>>>`
-a|Decision branches.
+|*decision_table*: `<<_bmm_action_decision_table_class,BMM_ACTION_DECISION_TABLE>>`
+a|A specialised decision table whose outputs can only be procedure agents. In execution, the matched agent will be invoked.
 |===

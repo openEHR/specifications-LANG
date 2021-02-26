@@ -393,6 +393,9 @@ include::{uml_export_dir}/classes/el_literal.adoc[]
 
 include::{uml_export_dir}/classes/el_scoped_ref.adoc[]
 include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
+include::{uml_export_dir}/classes/el_variable_ref.adoc[]
+include::{uml_export_dir}/classes/el_instantiable_feature_ref.adoc[]
+
 include::{uml_export_dir}/classes/el_agent_call.adoc[]
 include::{uml_export_dir}/classes/el_function_call.adoc[]
 

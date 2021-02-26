@@ -4,7 +4,7 @@
 
 BMM provides meta-model elements for defining the _body_ of a routine, consisting of _statements_. This facility is not needed for achieving the original purpose of BMM, i.e. a computable in-memory representation of a model at the interface level (classes, types and signatures), rather it provides a basis for representing program logic, such as function definitions. 
 
-BMM statements are formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT` and various recognisable descendant types, as shown in the UML view below.
+BMM statements are formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATEMENT_BLOCK` and `BMM_STATEMENT` and various descendant types, as shown in the UML view below.
 
 [.text-center]
 .Features for routine definition
@@ -84,7 +84,7 @@ feature -- Command
     }
 ----
 
-The BMM meta-model for the call is shown below.
+The BMM meta-model instance structure for the call is shown below.
 
 [.text-center]
 .Procedure call
@@ -104,6 +104,22 @@ The following example shows a typical instance of the BMM Action table meta-type
 
         elseif systolic_pressure.in_range ([high]) and oxygen_sat.in_range([low])
             call_staff
+        end
+    end
+----
+
+In a more functional-style syntax, this might be written as:
+
+[source,typescript]
+----
+    check_vital_signs
+        ============================================================================
+        systolic_pressure.in_range ([critical_high]):     raise_alarm ([emergency]),
+        ----------------------------------------------------------------------------
+        systolic_pressure.in_range ([high]) and 
+        oxygen_sat.in_range([low]):                       call_staff
+        ============================================================================
+    end
 ----
 
 == Assertions
@@ -122,5 +138,5 @@ include::{uml_export_dir}/classes/bmm_assignment.adoc[]
 include::{uml_export_dir}/classes/bmm_assertion.adoc[]
 
 include::{uml_export_dir}/classes/bmm_action_table.adoc[]
-include::{uml_export_dir}/classes/bmm_conditional_action.adoc[]
+include::{uml_export_dir}/classes/bmm_action_decision_table.adoc[]
 

@@ -22,6 +22,10 @@ a|All classes in this model, keyed by type name.
 h|*0..1*
 |*used_models*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_model_class,BMM_MODEL>>>`
 a|List of other models 'used' (i.e. 'imported' by this model). Classes in the current model may refer to classes in a used model by specifying the other class's `_scope_` meta-attribute.
+
+h|*0..1*
+|*modules*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_module_class,BMM_MODULE>>>`
+a|All classes in this model, keyed by type name.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

@@ -27,7 +27,7 @@ a|Package this class belongs to.
 
 h|*0..1*
 |*properties*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_property_class,BMM_PROPERTY>>>`
-a|List of attributes defined in this class.
+a|Properties defined in this class (subset of `_features_`).
 
 h|*1..1*
 |*source_schema_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
@@ -43,15 +43,15 @@ a|True if this definition overrides a class of the same name in an included sche
 
 h|*0..1*
 |*constants*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_constant_class,BMM_CONSTANT>>>`
-a|List of constants defined in this class.
+a|Constants defined in this class (subset of `_features_`).
 
 h|*0..1*
 |*functions*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_function_class,BMM_FUNCTION>>>`
-a|List of functions defined in this class.
+a|Functions defined in this class (subset of `_features_`).
 
 h|*0..1*
 |*procedures*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_procedure_class,BMM_PROCEDURE>>>`
-a|List of procedures defined in this class.
+a|Procedures defined in this class (subset of `_features_`).
 
 h|*0..1*
 |*is_primitive*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^] +
@@ -75,9 +75,10 @@ h|*0..1*
 |*converters*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_procedure_class,BMM_PROCEDURE>>>`
 a|Subset of `_creators_` that create a new instance from a single argument of another type.
 
-h|*0..1*
-|*feature_groups*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_group_class,BMM_FEATURE_GROUP>>>`
-a|List of feature groups in this class.
+h|*0..1 +
+(redefined)*
+|*features*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_class,BMM_FEATURE>>>`
+a|Features of this module.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -124,11 +125,11 @@ h|*1..1*
 a|True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time.
 
 h|*0..1*
-|*features* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_feature_class,BMM_CLASS_FEATURE>>>`
+|*features* ()
 a|List of all feature definitions introduced in this class.
 
 h|*0..1*
-|*flat_features* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_class_feature_class,BMM_CLASS_FEATURE>>>`
+|*flat_features* ()
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|*0..1*

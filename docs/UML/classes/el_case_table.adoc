@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*EL_CASE_TABLE*
+2+^h|*EL_CASE_TABLE<T>*
 
 h|*Description*
 2+a|Compound expression consisting of a list of value-range / expression pairs, and an  `_else_` member that as a whole, represents a case statement flavour of decision table.

@@ -26,12 +26,12 @@ Defaults to the value of `_type_name()_`.
 h|*1..1 +
 (abstract)*
 |*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|If true, indicates an abstract class in a BMM model, or a type based on an abstract class, i.e. a type that cannot be directly instantiated.
+a|If true, indicates a type based on an abstract class, i.e. a type that cannot be directly instantiated.
 
 h|*1..1 +
 (abstract)*
 |*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|If True, indicates that the entity in a BMM model is considered to relate to a primitive type set, i.e. be a primitive type, or be a definer of one.
+a|If True, indicates that a type based solely on primitive classes.
 
 h|*1..1 +
 (abstract)*
