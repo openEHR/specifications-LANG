@@ -6,7 +6,7 @@
 
 4+^h|*LANG Release 1.0.0*
 
-|[[latest_issue]]4.0.0
+|[[latest_issue]]3.1.0
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to LANG component.
 |openEHR SEC
 |[[latest_issue_date]]26 Feb 2021
@@ -18,7 +18,8 @@
 |26 Feb 2021
 
 |3.0.0
-|Separate `P_BMM` model and syntax to BMM Persistence specification; +
+|{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to LANG component; +
+ Separate `P_BMM` model and syntax to BMM Persistence specification; +
  refactor / tighten class model: +
  rename `BMM_GENERIC_PARAMETER` to `BMM_PARAMETER_TYPE`; +
  remove `BMM_OPEN_TYPE`; remove `BMM_TYPE_ELEMENT`; +

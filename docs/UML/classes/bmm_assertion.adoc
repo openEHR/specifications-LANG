@@ -19,7 +19,7 @@ h|*Attributes*
 
 h|*1..1*
 |*expression*: `<<_el_boolean_expression_class,EL_BOOLEAN_EXPRESSION>>`
-a|
+a|Boolean-valued expression of the assertion.
 
 h|*0..1*
 |*tag*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`

@@ -22,18 +22,6 @@ a|Optional details enabling a function to be represented as an operator in a syn
 h|*1..1*
 |*result*: `<<_bmm_result_class,BMM_RESULT>>`
 a|Automatically created Result variable, usable in body and post-condition.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
-
-h|*1..1 +
-(effected)*
-|*signature* (): `<<_bmm_signature_class,BMM_SIGNATURE>>`
-a|Formal signature of this element, in the form:
-
-`name [arg1_name: T_arg1, ...][:T_value]`
-
-Specific implementations in descendants.
 
 h|*Invariants*
 2+a|__Operator_validity__: `operator_def /= Void implies arity in &#124;1..2&#124;`

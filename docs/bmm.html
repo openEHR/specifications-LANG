@@ -484,7 +484,7 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>4.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to LANG component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>26 Feb 2021</p></td>
@@ -498,7 +498,8 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Separate <code>P_BMM</code> model and syntax to BMM Persistence specification;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to LANG component;<br>
+ Separate <code>P_BMM</code> model and syntax to BMM Persistence specification;<br>
  refactor / tighten class model:<br>
  rename <code>BMM_GENERIC_PARAMETER</code> to <code>BMM_PARAMETER_TYPE</code>;<br>
  remove <code>BMM_OPEN_TYPE</code>; remove <code>BMM_TYPE_ELEMENT</code>;<br>
@@ -5955,25 +5956,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>signature</strong> (): <code><a href="#_bmm_signature_class">BMM_SIGNATURE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Formal signature of this element, in the form:</p>
-</div>
-<div class="paragraph">
-<p><code>name [arg1_name: T_arg1, &#8230;&#8203;][:T_value]</code></p>
-</div>
-<div class="paragraph">
-<p>Specific implementations in descendants.</p>
-</div></div></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><em>Operator_validity</em>: <code>operator_def /= Void implies arity in &#124;1..2&#124;</code></p>
@@ -9171,7 +9153,9 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code><a href="#_el_boolean_expression_class">EL_BOOLEAN_EXPRESSION</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean-valued expression of the assertion.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
