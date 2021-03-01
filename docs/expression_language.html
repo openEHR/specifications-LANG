@@ -131,7 +131,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG Release-1.0.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
 </tr>
 <tr>
@@ -330,7 +330,7 @@
 <div class="sect2">
 <h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
-<p>This document specifies an abstract openEHR Expression Language (openEHR EL) that provides a syntax counterpart to the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. This may be used within BMM models, to specify archetype rules, and in decision language expressions.</p>
+<p>This document specifies an abstract openEHR Expression Language (openEHR EL) that provides a syntax counterpart to the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. This may be used within BMM models, to specify archetype rules, and in decision language expressions.</p>
 </div>
 <div class="paragraph">
 <p>The intended audience includes:</p>
@@ -360,7 +360,7 @@
 <p>The <a href="https://specifications.openehr.org/releases/BASE/latest/architecture_overview.html" target="_blank" rel="noopener">openEHR Architecture Overview</a>;</p>
 </li>
 <li>
-<p>The <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a></p>
+<p>The <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a></p>
 </li>
 </ul>
 </div>
@@ -384,7 +384,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
-<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/expression_language.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/expression_language.html</a>.</p>
+<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/expression_language.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/Release-1.0.0/expression_language.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -417,7 +417,7 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntaxes are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc. Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
+<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntaxes are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc. Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
 </div>
 <div class="paragraph">
 <p>Within openEHR, the uses of EL include expressing the following:</p>
@@ -560,7 +560,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>These correspond to the meta-types defined in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html##_expressions" target="_blank" rel="noopener">BMM <code>expression</code> package</a>, each of which is described in detail in the following sections.</p>
+<p>These correspond to the meta-types defined in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html##_expressions" target="_blank" rel="noopener">BMM <code>expression</code> package</a>, each of which is described in detail in the following sections.</p>
 </div>
 </div>
 </div>
@@ -619,7 +619,7 @@
 <div class="sect2">
 <h3 id="_typing"><a class="anchor" href="#_typing"></a>3.3. Typing</h3>
 <div class="paragraph">
-<p>The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM specification</a>. <strong>All operators are assumed to be implemented by and map to functions defined on types</strong>, including operators such as '+' mapping to the function <code>add()</code> defined on primitive types such as <code>Integer</code>. Accordingly, such operators are defined within the BMM as being operator <em>aliases</em> of their implementing function, which is made possible by the BMM meta-types <code>BMM_ROUTINE</code> and descendants.</p>
+<p>The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html" target="_blank" rel="noopener">openEHR BMM specification</a>. <strong>All operators are assumed to be implemented by and map to functions defined on types</strong>, including operators such as '+' mapping to the function <code>add()</code> defined on primitive types such as <code>Integer</code>. Accordingly, such operators are defined within the BMM as being operator <em>aliases</em> of their implementing function, which is made possible by the BMM meta-types <code>BMM_ROUTINE</code> and descendants.</p>
 </div>
 <div class="paragraph">
 <p>An important implementation consequence of this approach is that an expression that is parsed to a classic operator-based AST may be evaluated by progressively searching for operator-aliased functions within the model definition, invoking with the arguments found in the AST structure, and returning Results for the next such computation. Of course, use of built-in native types and functions  (rather than always dispatching via a BMM) to handle primitive type operators is likely to be used in the interests of efficiency. Function-matching can be implemented by matching the inferred signature of the operator and its argument(s) with functions having both a conformant (not necessarily identical) signature, and the same operator.</p>
@@ -794,7 +794,7 @@
 <div class="sect3">
 <h4 id="_complex_types"><a class="anchor" href="#_complex_types"></a>3.4.4. Complex Types</h4>
 <div class="paragraph">
-<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
+<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
 </div>
 </div>
 </div>
@@ -827,7 +827,7 @@
 <div class="sect3">
 <h4 id="_literals"><a class="anchor" href="#_literals"></a>4.1.1. Literals</h4>
 <div class="paragraph">
-<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Map&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
+<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Map&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1210,7 +1210,7 @@
 <div class="sect3">
 <h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.2.1. Attached() Predicate</h4>
 <div class="paragraph">
-<p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
+<p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
 <div class="paragraph">
 <p><code>Attached()</code> returns a Boolean value, and thus may be negated, to form expressions such as:</p>

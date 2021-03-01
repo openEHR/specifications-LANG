@@ -125,7 +125,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG Release-1.0.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: STABLE</p></td>
 </tr>
 <tr>
@@ -320,7 +320,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.2. Status</h3>
 <div class="paragraph">
-<p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/bmm_persistence.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/bmm_persistence.html</a>.</p>
+<p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm_persistence.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/Release-1.0.0/bmm_persistence.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -395,7 +395,7 @@
 <div class="sect2">
 <h3 id="_concrete_format"><a class="anchor" href="#_concrete_format"></a>2.2. Concrete Format</h3>
 <div class="paragraph">
-<p>BMM models are normally expressed as schema text files that support inclusion and re-use. The default file format has historically been <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN syntax</a>, and BMM tools to date support this format. However any common format that can express typed object models may be used, including JSON (with type markers), YAML, and XML. The examples shown in this specification are primarily in ODIN, but a tool implementing BMM may choose to serialise in and out of another preferred format.</p>
+<p>BMM models are normally expressed as schema text files that support inclusion and re-use. The default file format has historically been <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/odin.html" target="_blank" rel="noopener">openEHR ODIN syntax</a>, and BMM tools to date support this format. However any common format that can express typed object models may be used, including JSON (with type markers), YAML, and XML. The examples shown in this specification are primarily in ODIN, but a tool implementing BMM may choose to serialise in and out of another preferred format.</p>
 </div>
 </div>
 </div>
@@ -406,7 +406,7 @@
 <div class="sect2">
 <h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>org.openehr.lang.bmm_persistence</code> package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The <a href="https://specifications.openehr.org/releases/ITS-BMM/latest">openEHR BMM schemas</a> are authored in the <code>P_BMM</code> form of the BMM, using the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">openEHR ODIN syntax</a>.</p>
+<p>The <code>org.openehr.lang.bmm_persistence</code> package, shown below, defines a simplified form of the main BMM model suitable for persisting and human authoring. The <a href="https://specifications.openehr.org/releases/ITS-BMM/latest">openEHR BMM schemas</a> are authored in the <code>P_BMM</code> form of the BMM, using the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/odin.html">openEHR ODIN syntax</a>.</p>
 </div>
 <div id="p_bmm_persistence_package" class="imageblock text-center text-center">
 <div class="content">
@@ -509,7 +509,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_p_bmm_package_container_class">P_BMM_PACKAGE_CONTAINER</a></code>, <code><a href="/releases/LANG/latest/bmm.html#_bmm_schema_class" target="_blank" rel="noopener">BMM_SCHEMA</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_p_bmm_package_container_class">P_BMM_PACKAGE_CONTAINER</a></code>, <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_schema_class" target="_blank" rel="noopener">BMM_SCHEMA</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -642,7 +642,7 @@ other: <code><a href="#_p_bmm_schema_class">P_BMM_SCHEMA</a>[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_package_definition</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_package_class" target="_blank" rel="noopener">BMM_PACKAGE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_package_definition</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_package_class" target="_blank" rel="noopener">BMM_PACKAGE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PACKAGE</code> created by <code><em>create_bmm_package_definition</em></code>.</p>
 </div></div></td>
@@ -697,7 +697,7 @@ other: <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a>[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_type_class" target="_blank" rel="noopener">BMM_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_type_class" target="_blank" rel="noopener">BMM_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of <code><em>create_bmm_type()</em></code> call.</p>
 </div></div></td>
@@ -711,8 +711,8 @@ other: <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a>[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (abstract)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_type</strong> (<br>
-a_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
-a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
+a_schema: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
+a_class_def: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create appropriate <code>BMM_XXX</code> object; effected in descendants.</p>
@@ -808,7 +808,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_CLASS</code> object built by <code><em>create_bmm_class_definition</em></code> and <code><em>populate_bmm_class_definition</em></code>.</p>
 </div></div></td>
@@ -851,7 +851,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>populate_bmm_class</strong> (<br>
-a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code><br>
+a_bmm_schema: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Add remaining model elements from Current to <code><em>bmm_class_definition</em></code>.</p>
@@ -904,7 +904,7 @@ a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" ta
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_generic_parameter</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_parameter_type_class" target="_blank" rel="noopener">BMM_PARAMETER_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_generic_parameter</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_parameter_type_class" target="_blank" rel="noopener">BMM_PARAMETER_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_GENERIC_PARAMETER</code> created by <code><em>create_bmm_generic_parameter</em></code>.</p>
 </div></div></td>
@@ -917,7 +917,7 @@ a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" ta
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_generic_parameter</strong> (<br>
-a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code><br>
+a_bmm_schema: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create <code><em>bmm_generic_parameter</em></code>.</p>
@@ -1004,7 +1004,7 @@ a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" ta
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_property_class" target="_blank" rel="noopener">BMM_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_property_class" target="_blank" rel="noopener">BMM_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>BMM_PROPERTY created by create_bmm_property_definition.</p>
 </div></div></td>
@@ -1017,8 +1017,8 @@ a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" ta
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_property</strong> (<br>
-a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
-a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
+a_bmm_schema: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
+a_class_def: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create <code><em>bmm_property_definition</em></code> from <code>P_BMM_XX</code> parts.</p>
@@ -1101,7 +1101,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_simple_type_class" target="_blank" rel="noopener">BMM_SIMPLE_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_simple_type_class" target="_blank" rel="noopener">BMM_SIMPLE_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of <code><em>create_bmm_type()</em></code> call.</p>
 </div></div></td>
@@ -1207,7 +1207,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_generic_type_class" target="_blank" rel="noopener">BMM_GENERIC_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_generic_type_class" target="_blank" rel="noopener">BMM_GENERIC_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of <code><em>create_bmm_type()</em></code> call.</p>
 </div></div></td>
@@ -1279,7 +1279,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_container_type_class" target="_blank" rel="noopener">BMM_CONTAINER_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_container_type_class" target="_blank" rel="noopener">BMM_CONTAINER_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of <code><em>create_bmm_type()</em></code> call.</p>
 </div></div></td>
@@ -1333,7 +1333,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_indexed_container_type_class" target="_blank" rel="noopener">BMM_INDEXED_CONTAINER_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_type</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_indexed_container_type_class" target="_blank" rel="noopener">BMM_INDEXED_CONTAINER_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of <code><em>create_bmm_type()</em></code> call.</p>
 </div></div></td>
@@ -1386,7 +1386,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1451,7 +1451,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1510,7 +1510,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_unitary_property_class" target="_blank" rel="noopener">BMM_UNITARY_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property_definition</em></code>.</p>
 </div></div></td>
@@ -1564,7 +1564,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_container_property_class" target="_blank" rel="noopener">BMM_CONTAINER_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_container_property_class" target="_blank" rel="noopener">BMM_CONTAINER_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property</em></code>.</p>
 </div></div></td>
@@ -1578,8 +1578,8 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_bmm_property</strong> (<br>
-a_bmm_schema: <code><a href="/releases/LANG/latest/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
-a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
+a_bmm_schema: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_model_class" target="_blank" rel="noopener">BMM_MODEL</a>[1]</code>,<br>
+a_class_def: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_class_class" target="_blank" rel="noopener">BMM_CLASS</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create <code><em>bmm_property_definition</em></code>.</p>
@@ -1625,7 +1625,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_indexed_container_property_class" target="_blank" rel="noopener">BMM_INDEXED_CONTAINER_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_property</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_indexed_container_property_class" target="_blank" rel="noopener">BMM_INDEXED_CONTAINER_PROPERTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_PROPERTY</code> created by <code><em>create_bmm_property</em></code>.</p>
 </div></div></td>
@@ -1674,7 +1674,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_enumeration_class" target="_blank" rel="noopener">BMM_ENUMERATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_enumeration_class" target="_blank" rel="noopener">BMM_ENUMERATION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_CLASS</code> object build by <code><em>create_bmm_class_definition</em></code> and <code><em>populate_bmm_class_definition</em></code>.</p>
 </div></div></td>
@@ -1713,7 +1713,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_enumeration_string_class" target="_blank" rel="noopener">BMM_ENUMERATION_STRING</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_enumeration_string_class" target="_blank" rel="noopener">BMM_ENUMERATION_STRING</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_CLASS</code> object build by <code><em>create_bmm_class_definition</em></code> and <code><em>populate_bmm_class_definition</em></code>.</p>
 </div></div></td>
@@ -1752,7 +1752,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/latest/bmm.html#_bmm_enumeration_integer_class" target="_blank" rel="noopener">BMM_ENUMERATION_INTEGER</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bmm_class</strong>: <code><a href="/releases/LANG/Release-1.0.0/bmm.html#_bmm_enumeration_integer_class" target="_blank" rel="noopener">BMM_ENUMERATION_INTEGER</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>BMM_CLASS</code> object build by <code><em>create_bmm_class_definition</em></code> and <code><em>populate_bmm_class_definition</em></code>.</p>
 </div></div></td>
@@ -1769,7 +1769,7 @@ a_class_def: <code><a href="/releases/LANG/latest/bmm.html#_bmm_class_class" tar
 <div class="sect2">
 <h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>4.1. Overview</h3>
 <div class="paragraph">
-<p>A BMM schema is normally written in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">ODIN syntax</a>, although any other serialisation supporting typed object models may be used, including JSON (with type markers), YAML, XML etc. The ODIN form is described here. The structures are direct ODIN serialisations of the <code>P_BMM_XXX</code> classes in the <code>persistence</code> package.</p>
+<p>A BMM schema is normally written in the <a href="https://specifications.openehr.org/releases/LANG/Release-1.0.0/odin.html">ODIN syntax</a>, although any other serialisation supporting typed object models may be used, including JSON (with type markers), YAML, XML etc. The ODIN form is described here. The structures are direct ODIN serialisations of the <code>P_BMM_XXX</code> classes in the <code>persistence</code> package.</p>
 </div>
 </div>
 <div class="sect2">
