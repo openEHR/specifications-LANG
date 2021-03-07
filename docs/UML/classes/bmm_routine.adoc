@@ -20,10 +20,6 @@ h|*0..1*
 a|Formal parameters of the routine.
 
 h|*0..1*
-|*locals*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_local_class,BMM_LOCAL>>>`
-a|Local variables of the routine.
-
-h|*0..1*
 |*pre_conditions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
 a|
 

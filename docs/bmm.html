@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="description" content="Basic Meta-Model (BMM) specification">
-<meta name="keywords" content="reflection, meta-model, UML">
+<meta name="keywords" content="reflection, meta-model, UML, BMM">
 <title>Basic Meta-Model (BMM)</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
 </head>
@@ -418,14 +418,14 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG latest</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: TRIAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Revision</strong>: <a href="#latest_issue">[latest_issue]</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Date</strong>: <a href="#latest_issue_date">[latest_issue_date]</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Keywords</strong>: reflection, meta-model, UML</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Keywords</strong>: reflection, meta-model, UML, BMM</p></td>
 </tr>
 </tbody>
 </table>
@@ -481,20 +481,105 @@
 </thead>
 <tbody>
 <tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.1.0 (unreleased)</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>4.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-8" target="_blank" rel="noopener">SPECLANG-8</a>. Simplify meta-model of features to single inheritance;<br>
+ change <code>BMM_PROCEDURE</code> to return a special type similar to Haskell, Kotlin. Revert some 3.1.0 changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>01 Mar 2021</p></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>3.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-2" target="_blank" rel="noopener">SPECLANG-2</a>. Add Basic Meta-Model (BMM) spec to LANG component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>26 Feb 2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 May 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Major modifications to features model.<br>
- Add Expressions and Statements meta-model.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>EL_SIMPLE</code> to distinguish complex expressions from terminals and operator expressions;
+ Adjust <code>BMM_CONSTANT</code> to support computed constants;<br>
+ Add <code>EL_DECISION_TABLE</code>, <code>BMM_ACTION_TABLE</code> classes and descendants;<br>
+ Add <code>BMM_INTERVAL_VALUE</code>;<br>
+ Add <code>BMM_FEATURE_GROUP</code> and <code>BMM_VISIBILITY</code> classes;<br>
+ Rename <code>BMM_SCHEMA.<em>bmm_schema</em></code> to <code><em>bmm_model</em></code>;<br>
+ Remove unintended inheritance from <code>BMM_SCHEMA</code> to <code>P_BMM_PACKAGE_CONTAINER</code>;<br>
+ Improve documentation in <a href="#_model_access_package">Section 3</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26 Feb 2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Oct 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>EL_ASSERTION</code> to <code>EL_BOOLEAN_EXPRESSION</code>;<br>
+ Extend literal meta-types to directly support container literals;<br>
+ Add basic statement types to BMM;<br>
+ Add external routine support;<br>
+ Added note on multiple inheritance in Class Features section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 Jun 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove inheritance to <code>BMM_DEFINITIONS</code> (assume static access);<br>
+ Remove <code>BMM_ENTITY</code> class and 'Entities` section of document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Verhees,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Jun 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>BMM_DEFINED_TYPE</code> to <code>BMM_EFFECTIVE_TYPE</code>;<br>
+ Rename <code>BMM_ENTITY_TYPE</code> to <code>BMM_MODEL_TYPE</code>;<br>
+ Significant improvements to meta-type part of model;<br>
+ Add Expression language meta-model;<br>
+ Add abstract syntax examples to text;<br>
+ Add description of default <code>Any</code> class and type;<br>
+ Add <code>BMM_MODEL.<em>used_models</em></code>;<br>
+ Add creators and converters;<br>
+ Add <code>ROUTINE.<em>body</em></code> hook;<br>
+ Add <code>BMM_RESULT</code>, <code>EL_SCOPED_REF</code>, <code>EL_TYPE_REF</code>;<br>
+ Add <code>BMM_MODULE</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Apr 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>BMM_MODEL_ELEMENT</code> to <code>BMM_DECLARATION</code>;<br>
+ Rename <code>BMM_VALUED</code> to <code>BMM_TYPED</code>;<br>
+ Rename <code>BMM_REFERENCEABLE</code> to <code>BMM_FEATURE</code>;<br>
+ Introduce dual taxonomy for features based on scoped declarations and typing;<br>
+ Add meta-model for functional entities. Re-structure packages. Modify <code>BMM_FEATURE.<em>signature</em></code> to new meta-type, <code>BMM_SIGNATURE</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 Nov 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Features: rename <code>BMM_FORMAL_ELEMENT</code> to <code>BMM_REFERENCEABLE</code>; move <code>BMM_VALUE_RETURNING.<em>type</em></code> to <code>BMM_EVALUABLE</code>;<br>
+ Add <code>BMM_INDEXED_CONTAINER_TYPE</code>, <code>BMM_INDEXED_CONTAINER_PROPERTY</code>, to support indexed containers like <code>Hash&lt;K, V&gt;</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Mar 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve meta-model of Enumerated types to include types restricted to a terminology or value set (may be used for terminology constraints);<br>
+ Improve explanation and diagrams to do with types and classes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Feb 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add feature elements <code>BMM_ROUTINE</code>, <code>BMM_VALUED</code> and descendants;<br>
+ Change <code>BMM_PROPERTY.<em>is_mandatory</em></code> to <code>BMM_MUTABLE.<em>is_nullable</em></code> (reversed Boolean sense);<br>
+ Made <code>BMM_PACKAGE_CONTAINER</code> abstract;<br>
+ Moved <code><em>name</em></code> to <code>BMM_MODEL_ELEMENT</code>, replacing <code><em>name</em></code> in <code>BMM_CLASS</code>, <code>BMM_PACKAGE</code>, <code>BMM_PROPERTY</code>, and <code><em>model_name</em></code> in <code>BMM_MODEL</code>;<br>
+ Marked <code>BMM_PROPERTY.<em>is_computed</em></code> as obsolete (to be phased out);<br>
+ Add <code>BMM_PROPERTY.<em>is_composition</em></code> to distinguish part/whole from associations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Sep 2018</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3.0.0</p></td>
@@ -629,7 +714,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.2. Status</h3>
 <div class="paragraph">
-<p>This specification is in the TRIAL state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/bmm.html</a>.</p>
+<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/bmm.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -5876,13 +5961,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>locals</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_local_class">BMM_LOCAL</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Local variables of the routine.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_assertion_class">BMM_ASSERTION</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
@@ -6327,6 +6405,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>Abstract ancestor of routine body meta-types.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>locals</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_local_class">BMM_LOCAL</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Local variables of the routine, if there is a body defined.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -6501,7 +6591,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CONTAINER_VALUE&lt;T&gt;</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_CONTAINER_VALUE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -6527,7 +6617,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INDEXED_CONTAINER_VALUE&lt;T&gt;</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INDEXED_CONTAINER_VALUE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -6537,7 +6627,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_container_value_class">BMM_CONTAINER_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_literal_value_class">BMM_LITERAL_VALUE</a></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -6735,7 +6825,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INTERVAL_VALUE&lt;T&gt;</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_INTERVAL_VALUE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -7899,7 +7989,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="#_bmm_literal_value_class">BMM_LITERAL_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="#_bmm_literal_value_class">BMM_LITERAL_VALUE</a>&lt;<a href="#_bmm_type_class">BMM_TYPE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The reference item from which the value of this node can be computed.</p>
 </div></div></td>
@@ -9391,7 +9481,7 @@ probably to be removed.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-27 10:29:40 +0100
+Last updated 2021-03-01 18:05:02 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

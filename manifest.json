@@ -30,8 +30,8 @@
                 "BMM_PROPERTY"
             ],
             "copyright_year": "2016",
-            "spec_status": "TRIAL",
-            "keywords": "reflection, meta-model, UML"
+            "spec_status": "DEVELOPMENT",
+            "keywords": "reflection, meta-model, UML, BMM"
         },
         {
             "id": "bmm_persistence",
