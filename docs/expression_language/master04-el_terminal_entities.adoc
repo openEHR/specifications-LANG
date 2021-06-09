@@ -90,11 +90,7 @@ Constants are syntactically represented using labels of which the first letter i
 
 === Variables
 
-Symbolic variables are valid within the scope of the routine in which they are declared. They are represented by plain names such as `is_smoker`. An EL variable reference corresponds to a descendant of the BMM meta-type `EL_INSTANTIABLE_REF<BMM_VARIABLE>`, i.e. one of:
-
-* `EL_INSTANTIABLE_REF<BMM_PARAMETER>` (declared in the routine signature);
-* `EL_INSTANTIABLE_REF<BMM_LOCAL>` (declared as a routine local variable); or
-* `EL_INSTANTIABLE_REF<BMM_RESULT>` (the variable `Result` representing a function return value).
+Symbolic variables are valid within the scope of the routine in which they are declared, and may be parameters, locally declared, or the automatically declared variables `Self` or `Result`. In the former two cases, they are represented by plain names such as `is_smoker`. An EL variable reference is parsed to an instance of the BMM meta-type `EL_VARABLE_REF`.
 
 === Property References
 

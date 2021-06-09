@@ -44,7 +44,7 @@ h|*Functions*
 
 h|*1..1*
 |*is_top_level* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|True if this is a top-level schema, i.e. not included by some other schema.
+a|True if this is a top-level schema, i.e. is the root schema of a 'model'. True if `_bmm_schema_ /= Void and then _bmm_schema.model_name_ /= Void`.
 
 h|*1..1*
 |*is_bmm_compatible* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`

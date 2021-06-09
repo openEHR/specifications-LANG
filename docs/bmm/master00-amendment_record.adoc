@@ -10,7 +10,7 @@
 |{spec_tickets}/SPECLANG-8[SPECLANG-8^]. Simplify meta-model of features to single inheritance; +
  change `BMM_PROCEDURE` to return a special type similar to Haskell, Kotlin. Revert some 3.1.0 changes.
 |T Beale
-|[[latest_issue_date]]01 Mar 2021
+|[[latest_issue_date]]09 Jun 2021
 
 4+^h|*LANG Release 1.0.0*
 

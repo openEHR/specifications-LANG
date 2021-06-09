@@ -112,7 +112,7 @@ The precedence of operators follows the order shown in the operator tables above
     systolic_bp > 140 and (is_smoker or is_hypertensive)
 --------
 
-== Collection Operators
+== Container Operators
 
 The two standard quantification operators from predicate logic `there exists` (∃ operator) and `for all` (∀ operator) are defined in EL for the container types found in the {openehr_foundation_types}[openEHR Foundation Types^].
 
