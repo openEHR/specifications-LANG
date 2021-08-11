@@ -143,7 +143,11 @@ Conformance of Container types is according to the rules:
 
 == Bult-in Meta-types
 
-BMM includes a small number of built-in meta-types that do not have corresponding model-source classes.
+BMM includes a small number of built-in meta-types that do not have corresponding model-source classes. These are shown in the following UML and described in the following sub-sections.
+
+[.text-center]
+.Built-in meta-types
+image::{uml_diagrams_uri}/LANG-bmm.core.entity-builtin.svg[id=core_entity_builtin, align="center"]
 
 === Tuple Meta-type
 
