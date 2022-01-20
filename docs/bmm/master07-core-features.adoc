@@ -68,7 +68,7 @@ Due to the possibility of generating concrete types via substitution of concrete
 
 Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is a descendant of `BMM_INSTANTIABLE` whose `_signature_` has no arguments and that is not run-time nullable.
 
-At runtime a constant has a value, which may be of any type, including complex types, and which is set using its `_generator_` expression, which is an instance of a concrete descendant of the meta-type `EL_INSTANCE_REF`. In the common degenerate case, `_generator_` consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which _computed constants_ are supported.
+At runtime a constant has a value, which may be of any type, including complex types, and which is set using its `_generator_` expression, which is an instance of a concrete descendant of the meta-type `EL_VALUE_REF`. In the common degenerate case, `_generator_` consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which _computed constants_ are supported.
 
 The following abstract syntax illustrates how constants may be defined in a BMM model.
 

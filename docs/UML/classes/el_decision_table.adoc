@@ -9,7 +9,7 @@ h|*Description*
 2+a|Complex expression structure representing a logical decision table. Generic on the meta-type of the `_result_` attribute of the branches, to allow specialised forms of if/else and case structures to be created.
 
 h|*Inherit*
-2+|`<<_el_expression_class,EL_EXPRESSION>>`
+2+|`<<_el_value_ref_class,EL_VALUE_REF>>`
 
 h|*Attributes*
 ^h|*Signature*

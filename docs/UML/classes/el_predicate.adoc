@@ -9,14 +9,14 @@ h|*Description*
 2+a|Parent type of predicate of any object reference.
 
 h|*Inherit*
-2+|`<<_el_terminal_class,EL_TERMINAL>>`
+2+|`<<_el_expression_class,EL_EXPRESSION>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `<<_el_instance_ref_class,EL_INSTANCE_REF>>`
+|*operand*: `<<_el_value_ref_class,EL_VALUE_REF>>`
 a|The target instance of this predicate.
 h|*Functions*
 ^h|*Signature*

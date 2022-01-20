@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `<<_el_simple_class,EL_SIMPLE>>`
+|*operand*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|Operand node.
 |===

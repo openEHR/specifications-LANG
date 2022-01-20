@@ -11,7 +11,7 @@ h|*Description*
 May be used as a value, or as the qualifier for a function or constant access.
 
 h|*Inherit*
-2+|`<<_el_instance_ref_class,EL_INSTANCE_REF>>`
+2+|`<<_el_value_ref_class,EL_VALUE_REF>>`
 
 h|*Attributes*
 ^h|*Signature*

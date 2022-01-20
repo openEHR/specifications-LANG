@@ -9,13 +9,6 @@ h|*Description*
 2+a|A reference that is scoped by a containing entity and requires a context qualifier if it is not the currently scoping entity.
 
 h|*Inherit*
-2+|`<<_el_instance_ref_class,EL_INSTANCE_REF>>`
+2+|`<<_el_value_ref_class,EL_VALUE_REF>>`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*0..1*
-|*scope*: `<<_el_instance_ref_class,EL_INSTANCE_REF>>`
-a|Reference to an owning object for this terminal element, if it is not the current scope.
 |===

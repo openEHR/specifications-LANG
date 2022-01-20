@@ -10,8 +10,6 @@ image::{diagrams_uri}/bmm_expression_taxonomy.svg[id=bmm_expression_taxonomy, al
 
 The meta-types defined in this part of the BMM model may be understood as the types of entities in an abstract syntax tree (AST) generated from expression parsing. Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM EL meta-model described here. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
 
-The key abstract meta-types shown in the taxonomy are Simple (`EL_SIMPLE`), Complex (`EL_COMPLEX`) and under Simple, Terminal (`EL_TERMINAL`) and Operator (`EL_OPERATOR`). The categories Simple and Complex distinguish 'simple' expressions that are either Terminals or classical operator-based expression trees of Terminals from inherently 'complex' constructs, such as those used to represent multi-way decision structures.
-
 The UML model of the BMM `expression` package, consisting of mostly direct equivalents of the taxonomy classes above, is shown below. 
 
 [.text-center]
@@ -25,7 +23,7 @@ Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is charact
 The underlying semantic concept of expressions in BMM, as for any language, is of a construct that refers to _instantiated model entities_ and which _generates values when evaluated_ at execution time. The notion of a _reference_ is fundamentally different from a _definition_, which is the concern of the rest of the BMM, in that it operates at the instance level rather than at the type level. The terminal elements of a BMM expression are any of the following:
 
 * _literal values_: inline-generated values created without reference to a model instance, but which must be instances of types defined by the model (`EL_LITERAL`);
-* _references_ (`EL_INSTANCE_REF`) based on formal model elements that are (potentially) attached to an instance at runtime;
+* _references_ (`EL_VALUE_REF`) based on formal model elements that are (potentially) attached to an instance at runtime;
 * _predicates_: Boolean-generating expression elements formed by predicates applied to any of the other value-generating expression elements.
 
 References are further categorised as follows:
@@ -380,14 +378,11 @@ include::{uml_export_dir}/classes/el_operator.adoc[]
 include::{uml_export_dir}/classes/el_unary_operator.adoc[]
 include::{uml_export_dir}/classes/el_binary_operator.adoc[]
 
-include::{uml_export_dir}/classes/el_simple.adoc[]
-include::{uml_export_dir}/classes/el_terminal.adoc[]
-
 include::{uml_export_dir}/classes/el_predicate.adoc[]
 include::{uml_export_dir}/classes/el_defined.adoc[]
 include::{uml_export_dir}/classes/el_attached.adoc[]
 
-include::{uml_export_dir}/classes/el_instance_ref.adoc[]
+include::{uml_export_dir}/classes/el_value_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_self_ref.adoc[]
 include::{uml_export_dir}/classes/el_type_ref.adoc[]

@@ -19,10 +19,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*input*: `<<_el_simple_class,EL_SIMPLE>>`
-a|Input value that is compared against each `_items_[i]._value_range_` to determine the overall result.
-
 h|*1..1 +
 (redefined)*
 |*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_el_case_class,EL_CASE>>>`

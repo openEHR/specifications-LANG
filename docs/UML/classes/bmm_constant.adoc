@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*generator*: `<<_el_instance_ref_class,EL_INSTANCE_REF>>`
+|*generator*: `<<_el_value_ref_class,EL_VALUE_REF>>`
 a|Generator expression for the constant value. In the  degenerate case, this is just a literal value, but may also be any other expression valid in the context.
 
 h|*1..1 +

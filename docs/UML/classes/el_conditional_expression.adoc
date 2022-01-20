@@ -11,13 +11,6 @@ h|*Description*
 h|*Inherit*
 2+|`<<_el_decision_branch_class,EL_DECISION_BRANCH>>`
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
-
-h|*1..1*
-|*condition*: `<<_el_simple_class,EL_SIMPLE>>`
-a|Gate expression that acts as the condition under which the target `_expression_` is returned.
 
 h|*Invariants*
 2+a|__Inv_condition_boolean__: `condition.is_boolean()`

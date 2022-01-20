@@ -9,7 +9,7 @@ h|*Description*
 2+a|Literal value of any type known in the model, including primitive types. Defined via a `BMM_LITERAL_VALUE`.
 
 h|*Inherit*
-2+|`<<_el_terminal_class,EL_TERMINAL>>`
+2+|`<<_el_expression_class,EL_EXPRESSION>>`
 
 h|*Attributes*
 ^h|*Signature*
