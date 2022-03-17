@@ -6,9 +6,9 @@ h|*Class*
 2+^h|*__EL_VALUE_REF (abstract)__*
 
 h|*Description*
-2+a|A reference to a formal element (`BMM_FORMAL_ELEMENT`) that at runtime represents an instance or else a type (`BMM_TYPE`). This may be via computation (e.g. function call) or static representation.
+2+a|A reference to a formal element that is either a type, self reference, a feature reference, or a local variable.
 
 h|*Inherit*
-2+|`<<_el_expression_class,EL_EXPRESSION>>`
+2+|`<<_el_simple_class,EL_SIMPLE>>`
 
 |===

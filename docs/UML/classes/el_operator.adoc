@@ -24,8 +24,8 @@ h|*0..1*
 a|The symbol actually used in the expression, or intended to be used for serialisation. Must be a member of `OPERATOR_DEF._symbols_`.
 
 h|*1..1*
-|*definition*: `<<_bmm_function_class,BMM_FUNCTION>>`
-a|Function equivalent to this operator, inferred by matching operator against functions defined in interface of principal operand.
+|*call*: `<<_el_function_call_class,EL_FUNCTION_CALL>>`
+a|Function call equivalent to this operator expression, inferred by matching operator against functions defined in interface of principal operand.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

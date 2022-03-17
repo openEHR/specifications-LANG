@@ -9,7 +9,7 @@ h|*Description*
 2+a|Parent type of predicate of any object reference.
 
 h|*Inherit*
-2+|`<<_el_expression_class,EL_EXPRESSION>>`
+2+|`<<_el_simple_class,EL_SIMPLE>>`
 
 h|*Attributes*
 ^h|*Signature*

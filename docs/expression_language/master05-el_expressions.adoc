@@ -14,11 +14,15 @@ Primitive operators in EL are the infix or prefix syntax form of various functio
 
 [source,kotlin]
 ----
-    | in Numeric
+    |
+    | in class Numeric
+    |
     subtract (other: Numeric): Numeric
         alias infix '-'
     
-    | redefined in Integer as
+    |
+    | redefined in class Integer as
+    |
     subtract (other: Integer): Integer
 ----
 
@@ -112,7 +116,9 @@ The precedence of operators follows the order shown in the operator tables above
     systolic_bp > 140 and (is_smoker or is_hypertensive)
 --------
 
-== Container Operators
+== Higher-order Operators
+
+=== Quantification Operators
 
 The two standard quantification operators from predicate logic `there exists` (∃ operator) and `for all` (∀ operator) are defined in EL for the container types found in the {openehr_foundation_types}[openEHR Foundation Types^].
 
@@ -204,26 +210,26 @@ A realistic example is illustrated below, making use of line comments to visuall
             =========================================================
             er_positive and 
             her2_negative and 
-            not ki67.in_range ([high]):    [luminal_A],
+            not ki67.in_range ([high]):    #luminal_A,
             ---------------------------------------------------------
             er_positive and 
             her2_negative and 
-            ki67.in_range ([high]):        [luminal_B_HER2_negative],
+            ki67.in_range ([high]):        #luminal_B_HER2_negative,
             ---------------------------------------------------------
             er_positive and 
-            her2_positive:                 [luminal_B_HER2_positive],
+            her2_positive:                 #luminal_B_HER2_positive,
             ---------------------------------------------------------
             er_negative and 
             pr_negative and 
             her2_positive and 
-            ki67.in_range ([high]):        [HER2],
+            ki67.in_range ([high]):        #HER2,
             ---------------------------------------------------------
             er_negative and
             pr_negative and 
             her2_negative and 
-            ki67.in_range ([high]):        [triple_negative],
+            ki67.in_range ([high]):        #triple_negative,
             ---------------------------------------------------------
-            *:                             [none]
+            *:                             #none
             =========================================================
         ;
 ----
@@ -258,8 +264,8 @@ The above syntax is adopted from the C language family. It may be used to constr
         Result := Result.add (
             =============================================
             age > 60                             ? 1 : 0,
-            staging ∈ {[stage_III], [stage_IV]} ? 1 : 0,
-            ldh.in_range ([normal])              ? 1 : 0,
+            staging ∈ {#stage_III, #stage_IV}    ? 1 : 0,
+            ldh.in_range (#normal)               ? 1 : 0,
             ecog > 1                             ? 1 : 0,
             extranodal_sites > 1                 ? 1 : 0
             =============================================
@@ -286,6 +292,99 @@ The Case Table syntax form (case statement equivalent) is logically no different
 ----
 
 This expression returns one of the values 1, 0.75 or 0.5, depending on the evaluated value of `gfr_range`, but it could equally return the value of a more complex expression, including further instances of Case tables, Condition chains, operator expressions etc.
+
+=== Nested Case Table
+
+The following shows the use of nested case tables to achieve the effect of a credit application test, from an example in the {omg_dmn}[DMN^] specification.
+
+[source,kotlin]
+----
+    post_bureau_risk_category: Terminology_term
+        Result := case existing_customer in
+            ========================================
+            True:   case 
+                    appl_risk_score 
+                    in
+                    --------------------------------
+                    |≤120|:     case 
+                                credit_score 
+                                in
+                                --------------------
+                                |<590|:      #HIGH,
+                                |590..610|:  #MEDIUM,
+                                |>610|:      #LOW
+                                --------------------
+                                ;,
+                    |>120|:     case
+                                credit_score
+                                in
+                                --------------------
+                                |<600|:      #HIGH,
+                                |600..625|:  #MEDIUM,
+                                |>625|:      #LOW
+                                --------------------
+                                ;
+                    --------------------------------
+                    ;,
+            False:  case 
+                    appl_risk_score 
+                    in
+                    --------------------------------
+                    |≤100|:     case
+                                credit_score
+                                in
+                                --------------------
+                                |<580|:      #HIGH,
+                                |580..600|:  #MEDIUM,
+                                |>600|:      #LOW
+                                --------------------
+                                ;,
+                    |>100|:     case
+                                credit_score
+                                in
+                                --------------------
+                                |<590|:      #HIGH,
+                                |590..615|:  #MEDIUM,
+                                |>615|:      #LOW
+                                --------------------
+                                ;
+                    --------------------------------
+                    ;
+            ========================================
+            ;
+        ;
+----
+
+=== Multi-dimensional Case Table (experimental)
+
+The credit assessment example above can be recoded as a sparse table.
+
+[source,kotlin]
+----
+post_bureau_risk_category := multicase
+    =======================================================================================
+   {existing_customer,  appl_risk_score,        credit_score} in
+    ---------------------------------------------------------------------------------------
+    True:               |≤120|:                 |<590|:         #HIGH,
+                                                |590..610|:     #MEDIUM,
+                                                |>610|:         #LOW;
+                        -------------------------------------------------------------------
+                        |>120|:                 |<600|:         #HIGH,
+                                                |600..625|:     #MEDIUM,
+                                                |>625|:         #LOW;
+                        ,
+   ----------------------------------------------------------------------------------------
+   False:               |≤100|:                 |<580|:         #HIGH,
+                                                |580..600|:     #MEDIUM,
+                                                |>600|:         #LOW;
+                        -------------------------------------------------------------------
+                        |>100|:                 |<590|:         #HIGH,
+                                                |590..615|:     #MEDIUM,
+                                                |>615|:         #LOW;
+                        ;
+    =======================================================================================
+    ;
+----
 
 === Two-dimensional Tables (experimental)
 

@@ -8,9 +8,7 @@ Terminal entities in EL correspond to the `EL_TERMINAL` meta-type in BMM, and it
 
 The following sub-sections describe these types.
 
-== Instance References
-
-=== Literals
+== Literals
 
 Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the {openehr_odin}#_primitive_types[openEHR ODIN syntax^], with the exception of `List<T>`, `Set<T>` and `Map<K,V>`, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the {openehr_foundation_types}[openEHR Foundation Types specification^].
 
@@ -31,9 +29,9 @@ Literal values are mostly instances of the types declared in the imported models
 |                       |                                       |
 | `String`              |`"this is a string"`                   |
 | `Uri`                 |`++<++https://en.wikipedia.org++>++`|Uri in {rfc3986}[IETF RFC 3986^] format
-| `Terminology_code`    |`[identifier]` +
-                         `[snomed_ct::389086002]` +
-                         `[snomed_ct::389086002\|Hypoxia\|]`    |Local terminology code +
+| `Terminology_code`    |`#identifier` +
+                         `#snomed_ct::389086002` +
+                         `#snomed_ct::389086002\|Hypoxia\|`     |Local terminology code +
                                                                  Terminology code in openEHR format
 |                       |                                       |
 | `Array<T>`            |`[val, val, ...]`                      |
@@ -78,6 +76,8 @@ One exception to the above is tuples, which are direct instances of the BMM meta
 [.tbd]
 TBD: consider to not bother with `Array` and reserve `[]` for tuples.
 
+== Instance References
+
 === Constants
 
 Constants are syntactically represented using labels of which the first letter is capitalised, and may be of any type, including complex types. The following are EL expressions containing constants.
@@ -114,7 +114,7 @@ More complex function calls may include arguments of other function calls, agent
 
 To be evaluated, function calls must be mappable to class methods in external libraries that are available at expression evaluation time.
 
-=== 'Built-in' Functions
+=== Built-in Functions
 
 Some commonly used functions such as `current_date()` or similar are often thought of as 'built-in' to a language environment. In the openEHR EL context, there are no built-in functions as such; useful utility functions must be supplied by classes or interfaces included as part of an imported model. In the openEHR environment, many utility calls are available in the {openehr_base_types}[openEHR Base Types^]. They will resolve correctly as long as this model is imported, which it normally will be as part of a larger model, such as the {openehr_rm}[openEHR RM^].
 
@@ -149,9 +149,16 @@ TBD: to achieve this generically, the above map of operators to member functions
 
 Container element access may be used on any expression whose effective type is a container, including function calls.
 
-=== Container Item Selection and Matching
+=== Matching Items within Object Hierarchies
 
-Selection of a container item matching a predicate may be achieved with an extension to the `[]` syntax, by supplying an agent argument whose signature is `<[T], Boolean>`, or in functional form, `(v:T): Boolean`. Here, 'selection' is understood to mean: obtain the first matching item, if it exists. This enables a reference of the following form to be constructed (final line).
+Matcihng of objects below a root object is possible via use of predicates using the `[]` syntax in a similar manner to Xpath. This is achieved by supplying an agent argument whose signature is `<[T], Boolean>`, or in functional form, `(v:T): Boolean`. 
+
+For non-container objects, the type `T` is the statically declared type of the object. If the object is of a container type (list, array etc) then the type `T` is the type of the container _items_. 
+
+Here, 'matching' is understood to mean _obtain all matching items_. This enables a reference of the following form to be constructed (final line).
+
+[.tbd]
+TBD: need to distinguish challow matching (immediate children) and deep matching (recursive application).
 
 [source,kotlin]
 ----
@@ -160,9 +167,9 @@ Selection of a container item matching a predicate may be achieved with an exten
         pub_date: Date
     }
     
-    book_list: List<Book>
+    book_list, quixote_books: List<Book>
     
-    book_list [(b:Book) {b.title.contains("Quixote")}]
+    quixote_books := book_list [(b:Book) {b.title.contains("Quixote")}]
 ----
 
 Since the signature is invariant with respect to the container type (here, `List<Book>`), a shorter form can be used in which the `b` is assumed:
@@ -172,20 +179,39 @@ Since the signature is invariant with respect to the container type (here, `List
     book_list [{title.contains("Quixote")}]
 ----
 
-Similarly, any expression constructable based on the container type may be used. The following example contains an operator.
+In the above, the variable `quixote_books` is of type `List<Book>`, and in general may contain more than one item (as well as be empty). To obtain the first book in the list, the standard array reference syntax may be used, i.e. `quixote_books[1]`. By extension, the following is also legal:
+
+[source,kotlin]
+----
+    quixote_book: Book
+    
+    quixote_book := book_list [(b:Book) {b.title.contains("Quixote")}][1] -- safe if it is known that there is at least one
+----
+
+Operator expressions based on the types of the items in the container may be used. The following predicate uses the short form of the expression `b.pub_date >= PY2003`.
 
 [source,kotlin]
 ----
     book_list [{pub_date >= PY2003}]
 ----
 
-For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is `select (<[T], Boolean>): T?` defined on `Container<T>`; any equivalent function in a different model will do. The return type is nullable.
+For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is `match (<[T], Boolean>): List<T>` defined on `Container<T>`; any equivalent function in a different model will do. The return type is nullable.
 
 [.tbd]
 TBD: to achieve this generically, the map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.
 
-[.tbd]
-TBD: different syntax for `Container::matches()`? Or could use matches plus `[1]` to get same effect e.g. `book_list [{pub_date >= PY2003}][1]` gives first book with matching `pub_date`.
+Other short forms are available, making a predicate syntax reminiscent of Xpath possible, as follows.
+
+[cols="1,6a,2,2", options="header"]
+|===
+|Lambda expression                              |Short form
+
+|`object[(v:T) {expr using v}]`                 |`object[{expr with implied v}]`
+|`container[(v:T) {expr using v}]`              |`object[{expr with implied v}]`
+
+|`(more)`                                       |`...`
+
+|===
 
 === Self Reference
 

@@ -59,26 +59,26 @@
 </li>
 <li><a href="#_terminal_entities">4. Terminal Entities</a>
 <ul class="sectlevel2">
-<li><a href="#_instance_references">4.1. Instance References</a>
+<li><a href="#_literals">4.1. Literals</a></li>
+<li><a href="#_instance_references">4.2. Instance References</a>
 <ul class="sectlevel3">
-<li><a href="#_literals">4.1.1. Literals</a></li>
-<li><a href="#_constants">4.1.2. Constants</a></li>
-<li><a href="#_variables">4.1.3. Variables</a></li>
-<li><a href="#_property_references">4.1.4. Property References</a></li>
-<li><a href="#_function_calls">4.1.5. Function Calls</a></li>
-<li><a href="#_built_in_functions">4.1.6. 'Built-in' Functions</a></li>
-<li><a href="#_container_item_access">4.1.7. Container Item Access</a></li>
-<li><a href="#_container_item_selection_and_matching">4.1.8. Container Item Selection and Matching</a></li>
-<li><a href="#_self_reference">4.1.9. Self Reference</a></li>
+<li><a href="#_constants">4.2.1. Constants</a></li>
+<li><a href="#_variables">4.2.2. Variables</a></li>
+<li><a href="#_property_references">4.2.3. Property References</a></li>
+<li><a href="#_function_calls">4.2.4. Function Calls</a></li>
+<li><a href="#_built_in_functions">4.2.5. Built-in Functions</a></li>
+<li><a href="#_container_item_access">4.2.6. Container Item Access</a></li>
+<li><a href="#_matching_items_within_object_hierarchies">4.2.7. Matching Items within Object Hierarchies</a></li>
+<li><a href="#_self_reference">4.2.8. Self Reference</a></li>
 </ul>
 </li>
-<li><a href="#_predicates">4.2. Predicates</a>
+<li><a href="#_predicates">4.3. Predicates</a>
 <ul class="sectlevel3">
-<li><a href="#_attached_predicate">4.2.1. Attached() Predicate</a></li>
+<li><a href="#_attached_predicate">4.3.1. Attached() Predicate</a></li>
 </ul>
 </li>
-<li><a href="#_agents">4.3. Agents</a></li>
-<li><a href="#_qualified_referencing">4.4. Qualified Referencing</a></li>
+<li><a href="#_agents">4.4. Agents</a></li>
+<li><a href="#_qualified_referencing">4.5. Qualified Referencing</a></li>
 </ul>
 </li>
 <li><a href="#_complex_expressions">5. Complex Expressions</a>
@@ -90,12 +90,18 @@
 <li><a href="#_precedence_and_parentheses">5.2.2. Precedence and Parentheses</a></li>
 </ul>
 </li>
-<li><a href="#_container_operators">5.3. Container Operators</a></li>
+<li><a href="#_higher_order_operators">5.3. Higher-order Operators</a>
+<ul class="sectlevel3">
+<li><a href="#_quantification_operators">5.3.1. Quantification Operators</a></li>
+</ul>
+</li>
 <li><a href="#_decision_table_expressions">5.4. Decision Table Expressions</a>
 <ul class="sectlevel3">
 <li><a href="#_condition_chain_ifthen">5.4.1. Condition Chain (if/then)</a></li>
 <li><a href="#_case_table">5.4.2. Case Table</a></li>
-<li><a href="#_two_dimensional_tables_experimental">5.4.3. Two-dimensional Tables (experimental)</a></li>
+<li><a href="#_nested_case_table">5.4.3. Nested Case Table</a></li>
+<li><a href="#_multi_dimensional_case_table_experimental">5.4.4. Multi-dimensional Case Table (experimental)</a></li>
+<li><a href="#_two_dimensional_tables_experimental">5.4.5. Two-dimensional Tables (experimental)</a></li>
 </ul>
 </li>
 </ul>
@@ -823,9 +829,7 @@
 <p>The following sub-sections describe these types.</p>
 </div>
 <div class="sect2">
-<h3 id="_instance_references"><a class="anchor" href="#_instance_references"></a>4.1. Instance References</h3>
-<div class="sect3">
-<h4 id="_literals"><a class="anchor" href="#_literals"></a>4.1.1. Literals</h4>
+<h3 id="_literals"><a class="anchor" href="#_literals"></a>4.1. Literals</h3>
 <div class="paragraph">
 <p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Map&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
@@ -910,9 +914,9 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[identifier]</code><br>
-                         <code>[snomed_ct::389086002]</code><br>
-                         <code>[snomed_ct::389086002|Hypoxia|]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#identifier</code><br>
+                         <code>#snomed_ct::389086002</code><br>
+                         <code>#snomed_ct::389086002|Hypoxia|</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local terminology code<br>
                                                                  Terminology code in openEHR format</p></td>
 </tr>
@@ -1029,8 +1033,10 @@
 <p>TBD: consider to not bother with <code>Array</code> and reserve <code>[]</code> for tuples.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_instance_references"><a class="anchor" href="#_instance_references"></a>4.2. Instance References</h3>
 <div class="sect3">
-<h4 id="_constants"><a class="anchor" href="#_constants"></a>4.1.2. Constants</h4>
+<h4 id="_constants"><a class="anchor" href="#_constants"></a>4.2.1. Constants</h4>
 <div class="paragraph">
 <p>Constants are syntactically represented using labels of which the first letter is capitalised, and may be of any type, including complex types. The following are EL expressions containing constants.</p>
 </div>
@@ -1042,19 +1048,19 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_variables"><a class="anchor" href="#_variables"></a>4.1.3. Variables</h4>
+<h4 id="_variables"><a class="anchor" href="#_variables"></a>4.2.2. Variables</h4>
 <div class="paragraph">
 <p>Symbolic variables are valid within the scope of the routine in which they are declared, and may be parameters, locally declared, or the automatically declared variables <code>Self</code> or <code>Result</code>. In the former two cases, they are represented by plain names such as <code>is_smoker</code>. An EL variable reference is parsed to an instance of the BMM meta-type <code>EL_VARABLE_REF</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_property_references"><a class="anchor" href="#_property_references"></a>4.1.4. Property References</h4>
+<h4 id="_property_references"><a class="anchor" href="#_property_references"></a>4.2.3. Property References</h4>
 <div class="paragraph">
 <p>Property references are valid within the scope of the class in which they are declared, and may be used in any routine definition or assertion in the class. They are represented by plain names such as <code>diabetic_status</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.1.5. Function Calls</h4>
+<h4 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.2.4. Function Calls</h4>
 <div class="paragraph">
 <p>In EL expressions, computational functions may be called in the same way as for typical programming languages. An EL property reference corresponds to the BMM meta-type <code>EL_FUNCTION_CALL</code>, which contains an instance of the BMM meta-type <code>EL_FUNCTION_AGENT</code>, which in turn has as its <code><em>closed_args</em></code> a tuple containing a set of items each of which is in turn an expression of any kind.</p>
 </div>
@@ -1078,7 +1084,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.1.6. 'Built-in' Functions</h4>
+<h4 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.2.5. Built-in Functions</h4>
 <div class="paragraph">
 <p>Some commonly used functions such as <code>current_date()</code> or similar are often thought of as 'built-in' to a language environment. In the openEHR EL context, there are no built-in functions as such; useful utility functions must be supplied by classes or interfaces included as part of an imported model. In the openEHR environment, many utility calls are available in the <a href="https://specifications.openehr.org/releases/BASE/latest/base_types.html" target="_blank" rel="noopener">openEHR Base Types</a>. They will resolve correctly as long as this model is imported, which it normally will be as part of a larger model, such as the <a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR RM</a>.</p>
 </div>
@@ -1097,7 +1103,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.1.7. Container Item Access</h4>
+<h4 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.2.6. Container Item Access</h4>
 <div class="paragraph">
 <p>Access to members of instances of a container type is achieved by the <code>[]</code> operator, which is an alias for various functions defined on the relevant types, as follows.</p>
 </div>
@@ -1140,9 +1146,18 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_container_item_selection_and_matching"><a class="anchor" href="#_container_item_selection_and_matching"></a>4.1.8. Container Item Selection and Matching</h4>
+<h4 id="_matching_items_within_object_hierarchies"><a class="anchor" href="#_matching_items_within_object_hierarchies"></a>4.2.7. Matching Items within Object Hierarchies</h4>
 <div class="paragraph">
-<p>Selection of a container item matching a predicate may be achieved with an extension to the <code>[]</code> syntax, by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>. Here, 'selection' is understood to mean: obtain the first matching item, if it exists. This enables a reference of the following form to be constructed (final line).</p>
+<p>Matcihng of objects below a root object is possible via use of predicates using the <code>[]</code> syntax in a similar manner to Xpath. This is achieved by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>.</p>
+</div>
+<div class="paragraph">
+<p>For non-container objects, the type <code>T</code> is the statically declared type of the object. If the object is of a container type (list, array etc) then the type <code>T</code> is the type of the container <em>items</em>.</p>
+</div>
+<div class="paragraph">
+<p>Here, 'matching' is understood to mean <em>obtain all matching items</em>. This enables a reference of the following form to be constructed (final line).</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: need to distinguish challow matching (immediate children) and deep matching (recursive application).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1151,9 +1166,9 @@
         <span class="tok-n">pub_date</span><span class="tok-p">:</span> <span class="tok-n">Date</span>
     <span class="tok-p">}</span>
 
-    <span class="tok-n">book_list</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Book</span><span class="tok-p">&gt;</span>
+    <span class="tok-n">book_list</span><span class="tok-p">,</span> <span class="tok-n">quixote_books</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Book</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+    <span class="tok-n">quixote_books</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1165,7 +1180,17 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Similarly, any expression constructable based on the container type may be used. The following example contains an operator.</p>
+<p>In the above, the variable <code>quixote_books</code> is of type <code>List&lt;Book&gt;</code>, and in general may contain more than one item (as well as be empty). To obtain the first book in the list, the standard array reference syntax may be used, i.e. <code>quixote_books[1]</code>. By extension, the following is also legal:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">quixote_book</span><span class="tok-p">:</span> <span class="tok-n">Book</span>
+
+    <span class="tok-n">quixote_book</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}][</span><span class="tok-m">1</span><span class="tok-p">]</span> <span class="tok-p">--</span> <span class="tok-n">safe</span> <span class="tok-k">if</span> <span class="tok-n">it</span> <span class="tok-k">is</span> <span class="tok-n">known</span> <span class="tok-n">that</span> <span class="tok-n">there</span> <span class="tok-k">is</span> <span class="tok-n">at</span> <span class="tok-n">least</span> <span class="tok-n">one</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Operator expressions based on the types of the items in the container may be used. The following predicate uses the short form of the expression <code>b.pub_date &gt;= PY2003</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1173,29 +1198,55 @@
 </div>
 </div>
 <div class="paragraph">
-<p>For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is <code>select (&lt;[T], Boolean&gt;): T?</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
+<p>For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is <code>match (&lt;[T], Boolean&gt;): List&lt;T&gt;</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
 </div>
 <div class="paragraph tbd">
 <p>TBD: to achieve this generically, the map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
 </div>
-<div class="paragraph tbd">
-<p>TBD: different syntax for <code>Container::matches()</code>? Or could use matches plus <code>[1]</code> to get same effect e.g. <code>book_list [{pub_date &gt;= PY2003}][1]</code> gives first book with matching <code>pub_date</code>.</p>
+<div class="paragraph">
+<p>Other short forms are available, making a predicate syntax reminiscent of Xpath possible, as follows.</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Lambda expression</th>
+<th class="tableblock halign-left valign-top">Short form</th>
+<th class="tableblock halign-left valign-top"><code>object[(v:T) {expr using v}]</code></th>
+<th class="tableblock halign-left valign-top"><code>object[{expr with implied v}]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>container[(v:T) {expr using v}]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>object[{expr with implied v}]</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(more)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8230;&#8203;</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.1.9. Self Reference</h4>
+<h4 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.8. Self Reference</h4>
 <div class="paragraph">
 <p>As with many programming languages, a pre-defined reference to the current object is available via the plain name <code>self</code>. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_predicates"><a class="anchor" href="#_predicates"></a>4.2. Predicates</h3>
+<h3 id="_predicates"><a class="anchor" href="#_predicates"></a>4.3. Predicates</h3>
 <div class="paragraph">
 <p>EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).</p>
 </div>
 <div class="sect3">
-<h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.2.1. Attached() Predicate</h4>
+<h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.3.1. Attached() Predicate</h4>
 <div class="paragraph">
 <p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
@@ -1210,7 +1261,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_agents"><a class="anchor" href="#_agents"></a>4.3. Agents</h3>
+<h3 id="_agents"><a class="anchor" href="#_agents"></a>4.4. Agents</h3>
 <div class="paragraph">
 <p>Delayed routine calls for both functions and procedures may occur as terminals in an EL expression. The evaluation type (<code><em>eval_type</em></code>) of an agent is its <code><em>signature</em></code>. Syntactically, these take various forms. An agent can be created using a function or procedure visible in the current scope, using the keyword <code>agent</code>. The arguments list may range from empty to full. For a completely empty list, the routine name on its own may be used.</p>
 </div>
@@ -1243,7 +1294,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.4. Qualified Referencing</h3>
+<h3 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.5. Qualified Referencing</h3>
 <div class="paragraph">
 <p>Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the <code>EL_SCOPED_REF</code> property <code><em>scope</em></code>. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:</p>
 </div>
@@ -1289,11 +1340,15 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">|</span> <span class="tok-k">in</span> <span class="tok-n">Numeric</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-p">|</span>
+    <span class="tok-p">|</span> <span class="tok-k">in</span> <span class="tok-k">class</span> <span class="tok-nc">Numeric</span>
+    <span class="tok-p">|</span>
     <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Numeric</span><span class="tok-p">):</span> <span class="tok-n">Numeric</span>
         <span class="tok-n">alias</span> <span class="tok-k">infix</span> <span class="tok-sc">&#39;-&#39;</span>
 
-    <span class="tok-p">|</span> <span class="tok-n">redefined</span> <span class="tok-k">in</span> <span class="tok-n">Integer</span> <span class="tok-k">as</span>
+    <span class="tok-p">|</span>
+    <span class="tok-p">|</span> <span class="tok-n">redefined</span> <span class="tok-k">in</span> <span class="tok-k">class</span> <span class="tok-nc">Integer</span> <span class="tok-k">as</span>
+    <span class="tok-p">|</span>
     <span class="tok-n">subtract</span> <span class="tok-p">(</span><span class="tok-n">other</span><span class="tok-p">:</span> <span class="tok-n">Integer</span><span class="tok-p">):</span> <span class="tok-n">Integer</span></code></pre>
 </div>
 </div>
@@ -1549,7 +1604,9 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_container_operators"><a class="anchor" href="#_container_operators"></a>5.3. Container Operators</h3>
+<h3 id="_higher_order_operators"><a class="anchor" href="#_higher_order_operators"></a>5.3. Higher-order Operators</h3>
+<div class="sect3">
+<h4 id="_quantification_operators"><a class="anchor" href="#_quantification_operators"></a>5.3.1. Quantification Operators</h4>
 <div class="paragraph">
 <p>The two standard quantification operators from predicate logic <code>there exists</code> (∃ operator) and <code>for all</code> (∀ operator) are defined in EL for the container types found in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a>.</p>
 </div>
@@ -1622,6 +1679,7 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="_decision_table_expressions"><a class="anchor" href="#_decision_table_expressions"></a>5.4. Decision Table Expressions</h3>
 <div class="paragraph">
@@ -1656,26 +1714,26 @@
             <span class="tok-p">=========================================================</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-            <span class="tok-n">not</span> <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>    <span class="tok-p">[</span><span class="tok-n">luminal_A</span><span class="tok-p">],</span>
+            <span class="tok-n">not</span> <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>    <span class="tok-err">#</span><span class="tok-n">luminal_A</span><span class="tok-p">,</span>
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_negative</span><span class="tok-p">],</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-err">#</span><span class="tok-n">luminal_B_HER2_negative</span><span class="tok-p">,</span>
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-n">er_positive</span> <span class="tok-n">and</span>
-            <span class="tok-n">her2_positive</span><span class="tok-p">:</span>                 <span class="tok-p">[</span><span class="tok-n">luminal_B_HER2_positive</span><span class="tok-p">],</span>
+            <span class="tok-n">her2_positive</span><span class="tok-p">:</span>                 <span class="tok-err">#</span><span class="tok-n">luminal_B_HER2_positive</span><span class="tok-p">,</span>
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
             <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_positive</span> <span class="tok-n">and</span>
-            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">HER2</span><span class="tok-p">],</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-err">#</span><span class="tok-n">HER2</span><span class="tok-p">,</span>
             <span class="tok-p">---------------------------------------------------------</span>
             <span class="tok-n">er_negative</span> <span class="tok-n">and</span>
             <span class="tok-n">pr_negative</span> <span class="tok-n">and</span>
             <span class="tok-n">her2_negative</span> <span class="tok-n">and</span>
-            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-p">[</span><span class="tok-n">triple_negative</span><span class="tok-p">],</span>
+            <span class="tok-n">ki67</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">high</span><span class="tok-p">]):</span>        <span class="tok-err">#</span><span class="tok-n">triple_negative</span><span class="tok-p">,</span>
             <span class="tok-p">---------------------------------------------------------</span>
-            <span class="tok-p">*:</span>                             <span class="tok-p">[</span><span class="tok-n">none</span><span class="tok-p">]</span>
+            <span class="tok-p">*:</span>                             <span class="tok-err">#</span><span class="tok-n">none</span>
             <span class="tok-p">=========================================================</span>
         <span class="tok-p">;</span></code></pre>
 </div>
@@ -1713,8 +1771,8 @@
         <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">Result</span><span class="tok-p">.</span><span class="tok-n">add</span> <span class="tok-p">(</span>
             <span class="tok-p">=============================================</span>
             <span class="tok-n">age</span> <span class="tok-p">&gt;</span> <span class="tok-m">60</span>                             <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
-            <span class="tok-n">staging</span> <span class="tok-err">∈</span> <span class="tok-p">{[</span><span class="tok-n">stage_III</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-n">stage_IV</span><span class="tok-p">]}</span> <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
-            <span class="tok-n">ldh</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">([</span><span class="tok-n">normal</span><span class="tok-p">])</span>              <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">staging</span> <span class="tok-err">∈</span> <span class="tok-p">{</span><span class="tok-err">#</span><span class="tok-n">stage_III</span><span class="tok-p">,</span> <span class="tok-err">#</span><span class="tok-n">stage_IV</span><span class="tok-p">}</span>    <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
+            <span class="tok-n">ldh</span><span class="tok-p">.</span><span class="tok-n">in_range</span> <span class="tok-p">(</span><span class="tok-err">#</span><span class="tok-n">normal</span><span class="tok-p">)</span>               <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
             <span class="tok-n">ecog</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                             <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span><span class="tok-p">,</span>
             <span class="tok-n">extranodal_sites</span> <span class="tok-p">&gt;</span> <span class="tok-m">1</span>                 <span class="tok-p">?</span> <span class="tok-m">1</span> <span class="tok-p">:</span> <span class="tok-m">0</span>
             <span class="tok-p">=============================================</span>
@@ -1747,7 +1805,104 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_two_dimensional_tables_experimental"><a class="anchor" href="#_two_dimensional_tables_experimental"></a>5.4.3. Two-dimensional Tables (experimental)</h4>
+<h4 id="_nested_case_table"><a class="anchor" href="#_nested_case_table"></a>5.4.3. Nested Case Table</h4>
+<div class="paragraph">
+<p>The following shows the use of nested case tables to achieve the effect of a credit application test, from an example in the <a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">DMN</a> specification.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">post_bureau_risk_category</span><span class="tok-p">:</span> <span class="tok-n">Terminology_term</span>
+        <span class="tok-n">Result</span> <span class="tok-p">:=</span> <span class="tok-n">case</span> <span class="tok-n">existing_customer</span> <span class="tok-k">in</span>
+            <span class="tok-p">========================================</span>
+            <span class="tok-n">True</span><span class="tok-p">:</span>   <span class="tok-n">case</span>
+                    <span class="tok-n">appl_risk_score</span>
+                    <span class="tok-k">in</span>
+                    <span class="tok-p">--------------------------------</span>
+                    <span class="tok-p">|</span><span class="tok-err">≤</span><span class="tok-m">120</span><span class="tok-p">|:</span>     <span class="tok-n">case</span>
+                                <span class="tok-n">credit_score</span>
+                                <span class="tok-k">in</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">|&lt;</span><span class="tok-m">590</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                <span class="tok-p">|</span><span class="tok-m">590.</span><span class="tok-p">.</span><span class="tok-m">610</span><span class="tok-p">|:</span>  <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                <span class="tok-p">|&gt;</span><span class="tok-m">610</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">LOW</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">;,</span>
+                    <span class="tok-p">|&gt;</span><span class="tok-m">120</span><span class="tok-p">|:</span>     <span class="tok-n">case</span>
+                                <span class="tok-n">credit_score</span>
+                                <span class="tok-k">in</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">|&lt;</span><span class="tok-m">600</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                <span class="tok-p">|</span><span class="tok-m">600.</span><span class="tok-p">.</span><span class="tok-m">625</span><span class="tok-p">|:</span>  <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                <span class="tok-p">|&gt;</span><span class="tok-m">625</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">LOW</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">;</span>
+                    <span class="tok-p">--------------------------------</span>
+                    <span class="tok-p">;,</span>
+            <span class="tok-n">False</span><span class="tok-p">:</span>  <span class="tok-n">case</span>
+                    <span class="tok-n">appl_risk_score</span>
+                    <span class="tok-k">in</span>
+                    <span class="tok-p">--------------------------------</span>
+                    <span class="tok-p">|</span><span class="tok-err">≤</span><span class="tok-m">100</span><span class="tok-p">|:</span>     <span class="tok-n">case</span>
+                                <span class="tok-n">credit_score</span>
+                                <span class="tok-k">in</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">|&lt;</span><span class="tok-m">580</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                <span class="tok-p">|</span><span class="tok-m">580.</span><span class="tok-p">.</span><span class="tok-m">600</span><span class="tok-p">|:</span>  <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                <span class="tok-p">|&gt;</span><span class="tok-m">600</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">LOW</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">;,</span>
+                    <span class="tok-p">|&gt;</span><span class="tok-m">100</span><span class="tok-p">|:</span>     <span class="tok-n">case</span>
+                                <span class="tok-n">credit_score</span>
+                                <span class="tok-k">in</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">|&lt;</span><span class="tok-m">590</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                <span class="tok-p">|</span><span class="tok-m">590.</span><span class="tok-p">.</span><span class="tok-m">615</span><span class="tok-p">|:</span>  <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                <span class="tok-p">|&gt;</span><span class="tok-m">615</span><span class="tok-p">|:</span>      <span class="tok-err">#</span><span class="tok-n">LOW</span>
+                                <span class="tok-p">--------------------</span>
+                                <span class="tok-p">;</span>
+                    <span class="tok-p">--------------------------------</span>
+                    <span class="tok-p">;</span>
+            <span class="tok-p">========================================</span>
+            <span class="tok-p">;</span>
+        <span class="tok-p">;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multi_dimensional_case_table_experimental"><a class="anchor" href="#_multi_dimensional_case_table_experimental"></a>5.4.4. Multi-dimensional Case Table (experimental)</h4>
+<div class="paragraph">
+<p>The credit assessment example above can be recoded as a sparse table.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-n">post_bureau_risk_category</span> <span class="tok-p">:=</span> <span class="tok-n">multicase</span>
+    <span class="tok-p">=======================================================================================</span>
+   <span class="tok-p">{</span><span class="tok-n">existing_customer</span><span class="tok-p">,</span>  <span class="tok-n">appl_risk_score</span><span class="tok-p">,</span>        <span class="tok-n">credit_score</span><span class="tok-p">}</span> <span class="tok-k">in</span>
+    <span class="tok-p">---------------------------------------------------------------------------------------</span>
+    <span class="tok-n">True</span><span class="tok-p">:</span>               <span class="tok-p">|</span><span class="tok-err">≤</span><span class="tok-m">120</span><span class="tok-p">|:</span>                 <span class="tok-p">|&lt;</span><span class="tok-m">590</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|</span><span class="tok-m">590.</span><span class="tok-p">.</span><span class="tok-m">610</span><span class="tok-p">|:</span>     <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|&gt;</span><span class="tok-m">610</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">LOW</span><span class="tok-p">;</span>
+                        <span class="tok-p">-------------------------------------------------------------------</span>
+                        <span class="tok-p">|&gt;</span><span class="tok-m">120</span><span class="tok-p">|:</span>                 <span class="tok-p">|&lt;</span><span class="tok-m">600</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|</span><span class="tok-m">600.</span><span class="tok-p">.</span><span class="tok-m">625</span><span class="tok-p">|:</span>     <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|&gt;</span><span class="tok-m">625</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">LOW</span><span class="tok-p">;</span>
+                        <span class="tok-p">,</span>
+   <span class="tok-p">----------------------------------------------------------------------------------------</span>
+   <span class="tok-n">False</span><span class="tok-p">:</span>               <span class="tok-p">|</span><span class="tok-err">≤</span><span class="tok-m">100</span><span class="tok-p">|:</span>                 <span class="tok-p">|&lt;</span><span class="tok-m">580</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|</span><span class="tok-m">580.</span><span class="tok-p">.</span><span class="tok-m">600</span><span class="tok-p">|:</span>     <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|&gt;</span><span class="tok-m">600</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">LOW</span><span class="tok-p">;</span>
+                        <span class="tok-p">-------------------------------------------------------------------</span>
+                        <span class="tok-p">|&gt;</span><span class="tok-m">100</span><span class="tok-p">|:</span>                 <span class="tok-p">|&lt;</span><span class="tok-m">590</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">HIGH</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|</span><span class="tok-m">590.</span><span class="tok-p">.</span><span class="tok-m">615</span><span class="tok-p">|:</span>     <span class="tok-err">#</span><span class="tok-n">MEDIUM</span><span class="tok-p">,</span>
+                                                <span class="tok-p">|&gt;</span><span class="tok-m">615</span><span class="tok-p">|:</span>         <span class="tok-err">#</span><span class="tok-n">LOW</span><span class="tok-p">;</span>
+                        <span class="tok-p">;</span>
+    <span class="tok-p">=======================================================================================</span>
+    <span class="tok-p">;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_two_dimensional_tables_experimental"><a class="anchor" href="#_two_dimensional_tables_experimental"></a>5.4.5. Two-dimensional Tables (experimental)</h4>
 <div class="paragraph">
 <p>Two-dimensional decision tables are common in all sectors. Although they can be reduced to a condition chain, EL provides a more direct syntax that enables them to be expressed in a form visually very close to their logical form.</p>
 </div>

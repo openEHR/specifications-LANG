@@ -25,7 +25,7 @@ In a similar way, a Hash table (aka 'map', 'dictionary' etc) structure has as it
 
 == Literal Tuples
 
-Literal tuples may be expressed in BMM, but are not instances of `BMM_LITERAL_VALUE`; instead they are instances (at the meta level) of `EL_TUPLE`, an expression-related meta-type. This is a consequence of the fact that `Tuple` is considered a BMM built-in type rather than a model-provided type, and also that a Tuple instance may contain items of any meta-type, not just literal values. Tuple instances are used in BMM expressions and described in <<_terminal_entities>>.
+Literal tuples may be expressed in BMM, but are not instances of `BMM_LITERAL_VALUE`; instead they are instances (at the meta level) of `EL_TUPLE`, an expression-related meta-type. This is a consequence of the fact that `Tuple` is considered a BMM built-in type rather than a model-provided type, and also that a Tuple instance may contain items of any meta-type, not just literal values. Tuple instances are used in BMM expressions and described in <<_tuples>>.
 
 == Type Extensions
 

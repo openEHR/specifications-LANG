@@ -9,7 +9,7 @@ h|*Description*
 2+a|Defines an array of optionally named items each of any type.
 
 h|*Inherit*
-2+|`<<_el_value_ref_class,EL_VALUE_REF>>`
+2+|`<<_el_expression_class,EL_EXPRESSION>>`
 
 h|*Attributes*
 ^h|*Signature*
