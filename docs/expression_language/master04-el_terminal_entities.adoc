@@ -158,7 +158,7 @@ For non-container objects, the type `T` is the statically declared type of the o
 Here, 'matching' is understood to mean _obtain all matching items_. This enables a reference of the following form to be constructed (final line).
 
 [.tbd]
-TBD: need to distinguish challow matching (immediate children) and deep matching (recursive application).
+TBD: need to distinguish shallow matching (immediate children) and deep matching (recursive application).
 
 [source,kotlin]
 ----
