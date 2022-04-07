@@ -277,7 +277,7 @@
 <li><a href="#_overview_8">9.1. Overview</a></li>
 <li><a href="#_terminal_entities">9.2. Terminal Entities</a>
 <ul class="sectlevel3">
-<li><a href="#_simple_entities">9.2.1. Simple Entities</a>
+<li><a href="#_simple_terminal_entities">9.2.1. Simple Terminal Entities</a>
 <ul class="sectlevel4">
 <li><a href="#_literals">9.2.1.1. Literals</a></li>
 <li><a href="#_value_references">9.2.1.2. Value References</a></li>
@@ -483,7 +483,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>4.0.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-8" target="_blank" rel="noopener">SPECLANG-8</a>. Classify <code>EL_DECISION_TABLE</code> under <code>EL_TERMINAL</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>17 Mar 2022</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>07 Apr 2022</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.0.0</p></td>
@@ -6887,10 +6887,10 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a>9.2. Terminal Entities</h3>
 <div class="paragraph">
-<p>Terminal entities are atomic with respect to operator expressions, and are either <em>simple</em> entities of familiar kinds (function calls, variable references etc) or complex logic structures that when evaluated generate a value.</p>
+<p>Terminal entities are atomic with respect to operator expressions, and are either <em>simple</em> entities of familiar kinds (function calls, variable references etc) or else complex logic structures that when evaluated generate a value.</p>
 </div>
 <div class="sect3">
-<h4 id="_simple_entities"><a class="anchor" href="#_simple_entities"></a>9.2.1. Simple Entities</h4>
+<h4 id="_simple_terminal_entities"><a class="anchor" href="#_simple_terminal_entities"></a>9.2.1. Simple Terminal Entities</h4>
 <div class="paragraph">
 <p>The simple terminal meta-types in EL are as follows:</p>
 </div>
@@ -7484,7 +7484,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression entities that are terminals (i.e. leaves) within operator expressions or tuples.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -8443,7 +8445,9 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>One branch of a Case table, consisting of a value constraint (the match criterion) and a result, of the generic parameter type T.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>

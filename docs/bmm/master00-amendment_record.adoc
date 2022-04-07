@@ -9,7 +9,7 @@
 |[[latest_issue]]4.0.1
 |{spec_tickets}/SPECLANG-8[SPECLANG-8^]. Classify `EL_DECISION_TABLE` under `EL_TERMINAL`.
 |T Beale
-|[[latest_issue_date]]17 Mar 2022
+|[[latest_issue_date]]07 Apr 2022
 
 |4.0.0
 |{spec_tickets}/SPECLANG-8[SPECLANG-8^]. Simplify meta-model of features to single inheritance; +

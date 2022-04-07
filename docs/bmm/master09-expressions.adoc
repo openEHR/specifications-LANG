@@ -22,9 +22,9 @@ Most `EL_EXPRESSIONs` are either value generating constructs (`EL_VALUE_GENERATO
 
 == Terminal Entities
 
-Terminal entities are atomic with respect to operator expressions, and are either _simple_ entities of familiar kinds (function calls, variable references etc) or complex logic structures that when evaluated generate a value.
+Terminal entities are atomic with respect to operator expressions, and are either _simple_ entities of familiar kinds (function calls, variable references etc) or else complex logic structures that when evaluated generate a value.
 
-=== Simple Entities
+=== Simple Terminal Entities
 
 The simple terminal meta-types in EL are as follows:
 
