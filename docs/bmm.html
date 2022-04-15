@@ -240,12 +240,15 @@
 <li><a href="#_bmm_operator_position_enumeration">7.7.14. BMM_OPERATOR_POSITION Enumeration</a></li>
 <li><a href="#_bmm_procedure_class">7.7.15. BMM_PROCEDURE Class</a></li>
 <li><a href="#_bmm_variable_class">7.7.16. BMM_VARIABLE Class</a></li>
-<li><a href="#_bmm_local_class">7.7.17. BMM_LOCAL Class</a></li>
-<li><a href="#_bmm_parameter_class">7.7.18. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_writable_variable_class">7.7.17. BMM_WRITABLE_VARIABLE Class</a></li>
+<li><a href="#_bmm_local_class">7.7.18. BMM_LOCAL Class</a></li>
 <li><a href="#_bmm_result_class">7.7.19. BMM_RESULT Class</a></li>
-<li><a href="#_bmm_parameter_direction_enumeration">7.7.20. BMM_PARAMETER_DIRECTION Enumeration</a></li>
-<li><a href="#_bmm_routine_body_class">7.7.21. BMM_ROUTINE_BODY Class</a></li>
-<li><a href="#_bmm_routine_external_class">7.7.22. BMM_ROUTINE_EXTERNAL Class</a></li>
+<li><a href="#_bmm_readonly_variable_class">7.7.20. BMM_READONLY_VARIABLE Class</a></li>
+<li><a href="#_bmm_self_class">7.7.21. BMM_SELF Class</a></li>
+<li><a href="#_bmm_parameter_class">7.7.22. BMM_PARAMETER Class</a></li>
+<li><a href="#_bmm_parameter_direction_enumeration">7.7.23. BMM_PARAMETER_DIRECTION Enumeration</a></li>
+<li><a href="#_bmm_routine_body_class">7.7.24. BMM_ROUTINE_BODY Class</a></li>
+<li><a href="#_bmm_routine_external_class">7.7.25. BMM_ROUTINE_EXTERNAL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -280,8 +283,8 @@
 <li><a href="#_simple_terminal_entities">9.2.1. Simple Terminal Entities</a>
 <ul class="sectlevel4">
 <li><a href="#_literals">9.2.1.1. Literals</a></li>
-<li><a href="#_value_references">9.2.1.2. Value References</a></li>
-<li><a href="#_variable_references">9.2.1.3. Variable References</a></li>
+<li><a href="#_value_generators">9.2.1.2. Value Generators</a></li>
+<li><a href="#_variables_2">9.2.1.3. Variables</a></li>
 <li><a href="#_predicates">9.2.1.4. Predicates</a></li>
 </ul>
 </li>
@@ -301,35 +304,36 @@
 <li><a href="#_el_expression_class">9.6.1. EL_EXPRESSION Class</a></li>
 <li><a href="#_el_terminal_class">9.6.2. EL_TERMINAL Class</a></li>
 <li><a href="#_el_simple_class">9.6.3. EL_SIMPLE Class</a></li>
-<li><a href="#_el_value_ref_class">9.6.4. EL_VALUE_REF Class</a></li>
-<li><a href="#_el_self_ref_class">9.6.5. EL_SELF_REF Class</a></li>
-<li><a href="#_el_type_ref_class">9.6.6. EL_TYPE_REF Class</a></li>
-<li><a href="#_el_literal_class">9.6.7. EL_LITERAL Class</a></li>
-<li><a href="#_el_scoped_ref_class">9.6.8. EL_SCOPED_REF Class</a></li>
-<li><a href="#_el_instantiable_ref_class">9.6.9. EL_INSTANTIABLE_REF Class</a></li>
-<li><a href="#_el_variable_ref_class">9.6.10. EL_VARIABLE_REF Class</a></li>
-<li><a href="#_el_instantiable_feature_ref_class">9.6.11. EL_INSTANTIABLE_FEATURE_REF Class</a></li>
-<li><a href="#_el_agent_call_class">9.6.12. EL_AGENT_CALL Class</a></li>
-<li><a href="#_el_function_call_class">9.6.13. EL_FUNCTION_CALL Class</a></li>
-<li><a href="#_el_agent_class">9.6.14. EL_AGENT Class</a></li>
-<li><a href="#_el_function_agent_class">9.6.15. EL_FUNCTION_AGENT Class</a></li>
-<li><a href="#_el_procedure_agent_class">9.6.16. EL_PROCEDURE_AGENT Class</a></li>
-<li><a href="#_el_predicate_class">9.6.17. EL_PREDICATE Class</a></li>
-<li><a href="#_el_defined_class">9.6.18. EL_DEFINED Class</a></li>
-<li><a href="#_el_attached_class">9.6.19. EL_ATTACHED Class</a></li>
-<li><a href="#_el_decision_table_class">9.6.20. EL_DECISION_TABLE Class</a></li>
-<li><a href="#_el_decision_branch_class">9.6.21. EL_DECISION_BRANCH Class</a></li>
-<li><a href="#_el_condition_chain_class">9.6.22. EL_CONDITION_CHAIN Class</a></li>
-<li><a href="#_el_conditional_expression_class">9.6.23. EL_CONDITIONAL_EXPRESSION Class</a></li>
-<li><a href="#_el_case_table_class">9.6.24. EL_CASE_TABLE Class</a></li>
-<li><a href="#_el_case_class">9.6.25. EL_CASE Class</a></li>
-<li><a href="#_el_operator_class">9.6.26. EL_OPERATOR Class</a></li>
-<li><a href="#_el_unary_operator_class">9.6.27. EL_UNARY_OPERATOR Class</a></li>
-<li><a href="#_el_binary_operator_class">9.6.28. EL_BINARY_OPERATOR Class</a></li>
-<li><a href="#_el_tuple_class">9.6.29. EL_TUPLE Class</a></li>
-<li><a href="#_el_tuple_item_class">9.6.30. EL_TUPLE_ITEM Class</a></li>
-<li><a href="#_el_constrained_class">9.6.31. EL_CONSTRAINED Class</a></li>
-<li><a href="#_el_boolean_expression_class">9.6.32. EL_BOOLEAN_EXPRESSION Class</a></li>
+<li><a href="#_el_value_generator_class">9.6.4. EL_VALUE_GENERATOR Class</a></li>
+<li><a href="#_el_type_ref_class">9.6.5. EL_TYPE_REF Class</a></li>
+<li><a href="#_el_literal_class">9.6.6. EL_LITERAL Class</a></li>
+<li><a href="#_el_variable_class">9.6.7. EL_VARIABLE Class</a></li>
+<li><a href="#_el_writable_variable_class">9.6.8. EL_WRITABLE_VARIABLE Class</a></li>
+<li><a href="#_el_readonly_variable_class">9.6.9. EL_READONLY_VARIABLE Class</a></li>
+<li><a href="#_el_feature_ref_class">9.6.10. EL_FEATURE_REF Class</a></li>
+<li><a href="#_el_property_ref_class">9.6.11. EL_PROPERTY_REF Class</a></li>
+<li><a href="#_el_constant_ref_class">9.6.12. EL_CONSTANT_REF Class</a></li>
+<li><a href="#_el_agent_call_class">9.6.13. EL_AGENT_CALL Class</a></li>
+<li><a href="#_el_function_call_class">9.6.14. EL_FUNCTION_CALL Class</a></li>
+<li><a href="#_el_agent_class">9.6.15. EL_AGENT Class</a></li>
+<li><a href="#_el_function_agent_class">9.6.16. EL_FUNCTION_AGENT Class</a></li>
+<li><a href="#_el_procedure_agent_class">9.6.17. EL_PROCEDURE_AGENT Class</a></li>
+<li><a href="#_el_predicate_class">9.6.18. EL_PREDICATE Class</a></li>
+<li><a href="#_el_defined_class">9.6.19. EL_DEFINED Class</a></li>
+<li><a href="#_el_attached_class">9.6.20. EL_ATTACHED Class</a></li>
+<li><a href="#_el_decision_table_class">9.6.21. EL_DECISION_TABLE Class</a></li>
+<li><a href="#_el_decision_branch_class">9.6.22. EL_DECISION_BRANCH Class</a></li>
+<li><a href="#_el_condition_chain_class">9.6.23. EL_CONDITION_CHAIN Class</a></li>
+<li><a href="#_el_conditional_expression_class">9.6.24. EL_CONDITIONAL_EXPRESSION Class</a></li>
+<li><a href="#_el_case_table_class">9.6.25. EL_CASE_TABLE Class</a></li>
+<li><a href="#_el_case_class">9.6.26. EL_CASE Class</a></li>
+<li><a href="#_el_operator_class">9.6.27. EL_OPERATOR Class</a></li>
+<li><a href="#_el_unary_operator_class">9.6.28. EL_UNARY_OPERATOR Class</a></li>
+<li><a href="#_el_binary_operator_class">9.6.29. EL_BINARY_OPERATOR Class</a></li>
+<li><a href="#_el_tuple_class">9.6.30. EL_TUPLE Class</a></li>
+<li><a href="#_el_tuple_item_class">9.6.31. EL_TUPLE_ITEM Class</a></li>
+<li><a href="#_el_constrained_class">9.6.32. EL_CONSTRAINED Class</a></li>
+<li><a href="#_el_boolean_expression_class">9.6.33. EL_BOOLEAN_EXPRESSION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -5686,7 +5690,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generator</strong>: <code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generator</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Generator expression for the constant value. In the  degenerate case, this is just a literal value, but may also be any other expression valid in the context.</p>
 </div></div></td>
@@ -5985,6 +5989,13 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>locals</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_local_class">BMM_LOCAL</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Local variables of the routine, if there is a body defined.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -6243,7 +6254,31 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>7.7.17. BMM_LOCAL Class</h4>
+<h4 id="_bmm_writable_variable_class"><a class="anchor" href="#_bmm_writable_variable_class"></a>7.7.17. BMM_WRITABLE_VARIABLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_WRITABLE_VARIABLE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_local_class"><a class="anchor" href="#_bmm_local_class"></a>7.7.18. BMM_LOCAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6258,50 +6293,12 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A routine local variable.</p>
+<p>A routine local variable (writable).</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>7.7.18. BMM_PARAMETER Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PARAMETER</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A routine parameter variable.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>direction</strong>: <code><a href="#_bmm_parameter_direction_enumeration">BMM_PARAMETER_DIRECTION</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional read/write direction of the parameter. If none-supplied, the parameter is treated as <code>in</code>, i.e. readable.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_writable_variable_class">BMM_WRITABLE_VARIABLE</a></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -6322,12 +6319,12 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Automatically declared variable representing result instance of a Function call.</p>
+<p>Automatically declared variable representing result of a Function call (writable).</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_writable_variable_class">BMM_WRITABLE_VARIABLE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -6347,7 +6344,115 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>7.7.20. BMM_PARAMETER_DIRECTION Enumeration</h4>
+<h4 id="_bmm_readonly_variable_class"><a class="anchor" href="#_bmm_readonly_variable_class"></a>7.7.20. BMM_READONLY_VARIABLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>BMM_READONLY_VARIABLE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_not_nullable</em>: <code>is_nullable = False</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_self_class"><a class="anchor" href="#_bmm_self_class"></a>7.7.21. BMM_SELF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_SELF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for an automatically created variable referencing the current instance. Typically called 'self' or 'this' in programming languages. Read-only.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_readonly_variable_class">BMM_READONLY_VARIABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a><br>
+{default&#160;=&#160;"Self"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of this model element.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_parameter_class"><a class="anchor" href="#_bmm_parameter_class"></a>7.7.22. BMM_PARAMETER Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PARAMETER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A routine parameter variable (read-only).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_readonly_variable_class">BMM_READONLY_VARIABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>direction</strong>: <code><a href="#_bmm_parameter_direction_enumeration">BMM_PARAMETER_DIRECTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional read/write direction of the parameter. If none-supplied, the parameter is treated as <code>in</code>, i.e. readable.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_parameter_direction_enumeration"><a class="anchor" href="#_bmm_parameter_direction_enumeration"></a>7.7.23. BMM_PARAMETER_DIRECTION Enumeration</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6395,7 +6500,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_body_class"><a class="anchor" href="#_bmm_routine_body_class"></a>7.7.21. BMM_ROUTINE_BODY Class</h4>
+<h4 id="_bmm_routine_body_class"><a class="anchor" href="#_bmm_routine_body_class"></a>7.7.24. BMM_ROUTINE_BODY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6413,23 +6518,11 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>Abstract ancestor of routine body meta-types.</p>
 </div></div></td>
 </tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>locals</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_local_class">BMM_LOCAL</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Local variables of the routine, if there is a body defined.</p>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_routine_external_class"><a class="anchor" href="#_bmm_routine_external_class"></a>7.7.22. BMM_ROUTINE_EXTERNAL Class</h4>
+<h4 id="_bmm_routine_external_class"><a class="anchor" href="#_bmm_routine_external_class"></a>7.7.25. BMM_ROUTINE_EXTERNAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6900,7 +6993,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p><em>literal values</em>: inline-generated values created without reference to a model instance, but which must be instances of types defined by the model (<code>EL_LITERAL</code>);</p>
 </li>
 <li>
-<p><em>value references</em> (<code>EL_VALUE_REF</code>) based on formal model elements that are (potentially) attached to an instance at runtime;</p>
+<p><em>value generators</em> (<code>EL_VALUE_GENERATOR</code>) based on formal model elements that may be called to (potentially) obtain an instance at runtime;</p>
 </li>
 <li>
 <p><em>predicates</em>: Boolean-generating expression elements formed by predicates applied to any of the other value-generating expression elements.</p>
@@ -6923,18 +7016,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect4">
-<h5 id="_value_references"><a class="anchor" href="#_value_references"></a>9.2.1.2. Value References</h5>
+<h5 id="_value_generators"><a class="anchor" href="#_value_generators"></a>9.2.1.2. Value Generators</h5>
 <div class="paragraph">
-<p>References are categorised as follows:</p>
+<p>Value generators are categorised as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em>model-based references</em>: (<code>EL_SCOPED_REF</code>);</p>
+<p><em>feature references</em>: (<code>EL_FEATURE_REF</code>)</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>references to instances</em>: symbolic references to instance values stored (as properties or variables) within the current or another object scope (<code>EL_INSTANTIABLE_REF</code>);</p>
+<p><em>references to instantiable features</em>: symbolic references to properties and constants (<code>EL_PROPERTY_REF</code>, <code>EL_CONSTANT_REF</code>);</p>
 </li>
 <li>
 <p><em>calls to functions</em>: appropriately constructed calls to functions of the types that define instances (<code>EL_FUNCTION_CALL</code>);</p>
@@ -6946,7 +7039,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </li>
 <li>
-<p><em>self reference</em>: (<code>EL_SELF_REF</code>) the 'current' object, within which the expression is situated and being evaluated;</p>
+<p><em>variable reference</em>: references to variables within the scope of the current routine, including local variables, parameters, the current object (<code>Self</code>), or the current function result (<code>Result</code>) (<code>EL_VARIABLE</code>);</p>
 </li>
 <li>
 <p><em>a type reference</em>: (<code>EL_TYPE_REF</code>) a reference representing a type object assumed to be available at runtime, on which argumentless function calls and constants may be accessed.</p>
@@ -6957,7 +7050,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>The arguments of function calls and delayed routine calls may be complex expressions, but will eventually resolved to literal values and instance references. Consequently, the value generated by any expression is ultimately founded upon literal values and instance references.</p>
 </div>
 <div class="paragraph">
-<p>To be valid, any model-based feature reference must have a scoping object (represented via the attribute <code><em>scope</em></code> in <code>EL_SCOPED_REF</code>), which is one of:</p>
+<p>To be valid, any model-based feature reference must have a scoping object (represented via the attribute <code><em>scope</em></code> in <code>EL_SCOPED</code>), which is one of:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7066,23 +7159,23 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="sect4">
-<h5 id="_variable_references"><a class="anchor" href="#_variable_references"></a>9.2.1.3. Variable References</h5>
+<h5 id="_variables_2"><a class="anchor" href="#_variables_2"></a>9.2.1.3. Variables</h5>
 <div class="paragraph">
-<p>Variable references are one of the following:</p>
+<p>Symbolic variables (meta-type <code>EL_VARIABLE</code>) are one of the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>variables declared locally in a routine (meta-type <code>EL_VARIABLE_REF</code> with <code>definition</code> = <code>BMM_LOCAL</code>);</p>
+<p>variables declared locally in a routine  (<code>EL_VARIABLE.definition</code> = <code>BMM_LOCAL</code>);</p>
 </li>
 <li>
-<p>named arguments of a routine (meta-type <code>EL_VARIABLE_REF</code> with <code>definition</code> = <code>BMM_PARAMETER</code>);</p>
+<p>named arguments of a routine (<code>EL_VARIABLE.definition</code> = <code>BMM_PARAMETER</code>);</p>
 </li>
 <li>
-<p>a special variable called 'Result' representing the result object of a function (meta-type <code>EL_VARIABLE_REF</code> with <code>definition</code> = <code>BMM_result</code>);</p>
+<p>a special variable called 'Result' representing the result object of a function (<code>EL_VARIABLE.definition</code> = <code>BMM_RESULT</code>);</p>
 </li>
 <li>
-<p>a special variable (often called 'this' or 'self' in object-oriented programming languages) to refer to the object acting as the context for enclosed statements (<code>EL_SELF_REF</code> meta-type).</p>
+<p>a special variable (often called 'this' or 'self' in object-oriented programming languages) to refer to the object acting as the context for enclosed statements (<code>EL_VARIABLE.definition</code> = <code>BMM_SELF</code>).</p>
 </li>
 </ul>
 </div>
@@ -7522,7 +7615,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_value_ref_class"><a class="anchor" href="#_el_value_ref_class"></a>9.6.4. EL_VALUE_REF Class</h4>
+<h4 id="_el_value_generator_class"><a class="anchor" href="#_el_value_generator_class"></a>9.6.4. EL_VALUE_GENERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7532,43 +7625,17 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_VALUE_REF (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_VALUE_GENERATOR (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A reference to a formal element that is either a type, self reference, a feature reference, or a local variable.</p>
+<p>Meta-type representing a value-generating simple expression.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_self_ref_class"><a class="anchor" href="#_el_self_ref_class"></a>9.6.5. EL_SELF_REF Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_SELF_REF</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Special meta-type used to represent a reference that may appear in any routine, pre- or post-condition, or invariant, and resolves to the current object within which feature references are scoped; corresponds to 'self', 'this' or 'Current' in various programming languages.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7577,29 +7644,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code><a href="#_bmm_type_class">BMM_TYPE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of the current scoping instance, inferred from expression context.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_type_class">BMM_TYPE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return <code><em>type</em></code>.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.6.6. EL_TYPE_REF Class</h4>
+<h4 id="_el_type_ref_class"><a class="anchor" href="#_el_type_ref_class"></a>9.6.5. EL_TYPE_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7622,7 +7674,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7635,6 +7687,12 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type, directly from the name of the reference, e.g. <code>{SOME_TYPE}</code>.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_mutable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;false}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -7653,7 +7711,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.6.7. EL_LITERAL Class</h4>
+<h4 id="_el_literal_class"><a class="anchor" href="#_el_literal_class"></a>9.6.6. EL_LITERAL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7704,7 +7762,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_scoped_ref_class"><a class="anchor" href="#_el_scoped_ref_class"></a>9.6.8. EL_SCOPED_REF Class</h4>
+<h4 id="_el_variable_class"><a class="anchor" href="#_el_variable_class"></a>9.6.7. EL_VARIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7714,7 +7772,119 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_SCOPED_REF (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_VARIABLE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract meta-type of any kind of symbolic variable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_writable_variable_class"><a class="anchor" href="#_el_writable_variable_class"></a>9.6.8. EL_WRITABLE_VARIABLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_WRITABLE_VARIABLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type of writable variables, including routine locals and the special variable 'Result'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_variable_class">EL_VARIABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_writable_variable_class">BMM_WRITABLE_VARIABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;true}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_readonly_variable_class"><a class="anchor" href="#_el_readonly_variable_class"></a>9.6.9. EL_READONLY_VARIABLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_READONLY_VARIABLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type of read-only variables, including routine parameter and the special variable 'Self'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_variable_class">EL_VARIABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_readonly_variable_class">BMM_READONLY_VARIABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;false}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_el_feature_ref_class"><a class="anchor" href="#_el_feature_ref_class"></a>9.6.10. EL_FEATURE_REF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_FEATURE_REF (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -7724,7 +7894,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7733,14 +7903,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scoper</strong>: <code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scoper</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instantiable_ref_class"><a class="anchor" href="#_el_instantiable_ref_class"></a>9.6.9. EL_INSTANTIABLE_REF Class</h4>
+<h4 id="_el_property_ref_class"><a class="anchor" href="#_el_property_ref_class"></a>9.6.11. EL_PROPERTY_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7750,17 +7920,36 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EL_INSTANTIABLE_REF (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_PROPERTY_REF</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Reference to a directly instantiable feature, i.e. a variable or instantiable class feature.</p>
+<p>Reference to an instantiable feature, i.e. property or constant (including computed constants).</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_scoped_ref_class">EL_SCOPED_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_feature_ref_class">EL_FEATURE_REF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_property_class">BMM_PROPERTY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Property definition (within class).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;true}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -7779,7 +7968,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_variable_ref_class"><a class="anchor" href="#_el_variable_ref_class"></a>9.6.10. EL_VARIABLE_REF Class</h4>
+<h4 id="_el_constant_ref_class"><a class="anchor" href="#_el_constant_ref_class"></a>9.6.12. EL_CONSTANT_REF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7789,17 +7978,15 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_VARIABLE_REF</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_CONSTANT_REF</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Reference to a variable.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_instantiable_ref_class">EL_INSTANTIABLE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_feature_ref_class">EL_FEATURE_REF</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7808,54 +7995,23 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_variable_class">BMM_VARIABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_constant_class">BMM_CONSTANT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Variable definition.</p>
+<p>Constant definition (within class).</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;false}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_instantiable_feature_ref_class"><a class="anchor" href="#_el_instantiable_feature_ref_class"></a>9.6.11. EL_INSTANTIABLE_FEATURE_REF Class</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EL_INSTANTIABLE_FEATURE_REF</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Reference to an instantiable feature, i.e. constant or property.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_instantiable_ref_class">EL_INSTANTIABLE_REF</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_instantiable_feature_class">BMM_INSTANTIABLE_FEATURE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Feature definition (within class).</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.6.12. EL_AGENT_CALL Class</h4>
+<h4 id="_el_agent_call_class"><a class="anchor" href="#_el_agent_call_class"></a>9.6.13. EL_AGENT_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7895,7 +8051,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.6.13. EL_FUNCTION_CALL Class</h4>
+<h4 id="_el_function_call_class"><a class="anchor" href="#_el_function_call_class"></a>9.6.14. EL_FUNCTION_CALL Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7915,7 +8071,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_scoped_ref_class">EL_SCOPED_REF</a></code>, <code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_feature_ref_class">EL_FEATURE_REF</a></code>, <code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -7929,6 +8085,13 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The function agent being called.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;false}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -7953,7 +8116,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.6.14. EL_AGENT Class</h4>
+<h4 id="_el_agent_class"><a class="anchor" href="#_el_agent_class"></a>9.6.15. EL_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -7968,7 +8131,10 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A delayed routine call, whose arguments may be open, partially closed or closed. Instances may include closed delayed calls like <code>calculate_age (dob="1987-09-13", today="2019-06-03")</code> but also partially open calls such as <code>format_structure (struct=?, style=3)</code>, where <code>struct</code> is an open argument.</p>
+<p>A delayed routine call, whose arguments may be open, partially closed or closed. Generated by special reference to a routine, usually via a dedicated keyword, such as 'lambda' or 'agent', or other special syntax.</p>
+</div>
+<div class="paragraph">
+<p>Instances may include closed delayed calls like <code>calculate_age (dob="1987-09-13", today="2019-06-03")</code> but also partially open calls such as <code>format_structure (struct=?, style=3)</code>, where <code>struct</code> is an open argument.</p>
 </div>
 <div class="paragraph">
 <p>Evaluation type (i.e. type of runtime evaluated form) is <code>BMM_SIGNATURE</code>.</p>
@@ -7976,7 +8142,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_scoped_ref_class">EL_SCOPED_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_feature_ref_class">EL_FEATURE_REF</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -8012,6 +8178,13 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
+{default&#160;=&#160;false}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -8039,7 +8212,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.6.15. EL_FUNCTION_AGENT Class</h4>
+<h4 id="_el_function_agent_class"><a class="anchor" href="#_el_function_agent_class"></a>9.6.16. EL_FUNCTION_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8078,7 +8251,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.6.16. EL_PROCEDURE_AGENT Class</h4>
+<h4 id="_el_procedure_agent_class"><a class="anchor" href="#_el_procedure_agent_class"></a>9.6.17. EL_PROCEDURE_AGENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8117,7 +8290,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.6.17. EL_PREDICATE Class</h4>
+<h4 id="_el_predicate_class"><a class="anchor" href="#_el_predicate_class"></a>9.6.18. EL_PREDICATE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8146,7 +8319,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code><a href="#_el_value_ref_class">EL_VALUE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The target instance of this predicate.</p>
 </div></div></td>
@@ -8168,7 +8341,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.6.18. EL_DEFINED Class</h4>
+<h4 id="_el_defined_class"><a class="anchor" href="#_el_defined_class"></a>9.6.19. EL_DEFINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8206,7 +8379,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.6.19. EL_ATTACHED Class</h4>
+<h4 id="_el_attached_class"><a class="anchor" href="#_el_attached_class"></a>9.6.20. EL_ATTACHED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8232,7 +8405,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_decision_table_class"><a class="anchor" href="#_el_decision_table_class"></a>9.6.20. EL_DECISION_TABLE Class</h4>
+<h4 id="_el_decision_table_class"><a class="anchor" href="#_el_decision_table_class"></a>9.6.21. EL_DECISION_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8277,7 +8450,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_decision_branch_class"><a class="anchor" href="#_el_decision_branch_class"></a>9.6.21. EL_DECISION_BRANCH Class</h4>
+<h4 id="_el_decision_branch_class"><a class="anchor" href="#_el_decision_branch_class"></a>9.6.22. EL_DECISION_BRANCH Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8309,7 +8482,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_condition_chain_class"><a class="anchor" href="#_el_condition_chain_class"></a>9.6.22. EL_CONDITION_CHAIN Class</h4>
+<h4 id="_el_condition_chain_class"><a class="anchor" href="#_el_condition_chain_class"></a>9.6.23. EL_CONDITION_CHAIN Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8354,7 +8527,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.6.23. EL_CONDITIONAL_EXPRESSION Class</h4>
+<h4 id="_el_conditional_expression_class"><a class="anchor" href="#_el_conditional_expression_class"></a>9.6.24. EL_CONDITIONAL_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8386,7 +8559,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_case_table_class"><a class="anchor" href="#_el_case_table_class"></a>9.6.24. EL_CASE_TABLE Class</h4>
+<h4 id="_el_case_table_class"><a class="anchor" href="#_el_case_table_class"></a>9.6.25. EL_CASE_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8431,7 +8604,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_case_class"><a class="anchor" href="#_el_case_class"></a>9.6.25. EL_CASE Class</h4>
+<h4 id="_el_case_class"><a class="anchor" href="#_el_case_class"></a>9.6.26. EL_CASE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8467,7 +8640,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>9.6.26. EL_OPERATOR Class</h4>
+<h4 id="_el_operator_class"><a class="anchor" href="#_el_operator_class"></a>9.6.27. EL_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8538,7 +8711,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>9.6.27. EL_UNARY_OPERATOR Class</h4>
+<h4 id="_el_unary_operator_class"><a class="anchor" href="#_el_unary_operator_class"></a>9.6.28. EL_UNARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8576,7 +8749,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>9.6.28. EL_BINARY_OPERATOR Class</h4>
+<h4 id="_el_binary_operator_class"><a class="anchor" href="#_el_binary_operator_class"></a>9.6.29. EL_BINARY_OPERATOR Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8621,7 +8794,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.6.29. EL_TUPLE Class</h4>
+<h4 id="_el_tuple_class"><a class="anchor" href="#_el_tuple_class"></a>9.6.30. EL_TUPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8679,7 +8852,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.6.30. EL_TUPLE_ITEM Class</h4>
+<h4 id="_el_tuple_item_class"><a class="anchor" href="#_el_tuple_item_class"></a>9.6.31. EL_TUPLE_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8720,7 +8893,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_constrained_class"><a class="anchor" href="#_el_constrained_class"></a>9.6.31. EL_CONSTRAINED Class</h4>
+<h4 id="_el_constrained_class"><a class="anchor" href="#_el_constrained_class"></a>9.6.32. EL_CONSTRAINED Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -8735,7 +8908,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract parent for second-order or constrained forms of first-order expression meta-types.</p>
+<p>Abstract parent for second-order constrained forms of first-order expression meta-types.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8758,7 +8931,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_el_boolean_expression_class"><a class="anchor" href="#_el_boolean_expression_class"></a>9.6.32. EL_BOOLEAN_EXPRESSION Class</h4>
+<h4 id="_el_boolean_expression_class"><a class="anchor" href="#_el_boolean_expression_class"></a>9.6.33. EL_BOOLEAN_EXPRESSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9207,7 +9380,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code><a href="#_el_instantiable_ref_class">EL_INSTANTIABLE_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The target variable on the notional left-hand side of this assignment.</p>
 </div></div></td>
@@ -9217,6 +9390,12 @@ probably to be removed.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Source right hand side) of the assignment.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_target_writable</em>: <code>target.is_writable</code></p>
 </div></div></td>
 </tr>
 </tbody>

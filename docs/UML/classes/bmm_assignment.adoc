@@ -16,10 +16,13 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*target*: `<<_el_instantiable_ref_class,EL_INSTANTIABLE_REF>>`
+|*target*: `<<_el_value_generator_class,EL_VALUE_GENERATOR>>`
 a|The target variable on the notional left-hand side of this assignment.
 
 h|*1..1*
 |*source*: `<<_el_expression_class,EL_EXPRESSION>>`
 a|Source right hand side) of the assignment.
+
+h|*Invariants*
+2+a|__Inv_target_writable__: `target.is_writable`
 |===

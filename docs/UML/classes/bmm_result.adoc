@@ -6,10 +6,10 @@ h|*Class*
 2+^h|*BMM_RESULT*
 
 h|*Description*
-2+a|Automatically declared variable representing result instance of a Function call.
+2+a|Automatically declared variable representing result of a Function call (writable).
 
 h|*Inherit*
-2+|`<<_bmm_variable_class,BMM_VARIABLE>>`
+2+|`<<_bmm_writable_variable_class,BMM_WRITABLE_VARIABLE>>`
 
 h|*Attributes*
 ^h|*Signature*

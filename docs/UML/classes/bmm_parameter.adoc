@@ -6,10 +6,10 @@ h|*Class*
 2+^h|*BMM_PARAMETER*
 
 h|*Description*
-2+a|A routine parameter variable.
+2+a|A routine parameter variable (read-only).
 
 h|*Inherit*
-2+|`<<_bmm_variable_class,BMM_VARIABLE>>`
+2+|`<<_bmm_readonly_variable_class,BMM_READONLY_VARIABLE>>`
 
 h|*Attributes*
 ^h|*Signature*

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*__EL_CONSTRAINED (abstract)__*
 
 h|*Description*
-2+a|Abstract parent for second-order or constrained forms of first-order expression meta-types.
+2+a|Abstract parent for second-order constrained forms of first-order expression meta-types.
 
 h|*Inherit*
 2+|`<<_el_expression_class,EL_EXPRESSION>>`

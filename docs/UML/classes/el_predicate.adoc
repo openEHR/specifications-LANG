@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `<<_el_value_ref_class,EL_VALUE_REF>>`
+|*operand*: `<<_el_value_generator_class,EL_VALUE_GENERATOR>>`
 a|The target instance of this predicate.
 h|*Functions*
 ^h|*Signature*

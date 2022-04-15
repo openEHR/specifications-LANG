@@ -11,7 +11,7 @@ h|*Description*
 May be used as a value, or as the qualifier for a function or constant access.
 
 h|*Inherit*
-2+|`<<_el_value_ref_class,EL_VALUE_REF>>`
+2+|`<<_el_value_generator_class,EL_VALUE_GENERATOR>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -20,6 +20,11 @@ h|*Attributes*
 h|*1..1*
 |*type*: `<<_bmm_type_class,BMM_TYPE>>`
 a|Type, directly from the name of the reference, e.g. `{SOME_TYPE}`.
+
+h|*1..1*
+|*is_mutable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^] +
+{default{nbsp}={nbsp}false}`
+a|
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
