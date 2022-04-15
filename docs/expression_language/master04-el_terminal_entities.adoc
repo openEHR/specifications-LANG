@@ -202,7 +202,7 @@ TBD: to achieve this generically, the map of operators to member functions of ap
 
 Other short forms are available, making a predicate syntax reminiscent of Xpath possible, as follows.
 
-[cols="1,6a,2,2", options="header"]
+[cols="1,1", options="header"]
 |===
 |Lambda expression                              |Short form
 
