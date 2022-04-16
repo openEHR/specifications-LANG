@@ -28,12 +28,8 @@ h|*0..1*
 a|
 
 h|*0..1*
-|*body*: `<<_bmm_routine_body_class,BMM_ROUTINE_BODY>>`
+|*definition*: `<<_bmm_routine_definition_class,BMM_ROUTINE_DEFINITION>>`
 a|Body of a routine, i.e. executable program.
-
-h|*0..1*
-|*locals*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_local_class,BMM_LOCAL>>>`
-a|Local variables of the routine, if there is a body defined.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

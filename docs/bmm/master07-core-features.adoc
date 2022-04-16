@@ -64,9 +64,21 @@ image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="cente
 
 Due to the possibility of generating concrete types via substitution of concrete generic parameters for formal parameters of generic classes, new concrete types of features may routinely result anywhere in a fully computed in-memory BMM model. BMM allows such features to be synthesised with their resulting concrete types rather than their 'source-defined' open parameter types, and provides the Boolean flag `_is_synthesised_generic_` on `BMM_FEATURE` to mark any such synthesised feature. An example of the use of this is described below in <<_generic_inheritance>>.
 
-== Constants
+== Properties
 
-Constant features in a class are represented by the BMM meta-type `BMM_CONSTANT`, which is a descendant of `BMM_INSTANTIABLE` whose `_signature_` has no arguments and that is not run-time nullable.
+Properties are features whose values are stored rather than computed on each reference, and are represented by the meta-type `BMM_INSTANTIABLE_FEATURE`. They are distinguished from routines by having no arguments (signature of degree zero).
+
+=== Static Properties
+
+Static properties are properties whose values are pre-defined by some means, and read-only during execution (`_is_nullable_` is False).
+
+==== Constants
+
+Constant class features (meta-type `BMM_CONSTANT`) correspond to classic constants in most computer languages, and are defined by literal value.
+
+==== Singletons
+
+The other kind of static property is computed once during execution (meta-type `BMM_SINGLETON`) via an argumentless function-body. Like a value-based constant, it has the same value for all instances of the containing type, including descendant and generically derived types.
 
 At runtime a constant has a value, which may be of any type, including complex types, and which is set using its `_generator_` expression, which is an instance of a concrete descendant of the meta-type `EL_VALUE_REF`. In the common degenerate case, `_generator_` consists simply of a literal value, but may also be a function call or other expression valid in the context of the scoping class. This latter capability is the means by which _computed constants_ are supported.
 
@@ -95,13 +107,13 @@ feature
     constant ProxyVar<Quantity> = {ProxyVar<Quantity>}(arg1, arg2);
 ----
 
-== Properties
+=== Writable Properties
 
-Class properties are defined via the meta-class `BMM_PROPERTY`, and its subtypes which distinguish _unitary properties_ (single-valued attributes in a class) from _container properties_ (multiply-valued attributes).
+Writable class properties are defined via the meta-class `BMM_PROPERTY`, and its subtypes which distinguish _unitary properties_ (single-valued attributes in a class) from _container properties_ (multiply-valued attributes).
 
 The `BMM_PROPERTY` meta-type defines semantics common to all properties, including `_is_composition_`, which indicates whether the property reference instantiates a part-of relationship or an association.
 
-=== Unitary versus Container Properties
+==== Unitary versus Container Properties
 
 Single-valued properties in a BMM model are instances of the type `BMM_UNITARY_PROPERTY`, and have as their `_type_` the meta-type `BMM_UNITARY_TYPE`. Container properties are instances of the meta-type `BMM_CONTAINER_PROPERTY`, which adds the attribute `_cardinality_`, enabling the possible number of container elements to be constrained (this corresponds to the multiplicities used at the end of UML associations). The meta-type `BMM_INDEXED_CONTAINER_PROPERTY` adds the attribute `_index_type_`, enabling representation of indexed concrete container types such as `Hash<K,V>` etc.
 
@@ -128,7 +140,7 @@ feature -- Access
     composition property other_participations: PARTICIPATION[*]{set};
 ----
 
-=== Semantic Level
+==== Semantic Level
 
 [.tbd]
 TBD: this BMM feature requires review
@@ -256,11 +268,13 @@ The meta-model of statements is described in detail in <<_statements>>.
 
 == Variables
 
-At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either _local variables_ (variables declared locally within a routine) or _parameters_ (declared in the arguments part of a routine declaration), having the meta-types `BMM_LOCAL` and `BMM_PARAMETER` respectively. The special pre-defined variable `Result` is automatically available within any function, and is represented by the meta-model type `BMM_RESULT`.
+At the finest level of detail of a model definition are what are typically thought of as _variables_ within a routine scope. These may be either writable (`BMM_WRITABLE_VARIABLE`) or read-only (`BMM_READONlY_VARIABLE`) variables.
+
+Writable variables include _local variables_ (variables declared locally within a routine) and the special pre-defined variable `Result`, which is automatically available within any function. Read-only variables include _parameters_ (declared in the arguments part of a routine declaration), and the special variable `Self`, which represents the current instance.
 
 == Model Theoretic Questions
 
-The features meta-model as defined here entails certain choices that have consequences. One question is how to treat procedures. In a mathematical sense, procedures have no return type, and therefore should not be allowed within 'normal' expressions. However in a computational sense, a procedure call normally performs some state-changing action (for example, authenticating to a database), and it is potentially useful to obtain an execution status and use it in further logic. The choice made in BMM is to treat _procedures as typed entities_, with a result meta-type and concrete type of `Status` (represented by `BMM_STATUS_TYPE`). This is similar to the approach in various languages such as Haskell and {kotlin}[Kotlin^], which both have a 'unit' type for the same purpose. This approach allows procedures to fit within the typed framework without complicating the model.
+The features meta-model as defined here entails certain choices that have consequences. One question is how to treat procedures. In a mathematical sense, procedures have no return type, and therefore should not be allowed within 'normal' expressions. However in a computational sense, a procedure call normally performs some state-changing action (for example, authenticating to a database), and it is potentially useful to obtain an execution status and use it in further logic. The choice made in BMM is to treat _procedures as typed entities_, with a result meta-type and concrete type of `Status` (represented by `BMM_STATUS_TYPE`). This is similar to the approach in various languages such as Haskell and {kotlin}[Kotlin^], which both have a 'unit' type for the same purpose. This approach allows procedures to fit within the typed framework without complicating the meta-model.
 
 Procedure calls are prevented from appearing in expressions by the <<_expressions, expressions>> part of the meta-model, and can only appear on their own (the usual case) or in an assignment statement in which a result status value may be obtained from the Status object. This value may then be used in normal expressions, e.g. a case statement.
 
@@ -273,7 +287,10 @@ include::{uml_export_dir}/classes/bmm_feature_group.adoc[]
 include::{uml_export_dir}/classes/bmm_visibility.adoc[]
 
 include::{uml_export_dir}/classes/bmm_instantiable_feature.adoc[]
+include::{uml_export_dir}/classes/bmm_static.adoc[]
 include::{uml_export_dir}/classes/bmm_constant.adoc[]
+include::{uml_export_dir}/classes/bmm_singleton.adoc[]
+
 include::{uml_export_dir}/classes/bmm_property.adoc[]
 include::{uml_export_dir}/classes/bmm_unitary_property.adoc[]
 include::{uml_export_dir}/classes/bmm_container_property.adoc[]
@@ -294,5 +311,6 @@ include::{uml_export_dir}/classes/bmm_self.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter.adoc[]
 include::{uml_export_dir}/classes/bmm_parameter_direction.adoc[]
 
-include::{uml_export_dir}/classes/bmm_routine_body.adoc[]
-include::{uml_export_dir}/classes/bmm_routine_external.adoc[]
+include::{uml_export_dir}/classes/bmm_routine_definition.adoc[]
+include::{uml_export_dir}/classes/bmm_local_routine.adoc[]
+include::{uml_export_dir}/classes/bmm_external_routine.adoc[]

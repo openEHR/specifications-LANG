@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EL_PROPERTY_REF*
 
 h|*Description*
-2+a|Reference to an instantiable feature, i.e. property or constant (including computed constants).
+2+a|Reference to a writable property.
 
 h|*Inherit*
 2+|`<<_el_feature_ref_class,EL_FEATURE_REF>>`

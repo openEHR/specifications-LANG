@@ -8,7 +8,4 @@ h|*Class*
 h|*Description*
 2+a|Abstract parent of statement types representing a locally defined routine body.
 
-h|*Inherit*
-2+|`<<_bmm_routine_body_class,BMM_ROUTINE_BODY>>`
-
 |===

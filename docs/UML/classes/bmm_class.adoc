@@ -42,8 +42,8 @@ h|*1..1*
 a|True if this definition overrides a class of the same name in an included schema.
 
 h|*0..1*
-|*constants*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_constant_class,BMM_CONSTANT>>>`
-a|Constants defined in this class (subset of `_features_`).
+|*static_properties*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_static_class,BMM_STATIC>>>`
+a|Static properties defined in this class (subset of `_features_`).
 
 h|*0..1*
 |*functions*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_function_class,BMM_FUNCTION>>>`

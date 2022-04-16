@@ -399,7 +399,7 @@ include::{uml_export_dir}/classes/el_readonly_variable.adoc[]
 
 include::{uml_export_dir}/classes/el_feature_ref.adoc[]
 include::{uml_export_dir}/classes/el_property_ref.adoc[]
-include::{uml_export_dir}/classes/el_constant_ref.adoc[]
+include::{uml_export_dir}/classes/el_static_ref.adoc[]
 
 include::{uml_export_dir}/classes/el_agent_call.adoc[]
 include::{uml_export_dir}/classes/el_function_call.adoc[]
