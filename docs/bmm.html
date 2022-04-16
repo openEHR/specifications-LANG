@@ -5690,7 +5690,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generator</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generator</strong>: <code><a href="#_el_simple_class">EL_SIMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Generator expression for the constant value. In the  degenerate case, this is just a literal value, but may also be any other expression valid in the context.</p>
 </div></div></td>
@@ -6952,9 +6952,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="paragraph">
 <p>Expressions in BMM are used to specify class invariants, routine pre- and post-conditions, and may be used more generally in other contexts requiring expressions. They are defined by a set of classes prefixed by 'EL', indicating 'expression language'. The BMM expression meta-model is based on the following taxonomy of expression entities:</p>
 </div>
-<div id="bmm_expression_taxonomy" class="imageblock text-center text-center">
+<div id="bmm_expression_type_hierarchy" class="imageblock text-center text-center">
 <div class="content">
-<img src="bmm/diagrams/bmm_expression_taxonomy.svg" alt="bmm expression taxonomy">
+<img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
 </div>
 <div class="title">Figure 34. Expression Taxonomy</div>
 </div>
@@ -6999,15 +6999,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p><em>predicates</em>: Boolean-generating expression elements formed by predicates applied to any of the other value-generating expression elements.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The model described in this section supports these primitive elements via descendants of the <code>EL_SIMPLE</code> meta-type. For ease of comprehension, the following UML diagram provides an annotated view of these meta-types.</p>
-</div>
-<div id="bmm_expression_type_hierarchy" class="imageblock text-center text-center">
-<div class="content">
-<img src="UML/diagrams/LANG-bmm.expression-type_hierarchy.svg" alt="LANG bmm.expression type hierarchy">
-</div>
-<div class="title">Figure 36. bmm.expression Package - Type hierarchy</div>
 </div>
 <div class="sect4">
 <h5 id="_literals"><a class="anchor" href="#_literals"></a>9.2.1.1. Literals</h5>
@@ -7189,7 +7180,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-predicate.svg" alt="LANG bmm.expression predicate">
 </div>
-<div class="title">Figure 37. Predicates</div>
+<div class="title">Figure 36. Predicates</div>
 </div>
 <div class="paragraph">
 <p>The following predicates are pre-defined.</p>
@@ -7252,7 +7243,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-decision_table.svg" alt="LANG bmm.expression decision table">
 </div>
-<div class="title">Figure 38. Decision Tables</div>
+<div class="title">Figure 37. Decision Tables</div>
 </div>
 <div class="paragraph">
 <p>The logic of a <code>EL_CONDITION_CHAIN</code> is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:</p>
@@ -7323,7 +7314,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-operator.svg" alt="LANG bmm.expression operator">
 </div>
-<div class="title">Figure 39. Operator meta-types</div>
+<div class="title">Figure 38. Operator meta-types</div>
 </div>
 <div class="paragraph">
 <p>The following example illustrates the general meta-model of expressions, using a typical use of expression, the class invariant.</p>
@@ -7362,7 +7353,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="content">
 <img src="bmm/diagrams/bmm_expression_property_ref.svg" alt="bmm expression property ref">
 </div>
-<div class="title">Figure 40. Instantiated Operator Expression</div>
+<div class="title">Figure 39. Instantiated Operator Expression</div>
 </div>
 <div class="paragraph">
 <p>Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.</p>
@@ -8999,7 +8990,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.expression-functional.svg" alt="LANG bmm.expression functional">
 </div>
-<div class="title">Figure 41. <code>bmm.expression</code> package - Functional Elements</div>
+<div class="title">Figure 40. <code>bmm.expression</code> package - Functional Elements</div>
 </div>
 </div>
 <div class="sect2">
@@ -9029,7 +9020,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm-nested_call.svg" alt="LANG bmm nested call">
 </div>
-<div class="title">Figure 42. Function call example - Body Mass index (BMI)</div>
+<div class="title">Figure 41. Function call example - Body Mass index (BMI)</div>
 </div>
 </div>
 </div>
@@ -9049,7 +9040,7 @@ probably to be removed.
 <div class="content">
 <img src="UML/diagrams/LANG-bmm.statement.svg" alt="LANG bmm.statement">
 </div>
-<div class="title">Figure 43. Features for routine definition</div>
+<div class="title">Figure 42. Features for routine definition</div>
 </div>
 <div class="paragraph">
 <p>The use of the three-class hierarchy pattern allows a Routine <code><em>body</em></code> to be a simple statement or a <em>block</em>, containing statements and/or more blocks. The class <code>BMM_STATEMENT</code> is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.</p>
@@ -9095,7 +9086,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_assignment.svg" alt="bmm assignment">
 </div>
-<div class="title">Figure 44. Assignment to function Result</div>
+<div class="title">Figure 43. Assignment to function Result</div>
 </div>
 </div>
 <div class="sect2">
@@ -9142,7 +9133,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/diagrams/bmm_procedure_call.svg" alt="bmm procedure call">
 </div>
-<div class="title">Figure 45. Procedure call</div>
+<div class="title">Figure 44. Procedure call</div>
 </div>
 </div>
 <div class="sect2">
@@ -9548,7 +9539,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_ancestors.png" alt="awb class ancestors" width="45%">
 </div>
-<div class="title">Figure 46. BMM class - ancestors view</div>
+<div class="title">Figure 45. BMM class - ancestors view</div>
 </div>
 <div class="paragraph">
 <p>The next screenshot shows the descendants view of one of the ancestor classes of the same class.</p>
@@ -9557,7 +9548,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_class_descendants.png" alt="awb class descendants" width="45%">
 </div>
-<div class="title">Figure 47. BMM class - descendants view</div>
+<div class="title">Figure 46. BMM class - descendants view</div>
 </div>
 </div>
 <div class="sect3">
@@ -9582,7 +9573,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_class.png" alt="awb generic class" width="55%">
 </div>
-<div class="title">Figure 48. Generic inheritance, constraint-narrowing</div>
+<div class="title">Figure 47. Generic inheritance, constraint-narrowing</div>
 </div>
 <div class="paragraph">
 <p>The resulting types of <code><em>lower</em></code> and <code><em>upper</em></code> are now <code>T:DV_ORDERED</code> rather than <code>T:Ordered</code> from the parent. In the fully computed model shown above, these two properties are synthesised within <code>DV_INTERVAL&lt;T&gt;</code> with their new concrete types. Their BMM meta-type objects (type <code>BMM_UNITARY_PROPERTY</code>) will both have the meta-attribute <code><em>is_synthesised_generic</em></code> set to <code>True</code> and are marked with an asterisk within the property view to indicate this.</p>
@@ -9594,7 +9585,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_closed.png" alt="awb generic inheritance closed" width="85%">
 </div>
-<div class="title">Figure 49. Generic inheritance, closed</div>
+<div class="title">Figure 48. Generic inheritance, closed</div>
 </div>
 <div class="paragraph">
 <p>In this case, The resulting type of <code><em>event</em></code> is <code>TIMER_EVENT</code> rather than <code>T:EVENT</code> from the parent. As in the previous example, this property has been synthesised new within <code>TIMER_WAIT</code>, with the meta-attribute <code><em>is_synthesised_generic</em></code> set <code>True</code> and is marked accordingly within the tool.</p>
@@ -9606,7 +9597,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance_mixed.png" alt="awb generic inheritance mixed" width="90%">
 </div>
-<div class="title">Figure 50. Generic inheritance, mixed open and closed</div>
+<div class="title">Figure 49. Generic inheritance, mixed open and closed</div>
 </div>
 <div class="paragraph">
 <p>Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by <code>X_VERSIONED_COMPOSITION</code> of <code>X_VERSIONED_COMPOSITION&lt;ORIGINAL_VERSION&lt;COMPOSITION&gt;&gt;</code>.</p>
@@ -9615,7 +9606,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_generic_inheritance.png" alt="awb generic inheritance" width="70%">
 </div>
-<div class="title">Figure 51. Generic inheritance, open parameter</div>
+<div class="title">Figure 50. Generic inheritance, open parameter</div>
 </div>
 </div>
 <div class="sect3">
@@ -9627,7 +9618,7 @@ probably to be removed.
 <div class="content">
 <img src="bmm/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
-<div class="title">Figure 52. Multiple inheritance</div>
+<div class="title">Figure 51. Multiple inheritance</div>
 </div>
 </div>
 <div class="sect3">
