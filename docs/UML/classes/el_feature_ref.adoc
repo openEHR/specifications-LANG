@@ -17,5 +17,13 @@ h|*Attributes*
 
 h|*0..1*
 |*scoper*: `<<_el_value_generator_class,EL_VALUE_GENERATOR>>`
-a|
+a|Scoping expression, which must be a `EL_VALUE_GENERATOR`.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1 +
+(redefined)*
+|*reference* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Generated full reference name, consisting of scoping elements and `_name_` concatenated using dot notation.
 |===

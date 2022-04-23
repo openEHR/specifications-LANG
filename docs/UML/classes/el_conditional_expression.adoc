@@ -11,6 +11,13 @@ h|*Description*
 h|*Inherit*
 2+|`<<_el_decision_branch_class,EL_DECISION_BRANCH>>`
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*condition*: `<<_el_expression_class,EL_EXPRESSION>>`
+a|Boolean expression defining the condition of this decision branch.
 
 h|*Invariants*
 2+a|__Inv_condition_boolean__: `condition.is_boolean()`

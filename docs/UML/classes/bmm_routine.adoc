@@ -21,11 +21,15 @@ a|Formal parameters of the routine.
 
 h|*0..1*
 |*pre_conditions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
-a|
+a|Boolean conditions that must evaluate to True for the routine to execute correctly, May be used to generate exceptions if included in run-time build.
+
+A False pre-condition implies an error in the passed parameters.
 
 h|*0..1*
 |*post_conditions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_assertion_class,BMM_ASSERTION>>>`
-a|
+a|Boolean conditions that will evaluate to True if the routine executed correctly, May be used to generate exceptions if included in run-time build.
+
+A False post-condition implies an error (i.e. bug) in routine code.
 
 h|*0..1*
 |*definition*: `<<_bmm_routine_definition_class,BMM_ROUTINE_DEFINITION>>`

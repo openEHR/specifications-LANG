@@ -360,21 +360,23 @@
 <li><a href="#_statements">11. Statements</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_10">11.1. Overview</a></li>
-<li><a href="#_assignment">11.2. Assignment</a></li>
-<li><a href="#_procedure_call">11.3. Procedure Call</a></li>
-<li><a href="#_action_tables">11.4. Action Tables</a></li>
-<li><a href="#_assertions">11.5. Assertions</a></li>
-<li><a href="#_class_definitions_9">11.6. Class Definitions</a>
+<li><a href="#_variable_declaration">11.2. Variable Declaration</a></li>
+<li><a href="#_assignment">11.3. Assignment</a></li>
+<li><a href="#_procedure_call">11.4. Procedure Call</a></li>
+<li><a href="#_action_tables">11.5. Action Tables</a></li>
+<li><a href="#_assertions">11.6. Assertions</a></li>
+<li><a href="#_class_definitions_9">11.7. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_bmm_statement_item_class">11.6.1. BMM_STATEMENT_ITEM Class</a></li>
-<li><a href="#_bmm_statement_block_class">11.6.2. BMM_STATEMENT_BLOCK Class</a></li>
-<li><a href="#_bmm_statement_class">11.6.3. BMM_STATEMENT Class</a></li>
-<li><a href="#_bmm_simple_statement_class">11.6.4. BMM_SIMPLE_STATEMENT Class</a></li>
-<li><a href="#_bmm_procedure_call_class">11.6.5. BMM_PROCEDURE_CALL Class</a></li>
-<li><a href="#_bmm_assignment_class">11.6.6. BMM_ASSIGNMENT Class</a></li>
-<li><a href="#_bmm_assertion_class">11.6.7. BMM_ASSERTION Class</a></li>
-<li><a href="#_bmm_action_table_class">11.6.8. BMM_ACTION_TABLE Class</a></li>
-<li><a href="#_bmm_action_decision_table_class">11.6.9. BMM_ACTION_DECISION_TABLE Class</a></li>
+<li><a href="#_bmm_statement_item_class">11.7.1. BMM_STATEMENT_ITEM Class</a></li>
+<li><a href="#_bmm_statement_block_class">11.7.2. BMM_STATEMENT_BLOCK Class</a></li>
+<li><a href="#_bmm_statement_class">11.7.3. BMM_STATEMENT Class</a></li>
+<li><a href="#_bmm_simple_statement_class">11.7.4. BMM_SIMPLE_STATEMENT Class</a></li>
+<li><a href="#_bmm_declaration_class">11.7.5. BMM_DECLARATION Class</a></li>
+<li><a href="#_bmm_assignment_class">11.7.6. BMM_ASSIGNMENT Class</a></li>
+<li><a href="#_bmm_procedure_call_class">11.7.7. BMM_PROCEDURE_CALL Class</a></li>
+<li><a href="#_bmm_assertion_class">11.7.8. BMM_ASSERTION Class</a></li>
+<li><a href="#_bmm_action_table_class">11.7.9. BMM_ACTION_TABLE Class</a></li>
+<li><a href="#_bmm_action_decision_table_class">11.7.10. BMM_ACTION_DECISION_TABLE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -4169,7 +4171,10 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>This section describes the semantics of the <code>BMM_CLASS</code> meta-class, its sub-types, constituent parts and relationships. The parts of a class are collectively known as <em>features</em>, and consist of functions, procedures, constants and properties, which appear in <em>feature groups</em>. Within a class, all features are contained in the <code><em>features</em></code> attribute (inherited from <code>BMM_MODULE</code>), with features of each specific type being referenced in a dedicated map (<code>BMM_CLASS.<em>properties</em></code> etc). The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.</p>
+<p>This section describes the semantics of the <code>BMM_CLASS</code> meta-class, its sub-types, constituent parts and relationships. Classes in BMM are <em>generators of types</em>, and are what is authored (i.e. 'programmed') in order to create a model or program text.</p>
+</div>
+<div class="paragraph">
+<p>The formally typed parts of a class are collectively known as <em>features</em>, and consist of functions, procedures, constants and properties, which appear in <em>feature groups</em>. Within a class, all features are contained in the <code><em>features</em></code> attribute (inherited from <code>BMM_MODULE</code>), with features of each specific type being referenced in a dedicated map (<code>BMM_CLASS.<em>properties</em></code> etc). The following UML illustrates classes and relationships to constituent feature meta-types. Features are described in detail in the following section.</p>
 </div>
 <div id="core_class" class="imageblock text-center text-center">
 <div class="content">
@@ -4254,7 +4259,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect2">
 <h3 id="_range_constrained_classes"><a class="anchor" href="#_range_constrained_classes"></a>6.4. Range-Constrained Classes</h3>
 <div class="paragraph">
-<p>The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as <code>String</code> and <code>Integer</code>, this means that any String or Integer value is a valid instance. For composed types, instances are composed of hierarchies of values which are similarly un-constrained with respect to their types.</p>
+<p>The value range of any defined type is by default open, meaning that its instances may take any value allowed by the type definition. For primitive types such as <code>String</code> and <code>Integer</code>, this means that any String or Integer value is a valid instance of their respective types. For complex types, instances are composed of hierarchies of values which are similarly unconstrained with respect to their types.</p>
 </div>
 <div class="paragraph">
 <p>A useful derived form of any concrete type definition (i.e. instance of <code>BMM_EFFECTIVE_TYPE</code> in a model) is one that constrains the legal values of its instances to a particular set of values. The Pascal language provided a well-known precedent, 'sub-range types' that could restrict primitive type value ranges. BMM supports two kinds of range constraint: enumeration and 'value sets'. The additional meta-classes are shown below.</p>
@@ -4268,7 +4273,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect3">
 <h4 id="_enumerated_types"><a class="anchor" href="#_enumerated_types"></a>6.4.1. Enumerated Types</h4>
 <div class="paragraph">
-<p>In modern programming languages, the <em>enumerated type</em> is the most common kind of range constraint mechanism. In Java for example, an enumeration is a finite set of labels each associated with singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind. Enumerated types are supported in BMM via the <code>BMM_ENUMERATION</code> meta-type and descendants.</p>
+<p>In modern programming languages, the <em>enumerated type</em> is the most common kind of range constraint mechanism. In Java for example, an enumeration is a finite set of labels each associated with a singleton value object - either automatically assigned integers, or else programmatically associated instances of any other kind. Enumerated types are supported in BMM via the <code>BMM_ENUMERATION</code> meta-type and descendants.</p>
 </div>
 <div class="paragraph">
 <p>An enumerated type could in theory be based on any BMM defined type, i.e. any simple or generic type, since instances of either could be constrained. BMM makes the simplification that an enumerated type can only be based on a BMM simple type, which means that in the defined model, an enumeration of a closed generic type <code>Gen&lt;T_subst&gt;</code> is achieved by first defining a simple type based on the closed generic type via inheritance, e.g. a type <code>Gen_T_subst</code> that inherits from <code>Gen&lt;T_subst&gt;</code> can be used as the ancestor of a BMM enumeration type.</p>
@@ -5070,11 +5075,11 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </ul>
 </div>
 <div class="paragraph">
-<p>The taxonomy of feature declarations is shown below.</p>
+<p>The taxonomy of feature declarations is shown below in the simplified view of the BMM feature meta-model.</p>
 </div>
-<div id="feature_taxonomy" class="imageblock text-center text-center">
+<div id="feature-taxonomy" class="imageblock text-center text-center">
 <div class="content">
-<img src="bmm/diagrams/feature_taxonomy.svg" alt="feature taxonomy">
+<img src="UML/diagrams/LANG-bmm.core.feature-taxonomy.svg" alt="LANG bmm.core.feature taxonomy">
 </div>
 <div class="title">Figure 26. Feature taxonomy</div>
 </div>
@@ -5082,7 +5087,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="sect3">
 <h4 id="_class_model"><a class="anchor" href="#_class_model"></a>7.1.2. Class Model</h4>
 <div class="paragraph">
-<p>The meta-model that results from the above taxonomy is shown below.</p>
+<p>The full feature meta-model is shown below.</p>
 </div>
 <div id="core_feature" class="imageblock text-center text-center">
 <div class="content">
@@ -5467,7 +5472,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A formal element having a type and a type-based signature.</p>
+<p>A formal element having a name, type and a type-based signature.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6069,12 +6074,22 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_assertion_class">BMM_ASSERTION</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean conditions that must evaluate to True for the routine to execute correctly, May be used to generate exceptions if included in run-time build.</p>
+</div>
+<div class="paragraph">
+<p>A False pre-condition implies an error in the passed parameters.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>post_conditions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_bmm_assertion_class">BMM_ASSERTION</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean conditions that will evaluate to True if the routine executed correctly, May be used to generate exceptions if included in run-time build.</p>
+</div>
+<div class="paragraph">
+<p>A False post-condition implies an error (i.e. bug) in routine code.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
@@ -6356,7 +6371,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for writable variables, including the special variable <code>Result</code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -6446,7 +6463,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for writable variables, including routine parameters and the special variable <code>Self</code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -6624,7 +6643,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for locally declared routine body.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -6645,7 +6666,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>body</strong>: <code><a href="#_bmm_statement_block_class">BMM_STATEMENT_BLOCK</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Body of routine declaration.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -6666,7 +6689,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called.</p>
+<p>External routine meta-type, containing sufficient meta-data to enable a routine in an external library to be called.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7767,6 +7790,25 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name used to represent the reference or other entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reference</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generated full reference name, based on constituent parts of the entity. Default version outputs <code><em>name</em></code> field.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -7938,14 +7980,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_writable_variable_class">BMM_WRITABLE_VARIABLE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Variable definition to which this reference refers.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
 {default&#160;=&#160;true}</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defined to return True in all cases.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -7981,14 +8027,18 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_readonly_variable_class">BMM_READONLY_VARIABLE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Variable definition to which this reference refers.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
 {default&#160;=&#160;false}</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defined to return False in all cases.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8024,7 +8074,22 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scoper</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Scoping expression, which must be a <code>EL_VALUE_GENERATOR</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reference</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generated full reference name, consisting of scoping elements and <code><em>name</em></code> concatenated using dot notation.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8069,7 +8134,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
 {default&#160;=&#160;true}</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defined to return True.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -8127,7 +8194,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
 {default&#160;=&#160;false}</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defined to return False.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -8213,7 +8282,9 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_writable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a><br>
 {default&#160;=&#160;false}</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defined to return False.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -8226,6 +8297,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_type_class">BMM_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code><em>agent.definition.type</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reference</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generated full reference name, consisting of any scoping elements, function name and routine parameters enclosed in parentheses.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8272,13 +8351,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Name of the routine being called.</p>
-</div></div></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>closed_args</strong>: <code><a href="#_el_tuple_class">EL_TUPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -8297,6 +8369,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_routine_class">BMM_ROUTINE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Reference to definition of a routine for which this is an agent, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the routine being called.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8328,6 +8408,14 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <em>Post_result_validity</em>: <code>Result = open_arguments = Void</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if there are no open arguments.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reference</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generated full reference name, including scoping elements.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -8586,7 +8674,9 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of meta-types representing a branch of some kind of decision structure. Defines <code>result</code> as being of the generic type <code>T</code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -8672,6 +8762,18 @@ probably to be removed.
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_decision_branch_class">EL_DECISION_BRANCH</a></code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>condition</strong>: <code><a href="#_el_expression_class">EL_EXPRESSION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean expression defining the condition of this decision branch.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p><em>Inv_condition_boolean</em>: <code>condition.is_boolean()</code></p>
@@ -8715,6 +8817,13 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>test_value</strong>: <code><a href="#_el_value_generator_class">EL_VALUE_GENERATOR</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Expressing generating the input value for the case table.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_el_case_class">EL_CASE</a>&gt;</code></p></td>
@@ -8756,7 +8865,9 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_constraint</strong>: <code><a href="/releases/AM/latest/AOM2.html#_c_object_class" target="_blank" rel="noopener">C_OBJECT</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Constraint on</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -9181,9 +9292,15 @@ probably to be removed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_assignment"><a class="anchor" href="#_assignment"></a>11.2. Assignment</h3>
+<h3 id="_variable_declaration"><a class="anchor" href="#_variable_declaration"></a>11.2. Variable Declaration</h3>
 <div class="paragraph">
-<p>A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of <code><em>definition.type</em></code> of the target and <code><em>eval_type</em>()</code> of the source.</p>
+<p>Writable variables are declared using a variable declaration (<code>BMM_DECLARATION</code>). This may be understood as the creation of an instance of the relevant meta-type, i.e. of <code>EL_WRITABLE_VARIABLE</code>, that will represent the variable for all subsequent uses in the program text.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assignment"><a class="anchor" href="#_assignment"></a>11.3. Assignment</h3>
+<div class="paragraph">
+<p>A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model entity to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of <code><em>definition.type</em></code> of the target and <code><em>eval_type</em>()</code> of the source.</p>
 </div>
 <div class="paragraph">
 <p>The following example shows a simple assignment in the definition of the function <code><em>position</em></code>.</p>
@@ -9221,9 +9338,12 @@ probably to be removed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_procedure_call"><a class="anchor" href="#_procedure_call"></a>11.3. Procedure Call</h3>
+<h3 id="_procedure_call"><a class="anchor" href="#_procedure_call"></a>11.4. Procedure Call</h3>
 <div class="paragraph">
-<p>A procedure call is represented in BMM by the meta-type <code>BMM_PROCEDURE_CALL</code>, which refers to an instance of <code>EL_PROCEDURE_AGENT</code>, the same way that a function call is represented in terms of an <code>EL_FUNCTION_AGENT</code>. In the following example, the procedure <code><em>put</em>()</code> is called from the <code><em>deposit</em>()</code> and <code><em>withdraw</em>()</code> functions in the class <code>Account_access</code>.</p>
+<p>A procedure call is represented in BMM by the meta-type <code>BMM_PROCEDURE_CALL</code>, which refers to an instance of <code>EL_PROCEDURE_AGENT</code>, the same way that a function call is represented in terms of an <code>EL_FUNCTION_AGENT</code>. The effect of a procedure call is to cause an external action to be performed, such as display something on the screen, write to a database etc.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the procedure <code><em>put</em>()</code> is called from the <code><em>deposit</em>()</code> and <code><em>withdraw</em>()</code> functions in the class <code>Account_access</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9238,7 +9358,7 @@ probably to be removed.
         <span class="tok-nx">balance</span> <span class="tok-o">:=</span> <span class="tok-nx">balance</span> <span class="tok-o">+</span> <span class="tok-nx">val</span>
     <span class="tok-p">}</span>
 
-<span class="tok-kr">class</span> <span class="tok-nx">Account_access</span> <span class="tok-p">{</span>
+<span class="tok-kr">class</span> <span class="tok-nx">Account_access</span>
 
 <span class="tok-nx">feature</span> <span class="tok-o">--</span> <span class="tok-nx">Command</span>
 
@@ -9268,12 +9388,12 @@ probably to be removed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_action_tables"><a class="anchor" href="#_action_tables"></a>11.4. Action Tables</h3>
+<h3 id="_action_tables"><a class="anchor" href="#_action_tables"></a>11.5. Action Tables</h3>
 <div class="paragraph">
 <p>The BMM <code>statement</code> package includes the meta-classes <code>BMM_ACTION_TABLE</code> and <code>BMM_CONDITIONAL_ACTION</code>, which together provide a way of representing a decision table whose outputs are statements (rather than values, as in the case of the related Expression meta-classes <code>EL_DECISION_TABLE</code> and <code>EL_CONDITIONAL_EXPRESSION</code>). An action table corresponds closely to the standard constructs 'if/then/elseif' and the case statement.</p>
 </div>
 <div class="paragraph">
-<p>The following example shows a typical instance of the BMM Action table meta-type, within a procedure that generates appropriate alerts or alarms based on patient vital signs.</p>
+<p>The following example shows the logic of a BMM Action table meta-type, within a procedure that generates appropriate alerts or alarms based on patient vital signs, using the standard if/then/else constrol structure.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9288,7 +9408,7 @@ probably to be removed.
 </div>
 </div>
 <div class="paragraph">
-<p>In a more functional-style syntax, this might be written as:</p>
+<p>In a functional style syntax that directly mirrors the Action table meta-model, this may be written as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9304,15 +9424,15 @@ probably to be removed.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.5. Assertions</h3>
+<h3 id="_assertions"><a class="anchor" href="#_assertions"></a>11.6. Assertions</h3>
 <div class="paragraph">
 <p>The BMM <code>statement</code> model includes a statement meta-type to represent the notion of an <em>assertion</em> as a statement, typically expressed in syntax such as <code>assert (&lt;boolean expression&gt;)</code>. This kind of statement is understood as an executable instruction to check that the condition is true, and if not, to generate an exception of the appropriate type, assuming exceptions are available.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.6. Class Definitions</h3>
+<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.7. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_bmm_statement_item_class"><a class="anchor" href="#_bmm_statement_item_class"></a>11.6.1. BMM_STATEMENT_ITEM Class</h4>
+<h4 id="_bmm_statement_item_class"><a class="anchor" href="#_bmm_statement_item_class"></a>11.7.1. BMM_STATEMENT_ITEM Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9334,7 +9454,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_statement_block_class"><a class="anchor" href="#_bmm_statement_block_class"></a>11.6.2. BMM_STATEMENT_BLOCK Class</h4>
+<h4 id="_bmm_statement_block_class"><a class="anchor" href="#_bmm_statement_block_class"></a>11.7.2. BMM_STATEMENT_BLOCK Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9372,7 +9492,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_statement_class"><a class="anchor" href="#_bmm_statement_class"></a>11.6.3. BMM_STATEMENT Class</h4>
+<h4 id="_bmm_statement_class"><a class="anchor" href="#_bmm_statement_class"></a>11.7.3. BMM_STATEMENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9398,7 +9518,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_simple_statement_class"><a class="anchor" href="#_bmm_simple_statement_class"></a>11.6.4. BMM_SIMPLE_STATEMENT Class</h4>
+<h4 id="_bmm_simple_statement_class"><a class="anchor" href="#_bmm_simple_statement_class"></a>11.7.4. BMM_SIMPLE_STATEMENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9424,7 +9544,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>11.6.5. BMM_PROCEDURE_CALL Class</h4>
+<h4 id="_bmm_declaration_class"><a class="anchor" href="#_bmm_declaration_class"></a>11.7.5. BMM_DECLARATION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9434,17 +9554,17 @@ probably to be removed.
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_CALL</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_DECLARATION</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A call made on a closed procedure agent.</p>
+<p>Declaration of a writable variable, associating a name with a type.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code>, <code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -9452,24 +9572,27 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
-(redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code><a href="#_el_procedure_agent_class">EL_PROCEDURE_AGENT</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The procedure agent being called.</p>
-</div></div></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Inv_valid_agent</em>: <code>agent.is_callable()</code></p>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_el_writable_variable_class">EL_WRITABLE_VARIABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code><a href="#_bmm_type_class">BMM_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The declared type of the variable.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_assignment_class"><a class="anchor" href="#_bmm_assignment_class"></a>11.6.6. BMM_ASSIGNMENT Class</h4>
+<h4 id="_bmm_assignment_class"><a class="anchor" href="#_bmm_assignment_class"></a>11.7.6. BMM_ASSIGNMENT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9485,6 +9608,9 @@ probably to be removed.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p>Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.</p>
+</div>
+<div class="paragraph">
+<p>At the meta-model level, may be understood as an initialisation of an existing meta-model instance.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -9520,7 +9646,52 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>11.6.7. BMM_ASSERTION Class</h4>
+<h4 id="_bmm_procedure_call_class"><a class="anchor" href="#_bmm_procedure_call_class"></a>11.7.7. BMM_PROCEDURE_CALL Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_CALL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A call made on a closed procedure agent. The method in BMM via which external actions are achieved from within a program.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_el_agent_call_class">EL_AGENT_CALL</a></code>, <code><a href="#_bmm_simple_statement_class">BMM_SIMPLE_STATEMENT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>agent</strong>: <code><a href="#_el_procedure_agent_class">EL_PROCEDURE_AGENT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The procedure agent being called.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_valid_agent</em>: <code>agent.is_callable()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_assertion_class"><a class="anchor" href="#_bmm_assertion_class"></a>11.7.8. BMM_ASSERTION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9535,7 +9706,7 @@ probably to be removed.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings).</p>
+<p>A statement that asserts the truth of its expression. If the expression evaluates to False the execution generates an exception (depending on run-time settings).</p>
 </div>
 <div class="paragraph">
 <p>May be rendered in syntax as <code>assert condition</code> or similar.</p>
@@ -9568,7 +9739,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_action_table_class"><a class="anchor" href="#_bmm_action_table_class"></a>11.6.8. BMM_ACTION_TABLE Class</h4>
+<h4 id="_bmm_action_table_class"><a class="anchor" href="#_bmm_action_table_class"></a>11.7.9. BMM_ACTION_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -9606,7 +9777,7 @@ probably to be removed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_action_decision_table_class"><a class="anchor" href="#_bmm_action_decision_table_class"></a>11.6.9. BMM_ACTION_DECISION_TABLE Class</h4>
+<h4 id="_bmm_action_decision_table_class"><a class="anchor" href="#_bmm_action_decision_table_class"></a>11.7.10. BMM_ACTION_DECISION_TABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">

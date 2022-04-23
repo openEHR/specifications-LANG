@@ -14,9 +14,13 @@ The use of the three-class hierarchy pattern allows a Routine `_body_` to be a s
 
 This facility is primarily provided to support the definition of higher-level languages by embedding them in the outer BMM meta-model.
 
+== Variable Declaration
+
+Writable variables are declared using a variable declaration (`BMM_DECLARATION`). This may be understood as the creation of an instance of the relevant meta-type, i.e. of `EL_WRITABLE_VARIABLE`, that will represent the variable for all subsequent uses in the program text.
+
 == Assignment
 
-A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of `_definition.type_` of the target and `_eval_type_()` of the source.
+A BMM assignment is the same concept as found in most frame-based programming languages, and provides a meta-model entity to represent a writable target (variable or property) being assigned to from a source, which is any expression of the same evaluation type. Type checking is thus based on a comparison of `_definition.type_` of the target and `_eval_type_()` of the source.
 
 The following example shows a simple assignment in the definition of the function `_position_`.
 
@@ -50,7 +54,9 @@ image::{diagrams_uri}/bmm_assignment.svg[id=bmm_assignment, align="center"]
 
 == Procedure Call
 
-A procedure call is represented in BMM by the meta-type `BMM_PROCEDURE_CALL`, which refers to an instance of `EL_PROCEDURE_AGENT`, the same way that a function call is represented in terms of an `EL_FUNCTION_AGENT`. In the following example, the procedure `_put_()` is called from the `_deposit_()` and `_withdraw_()` functions in the class `Account_access`.
+A procedure call is represented in BMM by the meta-type `BMM_PROCEDURE_CALL`, which refers to an instance of `EL_PROCEDURE_AGENT`, the same way that a function call is represented in terms of an `EL_FUNCTION_AGENT`. The effect of a procedure call is to cause an external action to be performed, such as display something on the screen, write to a database etc.
+
+In the following example, the procedure `_put_()` is called from the `_deposit_()` and `_withdraw_()` functions in the class `Account_access`.
 
 [source,typescript]
 ----
@@ -65,7 +71,7 @@ feature -- Modification
         balance := balance + val
     }
 
-class Account_access {
+class Account_access
 
 feature -- Command
 
@@ -82,6 +88,7 @@ feature -- Command
     {
         ac.put (-v);
     }
+
 ----
 
 The BMM meta-model instance structure for the call is shown below.
@@ -94,7 +101,7 @@ image::{diagrams_uri}/bmm_procedure_call.svg[id=bmm_procedure_call, align="cente
 
 The BMM `statement` package includes the meta-classes `BMM_ACTION_TABLE` and `BMM_CONDITIONAL_ACTION`, which together provide a way of representing a decision table whose outputs are statements (rather than values, as in the case of the related Expression meta-classes `EL_DECISION_TABLE` and `EL_CONDITIONAL_EXPRESSION`). An action table corresponds closely to the standard constructs 'if/then/elseif' and the case statement.
 
-The following example shows a typical instance of the BMM Action table meta-type, within a procedure that generates appropriate alerts or alarms based on patient vital signs.
+The following example shows the logic of a BMM Action table meta-type, within a procedure that generates appropriate alerts or alarms based on patient vital signs, using the standard if/then/else constrol structure.
 
 [source,typescript]
 ----
@@ -108,7 +115,7 @@ The following example shows a typical instance of the BMM Action table meta-type
     end
 ----
 
-In a more functional-style syntax, this might be written as:
+In a functional style syntax that directly mirrors the Action table meta-model, this may be written as:
 
 [source,typescript]
 ----
@@ -133,8 +140,9 @@ include::{uml_export_dir}/classes/bmm_statement_block.adoc[]
 include::{uml_export_dir}/classes/bmm_statement.adoc[]
 include::{uml_export_dir}/classes/bmm_simple_statement.adoc[]
 
-include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
+include::{uml_export_dir}/classes/bmm_declaration.adoc[]
 include::{uml_export_dir}/classes/bmm_assignment.adoc[]
+include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
 include::{uml_export_dir}/classes/bmm_assertion.adoc[]
 
 include::{uml_export_dir}/classes/bmm_action_table.adoc[]

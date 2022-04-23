@@ -12,15 +12,15 @@ _Features_ are understood in BMM as typed entities referenceable within a module
 * _properties_: mutable static definitions, described in detail in previous sections;
 * _constants_: immutable static values.
 
-The taxonomy of feature declarations is shown below.
+The taxonomy of feature declarations is shown below in the simplified view of the BMM feature meta-model.
 
 [.text-center]
 .Feature taxonomy
-image::{diagrams_uri}/feature_taxonomy.svg[id=feature_taxonomy, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm.core.feature-taxonomy.svg[id=feature-taxonomy, align="center"]
 
 === Class Model
 
-The meta-model that results from the above taxonomy is shown below.
+The full feature meta-model is shown below.
 
 [.text-center]
 .`base.bmm.core.feature` package

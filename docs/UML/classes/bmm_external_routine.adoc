@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_EXTERNAL_ROUTINE*
 
 h|*Description*
-2+a|External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called.
+2+a|External routine meta-type, containing sufficient meta-data to enable a routine in an external library to be called.
 
 h|*Inherit*
 2+|`<<_bmm_routine_definition_class,BMM_ROUTINE_DEFINITION>>`

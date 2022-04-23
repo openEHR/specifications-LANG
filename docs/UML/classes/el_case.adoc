@@ -17,5 +17,5 @@ h|*Attributes*
 
 h|*1..1*
 |*value_constraint*: `link:/releases/AM/{am_release}/AOM2.html#_c_object_class[C_OBJECT^]`
-a|
+a|Constraint on
 |===

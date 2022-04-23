@@ -23,5 +23,5 @@ h|*1..1 +
 (redefined)*
 |*is_writable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^] +
 {default{nbsp}={nbsp}false}`
-a|
+a|Defined to return False.
 |===

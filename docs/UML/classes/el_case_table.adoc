@@ -19,6 +19,10 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
+h|*1..1*
+|*test_value*: `<<_el_value_generator_class,EL_VALUE_GENERATOR>>`
+a|Expressing generating the input value for the case table.
+
 h|*1..1 +
 (redefined)*
 |*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_el_case_class,EL_CASE>>>`

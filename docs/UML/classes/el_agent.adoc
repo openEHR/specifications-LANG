@@ -19,10 +19,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Name of the routine being called.
-
 h|*0..1*
 |*closed_args*: `<<_el_tuple_class,EL_TUPLE>>`
 a|Closed arguments of a routine call as a tuple of objects.
@@ -34,6 +30,11 @@ a|Optional list of names of open arguments of the call. If not provided, and the
 h|*0..1*
 |*definition*: `<<_bmm_routine_class,BMM_ROUTINE>>`
 a|Reference to definition of a routine for which this is an agent, if one exists.
+
+h|*1..1 +
+(redefined)*
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Name of the routine being called.
 
 h|*1..1 +
 (redefined)*
@@ -56,4 +57,9 @@ h|*1..1*
  +
 __Post_result_validity__: `Result = open_arguments = Void`
 a|True if there are no open arguments.
+
+h|*1..1 +
+(redefined)*
+|*reference* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Generated full reference name, including scoping elements.
 |===

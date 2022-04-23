@@ -23,7 +23,7 @@ h|*1..1 +
 (redefined)*
 |*is_writable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^] +
 {default{nbsp}={nbsp}true}`
-a|
+a|Defined to return True.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

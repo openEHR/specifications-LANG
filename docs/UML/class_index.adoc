@@ -28,6 +28,8 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_container_value_class[BMM_CONTAINER_VALUE^]
 [.xcode]
+* link:/releases/LANG/{lang_release}/bmm.html#_bmm_declaration_class[BMM_DECLARATION^]
+[.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_definitions_class[BMM_DEFINITIONS^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/bmm.html#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE^]
