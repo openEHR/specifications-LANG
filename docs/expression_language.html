@@ -60,25 +60,30 @@
 <li><a href="#_terminal_entities">4. Terminal Entities</a>
 <ul class="sectlevel2">
 <li><a href="#_literals">4.1. Literals</a></li>
-<li><a href="#_instance_references">4.2. Instance References</a>
+<li><a href="#_variables">4.2. Variables</a>
 <ul class="sectlevel3">
-<li><a href="#_constants">4.2.1. Constants</a></li>
-<li><a href="#_variables">4.2.2. Variables</a></li>
-<li><a href="#_property_references">4.2.3. Property References</a></li>
-<li><a href="#_function_calls">4.2.4. Function Calls</a></li>
-<li><a href="#_built_in_functions">4.2.5. Built-in Functions</a></li>
-<li><a href="#_container_item_access">4.2.6. Container Item Access</a></li>
-<li><a href="#_matching_items_within_object_hierarchies">4.2.7. Matching Items within Object Hierarchies</a></li>
-<li><a href="#_self_reference">4.2.8. Self Reference</a></li>
+<li><a href="#_self">4.2.1. Self</a></li>
+<li><a href="#_result">4.2.2. Result</a></li>
 </ul>
 </li>
-<li><a href="#_predicates">4.3. Predicates</a>
+<li><a href="#_type_references">4.3. Type References</a></li>
+<li><a href="#_feature_references">4.4. Feature References</a>
 <ul class="sectlevel3">
-<li><a href="#_attached_predicate">4.3.1. Attached() Predicate</a></li>
+<li><a href="#_qualified_referencing">4.4.1. Qualified Referencing</a></li>
+<li><a href="#_constants">4.4.2. Constants</a></li>
+<li><a href="#_property_references">4.4.3. Property References</a></li>
+<li><a href="#_function_calls">4.4.4. Function Calls</a></li>
+<li><a href="#_built_in_functions">4.4.5. Built-in Functions</a></li>
+<li><a href="#_container_item_access">4.4.6. Container Item Access</a></li>
+<li><a href="#_matching_objects">4.4.7. Matching Objects</a></li>
 </ul>
 </li>
-<li><a href="#_agents">4.4. Agents</a></li>
-<li><a href="#_qualified_referencing">4.5. Qualified Referencing</a></li>
+<li><a href="#_predicates">4.5. Predicates</a>
+<ul class="sectlevel3">
+<li><a href="#_attached_predicate">4.5.1. Attached() Predicate</a></li>
+</ul>
+</li>
+<li><a href="#_agents">4.6. Agents</a></li>
 </ul>
 </li>
 <li><a href="#_complex_expressions">5. Complex Expressions</a>
@@ -859,18 +864,18 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code>, <code>-4</code>, <code>1024</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Signed integer values from −2<sup>31</sup> to 2<sup>31</sup>-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code>, <code>-4</code>, <code>5e09</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signed integer values from −2<sup>31</sup> to 2<sup>31</sup>-1, including E-notation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Signed real values from 3.4028235 × 10<sup>38</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code>, <code>22.5%</code>, <code>6.023e23</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signed real values from 3.4028235 × 10<sup>38</sup>, including percentages and E-notation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Double</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Double precision real values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code>, <code>22.5%</code>, <code>6.023e23</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Double precision real values, including percentages and E-notation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -941,7 +946,7 @@
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map&lt;K:Ordered, V&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map&lt;K, V&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="literal"><pre>{
     prim_val : val,
     prim_val : val,
@@ -949,8 +954,8 @@
     prim_val : val
 }</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A table of values of any type V,<br>
-                                                                 keyed by primitive values of any <code>Ordered</code> descendant K,<br>
-                                                                 typically <code>String</code>, <code>Integer</code> or Date/time types.<br>
+                                                                 keyed by primitive values, typically <code>String</code>,<br>
+                                                                 <code>Integer</code> or Date/time types.<br>
                                                                  <code>&lt;val&gt;</code> are literals of any other type.</p></td>
 </tr>
 <tr>
@@ -1034,9 +1039,67 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_instance_references"><a class="anchor" href="#_instance_references"></a>4.2. Instance References</h3>
+<h3 id="_variables"><a class="anchor" href="#_variables"></a>4.2. Variables</h3>
+<div class="paragraph">
+<p>Symbolic variables are valid within the scope of the routine in which they are declared, and are classified as read-only or writable. Read-only variables include routine parameters and the automatically declared variable <code>Self</code>, and are reprsented by the meta-type <code>EL_READONLY_VARIABLE</code>.</p>
+</div>
+<div class="paragraph">
+<p>Writable variables include locally declared variables and the automatically declared variable <code>Result</code> and are represented by the BMM meta-type <code>EL_WRITABLE_VARIABLE</code>.</p>
+</div>
 <div class="sect3">
-<h4 id="_constants"><a class="anchor" href="#_constants"></a>4.2.1. Constants</h4>
+<h4 id="_self"><a class="anchor" href="#_self"></a>4.2.1. Self</h4>
+<div class="paragraph">
+<p>As with many programming languages, a pre-defined read-only reference to the current object is available via the plain name <code>Self</code>. Unlike some languages, 'Self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_result"><a class="anchor" href="#_result"></a>4.2.2. Result</h4>
+<div class="paragraph">
+<p>In EL, the variable <code>Result</code> is automatically declared on entry to any function to be of the return type of the function. It is a writable variable and the function will return whatever value has been assigned to <code>Result</code> during execution.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_references"><a class="anchor" href="#_type_references"></a>4.3. Type References</h3>
+<div class="paragraph">
+<p>A type may be directly referenced using the syntax <code>{TypeName}</code>. This has the effect of creating an anonymous variable whose value is a read-only instance of the type. This may be equivalently understood as the 'static view'. A type reference can be the scoper of any feature call that is to read-only and si:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a constant;</p>
+</li>
+<li>
+<p>a static feature;</p>
+</li>
+<li>
+<p>any function that depends recursively only on constants and static features in addition to any arguments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This provides a mechanism, common to many programming languages, for access to constants and helper functions without creating instances.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_feature_references"><a class="anchor" href="#_feature_references"></a>4.4. Feature References</h3>
+<div class="sect3">
+<h4 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.4.1. Qualified Referencing</h4>
+<div class="paragraph">
+<p>Any feature reference may appear as itself (in the relevant syntactic form described below) or in a form qualified by scoping entities, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the <code>EL_FEATURE_REF</code> property <code><em>scoper</em></code>. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">person1</span><span class="tok-p">.</span><span class="tok-n">name</span>
+    <span class="tok-n">employees</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">].</span><span class="tok-n">name</span><span class="tok-p">.</span><span class="tok-n">first_name</span>
+    <span class="tok-n">blood_pressure</span><span class="tok-p">.</span><span class="tok-n">history</span><span class="tok-p">.</span><span class="tok-n">events</span><span class="tok-p">[</span><span class="tok-m">3</span><span class="tok-p">].</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">systolic</span>
+
+    <span class="tok-n">agent</span> <span class="tok-n">obstetric_risks</span><span class="tok-p">.</span><span class="tok-n">basic_risk</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constants"><a class="anchor" href="#_constants"></a>4.4.2. Constants</h4>
 <div class="paragraph">
 <p>Constants are syntactically represented using labels of which the first letter is capitalised, and may be of any type, including complex types. The following are EL expressions containing constants.</p>
 </div>
@@ -1048,19 +1111,13 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_variables"><a class="anchor" href="#_variables"></a>4.2.2. Variables</h4>
-<div class="paragraph">
-<p>Symbolic variables are valid within the scope of the routine in which they are declared, and may be parameters, locally declared, or the automatically declared variables <code>Self</code> or <code>Result</code>. In the former two cases, they are represented by plain names such as <code>is_smoker</code>. An EL variable reference is parsed to an instance of the BMM meta-type <code>EL_VARABLE_REF</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_property_references"><a class="anchor" href="#_property_references"></a>4.2.3. Property References</h4>
+<h4 id="_property_references"><a class="anchor" href="#_property_references"></a>4.4.3. Property References</h4>
 <div class="paragraph">
 <p>Property references are valid within the scope of the class in which they are declared, and may be used in any routine definition or assertion in the class. They are represented by plain names such as <code>diabetic_status</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.2.4. Function Calls</h4>
+<h4 id="_function_calls"><a class="anchor" href="#_function_calls"></a>4.4.4. Function Calls</h4>
 <div class="paragraph">
 <p>In EL expressions, computational functions may be called in the same way as for typical programming languages. An EL property reference corresponds to the BMM meta-type <code>EL_FUNCTION_CALL</code>, which contains an instance of the BMM meta-type <code>EL_FUNCTION_AGENT</code>, which in turn has as its <code><em>closed_args</em></code> a tuple containing a set of items each of which is in turn an expression of any kind.</p>
 </div>
@@ -1084,7 +1141,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.2.5. Built-in Functions</h4>
+<h4 id="_built_in_functions"><a class="anchor" href="#_built_in_functions"></a>4.4.5. Built-in Functions</h4>
 <div class="paragraph">
 <p>Some commonly used functions such as <code>current_date()</code> or similar are often thought of as 'built-in' to a language environment. In the openEHR EL context, there are no built-in functions as such; useful utility functions must be supplied by classes or interfaces included as part of an imported model. In the openEHR environment, many utility calls are available in the <a href="https://specifications.openehr.org/releases/BASE/latest/base_types.html" target="_blank" rel="noopener">openEHR Base Types</a>. They will resolve correctly as long as this model is imported, which it normally will be as part of a larger model, such as the <a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR RM</a>.</p>
 </div>
@@ -1103,9 +1160,9 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.2.6. Container Item Access</h4>
+<h4 id="_container_item_access"><a class="anchor" href="#_container_item_access"></a>4.4.6. Container Item Access</h4>
 <div class="paragraph">
-<p>Access to members of instances of a container type is achieved by the <code>[]</code> operator, which is an alias for various functions defined on the relevant types, as follows.</p>
+<p>Access to members of instances of a container type may be achieved by normal functional means (typically functions like <code>Array&lt;T&gt;.get()</code> or <code>List&lt;T&gt;.item()</code>), and also via the <code>[]</code> operator, which is an alias for such functions defined on the relevant types, as follows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1146,15 +1203,43 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_matching_items_within_object_hierarchies"><a class="anchor" href="#_matching_items_within_object_hierarchies"></a>4.2.7. Matching Items within Object Hierarchies</h4>
+<h4 id="_matching_objects"><a class="anchor" href="#_matching_objects"></a>4.4.7. Matching Objects</h4>
 <div class="paragraph">
-<p>Matcihng of objects below a root object is possible via use of predicates using the <code>[]</code> syntax in a similar manner to Xpath. This is achieved by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>.</p>
+<p>Matching of objects is possible via use of predicates using the <code>[]</code> syntax used after any variable or feature reference. This is achieved by supplying an agent argument whose signature is <code>&lt;[T], Boolean&gt;</code>, or in functional form, <code>(v:T): Boolean</code>. For non-container objects, the type <code>T</code> is the statically declared type of the object. If the object is of a container type (list, array etc) then the type <code>T</code> is the type of the container <em>items</em>.</p>
 </div>
 <div class="paragraph">
-<p>For non-container objects, the type <code>T</code> is the statically declared type of the object. If the object is of a container type (list, array etc) then the type <code>T</code> is the type of the container <em>items</em>.</p>
+<p>The <code>[]</code> syntax is shorthand for the following assumed functions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Any</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match (Function &lt;[T], Boolean&gt;): T</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Container&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match (Function &lt;[T], Boolean&gt;): List&lt;T&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph tbd">
+<p>TBD: For <code>Any</code>, need type anchoring&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>Here, 'matching' is understood to mean <em>obtain all matching items</em>. This enables a reference of the following form to be constructed (final line).</p>
+<p>Here, 'matching' is understood to mean <em>obtain all matching items</em>.</p>
+</div>
+<div class="paragraph">
+<p>This enables a reference of the following form to be constructed (final line).</p>
 </div>
 <div class="paragraph tbd">
 <p>TBD: need to distinguish shallow matching (immediate children) and deep matching (recursive application).</p>
@@ -1162,13 +1247,22 @@
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-k">class</span> <span class="tok-nc">Book</span> <span class="tok-p">{</span>
-        <span class="tok-n">title</span><span class="tok-p">:</span> <span class="tok-n">String</span>
-        <span class="tok-n">pub_date</span><span class="tok-p">:</span> <span class="tok-n">Date</span>
+        <span class="tok-n">title</span><span class="tok-p">:</span> <span class="tok-n">String</span><span class="tok-p">;</span>
+        <span class="tok-n">pub_date</span><span class="tok-p">:</span> <span class="tok-n">Date</span><span class="tok-p">;</span>
+        <span class="tok-n">country</span><span class="tok-p">:</span> <span class="tok-n">Terminology_code</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
 
-    <span class="tok-n">book_list</span><span class="tok-p">,</span> <span class="tok-n">quixote_books</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Book</span><span class="tok-p">&gt;</span>
+    <span class="tok-n">book_list</span><span class="tok-p">,</span> <span class="tok-n">old_spanish_books</span><span class="tok-p">:</span> <span class="tok-n">List</span><span class="tok-p">&lt;</span><span class="tok-n">Book</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-n">quixote_books</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+    <span class="tok-n">old_spanish_books</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The part in <code>{}</code> is any Boolean-valued expression, and may therefore be an operator expression, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">old_spanish_books</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)</span> <span class="tok-n">OR</span> <span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">pub_date</span> <span class="tok-p">&lt;</span> <span class="tok-n">P1650Y</span> <span class="tok-n">AND</span> <span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">country</span> <span class="tok-p">=</span> <span class="tok-err">#</span><span class="tok-n">iso639</span><span class="tok-o">::</span><span class="tok-n">es</span><span class="tok-p">}]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1176,17 +1270,17 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span> <span class="tok-p">[{</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">old_spanish_books</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)</span> <span class="tok-n">OR</span> <span class="tok-n">pub_date</span> <span class="tok-p">&lt;</span> <span class="tok-n">P1650Y</span> <span class="tok-n">AND</span> <span class="tok-n">country</span> <span class="tok-p">=</span> <span class="tok-err">#</span><span class="tok-n">iso639</span><span class="tok-o">::</span><span class="tok-n">es</span><span class="tok-p">]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the above, the variable <code>quixote_books</code> is of type <code>List&lt;Book&gt;</code>, and in general may contain more than one item (as well as be empty). To obtain the first book in the list, the standard array reference syntax may be used, i.e. <code>quixote_books[1]</code>. By extension, the following is also legal:</p>
+<p>In the above, the variable <code>old_spanish_books</code> is of type <code>List&lt;Book&gt;</code>, and in general may contain more than one item (as well as be empty). To obtain the first book in the list, the standard array reference syntax may be used, i.e. <code>old_spanish_books[1]</code>. By extension, the following is also legal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">quixote_book</span><span class="tok-p">:</span> <span class="tok-n">Book</span>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">old_spanish_book</span><span class="tok-p">:</span> <span class="tok-n">Book</span>
 
-    <span class="tok-n">quixote_book</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[(</span><span class="tok-n">b</span><span class="tok-p">:</span><span class="tok-n">Book</span><span class="tok-p">)</span> <span class="tok-p">{</span><span class="tok-n">b</span><span class="tok-p">.</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}][</span><span class="tok-m">1</span><span class="tok-p">]</span> <span class="tok-p">--</span> <span class="tok-n">safe</span> <span class="tok-k">if</span> <span class="tok-n">it</span> <span class="tok-k">is</span> <span class="tok-n">known</span> <span class="tok-n">that</span> <span class="tok-n">there</span> <span class="tok-k">is</span> <span class="tok-n">at</span> <span class="tok-n">least</span> <span class="tok-n">one</span></code></pre>
+    <span class="tok-n">old_spanish_book</span> <span class="tok-p">:=</span> <span class="tok-n">book_list</span> <span class="tok-p">[</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)</span> <span class="tok-n">OR</span> <span class="tok-n">pub_date</span> <span class="tok-p">&lt;</span> <span class="tok-n">P1650Y</span> <span class="tok-n">AND</span> <span class="tok-n">country</span> <span class="tok-p">=</span> <span class="tok-err">#</span><span class="tok-n">iso639</span><span class="tok-o">::</span><span class="tok-n">es</span><span class="tok-p">][</span><span class="tok-m">1</span><span class="tok-p">]</span> <span class="tok-p">--</span> <span class="tok-n">safe</span> <span class="tok-k">if</span> <span class="tok-n">it</span> <span class="tok-k">is</span> <span class="tok-n">known</span> <span class="tok-n">that</span> <span class="tok-n">there</span> <span class="tok-k">is</span> <span class="tok-n">at</span> <span class="tok-n">least</span> <span class="tok-n">one</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1194,11 +1288,19 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span> <span class="tok-p">[{</span><span class="tok-n">pub_date</span> <span class="tok-p">&gt;=</span> <span class="tok-n">PY2003</span><span class="tok-p">}]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span> <span class="tok-p">[</span><span class="tok-n">pub_date</span> <span class="tok-p">&gt;=</span> <span class="tok-n">PY2003</span><span class="tok-p">]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For this to work, there must be an appropriate container function available. In the case of the openEHR Foundation types, this is <code>match (&lt;[T], Boolean&gt;): List&lt;T&gt;</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
+<p>Qualified referencing can be combined with selector agents to obtain an effect similar to the use of Xpath on XML data, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span> <span class="tok-p">[</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)][</span><span class="tok-m">1</span><span class="tok-p">].</span><span class="tok-n">pub_date</span><span class="tok-p">.</span><span class="tok-n">year</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For matching to work, there must be an appropriate function available on all container types. In the case of the openEHR Foundation types, this is <code>match (&lt;[T], Boolean&gt;): List&lt;T&gt;</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
 </div>
 <div class="paragraph tbd">
 <p>TBD: to achieve this generically, the map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
@@ -1220,11 +1322,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>object[(v:T) {expr using v}]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object[{expr with implied v}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object[expr with implied v]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>container[(v:T) {expr using v}]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object[{expr with implied v}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object[expr with implied v]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>(more)</code></p></td>
@@ -1233,20 +1335,14 @@
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_self_reference"><a class="anchor" href="#_self_reference"></a>4.2.8. Self Reference</h4>
-<div class="paragraph">
-<p>As with many programming languages, a pre-defined reference to the current object is available via the plain name <code>self</code>. Unlike some languages, 'self' is not needed as a qualifier for properties or functions, and is generally only used as an argument in function calls.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_predicates"><a class="anchor" href="#_predicates"></a>4.3. Predicates</h3>
+<h3 id="_predicates"><a class="anchor" href="#_predicates"></a>4.5. Predicates</h3>
 <div class="paragraph">
-<p>EL predicates are special meta-operators that are used to state tests on runtime object structures (in a similar way to Xpath).</p>
+<p>EL predicates are special meta-operators that are used to express tests on runtime object structures.</p>
 </div>
 <div class="sect3">
-<h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.3.1. Attached() Predicate</h4>
+<h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.5.1. Attached() Predicate</h4>
 <div class="paragraph">
 <p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
@@ -1261,7 +1357,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_agents"><a class="anchor" href="#_agents"></a>4.4. Agents</h3>
+<h3 id="_agents"><a class="anchor" href="#_agents"></a>4.6. Agents</h3>
 <div class="paragraph">
 <p>Delayed routine calls for both functions and procedures may occur as terminals in an EL expression. The evaluation type (<code><em>eval_type</em></code>) of an agent is its <code><em>signature</em></code>. Syntactically, these take various forms. An agent can be created using a function or procedure visible in the current scope, using the keyword <code>agent</code>. The arguments list may range from empty to full. For a completely empty list, the routine name on its own may be used.</p>
 </div>
@@ -1291,29 +1387,6 @@
 </div>
 <div class="paragraph">
 <p>Agents for procedure calls can be created in the same way as described above. In each case, the evaluation type is a signature of the form <code>&lt;[args]&gt;</code>, i.e. having no return type.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_qualified_referencing"><a class="anchor" href="#_qualified_referencing"></a>4.5. Qualified Referencing</h3>
-<div class="paragraph">
-<p>Any terminal entity may appear as itself (in the relevant syntactic form described below) or in a form qualified by an instance reference, using standard 'dot' referencing. The qualifier provides the reference context, and is represented by the <code>EL_SCOPED_REF</code> property <code><em>scope</em></code>. Multiple qualifiers may be used in a single reference, as long as class feature visibility is satisfied, allowing such things as the following:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">person1</span><span class="tok-p">.</span><span class="tok-n">name</span>
-    <span class="tok-n">employees</span><span class="tok-p">[</span><span class="tok-m">1</span><span class="tok-p">].</span><span class="tok-n">name</span><span class="tok-p">.</span><span class="tok-n">first_name</span>
-    <span class="tok-n">blood_pressure</span><span class="tok-p">.</span><span class="tok-n">history</span><span class="tok-p">.</span><span class="tok-n">events</span><span class="tok-p">[</span><span class="tok-m">3</span><span class="tok-p">].</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-k">data</span><span class="tok-p">.</span><span class="tok-n">systolic</span>
-
-    <span class="tok-n">agent</span> <span class="tok-n">obstetric_risks</span><span class="tok-p">.</span><span class="tok-n">basic_risk</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Qualified referencing can be combined with selector agents to obtain an effect similar to the use of Xpath on XML data, as follows.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="kotlin"><span></span>    <span class="tok-n">book_list</span> <span class="tok-p">[{</span><span class="tok-n">title</span><span class="tok-p">.</span><span class="tok-n">contains</span><span class="tok-p">(</span><span class="tok-s">&quot;Quixote&quot;</span><span class="tok-p">)}].</span><span class="tok-n">pub_date</span><span class="tok-p">.</span><span class="tok-n">year</span></code></pre>
-</div>
 </div>
 </div>
 </div>

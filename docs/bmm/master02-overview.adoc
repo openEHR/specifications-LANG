@@ -73,13 +73,13 @@ The BMM is specified as a structural model representing an abstract syntax tree 
 
 NOTE: for the purposes of explanation, an abstract syntax is used throughout this document that draws freely from mainstream modelling and programming languages.
 
-== Uses of the BMM
+== Purpose of the BMM
 
 === Class Model Representation
 
 The BMM from version 3.0.0 on may be used to represent a full class model at an interface level (i.e. without code for methods) including classes, types, and class feature types including property (i.e. attribute), symbolic constant, manifest value, functions, operators, and procedures.
 
-=== Meta-Model Basis for Expressions Language
+=== Meta-Model for Expressions Language
 
 The BMM provides a system of meta-types that act as the basis for a typed expression language. These include _references_ to static entities in scope (constants, variables, properties), literal values, construction of agents (lambda terms), and function calls (lambda applications).
 
@@ -103,31 +103,3 @@ Newer tools are able to include the computational features.
 
 The {openehr_specs}[openEHR project^] makes extensive use of BMM for representing its models for use in tools. The full set of openEHR models in BMM format may be found in the {openehr_its_bmm}[specfications-ITS-BMM repository on Github^].
 
-== Specification Structure
-
-This specification defines a BMM object model, i.e. the in-memory object structure of a BMM. The related {openehr_bmm_persistence}[BMM Persistence specification^] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as ODIN, JSON or XML.
-
-The BMM packages are as follows:
-
-* `org.openehr.lang.bmm`: the BMM
-** `model_access`: the interface to most features including schema load/reload, generally used by an application as a reflection library;
-** `core`: the core BMM classes used for in-memory representation of an object model. This consists of a number of sub-packages:
-*** `model`: meta-types representing models and packages;
-*** `entity`: meta-types representing classes and types including enumeration types, represented in the `range_constrained` sub-package;
-*** `feature`: meta-types representing classes features, i.e. constants, routines, properties;
-*** `literal_value`: meta-types representing literal values;
-*** `expression`: an expression meta-model sufficient for expressing first-order predicate logic expressions, including class invariants and pre- and post-conditions.
-
-Related packages are:
-
-* the `org.openehr.lang.bmm_persistence` package, which contains the BMM Persistence classes.
-
-These are illustrated below.
-
-[.text-center]
-.Package Overview
-image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
-
-== Class Definitions
-
-include::{uml_export_dir}/classes/bmm_definitions.adoc[]

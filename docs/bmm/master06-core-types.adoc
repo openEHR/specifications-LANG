@@ -8,7 +8,7 @@ One of the foundational distinctions in the BMM is between _class_ and _type_, i
 .`base.bmm.core.entity` Package - Types
 image::{uml_diagrams_uri}/LANG-bmm.core.entity.svg[id=core_entity, align="center"]
 
-Classes are _definitional_ entities, while types are understood in BMM as the _formal generators_ of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a BMM model:
+Classes are _definitional_ entities, while types are understood in BMM as the _formal generators_ of instances (where non-abstract). Types are the the basis of static typing in a formal model, and dynamic conformance at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts within a 'model'. Types are used for the following purposes in a BMM model:
 
 * to define the _types of properties_;
 * to defined the _types of routine parameters and return values_;
@@ -174,26 +174,26 @@ This indicates that both have a return type, being the type of the value they ar
 The general form of routine signatures is as follows:
 
 ----
-    <[T_arg1, T_arg2, ...], T_result>    -- Function type
-    <[T_arg1, T_arg2, ...]>              -- Procedure type
+    Function <[T_arg1, T_arg2, ...], T_result>    -- Function type
+    Procedure <[T_arg1, T_arg2, ...]>             -- Procedure type
 ----
 
-In the above, the construction `[Type, ...]` represents a type-tuple.
+In the above, the construction `[Type, ...]` represents a type-tuple. Strictly speaking, the 'Function' and 'Procedure' are unnecessary, since they can be inferred from just the pure signature. However, for readability they are recommended.
 
 Typical examples of function signatures are as follows:
 
 ----
-    <[], Date>                          -- a 0-order function like current_date
-    <[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
-    <[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
+    Function <[], Date>                          -- a 0-order function like current_date
+    Function <[Real, Real], Real>                -- a 2nd-order function like '*' for the domain R
+    Function <[Integer, Integer], Integer>       -- a 2nd-order function like 'add' for the domain I
 ----
 
 Typical procedure signatures include the following:
 
 ----
-    <[]>                               -- a 0-order (argumentless) procedure
-    <[Real]>                           -- a 1st-order procedure for the domain R
-    <[String, Integer]>                -- a procedure taking a String and an Integer argument
+    Procedure <[]>                               -- a 0-order (argumentless) procedure
+    Procedure <[Real]>                           -- a 1st-order procedure for the domain R
+    Procedure <[String, Integer]>                -- a procedure taking a String and an Integer argument
 ----
 
 In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type. The descendant `BMM_PROCEDURE_SIGNATURE` specialises the return type to the built-in type `BMM_STATUS_TYPE` (see below), used to represent the status of a procedure call.
@@ -201,8 +201,8 @@ In order to support functional semantics such as function-as-object, the notion 
 The following signatures state the types 'any function' and 'any procedure':
 
 ----
-    Function                             -- any function
-    Procedure                            -- any procedure
+    Function                                     -- any function
+    Procedure                                    -- any procedure
 ----
 
 As for the Tuple meta-type, the notional `Signature` meta-type is a BMM built-in, and is not itself defined in any BMM model.

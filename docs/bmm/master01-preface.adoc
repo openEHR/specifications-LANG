@@ -2,7 +2,7 @@
 
 == Purpose
 
-This document describes the Basic Meta-Model (BMM), a model of object models. It may be considered as an approximate replacement for the UML XMI. It is human-readable and writable, and supports generic types (open and closed), container types, and multiple inheritance.
+This document describes the Basic Meta-Model (BMM), a model of object models. It may be considered as an approximate replacement for the UML XMI. It is human-readable and writable, and supports generic types (open and closed), container types, and multiple inheritance. The related {openehr_bmm_persistence}[BMM Persistence specification^] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as JSON, ODIN or XML.
 
 == Status
 

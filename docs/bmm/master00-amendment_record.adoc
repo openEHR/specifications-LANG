@@ -48,7 +48,7 @@
 
 |
 |Remove inheritance to `BMM_DEFINITIONS` (assume static access); +
- Remove `BMM_ENTITY` class and 'Entities` section of document.
+ Remove `BMM_ENTITY` class and 'Entities' section of document.
 |B Verhees, +
  T Beale
 |01 Jun 2020
