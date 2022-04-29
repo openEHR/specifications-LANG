@@ -47,7 +47,7 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*eval_type* (): `<<_bmm_signature_class,BMM_SIGNATURE>>` +
+|*eval_type* (): `<<_bmm_routine_type_class,BMM_ROUTINE_TYPE>>` +
  +
 __Post_result__: `Result = definition.signature`
 a|Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.

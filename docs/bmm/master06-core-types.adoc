@@ -161,6 +161,8 @@ Conformance of Tuple types is according to the rules:
 * _concrete rules_: A Tuple type `Tuple[Ta~i~, ...]` conforms to Tuple type `Tuple[Tb~i~, ...]` iff:
 ** for each `Ta~i~`, `Ta~i~` conforms to `Tb~i~`.
 
+The practical effect of this is that longer tuples may conform to shorter tuples. For example, the tuple type `[Document, String, Integer]` conforms to the tuple type `[Document]`.
+
 === Signature Meta-type
 
 Within any typed formalism, any entity declared as having a type also has a _signature_. In BMM, this is is the case for any kind of feature of a class, including constants, properties, and routines. The signature of a feature is a formal construct capturing the type structure of the feature. The simplest type of signature is that of properties and constants, which may be expressed formally in a typical abstract syntax as follows:
@@ -196,13 +198,15 @@ Typical procedure signatures include the following:
     Procedure <[String, Integer]>                -- a procedure taking a String and an Integer argument
 ----
 
-In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, `BMM_SIGNATURE`. Instances of this meta-type represent any kind of signature, and consist of `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>), and `_result_type_`, representing the result type. The descendant `BMM_PROCEDURE_SIGNATURE` specialises the return type to the built-in type `BMM_STATUS_TYPE` (see below), used to represent the status of a procedure call.
+In order to support functional semantics such as function-as-object, the notion of signature is defined in BMM as a first order meta-type, `BMM_SIGNATURE` and descendants. Instances of `BMM_SIGNATURE` represent any kind of signature and reference the meta-type of the evaluated form via `_result_type_`, which may be of any BMM meta-type.
+
+`BMM_ROUTINE_TYPE` is the meta-type of any kind of agent (i.e. lambda) and provides `_argument_types_`, whose meta-type is `BMM_TUPLE_TYPE` (See <<Tuple Type>>). The descendant `BMM_PROCEDURE_TYPE` specialises the return type to the built-in type `BMM_STATUS_TYPE` (see below), used to represent the status of a procedure call.
 
 The following signatures state the types 'any function' and 'any procedure':
 
 ----
-    Function                                     -- any function
-    Procedure                                    -- any procedure
+    Function <>                                  -- any function
+    Procedure <>                                 -- any procedure
 ----
 
 As for the Tuple meta-type, the notional `Signature` meta-type is a BMM built-in, and is not itself defined in any BMM model.
@@ -213,7 +217,7 @@ Conformance of Signature types is as follows:
 
 * _meta-rule_: A Signature type can only conform to another Signature type;
 * _concrete rules_: 
-** all specific Function signatures conform to the signature `Function`);
+** all specific Function signatures conform to the signature `Function`;
 ** all specific Procedure signatures conform to the signature `Procedure`;
 ** the conformance of specific Function or Procedure signatures to another Function or Procedure signature is such that:
 *** the number of argument types accord and;
@@ -326,7 +330,10 @@ include::{uml_export_dir}/classes/bmm_generic_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
 include::{uml_export_dir}/classes/bmm_signature.adoc[]
-include::{uml_export_dir}/classes/bmm_procedure_signature.adoc[]
+include::{uml_export_dir}/classes/bmm_property_type.adoc[]
+include::{uml_export_dir}/classes/bmm_routine_type.adoc[]
+include::{uml_export_dir}/classes/bmm_function_type.adoc[]
+include::{uml_export_dir}/classes/bmm_procedure_type.adoc[]
 include::{uml_export_dir}/classes/bmm_status_type.adoc[]
 
 include::{uml_export_dir}/classes/bmm_container_type.adoc[]

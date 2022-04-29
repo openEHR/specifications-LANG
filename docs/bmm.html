@@ -157,10 +157,13 @@
 <li><a href="#_bmm_generic_type_class">6.8.7. BMM_GENERIC_TYPE Class</a></li>
 <li><a href="#_bmm_tuple_type_class">6.8.8. BMM_TUPLE_TYPE Class</a></li>
 <li><a href="#_bmm_signature_class">6.8.9. BMM_SIGNATURE Class</a></li>
-<li><a href="#_bmm_procedure_signature_class">6.8.10. BMM_PROCEDURE_SIGNATURE Class</a></li>
-<li><a href="#_bmm_status_type_class">6.8.11. BMM_STATUS_TYPE Class</a></li>
-<li><a href="#_bmm_container_type_class">6.8.12. BMM_CONTAINER_TYPE Class</a></li>
-<li><a href="#_bmm_indexed_container_type_class">6.8.13. BMM_INDEXED_CONTAINER_TYPE Class</a></li>
+<li><a href="#_bmm_property_type_class">6.8.10. BMM_PROPERTY_TYPE Class</a></li>
+<li><a href="#_bmm_routine_type_class">6.8.11. BMM_ROUTINE_TYPE Class</a></li>
+<li><a href="#_bmm_function_type_class">6.8.12. BMM_FUNCTION_TYPE Class</a></li>
+<li><a href="#_bmm_procedure_type_class">6.8.13. BMM_PROCEDURE_TYPE Class</a></li>
+<li><a href="#_bmm_status_type_class">6.8.14. BMM_STATUS_TYPE Class</a></li>
+<li><a href="#_bmm_container_type_class">6.8.15. BMM_CONTAINER_TYPE Class</a></li>
+<li><a href="#_bmm_indexed_container_type_class">6.8.16. BMM_INDEXED_CONTAINER_TYPE Class</a></li>
 </ul>
 </li>
 </ul>
@@ -504,9 +507,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>4.0.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-8" target="_blank" rel="noopener">SPECLANG-8</a>. Classify <code>EL_DECISION_TABLE</code> under <code>EL_TERMINAL</code>;<br>
- Add read-only and writable meta-types for variables and properties.</p></td>
+ Add read-only and writable meta-types for variables and properties;<br>
+ Add routine, function and property signature meta-types.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Apr 2022</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>29 Apr 2022</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.0.0</p></td>
@@ -3033,6 +3037,9 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The practical effect of this is that longer tuples may conform to shorter tuples. For example, the tuple type <code>[Document, String, Integer]</code> conforms to the tuple type <code>[Document]</code>.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3081,15 +3088,18 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 </div>
 <div class="paragraph">
-<p>In order to support functional semantics such as function-as-object, the notion of signature must exist as a first order type. Since signatures have a special structure and usage, they have their own meta-type in BMM, <code>BMM_SIGNATURE</code>. Instances of this meta-type represent any kind of signature, and consist of <code><em>argument_types</em></code>, whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#Tuple Type">[Tuple Type]</a>), and <code><em>result_type</em></code>, representing the result type. The descendant <code>BMM_PROCEDURE_SIGNATURE</code> specialises the return type to the built-in type <code>BMM_STATUS_TYPE</code> (see below), used to represent the status of a procedure call.</p>
+<p>In order to support functional semantics such as function-as-object, the notion of signature is defined in BMM as a first order meta-type, <code>BMM_SIGNATURE</code> and descendants. Instances of <code>BMM_SIGNATURE</code> represent any kind of signature and reference the meta-type of the evaluated form via <code><em>result_type</em></code>, which may be of any BMM meta-type.</p>
+</div>
+<div class="paragraph">
+<p><code>BMM_ROUTINE_TYPE</code> is the meta-type of any kind of agent (i.e. lambda) and provides <code><em>argument_types</em></code>, whose meta-type is <code>BMM_TUPLE_TYPE</code> (See <a href="#Tuple Type">[Tuple Type]</a>). The descendant <code>BMM_PROCEDURE_TYPE</code> specialises the return type to the built-in type <code>BMM_STATUS_TYPE</code> (see below), used to represent the status of a procedure call.</p>
 </div>
 <div class="paragraph">
 <p>The following signatures state the types 'any function' and 'any procedure':</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>    Function                                     -- any function
-    Procedure                                    -- any procedure</pre>
+<pre>    Function &lt;&gt;                                  -- any function
+    Procedure &lt;&gt;                                 -- any procedure</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3110,7 +3120,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="ulist">
 <ul>
 <li>
-<p>all specific Function signatures conform to the signature <code>Function</code>);</p>
+<p>all specific Function signatures conform to the signature <code>Function</code>;</p>
 </li>
 <li>
 <p>all specific Procedure signatures conform to the signature <code>Procedure</code>;</p>
@@ -3890,13 +3900,6 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument_types</strong>: <code><a href="#_bmm_tuple_type_class">BMM_TUPLE_TYPE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types).</p>
-</div></div></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result_type</strong>: <code><a href="#_bmm_type_class">BMM_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3920,7 +3923,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_procedure_signature_class"><a class="anchor" href="#_bmm_procedure_signature_class"></a>6.8.10. BMM_PROCEDURE_SIGNATURE Class</h4>
+<h4 id="_bmm_property_type_class"><a class="anchor" href="#_bmm_property_type_class"></a>6.8.10. BMM_PROPERTY_TYPE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3930,17 +3933,144 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_SIGNATURE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROPERTY_TYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_signature_class">BMM_SIGNATURE</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_routine_type_class"><a class="anchor" href="#_bmm_routine_type_class"></a>6.8.11. BMM_ROUTINE_TYPE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_ROUTINE_TYPE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Form of signature specific to procedures, with the result type being the special Status meta-type</p>
+<p>Meta-type for routine objects.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_signature_class">BMM_SIGNATURE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;"Routine"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Base name (built-in).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument_types</strong>: <code><a href="#_bmm_tuple_type_class">BMM_TUPLE_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_function_type_class"><a class="anchor" href="#_bmm_function_type_class"></a>6.8.12. BMM_FUNCTION_TYPE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_FUNCTION_TYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Meta-type for function objects.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_routine_type_class">BMM_ROUTINE_TYPE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;"Function"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Base name (built-in).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_bmm_procedure_type_class"><a class="anchor" href="#_bmm_procedure_type_class"></a>6.8.13. BMM_PROCEDURE_TYPE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BMM_PROCEDURE_TYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of routine type specific to procedures, with  <code><em>result_type</em></code> being the special Status meta-type</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_bmm_routine_type_class">BMM_ROUTINE_TYPE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;"Procedure"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Base name (built-in).</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3959,7 +4089,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_status_type_class"><a class="anchor" href="#_bmm_status_type_class"></a>6.8.11. BMM_STATUS_TYPE Class</h4>
+<h4 id="_bmm_status_type_class"><a class="anchor" href="#_bmm_status_type_class"></a>6.8.14. BMM_STATUS_TYPE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3998,7 +4128,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_container_type_class"><a class="anchor" href="#_bmm_container_type_class"></a>6.8.12. BMM_CONTAINER_TYPE Class</h4>
+<h4 id="_bmm_container_type_class"><a class="anchor" href="#_bmm_container_type_class"></a>6.8.15. BMM_CONTAINER_TYPE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4118,7 +4248,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </table>
 </div>
 <div class="sect3">
-<h4 id="_bmm_indexed_container_type_class"><a class="anchor" href="#_bmm_indexed_container_type_class"></a>6.8.13. BMM_INDEXED_CONTAINER_TYPE Class</h4>
+<h4 id="_bmm_indexed_container_type_class"><a class="anchor" href="#_bmm_indexed_container_type_class"></a>6.8.16. BMM_INDEXED_CONTAINER_TYPE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -6309,7 +6439,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>signature</strong> (): <code><a href="#_bmm_procedure_signature_class">BMM_PROCEDURE_SIGNATURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>signature</strong> (): <code><a href="#_bmm_procedure_type_class">BMM_PROCEDURE_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Formal signature of this element, in the form:</p>
 </div>
@@ -8400,7 +8530,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (effected)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_signature_class">BMM_SIGNATURE</a></code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_routine_type_class">BMM_ROUTINE_TYPE</a></code><br>
 <br>
 <em>Post_result</em>: <code>Result = definition.signature</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -8463,6 +8593,21 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>Reference to definition of a routine for which this is a direct call instance, if one exists.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_function_type_class">BMM_FUNCTION_TYPE</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = definition.signature</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8500,6 +8645,21 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="#_bmm_procedure_class">BMM_PROCEDURE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Reference to definition of routine for which this is a call instance.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>eval_type</strong> (): <code><a href="#_bmm_procedure_type_class">BMM_PROCEDURE_TYPE</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = definition.signature</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.</p>
 </div></div></td>
 </tr>
 </tbody>

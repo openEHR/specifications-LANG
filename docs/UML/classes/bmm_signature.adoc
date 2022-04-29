@@ -23,10 +23,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*argument_types*: `<<_bmm_tuple_type_class,BMM_TUPLE_TYPE>>`
-a|Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types).
-
 h|*1..1*
 |*result_type*: `<<_bmm_type_class,BMM_TYPE>>`
 a|Result type of signature.
