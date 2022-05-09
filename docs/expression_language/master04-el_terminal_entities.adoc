@@ -92,10 +92,9 @@ In EL, the variable `Result` is automatically declared on entry to any function 
 
 == Type References
 
-A type may be directly referenced using the syntax `{TypeName}`. This has the effect of creating an anonymous variable whose value is a read-only instance of the type. This may be equivalently understood as the 'static view'. A type reference can be the scoper of any feature call that is to read-only and si:
+A type may be directly referenced using the syntax `{TypeName}`. This has the effect of creating an anonymous variable whose value is a read-only instance of the type. This may be equivalently understood as the 'static view'. A type reference can be the scoper of any feature call that is to read-only and is:
 
-* a constant;
-* a static feature;
+* a static feature, i.e. a constant or class singleton;
 * any function that depends recursively only on constants and static features in addition to any arguments.
 
 This provides a mechanism, common to many programming languages, for access to constants and helper functions without creating instances.
@@ -192,13 +191,13 @@ The `[]` syntax is shorthand for the following assumed functions:
 |===
 |Type           |Function                                  
 
-|`Any`          |`match (Function <[T], Boolean>): T` 
-|`Container<T>` |`match (Function <[T], Boolean>): List<T>`
+|`Any`          |`match (matcher: <T> Function <[T], Boolean>): T` 
+|`Container<T>` |`match (matcher: Function <[T], Boolean>): List<T>`
 
 |===
 
 [.tbd]
-TBD: For `Any`, need type anchoring...
+TBD: For `Any`, need type anchoring... or else generic functions. 
 
 Here, 'matching' is understood to mean _obtain all matching items_. 
 

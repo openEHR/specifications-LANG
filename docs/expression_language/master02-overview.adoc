@@ -13,8 +13,8 @@ It may also be used in any other suitable context.
 
 Key features of EL include:
 
-* variable declarations, assignments and expressions;
 * strong typing;
+* variable declarations, assignments and expressions;
 * standard logical operators including universal and existential quantification, as well as user-defined operators;
 * standard arithmetic and relational comparison operators, enabling the use of numerics;
 * parentheses for overridding operator precedence;
@@ -24,7 +24,7 @@ Key features of EL include:
 
 The openEHR Expression Language is based on a limited first-order predicate logic language. It has similarities with {omg_ocl}[OMG's OCL (Object Constraint Language)^], and to the assertion syntax used in the Object-Z language cite:[Object_Z]. See citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling. It also draws on the semantics and some of the syntax (particularly agent-related) of the Eiffel Language ({eiffel_ecma_367}[ECMA-367^]). It is not exactly the same as any of these languages because:
 
-* it has a different target meta-model, namely the BMM `expression` model;
+* it has a different meta-model, namely the BMM `expression` model;
 * the syntax is designed to be comprehensible to developers familiar with modern mainstream object-oriented and functional languages such as Java, C#, Python, TypeScript etc.
 
 == Requirements

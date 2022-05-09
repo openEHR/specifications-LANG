@@ -9,7 +9,7 @@ h|*Description*
 2+a|Rules meta-type representing the primitive type Date.
 
 h|*Inherit*
-2+|`<<_el_type_def_class,EL_TYPE_DEF>>`
+2+|`<<_expr_type_def_class,EXPR_TYPE_DEF>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -23,6 +23,6 @@ a|
 
 h|*1..1 +
 (redefined)*
-|*type_anchor*: `@@`
+|*type_anchor*: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_class[Iso8601_date^]`
 a|
 |===

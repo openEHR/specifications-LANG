@@ -51,13 +51,24 @@
             "keywords": "reflection, meta-model, UML"
         },
         {
+            "id": "basic_expression_language",
+            "title": "Basic Expression Language (BEL)",
+            "title_short": "Basic Expression Language",
+            "description": "openEHR Basic Expression Language specification",
+            "summary": "The openEHR Basic Expression Language defines a basic model and syntax for specifying expressions and statements for use in archetype rules.",
+            "micro_summary": "A basic formal syntax for expressions",
+            "copyright_year": "2016",
+            "spec_status": "STATUS",
+            "keywords": "openehr, expressions, rules"
+        },
+        {
             "id": "expression_language",
             "title": "Expression Language (EL)",
             "title_short": "Expression Language",
             "description": "openEHR Expression Language specification",
-            "summary": "The openEHR Expression Language defines an extensible core model and syntax for specifying expressions for particular purposes elsewhere in openEHR, e.g. guidelines, rules etc.",
-            "micro_summary": "A syntax for formal expressions",
-            "copyright_year": "2016",
+            "summary": "The openEHR Expression Language defines an advanced object / functional syntax for specifying expressions for use elsewhere in openEHR, e.g. Task Planning, guidelines, rules etc.",
+            "micro_summary": "A syntax for formal expressions based on BMM",
+            "copyright_year": "2020",
             "spec_status": "DEVELOPMENT",
             "keywords": "openehr, expressions, rules"
         }
