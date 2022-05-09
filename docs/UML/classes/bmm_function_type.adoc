@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_FUNCTION_TYPE*
 
 h|*Description*
-2+a|Meta-type for function objects.
+2+a|Meta-type for function object signatures.
 
 h|*Inherit*
 2+|`<<_bmm_routine_type_class,BMM_ROUTINE_TYPE>>`

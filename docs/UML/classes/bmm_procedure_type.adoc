@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*BMM_PROCEDURE_TYPE*
 
 h|*Description*
-2+a|Form of routine type specific to procedures, with  `_result_type_` being the special Status meta-type
+2+a|Form of routine specific to procedure object signatures, with  `_result_type_` being the special Status meta-type
 
 h|*Inherit*
 2+|`<<_bmm_routine_type_class,BMM_ROUTINE_TYPE>>`
