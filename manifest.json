@@ -58,7 +58,7 @@
             "summary": "The openEHR Basic Expression Language defines a basic model and syntax for specifying expressions and statements for use in archetype rules.",
             "micro_summary": "A basic formal syntax for expressions",
             "copyright_year": "2016",
-            "spec_status": "STATUS",
+            "spec_status": "STABLE",
             "keywords": "openehr, expressions, rules"
         },
         {
