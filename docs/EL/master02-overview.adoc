@@ -11,25 +11,35 @@ Within openEHR, the uses of EL include expressing the following:
 
 It may also be used in any other suitable context.
 
-Key features of EL include:
-
-* strong typing;
-* variable declarations, assignments and expressions;
-* standard logical operators including universal and existential quantification, as well as user-defined operators;
-* standard arithmetic and relational comparison operators, enabling the use of numerics;
-* parentheses for overridding operator precedence;
-* functions and agents (lambdas).
-
-== Design Background
-
-The openEHR Expression Language is based on a limited first-order predicate logic language. It has similarities with {omg_ocl}[OMG's OCL (Object Constraint Language)^], and to the assertion syntax used in the Object-Z language cite:[Object_Z]. See citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling. It also draws on the semantics and some of the syntax (particularly agent-related) of the Eiffel Language ({eiffel_ecma_367}[ECMA-367^]). It is not exactly the same as any of these languages because:
-
-* it has a different meta-model, namely the BMM `expression` model;
-* the syntax is designed to be comprehensible to developers familiar with modern mainstream object-oriented and functional languages such as Java, C#, Python, TypeScript etc.
-
 == Requirements
 
 The semantic requirements including the usual arithmetic, boolean, and relational operators, functions, logical quantifiers, operator precedence, constant values, and variables. In addition, there is a need to support multi-lingual translations for symbolic variables, in a similar way to the {openehr_am_adl2}[openEHR Archetype Definition Language (ADL2)^].
+
+== Design Background
+
+The openEHR Expression Language is based on a combination of first-order predicate logic, object-oriented structural concepts and functional computing. It has some similarities with {omg_ocl}[OMG's OCL (Object Constraint Language)^]. It also draws on the semantics and some of the syntax (particularly agent-related) of the Eiffel Language ({eiffel_ecma_367}[ECMA-367^]). See citenp:[Sowa2000], citenp:[Hein2002], citenp:[Kilov1994] for an explanation of predicate logic in information modelling.
+
+It is not exactly the same as any of these languages because:
+
+* it has a different meta-model, namely the BMM `expression` meta-model;
+* the syntax is designed to be comprehensible to developers familiar with modern mainstream object-oriented and functional languages such as Java, C#, Python, TypeScript etc.
+
+Following the BMM meta-model, EL treats all classical operators as surface syntax for underlying functions available on types. Thus, the '+' operator in the expression `total + 1` is resolved to a function call on the type `Integer`: `total.add(1)`. In a similar way, higher-order operators ranging over collections of items (e.g. `for_all`) are resolved to calls to functions assumed to be defined on container types (e.g. `my_list.for_all(agent (v:T) )`)
+
+Key features of EL include:
+
+* strong typing;
+* void-safety;
+* standard operators including:
+** logical operators including universal and existential quantification;
+** arithmetic and relational comparison operators, including for date/time types;
+** parentheses for overriding operator precedence;
+* object-oriented qualification (dot notation);
+* decision structures, including:
+** binary choice operator (the so-called 'ternay operator' :? in C);
+** condition chains (if/then/else equivalent);
+** case tables;
+* functions and agents (lambdas).
 
 == Execution Model
 
@@ -48,19 +58,3 @@ In the explicit form, an EL expressions appear within a BMM model definition, or
 image::{diagrams_uri}/EL_design_structure-explicit.svg[id=EL_design_structure_explicit, align="center"]
 
 In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.
-
-== Formal Representation
-
-Formally, an openEHR EL expression is any of the following evaluable entities:
-
-* _terminal entities_:
-** _instance references_, including _literals_, _constants_, _variables_ and _function calls_;
-** _predicates_: Boolean tests on instance structures;
-** _agents_: i.e. delayed routine calls;
-* _complex expressions_ created from:
-** _equality operator_: equality operator;
-** _primitive operators_: arithmetic operators, relational operators, boolean operators;
-** _collection operators_: logical quantification operators;
-** _decision tables_: if/then/else like structures containing conditional expressions.
-
-These correspond to the meta-types defined in the {openehr_bmm}##_expressions[BMM `expression` package^], each of which is described in detail in the following sections.

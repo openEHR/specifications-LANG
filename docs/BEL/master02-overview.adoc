@@ -6,15 +6,14 @@ The openEHR Basic Expression Language (BEL) specified here is an abstract syntax
 
 Accordingly, the BEOM should be considered the normative definition (rather than the syntax) of the openEHR Basic Expression formalism, and indeed not all implementations need support the language: they might for example only serialse in JSON or use purely graphical visualisation.
 
-Key features of the BEL formalism include:
+Key features of BEL include:
 
 * strong typing;
-* variable declarations, assignments and expressions;
 * standard logical operators including universal quantification;
-* standard arithmetic and relational comparison operators, enabling the use of numerics;
+* standard arithmetic and relational comparison operators, enabling the use of numerics and date/time types;
 * parentheses for overriding operator precedence;
 * built-in functions like `current_date`, standard functions such as `max()` defined on primitive types, as well as the ability to use external functions;
-* support for some simple statement types, such as assignment.
+* support for simple statements, such as variable declaration and assignment.
 
 For reasons of comprehensibility and explanation, the Expression Language is defined first in this specification.
 

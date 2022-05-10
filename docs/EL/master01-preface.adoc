@@ -27,7 +27,7 @@ Releated documents include:
 
 This specification is in the {spec_status} state. The development version of this document can be found at {openehr_expression_language}[{openehr_expression_language}^].
 
-The expression language described in this specification is a more powerful language than the original {openehr_basic_expression_language}[Basic Expression Language (BEL)^], and is based on the {openehr_bmm}#_expressions[openEHR BMM expression model^].
+The expression language described in this specification is a more powerful language than the original {openehr_basic_expression_language}[Basic Expression Language (BEL)^], and is based on the {openehr_bmm}#_expressions[openEHR BMM expression model^]. It is a major evolution on BEL syntax, and does not use the BEL meta-model.
 
 Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:
 [.tbd]

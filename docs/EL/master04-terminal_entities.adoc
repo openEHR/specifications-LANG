@@ -203,9 +203,6 @@ Here, 'matching' is understood to mean _obtain all matching items_.
 
 This enables a reference of the following form to be constructed (final line).
 
-[.tbd]
-TBD: need to distinguish shallow matching (immediate children) and deep matching (recursive application).
-
 [source,kotlin]
 ----
     class Book {
@@ -226,7 +223,7 @@ The part in `{}` is any Boolean-valued expression, and may therefore be an opera
     old_spanish_books := book_list [(b:Book) {b.title.contains("Quixote") OR b.pub_date < P1650Y AND b.country = #iso639::es}]
 ----
 
-Since the signature is invariant with respect to the container type (here, `List<Book>`), a shorter form can be used in which the `b` is assumed:
+Since the function signature is invariant with respect to the container item type (here, `Book`), a shorter form can be used in which the `b` is assumed:
 
 [source,kotlin]
 ----

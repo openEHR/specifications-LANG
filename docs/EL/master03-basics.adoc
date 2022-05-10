@@ -15,7 +15,7 @@ TBD: specify equivalence between snake-case and CamelCase, or a tool-level switc
 
 == Commenting
 
-Comments are of two styles. For end-of-line commenting, and for creating visual dividing lines, the leader pattern `'--'` is used. Dividing lines are simply a longer line, e.g `'---------'`.
+Comments are of two styles. For end-of-line commenting, and for creating visual dividing lines, the leader pattern `'--'` is used. Dividing lines are a longer line (more than three characters), e.g `'---------'` or a line of (four or more) `'='` symbols, i.e. `'========'`. The latter is useful for multi-level decision tables.
 
 Comment-only lines start with the bar character (`'|'`). The example below shows both forms.
 
@@ -29,12 +29,9 @@ Comment-only lines start with the bar character (`'|'`). The example below shows
              neutrophils.in_range ([very_low]))
 ----
 
-[.tbd]
-TBD: allow comment-lines using '========'?
-
 == Typing
 
-The Expression language is fully typed, with type definitions being supplied by one or more models, represented in the {openehr_bmm}[openEHR BMM specification^]. *All operators are assumed to be implemented by and map to functions defined on types*, including operators such as '+' mapping to the function `add()` defined on primitive types such as `Integer`. Accordingly, such operators are defined within the BMM as being operator _aliases_ of their implementing function, which is made possible by the BMM meta-types `BMM_ROUTINE` and descendants. 
+EL is fully typed, with type definitions being supplied by one or more models, represented in the form of {openehr_bmm}[openEHR BMM specification^]. *All operators are assumed to be implemented by and to map to functions defined on types*, including operators such as '+' mapping to the function `add()` defined on primitive types such as `Integer`. Accordingly, such operators are defined within the BMM as being operator _aliases_ of their implementing function, which is made possible by the BMM meta-types `BMM_ROUTINE` and descendants. 
 
 An important implementation consequence of this approach is that an expression that is parsed to a classic operator-based AST may be evaluated by progressively searching for operator-aliased functions within the model definition, invoking with the arguments found in the AST structure, and returning Results for the next such computation. Of course, use of built-in native types and functions  (rather than always dispatching via a BMM) to handle primitive type operators is likely to be used in the interests of efficiency. Function-matching can be implemented by matching the inferred signature of the operator and its argument(s) with functions having both a conformant (not necessarily identical) signature, and the same operator.
 
@@ -69,7 +66,7 @@ The EL primitive types are shown below.
 | `Terminology_code`    |Terminology code reference
 |=================================================================
 
-Automatic type promotion from `Integer` to `Real` applies to all integer and real values and expressions, in the same fashion as most programming languages.
+Automatic type promotion from `Integer` to `Real` applies to mixed integer / real values and expressions, in the same fashion as most programming languages.
 
 === Container Types
 

@@ -51,7 +51,7 @@
             "keywords": "reflection, meta-model, UML"
         },
         {
-            "id": "basic_expression_language",
+            "id": "BEL",
             "title": "Basic Expression Language (BEL)",
             "title_short": "Basic Expression Language",
             "description": "openEHR Basic Expression Language specification",
@@ -62,7 +62,7 @@
             "keywords": "openehr, expressions, rules"
         },
         {
-            "id": "expression_language",
+            "id": "EL",
             "title": "Expression Language (EL)",
             "title_short": "Expression Language",
             "description": "openEHR Expression Language specification",
@@ -78,7 +78,7 @@
             "id": "openEHR_UML-LANG.mdzip",
             "type": "uml",
             "title": "LANG UML",
-            "description": "UML file for openEHR Language model classes, as MagicDraw 18.5. Contains UML 2.5 standard XMI file."
+            "description": "UML file for openEHR Language model classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
         }
     ],
     "jira": {

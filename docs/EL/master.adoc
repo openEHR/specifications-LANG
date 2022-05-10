@@ -55,9 +55,13 @@ The work reported in this paper has been funded by the following organisations:
 :sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
-include::master03-el_basics.adoc[leveloffset=+1]
-include::master04-el_terminal_entities.adoc[leveloffset=+1]
-include::master05-el_expressions.adoc[leveloffset=+1]
+include::master03-basics.adoc[leveloffset=+1]
+include::master04-terminal_entities.adoc[leveloffset=+1]
+include::master05-expressions.adoc[leveloffset=+1]
+include::master06-decision_tables.adoc[leveloffset=+1]
+
+include::masterAppA-syntax.adoc[leveloffset=+1]
+
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //
