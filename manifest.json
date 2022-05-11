@@ -56,7 +56,7 @@
             "title_short": "BEL",
             "description": "openEHR Basic Expression Language specification",
             "summary": "The openEHR Basic Expression Language defines a basic model and syntax for specifying expressions and statements for use in archetype rules.",
-            "micro_summary": "a basic expression language",
+            "micro_summary": "A basic expression language",
             "copyright_year": "2016",
             "spec_status": "STABLE",
             "keywords": "openehr, expressions, rules"
