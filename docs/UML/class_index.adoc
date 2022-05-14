@@ -36,7 +36,7 @@
 [.xcode]
 * link:/releases/LANG/{lang_release}/beom.html#_external_query_class[EXTERNAL_QUERY^]
 [.xcode]
-* link:/releases/LANG/{lang_release}/beom.html#_operator_def_class[OPERATOR_DEF^]
+* link:/releases/LANG/{lang_release}/beom.html#_operator_kind_enumeration[OPERATOR_KIND^]
 [.xcode]
 * link:/releases/LANG/{lang_release}/beom.html#_statement_class[STATEMENT^]
 [.xcode]

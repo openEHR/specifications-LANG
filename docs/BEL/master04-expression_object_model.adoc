@@ -55,12 +55,22 @@ include::{uml_export_dir}/classes/expr_unary_operator.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/expr_binary_operator.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/expr_for_all.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/operator_def.adoc[leveloffset=+1]
-
 include::{uml_export_dir}/classes/expr_leaf.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/expr_literal.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/expr_variable_ref.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/expr_function_call.adoc[leveloffset=+1]
+
+== Operators
+
+Operators used in BEL are represented in the `OPERATOR_KIND` enumeration, which is shown below.
+
+[.text-center]
+.BEL operators
+image::{uml_diagrams_uri}/LANG-beom-operators.svg[id=operators, align="center"]
+
+=== Class Descriptions
+
+include::{uml_export_dir}/classes/operator_kind.adoc[leveloffset=+1]
 
 == Typing
 

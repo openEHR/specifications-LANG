@@ -103,31 +103,39 @@
 <li><a href="#_expr_unary_operator_class">4.2.3.10. EXPR_UNARY_OPERATOR Class</a></li>
 <li><a href="#_expr_binary_operator_class">4.2.3.11. EXPR_BINARY_OPERATOR Class</a></li>
 <li><a href="#_expr_for_all_class">4.2.3.12. EXPR_FOR_ALL Class</a></li>
-<li><a href="#_operator_def_class">4.2.3.13. OPERATOR_DEF Class</a></li>
-<li><a href="#_expr_leaf_class">4.2.3.14. EXPR_LEAF Class</a></li>
-<li><a href="#_expr_literal_class">4.2.3.15. EXPR_LITERAL Class</a></li>
-<li><a href="#_expr_variable_ref_class">4.2.3.16. EXPR_VARIABLE_REF Class</a></li>
-<li><a href="#_expr_function_call_class">4.2.3.17. EXPR_FUNCTION_CALL Class</a></li>
+<li><a href="#_expr_leaf_class">4.2.3.13. EXPR_LEAF Class</a></li>
+<li><a href="#_expr_literal_class">4.2.3.14. EXPR_LITERAL Class</a></li>
+<li><a href="#_expr_variable_ref_class">4.2.3.15. EXPR_VARIABLE_REF Class</a></li>
+<li><a href="#_expr_function_call_class">4.2.3.16. EXPR_FUNCTION_CALL Class</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_typing_2">4.3. Typing</a>
+<li><a href="#_operators">4.3. Operators</a>
 <ul class="sectlevel3">
 <li><a href="#_class_descriptions_2">4.3.1. Class Descriptions</a>
 <ul class="sectlevel4">
-<li><a href="#_expr_type_def_class">4.3.1.1. EXPR_TYPE_DEF Class</a></li>
-<li><a href="#_type_def_boolean_class">4.3.1.2. TYPE_DEF_BOOLEAN Class</a></li>
-<li><a href="#_type_def_integer_class">4.3.1.3. TYPE_DEF_INTEGER Class</a></li>
-<li><a href="#_type_def_real_class">4.3.1.4. TYPE_DEF_REAL Class</a></li>
-<li><a href="#_type_def_date_class">4.3.1.5. TYPE_DEF_DATE Class</a></li>
-<li><a href="#_type_def_date_time_class">4.3.1.6. TYPE_DEF_DATE_TIME Class</a></li>
-<li><a href="#_type_def_time_class">4.3.1.7. TYPE_DEF_TIME Class</a></li>
-<li><a href="#_type_def_duration_class">4.3.1.8. TYPE_DEF_DURATION Class</a></li>
-<li><a href="#_type_def_string_class">4.3.1.9. TYPE_DEF_STRING Class</a></li>
-<li><a href="#_type_def_uri_class">4.3.1.10. TYPE_DEF_URI Class</a></li>
-<li><a href="#_type_def_terminology_code_class">4.3.1.11. TYPE_DEF_TERMINOLOGY_CODE Class</a></li>
-<li><a href="#_type_def_object_ref_class">4.3.1.12. TYPE_DEF_OBJECT_REF Class</a></li>
+<li><a href="#_operator_kind_enumeration">4.3.1.1. OPERATOR_KIND Enumeration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_typing_2">4.4. Typing</a>
+<ul class="sectlevel3">
+<li><a href="#_class_descriptions_3">4.4.1. Class Descriptions</a>
+<ul class="sectlevel4">
+<li><a href="#_expr_type_def_class">4.4.1.1. EXPR_TYPE_DEF Class</a></li>
+<li><a href="#_type_def_boolean_class">4.4.1.2. TYPE_DEF_BOOLEAN Class</a></li>
+<li><a href="#_type_def_integer_class">4.4.1.3. TYPE_DEF_INTEGER Class</a></li>
+<li><a href="#_type_def_real_class">4.4.1.4. TYPE_DEF_REAL Class</a></li>
+<li><a href="#_type_def_date_class">4.4.1.5. TYPE_DEF_DATE Class</a></li>
+<li><a href="#_type_def_date_time_class">4.4.1.6. TYPE_DEF_DATE_TIME Class</a></li>
+<li><a href="#_type_def_time_class">4.4.1.7. TYPE_DEF_TIME Class</a></li>
+<li><a href="#_type_def_duration_class">4.4.1.8. TYPE_DEF_DURATION Class</a></li>
+<li><a href="#_type_def_string_class">4.4.1.9. TYPE_DEF_STRING Class</a></li>
+<li><a href="#_type_def_uri_class">4.4.1.10. TYPE_DEF_URI Class</a></li>
+<li><a href="#_type_def_terminology_code_class">4.4.1.11. TYPE_DEF_TERMINOLOGY_CODE Class</a></li>
+<li><a href="#_type_def_object_ref_class">4.4.1.12. TYPE_DEF_OBJECT_REF Class</a></li>
 </ul>
 </li>
 </ul>
@@ -232,10 +240,11 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.2.0</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="latest_issue"></a><a href="https://specifications.openehr.org/tickets/SPECLANG-9">SPECLANG-9</a>. Import old Expression Language as 'Basic Expression Language'.</p>
+<p><a id="latest_issue"></a><a href="https://specifications.openehr.org/tickets/SPECLANG-9">SPECLANG-9</a>. Import old Expression Language as 'Basic Expression Language';<br>
+ Add <code>OPERATOR_KIND</code> enumeration.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>09 May 2022</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 May 2022</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.1.5</p></td>
@@ -1639,7 +1648,7 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator_def</strong>: <code><a href="#_operator_def_class">OPERATOR_DEF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator</strong>: <code><a href="#_operator_kind_enumeration">OPERATOR_KIND</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Operator definition.</p>
 </div></div></td>
@@ -1783,46 +1792,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_operator_def_class"><a class="anchor" href="#_operator_def_class"></a>4.2.3.13. OPERATOR_DEF Class</h5>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPERATOR_DEF</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Abstract definition of an operator for use in the Rules evaluator.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>identifier</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Unique identifier of this operator within the rules system.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbols</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_expr_leaf_class"><a class="anchor" href="#_expr_leaf_class"></a>4.2.3.14. EXPR_LEAF Class</h5>
+<h5 id="_expr_leaf_class"><a class="anchor" href="#_expr_leaf_class"></a>4.2.3.13. EXPR_LEAF Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1876,7 +1846,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_expr_literal_class"><a class="anchor" href="#_expr_literal_class"></a>4.2.3.15. EXPR_LITERAL Class</h5>
+<h5 id="_expr_literal_class"><a class="anchor" href="#_expr_literal_class"></a>4.2.3.14. EXPR_LITERAL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1915,7 +1885,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_expr_variable_ref_class"><a class="anchor" href="#_expr_variable_ref_class"></a>4.2.3.16. EXPR_VARIABLE_REF Class</h5>
+<h5 id="_expr_variable_ref_class"><a class="anchor" href="#_expr_variable_ref_class"></a>4.2.3.15. EXPR_VARIABLE_REF Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1954,7 +1924,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_expr_function_call_class"><a class="anchor" href="#_expr_function_call_class"></a>4.2.3.17. EXPR_FUNCTION_CALL Class</h5>
+<h5 id="_expr_function_call_class"><a class="anchor" href="#_expr_function_call_class"></a>4.2.3.16. EXPR_FUNCTION_CALL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1994,7 +1964,189 @@ Not yet standardised.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_typing_2"><a class="anchor" href="#_typing_2"></a>4.3. Typing</h3>
+<h3 id="_operators"><a class="anchor" href="#_operators"></a>4.3. Operators</h3>
+<div class="paragraph">
+<p>Operators used in BEL are represented in the <code>OPERATOR_KIND</code> enumeration, which is shown below.</p>
+</div>
+<div id="operators" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/LANG-beom-operators.svg" alt="LANG beom operators">
+</div>
+<div class="title">Figure 3. BEL operators</div>
+</div>
+<div class="sect3">
+<h4 id="_class_descriptions_2"><a class="anchor" href="#_class_descriptions_2"></a>4.3.1. Class Descriptions</h4>
+<div class="sect4">
+<h5 id="_operator_kind_enumeration"><a class="anchor" href="#_operator_kind_enumeration"></a>4.3.1.1. OPERATOR_KIND Enumeration</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPERATOR_KIND</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Enumeration representing operators.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eq</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Equality (equals) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ne</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Inequality (not-equals) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lt</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Less than operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">le</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Less than or equals operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gt</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Greater than operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ge</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Greater than or equals operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">matches</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Matches operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical negation (not) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical conjunction (and) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical inclusive disjunction (or) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical exclusive disjunction (exclusive or) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implies</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical implication (implies)  operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for_all</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Universal quantification operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exists</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Existential quantification operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plus</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic addition (plus) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minus</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic subtraction (minus) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multiply</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic multiplication (times) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">divide</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic division (divided-by) operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">modulo</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic modulo operator.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exponent</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithemetic exponent (to the power of) operator.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_typing_2"><a class="anchor" href="#_typing_2"></a>4.4. Typing</h3>
 <div class="paragraph">
 <p>The <code>beom.types</code> package is shown below.</p>
 </div>
@@ -2002,15 +2154,15 @@ Not yet standardised.</p>
 <div class="content">
 <img src="UML/diagrams/LANG-beom.types.svg" alt="LANG beom.types">
 </div>
-<div class="title">Figure 3. lang.beom.types Package</div>
+<div class="title">Figure 4. lang.beom.types Package</div>
 </div>
 <div class="paragraph">
 <p>The type system of the Expression formalism is defined via the type <code>EXPR_TYPE_DEF</code> and its descendants. All types have a <code><em>type_name</em></code> and a <code><em>type_anchor</em></code>, which is a variable of the coresponding primtive type from within the openEHR <code>base_types</code> package, i.e. <code>Integer</code>, <code>Real</code>, <code>String</code>, etc. The type anchor can be used for testing assignments within the implementation. A special type <code>TYPE_DEF_OBJECT</code> is included to enable a value reference (descendant of <code>EXPR_VALUE_REF</code>) to refer to a complex object, to which some expression operators can be applied, including equality and existence. The types system is extensible, as described below.</p>
 </div>
 <div class="sect3">
-<h4 id="_class_descriptions_2"><a class="anchor" href="#_class_descriptions_2"></a>4.3.1. Class Descriptions</h4>
+<h4 id="_class_descriptions_3"><a class="anchor" href="#_class_descriptions_3"></a>4.4.1. Class Descriptions</h4>
 <div class="sect4">
-<h5 id="_expr_type_def_class"><a class="anchor" href="#_expr_type_def_class"></a>4.3.1.1. EXPR_TYPE_DEF Class</h5>
+<h5 id="_expr_type_def_class"><a class="anchor" href="#_expr_type_def_class"></a>4.4.1.1. EXPR_TYPE_DEF Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2051,7 +2203,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_boolean_class"><a class="anchor" href="#_type_def_boolean_class"></a>4.3.1.2. TYPE_DEF_BOOLEAN Class</h5>
+<h5 id="_type_def_boolean_class"><a class="anchor" href="#_type_def_boolean_class"></a>4.4.1.2. TYPE_DEF_BOOLEAN Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2095,7 +2247,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_integer_class"><a class="anchor" href="#_type_def_integer_class"></a>4.3.1.3. TYPE_DEF_INTEGER Class</h5>
+<h5 id="_type_def_integer_class"><a class="anchor" href="#_type_def_integer_class"></a>4.4.1.3. TYPE_DEF_INTEGER Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2139,7 +2291,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_real_class"><a class="anchor" href="#_type_def_real_class"></a>4.3.1.4. TYPE_DEF_REAL Class</h5>
+<h5 id="_type_def_real_class"><a class="anchor" href="#_type_def_real_class"></a>4.4.1.4. TYPE_DEF_REAL Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2183,7 +2335,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_date_class"><a class="anchor" href="#_type_def_date_class"></a>4.3.1.5. TYPE_DEF_DATE Class</h5>
+<h5 id="_type_def_date_class"><a class="anchor" href="#_type_def_date_class"></a>4.4.1.5. TYPE_DEF_DATE Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2227,7 +2379,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_date_time_class"><a class="anchor" href="#_type_def_date_time_class"></a>4.3.1.6. TYPE_DEF_DATE_TIME Class</h5>
+<h5 id="_type_def_date_time_class"><a class="anchor" href="#_type_def_date_time_class"></a>4.4.1.6. TYPE_DEF_DATE_TIME Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2271,7 +2423,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_time_class"><a class="anchor" href="#_type_def_time_class"></a>4.3.1.7. TYPE_DEF_TIME Class</h5>
+<h5 id="_type_def_time_class"><a class="anchor" href="#_type_def_time_class"></a>4.4.1.7. TYPE_DEF_TIME Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2315,7 +2467,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_duration_class"><a class="anchor" href="#_type_def_duration_class"></a>4.3.1.8. TYPE_DEF_DURATION Class</h5>
+<h5 id="_type_def_duration_class"><a class="anchor" href="#_type_def_duration_class"></a>4.4.1.8. TYPE_DEF_DURATION Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2359,7 +2511,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_string_class"><a class="anchor" href="#_type_def_string_class"></a>4.3.1.9. TYPE_DEF_STRING Class</h5>
+<h5 id="_type_def_string_class"><a class="anchor" href="#_type_def_string_class"></a>4.4.1.9. TYPE_DEF_STRING Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2403,7 +2555,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_uri_class"><a class="anchor" href="#_type_def_uri_class"></a>4.3.1.10. TYPE_DEF_URI Class</h5>
+<h5 id="_type_def_uri_class"><a class="anchor" href="#_type_def_uri_class"></a>4.4.1.10. TYPE_DEF_URI Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2447,7 +2599,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_terminology_code_class"><a class="anchor" href="#_type_def_terminology_code_class"></a>4.3.1.11. TYPE_DEF_TERMINOLOGY_CODE Class</h5>
+<h5 id="_type_def_terminology_code_class"><a class="anchor" href="#_type_def_terminology_code_class"></a>4.4.1.11. TYPE_DEF_TERMINOLOGY_CODE Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2491,7 +2643,7 @@ Not yet standardised.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_type_def_object_ref_class"><a class="anchor" href="#_type_def_object_ref_class"></a>4.3.1.12. TYPE_DEF_OBJECT_REF Class</h5>
+<h5 id="_type_def_object_ref_class"><a class="anchor" href="#_type_def_object_ref_class"></a>4.4.1.12. TYPE_DEF_OBJECT_REF Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">

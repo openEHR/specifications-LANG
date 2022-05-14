@@ -5,9 +5,10 @@
 |Issue|Details|Raiser, Implementer|Completed
 
 |1.2.0
-|[[latest_issue]]{openehr_jira}/SPECLANG-9[SPECLANG-9]. Import old Expression Language as 'Basic Expression Language'.
+|[[latest_issue]]{openehr_jira}/SPECLANG-9[SPECLANG-9]. Import old Expression Language as 'Basic Expression Language'; +
+ Add `OPERATOR_KIND` enumeration.
 |SEC
-|[[latest_issue_date]]09 May 2022
+|[[latest_issue_date]]14 May 2022
 
 |1.1.5
 |{openehr_jira}/SPECBASE-33[SPECBASE-33]. Retrospectively release interim form of Expression Language.
