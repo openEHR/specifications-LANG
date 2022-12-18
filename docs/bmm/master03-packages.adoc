@@ -25,4 +25,4 @@ image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="cent
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_definitions.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_definitions.adoc[]

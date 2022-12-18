@@ -135,16 +135,16 @@ The BMM `statement` model includes a statement meta-type to represent the notion
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_statement_item.adoc[]
-include::{uml_export_dir}/classes/bmm_statement_block.adoc[]
-include::{uml_export_dir}/classes/bmm_statement.adoc[]
-include::{uml_export_dir}/classes/bmm_simple_statement.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_statement_item.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_statement_block.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_statement.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_simple_statement.adoc[]
 
-include::{uml_export_dir}/classes/bmm_declaration.adoc[]
-include::{uml_export_dir}/classes/bmm_assignment.adoc[]
-include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
-include::{uml_export_dir}/classes/bmm_assertion.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_declaration.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_assignment.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_procedure_call.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_assertion.adoc[]
 
-include::{uml_export_dir}/classes/bmm_action_table.adoc[]
-include::{uml_export_dir}/classes/bmm_action_decision_table.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_action_table.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_action_decision_table.adoc[]
 

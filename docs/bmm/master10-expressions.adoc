@@ -383,51 +383,51 @@ feature
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/el_expression.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_expression.adoc[]
 
-include::{uml_export_dir}/classes/el_terminal.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_terminal.adoc[]
 
-include::{uml_export_dir}/classes/el_simple.adoc[]
-include::{uml_export_dir}/classes/el_value_generator.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_simple.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_value_generator.adoc[]
 
-include::{uml_export_dir}/classes/el_type_ref.adoc[]
-include::{uml_export_dir}/classes/el_literal.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_type_ref.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_literal.adoc[]
 
-include::{uml_export_dir}/classes/el_variable.adoc[]
-include::{uml_export_dir}/classes/el_writable_variable.adoc[]
-include::{uml_export_dir}/classes/el_readonly_variable.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_variable.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_writable_variable.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_readonly_variable.adoc[]
 
-include::{uml_export_dir}/classes/el_feature_ref.adoc[]
-include::{uml_export_dir}/classes/el_property_ref.adoc[]
-include::{uml_export_dir}/classes/el_static_ref.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_feature_ref.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_property_ref.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_static_ref.adoc[]
 
-include::{uml_export_dir}/classes/el_agent_call.adoc[]
-include::{uml_export_dir}/classes/el_function_call.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_agent_call.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_function_call.adoc[]
 
-include::{uml_export_dir}/classes/el_agent.adoc[]
-include::{uml_export_dir}/classes/el_function_agent.adoc[]
-include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_agent.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_function_agent.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_procedure_agent.adoc[]
 
-include::{uml_export_dir}/classes/el_predicate.adoc[]
-include::{uml_export_dir}/classes/el_defined.adoc[]
-include::{uml_export_dir}/classes/el_attached.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_predicate.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_defined.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_attached.adoc[]
 
-include::{uml_export_dir}/classes/el_decision_table.adoc[]
-include::{uml_export_dir}/classes/el_decision_branch.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_decision_table.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_decision_branch.adoc[]
 
-include::{uml_export_dir}/classes/el_condition_chain.adoc[]
-include::{uml_export_dir}/classes/el_conditional_expression.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_condition_chain.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_conditional_expression.adoc[]
 
-include::{uml_export_dir}/classes/el_case_table.adoc[]
-include::{uml_export_dir}/classes/el_case.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_case_table.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_case.adoc[]
 
-include::{uml_export_dir}/classes/el_operator.adoc[]
-include::{uml_export_dir}/classes/el_unary_operator.adoc[]
-include::{uml_export_dir}/classes/el_binary_operator.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_operator.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_unary_operator.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_binary_operator.adoc[]
 
-include::{uml_export_dir}/classes/el_tuple.adoc[]
-include::{uml_export_dir}/classes/el_tuple_item.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_tuple.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_tuple_item.adoc[]
 
-include::{uml_export_dir}/classes/el_constrained.adoc[]
-include::{uml_export_dir}/classes/el_boolean_expression.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_constrained.adoc[]
+include::{uml_export_dir}/classes/{pkg}el_boolean_expression.adoc[]
 

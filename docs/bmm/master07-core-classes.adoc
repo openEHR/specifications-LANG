@@ -265,11 +265,11 @@ The class meta-model as defined here entails certain choices that have consequen
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_class.adoc[]
-include::{uml_export_dir}/classes/bmm_simple_class.adoc[]
-include::{uml_export_dir}/classes/bmm_generic_class.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_class.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_simple_class.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_generic_class.adoc[]
 
-include::{uml_export_dir}/classes/bmm_enumeration.adoc[]
-include::{uml_export_dir}/classes/bmm_enumeration_string.adoc[]
-include::{uml_export_dir}/classes/bmm_enumeration_integer.adoc[]
-include::{uml_export_dir}/classes/bmm_value_set_spec.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_enumeration.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_enumeration_string.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_enumeration_integer.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_value_set_spec.adoc[]

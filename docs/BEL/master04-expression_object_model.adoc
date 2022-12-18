@@ -40,25 +40,25 @@ An `EXTERNAL_QUERY` is a type of expression representing a call to an external s
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/statement_set.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/variable_declaration.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_value.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}statement_set.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}statement.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}assertion.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}variable_declaration.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}assignment.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_value.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/external_query.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}external_query.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/expression.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_unary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_binary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_for_all.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expression.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_operator.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_unary_operator.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_binary_operator.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_for_all.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/expr_leaf.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_literal.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_variable_ref.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/expr_function_call.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_leaf.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_literal.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_variable_ref.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_function_call.adoc[leveloffset=+1]
 
 == Operators
 
@@ -70,7 +70,7 @@ image::{uml_diagrams_uri}/LANG-beom-operators.svg[id=operators, align="center"]
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/operator_kind.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}operator_kind.adoc[leveloffset=+1]
 
 == Typing
 
@@ -84,16 +84,16 @@ The type system of the Expression formalism is defined via the type `EXPR_TYPE_D
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/expr_type_def.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_boolean.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_integer.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_real.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_date.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_date_time.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_time.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_duration.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_string.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_uri.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_terminology_code.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/type_def_object_ref.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_type_def.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_boolean.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_integer.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_real.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_date.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_date_time.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_time.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_duration.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_string.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_uri.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_terminology_code.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}type_def_object_ref.adoc[leveloffset=+1]
 

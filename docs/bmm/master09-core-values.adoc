@@ -33,16 +33,16 @@ If it were desired to create a full set of 'native' types for BMM, in the way su
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_literal_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_literal_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_container_value.adoc[]
-include::{uml_export_dir}/classes/bmm_indexed_container_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_container_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_indexed_container_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_unitary_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_unitary_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_primitive_value.adoc[]
-include::{uml_export_dir}/classes/bmm_string_value.adoc[]
-include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
-include::{uml_export_dir}/classes/bmm_boolean_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_primitive_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_string_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_integer_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_boolean_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_interval_value.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_interval_value.adoc[]

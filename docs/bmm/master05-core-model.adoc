@@ -66,9 +66,9 @@ The `Any` type defined by the model's `Any` class, or else the default one above
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_model_element.adoc[]
-include::{uml_export_dir}/classes/bmm_package_container.adoc[]
-include::{uml_export_dir}/classes/bmm_package.adoc[]
-include::{uml_export_dir}/classes/bmm_model.adoc[]
-include::{uml_export_dir}/classes/bmm_module.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_model_element.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_package_container.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_package.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_model.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_module.adoc[]
 

@@ -49,6 +49,11 @@ This specification benefited from formal and informal input from the openEHR and
 //
 :sectanchors:
 :sectnums:
+
+ifdef::package_qualifiers[]
+:pkg: org.openehr.lang.beom.
+endif::[]
+
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-language.adoc[leveloffset=+1]
