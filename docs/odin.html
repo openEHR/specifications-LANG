@@ -192,7 +192,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2003 - 2022 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2003 - 2023 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -232,13 +232,19 @@
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>1.5.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-10" target="_blank" rel="noopener">SPECLANG-10</a>: Fix typos in ODIN.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Kavanagh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>03 Apr 2023</p></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>1.5.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-7" target="_blank" rel="noopener">SPECLANG-7</a>: Move IDON spec to LANG component.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>11 Nov 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 Nov 2018</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -411,7 +417,7 @@
 <div class="sect2">
 <h3 id="_supporters"><a class="anchor" href="#_supporters"></a>Supporters</h3>
 <div class="paragraph">
-<p>The work reported in this paper has been funded in by the following organisations:</p>
+<p>The work reported in this paper has been funded by the following organisations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -522,7 +528,7 @@
 <p>In the above the attribute names <code>person</code> , <code>name</code> , <code>address</code> etc, and the type <code>List&lt;PERSON&gt;</code> are all assumed to come from an information model. The <code>[01234]</code> and <code>[01235]</code> tags identify container items.</p>
 </div>
 <div class="paragraph">
-<p>The basic design principle of ODIN is to be able to represent data in a way that is both machine-processible and human readable, while making the fewest assumptions possible about the information model to which the data conforms. To this end, type names are optional; often, only attribute names and values are explicitly shown. No syntactical assumptions are made about whether the underlying model is relational, object-oriented or what it actually looks like. More than one information model can be compatible with the same ODIN-expressed data. The UML semantics of composition/aggregation and association are expressible, as are shared objects. Literal leaf values are only of 'standard' widely recognised types, i.e. Integer, Real, Boolean, String, Character and a range of Date/time types. In standard ODIN, all complex types are expressed structurally.</p>
+<p>The basic design principle of ODIN is to be able to represent data in a way that is both machine-processable and human-readable, while making the fewest assumptions possible about the information model to which the data conforms. To this end, type names are optional; often, only attribute names and values are explicitly shown. No syntactical assumptions are made about whether the underlying model is relational, object-oriented or what it actually looks like. More than one information model can be compatible with the same ODIN-expressed data. The UML semantics of composition/aggregation and association are expressible, as are shared objects. Literal leaf values are only of 'standard' widely recognised types, i.e. Integer, Real, Boolean, String, Character and a range of Date/time types. In standard ODIN, all complex types are expressed structurally.</p>
 </div>
 <div class="paragraph">
 <p>The ODIN syntax as described above has a number of useful characteristics that enable the extensive use of paths to navigate it, and express references. These include:</p>
@@ -773,7 +779,7 @@
 <div class="sect2">
 <h3 id="_embedded_fragment"><a class="anchor" href="#_embedded_fragment"></a>4.1. Embedded Fragment</h3>
 <div class="paragraph">
-<p>Fragments of ODIN text can appear embedded within other artefacts. A fragment typically includes no object identiers nor schema identifier since both of these are assumed to be inferred from the surrounding context. A typical fragment has the following appearance:</p>
+<p>Fragments of ODIN text can appear embedded within other artefacts. A fragment typically includes no object identifiers nor schema identifier since both of these are assumed to be inferred from the surrounding context. A typical fragment has the following appearance:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -805,7 +811,7 @@
 <div class="sect3">
 <h4 id="_implicit_object_document"><a class="anchor" href="#_implicit_object_document"></a>4.2.1. Implicit Object Document</h4>
 <div class="paragraph">
-<p>A document containing only an embedded fragment such as shown above is considered to be an 'implict' object document, and its contents are assumed to consist of values of various object properties. This format is a degenerate form of the 'anonymous' object document but so common and useful it is treated as a legal ODIN form.</p>
+<p>A document containing only an embedded fragment such as shown above is considered to be an 'implicit' object document, and its contents are assumed to consist of values of various object properties. This format is a degenerate form of the 'anonymous' object document but so common and useful it is treated as a legal ODIN form.</p>
 </div>
 <div class="paragraph">
 <p>Implicit object documents are commonly used to serialise models, such as information model schemas, application configuration files and so on. The usual assumption is that the filename and/or ODIN content will identify the artefact sufficiently for tools to know what its information model is.</p>
@@ -941,7 +947,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>In the above structure, each "&lt;&gt;" encloses an instance of some type. The hierarchical structure corresponds to the part-of relationship between objects, otherwise known as composition and <em>aggregation</em> relationships in object-oriented formalisms such as UML (the difference between the two is usually described as being "sub-objects related by aggregation can have independent lifetimes, whereas sub-objects related by composition have co-termimal lifetimes and are always destroyed with the parent"; ODIN does not differentiate between the two, since it is the business of a model, not the data, to express such semantics). Associations between instances in ODIN are also representable by references, and are described in the section <a href="#_associations_and_shared_objects">Section 6.1</a>.</p>
+<p>In the above structure, each "&lt;&gt;" encloses an instance of some type. The hierarchical structure corresponds to the part-of relationship between objects, otherwise known as composition and <em>aggregation</em> relationships in object-oriented formalisms such as UML (the difference between the two is usually described as being "sub-objects related by aggregation can have independent lifetimes, whereas sub-objects related by composition have co-terminal lifetimes and are always destroyed with the parent"; ODIN does not differentiate between the two, since it is the business of a model, not the data, to express such semantics). Associations between instances in ODIN are also representable by references, and are described in the section <a href="#_associations_and_shared_objects">Section 6.1</a>.</p>
 </div>
 <div class="paragraph">
 <p>Validity rules for object-structuring of ODIN are as follows:</p>
@@ -1027,7 +1033,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Strings and dates may also be used. Keys are coloured blue in the this specification in order to distinguish the run-time status of key values from the design-time status of class and attribute names. The following example shows the use of string values as keys for the contained items.</p>
+<p>Strings and dates may also be used. Keys are coloured blue in this specification in order to distinguish the run-time status of key values from the design-time status of class and attribute names. The following example shows the use of string values as keys for the contained items.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1157,7 +1163,7 @@ class SUBJECT
 <div class="sect2">
 <h3 id="_adding_type_information"><a class="anchor" href="#_adding_type_information"></a>5.6. Adding Type Information</h3>
 <div class="paragraph">
-<p>In many cases, ODIN data is of a simple structure, very regular, and highly repetitive, such as the expression of simple demographic data. In such cases, it is preferable to express as little as possible about the informatoin model on which the data are based, since various software components want to use the data, and use it in different ways. However, there are also cases where the data is highly complex, and more model information is needed to help a parser. Examples include large design databases for aircraft and health records. Data obeying more complex models typically include sub-objects that are of a subtype of the statically declared type in the information model, in other words, dynamically bound types.</p>
+<p>In many cases, ODIN data is of a simple structure, very regular, and highly repetitive, such as the expression of simple demographic data. In such cases, it is preferable to express as little as possible about the information model on which the data are based, since various software components want to use the data, and use it in different ways. However, there are also cases where the data is highly complex, and more model information is needed to help a parser. Examples include large design databases for aircraft and health records. Data obeying more complex models typically include sub-objects that are of a subtype of the statically declared type in the information model, in other words, dynamically bound types.</p>
 </div>
 <div class="paragraph">
 <p>Where dynamic binding occurs in the data, it must be indicated in an ODIN document. Typing information is added to using a syntactical addition inspired by the <code>(type)</code> casting operator of the C language, whose meaning is approximately: force the type of the result of the following expression to be <code>type</code>. In ODIN typing is therefore done by including the type name in parentheses after the '=' sign, as in the following example.</p>
@@ -1555,7 +1561,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 </div>
 </div>
 <div class="paragraph">
-<p>where <code>terminology_id</code> is an alphanumeric name, optionally following by a version in parentheses, and <code>code</code> is a string. The allowed characters in each part are described in the grammaar.</p>
+<p>where <code>terminology_id</code> is an alphanumeric name, optionally followed by a version in parentheses, and <code>code</code> is a string. The allowed characters in each part are described in the grammar.</p>
 </div>
 <div class="paragraph">
 <p>Examples from clinical data:</p>
@@ -1572,7 +1578,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 <div class="sect2">
 <h3 id="_lists_of_built_in_types"><a class="anchor" href="#_lists_of_built_in_types"></a>7.4. Lists of Built-in Types</h3>
 <div class="paragraph">
-<p>Data of any primitive type can occur singly or in lists, which are shown as comma-separated lists of item, all of the same type, such as in the following examples:</p>
+<p>Data of any primitive type can occur singly or in lists, which are shown as comma-separated lists of items, all of the same type, such as in the following examples:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1644,7 +1650,7 @@ for the plus/minus form (N ± M format), spaces are not significant either side 
 <div class="sect2">
 <h3 id="_relationship_with_w3c_xpath"><a class="anchor" href="#_relationship_with_w3c_xpath"></a>8.2. Relationship with W3C Xpath</h3>
 <div class="paragraph">
-<p>The ODIN path syntax is semantically a subset of the Xpath query language, with a few syntactic shortcuts to reduce the verbosity of the most common cases. Xpath differentiates between "children" and "attributes" sub-items of an object due to the difference in XML between Elements (true sub-objects) and Attributes (tag-embedded primitive values). In ODIN, as with any pure object formalism, there is no such distinction, and all subparts of any object are referenced in the manner of Xpath children; in particular, in the Xpath abbreviated syntax, the key <code>child::</code> does not need to be used.</p>
+<p>The ODIN path syntax is semantically a subset of the Xpath query language, with a few syntactic shortcuts to reduce the verbosity of the most common cases. Xpath differentiates between "children" and "attributes" sub-items of an object due to the difference in XML between Elements (true sub-objects) and Attributes (tag-embedded primitive values). In ODIN, as with any pure object formalism, there is no such distinction, and all sub-parts of any object are referenced in the manner of Xpath children; in particular, in the Xpath abbreviated syntax, the key <code>child::</code> does not need to be used.</p>
 </div>
 <div class="paragraph">
 <p>ODIN does not distinguish attributes from children, and also assumes the <code>node_id</code> attribute. Thus, the following expressions are legal for cADL structures:</p>
@@ -1673,7 +1679,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 <h2 id="_plug_in_syntaxes"><a class="anchor" href="#_plug_in_syntaxes"></a>9. Plug-in Syntaxes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Using the ODIN syntax, any object structure can be serialised. In some cases, the requirement is to express some part of the structure in an abstract syntax, rather than in the more literal seriliased object form of ODIN. ODIN provides for this possibility by allowing the value of any object (i.e. what appears between any matching pair of <code>&lt;&gt;</code> delimiters) to be expressed in some other syntax, known as a "plug-in" syntax. Plug-in syntaxes are indicated in ODIN in a similar way as typed objects, i.e. by the use of the syntax type in parentheses preceding the <code>&lt;&gt;</code> block. For a plug-in section, the <code>&lt;&gt;</code> delimiters are modified to <code>&lt;# #&gt;</code>, to allow for easier parser design, and easier recognition of such blocks by human readers. The general form is as follows:</p>
+<p>Using the ODIN syntax, any object structure can be serialised. In some cases, the requirement is to express some part of the structure in an abstract syntax, rather than in the more literal serialised object form of ODIN. ODIN provides for this possibility by allowing the value of any object (i.e. what appears between any matching pair of <code>&lt;&gt;</code> delimiters) to be expressed in some other syntax, known as a "plug-in" syntax. Plug-in syntaxes are indicated in ODIN in a similar way as typed objects, i.e. by the use of the syntax type in parentheses preceding the <code>&lt;&gt;</code> block. For a plug-in section, the <code>&lt;&gt;</code> delimiters are modified to <code>&lt;# #&gt;</code>, to allow for easier parser design, and easier recognition of such blocks by human readers. The general form is as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1730,12 +1736,12 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </ul>
 </div>
 <div class="paragraph">
-<p>This does not prevent ODIN documents being converted to XML and indeed the conversion to XML instance is rather straighforward.</p>
+<p>This does not prevent ODIN documents being converted to XML and indeed the conversion to XML instance is rather straightforward.</p>
 </div>
 <div class="sect3">
 <h4 id="_expression_of_odin_in_xml"><a class="anchor" href="#_expression_of_odin_in_xml"></a>A.1.1. Expression of ODIN in XML</h4>
 <div class="paragraph">
-<p>The ODIN syntax maps relatively easily to XML instance. It is important to realise that developers using XML often develop different mappings for object-oriented data, due to the fact that XML does not have systematic object-oriented semantics. This is particularly the case where containers such as lists and sets such as 'employees: List&lt;Person&gt;' are mapped to XML; many implementors have to invent additional tags such as 'employee' to make the mapping appear visually correct. The particular mapping chosen here is designed to be a faithful reflection of the semantics of the object-oriented data, and does not try take into account visual aesthetics of the XML. The result is that Xpath expressions are the same for ODIN and XML, and also correspond to what one would expect based on an underlying object model.</p>
+<p>The ODIN syntax maps relatively easily to XML instance. It is important to realise that developers using XML often develop different mappings for object-oriented data, due to the fact that XML does not have systematic object-oriented semantics. This is particularly the case where containers such as lists and sets such as 'employees: List&lt;Person&gt;' are mapped to XML; many implementors have to invent additional tags such as 'employee' to make the mapping appear visually correct. The particular mapping chosen here is designed to be a faithful reflection of the semantics of the object-oriented data, and does not try to take into account visual aesthetics of the XML. The result is that Xpath expressions are the same for ODIN and XML, and also correspond to what one would expect based on an underlying object model.</p>
 </div>
 <div class="paragraph">
 <p>The main elements of the mapping are as follows.</p>
@@ -2129,17 +2135,18 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 <span class="tok-c">// ---------- ISO8601-based date/time/duration constraint patterns</span><span class="tok-w"></span>
 
 <span class="tok-nl">DATE_CONSTRAINT_PATTERN</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">YEAR_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-no">MONTH_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-no">DAY_PATTERN</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
-<span class="tok-nl">TIME_CONSTRAINT_PATTERN</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">HOUR_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-no">MINUTE_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-no">SECOND_PATTERN</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-nl">TIME_CONSTRAINT_PATTERN</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">HOUR_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-no">MINUTE_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-no">SECOND_PATTERN</span><span class="tok-w"> </span><span class="tok-no">TZ_PATTERN</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-nl">DATE_TIME_CONSTRAINT_PATTERN</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">DATE_CONSTRAINT_PATTERN</span><span class="tok-w"> </span><span class="tok-s1">&#39;T&#39;</span><span class="tok-w"> </span><span class="tok-no">TIME_CONSTRAINT_PATTERN</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
-<span class="tok-nl">DURATION_CONSTRAINT_PATTERN</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;P&#39;</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">yY</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">mM</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">Ww</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">dD</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;T&#39;</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">hH</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">mM</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">sS</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 
-<span class="tok-c">// date time pattern</span><span class="tok-w"></span>
-<span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">YEAR_PATTERN</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;yyy&#39;</span><span class="tok-w"> </span><span class="tok-s1">&#39;y&#39;</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;YYY&#39;</span><span class="tok-w"> </span><span class="tok-s1">&#39;Y&#39;</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">YEAR_PATTERN</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;yyyy&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;YYYY&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;yyy&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;YYY&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">MONTH_PATTERN</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;mm&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;MM&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;??&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XX&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;xx&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">DAY_PATTERN</span><span class="tok-w">    </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;dd&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;DD&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;??&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XX&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;xx&#39;</span><span class="tok-w">  </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">HOUR_PATTERN</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;hh&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;HH&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;??&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XX&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;xx&#39;</span><span class="tok-w">  </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">MINUTE_PATTERN</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;mm&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;MM&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;??&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XX&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;xx&#39;</span><span class="tok-w">  </span><span class="tok-p">;</span><span class="tok-w"></span>
 <span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">SECOND_PATTERN</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;ss&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;SS&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;??&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XX&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;xx&#39;</span><span class="tok-w">  </span><span class="tok-p">;</span><span class="tok-w"></span>
+<span class="tok-k">fragment</span><span class="tok-w"> </span><span class="tok-nl">TZ_PATTERN</span><span class="tok-w">     </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;±&#39;</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-s1">&#39;hh&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;HH&#39;</span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-s1">&#39;:&#39;</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-s1">&#39;mm&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;MM&#39;</span><span class="tok-o">))?</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;Z&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
+
+<span class="tok-nl">DURATION_CONSTRAINT_PATTERN</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;P&#39;</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">yY</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">mM</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">Ww</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">dD</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;T&#39;</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-n">hH</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">mM</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-p">[</span><span class="tok-n">sS</span><span class="tok-p">]</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-p">;</span><span class="tok-w"></span>
 
 <span class="tok-c">// ---------- Delimited Regex matcher ------------</span><span class="tok-w"></span>
 <span class="tok-c">// In ADL, a regexp can only exist between {}.</span><span class="tok-w"></span>
@@ -2348,7 +2355,7 @@ items[@archetype_node_id = &#39;at0001&#39;]    -- the member of &#39;items&#39;
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-27 10:30:22 +0100
+Last updated 2023-04-03 09:03:24 +0100
 </div>
 </div>
 </body>
