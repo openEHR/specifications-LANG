@@ -7,7 +7,7 @@ h|*Description*
 2+a|Persistent form of `BMM_PROPERTY`.
 
 h|*Inherit*
-2+|`xref:LANG:bmm_persistence_package.adoc#_p_bmm_model_element_class[P_BMM_MODEL_ELEMENT]`
+2+|`xref:{class_p_bmm_model_element}[P_BMM_MODEL_ELEMENT]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -34,11 +34,11 @@ h|*0..1*
 a|True if this property is info model 'runtime' settable property. Persisted attribute.
 
 h|*0..1*
-|*type_def*: `xref:LANG:bmm_persistence_package.adoc#_p_bmm_type_class[P_BMM_TYPE]`
+|*type_def*: `xref:{class_p_bmm_type}[P_BMM_TYPE]`
 a|Type definition of this property, if not a simple String type reference. Persisted attribute.
 
 h|*0..1*
-|*bmm_property*: `xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]`
+|*bmm_property*: `xref:{class_bmm_property}[BMM_PROPERTY]`
 a|BMM_PROPERTY created by create_bmm_property_definition.
 
 h|*Functions*
@@ -47,8 +47,8 @@ h|*Functions*
 
 h|*1..1*
 |*create_bmm_property* ( +
-a_bmm_schema: `xref:LANG:bmm:core_package.adoc#_bmm_model_class[BMM_MODEL][1]`, +
-a_class_def: `xref:LANG:bmm:core_package.adoc#_bmm_class_class[BMM_CLASS][1]` +
+a_bmm_schema: `xref:{class_bmm_model}[BMM_MODEL][1]`, +
+a_class_def: `xref:{class_bmm_class}[BMM_CLASS][1]` +
 ): `void`
 a|Create `_bmm_property_definition_` from `P_BMM_XX` parts.
 |===

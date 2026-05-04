@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Types
 
 == Overview
@@ -6,7 +8,7 @@ One of the foundational distinctions in the BMM is between _class_ and _type_, i
 
 [.text-center]
 .`base.bmm.core.entity` Package - Types
-image::{uml_diagrams_uri}/LANG-bmm.core.entity.svg[id=core_entity, align="center"]
+image::ROOT:uml/LANG-bmm.core.entity.svg[id=core_entity, align="center"]
 
 Classes are _definitional_ entities, while types are understood in BMM as the _formal generators_ of instances (where non-abstract), as the basis of static typing in a formal model, and dynamic conformance, i.e. at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts. Types are used for the following purposes in a BMM model:
 
@@ -304,16 +306,16 @@ The above model produces a number of outcomes that are not necessarily immediate
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_type.adoc[]
-include::{uml_export_dir}/classes/bmm_unitary_type.adoc[]
-include::{uml_export_dir}/classes/bmm_effective_type.adoc[]
-include::{uml_export_dir}/classes/bmm_parameter_type.adoc[]
-include::{uml_export_dir}/classes/bmm_model_type.adoc[]
-include::{uml_export_dir}/classes/bmm_simple_type.adoc[]
-include::{uml_export_dir}/classes/bmm_generic_type.adoc[]
+include::ROOT:partial$classes/bmm_type.adoc[]
+include::ROOT:partial$classes/bmm_unitary_type.adoc[]
+include::ROOT:partial$classes/bmm_effective_type.adoc[]
+include::ROOT:partial$classes/bmm_parameter_type.adoc[]
+include::ROOT:partial$classes/bmm_model_type.adoc[]
+include::ROOT:partial$classes/bmm_simple_type.adoc[]
+include::ROOT:partial$classes/bmm_generic_type.adoc[]
 
-include::{uml_export_dir}/classes/bmm_tuple_type.adoc[]
-include::{uml_export_dir}/classes/bmm_signature.adoc[]
+include::ROOT:partial$classes/bmm_tuple_type.adoc[]
+include::ROOT:partial$classes/bmm_signature.adoc[]
 
-include::{uml_export_dir}/classes/bmm_container_type.adoc[]
-include::{uml_export_dir}/classes/bmm_indexed_container_type.adoc[]
+include::ROOT:partial$classes/bmm_container_type.adoc[]
+include::ROOT:partial$classes/bmm_indexed_container_type.adoc[]

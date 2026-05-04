@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Literal Values
 
 == Overview
@@ -6,7 +8,7 @@ With a typical formal model, there is a need for formal representation of litera
 
 [.text-center]
 .`base.bmm.core.literal_value` package - Literal Values
-image::{uml_diagrams_uri}/LANG-bmm.core.literal_value.svg[id=core_literal_value, align="center"]
+image::ROOT:uml/LANG-bmm.core.literal_value.svg[id=core_literal_value, align="center"]
 
 == General Model
 
@@ -33,16 +35,16 @@ If it were desired to create a full set of 'native' types for BMM, in the way su
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_literal_value.adoc[]
+include::ROOT:partial$classes/bmm_literal_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_container_value.adoc[]
-include::{uml_export_dir}/classes/bmm_indexed_container_value.adoc[]
+include::ROOT:partial$classes/bmm_container_value.adoc[]
+include::ROOT:partial$classes/bmm_indexed_container_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_unitary_value.adoc[]
+include::ROOT:partial$classes/bmm_unitary_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_primitive_value.adoc[]
-include::{uml_export_dir}/classes/bmm_string_value.adoc[]
-include::{uml_export_dir}/classes/bmm_integer_value.adoc[]
-include::{uml_export_dir}/classes/bmm_boolean_value.adoc[]
+include::ROOT:partial$classes/bmm_primitive_value.adoc[]
+include::ROOT:partial$classes/bmm_string_value.adoc[]
+include::ROOT:partial$classes/bmm_integer_value.adoc[]
+include::ROOT:partial$classes/bmm_boolean_value.adoc[]
 
-include::{uml_export_dir}/classes/bmm_interval_value.adoc[]
+include::ROOT:partial$classes/bmm_interval_value.adoc[]

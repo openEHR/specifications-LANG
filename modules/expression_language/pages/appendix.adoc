@@ -1,0 +1,34 @@
+include::partial$module_vars.adoc[]
+
+= Appendix
+
+
+== Acknowledgements
+
+=== Primary Author
+
+* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+
+=== Contributors
+
+This specification benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Borut Fabjan, Program Manager, Better, Slovenia
+* Matija Kejžar, Senior Engineer, Better, Slovenia
+* Bostjan Lah, Architect, Better, Slovenia
+
+=== Supporters
+
+The work reported in this paper has been funded by the following organisations:
+
+* openEHR Foundation Industry and Organisation Partners
+* Ars Semantica, UK
+* Better, Slovenia (formerly Marand)
+== Conformance
+
+Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant {openehr_its_component}[openEHR Implementation Technology Specification(s) (ITSs)^], such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.
+
+
+:sectnums!:
+
+include::partial$amendment_record.adoc[]

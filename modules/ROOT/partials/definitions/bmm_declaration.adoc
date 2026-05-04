@@ -29,7 +29,7 @@ It is strongly recommended to use the following key /type combinations for the r
 Other keys and value types may be freely added.
 
 h|*1..1*
-|*scope*: `xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]`
+|*scope*: `xref:{class_bmm_declaration}[BMM_DECLARATION]`
 a|Model element within which an element is declared.
 
 h|*0..1*

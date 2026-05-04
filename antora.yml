@@ -1,0 +1,9 @@
+name: LANG
+title: Generic Languages
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/odin/nav.adoc
+  - modules/bmm/nav.adoc
+  - modules/bmm_persistence/nav.adoc
+  - modules/expression_language/nav.adoc

@@ -1,5 +1,10 @@
+include::ROOT:partial$component_vars.adoc[]
+
 :spec_title: Expression Language (EL)
 :copyright_year: 2016
 :spec_status: DEVELOPMENT
 :keywords: openehr, expressions, rules
 :description: openEHR Expression Language specification
+
+:latest_issue: 2.0.0
+:latest_issue_date: 10 May 2020

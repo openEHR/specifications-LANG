@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Classes
 
 == Overview
@@ -6,7 +8,7 @@ This section describes the semantics of the `BMM_CLASS` meta-class, its sub-type
 
 [.text-center]
 .`base.bmm.core` Package - Classes
-image::{uml_diagrams_uri}/LANG-bmm.core-class.svg[id=core_class, align="center"]
+image::ROOT:uml/LANG-bmm.core-class.svg[id=core_class, align="center"]
 
 Class definitions are the _definitional_ basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus _derived_ entities.
 
@@ -79,7 +81,7 @@ A useful derived form of any concrete type definition (i.e. instance of `BMM_EFF
 
 [.text-center]
 .`bmm.core.range_constrained` Package - Constrained-range Meta-Types, including Enumeration
-image::{uml_diagrams_uri}/LANG-bmm.core.range_constrained.svg[id=core_range_constrained, align="center"]
+image::ROOT:uml/LANG-bmm.core.range_constrained.svg[id=core_range_constrained, align="center"]
 
 === Enumerated Types
 
@@ -263,11 +265,11 @@ The class meta-model as defined here entails certain choices that have consequen
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_class.adoc[]
-include::{uml_export_dir}/classes/bmm_simple_class.adoc[]
-include::{uml_export_dir}/classes/bmm_generic_class.adoc[]
+include::ROOT:partial$classes/bmm_class.adoc[]
+include::ROOT:partial$classes/bmm_simple_class.adoc[]
+include::ROOT:partial$classes/bmm_generic_class.adoc[]
 
-include::{uml_export_dir}/classes/bmm_enumeration.adoc[]
-include::{uml_export_dir}/classes/bmm_enumeration_string.adoc[]
-include::{uml_export_dir}/classes/bmm_enumeration_integer.adoc[]
-include::{uml_export_dir}/classes/bmm_value_set_spec.adoc[]
+include::ROOT:partial$classes/bmm_enumeration.adoc[]
+include::ROOT:partial$classes/bmm_enumeration_string.adoc[]
+include::ROOT:partial$classes/bmm_enumeration_integer.adoc[]
+include::ROOT:partial$classes/bmm_value_set_spec.adoc[]

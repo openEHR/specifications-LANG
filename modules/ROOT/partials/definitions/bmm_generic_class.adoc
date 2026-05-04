@@ -7,14 +7,14 @@ h|*Description*
 2+a|Definition of a generic class in an object model.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_class_class[BMM_CLASS]`
+2+|`xref:{class_bmm_class}[BMM_CLASS]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*generic_parameters*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_parameter_type_class[BMM_PARAMETER_TYPE]>`
+|*generic_parameters*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_parameter_type}[BMM_PARAMETER_TYPE]>`
 a|List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic.
 
 h|*Functions*
@@ -28,7 +28,7 @@ a|Add suppliers from generic parameters.
 
 h|*1..1 +
 (effected)*
-|*type* (): `xref:LANG:bmm:core_package.adoc#_bmm_generic_type_class[BMM_GENERIC_TYPE]`
+|*type* (): `xref:{class_bmm_generic_type}[BMM_GENERIC_TYPE]`
 a|Generate a fully open `BMM_GENERIC_TYPE` instance that corresponds to this class definition
 
 h|*1..1*

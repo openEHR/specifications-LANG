@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Overview
 
 == Introduction
@@ -126,11 +128,11 @@ These are illustrated below.
 
 [.text-center]
 .Package Overview
-image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
+image::ROOT:uml/LANG-bmm-packages.svg[id=package_overview, align="center"]
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_definitions.adoc[]
+include::ROOT:partial$classes/bmm_definitions.adoc[]
 
 == References
 bibliography::[]

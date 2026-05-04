@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Overview
 
 The ODIN syntax provides a formal means of expressing instance data based on an underlying object-oriented or relational information model, which is readable both by humans and machines. The general appearance is exemplified by the following:
@@ -34,4 +36,3 @@ The ODIN syntax as described above has a number of useful characteristics that e
 * paths can be formed by navigating down a tree branch and concatenating attribute name, container keys (where they are encountered) and '/' characters;
 * every node is reachable by a path;
 * dynamically bound types can be explicitly indicated;
-* shared objects can be referred to by path references.

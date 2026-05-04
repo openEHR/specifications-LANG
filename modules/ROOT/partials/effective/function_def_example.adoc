@@ -6,7 +6,7 @@
 
     func (v: Numeric): Numeric
 
-2+|Inherits: xref:LANG:obsolete-elom:extension_package.adoc#_function_def_external_class[FUNCTION_DEF_EXTERNAL]
+2+|Inherits: xref:{class_function_def_external}[FUNCTION_DEF_EXTERNAL]
 
 2+h|*Attributes*
 

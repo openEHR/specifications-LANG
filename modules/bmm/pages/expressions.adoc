@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Expressions
 
 == Overview
@@ -16,7 +18,7 @@ The UML model of the BMM `expression` package, consisting of mostly direct equiv
 
 [.text-center]
 .`bmm.expression` Package
-image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
+image::ROOT:uml/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
 
 Most `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_eval_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
@@ -48,7 +50,7 @@ The model described in this section supports these primitive elements via descen
 
 [.text-center]
 .bmm.expression Package - Type hierarchy
-image::{uml_diagrams_uri}/LANG-bmm.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
+image::ROOT:uml/LANG-bmm.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
 
 === Literals
 
@@ -256,7 +258,7 @@ The following UML illustrates.
 
 [.text-center]
 .bmm.expression Decision Table
-image::{uml_diagrams_uri}/LANG-bmm.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
+image::ROOT:uml/LANG-bmm.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
 
 The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:
 
@@ -370,44 +372,44 @@ feature
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/el_expression.adoc[]
-include::{uml_export_dir}/classes/el_constrained.adoc[]
-include::{uml_export_dir}/classes/el_boolean_expression.adoc[]
+include::ROOT:partial$classes/el_expression.adoc[]
+include::ROOT:partial$classes/el_constrained.adoc[]
+include::ROOT:partial$classes/el_boolean_expression.adoc[]
 
-include::{uml_export_dir}/classes/el_operator.adoc[]
-include::{uml_export_dir}/classes/el_unary_operator.adoc[]
-include::{uml_export_dir}/classes/el_binary_operator.adoc[]
+include::ROOT:partial$classes/el_operator.adoc[]
+include::ROOT:partial$classes/el_unary_operator.adoc[]
+include::ROOT:partial$classes/el_binary_operator.adoc[]
 
-include::{uml_export_dir}/classes/el_simple.adoc[]
-include::{uml_export_dir}/classes/el_terminal.adoc[]
+include::ROOT:partial$classes/el_simple.adoc[]
+include::ROOT:partial$classes/el_terminal.adoc[]
 
-include::{uml_export_dir}/classes/el_predicate.adoc[]
-include::{uml_export_dir}/classes/el_defined.adoc[]
-include::{uml_export_dir}/classes/el_attached.adoc[]
+include::ROOT:partial$classes/el_predicate.adoc[]
+include::ROOT:partial$classes/el_defined.adoc[]
+include::ROOT:partial$classes/el_attached.adoc[]
 
-include::{uml_export_dir}/classes/el_instance_ref.adoc[]
+include::ROOT:partial$classes/el_instance_ref.adoc[]
 
-include::{uml_export_dir}/classes/el_self_ref.adoc[]
-include::{uml_export_dir}/classes/el_type_ref.adoc[]
-include::{uml_export_dir}/classes/el_literal.adoc[]
+include::ROOT:partial$classes/el_self_ref.adoc[]
+include::ROOT:partial$classes/el_type_ref.adoc[]
+include::ROOT:partial$classes/el_literal.adoc[]
 
-include::{uml_export_dir}/classes/el_scoped_ref.adoc[]
-include::{uml_export_dir}/classes/el_instantiable_ref.adoc[]
-include::{uml_export_dir}/classes/el_agent_call.adoc[]
-include::{uml_export_dir}/classes/el_function_call.adoc[]
+include::ROOT:partial$classes/el_scoped_ref.adoc[]
+include::ROOT:partial$classes/el_instantiable_ref.adoc[]
+include::ROOT:partial$classes/el_agent_call.adoc[]
+include::ROOT:partial$classes/el_function_call.adoc[]
 
-include::{uml_export_dir}/classes/el_agent.adoc[]
-include::{uml_export_dir}/classes/el_function_agent.adoc[]
-include::{uml_export_dir}/classes/el_procedure_agent.adoc[]
+include::ROOT:partial$classes/el_agent.adoc[]
+include::ROOT:partial$classes/el_function_agent.adoc[]
+include::ROOT:partial$classes/el_procedure_agent.adoc[]
 
-include::{uml_export_dir}/classes/el_tuple.adoc[]
-include::{uml_export_dir}/classes/el_tuple_item.adoc[]
+include::ROOT:partial$classes/el_tuple.adoc[]
+include::ROOT:partial$classes/el_tuple_item.adoc[]
 
-include::{uml_export_dir}/classes/el_decision_table.adoc[]
-include::{uml_export_dir}/classes/el_decision_branch.adoc[]
+include::ROOT:partial$classes/el_decision_table.adoc[]
+include::ROOT:partial$classes/el_decision_branch.adoc[]
 
-include::{uml_export_dir}/classes/el_condition_chain.adoc[]
-include::{uml_export_dir}/classes/el_conditional_expression.adoc[]
+include::ROOT:partial$classes/el_condition_chain.adoc[]
+include::ROOT:partial$classes/el_conditional_expression.adoc[]
 
-include::{uml_export_dir}/classes/el_case_table.adoc[]
-include::{uml_export_dir}/classes/el_case.adoc[]
+include::ROOT:partial$classes/el_case_table.adoc[]
+include::ROOT:partial$classes/el_case.adoc[]

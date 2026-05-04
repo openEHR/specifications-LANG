@@ -6,7 +6,7 @@
 
 2+h|*Attributes*
 
-|*position*: `xref:LANG:bmm:core_package.adoc#_bmm_operator_position_enumeration[BMM_OPERATOR_POSITION]` [1..1]
+|*position*: `xref:{class_bmm_operator_position}[BMM_OPERATOR_POSITION]` [1..1]
 a|Position of operator in syntactic representation.
 
 |*symbols*: `link:/classes/List[List] <link:/classes/String[String] >` [1..1]

@@ -9,7 +9,7 @@ h|*Description*
 NOTE: unlike UML, the `_name_` is just the root name, even if the class is generic. Use `_type_name()_` to obtain the qualified type name.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_module_class[BMM_MODULE]`
+2+|`xref:{class_bmm_module}[BMM_MODULE]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -20,11 +20,11 @@ h|*0..1*
 a|List of immediate inheritance parents.
 
 h|*1..1*
-|*package*: `xref:LANG:bmm:core_package.adoc#_bmm_package_class[BMM_PACKAGE]`
+|*package*: `xref:{class_bmm_package}[BMM_PACKAGE]`
 a|Package this class belongs to.
 
 h|*0..1*
-|*properties*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]>`
+|*properties*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_property}[BMM_PROPERTY]>`
 a|List of attributes defined in this class.
 
 h|*1..1*
@@ -32,7 +32,7 @@ h|*1..1*
 a|Reference to original source schema defining this class. Useful for UI tools to determine which original schema file to open for a given class for manual editing.
 
 h|*0..1*
-|*immediate_descendants*: `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_class_class[BMM_CLASS]>`
+|*immediate_descendants*: `link:/classes/List[List] <xref:{class_bmm_class}[BMM_CLASS]>`
 a|List of computed references to base classes of immediate inheritance descendants, derived when members of `_ancestors_` are attached at creation time.
 
 h|*1..1*
@@ -40,15 +40,15 @@ h|*1..1*
 a|True if this definition overrides a class of the same name in an included schema.
 
 h|*0..1*
-|*constants*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_constant_class[BMM_CONSTANT]>`
+|*constants*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_constant}[BMM_CONSTANT]>`
 a|List of constants defined in this class.
 
 h|*0..1*
-|*functions*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_function_class[BMM_FUNCTION]>`
+|*functions*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_function}[BMM_FUNCTION]>`
 a|List of functions defined in this class.
 
 h|*0..1*
-|*procedures*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_procedure_class[BMM_PROCEDURE]>`
+|*procedures*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_procedure}[BMM_PROCEDURE]>`
 a|List of procedures defined in this class.
 
 h|*0..1*
@@ -62,7 +62,7 @@ h|*0..1*
 a|True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type.
 
 h|*0..1*
-|*invariants*: `link:/classes/List[List] <xref:LANG:bmm:statement_package.adoc#_bmm_assertion_class[BMM_ASSERTION]>`
+|*invariants*: `link:/classes/List[List] <xref:{class_bmm_assertion}[BMM_ASSERTION]>`
 a|
 
 h|*0..1*
@@ -74,7 +74,7 @@ h|*0..1*
 a|Subset of `_creators_` that create a new instance from a single argument of another type.
 
 h|*0..1*
-|*feature_groups*: `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_feature_group_class[BMM_FEATURE_GROUP]>`
+|*feature_groups*: `link:/classes/List[List] <xref:{class_bmm_feature_group}[BMM_FEATURE_GROUP]>`
 a|List of feature groups in this class.
 
 h|*Functions*
@@ -83,7 +83,7 @@ h|*Functions*
 
 h|*1..1 +
 (abstract)*
-|*type* (): `xref:LANG:bmm:core_package.adoc#_bmm_model_type_class[BMM_MODEL_TYPE]`
+|*type* (): `xref:{class_bmm_model_type}[BMM_MODEL_TYPE]`
 a|Generate a type object that represents the type for which this class is the definer.
 
 h|*0..1*
@@ -123,15 +123,15 @@ h|*1..1*
 a|True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time.
 
 h|*0..1*
-|*features* (): `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]>`
+|*features* (): `link:/classes/List[List] <xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]>`
 a|List of all feature definitions introduced in this class.
 
 h|*0..1*
-|*flat_features* (): `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]>`
+|*flat_features* (): `link:/classes/List[List] <xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]>`
 a|Consolidated list of all feature definitions from this class and all inheritance ancestors.
 
 h|*0..1*
-|*flat_properties* (): `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]>`
+|*flat_properties* (): `link:/classes/List[List] <xref:{class_bmm_property}[BMM_PROPERTY]>`
 a|List of all properties due to current and ancestor classes, keyed by property name.
 
 h|*Invariants*

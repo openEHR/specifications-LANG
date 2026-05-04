@@ -4,13 +4,13 @@
 
 2+a|Any entity declared within a class.
 
-2+|Inherits: xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]
+2+|Inherits: xref:{class_bmm_declaration}[BMM_DECLARATION]
 
 2+h|*Attributes*
 
 |*name*: `link:/classes/String[String] ` [1..1]
 a|Name of this model element. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
 |*documentation*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
 a|Optional documentation of this element, as a keyed list.
@@ -24,15 +24,15 @@ It is strongly recommended to use the following key /type combinations for the r
 * `"references": String`
 
 Other keys and value types may be freely added. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
-|*scope*: `xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]` [1..1]
+|*scope*: `xref:{class_bmm_declaration}[BMM_DECLARATION]` [1..1]
 a|Model element within which an element is declared. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
 |*extensions*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
 a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
 |*is_synthesised_generic*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
@@ -44,9 +44,9 @@ a|True if this feature was synthesised due to generic substitution in an inherit
  +
 __Post_result__: `Result = (scope = self)` [1..1]
 a|True if this declaration entity is the root of the declaration hierarchy. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
-|_(abstract)_ *signature* (): `xref:LANG:bmm:core_package.adoc#_bmm_signature_class[BMM_SIGNATURE]` [1..1]
+|_(abstract)_ *signature* (): `xref:{class_bmm_signature}[BMM_SIGNATURE]` [1..1]
 a|Formal signature of this element, in the form:
 
 `name [arg1_name: T_arg1, ...][:T_value]`

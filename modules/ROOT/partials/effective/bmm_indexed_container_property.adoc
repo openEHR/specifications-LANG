@@ -4,21 +4,21 @@
 
 2+a|Meta-type of for properties of linear container type, such as `Hash<Index_type, T>` etc.
 
-2+|Inherits: xref:LANG:bmm:core_package.adoc#_bmm_typed_class[BMM_TYPED], xref:LANG:bmm:core_package.adoc#_bmm_typed_feature_class[BMM_TYPED_FEATURE], xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION], xref:LANG:bmm:core_package.adoc#_bmm_class_entity_class[BMM_CLASS_ENTITY], xref:LANG:bmm:core_package.adoc#_bmm_instantiable_class[BMM_INSTANTIABLE], xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE], xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY], xref:LANG:bmm:core_package.adoc#_bmm_container_property_class[BMM_CONTAINER_PROPERTY]
+2+|Inherits: xref:{class_bmm_typed}[BMM_TYPED], xref:{class_bmm_typed_feature}[BMM_TYPED_FEATURE], xref:{class_bmm_declaration}[BMM_DECLARATION], xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY], xref:{class_bmm_instantiable}[BMM_INSTANTIABLE], xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE], xref:{class_bmm_property}[BMM_PROPERTY], xref:{class_bmm_container_property}[BMM_CONTAINER_PROPERTY]
 
 2+h|*Attributes*
 
-|*type*: `xref:LANG:bmm:core_package.adoc#_bmm_indexed_container_type_class[BMM_INDEXED_CONTAINER_TYPE]` [1..1]
+|*type*: `xref:{class_bmm_indexed_container_type}[BMM_INDEXED_CONTAINER_TYPE]` [1..1]
 a|Declared or inferred static type of the entity.
 
 |*is_nullable*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
 a|True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes.. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_typed_feature_class[BMM_TYPED_FEATURE]_
+_Inherited from xref:{class_bmm_typed_feature}[BMM_TYPED_FEATURE]_
 
 |*name*: `link:/classes/String[String] ` [1..1]
 a|Name of this model element. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
 |*documentation*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
 a|Optional documentation of this element, as a keyed list.
@@ -32,51 +32,51 @@ It is strongly recommended to use the following key /type combinations for the r
 * `"references": String`
 
 Other keys and value types may be freely added. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
-|*scope*: `xref:LANG:bmm:core_package.adoc#_bmm_class_class[BMM_CLASS]` [1..1]
+|*scope*: `xref:{class_bmm_class}[BMM_CLASS]` [1..1]
 a|Class within which a referenceable element is known. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]_
+_Inherited from xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]_
 
 |*extensions*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
 a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
 |*is_synthesised_generic*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
 a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_entity_class[BMM_CLASS_ENTITY]_
+_Inherited from xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]_
 
-|*visibility*: `xref:LANG:bmm:core_package.adoc#_bmm_visibility_class[BMM_VISIBILITY]` [0..1]
+|*visibility*: `xref:{class_bmm_visibility}[BMM_VISIBILITY]` [0..1]
 a|Visibility of this item to client entities. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]_
+_Inherited from xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]_
 
-|*feature_extensions*: `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_feature_extension_class[BMM_FEATURE_EXTENSION]>` [0..1]
+|*feature_extensions*: `link:/classes/List[List] <xref:{class_bmm_feature_extension}[BMM_FEATURE_EXTENSION]>` [0..1]
 a|Extensions to feature-level meta-types. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]_
+_Inherited from xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]_
 
-|*group*: `xref:LANG:bmm:core_package.adoc#_bmm_feature_group_class[BMM_FEATURE_GROUP]` [1..1]
+|*group*: `xref:{class_bmm_feature_group}[BMM_FEATURE_GROUP]` [1..1]
 a|Group containing this feature. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]_
+_Inherited from xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]_
 
 |*is_im_runtime*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
 a|True if this property is marked with info model `_im_runtime_` property. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]_
+_Inherited from xref:{class_bmm_property}[BMM_PROPERTY]_
 
 |*is_im_infrastructure*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
 a|True if this property was marked with info model `_im_infrastructure_` flag. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]_
+_Inherited from xref:{class_bmm_property}[BMM_PROPERTY]_
 
 |*is_composition*: `link:/classes/Boolean[Boolean] ` [0..1] +
 `{default{nbsp}={nbsp}false}`
 a|True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]_
+_Inherited from xref:{class_bmm_property}[BMM_PROPERTY]_
 
 |*cardinality*: `link:/classes/Multiplicity_interval[Multiplicity_interval] ` [0..1]
 a|Cardinality of this container. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_container_property_class[BMM_CONTAINER_PROPERTY]_
+_Inherited from xref:{class_bmm_container_property}[BMM_CONTAINER_PROPERTY]_
 
 2+h|*Functions*
 
@@ -84,25 +84,25 @@ _Inherited from xref:LANG:bmm:core_package.adoc#_bmm_container_property_class[BM
  +
 __Post_result__: `Result = type().equal( \{BMM_MODEL}.boolean_type_definition())` [1..1]
 a|True if `_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `'Boolean'`). +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_typed_class[BMM_TYPED]_
+_Inherited from xref:{class_bmm_typed}[BMM_TYPED]_
 
 |*is_root_scope* (): `link:/classes/Boolean[Boolean] ` +
  +
 __Post_result__: `Result = (scope = self)` [1..1]
 a|True if this declaration entity is the root of the declaration hierarchy. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]_
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
 
-|_(abstract)_ *signature* (): `xref:LANG:bmm:core_package.adoc#_bmm_signature_class[BMM_SIGNATURE]` [1..1]
+|_(abstract)_ *signature* (): `xref:{class_bmm_signature}[BMM_SIGNATURE]` [1..1]
 a|Formal signature of this element, in the form:
 
 `name [arg1_name: T_arg1, ...][:T_value]`
 
 Specific implementations in descendants. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_class_entity_class[BMM_CLASS_ENTITY]_
+_Inherited from xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]_
 
 |*existence* (): `link:/classes/Multiplicity_interval[Multiplicity_interval] ` [1..1]
 a|Interval form of `0..1`, `1..1` etc, derived from `_is_nullable_`. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]_
+_Inherited from xref:{class_bmm_property}[BMM_PROPERTY]_
 
 |*display_name* (): `link:/classes/String[String] ` [1..1]
 a|Name of this property in form `name: ContainerTypeName<IndexTypeName, ...>`.
@@ -110,6 +110,6 @@ a|Name of this property in form `name: ContainerTypeName<IndexTypeName, ...>`.
 2+h|*Invariants*
 
 2+a|__Inv_signature_no_args__: `signature.arguments = Void` +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_property_class[BMM_PROPERTY]_
+_Inherited from xref:{class_bmm_property}[BMM_PROPERTY]_
 
 |===

@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Statements
 
 == Overview
@@ -8,7 +10,7 @@ BMM statements are formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATE
 
 [.text-center]
 .Features for routine definition
-image::{uml_diagrams_uri}/LANG-bmm.statement.svg[id=LANG-statement, align="center"]
+image::ROOT:uml/LANG-bmm.statement.svg[id=LANG-statement, align="center"]
 
 The use of the three-class hierarchy pattern allows a Routine `_body_` to be a simple statement or a _block_, containing statements and/or more blocks. The class `BMM_STATEMENT` is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.
 
@@ -112,15 +114,15 @@ The BMM `statement` model includes a statement meta-type to represent the notion
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_statement_item.adoc[]
-include::{uml_export_dir}/classes/bmm_statement_block.adoc[]
-include::{uml_export_dir}/classes/bmm_statement.adoc[]
-include::{uml_export_dir}/classes/bmm_simple_statement.adoc[]
+include::ROOT:partial$classes/bmm_statement_item.adoc[]
+include::ROOT:partial$classes/bmm_statement_block.adoc[]
+include::ROOT:partial$classes/bmm_statement.adoc[]
+include::ROOT:partial$classes/bmm_simple_statement.adoc[]
 
-include::{uml_export_dir}/classes/bmm_procedure_call.adoc[]
-include::{uml_export_dir}/classes/bmm_assignment.adoc[]
-include::{uml_export_dir}/classes/bmm_assertion.adoc[]
+include::ROOT:partial$classes/bmm_procedure_call.adoc[]
+include::ROOT:partial$classes/bmm_assignment.adoc[]
+include::ROOT:partial$classes/bmm_assertion.adoc[]
 
-include::{uml_export_dir}/classes/bmm_action_table.adoc[]
-include::{uml_export_dir}/classes/bmm_conditional_action.adoc[]
+include::ROOT:partial$classes/bmm_action_table.adoc[]
+include::ROOT:partial$classes/bmm_conditional_action.adoc[]
 

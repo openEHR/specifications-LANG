@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Model Structure
 
 == Overview
@@ -6,7 +8,7 @@ The `core` package defines the main BMM meta-model, within which the `model` sub
 
 [.text-center]
 .`base.bmm.core.model` Package - Model structure
-image::{uml_diagrams_uri}/LANG-bmm.core.model.svg[id=core_model, align="center"]
+image::ROOT:uml/LANG-bmm.core.model.svg[id=core_model, align="center"]
 
 == Naming Convention
 
@@ -60,15 +62,15 @@ A BMM model may define its own `Any` class, but if it does not, the `BMM_MODEL` 
 
 [.text-center]
 .Default `Any` class
-image::{uml_diagrams_uri}/LANG-bmm-any_class.svg[id=bmm_any_class, align="center"]
+image::ROOT:uml/LANG-bmm-any_class.svg[id=bmm_any_class, align="center"]
 
 The `Any` type defined by the model's `Any` class, or else the default one above, will be used as the inheritance parent for every class in the model that doesn't have any other inheritance parent. As a result, the inheritance graph will always have the `Any` type as its top node.
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/bmm_declaration.adoc[]
-include::{uml_export_dir}/classes/bmm_package_container.adoc[]
-include::{uml_export_dir}/classes/bmm_package.adoc[]
-include::{uml_export_dir}/classes/bmm_model.adoc[]
-include::{uml_export_dir}/classes/bmm_module.adoc[]
+include::ROOT:partial$classes/bmm_declaration.adoc[]
+include::ROOT:partial$classes/bmm_package_container.adoc[]
+include::ROOT:partial$classes/bmm_package.adoc[]
+include::ROOT:partial$classes/bmm_model.adoc[]
+include::ROOT:partial$classes/bmm_module.adoc[]
 

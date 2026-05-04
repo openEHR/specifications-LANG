@@ -11,7 +11,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*item*: `xref:LANG:bmm:expression_package.adoc#_el_expression_class[EL_EXPRESSION]`
+|*item*: `xref:{class_el_expression}[EL_EXPRESSION]`
 a|Reference to value entity. If Void, this indicates that the item in this position is Void, e.g. within a routine call parameter list.
 
 h|*0..1*

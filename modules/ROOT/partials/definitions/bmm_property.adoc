@@ -7,7 +7,7 @@ h|*Description*
 2+a|Meta-type of a property definition within a class definition of an object model. The `_is_composition_` attribute indicates whether the property has sub-part or an association semantics with respect to the owning class.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_instantiable_class[BMM_INSTANTIABLE]`, `xref:LANG:bmm:core_package.adoc#_bmm_class_feature_class[BMM_CLASS_FEATURE]`
+2+|`xref:{class_bmm_instantiable}[BMM_INSTANTIABLE]`, `xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]`
 
 h|*Attributes*
 ^h|*Signature*

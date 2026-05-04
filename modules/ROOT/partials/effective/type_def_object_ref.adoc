@@ -4,7 +4,7 @@
 
 2+a|Rules meta-type representing the type Object_ref, which is assumed to by the type of any non-primitive reference target within a rule.
 
-2+|Inherits: xref:LANG:obsolete-elom:types_package.adoc#_el_type_def_class[EL_TYPE_DEF]
+2+|Inherits: xref:{class_el_type_def}[EL_TYPE_DEF]
 
 2+h|*Attributes*
 
@@ -14,5 +14,5 @@ a|
 
 |*type_anchor*: `link:/classes/Any[Any] ` [1..1]
 a|Attribute of the openEHR primitive type (or Any) corresponding to this type definition meta-type. +
-_Inherited from xref:LANG:obsolete-elom:types_package.adoc#_el_type_def_class[EL_TYPE_DEF]_
+_Inherited from xref:{class_el_type_def}[EL_TYPE_DEF]_
 |===
