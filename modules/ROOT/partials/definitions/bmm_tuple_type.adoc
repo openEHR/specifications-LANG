@@ -9,7 +9,7 @@ h|*Description*
 Note that both open and closed generic parameters are allowed, as with any generic type, but open generic parameters are only valid within the scope of a generic class.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]`
+2+|`xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]`
 
 h|*Constants*
 ^h|*Signature*
@@ -24,7 +24,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*item_types*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_type_class[BMM_TYPE]>`
+|*item_types*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_type}[BMM_TYPE]>`
 a|List of types of the items of the tuple, keyed by purpose in the tuple.
 
 h|*Functions*

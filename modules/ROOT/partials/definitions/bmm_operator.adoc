@@ -11,7 +11,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*position*: `xref:LANG:bmm:core_package.adoc#_bmm_operator_position_enumeration[BMM_OPERATOR_POSITION]`
+|*position*: `xref:{class_bmm_operator_position}[BMM_OPERATOR_POSITION]`
 a|Position of operator in syntactic representation.
 
 h|*1..1*

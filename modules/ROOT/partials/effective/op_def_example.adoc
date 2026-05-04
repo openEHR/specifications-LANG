@@ -4,7 +4,7 @@
 
 2+a|Example custom operator definition as a class, for an operator whose identifier is 'xxx' and for which the symbols "xxx" and "%" can be used, and with a two-argument numeric signature.
 
-2+|Inherits: xref:LANG:obsolete-elom:extension_package.adoc#_operator_def_external_class[OPERATOR_DEF_EXTERNAL]
+2+|Inherits: xref:{class_operator_def_external}[OPERATOR_DEF_EXTERNAL]
 
 2+h|*Attributes*
 

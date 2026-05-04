@@ -4,17 +4,17 @@
 
 2+a|Definition of a generic parameter in a class definition of a generic type.
 
-2+|Inherits: xref:LANG:bmm:core_package.adoc#_bmm_type_class[BMM_TYPE], xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]
+2+|Inherits: xref:{class_bmm_type}[BMM_TYPE], xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]
 
 2+h|*Attributes*
 
 |*name*: `link:/classes/String[String] ` [1..1]
 a|Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and upper-case.
 
-|*type_constraint*: `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]` [0..1]
+|*type_constraint*: `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]` [0..1]
 a|Optional conformance constraint that must be the name of a defined type.
 
-|*inheritance_precursor*: `xref:LANG:bmm:core_package.adoc#_bmm_parameter_type_class[BMM_PARAMETER_TYPE]` [0..1]
+|*inheritance_precursor*: `xref:{class_bmm_parameter_type}[BMM_PARAMETER_TYPE]` [0..1]
 a|If set, is the corresponding generic parameter definition in an ancestor class.
 
 2+h|*Functions*
@@ -33,17 +33,17 @@ a|Result = `False` - generic parameters are understood by definition to be non-a
 __Post_validity__: `Result = base_class.is_primitive` [1..1]
 a|Result = `False` - generic parameters are understood by definition to be non-primitive.
 
-|*unitary_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]` [1..1]
+|*unitary_type* (): `xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]` [1..1]
 a|Result = self. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]_
+_Inherited from xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]_
 
-|*effective_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]` [1..1]
+|*effective_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]` [1..1]
 a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `'Any'`.
 
 |*flattened_type_list* (): `link:/classes/List[List] <link:/classes/String[String] >` [1..1]
 a|Result is either `_flattened_conforms_to_type.flattened_type_list_` or the `Any` type.
 
-|*flattened_conforms_to_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]` [1..1]
+|*flattened_conforms_to_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]` [1..1]
 a|Result is either `_conforms_to_type_` or `_inheritance_precursor.flattened_conforms_to_type_`.
 
 2+h|*Invariants*

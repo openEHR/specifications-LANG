@@ -33,12 +33,12 @@ a|If True, indicates that the entity in a BMM model is considered to relate to a
 
 h|*1..1 +
 (abstract)*
-|*unitary_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]`
+|*unitary_type* (): `xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]`
 a|Type with any container abstracted away; may be a formal generic type.
 
 h|*1..1 +
 (abstract)*
-|*effective_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]`
+|*effective_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]`
 a|Type with any container abstracted away, and any formal parameter replaced by its effective constraint type.
 
 h|*1..1 +

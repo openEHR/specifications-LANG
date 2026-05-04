@@ -4,7 +4,7 @@
 
 2+a|Illustrative class showing what the normally built-in logical 'exists' operator looks like as an external definition.
 
-2+|Inherits: xref:LANG:obsolete-elom:extension_package.adoc#_operator_def_external_class[OPERATOR_DEF_EXTERNAL]
+2+|Inherits: xref:{class_operator_def_external}[OPERATOR_DEF_EXTERNAL]
 
 2+h|*Attributes*
 

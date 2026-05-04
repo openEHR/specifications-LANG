@@ -1,5 +1,11 @@
+include::ROOT:partial$component_vars.adoc[]
+
 :spec_title: Basic Meta-Model (BMM)
 :copyright_year: 2016
 :spec_status: DEVELOPMENT
 :keywords: reflection, meta-model, UML, BMM
 :description: Basic Meta-Model (BMM) specification
+
+:latest_issue: 4.0.1
+:latest_issue_date: 29 Apr 2022
+:pkg: org.openehr.lang.bmm.

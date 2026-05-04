@@ -7,19 +7,19 @@ h|*Description*
 2+a|Meta-type based on a non-container generic class, e.g. `Packet<Header>`.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_model_type_class[BMM_MODEL_TYPE]`
+2+|`xref:{class_bmm_model_type}[BMM_MODEL_TYPE]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*generic_parameters*: `link:/classes/List[List] <xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]>`
+|*generic_parameters*: `link:/classes/List[List] <xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]>`
 a|Generic parameters of the `_root_type_` in this type specifier. The order must match the order of the owning class's formal generic parameter declarations, and the types may be defined types or formal parameter types.
 
 h|*1..1 +
 (redefined)*
-|*base_class*: `xref:LANG:bmm:core_package.adoc#_bmm_generic_class_class[BMM_GENERIC_CLASS]`
+|*base_class*: `xref:{class_bmm_generic_class}[BMM_GENERIC_CLASS]`
 a|Defining generic class of this type.
 
 h|*Functions*
@@ -51,7 +51,7 @@ h|*1..1*
 a|Returns True if there is any substituted generic parameter.
 
 h|*1..1*
-|*effective_base_class* (): `xref:LANG:bmm:core_package.adoc#_bmm_generic_class_class[BMM_GENERIC_CLASS]`
+|*effective_base_class* (): `xref:{class_bmm_generic_class}[BMM_GENERIC_CLASS]`
 a|Effective underlying class for this type, abstracting away any container type.
 
 h|*1..1*

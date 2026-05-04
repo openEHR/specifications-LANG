@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = The Basic Expression Object Model
 
 == Overview
@@ -8,7 +10,7 @@ The BEOM package structure is shown below.
 
 [.text-center]
 .base.expression Package
-image::{uml_diagrams_uri}/LANG-beom-packages.svg[id=expression_packages, align="center"]
+image::ROOT:uml/LANG-beom-packages.svg[id=expression_packages, align="center"]
 
 == Core Package
 
@@ -16,7 +18,7 @@ The main `beom` packages `core` and `extension` are illustrated below.
 
 [.text-center]
 .lang.beom.core Package
-image::{uml_diagrams_uri}/LANG-beom.core.svg[id=expression_package, align="center"]
+image::ROOT:uml/LANG-beom.core.svg[id=expression_package, align="center"]
 
 A group of statements to be used together is formally defined as one or more `STATEMENTs` in a `STATEMENT_SET`. There are three types of statements corresponding to the classes `ASSERTION`, `VARIABLE_DECLARATION` and `ASSIGNMENT`. Assertions consist of an expression tree structure that evaluates to a `Boolean` value. The root of the tree is a descendant of the class `EXPR_ITEM` that represents a Boolean-returning operator or value. An Assertion has an optional tag, enabling it to be named. 
 
@@ -40,25 +42,9 @@ An `EXTERNAL_QUERY` is a type of expression representing a call to an external s
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/{pkg}statement_set.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}statement.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}assertion.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}variable_declaration.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}assignment.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_value.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/{pkg}external_query.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/{pkg}expression.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_unary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_binary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_for_all.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/{pkg}expr_leaf.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_literal.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_variable_ref.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}expr_function_call.adoc[leveloffset=+1]
 
 == Operators
 
@@ -66,11 +52,10 @@ Operators used in BEL are represented in the `OPERATOR_KIND` enumeration, which 
 
 [.text-center]
 .BEL operators
-image::{uml_diagrams_uri}/LANG-beom-operators.svg[id=operators, align="center"]
+image::ROOT:uml/LANG-beom-operators.svg[id=operators, align="center"]
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/{pkg}operator_kind.adoc[leveloffset=+1]
 
 == Typing
 
@@ -78,22 +63,21 @@ The `beom.types` package is shown below.
 
 [.text-center]
 .lang.beom.types Package
-image::{uml_diagrams_uri}/LANG-beom.types.svg[id=expressions_types_package, align="center"]
+image::ROOT:uml/LANG-beom.types.svg[id=expressions_types_package, align="center"]
 
 The type system of the Expression formalism is defined via the type `EXPR_TYPE_DEF` and its descendants. All types have a `_type_name_` and a `_type_anchor_`, which is a variable of the coresponding primtive type from within the openEHR `base_types` package, i.e. `Integer`, `Real`, `String`, etc. The type anchor can be used for testing assignments within the implementation. A special type `TYPE_DEF_OBJECT` is included to enable a value reference (descendant of `EXPR_VALUE_REF`) to refer to a complex object, to which some expression operators can be applied, including equality and existence. The types system is extensible, as described below.
 
 === Class Descriptions
 
-include::{uml_export_dir}/classes/{pkg}expr_type_def.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_boolean.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_integer.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_real.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_date.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_date_time.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_time.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_duration.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_string.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_uri.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_terminology_code.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/{pkg}type_def_object_ref.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_boolean.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_integer.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_real.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_date.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_date_time.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_time.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_duration.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_string.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_uri.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_terminology_code.adoc[leveloffset=+1]
+include::ROOT:partial$classes/type_def_object_ref.adoc[leveloffset=+1]
 

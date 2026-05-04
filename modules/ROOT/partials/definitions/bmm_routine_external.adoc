@@ -7,7 +7,7 @@ h|*Description*
 2+a|External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_routine_body_class[BMM_ROUTINE_BODY]`
+2+|`xref:{class_bmm_routine_body}[BMM_ROUTINE_BODY]`
 
 h|*Attributes*
 ^h|*Signature*

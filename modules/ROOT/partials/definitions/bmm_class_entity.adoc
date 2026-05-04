@@ -7,7 +7,7 @@ h|*Description*
 2+a|Any entity declared within a class.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_declaration_class[BMM_DECLARATION]`
+2+|`xref:{class_bmm_declaration}[BMM_DECLARATION]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -24,7 +24,7 @@ h|*Functions*
 
 h|*1..1 +
 (abstract)*
-|*signature* (): `xref:LANG:bmm:core_package.adoc#_bmm_signature_class[BMM_SIGNATURE]`
+|*signature* (): `xref:{class_bmm_signature}[BMM_SIGNATURE]`
 a|Formal signature of this element, in the form:
 
 `name [arg1_name: T_arg1, ...][:T_value]`

@@ -7,7 +7,7 @@ h|*Description*
 2+a|Definition of a generic parameter in a class definition of a generic type.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]`
+2+|`xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -18,11 +18,11 @@ h|*1..1*
 a|Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and upper-case.
 
 h|*0..1*
-|*type_constraint*: `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]`
+|*type_constraint*: `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]`
 a|Optional conformance constraint that must be the name of a defined type.
 
 h|*0..1*
-|*inheritance_precursor*: `xref:LANG:bmm:core_package.adoc#_bmm_parameter_type_class[BMM_PARAMETER_TYPE]`
+|*inheritance_precursor*: `xref:{class_bmm_parameter_type}[BMM_PARAMETER_TYPE]`
 a|If set, is the corresponding generic parameter definition in an ancestor class.
 
 h|*Functions*
@@ -30,7 +30,7 @@ h|*Functions*
 ^h|*Meaning*
 
 h|*1..1*
-|*flattened_conforms_to_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]`
+|*flattened_conforms_to_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]`
 a|Result is either `_conforms_to_type_` or `_inheritance_precursor.flattened_conforms_to_type_`.
 
 h|*1..1 +
@@ -62,7 +62,7 @@ a|Result is either `_flattened_conforms_to_type.flattened_type_list_` or the `An
 
 h|*1..1 +
 (effected)*
-|*effective_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]`
+|*effective_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]`
 a|Generate ultimate conformance type, which is either `_flattened_conforms_to_type_` or if not set, `'Any'`.
 
 h|*Invariants*

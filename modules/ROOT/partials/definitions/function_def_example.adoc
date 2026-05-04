@@ -9,7 +9,7 @@ h|*Description*
     func (v: Numeric): Numeric
 
 h|*Inherit*
-2+|`xref:LANG:obsolete-elom:extension_package.adoc#_function_def_external_class[FUNCTION_DEF_EXTERNAL]`
+2+|`xref:{class_function_def_external}[FUNCTION_DEF_EXTERNAL]`
 
 h|*Attributes*
 ^h|*Signature*

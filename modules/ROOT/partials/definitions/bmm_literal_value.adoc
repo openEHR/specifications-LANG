@@ -7,7 +7,7 @@ h|*Description*
 2+a|Meta-type for literal instance values declared in a model. Instance values may be inline values of primitive types in the usual fashion or complex objects in syntax form, e.g. JSON.
 
 h|*Inherit*
-2+|`xref:LANG:bmm:core_package.adoc#_bmm_typed_class[BMM_TYPED]`
+2+|`xref:{class_bmm_typed}[BMM_TYPED]`
 
 h|*Attributes*
 ^h|*Signature*

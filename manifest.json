@@ -1,98 +1,98 @@
 {
-    "id": "LANG",
-    "title": "Generic Languages",
-    "description": "openEHR Languages Component",
-    "keywords": "language models, lang component, openehr",
-    "specifications": [
-        {
-            "id": "odin",
-            "title": "Object Data Instance Notation (ODIN)",
-            "title_short": "ODIN",
-            "description": "Object Data Instance Notation (ODIN) specification",
-            "summary": "This is the JSON-like notation used to express various sections of ADL archetypes including description, terminology and annotations, and also BMM files.",
-            "micro_summary": "Object Data Instance Notation",
-            "copyright_year": "2003",
-            "spec_status": "STABLE",
-            "keywords": "data, notation, JSON, syntax"
-        },
-        {
-            "id": "bmm",
-            "title": "Basic Meta-Model (BMM)",
-            "title_short": "BMM",
-            "description": "Basic Meta-Model (BMM) specification",
-            "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.",
-            "micro_summary": "Basic Meta-Model of models & expressions",
-            "classes": [
-                "BMM_SCHEMA",
-                "BMM_MODEL",
-                "BMM_CLASS",
-                "BMM_TYPE",
-                "BMM_PROPERTY"
-            ],
-            "copyright_year": "2016",
-            "spec_status": "DEVELOPMENT",
-            "keywords": "reflection, meta-model, UML, BMM"
-        },
-        {
-            "id": "bmm_persistence",
-            "title": "BMM Persistence Model and Syntax",
-            "title_short": "P_BMM",
-            "description": "BMM Persistence Model and Syntax",
-            "summary": "A human-readable and machine-processable save format for BMM.",
-            "micro_summary": "BMM human-readable serial format",
-            "classes": [
-                "P_BMM_SCHEMA",
-                "P_BMM_CLASS",
-                "P_BMM_TYPE",
-                "P_BMM_PROPERTY"
-            ],
-            "copyright_year": "2016",
-            "spec_status": "STABLE",
-            "keywords": "reflection, meta-model, UML"
-        },
-        {
-            "id": "BEL",
-            "title": "Basic Expression Language (BEL)",
-            "title_short": "BEL",
-            "description": "openEHR Basic Expression Language specification",
-            "summary": "The openEHR Basic Expression Language defines a basic model and syntax for specifying expressions and statements for use in archetype rules.",
-            "micro_summary": "A basic expression language",
-            "copyright_year": "2016",
-            "spec_status": "STABLE",
-            "keywords": "openehr, expressions, rules"
-        },
-        {
-            "id": "EL",
-            "title": "Expression Language (EL)",
-            "title_short": "EL",
-            "description": "openEHR Expression Language specification",
-            "summary": "The openEHR Expression Language defines an advanced object / functional syntax for specifying expressions for use elsewhere in openEHR, e.g. Task Planning, guidelines, rules etc.",
-            "micro_summary": "An advanced expression language based on BMM",
-            "copyright_year": "2020",
-            "spec_status": "DEVELOPMENT",
-            "keywords": "openehr, expressions, rules"
-        }
-    ],
-    "expressions": [
-        {
-            "id": "openEHR_UML-LANG.mdzip",
-            "type": "uml",
-            "title": "LANG UML",
-            "description": "UML file for openEHR Language model classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
-        }
-    ],
-    "jira": {
-        "open_issues": "11116",
-        "roadmap": "SPECLANG"
+  "id": "LANG",
+  "title": "Generic Languages",
+  "description": "openEHR Languages Component",
+  "keywords": "language models, lang component, openehr",
+  "specifications": [
+    {
+      "id": "odin",
+      "title": "Object Data Instance Notation (ODIN)",
+      "title_short": "ODIN",
+      "description": "Object Data Instance Notation (ODIN) specification",
+      "summary": "Object Data Instance Notation: a human-readable serialisation syntax for structured data trees. Used in archetype header sections, configuration files, and wherever structured data must be authored and exchanged in plain text. ODIN supports nested object graphs, typed attributes, and list values, making it expressive enough for complex archetype header metadata and BMM schema files. It is human-editable without specialised tooling and is designed to be more readable than XML or JSON for structured configuration data.",
+      "micro_summary": "Object Data Instance Notation",
+      "copyright_year": "2003",
+      "spec_status": "STABLE",
+      "keywords": "data, notation, JSON, syntax"
     },
-    "releases": [
-        {
-            "id": "1.0.0",
-            "date": "2020-05-11",
-            "jira": {
-                "crs": "SPECLANG/versions/12518",
-                "prs": "SPECPR/versions/12519"
-            }
-        }
-    ]
+    {
+      "id": "bmm",
+      "title": "Basic Meta-Model (BMM)",
+      "title_short": "BMM",
+      "description": "Basic Meta-Model (BMM) specification",
+      "summary": "A technology-neutral language for describing the structure of object-oriented information models, independent of UML, XSD, or any programming language. BMM allows openEHR information models to be defined once and consumed by modelling tools, validators, and code generators across different platforms and languages without retooling. BMM schemas describe classes, properties, generics, and inheritance in a form that can be directly loaded by tools without UML round-tripping or XSD generation steps. The openEHR RM, AM, and LANG models are all formally defined as BMM schemas, which are the authoritative source for code generation and model validation.",
+      "micro_summary": "Basic Meta-Model of models & expressions",
+      "classes": [
+        "BMM_SCHEMA",
+        "BMM_MODEL",
+        "BMM_CLASS",
+        "BMM_TYPE",
+        "BMM_PROPERTY"
+      ],
+      "copyright_year": "2016",
+      "spec_status": "DEVELOPMENT",
+      "keywords": "reflection, meta-model, UML, BMM"
+    },
+    {
+      "id": "bmm_persistence",
+      "title": "BMM Persistence Model and Syntax",
+      "title_short": "P_BMM",
+      "description": "BMM Persistence Model and Syntax",
+      "summary": "The file syntax for storing and exchanging BMM model definitions. Tools use this format to load openEHR information model schemas at runtime for introspection, validation, and code generation. BMM defines the underlying meta-model; this specification defines how it is serialised to disk. The format is ODIN-based, making BMM schema files human-readable and editable in any text editor.",
+      "micro_summary": "BMM human-readable serial format",
+      "classes": [
+        "P_BMM_SCHEMA",
+        "P_BMM_CLASS",
+        "P_BMM_TYPE",
+        "P_BMM_PROPERTY"
+      ],
+      "copyright_year": "2016",
+      "spec_status": "STABLE",
+      "keywords": "reflection, meta-model, UML"
+    },
+    {
+      "id": "BEL",
+      "title": "Basic Expression Language (BEL)",
+      "title_short": "BEL",
+      "description": "openEHR Basic Expression Language specification",
+      "summary": "A formal syntax for boolean-valued predicate expressions, used in archetype invariants and assertion blocks where only true or false conditions are needed. BEL is a constrained subset of EL covering logical, relational, and existence operators. EL is the full expression language that subsumes BEL. Because BEL is a strict subset of EL, any BEL expression is also a valid EL expression, allowing tooling to use a single parser for both languages.",
+      "micro_summary": "A basic expression language",
+      "copyright_year": "2016",
+      "spec_status": "STABLE",
+      "keywords": "openehr, expressions, rules"
+    },
+    {
+      "id": "EL",
+      "title": "Expression Language (EL)",
+      "title_short": "EL",
+      "description": "openEHR Expression Language specification",
+      "summary": "A formal syntax for computable expressions covering arithmetic, relational, logical, and function call forms, used in archetype rules, decision logic, and guideline conditions. EL is the full expression language of the openEHR platform; BEL is the boolean-only subset used where only predicate conditions are required. EL supports typed variables, function definitions, and operator precedence rules aligned with standard mathematical conventions.",
+      "micro_summary": "An advanced expression language based on BMM",
+      "copyright_year": "2020",
+      "spec_status": "DEVELOPMENT",
+      "keywords": "openehr, expressions, rules"
+    }
+  ],
+  "expressions": [
+    {
+      "id": "openEHR_UML-LANG.mdzip",
+      "type": "uml",
+      "title": "LANG UML",
+      "description": "UML file for openEHR Language model classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
+    }
+  ],
+  "jira": {
+    "open_issues": "11116",
+    "roadmap": "SPECLANG"
+  },
+  "releases": [
+    {
+      "id": "1.0.0",
+      "date": "2020-05-11",
+      "jira": {
+        "crs": "SPECLANG/versions/12518",
+        "prs": "SPECPR/versions/12519"
+      }
+    }
+  ]
 }

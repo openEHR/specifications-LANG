@@ -12,7 +12,7 @@ a|List of directories where all the schemas loaded here are found.
 |*all_schemas*: `link:/classes/List[List] <link:/classes/String[String] >` [0..1]
 a|All schemas found and loaded from `_schema_directory_`. Keyed by `_schema_id_`.
 
-|*bmm_models*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:LANG:bmm:core_package.adoc#_bmm_model_class[BMM_MODEL]>` [0..1]
+|*bmm_models*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,xref:{class_bmm_model}[BMM_MODEL]>` [0..1]
 a|Top-level (root) models in use, keyed by `_model_id_`.
 
 |*matching_bmm_models*: `link:/classes/List[List] <link:/classes/String[String] >` [0..1]
@@ -36,7 +36,7 @@ a|Reload BMM schemas.
 
 |*bmm_model* ( +
 a_model_key: `link:/classes/String[String] [1]` +
-): `xref:LANG:bmm:core_package.adoc#_bmm_model_class[BMM_MODEL]` [1..1]
+): `xref:{class_bmm_model}[BMM_MODEL]` [1..1]
 a|Return model containing the model key which is a `_model_id_` or any shorter form e.g. model id minus the version. If a shorter key is used, the `BMM_MODEL` with the most recent version will be selected. Uses `_matching_bmm_models_` table to find matches if partial version information is supplied in key.
 
 |*has_bmm_model* ( +

@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Functional Elements
 
 == Overview
@@ -16,7 +18,7 @@ Both calls and agents are special kinds of _references_ to their original routin
 
 [.text-center]
 .`bmm.expression` package - Functional Elements
-image::{uml_diagrams_uri}/LANG-bmm.expression-functional.svg[id=bmm_expression_functional, align="center"]
+image::ROOT:uml/LANG-bmm.expression-functional.svg[id=bmm_expression_functional, align="center"]
 
 == Agents
 
@@ -36,5 +38,5 @@ The instance structure for a typical expression such as the Body Mass Index (BMI
 
 [.text-center]
 .Function call example - Body Mass index (BMI)
-image::{uml_diagrams_uri}/LANG-bmm-nested_call.svg[id=bmm_nested_call, align="center"]
+image::ROOT:uml/LANG-bmm-nested_call.svg[id=bmm_nested_call, align="center"]
 

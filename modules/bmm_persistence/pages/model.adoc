@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Persistence Package
 
 == Overview
@@ -6,33 +8,33 @@ The `org.openehr.lang.bmm_persistence` package, shown below, defines a simplifie
 
 [.text-center]
 .`lang.bmm_persistence` Package
-image::{uml_diagrams_uri}/LANG-bmm_persistence.svg[id=p_bmm_persistence_package, align="center"]
+image::ROOT:uml/LANG-bmm_persistence.svg[id=p_bmm_persistence_package, align="center"]
 
 The general approach taken in this model is that attributes named `_bmm_xxx_` and of type `BMM_XXX` are derived from the persisted attributes of the `P_BMM_XXX` classes of this model. In other words, they are in-memory only references to reconstructed instances of `BMM_XXX` types.
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/{pkg}p_bmm_model_element.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_package_container.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_schema.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_package.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_class.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_generic_parameter.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_property.adoc[]
+include::ROOT:partial$classes/p_bmm_model_element.adoc[]
+include::ROOT:partial$classes/p_bmm_package_container.adoc[]
+include::ROOT:partial$classes/p_bmm_schema.adoc[]
+include::ROOT:partial$classes/p_bmm_package.adoc[]
+include::ROOT:partial$classes/p_bmm_type.adoc[]
+include::ROOT:partial$classes/p_bmm_class.adoc[]
+include::ROOT:partial$classes/p_bmm_generic_parameter.adoc[]
+include::ROOT:partial$classes/p_bmm_property.adoc[]
 
-include::{uml_export_dir}/classes/{pkg}p_bmm_base_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_simple_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_open_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_generic_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_container_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_indexed_container_type.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_single_property.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_single_property_open.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_generic_property.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_container_property.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_indexed_container_property.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_enumeration.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_enumeration_string.adoc[]
-include::{uml_export_dir}/classes/{pkg}p_bmm_enumeration_integer.adoc[]
+include::ROOT:partial$classes/p_bmm_base_type.adoc[]
+include::ROOT:partial$classes/p_bmm_simple_type.adoc[]
+include::ROOT:partial$classes/p_bmm_open_type.adoc[]
+include::ROOT:partial$classes/p_bmm_generic_type.adoc[]
+include::ROOT:partial$classes/p_bmm_container_type.adoc[]
+include::ROOT:partial$classes/p_bmm_indexed_container_type.adoc[]
+include::ROOT:partial$classes/p_bmm_single_property.adoc[]
+include::ROOT:partial$classes/p_bmm_single_property_open.adoc[]
+include::ROOT:partial$classes/p_bmm_generic_property.adoc[]
+include::ROOT:partial$classes/p_bmm_container_property.adoc[]
+include::ROOT:partial$classes/p_bmm_indexed_container_property.adoc[]
+include::ROOT:partial$classes/p_bmm_enumeration.adoc[]
+include::ROOT:partial$classes/p_bmm_enumeration_string.adoc[]
+include::ROOT:partial$classes/p_bmm_enumeration_integer.adoc[]
 

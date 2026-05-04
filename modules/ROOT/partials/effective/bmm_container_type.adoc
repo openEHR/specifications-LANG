@@ -4,14 +4,14 @@
 
 2+a|Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as `List<T>`, `Set<T>` etc.
 
-2+|Inherits: xref:LANG:bmm:core_package.adoc#_bmm_type_class[BMM_TYPE]
+2+|Inherits: xref:{class_bmm_type}[BMM_TYPE]
 
 2+h|*Attributes*
 
-|*container_class*: `xref:LANG:bmm:core_package.adoc#_bmm_generic_class_class[BMM_GENERIC_CLASS]` [1..1]
+|*container_class*: `xref:{class_bmm_generic_class}[BMM_GENERIC_CLASS]` [1..1]
 a|The type of the container. This converts to the `_root_type_` in `BMM_GENERIC_TYPE`.
 
-|*item_type*: `xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]` [1..1]
+|*item_type*: `xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]` [1..1]
 a|The container item type.
 
 |*is_ordered*: `link:/classes/Boolean[Boolean] ` [0..1] +
@@ -31,7 +31,7 @@ a|Return full type name, e.g. `List<ELEMENT>`.
 a|Signature form of the type name, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
 Defaults to the value of `_type_name()_`. +
-_Inherited from xref:LANG:bmm:core_package.adoc#_bmm_type_class[BMM_TYPE]_
+_Inherited from xref:{class_bmm_type}[BMM_TYPE]_
 
 |*is_abstract* (): `link:/classes/Boolean[Boolean] ` +
  +
@@ -44,10 +44,10 @@ __Post_validity__: `Result = base_class.is_primitive` +
 __Post_result__: `Result = item_type.is_primitive` [1..1]
 a|True if `_item_type_` is primitive.
 
-|*unitary_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]` [1..1]
+|*unitary_type* (): `xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]` [1..1]
 a|Return `_item_type_`.
 
-|*effective_type* (): `xref:LANG:bmm:core_package.adoc#_bmm_effective_type_class[BMM_EFFECTIVE_TYPE]` [1..1]
+|*effective_type* (): `xref:{class_bmm_effective_type}[BMM_EFFECTIVE_TYPE]` [1..1]
 a|Return `_item_type.effective_type_()`.
 
 |*flattened_type_list* (): `link:/classes/List[List] <link:/classes/String[String] >` +

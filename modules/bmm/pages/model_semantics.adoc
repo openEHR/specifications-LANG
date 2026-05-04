@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Model Semantics
 
 This section describes various semantics that apply at a whole-of-model level rather than within single entities such as a class, type or property.

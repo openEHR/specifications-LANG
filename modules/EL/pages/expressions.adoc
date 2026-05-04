@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Complex Expressions
 
 Complex expressions in EL consist of non-atomic value-returning expressions, in a typed, operator-based syntax common to many programming languages and logics. In EL, the syntactic use of operators is understood as a shorthand for specific functions assumed to be available on types inferred from the context of the operator use. An EL implementation would therefore map such operators to the appropriate methods in a class library.

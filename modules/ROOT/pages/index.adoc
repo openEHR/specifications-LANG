@@ -1,0 +1,18 @@
+= Generic Languages
+
+[.spec-meta-line]
+Status: [.spec-status.spec-status-stable]#STABLE#  Release: [.release-tag]#{page-component-version}#
+
+
+Formal language specifications shared across openEHR: ODIN for data serialisation, BMM for information model definition, and expression languages BEL and EL for computable logic.
+
+.Specification Component Overview
+image::openehr_block_diagram.svg[openEHR Generic Languages block diagram,role=block-diagram]
+
+== Specifications
+
+* xref:odin:index.adoc[Object Data Instance Notation (ODIN)] [.spec-status.spec-status-stable]#STABLE# — Object Data Instance Notation -- Human-readable serialisation syntax for structured data trees
+* xref:bmm:index.adoc[Basic Meta-Model (BMM)] [.spec-status.spec-status-development]#DEVELOPMENT# — Basic Meta-Model of models & expressions -- Technology-neutral language for defining object-oriented information models
+* xref:bmm_persistence:index.adoc[BMM Persistence Model and Syntax] [.spec-status.spec-status-stable]#STABLE# — BMM human-readable serial format -- File format for storing and exchanging BMM model definitions
+* xref:BEL:index.adoc[Basic Expression Language (BEL)] [.spec-status.spec-status-stable]#STABLE# — A basic expression language -- Boolean predicate syntax for archetype invariants and assertion blocks
+* xref:EL:index.adoc[Expression Language (EL)] [.spec-status.spec-status-development]#DEVELOPMENT# — An advanced expression language based on BMM -- Full expression language for archetype rules, decision logic, and guideline conditions
