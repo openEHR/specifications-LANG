@@ -36,7 +36,7 @@ The taxonomy of feature declarations is shown below.
 
 [.text-center]
 .Feature taxonomy
-image::{diagrams_uri}/feature_taxonomy.svg[id=feature_taxonomy, align="center"]
+image::diagrams/feature_taxonomy.svg[id=feature_taxonomy, align="center"]
 
 This taxonomy is concerned with model elements that can be lexically declared within some _scope_. Those elements defined within a class scope have a _type signature_, i.e. a formal 'shape' in terms of types. This applies even to _procedures_, which are formal entities despite having no return type.
 
@@ -46,7 +46,7 @@ For entities with a _type_, i.e. which can potentially produce a value, the foll
 
 [.text-center]
 .Typed taxonomy
-image::{diagrams_uri}/typed_taxonomy.svg[id=typed_taxonomy, align="center"]
+image::diagrams/typed_taxonomy.svg[id=typed_taxonomy, align="center"]
 
 This taxonomy is concerned with typedness, valuedness, and mutability, which is the notion that a typed value-producing entity may be Void (null) at execution time. Features, which are declarations _in context_ can be mutable, but value objects (e.g. literal values, delayed routine calls) cannot.
 
@@ -87,7 +87,7 @@ The two types of routines, i.e. functions and procedures, include zero or more f
 
 [.text-center]
 .Signature taxonomy
-image::{diagrams_uri}/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="40%"]
+image::diagrams/signature_taxonomy.svg[id=signature_taxonomy, align="center", width="40%"]
 
 === Synthesis due to Generic Parameter Substitution
 
@@ -141,7 +141,7 @@ A typical example of properties of class is shown below, in which the flattened 
 
 [.text-center]
 .BMM class - properties view
-image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
+image::awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
 
 The following illustrates how various kinds of properties may appear in a BMM model. The first two properties are associations, used to represent references to shared objects (including singletons), while the remainder are normal compositional sub-parts, i.e. owned sub-instances that will cease to exist when the parent object is destroyed. All of the properties are single-valued, other than `other_participations`, which is defined as a container property with cardinality `[\*]` (i.e. `0..*`) and 'set' semantics.
 

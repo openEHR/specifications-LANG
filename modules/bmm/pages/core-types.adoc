@@ -21,13 +21,13 @@ A simple example of typing of properties is shown in the instance diagram below.
 
 [.text-center]
 .BMM Typing
-image::{diagrams_uri}/bmm_entities.svg[id=bmm_entities, align="center"]
+image::diagrams/bmm_entities.svg[id=bmm_entities, align="center"]
 
 Most types are based on one or more _defining_ class(es), which provide the formal definition for the type. The exceptions are formal generic parameters (e.g. the `T` in `List<T>`) and the special types for tuples and routine signatures, which are treated as built-in. The BMM meta-type `BMM_TYPE` and its descendants define the kinds of types available in a BMM model. The design of the types part of the BMM is based on a taxonomy that makes various distinctions convenient to a formalism intended for modelling rather than pure programming. This leads in particular to the top-level distinction between _unitary_ and _container_ meta-types. The taxonomy is illustrated below, including differentiae.
 
 [.text-center]
 .BMM meta-type taxonomy
-image::{diagrams_uri}/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align="center"]
+image::diagrams/bmm_metatype_taxonomy.svg[id=bmm_metatype_taxonomy, align="center"]
 
 `BMM_TYPE` includes features common to all meta-types:
 
@@ -65,7 +65,7 @@ A typical programmatic usage of such a type, and its instantiated BMM model stru
 
 [.text-center]
 .Generic type - closed simple
-image::{diagrams_uri}/bmm_structure-generic_1.svg[id=bmm_structure_generic_1, align="center"]
+image::diagrams/bmm_structure-generic_1.svg[id=bmm_structure_generic_1, align="center"]
 
 The parameters of a generic type may be:
 
@@ -84,13 +84,13 @@ The following shows the BMM instance structure of a generic type that is open.
 
 [.text-center]
 .Generic type - open
-image::{diagrams_uri}/bmm_structure-generic_3.svg[id=bmm_structure_generic_3, align="center"]
+image::diagrams/bmm_structure-generic_3.svg[id=bmm_structure_generic_3, align="center"]
 
 Since the meta-type of `BMM_GENERIC_TYPE._generic_parameters_` in the BMM is `BMM_UNITARY_TYPE`, constructions such as `MyGenericType<List<OtherType>>` are prevented, due to the concrete parameter type `List<OtherType>` being an instance of `BMM_CONTAINER_TYPE` rather than of `BMM_UNITARY_TYPE`. Such constructions are nearly always wrong, and not needed in a model expressed in BMM, because containment can be expressed _where the formal generic parameter is used_, not where the concrete parameter is declared. The following diagram shows the BMM concrete model structure created for a generic type whose formal parameter type is used in this way, i.e. within a container type.
 
 [.text-center]
 .Generic type - closed container
-image::{diagrams_uri}/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
+image::diagrams/bmm_structure-generic_2.svg[id=bmm_structure_generic_2, align="center"]
 
 === Conformance
 
@@ -190,7 +190,7 @@ The following diagram shows how the container type `List<Paragraph>`, declared a
 
 [.text-center]
 .Container Type
-image::{diagrams_uri}/bmm_structure-container.svg[id=bmm_structure_container, align="center"]
+image::diagrams/bmm_structure-container.svg[id=bmm_structure_container, align="center"]
 
 The semantics of indexed containers, commonly known under the type names `Hash<K,V>`, `HashMap<K,V>`, `HashTable<K,V>`, `Dictionary<K,V>` and so on, are represented by the meta-type `BMM_INDEXED_CONTAINER_TYPE`, which inherits from `BMM_CONTAINER_TYPE`, and adds the property `_index_type_`. The latter type represents the key type, which must be such that hash values can be generated, and may be any type, but practically speaking, is almost always a `String`, `Integer`, or a Date/Time type.
 
@@ -198,7 +198,7 @@ The following diagram shows how the container type `Hash<String, Person>` is rep
 
 [.text-center]
 .Indexed Container Type
-image::{diagrams_uri}/bmm_structure-indexed_container.svg[id=bmm_structure_indexed_container, align="center"]
+image::diagrams/bmm_structure-indexed_container.svg[id=bmm_structure_indexed_container, align="center"]
 
 === Conformance
 

@@ -89,7 +89,7 @@ Until version 3.0.0, BMM supported only the information point of view, i.e. no c
 
 [.text-center]
 .BMM class - closure view
-image::{images_uri}/awb_class_closure.png[id=awb_class_closure, align="center", width="60%"]
+image::awb_class_closure.png[id=awb_class_closure, align="center", width="60%"]
 
 === Archetype Modelling
 
@@ -97,7 +97,7 @@ One of the uses of the BMM in the {openehr_awb}[openEHR ADL Workbench^] and othe
 
 [.text-center]
 .ADL archetype with BMM class properties
-image::{images_uri}/archetype_rm.png[id=archetype_rm, align="center"]
+image::archetype_rm.png[id=archetype_rm, align="center"]
 
 Newer tools are able to include the computational features. 
 
@@ -131,3 +131,6 @@ image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="cent
 == Class Definitions
 
 include::{uml_export_dir}/classes/bmm_definitions.adoc[]
+
+== References
+bibliography::[]

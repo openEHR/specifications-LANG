@@ -46,7 +46,7 @@ The BMM meta-model for this statement is shown below.
 
 [.text-center]
 .Assignment to function Result
-image::{diagrams_uri}/bmm_assignment.svg[id=bmm_assignment, align="center"]
+image::diagrams/bmm_assignment.svg[id=bmm_assignment, align="center"]
 
 == Procedure Call
 
@@ -88,7 +88,7 @@ The BMM meta-model for the call is shown below.
 
 [.text-center]
 .Procedure call
-image::{diagrams_uri}/bmm_procedure_call.svg[id=bmm_procedure_call, align="center"]
+image::diagrams/bmm_procedure_call.svg[id=bmm_procedure_call, align="center"]
 
 == Action Tables
 

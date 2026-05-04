@@ -19,13 +19,13 @@ The evaluation of inheritance relations defined in a BMM model results in an acy
 
 [.text-center]
 .BMM class - ancestors view
-image::{images_uri}/awb_class_ancestors.png[id=awb_class_ancestors, align="center", width="45%"]
+image::awb_class_ancestors.png[id=awb_class_ancestors, align="center", width="45%"]
 
 The next screenshot shows the descendants view of one of the ancestor classes of the same class.
 
 [.text-center]
 .BMM class - descendants view
-image::{images_uri}/awb_class_descendants.png[id=awb_class_descendants, align="center", width="45%"]
+image::awb_class_descendants.png[id=awb_class_descendants, align="center", width="45%"]
 
 === Generic Inheritance
 
@@ -38,7 +38,7 @@ The following example shows the class `DV_INTERVAL<T:DV_ORDERED>` inheriting fro
 
 [.text-center]
 .Generic inheritance, constraint-narrowing
-image::{images_uri}/awb_generic_class.png[id=awb_generic_inheritance_constraint_narrowing, align="center", width="55%"]
+image::awb_generic_class.png[id=awb_generic_inheritance_constraint_narrowing, align="center", width="55%"]
 
 The resulting types of `_lower_` and `_upper_` are now `T:DV_ORDERED` rather than `T:Ordered` from the parent. In the fully computed model shown above, these two properties are synthesised within `DV_INTERVAL<T>` with their new concrete types. Their BMM meta-type objects (type `BMM_UNITARY_PROPERTY`) will both have the meta-attribute `_is_synthesised_generic_` set to `True` and are marked with an asterisk within the property view to indicate this.
 
@@ -46,7 +46,7 @@ A simple class may also inherit from a closed generic type, with the parameters 
 
 [.text-center]
 .Generic inheritance, closed
-image::{images_uri}/awb_generic_inheritance_closed.png[id=awb_generic_inheritance_closed, align="center", width="85%"]
+image::awb_generic_inheritance_closed.png[id=awb_generic_inheritance_closed, align="center", width="85%"]
 
 In this case, The resulting type of `_event_` is `TIMER_EVENT` rather than `T:EVENT` from the parent. As in the previous example, this property has been synthesised new within `TIMER_WAIT`, with the meta-attribute `_is_synthesised_generic_` set `True` and is marked accordingly within the tool.
 
@@ -54,13 +54,13 @@ The general case is that any number of formal generic parameters may be substitu
 
 [.text-center]
 .Generic inheritance, mixed open and closed
-image::{images_uri}/awb_generic_inheritance_mixed.png[id=awb_generic_inheritance_mixed, align="center", width="90%"]
+image::awb_generic_inheritance_mixed.png[id=awb_generic_inheritance_mixed, align="center", width="90%"]
 
 Generic substitution may be with other open, closed or partly-closed generic types. The following example illustrates the inheritance by `X_VERSIONED_COMPOSITION` of `X_VERSIONED_COMPOSITION<ORIGINAL_VERSION<COMPOSITION>>`.
 
 [.text-center]
 .Generic inheritance, open parameter
-image::{images_uri}/awb_generic_inheritance.png[id=awb_generic_inheritance, align="center", width="70%"]
+image::awb_generic_inheritance.png[id=awb_generic_inheritance, align="center", width="70%"]
 
 === Multiple Inheritance
 
@@ -68,7 +68,7 @@ Multiple inheritance is typically used in the definition of classes that have a 
 
 [.text-center]
 .Multiple inheritance
-image::{images_uri}/awb_multiple_inheritance.png[id=awb_multiple_inheritance, align="center", width="45%"]
+image::awb_multiple_inheritance.png[id=awb_multiple_inheritance, align="center", width="45%"]
 
 === Inheritance and Invariants, Pre-conditions and Post-conditions
 

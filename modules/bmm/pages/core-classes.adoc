@@ -69,7 +69,7 @@ The following example shows a generic class `Interval<T:Ordered>`, which is a cl
 
 [.text-center]
 .BMM class - generic class
-image::{images_uri}/awb_generic_class.png[id=awb_generic_class, align="center", width="50%"]
+image::awb_generic_class.png[id=awb_generic_class, align="center", width="50%"]
 
 == Range-Constrained Classes
 
@@ -95,7 +95,7 @@ The following diagram shows the BMM instance structure corresponding to an attri
 
 [.text-center]
 .Integer-based Enumeration Type
-image::{diagrams_uri}/bmm_structure-enumeration.svg[id=bmm_structure_enumeration, align="center"]
+image::diagrams/bmm_structure-enumeration.svg[id=bmm_structure_enumeration, align="center"]
 
 The following shows the same class in an abstract syntax.
 
@@ -121,7 +121,7 @@ The following screenshot shows how this enumeration class appears within a BMM m
 
 [.text-center]
 .Enumeration Example
-image::{images_uri}/awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
+image::awb_enumeration.png[id=awb_enumeration, align="center", width="65%"]
 
 The following shows another enumeration class, this time based on the `String` type. 
 
@@ -153,7 +153,7 @@ The following diagram shows the meta-model structure corresponding to an attribu
 
 [.text-center]
 .Value-set Constrained Type
-image::{diagrams_uri}/bmm_structure-value_set.svg[id=bmm_structure_value_set, align="center"]
+image::diagrams/bmm_structure-value_set.svg[id=bmm_structure_value_set, align="center"]
 
 The following shows a possible abstract syntax value-set type definition.
 
@@ -204,7 +204,7 @@ The following shows part of a BMM model in which a number of classes are classif
 
 [.text-center]
 .Primitive classes
-image::{images_uri}/awb_primitive_types.png[id=awb_primitive_types, align="center", width="45%"]
+image::awb_primitive_types.png[id=awb_primitive_types, align="center", width="45%"]
 
 Primitive classes are normal BMM classes, other than being marked primitive for convenience, and do not have different semantics.
 

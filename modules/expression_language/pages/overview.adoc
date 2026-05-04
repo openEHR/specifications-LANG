@@ -39,13 +39,13 @@ The data context may be specified in two ways. It may be inferrable from the art
 
 [.text-center]
 .EL execution model - implicit context
-image::{diagrams_uri}/EL_design_structure-implicit.svg[id=EL_design_structure_implicit, align="center"]
+image::diagrams/EL_design_structure-implicit.svg[id=EL_design_structure_implicit, align="center"]
 
 In the explicit form, an EL expressions appear within a BMM model definition, or within a context that explicitly imports a BMM model.
 
 [.text-center]
 .EL execution model - explicit context
-image::{diagrams_uri}/EL_design_structure-explicit.svg[id=EL_design_structure_explicit, align="center"]
+image::diagrams/EL_design_structure-explicit.svg[id=EL_design_structure_explicit, align="center"]
 
 In both cases, the result of parsing into computable form for evaluation must result in instance of the BMM EL meta-types.
 
@@ -64,3 +64,6 @@ Formally, an openEHR EL expression is any of the following evaluable entities:
 ** _decision tables_: if/then/else like structures containing conditional expressions.
 
 These correspond to the meta-types defined in the {openehr_bmm}##_expressions[BMM `expression` package^], each of which is described in detail in the following sections.
+
+== References
+bibliography::[]

@@ -20,7 +20,7 @@ In BMM, a _model_ is understood as a set of _package_ and _module_ definitions t
 
 [.text-center]
 .BMM model structure
-image::{diagrams_uri}/bmm_structure.svg[id=bmm_structure, align="center"]
+image::diagrams/bmm_structure.svg[id=bmm_structure, align="center"]
 
 The `BMM_MODEL` class defines the single instance of each distinct BMM model that may exist within a collection of models, such as shown in the `model_access` package above. It provides an interface that enables any class definition to be retrieved, as well as various accessor functions to interrogate the model. A BMM Model has a name (the inherited `_name_` attribute) that is used to identify the model as a whole within a system using multiple models. It contains a number of other meta-data attributes describing authorship etc, and otherwise contains a list of package and class definitions.
 

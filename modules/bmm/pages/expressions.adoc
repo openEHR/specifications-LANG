@@ -6,7 +6,7 @@ Expressions in BMM are used to specify class invariants, routine pre- and post-c
 
 [.text-center]
 .Expression Taxonomy
-image::{diagrams_uri}/bmm_expression_taxonomy.svg[id=bmm_expression_taxonomy, align="center"]
+image::diagrams/bmm_expression_taxonomy.svg[id=bmm_expression_taxonomy, align="center"]
 
 The meta-types defined in this part of the BMM model may be understood as the types of entities in an abstract syntax tree (AST) generated from expression parsing. Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM EL meta-model described here. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
 
@@ -171,7 +171,7 @@ A parser processing this expression would produce the result shown below, assumi
 
 [.text-center]
 .Instantiated Operator Expression
-image::{diagrams_uri}/bmm_expression_property_ref.svg[id=bmm_expression_property_ref, align="center"]
+image::diagrams/bmm_expression_property_ref.svg[id=bmm_expression_property_ref, align="center"]
 
 Below, we consider a number of examples illustrating expressions containing the various kinds of terminal reference, based on the following assumed declarations.
 
