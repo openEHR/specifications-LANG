@@ -1,0 +1,52 @@
+=== BMM_PROPERTY Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BMM_PROPERTY*
+
+h|*Description*
+2+a|Model of a property definition within a class definition of an object model. Generic parameter takes care of variants.
+
+h|*Inherit*
+2+|`BMM_MODEL_ELEMENT`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*name*: `String`
+a|Name of this property in the model.
+
+h|*0..1*
+|*is_mandatory*: `Boolean`
+a|True if this propert is mandatory in its class.
+
+h|*0..1*
+|*is_computed*: `Boolean`
+a|True if this property is computed rather than stored in objects of this class.
+
+h|*1..1*
+|*type*: `T`
+a|Formal type of this property.
+
+h|*0..1*
+|*is_im_runtime*: `Boolean`
+a|True if this property is marked with info model 'im_runtime' property.
+
+h|*0..1*
+|*is_im_infrastructure*: `Boolean`
+a|True if this property was marked with info model 'im_infrastructure' flag.
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*existence* (): `Multiplicity_interval`
+a|Interval form of 0..1, 1..1 etc, generated from is_mandatory.
+
+h|
+|*display_name* (): `String`
+a|Name of this attribute to display in UI.
+|===
