@@ -6,7 +6,7 @@ With a typical formal model, there is a need for formal representation of litera
 
 [.text-center]
 .`base.bmm.core.literal_value` package - Literal Values
-image::{uml_diagrams_uri}/LANG-bmm.core.literal_value.svg[id=core_literal_value, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.literal_value.svg[id=core_literal_value, align="center"]
 
 == General Model
 

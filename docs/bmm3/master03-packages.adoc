@@ -21,7 +21,7 @@ These are illustrated below.
 
 [.text-center]
 .Package Overview
-image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3-packages.svg[id=package_overview, align="center"]
 
 == Class Definitions
 

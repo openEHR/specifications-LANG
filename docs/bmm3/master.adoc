@@ -64,7 +64,7 @@ This specification has benefited from formal and informal input from the openEHR
 :sectnums:
 
 ifdef::package_qualifiers[]
-:pkg: org.openehr.lang.bmm.
+:pkg: org.openehr.lang.bmm3.
 endif::[]
 
 include::master01-preface.adoc[leveloffset=+1]

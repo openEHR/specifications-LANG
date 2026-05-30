@@ -8,7 +8,7 @@ The formally typed parts of a class are collectively known as _features_, and co
 
 [.text-center]
 .`base.bmm.core` Package - Classes
-image::{uml_diagrams_uri}/LANG-bmm.core-class.svg[id=core_class, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core-class.svg[id=core_class, align="center"]
 
 Class definitions are the _definitional_ basis of a BMM model, i.e. they are the means of defining the types that are statically used in the model, and the dynamic types generated at runtime. Types are thus _derived_ entities.
 
@@ -81,7 +81,7 @@ A useful derived form of any concrete type definition (i.e. instance of `BMM_EFF
 
 [.text-center]
 .`bmm.core.range_constrained` Package - Constrained-range Meta-Types, including Enumeration
-image::{uml_diagrams_uri}/LANG-bmm.core.range_constrained.svg[id=core_range_constrained, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.range_constrained.svg[id=core_range_constrained, align="center"]
 
 === Enumerated Types
 

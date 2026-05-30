@@ -6,7 +6,7 @@ This document describes the Basic Meta-Model (BMM), a model of object models. It
 
 == Status
 
-This specification is in the {spec_status} state. The development version of this document can be found at {openehr_bmm}[{openehr_bmm}^].
+This specification is in the {spec_status} state. The development version of this document can be found at {openehr_bmm3}[{openehr_bmm3}^].
 
 Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:
 [.tbd]
@@ -27,6 +27,8 @@ To see changes made due to previously reported issues, see the {component_histor
 Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant {openehr_its_component}[openEHR Implementation Technology Specification(s) (ITSs)^], such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.
 
 == Previous Versions
+
+IMPORTANT: This document represents the v3 development line of the Basic Meta-Model, extending it with an expression and statement meta-model. The latest stable version of BMM, which is the v2.x form implemented by current openEHR tooling, is specified in the {openehr_bmm}[BMM specification^].
 
 === Version 3.0.0
 

@@ -6,7 +6,7 @@ One of the foundational distinctions in the BMM is between _class_ and _type_, i
 
 [.text-center]
 .`base.bmm.core.entity` Package - Types
-image::{uml_diagrams_uri}/LANG-bmm.core.entity.svg[id=core_entity, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.entity.svg[id=core_entity, align="center"]
 
 Classes are _definitional_ entities, while types are understood in BMM as the _formal generators_ of instances (where non-abstract). Types are the the basis of static typing in a formal model, and dynamic conformance at execution time, when polymorphic attachment is possible. Most types are specified via the definitions of classes and their constituent parts within a 'model'. Types are used for the following purposes in a BMM model:
 
@@ -147,7 +147,7 @@ BMM includes a small number of built-in meta-types that do not have correspondin
 
 [.text-center]
 .Built-in meta-types
-image::{uml_diagrams_uri}/LANG-bmm.core.entity-builtin.svg[id=core_entity_builtin, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.entity-builtin.svg[id=core_entity_builtin, align="center"]
 
 === Tuple Meta-type
 

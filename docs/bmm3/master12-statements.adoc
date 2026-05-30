@@ -8,7 +8,7 @@ BMM statements are formalised using the classes `BMM_STATEMENT_ITEM`, `BMM_STATE
 
 [.text-center]
 .Features for routine definition
-image::{uml_diagrams_uri}/LANG-bmm.statement.svg[id=LANG-statement, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.statement.svg[id=LANG-statement, align="center"]
 
 The use of the three-class hierarchy pattern allows a Routine `_body_` to be a simple statement or a _block_, containing statements and/or more blocks. The class `BMM_STATEMENT` is abstract, allowing specific statement meta-models to be developed whose 'statement' meta-types inherit from this class. A number of common types are included by default, and are described below.
 

@@ -6,7 +6,7 @@ Expressions in BMM are used to specify class invariants, routine pre- and post-c
 
 [.text-center]
 .Expression Taxonomy
-image::{uml_diagrams_uri}/LANG-bmm.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.expression-type_hierarchy.svg[id=bmm_expression_type_hierarchy, align="center"]
 
 The meta-types defined in this part of the BMM model may be understood as the types of entities in an abstract syntax tree (AST) generated from expression parsing. Conversely, one or more expression syntaxes may be parsed into a tree based on the model described here. Note however, that whatever the variation in surface syntax, all such syntaxes parsed this way ultimately have the semantics defined by the BMM EL meta-model. This is true even for expressions written in a syntax whose published semantics are in fact different, e.g. a well-known programming language.
 
@@ -14,7 +14,7 @@ The UML model of the BMM `expression` package, consisting of mostly direct equiv
 
 [.text-center]
 .`bmm.expression` Package
-image::{uml_diagrams_uri}/LANG-bmm.expression.svg[id=bmm_expression, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.expression.svg[id=bmm_expression, align="center"]
 
 `EL` classes are descendants of the class `EL_EXPRESSION`, which is characterised by the feature `_eval_type()_`. This is the BMM meta-type of the _result type_ of the expression entity when used in an expression; for literals, this is the inferred type; for object references (including function calls), this is the same as the declared type, and for agents it is the meta-type `BMM_SIGNATURE`.
 
@@ -110,7 +110,7 @@ Predicates in BMM are Boolean-returning terminal expressions taking one feature 
 
 [.text-center]
 .Predicates
-image::{uml_diagrams_uri}/LANG-bmm.expression-predicate.svg[id=bmm_expression_predicate, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.expression-predicate.svg[id=bmm_expression_predicate, align="center"]
 
 The following predicates are pre-defined.
 
@@ -153,7 +153,7 @@ The following UML illustrates.
 
 [.text-center]
 .Decision Tables
-image::{uml_diagrams_uri}/LANG-bmm.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.expression-decision_table.svg[id=bmm_expression_decision_table, align="center"]
 
 The logic of a `EL_CONDITION_CHAIN` is the same as an if/then/elseif/else chain in procedural programming, except that instead of assignment statements on each branch, pure result expressions are used. This enables a more sophisticated syntactic rendering, resembling a table, such as the following:
 
@@ -216,7 +216,7 @@ BMM contains meta-types representing operators, but assumes that all operators a
 
 [.text-center]
 .Operator meta-types
-image::{uml_diagrams_uri}/LANG-bmm.expression-operator.svg[id=bmm_expression_operator, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.expression-operator.svg[id=bmm_expression_operator, align="center"]
 
 The following example illustrates the general meta-model of expressions, using a typical use of expression, the class invariant.
 
