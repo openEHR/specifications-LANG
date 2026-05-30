@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="generator" content="Asciidoctor 2.0.26">
 <meta name="description" content="openEHR Expression Language specification">
 <meta name="keywords" content="openehr, expressions, rules">
 <title>Expression Language (EL)</title>
@@ -144,7 +144,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG development</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
 </tr>
 <tr>
@@ -168,7 +168,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2020 - 2025 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2020 - 2026 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -312,7 +312,7 @@
 <div class="sect2">
 <h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
-<p>This document specifies an abstract openEHR Expression Language (openEHR EL) that provides a syntax counterpart to the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. This may be used within BMM models, to specify archetype rules, <a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html" target="_blank" rel="noopener">Task Planning</a> expressions, in newer versions of <a href="https://specifications.openehr.org/releases/CDS/latest" target="_blank" rel="noopener">GDL</a>, and in decision language expressions.</p>
+<p>This document specifies an abstract openEHR Expression Language (openEHR EL) that provides a syntax counterpart to the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. This may be used within BMM models, to specify archetype rules, <a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html" target="_blank" rel="noopener">Task Planning</a> expressions, in newer versions of <a href="https://specifications.openehr.org/releases/CDS/latest" target="_blank" rel="noopener">GDL</a>, and in decision language expressions.</p>
 </div>
 <div class="paragraph">
 <p>The intended audience includes:</p>
@@ -342,7 +342,7 @@
 <p>The <a href="https://specifications.openehr.org/releases/BASE/latest/architecture_overview.html" target="_blank" rel="noopener">openEHR Architecture Overview</a>;</p>
 </li>
 <li>
-<p>The <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a></p>
+<p>The <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a></p>
 </li>
 </ul>
 </div>
@@ -366,10 +366,10 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
-<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/EL.html</a>.</p>
+<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/development/EL.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/development/EL.html</a>.</p>
 </div>
 <div class="paragraph">
-<p>The expression language described in this specification is a more powerful language than the original <a href="https://specifications.openehr.org/releases/LANG/latest/BEL.html" target="_blank" rel="noopener">Basic Expression Language (BEL)</a>, and is based on the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">openEHR BMM expression model</a>. It is a major evolution on BEL syntax, and does not use the BEL meta-model.</p>
+<p>The expression language described in this specification is a more powerful language than the original <a href="https://specifications.openehr.org/releases/LANG/development/BEL.html" target="_blank" rel="noopener">Basic Expression Language (BEL)</a>, and is based on the <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html#_expressions" target="_blank" rel="noopener">openEHR BMM expression model</a>. It is a major evolution on BEL syntax, and does not use the BEL meta-model.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -393,7 +393,7 @@
 <div class="sect2">
 <h3 id="_conformance"><a class="anchor" href="#_conformance"></a>1.5. Conformance</h3>
 <div class="paragraph">
-<p>Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant <a href="https://specifications.openehr.org/releases/ITS/latest/index" target="_blank" rel="noopener">openEHR Implementation Technology Specification(s) (ITSs)</a>, such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.</p>
+<p>Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant <a href="https://specifications.openehr.org/releases/ITS/development/index" target="_blank" rel="noopener">openEHR Implementation Technology Specification(s) (ITSs)</a>, such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.</p>
 </div>
 </div>
 </div>
@@ -402,7 +402,7 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntaxes are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc. Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
+<p>The openEHR Expression Language (EL) defines a syntax and grammar for the expressions whose meta-model is defined in the <code>expression</code> package in the <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model (BMM)</a>. As such it may be considered the default syntax. Other syntaxes or syntaxes are certainly possible, and other expression serialisation are possible, such as object graph serialisation into XML, JSON, YAML etc. Consequently, the BMM <code>expression</code> package should be considered the normative definition of openEHR EL. Not all openEHR implementations using BMM expressions need support it: they might for example only serialse in JSON or use purely graphical visualisation.</p>
 </div>
 <div class="paragraph">
 <p>Within openEHR, the uses of EL include expressing the following:</p>
@@ -585,7 +585,7 @@
 <div class="sect2">
 <h3 id="_typing"><a class="anchor" href="#_typing"></a>3.3. Typing</h3>
 <div class="paragraph">
-<p>EL is fully typed, with type definitions being supplied by one or more models, represented in the form of <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM specification</a>. <strong>All operators are assumed to be implemented by and to map to functions defined on types</strong>, including operators such as '+' mapping to the function <code>add()</code> defined on primitive types such as <code>Integer</code>. Accordingly, such operators are defined within the BMM as being operator <em>aliases</em> of their implementing function, which is made possible by the BMM meta-types <code>BMM_ROUTINE</code> and descendants.</p>
+<p>EL is fully typed, with type definitions being supplied by one or more models, represented in the form of <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html" target="_blank" rel="noopener">openEHR BMM specification</a>. <strong>All operators are assumed to be implemented by and to map to functions defined on types</strong>, including operators such as '+' mapping to the function <code>add()</code> defined on primitive types such as <code>Integer</code>. Accordingly, such operators are defined within the BMM as being operator <em>aliases</em> of their implementing function, which is made possible by the BMM meta-types <code>BMM_ROUTINE</code> and descendants.</p>
 </div>
 <div class="paragraph">
 <p>An important implementation consequence of this approach is that an expression that is parsed to a classic operator-based AST may be evaluated by progressively searching for operator-aliased functions within the model definition, invoking with the arguments found in the AST structure, and returning Results for the next such computation. Of course, use of built-in native types and functions  (rather than always dispatching via a BMM) to handle primitive type operators is likely to be used in the interests of efficiency. Function-matching can be implemented by matching the inferred signature of the operator and its argument(s) with functions having both a conformant (not necessarily identical) signature, and the same operator.</p>
@@ -760,7 +760,7 @@
 <div class="sect3">
 <h4 id="_complex_types"><a class="anchor" href="#_complex_types"></a>3.4.4. Complex Types</h4>
 <div class="paragraph">
-<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
+<p>Complex types are imported from a formal model definition, expressed in <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html" target="_blank" rel="noopener">openEHR BMM format</a>, or any formal equivalent. The types in a model definition included in this way become available within the formalism in the same way as the foundation types, and may be used in expressions in the same way.</p>
 </div>
 </div>
 </div>
@@ -791,7 +791,7 @@
 <div class="sect2">
 <h3 id="_literals"><a class="anchor" href="#_literals"></a>4.1. Literals</h3>
 <div class="paragraph">
-<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Map&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
+<p>Literal values are mostly instances of the types declared in the imported models. Assumed literals correspond to the openEHR Foundation and Based types, and are expressed in the <a href="https://specifications.openehr.org/releases/LANG/development/odin.html#_primitive_types" target="_blank" rel="noopener">openEHR ODIN syntax</a>, with the exception of <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and <code>Map&lt;K,V&gt;</code>, which are distinguished in EL with specific types of brackets. The corresponding classes are described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types specification</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1293,7 +1293,7 @@
 <div class="sect3">
 <h4 id="_attached_predicate"><a class="anchor" href="#_attached_predicate"></a>4.5.1. Attached() Predicate</h4>
 <div class="paragraph">
-<p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
+<p>The <code>attached()</code> predicate is the EL equivalent of the expressions such as <code>someVar == null</code> (C, C++, C#, Java), <code>some_var is None</code> (Python) and similar. In EL, a reference is understood as being <em>attached</em> (or not) to a value. Attached status is therefore tested using <code>attached (ref)</code>, and may be applied to any target of a <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html#_expressions" target="_blank" rel="noopener">BMM <code>EL_INSTANCE_REF</code></a>, which includes references to variables, properties, constants, functions and tuples.</p>
 </div>
 <div class="paragraph">
 <p><code>Attached()</code> returns a Boolean value, and thus may be negated, to form expressions such as:</p>
@@ -1969,347 +1969,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span>
-<span class="tok-c">//  description: Antlr4 grammar for openEHR Expression Language baed on BMM meta-model.</span>
-<span class="tok-c">//  author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;</span>
-<span class="tok-c">//  contributors:Pieter Bos &lt;pieter.bos@nedap.com&gt;</span>
-<span class="tok-c">//  support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;</span>
-<span class="tok-c">//  copyright:   Copyright (c) 2016- openEHR Foundation &lt;http://www.openEHR.org&gt;</span>
-<span class="tok-c">//  license:     Apache 2.0 License &lt;http://www.apache.org/licenses/LICENSE-2.0.html&gt;</span>
-<span class="tok-c">//</span>
-
-<span class="tok-k">parser</span><span class="tok-w"> </span><span class="tok-k">grammar</span><span class="tok-w"> </span><span class="tok-nc">ElParser</span><span class="tok-p">;</span>
-<span class="tok-k">options</span><span class="tok-w"> </span><span class="tok-p">{</span><span class="tok-w"> </span><span class="tok-nv">tokenVocab</span><span class="tok-p">=</span>ElLexer<span class="tok-p">;</span><span class="tok-w"> </span><span class="tok-p">}</span>
-<span class="tok-nl">import</span><span class="tok-w"> </span><span class="tok-err">Cadl2Parser;</span>
-
-
-
-<span class="tok-c">// ========================== EL Statements ==========================</span>
-
-<span class="tok-err">statementBlock</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">statement</span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-no">EOF</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">statement</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">declaration</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">assignment</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">assertion</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">declaration</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">variableDeclaration</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">constantDeclaration</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">variableDeclaration</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">instantiableRef</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">typeId</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-no">SYM_ASSIGNMENT</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">constantDeclaration</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">constantId</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">typeId</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-no">SYM_EQ</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">assignment</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span><span class="tok-w"> </span><span class="tok-no">SYM_ASSIGNMENT</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">assertion</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-no">LC_ID</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">UC_ID</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-no">SYM_ASSERT</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// ========================== EL Expressions ==========================</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Expressions are either value-generators, or operator expressions (containing value-generators)</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">expression</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">terminal</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">operatorExpression</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">tuple</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">operatorExpression</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">// ------------------- Boolean-returning operator expressions --------------------</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Expressions evaluating to boolean values, using standard precedence;</span>
-<span class="tok-c">// These map to ordinary 1- and 2-argument function calls on Boolean instances</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">booleanExpr</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-no">SYM_NOT</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-no">SYM_AND</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-no">SYM_XOR</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-no">SYM_OR</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-no">SYM_IMPLIES</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-no">SYM_IFF</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_EQ</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">booleanLeaf</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Atomic Boolean-valued expression elements</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">booleanLeaf</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">booleanValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">forAllExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">thereExistsExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticConstraintExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">generalConstraintExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-s1">&#39;)&#39;</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_DEFINED</span><span class="tok-w"> </span><span class="tok-s1">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span><span class="tok-w"> </span><span class="tok-s1">&#39;)&#39;</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticComparisonExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">objectComparisonExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">//  Universal and existential quantifier</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">forAllExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_FOR_ALL</span><span class="tok-w"> </span><span class="tok-nv">localVariableId</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span><span class="tok-w"> </span><span class="tok-s1">&#39;|&#39;</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">thereExistsExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_THERE_EXISTS</span><span class="tok-w"> </span><span class="tok-nv">localVariableId</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span><span class="tok-w"> </span><span class="tok-s1">&#39;|&#39;</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// Constraint expressions</span>
-<span class="tok-c">// This provides a way of using one operator (matches) to compare a</span>
-<span class="tok-c">// value (LHS) with a value range (RHS). As per ADL, the value range</span>
-<span class="tok-c">// for ordered types like Integer, Date etc may be a single value,</span>
-<span class="tok-c">// a list of values, or a list of intervals, and in future, potentially</span>
-<span class="tok-c">// other comparators, including functions (e.g. divisible_by_N).</span>
-<span class="tok-c">//</span>
-<span class="tok-c">// For non-ordered types like String and Terminology_code, the RHS</span>
-<span class="tok-c">// is in other forms, e.g. regex for Strings.</span>
-<span class="tok-c">//</span>
-<span class="tok-c">// The matches operator can be used to generate a Boolean value that</span>
-<span class="tok-c">// may be used within an expression like any other Boolean (hence it</span>
-<span class="tok-c">// is a booleanLeaf).</span>
-<span class="tok-c">// TODO: non-primitive objects might be supported on the RHS in future.</span>
-<span class="tok-nl">arithmeticConstraintExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">arithmeticLeaf</span><span class="tok-w"> </span><span class="tok-no">SYM_MATCHES</span><span class="tok-w"> </span><span class="tok-s1">&#39;{&#39;</span><span class="tok-w"> </span><span class="tok-nv">cInlineOrderedObject</span><span class="tok-w"> </span><span class="tok-s1">&#39;}&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">generalConstraintExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-no">SYM_MATCHES</span><span class="tok-w"> </span><span class="tok-s1">&#39;{&#39;</span><span class="tok-w"> </span><span class="tok-nv">cObjectMatcher</span><span class="tok-w"> </span><span class="tok-s1">&#39;}&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// --------------------------- Arithmetic operator expressions --------------------------</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Comparison expressions of arithmetic operands generating Boolean results</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">arithmeticComparisonExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-nv">comparisonBinop</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">comparisonBinop</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-no">SYM_EQ</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_NE</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_GT</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_LT</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_LE</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_GE</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Expressions evaluating to values of arithmetic types, using standard precedence</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">arithmeticExpr</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-err">&lt;</span><span class="tok-nv">assoc</span><span class="tok-o">=</span><span class="tok-nv">right</span><span class="tok-err">&gt;</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-s1">&#39;^&#39;</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;/&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_ASTERISK</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;%&#39;</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;+&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">arithmeticLeaf</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">// TODO: need to be able to plug in terminal to allow decision tables in expressions</span>
-<span class="tok-nl">arithmeticLeaf</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">arithmeticValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">arithmeticExpr</span><span class="tok-w"> </span><span class="tok-s1">&#39;)&#39;</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">simpleCaseTable</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">arithmeticValue</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">integerValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">realValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">dateValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">dateTimeValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">timeValue</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">durationValue</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">// -------------------- Equality operator expressions for other types ------------------------</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Compare any kind of objects</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">objectComparisonExpr</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-nv">equalityBinop</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">equalityBinop</span><span class="tok-p">:</span>
-<span class="tok-w">    </span><span class="tok-no">SYM_EQ</span>
-<span class="tok-w">  </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-no">SYM_NE</span>
-<span class="tok-w">  </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// -------------------------- tuples -----------------------------</span>
-<span class="tok-c">//</span>
-
-<span class="tok-nl">tuple</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;[&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">)+</span><span class="tok-w"> </span><span class="tok-s1">&#39;]&#39;</span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// -------------------------- value-generating expressions -----------------------------</span>
-<span class="tok-c">//</span>
-
-<span class="tok-nl">terminal</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">simpleTerminal</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">decisionTable</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">simpleTerminal</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">primitiveObject</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">valueGenerator</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// TODO: Can&#39;t syntactically distinguish between a local or other variable id</span>
-<span class="tok-c">// and a property or constant reference.</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">valueGenerator</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">bareRef</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">scopedFeatureRef</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">typeRef</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">bareRef</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">boundVariableId</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">staticRef</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">localRef</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">functionCall</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Static and constant feature refs, distinguished by the use of</span>
-<span class="tok-c">// initial capital in the id.</span>
-<span class="tok-c">// Will map to EL_READABLE_VARIABLE or EL_STATIC_REF (unscoped)</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">staticRef</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-no">SYM_SELF</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">constantId</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Local writable reference, distinguished by use of initial lowercase id</span>
-<span class="tok-c">// Will map to EL_WRITABLE_VARIABLE or EL_PROPERTY_REF (unscoped)</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">localRef</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-no">SYM_RESULT</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">localVariableId</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// scoped feature references.</span>
-<span class="tok-c">// Will map to any EL_FEATURE_REF (scoped)</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">scopedFeatureRef</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">scoper</span><span class="tok-w"> </span><span class="tok-nv">featureRef</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">scoper</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">typeRef</span><span class="tok-w"> </span><span class="tok-s1">&#39;.&#39;</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">bareRef</span><span class="tok-w"> </span><span class="tok-s1">&#39;.&#39;</span><span class="tok-w"> </span><span class="tok-o">)*</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">typeRef</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;{&#39;</span><span class="tok-w"> </span><span class="tok-nv">typeId</span><span class="tok-w"> </span><span class="tok-s1">&#39;}&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">typeId</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">UC_ID</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;&lt;&#39;</span><span class="tok-w"> </span><span class="tok-nv">typeId</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-nv">typeId</span><span class="tok-w"> </span><span class="tok-o">)*</span><span class="tok-w"> </span><span class="tok-s1">&#39;&gt;&#39;</span><span class="tok-w"> </span><span class="tok-o">)?</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">featureRef</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">functionCall</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">instantiableRef</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Instantiable feature refs</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">instantiableRef</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">boundVariableId</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">localVariableId</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">constantId</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// TODO: analyse how a boundVariableId can be created as a built-in feature</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">boundVariableId</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">BOUND_VARIABLE_ID</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">localVariableId</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">LC_ID</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">constantId</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">UC_ID</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Function calls</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">functionCall</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">LC_ID</span><span class="tok-w"> </span><span class="tok-s1">&#39;(&#39;</span><span class="tok-w"> </span><span class="tok-nv">exprList</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-s1">&#39;)&#39;</span><span class="tok-w"> </span><span class="tok-s1">&#39;;&#39;</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">exprList</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-o">)*</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// -------------------------- decision tables -----------------------------</span>
-<span class="tok-c">//</span>
-
-<span class="tok-nl">decisionTable</span><span class="tok-p">:</span>
-<span class="tok-w">      </span><span class="tok-nv">binaryChoice</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">caseTable</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">conditionTable</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-nl">caseTable</span><span class="tok-p">:</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">simpleCaseTable</span>
-<span class="tok-w">    </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">generalCaseTable</span>
-<span class="tok-w">    </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// condition chains (if/then statement equivalent)</span>
-<span class="tok-c">// choice in</span>
-<span class="tok-c">//   =========================================================</span>
-<span class="tok-c">//   er_positive and</span>
-<span class="tok-c">//   her2_negative and</span>
-<span class="tok-c">//   not ki67.in_range (#high):    #luminal_A,</span>
-<span class="tok-c">//   ---------------------------------------------------------</span>
-<span class="tok-c">//   er_positive and</span>
-<span class="tok-c">//   her2_negative and</span>
-<span class="tok-c">//   ki67.in_range (#high):        #luminal_B_HER2_negative,</span>
-<span class="tok-c">//   ---------------------------------------------------------</span>
-<span class="tok-c">//   *:                            #none</span>
-<span class="tok-c">//   =========================================================</span>
-<span class="tok-c">//   ;</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">conditionTable</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_CHOICE</span><span class="tok-w"> </span><span class="tok-no">SYM_IN</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">conditionBranch</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-o">)+</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">conditionBranch</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">conditionDefaultBranch</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-s1">&#39;;&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">conditionBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">conditionDefaultBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_ASTERISK</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Binary-choice version of condition table, using old-school</span>
-<span class="tok-c">// C/Java syntax:</span>
-<span class="tok-c">// booleanExpr ? x : y ;</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">binaryChoice</span><span class="tok-p">:</span><span class="tok-w">  </span><span class="tok-nv">booleanExpr</span><span class="tok-w"> </span><span class="tok-s1">&#39;?&#39;</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Case tables, e.g.:</span>
-<span class="tok-c">//     Result := case qCSI_score in</span>
-<span class="tok-c">//        ============================</span>
-<span class="tok-c">//        0:          expr0,</span>
-<span class="tok-c">//        ----------------------------</span>
-<span class="tok-c">//        |1..2|:     expr1,</span>
-<span class="tok-c">//        ----------------------------</span>
-<span class="tok-c">//        |3..5|:     expr2,</span>
-<span class="tok-c">//        ----------------------------</span>
-<span class="tok-c">//        |6..8|:     expr3,</span>
-<span class="tok-c">//        ----------------------------</span>
-<span class="tok-c">//        |≥ 9|:      expr4</span>
-<span class="tok-c">//        ============================</span>
-<span class="tok-c">//     ;</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">generalCaseTable</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_CASE</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-no">SYM_IN</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">generalCaseBranch</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-o">)+</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">generalCaseBranch</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">generalCaseDefaultBranch</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-s1">&#39;;&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">generalCaseBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">primitiveObject</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">generalCaseDefaultBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_ASTERISK</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">expression</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">//</span>
-<span class="tok-c">// Simple value-based (typed) Case tables, e.g.:</span>
-<span class="tok-c">// case gfr_range in</span>
-<span class="tok-c">//   =================</span>
-<span class="tok-c">//   |&gt;20|:      1,</span>
-<span class="tok-c">//   |10..20|:   0.75,</span>
-<span class="tok-c">//   |&lt;10|:      0.5</span>
-<span class="tok-c">//   =================</span>
-<span class="tok-c">//   ;</span>
-<span class="tok-c">//</span>
-<span class="tok-nl">simpleCaseTable</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_CASE</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-no">SYM_IN</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">simpleCaseBranch</span><span class="tok-w"> </span><span class="tok-s1">&#39;,&#39;</span><span class="tok-w"> </span><span class="tok-o">)+</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-w"> </span><span class="tok-nv">simpleCaseBranch</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-nv">simpleCaseDefaultBranch</span><span class="tok-w"> </span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-s1">&#39;;&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">simpleCaseBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-nv">primitiveObject</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">simpleCaseDefaultBranch</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-no">SYM_ASTERISK</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-nv">simpleTerminal</span><span class="tok-w"> </span><span class="tok-p">;</span></code></pre>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-nl">Unresolved</span><span class="tok-w"> </span><span class="tok-err">directive</span><span class="tok-w"> </span><span class="tok-err">in</span><span class="tok-w"> </span><span class="tok-err">masterAppA-syntax.adoc</span><span class="tok-w"> </span><span class="tok-err">-</span><span class="tok-w"> </span><span class="tok-err">include</span><span class="tok-p">::</span><span class="tok-nv">https</span><span class="tok-p">:</span><span class="tok-c">//raw.githubusercontent.com/openEHR/openEHR-antlr4/master/combined/src/main/antlr/ElParser.g4[]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2318,79 +1978,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-c">//</span>
-<span class="tok-c">//  description: Antlr4 grammar for openEHR Expression Language baed on BMM meta-model.</span>
-<span class="tok-c">//  author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;</span>
-<span class="tok-c">//  contributors:Pieter Bos &lt;pieter.bos@nedap.com&gt;</span>
-<span class="tok-c">//  support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;</span>
-<span class="tok-c">//  copyright:   Copyright (c) 2016- openEHR Foundation &lt;http://www.openEHR.org&gt;</span>
-<span class="tok-c">//  license:     Apache 2.0 License &lt;http://www.apache.org/licenses/LICENSE-2.0.html&gt;</span>
-<span class="tok-c">//</span>
-
-<span class="tok-k">lexer</span><span class="tok-w"> </span><span class="tok-k">grammar</span><span class="tok-w"> </span><span class="tok-nc">ElLexer</span><span class="tok-p">;</span>
-<span class="tok-nl">import</span><span class="tok-w"> </span><span class="tok-err">AdlPathLexer</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-nl">Cadl2Lexer</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-nl">GeneralLexer</span><span class="tok-err">;</span>
-
-<span class="tok-err">channels</span><span class="tok-w"> </span><span class="tok-p">{</span>
-<span class="tok-w">    </span><span class="tok-n">COMMENT</span>
-<span class="tok-p">}</span>
-
-<span class="tok-c">// ------------------ lines and comments ------------------</span>
-<span class="tok-err">CMT_LINE</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;--&#39;</span><span class="tok-w"> </span><span class="tok-o">.*?</span><span class="tok-w"> </span><span class="tok-no">EOL</span><span class="tok-w"> </span><span class="tok-o">-&gt;</span><span class="tok-w"> </span><span class="tok-nv">channel</span><span class="tok-o">(</span><span class="tok-no">COMMENT</span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">TABLE_CMT_LINE</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;===&#39;</span><span class="tok-w"> </span><span class="tok-s1">&#39;=&#39;</span><span class="tok-o">*</span><span class="tok-w"> </span><span class="tok-no">EOL</span><span class="tok-w"> </span><span class="tok-o">-&gt;</span><span class="tok-w"> </span><span class="tok-nv">channel</span><span class="tok-o">(</span><span class="tok-no">COMMENT</span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">EOL</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;\r&#39;</span><span class="tok-o">?</span><span class="tok-w"> </span><span class="tok-s1">&#39;\n&#39;</span><span class="tok-w">   </span><span class="tok-o">-&gt;</span><span class="tok-w"> </span><span class="tok-nv">channel</span><span class="tok-o">(</span><span class="tok-no">HIDDEN</span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">WS</span><span class="tok-w">       </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-w"> </span><span class="tok-err">\</span><span class="tok-n">t</span><span class="tok-err">\</span><span class="tok-n">r</span><span class="tok-p">]</span><span class="tok-o">+</span><span class="tok-w">     </span><span class="tok-o">-&gt;</span><span class="tok-w"> </span><span class="tok-nv">channel</span><span class="tok-o">(</span><span class="tok-no">HIDDEN</span><span class="tok-o">)</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// --------- keywords ----------</span>
-
-<span class="tok-nl">SYM_DEFINED</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;defined&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_SELF</span><span class="tok-w">    </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;Self&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_IN</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;in&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_CHOICE</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;choice&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_CASE</span><span class="tok-w">    </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;case&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">SYM_RESULT</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;Result&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// --------- symbols ----------</span>
-<span class="tok-nl">SYM_ASSIGNMENT</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;:=&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_COLON</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;:&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_INTERROGATION</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;?&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_NE</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;/=&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;!=&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;≠&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_EQ</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;=&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_GT</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;&gt;&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_LT</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;&lt;&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_LE</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;&lt;=&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;≤&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_GE</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;&gt;=&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;≥&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">SYM_PLUS</span><span class="tok-w">    </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;+&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_MINUS</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;-&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_SLASH</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;/&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_PERCENT</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;%&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_CARET</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;^&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_DOT</span><span class="tok-w">     </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;.&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">SYM_DOUBLE_MINUS</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;--&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_DOUBLE_PLUS</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;++&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">SYM_THEN</span><span class="tok-w">     </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;then&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;THEN&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_AND</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;and&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;AND&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;∧&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_OR</span><span class="tok-w">       </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;or&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;OR&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;∨&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_XOR</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;xor&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;XOR&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_NOT</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;not&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;NOT&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;!&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;~&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;¬&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_IMPLIES</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;implies&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;⇒&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;→&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_IFF</span><span class="tok-w">      </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;⇔&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;↔&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_FOR_ALL</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;for_all&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;∀&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_THERE_EXISTS</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;there_exists&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;∃&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_MATCHES</span><span class="tok-w">  </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;matches&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;is_in&#39;</span><span class="tok-w"> </span><span class="tok-o">|</span><span class="tok-w"> </span><span class="tok-s1">&#39;∈&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-<span class="tok-nl">SYM_ASSERT</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;assert&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// TODO: replace with defined() and attached() predicates</span>
-<span class="tok-nl">SYM_EXISTS</span><span class="tok-w">   </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;exists&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-nl">BOUND_VARIABLE_ID</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;$&#39;</span><span class="tok-w"> </span><span class="tok-no">LC_ID</span><span class="tok-w"> </span><span class="tok-p">;</span>
-
-<span class="tok-c">// ---------- local code that are not ADL codes -------</span>
-<span class="tok-c">// e.g. [heart_rate]</span>
-<span class="tok-nl">LOCAL_TERM_CODE_REF</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s1">&#39;[&#39;</span><span class="tok-w"> </span><span class="tok-no">ALPHANUM_US_CHAR</span><span class="tok-o">+</span><span class="tok-w"> </span><span class="tok-s1">&#39;]&#39;</span><span class="tok-w"> </span><span class="tok-p">;</span></code></pre>
+<pre class="pygments highlight"><code data-lang="antlr-java"><span></span><span class="tok-nl">Unresolved</span><span class="tok-w"> </span><span class="tok-err">directive</span><span class="tok-w"> </span><span class="tok-err">in</span><span class="tok-w"> </span><span class="tok-err">masterAppA-syntax.adoc</span><span class="tok-w"> </span><span class="tok-err">-</span><span class="tok-w"> </span><span class="tok-err">include</span><span class="tok-p">::</span><span class="tok-nv">https</span><span class="tok-p">:</span><span class="tok-c">//raw.githubusercontent.com/openEHR/openEHR-antlr4/master/combined/src/main/antlr/ElLexer.g4[]</span></code></pre>
 </div>
 </div>
 </div>
@@ -2412,7 +2000,7 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-26 14:45:46 -0300
+Last updated 2022-11-12 10:24:49 UTC
 </div>
 </div>
 <script src="https://specifications.openehr.org/js/asciidoctor-tabs.js"></script>

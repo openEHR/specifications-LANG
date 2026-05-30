@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="generator" content="Asciidoctor 2.0.26">
 <meta name="description" content="openEHR Basic Expression Language specification">
 <meta name="keywords" content="openehr, expressions, rules">
 <title>Basic Expression Language (BEL)</title>
@@ -177,7 +177,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: LANG development</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: STABLE</p></td>
 </tr>
 <tr>
@@ -201,7 +201,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2025 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2026 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -373,10 +373,10 @@
 <p>The contents of this specification were separated out from the <a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html">AOM2 specification</a> in order to provide a common model of expressions and rules structures for AOM, GDL and other specifications requiring it.</p>
 </div>
 <div class="paragraph">
-<p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/latest/BEL.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/BEL.html</a>.</p>
+<p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/LANG/development/BEL.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/LANG/latest/BEL.html</a>.</p>
 </div>
 <div class="paragraph">
-<p>The expression model and language described in this specification defined an initial openEHR expression language when they were developed. They have been implemented in the open source <a href="https://github.com/openEHR/archie" target="_blank" rel="noopener">Archie project</a> as archetype rules and are used in production systems. In terms of development however, BEL and BEOM have been superseded by the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html#_expressions" target="_blank" rel="noopener">openEHR BMM expression model</a> and a newer, more powerful <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">Expression Language (EL)</a>.</p>
+<p>The expression model and language described in this specification defined an initial openEHR expression language when they were developed. They have been implemented in the open source <a href="https://github.com/openEHR/archie" target="_blank" rel="noopener">Archie project</a> as archetype rules and are used in production systems. In terms of development however, BEL and BEOM have been superseded by the <a href="https://specifications.openehr.org/releases/LANG/development/bmm.html#_expressions" target="_blank" rel="noopener">openEHR BMM expression model</a> and a newer, more powerful <a href="https://specifications.openehr.org/releases/LANG/development/EL.html" target="_blank" rel="noopener">Expression Language (EL)</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -400,7 +400,7 @@
 <div class="sect2">
 <h3 id="_conformance"><a class="anchor" href="#_conformance"></a>1.5. Conformance</h3>
 <div class="paragraph">
-<p>Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant <a href="https://specifications.openehr.org/releases/ITS/latest/index" target="_blank" rel="noopener">openEHR Implementation Technology Specification(s) (ITSs)</a>, such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.</p>
+<p>Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant <a href="https://specifications.openehr.org/releases/ITS/development/index" target="_blank" rel="noopener">openEHR Implementation Technology Specification(s) (ITSs)</a>, such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.</p>
 </div>
 </div>
 </div>
@@ -537,7 +537,7 @@
 <div class="sect3">
 <h4 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a>3.4.1. Primitive Types</h4>
 <div class="paragraph">
-<p>The primitive types are shown below, along with typical literal values, which are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">ODIN syntax</a>.</p>
+<p>The primitive types are shown below, along with typical literal values, which are expressed in the <a href="https://specifications.openehr.org/releases/LANG/development/odin.html#_primitive_types" target="_blank" rel="noopener">ODIN syntax</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -671,7 +671,7 @@
 <div class="sect3">
 <h4 id="_interval_type"><a class="anchor" href="#_interval_type"></a>3.4.3. Interval Type</h4>
 <div class="paragraph">
-<p>The same <code>Interval</code> type as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_interval">Foundation Types specification</a> is supported in BEL, as follows. Literal interval values take the same form as in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_intervals_of_ordered_primitive_types">ODIN</a>.</p>
+<p>The same <code>Interval</code> type as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_interval">Foundation Types specification</a> is supported in BEL, as follows. Literal interval values take the same form as in <a href="https://specifications.openehr.org/releases/LANG/development/odin.html#_intervals_of_ordered_primitive_types">ODIN</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2928,7 +2928,7 @@ Not yet standardised.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-26 14:45:46 -0300
+Last updated 2026-05-29 15:28:54 UTC
 </div>
 </div>
 <script src="https://specifications.openehr.org/js/asciidoctor-tabs.js"></script>
