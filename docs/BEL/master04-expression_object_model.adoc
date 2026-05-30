@@ -58,6 +58,7 @@ include::{uml_export_dir}/classes/{pkg}expr_for_all.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/{pkg}expr_leaf.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/{pkg}expr_literal.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/{pkg}expr_variable_ref.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/{pkg}expr_value_ref.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/{pkg}expr_function_call.adoc[leveloffset=+1]
 
 == Operators
