@@ -6,29 +6,28 @@ h|*Class*
 2+^h|*BMM_CONTAINER_PROPERTY*
 
 h|*Description*
-2+a|Meta-type of for properties of linear container type, such as List<T> etc.
+2+a|Subtype of BMM_PROPERTY that represents a container type based on one of the inbuilt types List <>, Set <>, Array <>.
 
 h|*Inherit*
-2+|`<<_bmm_property_class,BMM_PROPERTY>>`
+2+|`BMM_PROPERTY`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*cardinality*: `link:/releases/BASE/{base_release}/foundation_types.html#_multiplicity_interval_class[Multiplicity_interval^]`
+|*cardinality*: `Multiplicity_interval`
 a|Cardinality of this container.
 
 h|*1..1 +
 (redefined)*
-|*type*: `<<_bmm_container_type_class,BMM_CONTAINER_TYPE>>`
-a|Declared or inferred static type of the entity.
+|*type*: `BMM_CONTAINER_TYPE`
+a|
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
-(redefined)*
+h|(redefined)
 |*display_name* (): `String`
-a|Name of this property in form `name: ContainerTypeName<>`.
+a|Name of this attribute to display in UI.
 |===

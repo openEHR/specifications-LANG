@@ -20,17 +20,34 @@
             "title": "Basic Meta-Model (BMM)",
             "title_short": "BMM",
             "description": "Basic Meta-Model (BMM) specification",
-            "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI.",
-            "micro_summary": "Basic Meta-Model of models & expressions",
+            "summary": "BMM provides a human- and machine-readable / writable format for defining object models. It can be considered a much more compact and readable alternative to XMI. This is the v2.x form in use by current tooling (ADL Workbench, Archetype Designer, Archie, LinkEHR).",
+            "micro_summary": "Basic Meta-Model of object models (v2.x)",
             "classes": [
-                "BMM_SCHEMA",
                 "BMM_MODEL",
                 "BMM_CLASS",
                 "BMM_TYPE",
                 "BMM_PROPERTY"
             ],
             "copyright_year": "2016",
-            "spec_status": "DEVELOPMENT",
+            "spec_status": "STABLE",
+            "keywords": "reflection, meta-model, UML, BMM"
+        },
+        {
+            "id": "bmm3",
+            "title": "Basic Meta-Model (BMM) v3 developments",
+            "title_short": "BMM3",
+            "description": "Basic Meta-Model (BMM) v3 specification",
+            "summary": "The v3 evolution of BMM, extending the meta-model with an expression and statement meta-model. Development is paused; the v2.x BMM remains the form implemented by current tooling.",
+            "micro_summary": "Basic Meta-Model of models & expressions (v3)",
+            "classes": [
+                "BMM_MODEL",
+                "BMM_CLASS",
+                "BMM_TYPE",
+                "BMM_FEATURE",
+                "BMM_STATEMENT"
+            ],
+            "copyright_year": "2018",
+            "spec_status": "PAUSED",
             "keywords": "reflection, meta-model, UML, BMM"
         },
         {

@@ -6,17 +6,17 @@ h|*Class*
 2+^h|*BMM_ENUMERATION_STRING*
 
 h|*Description*
-2+a|String-based enumeration meta-type.
+2+a|String-based enumeration type.
 
 h|*Inherit*
-2+|`<<_bmm_enumeration_class,BMM_ENUMERATION>>`
+2+|`BMM_ENUMERATION`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1 +
+h|*1..1 +
 (redefined)*
-|*item_values*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_string_value_class,BMM_STRING_VALUE>>>`
-a|Optional list of specific values. Must be 1:1 with `_item_names_` list.
+|*underlying_type_name*: `String{nbsp}={nbsp}"STRING"`
+a|Name of type any concrete BMM_ENUMERATION_* sub-type is based on.
 |===

@@ -16,7 +16,7 @@ The taxonomy of feature declarations is shown below in the simplified view of th
 
 [.text-center]
 .Feature taxonomy
-image::{uml_diagrams_uri}/LANG-bmm.core.feature-taxonomy.svg[id=feature-taxonomy, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.feature-taxonomy.svg[id=feature-taxonomy, align="center"]
 
 === Class Model
 
@@ -24,7 +24,7 @@ The full feature meta-model is shown below.
 
 [.text-center]
 .`base.bmm.core.feature` package
-image::{uml_diagrams_uri}/LANG-bmm.core.feature.svg[id=core_feature, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.feature.svg[id=core_feature, align="center"]
 
 === Feature Groups and Visibility
 
@@ -32,7 +32,7 @@ Features are arranged within a class in _feature groups_, each represented by an
 
 [.text-center]
 .Feature Groups
-image::{uml_diagrams_uri}/LANG-bmm.core.feature-group.svg[id=core_feature_group, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.feature-group.svg[id=core_feature_group, align="center"]
 
 By default there is at least one feature group called `"feature"`. Feature groups may be given any name, and are usually used to group features on the basis of things like:
 
@@ -236,7 +236,7 @@ In common with may OOPLs, BMM classes may specify _creators_, i.e. instance-crea
 
 [.text-center]
 .Class creators and converters
-image::{uml_diagrams_uri}/LANG-bmm.core.class-creators.svg[id=core_class_creators, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.class-creators.svg[id=core_class_creators, align="center"]
 
 Creators and converters might be distinguished among other procedures in an abstract syntax as follows.
 
@@ -267,7 +267,7 @@ BMM supports the definition of statements, i.e. implementation within a `ROUTINE
 
 [.text-center]
 .Routine body
-image::{uml_diagrams_uri}/LANG-bmm.core.feature-routine.svg[id=core_feature_routine, align="center"]
+image::{uml_diagrams_uri}/LANG-bmm3.core.feature-routine.svg[id=core_feature_routine, align="center"]
 
 The meta-model of statements is described in detail in <<_statements>>.
 
