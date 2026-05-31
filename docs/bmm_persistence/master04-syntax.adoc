@@ -4,6 +4,65 @@
 
 A BMM schema is normally written in the {openehr_odin}[ODIN syntax], although any other serialisation supporting typed object models may be used, including JSON (with type markers), YAML, XML etc. The ODIN form is described here. The structures are direct ODIN serialisations of the `P_BMM_XXX` classes in the `persistence` package.
 
+== Serialisation Formats
+
+A BMM schema is a serialisation of the `P_BMM_*` object graph, and may be written in any format able to express a typed object model. Three formats are in use:
+
+* *ODIN*: the original and most widely tool-supported format (for example the openEHR ADL Workbench); files use the `.bmm` extension. The remainder of this chapter describes the ODIN form in detail.
+* *JSON*: the primary format produced and consumed by the `bmm-publisher` tooling; files use the `.bmm.json` extension.
+* *YAML*: an alternative, more compact human-readable format also produced by `bmm-publisher`; files use the `.bmm.yaml` extension.
+
+Whatever the format, the same serialisation rules apply:
+
+* *File heading.* A schema file begins with the header (meta) items corresponding to the persisted attributes of `P_BMM_SCHEMA` (`_bmm_version_`, `_rm_publisher_`, `_schema_name_`, `_rm_release_`, `_schema_revision_`, `_schema_lifecycle_state_`, `_schema_description_`, `_schema_author_`), followed by `_includes_`, `_packages_`, and `_class_definitions_`.
+* *Type discriminator.* Wherever a value may be one of several `P_BMM_*` subtypes (for example a property, a function parameter, or a result type), the concrete subtype is always stated explicitly via a `_type` discriminator. Where the type is unambiguous from context (such as a class definition or a package), no discriminator is needed. Each format renders the discriminator in its own idiom: ODIN uses a type marker `(P_BMM_SINGLE_PROPERTY)`, JSON a `"_type": "P_BMM_SINGLE_PROPERTY"` member, and YAML a tag `!P_BMM_SINGLE_PROPERTY`.
+* *Keyed collections.* Maps such as `_class_definitions_`, `_properties_`, `_functions_`, function `_parameters_`, and `_packages_` are keyed by name.
+
+The following shows the same class fragment, an abstract class `OBJECT_ID` with a single mandatory `String` property `_value_`, in each of the three formats.
+
+[source, odin]
+--------
+["OBJECT_ID"] = <
+    name = <"OBJECT_ID">
+    is_abstract = <True>
+    properties = <
+        ["value"] = (P_BMM_SINGLE_PROPERTY) <
+            name = <"value">
+            is_mandatory = <True>
+            type = <"String">
+        >
+    >
+>
+--------
+
+[source, json]
+--------
+"OBJECT_ID": {
+    "name": "OBJECT_ID",
+    "is_abstract": true,
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    }
+}
+--------
+
+[source, yaml]
+--------
+OBJECT_ID:
+  name: OBJECT_ID
+  is_abstract: true
+  properties:
+    value: !P_BMM_SINGLE_PROPERTY
+      name: value
+      is_mandatory: true
+      type: String
+--------
+
 == Header Items
 
 The following shows the header items of a BMM schema, which correspond to the 'persistent' attributes of the class `P_BMM_SCHEMA`.
