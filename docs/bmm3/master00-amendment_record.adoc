@@ -6,12 +6,17 @@
 
 4+^h|*LANG Release 1.1.0 (unreleased)*
 
-|[[latest_issue]]4.0.1
+|[[latest_issue]]4.1.0
+|{spec_tickets}/SPECLANG-14[SPECLANG-14^]. Formalise the BMM v2/v3 split: this specification is maintained as a separate document (BMM v3) for the evolved meta-model; the stable v2.x form is moved to the separate BMM specification.
+|S Iancu
+|[[latest_issue_date]]31 May 2026
+
+|4.0.1
 |{spec_tickets}/SPECLANG-8[SPECLANG-8^]. Classify `EL_DECISION_TABLE` under `EL_TERMINAL`; +
  Add read-only and writable meta-types for variables and properties; +
  Add routine, function and property signature meta-types.
 |T Beale
-|[[latest_issue_date]]29 Apr 2022
+|29 Apr 2022
 
 |4.0.0
 |{spec_tickets}/SPECLANG-8[SPECLANG-8^]. Simplify meta-model of features to single inheritance; +

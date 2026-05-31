@@ -4,12 +4,19 @@
 |===
 |Issue|Details|Raiser|Completed
 
-4+^h|*LANG Release 1.0.0 (unreleased)*
+4+^h|*LANG Release 1.1.0 (unreleased)*
 
-|[[latest_issue]]2.2.3
+|[[latest_issue]]2.2.4
+|{spec_tickets}/SPECLANG-14[SPECLANG-14^]. Formalise the BMM v2/v3 split: this specification is established as a separate, stable BMM document in the LANG component; the evolved meta-model is maintained in the separate BMM v3 specification.
+|S Iancu
+|[[latest_issue_date]]31 May 2026
+
+4+^h|*LANG Release 1.0.0*
+
+|2.2.3
 |{spec_tickets}/SPECLANG-2[SPECLANG-2^]. Add Basic Meta-Model (BMM) spec to LANG component.
 |openEHR SEC
-|[[latest_issue_date]]07 Nov 2017
+|07 Nov 2017
 
 |2.2.2
 |Improve and update introductory text in the Overview section.
