@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*type*: `String`
+|*type*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|If the type is a simple type, then this attribute will hold the type name. If the type is a container or generic, then type_ref will hold the type definition. The resulting type is generated in type_def.
 
 h|*0..1*
@@ -25,8 +25,9 @@ a|Type definition of this property computed from `_type_` for later use in `_bmm
 
 h|*0..1 +
 (redefined)*
-|*bmm_property*: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_unitary_property_class[BMM_UNITARY_PROPERTY^]`
+|*bmm_property*: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_property_class[BMM_PROPERTY^]`
 a|`BMM_PROPERTY` created by `_create_bmm_property_definition_`.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*__P_BMM_BASE_TYPE (abstract)__*
 
 h|*Description*
-2+a|Persistent form of `BMM_PROPER_TYPE`.
+2+a|Persistent form of a proper (non-container) BMM type.
 
 h|*Inherit*
 2+|`<<_p_bmm_type_class,P_BMM_TYPE>>`
@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*value_constraint*: `String`
+|*value_constraint*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 |===

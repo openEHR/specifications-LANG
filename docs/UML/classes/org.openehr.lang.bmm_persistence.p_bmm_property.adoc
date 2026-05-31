@@ -16,23 +16,23 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `String`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Name of this property within its class. Persisted attribute.
 
 h|*0..1*
-|*is_mandatory*: `Boolean`
+|*is_mandatory*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is mandatory in its class. Persisted attribute.
 
 h|*0..1*
-|*is_computed*: `Boolean`
+|*is_computed*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is computed rather than stored in objects of this class. Persisted Attribute.
 
 h|*0..1*
-|*is_im_infrastructure*: `Boolean`
+|*is_im_infrastructure*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is info model 'infrastructure' rather than 'data'. Persisted attribute.
 
 h|*0..1*
-|*is_im_runtime*: `Boolean`
+|*is_im_runtime*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this property is info model 'runtime' settable property. Persisted attribute.
 
 h|*0..1*
@@ -42,14 +42,15 @@ a|Type definition of this property, if not a simple String type reference. Persi
 h|*0..1*
 |*bmm_property*: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_property_class[BMM_PROPERTY^]`
 a|BMM_PROPERTY created by create_bmm_property_definition.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
+h|*1..1*
 |*create_bmm_property* ( +
 a_bmm_schema: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_model_class[BMM_MODEL^][1]`, +
 a_class_def: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_class_class[BMM_CLASS^][1]` +
-)
+): `void`
 a|Create `_bmm_property_definition_` from `P_BMM_XX` parts.
 |===

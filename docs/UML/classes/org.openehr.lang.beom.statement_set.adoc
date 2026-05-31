@@ -17,13 +17,14 @@ h|*0..1*
 a|The member statements of this statement set.
 
 h|*0..1*
-|*name*: `String`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Optional name of this rule set.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*execution_result* (): `Boolean`
+|*execution_result* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Execution result of the whole rule set. Determined by the and-ing of result values of Assertions in the rule set.
 |===
