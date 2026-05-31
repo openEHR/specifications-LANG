@@ -57,6 +57,7 @@
             "name": "org.openehr.lang.bmm_persistence",
             "classes": [
                 "P_BMM_CLASS",
+                "P_BMM_INTERFACE",
                 "P_BMM_ENUMERATION",
                 "P_BMM_SCHEMA",
                 "P_BMM_PROPERTY",
@@ -72,6 +73,13 @@
                 "P_BMM_SINGLE_PROPERTY",
                 "P_BMM_SINGLE_PROPERTY_OPEN",
                 "P_BMM_GENERIC_PROPERTY",
+                "P_BMM_CONSTANT",
+                "P_BMM_FUNCTION",
+                "P_BMM_FUNCTION_PARAMETER",
+                "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                "P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN",
+                "P_BMM_CONTAINER_FUNCTION_PARAMETER",
+                "P_BMM_GENERIC_FUNCTION_PARAMETER",
                 "P_BMM_ENUMERATION_INTEGER",
                 "P_BMM_ENUMERATION_STRING",
                 "P_BMM_MODEL_ELEMENT",
@@ -583,6 +591,18 @@
                         "upper_unbounded": true
                     }
                 },
+                "constants": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "constants",
+                    "documentation": "Constants defined in this class, keyed by name. Persistent attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "P_BMM_CONSTANT"
+                        ]
+                    }
+                },
                 "properties": {
                     "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "properties",
@@ -592,6 +612,30 @@
                         "generic_parameters": [
                             "String",
                             "P_BMM_PROPERTY"
+                        ]
+                    }
+                },
+                "functions": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "functions",
+                    "documentation": "List of functions (routines) defined in this class, keyed by name. Persistent attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "P_BMM_FUNCTION"
+                        ]
+                    }
+                },
+                "invariants": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "invariants",
+                    "documentation": "Invariants defined on this class, as a Hash of assertion expressions keyed by tag. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "String"
                         ]
                     }
                 },
@@ -690,6 +734,34 @@
                 }
             }
         },
+        "P_BMM_INTERFACE": {
+            "name": "P_BMM_INTERFACE",
+            "documentation": "Persistent form of a BMM interface, i.e. a class-like definition consisting only of functions (no state). Used to capture pure operation interfaces.",
+            "ancestors": [
+                "P_BMM_MODEL_ELEMENT"
+            ],
+            "properties": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "name",
+                    "documentation": "Name of this interface. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "functions": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "functions",
+                    "documentation": "Functions (routines) declared by this interface, keyed by name. Persistent attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "P_BMM_FUNCTION"
+                        ]
+                    }
+                }
+            }
+        },
         "P_BMM_ENUMERATION": {
             "name": "P_BMM_ENUMERATION",
             "documentation": "Persistent form of `BMM_ENUMERATION` attributes.",
@@ -721,6 +793,19 @@
                         "upper_unbounded": true
                     }
                 },
+                "item_documentations": {
+                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "name": "item_documentations",
+                    "documentation": "Optional documentation strings for the enumeration items, in the same order as `_item_names_`. Persisted attribute.",
+                    "type_def": {
+                        "container_type": "List",
+                        "type": "String"
+                    },
+                    "cardinality": {
+                        "lower": 0,
+                        "upper_unbounded": true
+                    }
+                },
                 "bmm_class": {
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "bmm_class",
@@ -737,6 +822,25 @@
                 "BMM_SCHEMA_CORE"
             ],
             "properties": {
+                "bmm_version": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "bmm_version",
+                    "documentation": "Version of the BMM (P_BMM) meta-model to which this schema conforms, e.g. `2.4`. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "includes": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "includes",
+                    "documentation": "Other schemas included by this schema, keyed by schema id. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_INCLUDE_SPEC"
+                        ]
+                    }
+                },
                 "primitive_types": {
                     "_type": "P_BMM_CONTAINER_PROPERTY",
                     "name": "primitive_types",
@@ -1384,6 +1488,215 @@
                     "name": "bmm_property",
                     "documentation": "`BMM_PROPERTY` created by `_create_bmm_property_definition_`.",
                     "type": "BMM_PROPERTY"
+                }
+            }
+        },
+        "P_BMM_CONSTANT": {
+            "name": "P_BMM_CONSTANT",
+            "documentation": "Persistent form of a BMM constant, i.e. a named, typed literal value defined on a class.",
+            "ancestors": [
+                "P_BMM_MODEL_ELEMENT"
+            ],
+            "properties": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "name",
+                    "documentation": "Name of this constant within its class. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "type": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "type",
+                    "documentation": "Type name of this constant, as a simple class name. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "value": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "value",
+                    "documentation": "The literal value of this constant, in its persisted (serialised) form. Persisted attribute.",
+                    "type": "String"
+                }
+            }
+        },
+        "P_BMM_FUNCTION": {
+            "name": "P_BMM_FUNCTION",
+            "documentation": "Persistent form of a BMM function (routine) definition within a class definition.",
+            "ancestors": [
+                "P_BMM_MODEL_ELEMENT"
+            ],
+            "properties": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "name",
+                    "documentation": "Name of this function within its class. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "aliases": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "aliases",
+                    "documentation": "Optional alias names for this function, keyed by alias. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "String"
+                        ]
+                    }
+                },
+                "is_abstract": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "is_abstract",
+                    "documentation": "True if this function is abstract in its class, i.e. has no implementation. Persisted attribute.",
+                    "type": "Boolean"
+                },
+                "parameters": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "parameters",
+                    "documentation": "Formal parameters of the function, keyed by parameter name. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "P_BMM_FUNCTION_PARAMETER"
+                        ]
+                    }
+                },
+                "pre_conditions": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "pre_conditions",
+                    "documentation": "Optional pre-condition assertions on this function, keyed by tag. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "String"
+                        ]
+                    }
+                },
+                "post_conditions": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "post_conditions",
+                    "documentation": "Optional post-condition assertions on this function, keyed by tag. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "String"
+                        ]
+                    }
+                },
+                "result": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "result",
+                    "documentation": "Type definition of the function result, if any (absent for procedures). Persisted attribute.",
+                    "type": "P_BMM_TYPE"
+                },
+                "is_nullable": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "is_nullable",
+                    "documentation": "True if the result of this function is allowed to be Void (null). Persisted attribute.",
+                    "type": "Boolean"
+                }
+            }
+        },
+        "P_BMM_FUNCTION_PARAMETER": {
+            "name": "P_BMM_FUNCTION_PARAMETER",
+            "documentation": "Persistent form of a BMM function (routine) parameter; abstract parent of the concrete persisted parameter kinds.",
+            "is_abstract": true,
+            "ancestors": [
+                "P_BMM_MODEL_ELEMENT"
+            ],
+            "properties": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "name",
+                    "documentation": "Name of this parameter within its function signature. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                },
+                "is_nullable": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "is_nullable",
+                    "documentation": "True if this parameter is allowed to be Void (null) in a call. Persisted attribute.",
+                    "type": "Boolean"
+                }
+            }
+        },
+        "P_BMM_SINGLE_FUNCTION_PARAMETER": {
+            "name": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+            "documentation": "Persistent form of a single-valued function parameter, i.e. one whose type is a simple class reference.",
+            "ancestors": [
+                "P_BMM_FUNCTION_PARAMETER"
+            ],
+            "properties": {
+                "type": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "type",
+                    "documentation": "Type name of this parameter, as a simple class name. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                }
+            }
+        },
+        "P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN": {
+            "name": "P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN",
+            "documentation": "Persistent form of a single-valued function parameter whose type is an open generic parameter, e.g. `T`.",
+            "ancestors": [
+                "P_BMM_FUNCTION_PARAMETER"
+            ],
+            "properties": {
+                "type": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "type",
+                    "documentation": "Open type parameter, i.e. a generic parameter name such as `T`, `G` etc. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "String"
+                }
+            }
+        },
+        "P_BMM_CONTAINER_FUNCTION_PARAMETER": {
+            "name": "P_BMM_CONTAINER_FUNCTION_PARAMETER",
+            "documentation": "Persistent form of a function parameter whose type is a container type such as `List<T>`.",
+            "ancestors": [
+                "P_BMM_FUNCTION_PARAMETER"
+            ],
+            "properties": {
+                "type_def": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "type_def",
+                    "documentation": "Type definition of this parameter. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "P_BMM_CONTAINER_TYPE"
+                },
+                "cardinality": {
+                    "_type": "P_BMM_GENERIC_PROPERTY",
+                    "name": "cardinality",
+                    "documentation": "Cardinality of this parameter, if a container type. Persisted attribute.",
+                    "type_def": {
+                        "root_type": "Interval",
+                        "generic_parameters": [
+                            "Integer"
+                        ]
+                    }
+                }
+            }
+        },
+        "P_BMM_GENERIC_FUNCTION_PARAMETER": {
+            "name": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+            "documentation": "Persistent form of a function parameter whose type is a generic type such as `Interval<Time>`.",
+            "ancestors": [
+                "P_BMM_FUNCTION_PARAMETER"
+            ],
+            "properties": {
+                "type_def": {
+                    "_type": "P_BMM_SINGLE_PROPERTY",
+                    "name": "type_def",
+                    "documentation": "Type definition of this parameter. Persisted attribute.",
+                    "is_mandatory": true,
+                    "type": "P_BMM_GENERIC_TYPE"
                 }
             }
         },

@@ -15,6 +15,14 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
+h|*1..1*
+|*bmm_version*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Version of the BMM (P_BMM) meta-model to which this schema conforms, e.g. `2.4`. Persisted attribute.
+
+h|*0..1*
+|*includes*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],link:/releases/LANG/{lang_release}/bmm.html#_bmm_include_spec_class[BMM_INCLUDE_SPEC^]>`
+a|Other schemas included by this schema, keyed by schema id. Persisted attribute.
+
 h|*0..1*
 |*primitive_types*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_p_bmm_class_class,P_BMM_CLASS>>>`
 a|Primitive type definitions. Persisted attribute.

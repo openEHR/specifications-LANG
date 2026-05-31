@@ -24,8 +24,20 @@ h|*0..1*
 a|List of immediate inheritance parents. If there are generic ancestors, use `_ancestor_defs_` instead. Persisted attribute.
 
 h|*0..1*
+|*constants*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_p_bmm_constant_class,P_BMM_CONSTANT>>>`
+a|Constants defined in this class, keyed by name. Persistent attribute.
+
+h|*0..1*
 |*properties*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_p_bmm_property_class,P_BMM_PROPERTY>>>`
 a|List of attributes defined in this class. Persistent attribute.
+
+h|*0..1*
+|*functions*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_p_bmm_function_class,P_BMM_FUNCTION>>>`
+a|List of functions (routines) defined in this class, keyed by name. Persistent attribute.
+
+h|*0..1*
+|*invariants*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
+a|Invariants defined on this class, as a Hash of assertion expressions keyed by tag. Persisted attribute.
 
 h|*0..1*
 |*is_abstract*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`

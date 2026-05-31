@@ -193,6 +193,78 @@ Indexed containers such as `Hash<K,V>`, `Dictionary<K,V>` etc are also suuported
 
 The above represents a property `custom_actions: Hash <String, EVENT_ACTION>` in the class `CALLBACK_WAIT`. The meta-element `index_type` is used to state the key type.
 
+==== Functions
+
+NOTE: The `P_BMM` function meta-types were introduced in version 2.4 to capture the operation specifications of the openEHR models (migrated from UML to the `bmm-publisher` tooling in 2026). They are not yet widely adopted by BMM tooling.
+
+Alongside properties, a class definition may declare _functions_ (routines), expressed as ODIN object blocks under the `_functions_` keyword, keyed by function name. A function is a `P_BMM_FUNCTION`, whose formal parameters appear under `_parameters_`, keyed by parameter name, and whose return type, if any, is stated in `_result_`. A function with no `_result_` is a procedure.
+
+Each parameter carries an ODIN type marker indicating its `P_BMM_FUNCTION_PARAMETER` subtype, in direct analogy with the property meta-types:
+
+* `P_BMM_SINGLE_FUNCTION_PARAMETER` - a parameter of simple (class) type, stated in `_type_`;
+* `P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN` - a parameter whose type is an open generic parameter such as `T`;
+* `P_BMM_CONTAINER_FUNCTION_PARAMETER` - a parameter of container type, e.g. `List<ITEM>`, stated in `_type_def_`;
+* `P_BMM_GENERIC_FUNCTION_PARAMETER` - a parameter of generic type, e.g. `Interval<Time>`, stated in `_type_def_`.
+
+The `_result_` is expressed in the same way as a property type, i.e. using a `P_BMM_TYPE` type marker such as `P_BMM_SIMPLE_TYPE`, `P_BMM_CONTAINER_TYPE` or `P_BMM_GENERIC_TYPE`. The optional `_is_nullable_` meta-property indicates that the result may be `Void`.
+
+The following shows the class `BMM_MODEL` with a function `_class_definition_`, taking a single `String` parameter `_a_name_` and returning a `BMM_CLASS`:
+
+[source, odin]
+--------
+    ["BMM_MODEL"] = <
+        name = <"BMM_MODEL">
+        ancestors = <"BMM_PACKAGE_CONTAINER">
+        functions = <
+            ["class_definition"] = <
+                name = <"class_definition">
+                parameters = <
+                    ["a_name"] = (P_BMM_SINGLE_FUNCTION_PARAMETER) <
+                        name = <"a_name">
+                        type = <"String">
+                    >
+                >
+                result = (P_BMM_SIMPLE_TYPE) <
+                    type = <"BMM_CLASS">
+                >
+            >
+        >
+    >
+--------
+
+==== Constants
+
+A class may define named, typed _constants_, expressed as ODIN object blocks under the `_constants_` keyword, keyed by constant name. Each constant is a `P_BMM_CONSTANT` carrying its `_type_` (a simple class name) and its literal `_value_` in serialised form. The following shows the class `OPENEHR_DEFINITIONS` with a single `String` constant:
+
+[source, odin]
+--------
+    ["OPENEHR_DEFINITIONS"] = <
+        name = <"OPENEHR_DEFINITIONS">
+        constants = <
+            ["Local_terminology_id"] = <
+                name = <"Local_terminology_id">
+                type = <"String">
+                value = <"local">
+            >
+        >
+    >
+--------
+
+==== Invariants
+
+Class _invariants_ are expressed under the `_invariants_` keyword as a set of assertion expressions keyed by tag. Each value is the assertion text, written in the relevant expression syntax (typically the openEHR Basic Expression Language, BEL); `P_BMM` itself treats the assertion as an opaque string. The following shows two invariants on the class `LOCATABLE`:
+
+[source, odin]
+--------
+    ["LOCATABLE"] = <
+        name = <"LOCATABLE">
+        invariants = <
+            ["Links_valid"] = <"links /= Void implies not links.is_empty">
+            ["Archetype_node_id_valid"] = <"not archetype_node_id.is_empty">
+        >
+    >
+--------
+
 === Generic Classes
 
 Generic classes are those that have one or more substitutable generic type parameters. Such classes are therefore _type generators_, since actual types are formed by substitution of concrete types (typically simple classes) for the formal type parameters. The following example shows a generic class `Interval` with `generic_parameter_defs` of `T` which is constrained to conform to the type `Ordered`. This structure defines the type `Interval<T->Ordered>`, with the same meaning as UML and programming languages supporting generic (templated) types.
