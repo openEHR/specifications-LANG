@@ -235,25 +235,27 @@
 <tr>
 <th class="tableblock halign-left valign-top">Issue</th>
 <th class="tableblock halign-left valign-top">Details</th>
-<th class="tableblock halign-left valign-top">Raiser, Implementer</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
 <th class="tableblock halign-left valign-top">Completed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.2.0</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="latest_issue"></a><a href="https://specifications.openehr.org/tickets/SPECLANG-9">SPECLANG-9</a>. Import old Expression Language as 'Basic Expression Language';<br>
- Add <code>OPERATOR_KIND</code> enumeration.</p>
-</div></div></td>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.1.0 (unreleased)</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>1.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-9" target="_blank" rel="noopener">SPECLANG-9</a>. Import old Expression Language as 'Basic Expression Language';<br>
+ Add <code>OPERATOR_KIND</code> enumeration.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 May 2022</p></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Pre-LANG (Expression Language)</strong></p></th>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.1.5</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a href="https://specifications.openehr.org/tickets/SPECBASE-33">SPECBASE-33</a>. Retrospectively release interim form of Expression Language.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECBASE-33" target="_blank" rel="noopener">SPECBASE-33</a>. Retrospectively release interim form of Expression Language.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
  P Bos,<br>
  D Bosca</p></td>
@@ -261,25 +263,19 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.1.0</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a href="https://specifications.openehr.org/tickets/SPECPUB-6">SPECPUB-6</a>. Correct UML package nesting and paths in documents; insert <code>base</code> parent package; rename <code>expressions</code> package to <code>expression</code>.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECPUB-6" target="_blank" rel="noopener">SPECPUB-6</a>. Correct UML package nesting and paths in documents; insert <code>base</code> parent package; rename <code>expressions</code> package to <code>expression</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">27 Nov 2017</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.1</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Correct type of <code>OP_DEF_EXISTS.<em>evaluation_agent</em></code> to <code>FUNCTION&lt;&lt;Any&gt;, Boolean&gt;</code>.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correct type of <code>OP_DEF_EXISTS.<em>evaluation_agent</em></code> to <code>FUNCTION&lt;&lt;Any&gt;, Boolean&gt;</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">C Nanjo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">31 May 2016</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Initial writing. Taken from AOM2 2.0.6.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial writing. Taken from AOM2 2.0.6.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
  openEHR SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">15 Feb 2016</p></td>
@@ -1301,7 +1297,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional name of this rule set.</p>
 </div></div></td>
@@ -1313,7 +1309,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execution_result</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execution_result</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Execution result of the whole rule set. Determined by the and-ing of result values of Assertions in the rule set.</p>
 </div></div></td>
@@ -1373,14 +1369,14 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Expression tag, used for differentiating multiple assertions.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>string_expression</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>string_expression</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>String form of expression, in case an expression evaluator taking String expressions is used for evaluation.</p>
 </div></div></td>
@@ -1425,7 +1421,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Name of the variable.</p>
 </div></div></td>
@@ -1550,7 +1546,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional name of context. This allows a basic separation of query types to be done in more sophisticated environments. Possible values might be “patient”, “medications” and so on.
 Not yet standardised.</p>
@@ -1558,7 +1554,7 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Identifier of query in the external context, e.g. “date_of_birth”.
 Not yet standardised.</p>
@@ -1566,7 +1562,7 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_args</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_args</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional arguments to query.
 Not yet standardised.</p>
@@ -1644,7 +1640,7 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precedence_overridden</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precedence_overridden</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if the natural precedence of operators is overridden in the expression represented by this node of the expression tree. If True, parentheses should be introduced around the totality of the syntax expression corresponding to this operator node and its operands.</p>
 </div></div></td>
@@ -1658,9 +1654,15 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The symbol actually used in the rule, or intended to be used for serialisation. Must be a member of <code>operator_def.symbols</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Symbol_validity</em>: <code>symbol /= Void implies operator_def.symbols.has (symbol)</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2025,7 +2027,7 @@ Not yet standardised.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
@@ -2216,7 +2218,7 @@ Not yet standardised.</p>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Natural language type name of this type as used in abstract rules syntax variable declarations.</p>
 </div></div></td>
@@ -2262,8 +2264,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Boolean"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2306,8 +2307,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Integer"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2350,8 +2350,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Real"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2394,8 +2393,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Date"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2438,8 +2436,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Date_time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2482,8 +2479,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2526,8 +2522,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Duration"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2570,8 +2565,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"String"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2614,8 +2608,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Uri"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2658,8 +2651,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Terminology_code"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -2702,8 +2694,7 @@ Not yet standardised.</p>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
 (redefined)</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code>String<br>
-{default&#160;=&#160;"Object_ref"}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>

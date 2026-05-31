@@ -22,6 +22,7 @@ a|Items in the tuple, potentially with names. Typical use is to represent an arg
 h|*1..1*
 |*type*: `<<_bmm_tuple_type_class,BMM_TUPLE_TYPE>>`
 a|Static type inferred from literal value.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

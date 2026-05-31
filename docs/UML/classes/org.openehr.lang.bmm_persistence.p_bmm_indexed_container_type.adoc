@@ -5,9 +5,6 @@
 h|*Class*
 2+^h|*P_BMM_INDEXED_CONTAINER_TYPE*
 
-h|*Description*
-2+a|
-
 h|*Inherit*
 2+|`<<_p_bmm_container_type_class,P_BMM_CONTAINER_TYPE>>`
 
@@ -16,7 +13,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*index_type*: `String`
+|*index_type*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1 +

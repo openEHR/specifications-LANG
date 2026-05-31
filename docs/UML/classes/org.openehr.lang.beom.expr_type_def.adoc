@@ -13,7 +13,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*type_name*: `String`
+|*type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Natural language type name of this type as used in abstract rules syntax variable declarations.
 
 h|*1..1*

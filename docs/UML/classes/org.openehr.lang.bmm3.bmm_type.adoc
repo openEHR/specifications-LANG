@@ -14,23 +14,23 @@ h|*Functions*
 
 h|*1..1 +
 (abstract)*
-|*type_name* (): `String`
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Formal string form of the type as per UML.
 
 h|*1..1*
-|*type_signature* (): `String`
+|*type_signature* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Signature form of the type name, which for generics includes generic parameter constrainer types E.g. `Interval<T:Ordered>`.
 
 Defaults to the value of `_type_name()_`.
 
 h|*1..1 +
 (abstract)*
-|*is_abstract* (): `Boolean`
+|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|If true, indicates a type based on an abstract class, i.e. a type that cannot be directly instantiated.
 
 h|*1..1 +
 (abstract)*
-|*is_primitive* (): `Boolean`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|If True, indicates that a type based solely on primitive classes.
 
 h|*1..1 +
@@ -45,6 +45,6 @@ a|Type with any container abstracted away, and any formal parameter replaced by 
 
 h|*1..1 +
 (abstract)*
-|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<String>`
+|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Completely flattened list of type names, flattening out all generic parameters.
 |===

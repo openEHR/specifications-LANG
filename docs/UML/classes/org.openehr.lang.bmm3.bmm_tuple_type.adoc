@@ -17,23 +17,24 @@ h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
-(redefined)*
-|*base_name*: `String{nbsp}={nbsp}"Tuple"`
+h|*1..1*
+|*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Tuple"`
 a|Base name (built-in).
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*item_types*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<String,<<_bmm_type_class,BMM_TYPE>>>`
+|*item_types*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_bmm_type_class,BMM_TYPE>>>`
 a|List of types of the items of the tuple, keyed by purpose in the tuple.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1 +
 (effected)*
-|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<String>`
+|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Return the logical set (i.e. unique types) from the merge of `_flattened_type_list_()` called on each member of `_item_types_`.
 |===

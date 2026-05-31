@@ -22,17 +22,20 @@ a|
 h|*1..1*
 |*base_class*: `<<_bmm_class_class,BMM_CLASS>>`
 a|Base class of this type.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1 +
 (effected)*
-|*type_base_name* (): `String`
+|*type_base_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Result = `_base_class.name_`.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `Boolean`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
+ +
+__Post_validity__: `Result = base_class.is_primitive`
 a|Result = `_base_class.is_primitive_`.
 |===

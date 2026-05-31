@@ -12,13 +12,13 @@ The screenshot below shows a number of BMMs loaded into the AWB, including some 
 .BMM schemas loaded
 image::{images_uri}/awb_loaded_bmm_schemas.png[id=awb_loaded_bmm_schemas, align="center", width="40%"]
 
-The following shows a single class in the inheritance-flattened properties view, otherwise known as the 'flat view' . The structure of the class as properties, types, multiplicities, inheritance etc are all provided by the in-memory BMM classes.
+The following shows a single class in the inheritance-flattened properties view, otherwise known as the 'flat view'. The structure of the class as properties, types, multiplicities, inheritance etc are all provided by the in-memory BMM classes.
 
 [.text-center]
 .BMM class - properties view
 image::{images_uri}/awb_class_properties.png[id=awb_class_properties, align="center", width="50%"]
 
-The following shows a class in a 'closure' view, which is a computed reachability graph of a fully inheritance flattened class and all properties, including recursive references.
+The following shows a class in a 'closure' view, which is a computed reachability graph of a fully inheritance-flattened class and all properties, including recursive references.
 
 [.text-center]
 .BMM class - closure view

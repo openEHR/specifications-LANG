@@ -15,10 +15,10 @@ h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
-(redefined)*
-|*base_name*: `String{nbsp}={nbsp}"Routine"`
+h|*1..1*
+|*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Routine"`
 a|Base name (built-in).
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*

@@ -22,6 +22,6 @@ h|*1..1*
 a|Boolean-valued expression of the assertion.
 
 h|*0..1*
-|*tag*: `String`
+|*tag*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Optional tag, typically used to designate design intention of the assertion, e.g. `"Inv_all_members_valid"`.
 |===

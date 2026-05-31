@@ -5,10 +5,7 @@
 h|*Enumeration*
 2+^h|*BMM_SCHEMA_METADATA_KEY*
 
-h|*Description*
-2+a|
-
-h|*Attributes*
+h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 

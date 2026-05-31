@@ -15,6 +15,11 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
+h|*1..1 +
+(redefined)*
+|*scope*: `<<_bmm_model_class,BMM_MODEL>>`
+a|Model within which module is defined.
+
 h|*0..1*
 |*feature_groups*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_feature_group_class,BMM_FEATURE_GROUP>>>`
 a|List of feature groups in this class.
@@ -22,9 +27,4 @@ a|List of feature groups in this class.
 h|*0..1*
 |*features*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_bmm_formal_element_class,BMM_FORMAL_ELEMENT>>>`
 a|Features of this module.
-
-h|*1..1 +
-(redefined)*
-|*scope*: `<<_bmm_model_class,BMM_MODEL>>`
-a|Model within which module is defined.
 |===

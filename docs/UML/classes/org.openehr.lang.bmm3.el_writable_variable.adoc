@@ -21,7 +21,6 @@ a|Variable definition to which this reference refers.
 
 h|*1..1 +
 (redefined)*
-|*is_writable*: `Boolean +
-{default{nbsp}={nbsp}true}`
+|*is_writable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Defined to return True in all cases.
 |===

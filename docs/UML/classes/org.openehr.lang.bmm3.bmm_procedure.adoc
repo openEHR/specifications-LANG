@@ -19,6 +19,7 @@ h|*1..1 +
 (redefined)*
 |*type*: `<<_bmm_status_type_class,BMM_STATUS_TYPE>>`
 a|Declared or inferred static type of the entity.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -31,4 +32,7 @@ a|Formal signature of this element, in the form:
 `name [arg1_name: T_arg1, ...][:T_value]`
 
 Specific implementations in descendants.
+
+h|*Invariants*
+2+a|__Inv_signature_no_result__: `signature().result = Void`
 |===

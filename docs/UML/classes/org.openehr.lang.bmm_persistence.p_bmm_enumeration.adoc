@@ -16,12 +16,16 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*item_names*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<String>`
+|*item_names*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|
 
 h|*0..1*
 |*item_values*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]>`
 a|
+
+h|*0..1*
+|*item_documentations*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
+a|Optional documentation strings for the enumeration items, in the same order as `_item_names_`. Persisted attribute.
 
 h|*0..1 +
 (redefined)*

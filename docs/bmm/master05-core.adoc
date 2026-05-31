@@ -41,7 +41,7 @@ The BMM supports single and multiple inheritance, although it does not distingui
 .BMM class - ancestors view
 image::{images_uri}/awb_class_ancestors.png[id=awb_class_ancestors, align="center", width="40%"]
 
-The next screenshot shows the descendants view of one of the ancestorsclasses of the same class.
+The next screenshot shows the descendants view of one of the ancestor classes of the same class.
 
 [.text-center]
 .BMM class - descendants view
@@ -74,6 +74,7 @@ include::{uml_export_dir}/classes/{pkg}bmm_container_property.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_simple_type.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_open_type.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_container_type.adoc[]
+include::{uml_export_dir}/classes/{pkg}bmm_indexed_container_type.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_generic_type.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_generic_parameter.adoc[]
 include::{uml_export_dir}/classes/{pkg}bmm_generic_class.adoc[]
