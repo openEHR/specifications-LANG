@@ -13,12 +13,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^] +
-{default{nbsp}={nbsp}"feature"}`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Name of this feature group; defaults to 'feature'.
 
 h|*1..1*
-|*properties*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
+|*properties*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Set of properties of this group, represented as name/value pairs. These are understood to apply logically to all of the features contained within the group.
 
 h|*0..1*

@@ -15,8 +15,7 @@ h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1 +
-(redefined)*
-|*base_name*: `String{nbsp}={nbsp}"Function"`
+h|*1..1*
+|*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}"Function"`
 a|Base name (built-in).
 |===

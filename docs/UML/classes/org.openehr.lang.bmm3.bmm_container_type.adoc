@@ -24,33 +24,34 @@ h|*1..1*
 a|The container item type.
 
 h|*0..1*
-|*is_ordered*: `Boolean +
-{default{nbsp}={nbsp}true}`
+|*is_ordered*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
+`{default{nbsp}={nbsp}true}`
 a|True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics.
 
 h|*0..1*
-|*is_unique*: `Boolean +
-{default{nbsp}={nbsp}false}`
+|*is_unique*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
+`{default{nbsp}={nbsp}false}`
 a|True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `String`
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Return full type name, e.g. `List<ELEMENT>`.
 
 h|*1..1 +
 (effected)*
-|*is_abstract* (): `Boolean` +
+|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
 __Post_is_abstract__: `Result = container_type.is_abstract`
 a|True if the container class is abstract.
 
 h|*1..1 +
 (effected)*
-|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<String>` +
+|*flattened_type_list* (): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>` +
  +
 __Post_result__: `Result = item_type.flattened_type_list`
 a|Flattened list of type names of `_item_type_`, i.e. `_item_type.flattened_type_list_()`.
@@ -62,8 +63,9 @@ a|Return `_item_type_`.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `Boolean` +
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
+__Post_validity__: `Result = base_class.is_primitive` +
 __Post_result__: `Result = item_type.is_primitive`
 a|True if `_item_type_` is primitive.
 

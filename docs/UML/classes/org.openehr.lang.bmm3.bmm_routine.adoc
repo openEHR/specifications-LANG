@@ -34,11 +34,12 @@ A False post-condition implies an error (i.e. bug) in routine code.
 h|*0..1*
 |*definition*: `<<_bmm_routine_definition_class,BMM_ROUTINE_DEFINITION>>`
 a|Body of a routine, i.e. executable program.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*arity* (): `Integer`
+|*arity* (): `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]`
 a|Return number of arguments of this routine.
 |===

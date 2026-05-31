@@ -19,12 +19,17 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
+h|*1..1 +
+(redefined)*
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Name of the routine being called.
+
 h|*0..1*
 |*closed_args*: `<<_el_tuple_class,EL_TUPLE>>`
 a|Closed arguments of a routine call as a tuple of objects.
 
 h|*0..1*
-|*open_args*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<String>`
+|*open_args*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Optional list of names of open arguments of the call. If not provided, and the `_name_` refers to a routine with more arguments than supplied in `_closed_args_`, the missing arguments are inferred from the `_definition_`.
 
 h|*0..1*
@@ -33,14 +38,9 @@ a|Reference to definition of a routine for which this is an agent, if one exists
 
 h|*1..1 +
 (redefined)*
-|*name*: `String`
-a|Name of the routine being called.
-
-h|*1..1 +
-(redefined)*
-|*is_writable*: `Boolean +
-{default{nbsp}={nbsp}false}`
+|*is_writable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
@@ -53,13 +53,13 @@ __Post_result__: `Result = definition.signature`
 a|Eval type is the signature corresponding to the (remaining) open arguments and return type, if any.
 
 h|*1..1*
-|*is_callable* (): `Boolean` +
+|*is_callable* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
 __Post_result_validity__: `Result = open_arguments = Void`
 a|True if there are no open arguments.
 
 h|*1..1 +
 (redefined)*
-|*reference* (): `String`
+|*reference* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Generated full reference name, including scoping elements.
 |===

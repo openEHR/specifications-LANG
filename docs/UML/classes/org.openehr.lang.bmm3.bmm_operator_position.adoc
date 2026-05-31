@@ -8,7 +8,7 @@ h|*Enumeration*
 h|*Description*
 2+a|Enumeration of possible position of operator in a syntactic representation for operators associated with 1- and 2- degree functions.
 
-h|*Attributes*
+h|*Constants*
 ^h|*Signature*
 ^h|*Meaning*
 

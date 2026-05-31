@@ -16,29 +16,30 @@ h|*Constants*
 ^h|*Meaning*
 
 h|*1..1*
-|*base_name*: `String{nbsp}={nbsp}`
+|*base_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]{nbsp}={nbsp}`
 a|Base name (built-in typename).
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1 +
 (effected)*
-|*is_abstract* (): `Boolean`
+|*is_abstract* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return False.
 
 h|*1..1 +
 (effected)*
-|*is_primitive* (): `Boolean`
+|*is_primitive* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True.
 
 h|*1..1 +
 (effected)*
-|*type_base_name* (): `String`
+|*type_base_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Return `_base_name_`.
 
 h|*1..1 +
 (effected)*
-|*type_name* (): `String`
+|*type_name* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Return `_base_name_`.
 |===

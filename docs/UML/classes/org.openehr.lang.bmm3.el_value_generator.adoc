@@ -16,17 +16,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*is_writable*: `Boolean`
+|*is_writable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|
 
 h|*1..1*
-|*name*: `String`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Name used to represent the reference or other entity.
+
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*reference* (): `String`
+|*reference* (): `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Generated full reference name, based on constituent parts of the entity. Default version outputs `_name_` field.
 |===
