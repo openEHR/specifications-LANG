@@ -588,7 +588,7 @@ Within a container type, the structure is slightly different, owing to another l
 In the case of inheritance from simple classes, the `ancestors` list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured `ancestor_defs` section is used instead of the `ancestors` String list, in the same way as for the `P_BMM_GENERIC_PROPERTY` examples above.
 
 [.text-center]
-.Generic inheritance eaxmple model
+.Generic inheritance example model
 image::{uml_diagrams_uri}/LANG-bmm-inheritance-example.svg[id=inheritance_example, align="center"]
 
 [source, odin]
