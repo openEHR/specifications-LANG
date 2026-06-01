@@ -2253,6 +2253,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Boolean\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2274,6 +2275,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Date\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2295,6 +2297,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Date_time\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2316,6 +2319,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Duration\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2337,6 +2341,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Integer\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2358,6 +2363,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Object_ref\"",
                     "type": "String"
                 }
             }
@@ -2373,6 +2379,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Real\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2394,6 +2401,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"String\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2415,6 +2423,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Terminology_code\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2436,6 +2445,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Time\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2457,6 +2467,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "type_name",
                     "is_mandatory": true,
+                    "default": "\"Uri\"",
                     "type": "String"
                 },
                 "type_anchor": {
@@ -2805,6 +2816,7 @@
                     "name": "underlying_type_name",
                     "documentation": "Name of type any concrete BMM_ENUMERATION_* sub-type is based on. Redefined to \"INTEGER\".",
                     "is_mandatory": true,
+                    "default": "\"INTEGER\"",
                     "type": "String"
                 }
             }
@@ -2821,6 +2833,7 @@
                     "name": "underlying_type_name",
                     "documentation": "Name of type any concrete BMM_ENUMERATION_* sub-type is based on. Redefined to \"STRING\".",
                     "is_mandatory": true,
+                    "default": "\"STRING\"",
                     "type": "String"
                 }
             }
