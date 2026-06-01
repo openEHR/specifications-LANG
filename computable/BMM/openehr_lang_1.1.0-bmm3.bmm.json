@@ -391,16 +391,15 @@
                     }
                 },
                 "all_schemas": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "all_schemas",
                     "documentation": "All schemas found and loaded from `_schema_directory_`. Keyed by `_schema_id_`.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_SCHEMA_DESCRIPTOR"
+                        ]
                     }
                 },
                 "bmm_models": {
@@ -416,16 +415,15 @@
                     }
                 },
                 "matching_bmm_models": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "matching_bmm_models",
                     "documentation": "Validated models, keyed by `_model_id()_` and any shorter forms of id, with some or no versioning information. For example, the keys `\"openEHR_EHR_1.0.4\"`, `\"openEHR_EHR_1.0\"`, `\"openEHR_EHR_1\"`, and `\"openEHR_EHR\"` will all match the `\"openEHR_EHR_1.0.4\"` model, assuming it is the most recent version available.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_MODEL"
+                        ]
                     }
                 }
             },
@@ -969,6 +967,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_nullable",
                     "documentation": "True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes..",
+                    "default": false,
                     "type": "Boolean"
                 }
             },
@@ -1004,16 +1003,15 @@
             ],
             "properties": {
                 "ancestors": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "ancestors",
                     "documentation": "List of immediate inheritance parents.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_MODEL_TYPE"
+                        ]
                     }
                 },
                 "package": {
@@ -1024,16 +1022,15 @@
                     "type": "BMM_PACKAGE"
                 },
                 "properties": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "properties",
                     "documentation": "Properties defined in this class (subset of `_features_`).",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_PROPERTY"
+                        ]
                     }
                 },
                 "source_schema_id": {
@@ -1064,42 +1061,39 @@
                     "type": "Boolean"
                 },
                 "static_properties": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "static_properties",
                     "documentation": "Static properties defined in this class (subset of `_features_`).",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_STATIC"
+                        ]
                     }
                 },
                 "functions": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "functions",
                     "documentation": "Functions defined in this class (subset of `_features_`).",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_FUNCTION"
+                        ]
                     }
                 },
                 "procedures": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "procedures",
                     "documentation": "Procedures defined in this class (subset of `_features_`).",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_PROCEDURE"
+                        ]
                     }
                 },
                 "is_primitive": {
@@ -1129,29 +1123,27 @@
                     }
                 },
                 "creators": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "creators",
                     "documentation": "Subset of `_procedures_` that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_PROCEDURE"
+                        ]
                     }
                 },
                 "converters": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "converters",
                     "documentation": "Subset of `_creators_` that create a new instance from a single argument of another type.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_PROCEDURE"
+                        ]
                     }
                 },
                 "features": {
@@ -2401,18 +2393,21 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_im_runtime",
                     "documentation": "True if this property is marked with info model `_im_runtime_` property.",
+                    "default": false,
                     "type": "Boolean"
                 },
                 "is_im_infrastructure": {
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_im_infrastructure",
                     "documentation": "True if this property was marked with info model `_im_infrastructure_` flag.",
+                    "default": false,
                     "type": "Boolean"
                 },
                 "is_composition": {
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_composition",
                     "documentation": "True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas.",
+                    "default": false,
                     "type": "Boolean"
                 }
             },
@@ -2626,6 +2621,7 @@
                     "name": "name",
                     "documentation": "Name of this model element.",
                     "is_mandatory": true,
+                    "default": "\"Result\"",
                     "type": "String"
                 }
             }
@@ -2683,6 +2679,7 @@
                     "name": "name",
                     "documentation": "Name of this feature group; defaults to 'feature'.",
                     "is_mandatory": true,
+                    "default": "\"feature\"",
                     "type": "String"
                 },
                 "properties": {
@@ -2736,6 +2733,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_synthesised_generic",
                     "documentation": "True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter.",
+                    "default": false,
                     "type": "Boolean"
                 },
                 "feature_extensions": {
@@ -2779,6 +2777,7 @@
                     "name": "name",
                     "documentation": "Name of this model element.",
                     "is_mandatory": true,
+                    "default": "\"Self\"",
                     "type": "String"
                 }
             }
@@ -3033,16 +3032,15 @@
             ],
             "properties": {
                 "class_definitions": {
-                    "_type": "P_BMM_CONTAINER_PROPERTY",
+                    "_type": "P_BMM_GENERIC_PROPERTY",
                     "name": "class_definitions",
                     "documentation": "All classes in this model, keyed by type name.",
                     "type_def": {
-                        "container_type": "List",
-                        "type": "String"
-                    },
-                    "cardinality": {
-                        "lower": 0,
-                        "upper_unbounded": true
+                        "root_type": "Hash",
+                        "generic_parameters": [
+                            "String",
+                            "BMM_CLASS"
+                        ]
                     }
                 },
                 "used_models": {
@@ -3640,6 +3638,7 @@
                     "name": "is_writable",
                     "documentation": "Defined to return True.",
                     "is_mandatory": true,
+                    "default": true,
                     "type": "Boolean"
                 }
             },
@@ -3708,6 +3707,7 @@
                     "name": "is_writable",
                     "documentation": "Defined to return False.",
                     "is_mandatory": true,
+                    "default": false,
                     "type": "Boolean"
                 }
             },
@@ -3794,6 +3794,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_writable",
                     "is_mandatory": true,
+                    "default": false,
                     "type": "Boolean"
                 }
             },
@@ -4011,6 +4012,7 @@
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_mutable",
                     "is_mandatory": true,
+                    "default": false,
                     "type": "Boolean"
                 }
             },
@@ -4301,6 +4303,7 @@
                     "name": "is_writable",
                     "documentation": "Defined to return False.",
                     "is_mandatory": true,
+                    "default": false,
                     "type": "Boolean"
                 }
             }
@@ -4324,6 +4327,7 @@
                     "name": "is_writable",
                     "documentation": "Defined to return True in all cases.",
                     "is_mandatory": true,
+                    "default": true,
                     "type": "Boolean"
                 }
             }
@@ -4347,6 +4351,7 @@
                     "name": "is_writable",
                     "documentation": "Defined to return False in all cases.",
                     "is_mandatory": true,
+                    "default": false,
                     "type": "Boolean"
                 }
             }
@@ -4434,6 +4439,9 @@
                     "is_mandatory": true,
                     "type": "EL_PROCEDURE_AGENT"
                 }
+            },
+            "invariants": {
+                "Inv_valid_agent": "agent.is_callable()"
             }
         },
         "BMM_STATEMENT_ITEM": {
