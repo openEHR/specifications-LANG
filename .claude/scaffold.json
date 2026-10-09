@@ -1,6 +1,6 @@
 {
   "template_set": "openehr-specs/scaffold",
-  "revision": 2,
+  "revision": 4,
   "variables": {
     "component": "LANG",
     "repo_name": "specifications-LANG",
@@ -14,7 +14,7 @@
     "default_branch": "master",
     "license": "cc-by-sa-3.0",
     "bmm_schema_id": "openehr_lang_1.1.0",
-    "base_bmm_schema_id": "openehr_base_1.3.0",
+    "bmm_dependencies": "openehr_base_1.3.0",
     "documents": "`odin`, `bmm`, `bmm3`, `bmm_persistence`, `BEL`, `EL`"
   },
   "defaulted": [
@@ -24,8 +24,8 @@
   "files": {
     "agents": {
       "regions": {
-        "plugin": "dd6d65ed405901c82ef1d99cfac9a6e6f6d5b7ae14dfec0dbde5c921d8fc8168",
-        "build": "00916599d2341a31036109ce13c13d3053fc9a793a3a9abfb53cfc453fc86849",
+        "plugin": "d380efc89348e4103fdc40b347fabffcea35e7310cad52ce1f222cc4b3ece89f",
+        "build": "c771e077f1037d7b38533bfd6db659a6aac9f9a1a9c21820270dd7f027225cbc",
         "conventions": "31cbd87e8b6c92a363f131946310d9ce7153c82b531569f5c36c119c432f195b"
       }
     },
