@@ -13,3 +13,6 @@
 
 # Local AI agent settings (per-machine permissions, etc.)
 .claude/settings.local.json
+
+# temp files
+temp/
