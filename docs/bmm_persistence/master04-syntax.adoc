@@ -14,9 +14,9 @@ A BMM schema is a serialisation of the `P_BMM_*` object graph, and may be writte
 
 Whatever the format, the same serialisation rules apply:
 
-* *File heading.* A schema file begins with the header (meta) items corresponding to the persisted attributes of `P_BMM_SCHEMA` (`_bmm_version_`, `_rm_publisher_`, `_schema_name_`, `_rm_release_`, `_schema_revision_`, `_schema_lifecycle_state_`, `_schema_description_`, `_schema_author_`), followed by `_includes_`, `_packages_`, and `_class_definitions_`.
+* *File heading.* A schema file begins with the header (meta) items corresponding to the persisted attributes of `P_BMM_SCHEMA` (`_bmm_version_`, `_rm_publisher_`, `_schema_name_`, `_rm_release_`, `_schema_revision_`, `_schema_lifecycle_state_`, `_schema_description_`, `_schema_author_`, and the optional `_schema_contributors_`), followed by `_includes_`, `_packages_`, `_primitive_types_`, and `_class_definitions_`.
 * *Type discriminator.* Wherever a value may be one of several `P_BMM_*` subtypes (for example a property, a function parameter, or a result type), the concrete subtype is always stated explicitly via a `_type` discriminator. Where the type is unambiguous from context (such as a class definition or a package), no discriminator is needed. Each format renders the discriminator in its own idiom: ODIN uses a type marker `(P_BMM_SINGLE_PROPERTY)`, JSON a `"_type": "P_BMM_SINGLE_PROPERTY"` member, and YAML a tag `!P_BMM_SINGLE_PROPERTY`.
-* *Keyed collections.* Maps such as `_class_definitions_`, `_properties_`, `_functions_`, function `_parameters_`, and `_packages_` are keyed by name.
+* *Keyed collections.* Maps such as `_primitive_types_`, `_class_definitions_`, `_properties_`, `_functions_`, function `_parameters_`, and `_packages_` are keyed by name. `_ancestor_defs_` is keyed by type signature (e.g. `GENERIC_PARENT<T,SUPPLIER_B>`), and the `_generic_parameter_defs_` of a generic type by formal generic parameter name (e.g. `T`).
 
 The following shows the same class fragment, an abstract class `OBJECT_ID` with a single mandatory `String` property `_value_`, in each of the three formats.
 
@@ -585,7 +585,7 @@ Within a container type, the structure is slightly different, owing to another l
 
 == Inheritance
 
-In the case of inheritance from simple classes, the `ancestors` list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured `ancestor_defs` section is used instead of the `ancestors` String list, in the same way as for the `P_BMM_GENERIC_PROPERTY` examples above.
+In the case of inheritance from simple classes, the `ancestors` list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured `ancestor_defs` section is used instead of the `ancestors` String list, in the same way as for the `P_BMM_GENERIC_PROPERTY` examples above. Since `ancestor_defs` replaces `ancestors`, a class that also inherits from a non-generic class lists that ancestor in `ancestor_defs` too, as a `P_BMM_SIMPLE_TYPE`.
 
 [.text-center]
 .Generic inheritance example model
