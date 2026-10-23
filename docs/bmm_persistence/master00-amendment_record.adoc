@@ -7,9 +7,14 @@
 4+^h|*LANG Release 1.1.0 (unreleased)*
 
 |[[latest_issue]]2.4.0
+|{spec_tickets}/SPECLANG-18[SPECLANG-18^]: Document how JSON and YAML encode an interval (the `_cardinality_` of a container property or container function parameter) and how a reader treats absent members; write the default cardinality as `\|>=0\|`, a valid ODIN interval, instead of `\|0..*\|`.
+|S Iancu
+|[[latest_issue_date]]24 Oct 2026
+
+|
 |{spec_tickets}/SPECLANG-16[SPECLANG-16^]: Add support for functions and other missing features in P_BMM: add `P_BMM_FUNCTION` and the `P_BMM_FUNCTION_PARAMETER` family (`P_BMM_SINGLE_FUNCTION_PARAMETER`, `P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN`, `P_BMM_CONTAINER_FUNCTION_PARAMETER`, `P_BMM_GENERIC_FUNCTION_PARAMETER`), `P_BMM_CONSTANT` and `P_BMM_INTERFACE`; add `_functions_`, `_constants_` and `_invariants_` to `P_BMM_CLASS`, `_item_documentations_` to `P_BMM_ENUMERATION`, and `_bmm_version_` and `_includes_` to `P_BMM_SCHEMA`.
 |S Iancu
-|[[latest_issue_date]]31 May 2026
+|31 May 2026
 
 4+^h|*LANG Release 1.0.0*
 
