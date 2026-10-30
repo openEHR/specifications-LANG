@@ -45,7 +45,7 @@ a|True if this is an abstract type. Persisted attribute.
 
 h|*0..1*
 |*is_override*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|True if this class definition overrides one found in an included schema. Persisted attribute.
+a|True if this class definition overrides one found in an included schema.
 
 h|*0..1*
 |*generic_parameter_defs*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_p_bmm_generic_parameter_class,P_BMM_GENERIC_PARAMETER>>>`
