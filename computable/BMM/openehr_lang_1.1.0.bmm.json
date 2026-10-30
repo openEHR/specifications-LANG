@@ -648,7 +648,7 @@
                 "is_override": {
                     "_type": "P_BMM_SINGLE_PROPERTY",
                     "name": "is_override",
-                    "documentation": "True if this class definition overrides one found in an included schema. Persisted attribute.",
+                    "documentation": "True if this class definition overrides one found in an included schema.",
                     "type": "Boolean"
                 },
                 "generic_parameter_defs": {
