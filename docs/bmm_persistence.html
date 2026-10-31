@@ -233,9 +233,21 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-16" target="_blank" rel="noopener">SPECLANG-16</a>: Correct the P_BMM class model to match the syntax chapter and the published schemas: make <code><em>primitive_types</em></code> and <code><em>class_definitions</em></code> of <code>P_BMM_SCHEMA</code>, <code><em>ancestor_defs</em></code> of <code>P_BMM_CLASS</code>, and <code><em>generic_parameter_defs</em></code> of <code>P_BMM_GENERIC_TYPE</code> keyed <code>Hash</code> collections; make <code><em>generic_parameter_defs</em></code> optional; mark <code><em>root_type</em></code> of <code>P_BMM_GENERIC_TYPE</code> as persisted. State in the syntax chapter how <code><em>ancestor_defs</em></code> and <code><em>generic_parameter_defs</em></code> are keyed, and that <code><em>ancestor_defs</em></code> also holds non-generic ancestors.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>31 Oct 2026</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-18" target="_blank" rel="noopener">SPECLANG-18</a>: Document how JSON and YAML encode an interval (the <code><em>cardinality</em></code> of a container property or container function parameter) and how a reader treats absent members; write the default cardinality as <code>|&gt;=0|</code>, a valid ODIN interval, instead of <code>|0..*|</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24 Oct 2026</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECLANG-16" target="_blank" rel="noopener">SPECLANG-16</a>: Add support for functions and other missing features in P_BMM: add <code>P_BMM_FUNCTION</code> and the <code>P_BMM_FUNCTION_PARAMETER</code> family (<code>P_BMM_SINGLE_FUNCTION_PARAMETER</code>, <code>P_BMM_SINGLE_FUNCTION_PARAMETER_OPEN</code>, <code>P_BMM_CONTAINER_FUNCTION_PARAMETER</code>, <code>P_BMM_GENERIC_FUNCTION_PARAMETER</code>), <code>P_BMM_CONSTANT</code> and <code>P_BMM_INTERFACE</code>; add <code><em>functions</em></code>, <code><em>constants</em></code> and <code><em>invariants</em></code> to <code>P_BMM_CLASS</code>, <code><em>item_documentations</em></code> to <code>P_BMM_ENUMERATION</code>, and <code><em>bmm_version</em></code> and <code><em>includes</em></code> to <code>P_BMM_SCHEMA</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>31 May 2026</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31 May 2026</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>LANG Release 1.0.0</strong></p></th>
@@ -579,16 +591,16 @@ These features, and in particular <code>P_BMM</code> functions, exist primarily 
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primitive_types</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primitive_types</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Primitive type definitions. Persisted attribute.</p>
+<p>Primitive type definitions, keyed by class name. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>class_definitions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_class_class">P_BMM_CLASS</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Class definitions. Persisted attribute.</p>
+<p>Class definitions, keyed by class name. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -860,14 +872,14 @@ other: <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a>[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>properties</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_property_class">P_BMM_PROPERTY</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>List of attributes defined in this class. Persistent attribute.</p>
+<p>Properties defined in this class, keyed by name. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>functions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_function_class">P_BMM_FUNCTION</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>List of functions (routines) defined in this class, keyed by name. Persistent attribute.</p>
+<p>Functions (routines) defined in this class, keyed by name. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -895,7 +907,7 @@ other: <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a>[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameter_defs</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_generic_parameter_class">P_BMM_GENERIC_PARAMETER</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>List of generic parameter definitions. Persisted attribute.</p>
+<p>Generic parameter definitions, keyed by parameter name. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -921,9 +933,9 @@ other: <code><a href="#_p_bmm_package_class">P_BMM_PACKAGE</a>[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ancestor_defs</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_generic_type_class">P_BMM_GENERIC_TYPE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ancestor_defs</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_base_type_class">P_BMM_BASE_TYPE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>List of structured inheritance ancestors, used only in the case of generic inheritance. Persisted attribute.</p>
+<p>Structured inheritance ancestors, keyed by type signature, e.g. <code>GENERIC_PARENT&lt;T,SUPPLIER_B&gt;</code>. Used instead of <code><em>ancestors</em></code> when the class has a generic ancestor; any non-generic ancestor of the same class is then also listed here, as a <code>P_BMM_SIMPLE_TYPE</code>. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1434,14 +1446,14 @@ a_class_def: <code><a href="/releases/LANG/development/bmm.html#_bmm_class_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>root_type</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Root type of this generic type, e.g. <code>Interval</code> in <code>Interval&lt;Integer&gt;</code>.</p>
+<p>Root type of this generic type, e.g. <code>Interval</code> in <code>Interval&lt;Integer&gt;</code>. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameter_defs</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_type_class">P_BMM_TYPE</a>&gt;</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameter_defs</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_p_bmm_type_class">P_BMM_TYPE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Generic parameters of the root_type in this type specifier if non-simple types. The order must match the order of the owning class&#8217;s formal generic parameter declarations. Persistent attribute.</p>
+<p>Generic parameters of the <code><em>root_type</em></code> in this type specifier, if non-simple types, keyed by formal generic parameter name, e.g. <code>T</code>. The order must match the order of the owning class&#8217;s formal generic parameter declarations. Persisted attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1469,6 +1481,12 @@ a_class_def: <code><a href="/releases/LANG/development/bmm.html#_bmm_class_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic_parameter_refs</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_p_bmm_type_class">P_BMM_TYPE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Generic parameters of the root_type in this type specifier. The order must match the order of the owning class&#8217;s formal generic parameter declarations</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Generic_parameters_valid</em>: <code>generic_parameters /= Void or generic_parameter_defs /= Void</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2365,13 +2383,16 @@ a_class_def: <code><a href="/releases/LANG/development/bmm.html#_bmm_class_class
 <div class="ulist">
 <ul>
 <li>
-<p><strong>File heading.</strong> A schema file begins with the header (meta) items corresponding to the persisted attributes of <code>P_BMM_SCHEMA</code> (<code><em>bmm_version</em></code>, <code><em>rm_publisher</em></code>, <code><em>schema_name</em></code>, <code><em>rm_release</em></code>, <code><em>schema_revision</em></code>, <code><em>schema_lifecycle_state</em></code>, <code><em>schema_description</em></code>, <code><em>schema_author</em></code>), followed by <code><em>includes</em></code>, <code><em>packages</em></code>, and <code><em>class_definitions</em></code>.</p>
+<p><strong>File heading.</strong> A schema file begins with the header (meta) items corresponding to the persisted attributes of <code>P_BMM_SCHEMA</code> (<code><em>bmm_version</em></code>, <code><em>rm_publisher</em></code>, <code><em>schema_name</em></code>, <code><em>rm_release</em></code>, <code><em>schema_revision</em></code>, <code><em>schema_lifecycle_state</em></code>, <code><em>schema_description</em></code>, <code><em>schema_author</em></code>, and the optional <code><em>schema_contributors</em></code>), followed by <code><em>includes</em></code>, <code><em>packages</em></code>, <code><em>primitive_types</em></code>, and <code><em>class_definitions</em></code>.</p>
 </li>
 <li>
 <p><strong>Type discriminator.</strong> Wherever a value may be one of several <code>P_BMM_*</code> subtypes (for example a property, a function parameter, or a result type), the concrete subtype is always stated explicitly via a <code>_type</code> discriminator. Where the type is unambiguous from context (such as a class definition or a package), no discriminator is needed. Each format renders the discriminator in its own idiom: ODIN uses a type marker <code>(P_BMM_SINGLE_PROPERTY)</code>, JSON a <code>"_type": "P_BMM_SINGLE_PROPERTY"</code> member, and YAML a tag <code>!P_BMM_SINGLE_PROPERTY</code>.</p>
 </li>
 <li>
-<p><strong>Keyed collections.</strong> Maps such as <code><em>class_definitions</em></code>, <code><em>properties</em></code>, <code><em>functions</em></code>, function <code><em>parameters</em></code>, and <code><em>packages</em></code> are keyed by name.</p>
+<p><strong>Keyed collections.</strong> Maps such as <code><em>primitive_types</em></code>, <code><em>class_definitions</em></code>, <code><em>properties</em></code>, <code><em>functions</em></code>, function <code><em>parameters</em></code>, and <code><em>packages</em></code> are keyed by name. <code><em>ancestor_defs</em></code> is keyed by type signature (e.g. <code>GENERIC_PARENT&lt;T,SUPPLIER_B&gt;</code>), and the <code><em>generic_parameter_defs</em></code> of a generic type by formal generic parameter name (e.g. <code>T</code>).</p>
+</li>
+<li>
+<p><strong>Intervals.</strong> The intervals in a schema are the <code><em>cardinality</em></code> values of <code>P_BMM_CONTAINER_PROPERTY</code> and <code>P_BMM_CONTAINER_FUNCTION_PARAMETER</code>. ODIN writes an interval as an interval literal, such as <code>|&gt;=1|</code> or <code>|1..4|</code>. JSON and YAML have no interval literal, so they write it as an object with <code><em>lower</em></code> and either <code><em>upper</em></code>, for a bounded interval, or <code><em>upper_unbounded</em></code> set to <code>true</code>, never both. Both bounds are included, and <code><em>lower</em></code> is always written, as a non-negative integer; <code><em>lower_unbounded</em></code>, <code><em>lower_included</em></code> and <code><em>upper_included</em></code> are not written. A reader treats a missing <code><em>upper_unbounded</em></code> as <code>true</code> when <code><em>upper</em></code> is also missing, and as <code>false</code> when <code><em>upper</em></code> is present.</p>
 </li>
 </ul>
 </div>
@@ -2421,6 +2442,37 @@ a_class_def: <code><a href="/releases/LANG/development/bmm.html#_bmm_class_class
 <span class="tok-w">      </span><span class="tok-nt">type</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">String</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The following shows an open and a bounded cardinality in each of the three formats.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ODIN</th>
+<th class="tableblock halign-left valign-top">JSON</th>
+<th class="tableblock halign-left valign-top">YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;=1|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{"lower": 1, "upper_unbounded": true}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lower: 1</code><br>
+<code>upper_unbounded: true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|1..4|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{"lower": 1, "upper": 4}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lower: 1</code><br>
+<code>upper: 4</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_header_items"><a class="anchor" href="#_header_items"></a>4.3. Header Items</h3>
@@ -2640,7 +2692,7 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 <div class="sect4">
 <h5 id="_container_properties"><a class="anchor" href="#_container_properties"></a>4.6.3.2. Container Properties</h5>
 <div class="paragraph">
-<p>The following is a <code>P_BMM_CONTAINER_PROPERTY</code> definition for the model property <code>items: List&lt;ITEM&gt;</code> in the <code>ELEMENT</code> class. The type is expressed in the <code><em>type_def</em></code> part which indicates the type of the container, which must be defined elsewhere in the schema, typically in the primitive types. The optional <code><em>cardinality</em></code> meta-property indicates cardinality of the container, and is expressed as a ODIN range. The default is <code>|0..*|</code>.</p>
+<p>The following is a <code>P_BMM_CONTAINER_PROPERTY</code> definition for the model property <code>items: List&lt;ITEM&gt;</code> in the <code>ELEMENT</code> class. The type is expressed in the <code><em>type_def</em></code> part which indicates the type of the container, which must be defined elsewhere in the schema, typically in the primitive types. The optional <code><em>cardinality</em></code> meta-property indicates cardinality of the container, and is expressed as a ODIN range. The default is <code>|&gt;=0|</code>, i.e. <code>0..*</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2662,7 +2714,7 @@ unlike UML, all container types such as <code>List&lt;T&gt;</code>, <code>Hash&l
 </div>
 </div>
 <div class="paragraph">
-<p>Indexed containers such as <code>Hash&lt;K,V&gt;</code>, <code>Dictionary&lt;K,V&gt;</code> etc are also suuported via the <code>P_BMM_INDEXED_CONTAINER_PROPERTY</code>, the use of which is shown here:</p>
+<p>Indexed containers such as <code>Hash&lt;K,V&gt;</code>, <code>Dictionary&lt;K,V&gt;</code> etc are also supported via the <code>P_BMM_INDEXED_CONTAINER_PROPERTY</code>, the use of which is shown here:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3078,7 +3130,7 @@ The <code>P_BMM</code> function meta-types were introduced in version 2.4 to cap
 <div class="sect2">
 <h3 id="_inheritance"><a class="anchor" href="#_inheritance"></a>4.7. Inheritance</h3>
 <div class="paragraph">
-<p>In the case of inheritance from simple classes, the <code>ancestors</code> list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured <code>ancestor_defs</code> section is used instead of the <code>ancestors</code> String list, in the same way as for the <code>P_BMM_GENERIC_PROPERTY</code> examples above.</p>
+<p>In the case of inheritance from simple classes, the <code>ancestors</code> list of Strings may be used to simply name the types (which are the same as class names), as seen in the above examples. In the case of generic inheritance, the ancestors are generic types, which may be open, partially closed or fully closed. The following example shows a class model containing generic inheritance in UML (using the closest approximation available in UML), followed by the equivalent P_BMM schema. In the latter, a structured <code>ancestor_defs</code> section is used instead of the <code>ancestors</code> String list, in the same way as for the <code>P_BMM_GENERIC_PROPERTY</code> examples above. Since <code>ancestor_defs</code> replaces <code>ancestors</code>, a class that also inherits from a non-generic class lists that ancestor in <code>ancestor_defs</code> too, as a <code>P_BMM_SIMPLE_TYPE</code>.</p>
 </div>
 <div id="inheritance_example" class="imageblock text-center text-center">
 <div class="content">

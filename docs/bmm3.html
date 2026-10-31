@@ -398,7 +398,6 @@
 <li><a href="#_simple_inheritance">13.1.1. Simple Inheritance</a></li>
 <li><a href="#_generic_inheritance">13.1.2. Generic Inheritance</a></li>
 <li><a href="#_multiple_inheritance">13.1.3. Multiple Inheritance</a></li>
-<li><a href="#_inheritance_and_invariants_pre_conditions_and_post_conditions">13.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</a></li>
 </ul>
 </li>
 </ul>
@@ -1210,7 +1209,7 @@ for the purposes of explanation, an abstract syntax is used throughout this docu
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bmm_internal_version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bmm_internal_version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Current internal version of BMM meta-model, used to determine if a given schema can be processed by a given implementation of the model.</p>
 </div></div></td>
@@ -3848,7 +3847,7 @@ a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>base_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Base name (built-in typename).</p>
 </div></div></td>
@@ -5361,9 +5360,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <div class="paragraph">
 <p>Selective <em>visibility</em> of features to external clients is expressed in the attributes <code>BMM_FEATURE_GROUP.<em>visibility</em></code> with potential overrides achieved using <code>BMM_FEATURE.<em>visibility</em></code>, i.e. at an individual feature level. Visibility is defined using sub-types of the abstract meta-class <code>BMM_VISIBILITY</code>.</p>
 </div>
-<div class="paragraph tbd">
-<p>TBD: define visibility meta-model; probably need to support C++/Java approach and type-based.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_differential_and_flat_form"><a class="anchor" href="#_differential_and_flat_form"></a>8.1.4. Differential and Flat Form</h4>
@@ -5494,9 +5490,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div>
 <div class="sect3">
 <h4 id="_semantic_level"><a class="anchor" href="#_semantic_level"></a>8.2.3. Semantic Level</h4>
-<div class="paragraph tbd">
-<p>TBD: this BMM feature requires review</p>
-</div>
 <div class="paragraph">
 <p>Properties also include two other Boolean meta-data items, <code><em>is_im_runtime</em></code> and <code><em>is_im_infrastructure</em></code>, which can be used to classify property values in a model according to a 'semantic level', which roughly corresponds to the continuum from domain-specific to infrastructure. These may be individually set, or both may be False. The three meaningful value settings are as follows:</p>
 </div>
@@ -5901,7 +5894,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <p>Abstract parent of visibility representation.</p>
 </div>
 <div class="paragraph">
-<p>TODO: define schemes; probably need to support C++/Java scheme as well as better type-based schemes.</p>
+<p>TODO: define schemes; probably need to support C&#43;&#43;/Java scheme as well as better type-based schemes.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -6516,7 +6509,7 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A formal element with signature of the form: <code>name ({arg:TArg}*):TStatus</code>, where <code>TStatus</code> is the built-in type <code>BMM_STATUS_TYPE</code>.. A procedure is a computed (rather than data) element, generally assumed to be state-changing, and is usually called in the form <code>name ({arg:TArg}*)</code>.</p>
+<p>A formal element with signature of the form: <code>name ({arg:TArg}&#42;):TStatus</code>, where <code>TStatus</code> is the built-in type <code>BMM_STATUS_TYPE</code>.. A procedure is a computed (rather than data) element, generally assumed to be state-changing, and is usually called in the form <code>name ({arg:TArg}&#42;)</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7601,9 +7594,6 @@ a_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <h6 id="_defined_x"><a class="anchor" href="#_defined_x"></a>Defined (x)</h6>
 <div class="paragraph">
 <p>The <code>defined</code> predicate is used to test whether an instance that is mapped to an external data access method exists in the data context (regardless of its value there).</p>
-</div>
-<div class="paragraph tbd">
-<p>TBD: this might be replaced by another approach.</p>
 </div>
 </div>
 </div>
@@ -9147,7 +9137,7 @@ probably to be removed.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_constraint</strong>: `<a href="/classes/C_OBJECT">C_OBJECT</a> `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_constraint</strong>: <code><a href="/releases/AM/latest/AOM2.html#_c_object_class" target="_blank" rel="noopener">C_OBJECT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Constraint on</p>
 </div></div></td>
@@ -10206,12 +10196,6 @@ probably to be removed.
 <img src="bmm3/images/awb_multiple_inheritance.png" alt="awb multiple inheritance" width="45%">
 </div>
 <div class="title">Figure 51. Multiple inheritance</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_inheritance_and_invariants_pre_conditions_and_post_conditions"><a class="anchor" href="#_inheritance_and_invariants_pre_conditions_and_post_conditions"></a>13.1.4. Inheritance and Invariants, Pre-conditions and Post-conditions</h4>
-<div class="paragraph tbd">
-<p>TBD</p>
 </div>
 </div>
 </div>

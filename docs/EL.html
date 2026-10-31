@@ -558,9 +558,6 @@
 </li>
 </ul>
 </div>
-<div class="paragraph tbd">
-<p>TBD: specify equivalence between snake-case and CamelCase, or a tool-level switch?</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_commenting"><a class="anchor" href="#_commenting"></a>3.2. Commenting</h3>
@@ -989,9 +986,6 @@
 <div class="paragraph">
 <p>One exception to the above is tuples, which are direct instances of the BMM meta-type <code>BMM_TUPLE</code>. They take the literal form <code>[a, b, c]</code>, where <code>a</code>, <code>b</code>, and <code>c</code> are generally of different types.</p>
 </div>
-<div class="paragraph tbd">
-<p>TBD: consider to not bother with <code>Array</code> and reserve <code>[]</code> for tuples.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_variables"><a class="anchor" href="#_variables"></a>4.2. Variables</h3>
@@ -1147,9 +1141,6 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph tbd">
-<p>TBD: to achieve this generically, the above map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
-</div>
 <div class="paragraph">
 <p>Container element access may be used on any expression whose effective type is a container, including function calls.</p>
 </div>
@@ -1184,9 +1175,6 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph tbd">
-<p>TBD: For <code>Any</code>, need type anchoring&#8230;&#8203; or else generic functions.</p>
-</div>
 <div class="paragraph">
 <p>Here, 'matching' is understood to mean <em>obtain all matching items</em>.</p>
 </div>
@@ -1250,9 +1238,6 @@
 </div>
 <div class="paragraph">
 <p>For matching to work, there must be an appropriate function available on all container types. In the case of the openEHR Foundation types, this is <code>match (&lt;[T], Boolean&gt;): List&lt;T&gt;</code> defined on <code>Container&lt;T&gt;</code>; any equivalent function in a different model will do. The return type is nullable.</p>
-</div>
-<div class="paragraph tbd">
-<p>TBD: to achieve this generically, the map of operators to member functions of appropriate types needs to be supplied in the model supplying the types themselves.</p>
 </div>
 <div class="paragraph">
 <p>Other short forms are available, making a predicate syntax reminiscent of Xpath possible, as follows.</p>

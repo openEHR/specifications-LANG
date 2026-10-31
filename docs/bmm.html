@@ -740,7 +740,7 @@ a_schema_load_list: <code><a href="/releases/BASE/latest/foundation_types.html#_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>p_schema</strong>: <code><a href="#_p_bmm_schema_class">P_BMM_SCHEMA</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>p_schema</strong>: <code><a href="/releases/LANG/development/bmm_persistence.html#_p_bmm_schema_class" target="_blank" rel="noopener">P_BMM_SCHEMA</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Persistent form of model.</p>
 </div></div></td>
@@ -763,7 +763,7 @@ a_schema_load_list: <code><a href="/releases/BASE/latest/foundation_types.html#_
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meta_data</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Table of \{key, value} pairs of schema meta-data (bmm_version, model_publisher, schema_name, model_release, schema_revision, schema_lifecycle_state, schema_description, schema_path).</p>
+<p>Table of {key, value} pairs of schema meta-data (bmm_version, model_publisher, schema_name, model_release, schema_revision, schema_lifecycle_state, schema_description, schema_path).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -960,7 +960,7 @@ all_schemas_list: <code><a href="/releases/BASE/latest/foundation_types.html#_li
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bmm_internal_version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&#160;=&#160;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bmm_internal_version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Current internal version of BMM meta-model, used to determine if a given schema can be processed by a given implementation of the model.</p>
 </div></div></td>
@@ -1322,7 +1322,7 @@ a_path: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>do_recursive_packages</strong> (<br>
 action: <code><a href="/releases/BASE/latest/foundation_types.html#_procedure_class" target="_blank" rel="noopener">PROCEDURE</a>[1]</code><br>
-): ``</p></td>
+)</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Recursively execute `action', which is a procedure taking a BMM_PACKAGE argument, on all members of packages.</p>
 </div></div></td>
