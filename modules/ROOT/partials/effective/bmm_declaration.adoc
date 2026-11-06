@@ -22,7 +22,7 @@ It is strongly recommended to use the following key /type combinations for the r
 
 Other keys and value types may be freely added.
 
-|*scope*: `xref:{class_bmm_declaration}[BMM_DECLARATION]` [1..1]
+|*scope*: `xref:bmm3:statements.adoc#_bmm_declaration_class[BMM_DECLARATION]` [1..1]
 a|Model element within which an element is declared.
 
 |*extensions*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]

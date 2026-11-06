@@ -1,0 +1,48 @@
+include::partial$module_vars.adoc[]
+
+= Appendix
+
+
+== Acknowledgements
+
+=== Primary Author
+
+* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+
+=== Contributors
+
+This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Patrick Langford, NeuronSong LLC, Utah, USA
+* Claude Nanjo MA African Studies., M Public Health, Cognitive Medical Systems Inc., California, USA
+* Harold Solbrig, Mayo Clinic, Rochester, USA
+* Erik Sundvall PhD, Linkoping University, Sweden
+
+=== Trademarks
+
+* 'openEHR' is a registered trademark of the openEHR Foundation
+* 'Java' is a registered trademark of Oracle Corporation
+* 'C#' is a registered trademark of Microsoft Corporation
+* 'OMG' and 'UML' are registered trademarks of the Object Management Group
+* 'MagicDraw' is a registered trademark of NoMagic Inc
+* 'Rational Software Architect' is a registered trademark of IBM Corporation.
+
+
+ifdef::package_qualifiers[]
+endif::[]
+== History
+
+The Basic Meta-Model originated in the openEHR BASE component, where it was published up to and including {openehr_base_release_104}/bmm.html[BASE Release 1.0.4^]. With the establishment of the openEHR LANG (Generic Languages) component, the BMM specification was migrated to LANG, which is now its normative home. This document describes the stable v2.x form of BMM, i.e. the form implemented by current openEHR tooling such as Archie.
+
+Continued development of the meta-model, extending it with an expression and statement meta-model together with richer feature and signature metadata, is carried out separately and is documented in the {openehr_bmm3}[BMM v3 specification^]. The v2.x form described here remains the normative, tool-implemented version.
+
+The P_BMM persistence model, which defines the serialised schema form of a BMM model together with its {openehr_odin}[ODIN^] syntax, is specified separately in the {openehr_bmm_persistence}[BMM Persistence specification^].
+
+
+ifdef::package_qualifiers[]
+:pkg: org.openehr.lang.bmm.
+endif::[]
+
+:sectnums!:
+
+include::partial$amendment_record.adoc[]

@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Overview
 
 == Introduction
@@ -58,7 +60,7 @@ The packages are illustrated below.
 
 [.text-center]
 .Package Overview
-image::{uml_diagrams_uri}/LANG-bmm-packages.svg[id=package_overview, align="center"]
+image::ROOT:uml/LANG-bmm-packages.svg[id=package_overview, align="center"]
 
 The normal use of BMM is as follows:
 

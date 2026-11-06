@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = BMM Persistence Syntax
 
 == Overview
@@ -607,7 +609,7 @@ In the case of inheritance from simple classes, the `ancestors` list of Strings 
 
 [.text-center]
 .Generic inheritance example model
-image::{uml_diagrams_uri}/LANG-bmm-inheritance-example.svg[id=inheritance_example, align="center"]
+image::ROOT:uml/LANG-bmm-inheritance-example.svg[id=inheritance_example, align="center"]
 
 [source, odin]
 --------

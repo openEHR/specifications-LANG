@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Terminal Entities
 
 Terminal entities in EL correspond to the `EL_TERMINAL` meta-type in BMM, and its descendants. These come in three categories: 

@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 == Decision Tables
 
 In EL, a _decision table_ is a construct that expresses the equivalent logic of a multi-branch construct that returns a single expression as a result. There are two flavours, both familiar to programmers in mainstream languages: the _condition chain_ (i.e. an if/then/else construct) and the _case table_ (i.e. a case statement). The evaluation of both constructs determines which of a number of possible expressions to return as the result, based on the prior evaluation of branch conditions, whose particular form depends on which flavour of construct is used. Both constructs are thus purely functional, i.e. their branches cannot contain statements (i.e. assignments, procedure calls etc), only expressions.

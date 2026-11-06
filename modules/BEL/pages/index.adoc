@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 //
 // ============================================ Asciidoc HEADER =============================================
 //
@@ -7,7 +9,33 @@
 //
 
 
-= {spec_title}
+= {spec_title} [.spec-status.spec-status-stable]#{spec_status}#
+
+A formal syntax for boolean-valued predicate expressions, used in archetype invariants and assertion blocks where only true or false conditions are needed. BEL is a constrained subset of EL covering logical, relational, and existence operators. EL is the full expression language that subsumes BEL. Because BEL is a strict subset of EL, any BEL expression is also a valid EL expression, allowing tooling to use a single parser for both languages.
+
+== Purpose
+
+This document specifies the openEHR Basic Expression Model and an abstract syntax, denoted the openEHR Basic Expression Language (BEL). The model defines the semantics of a subset of first order predicate style logic that can be used to express rules, primarily in archetypes.
+
+The intended audience includes:
+
+* Standards bodies producing health informatics standards;
+* Academic groups using openEHR;
+* Solution vendors;
+* Medical informaticians and clinicians interested in health information.
+
+== Related Documents
+
+Prerequisite documents for reading this document include:
+
+* The {openehr_overview}[openEHR Architecture Overview^].
+
+Releated documents include:
+
+* The {openehr_am_aom2}[Archetype Object Model 2 (AOM2)^].
+
+
+
 
 
 
@@ -20,37 +48,12 @@
 // --------------------------------------------- Preface -----------------------------------------------
 //
 
-== Acknowledgements
+== Feedback
 
-=== Primary Author
+Feedback may be provided on the {openehr_lang_forum}[openEHR languages specifications forum^].
 
-* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
 
-=== Contributors
-
-This specification benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
-
-* Pieter Bos, Senior Engineer, Nedap, Netherlands
-
-//
-// --------------------------------------------- TOC -----------------------------------------------
-//
-//toc::[left]
-
-//
-// --------------------------------------------- CHAPTERS -----------------------------------------------
-//
-:sectanchors:
-
-ifdef::package_qualifiers[]
-:pkg: org.openehr.lang.beom.
-endif::[]
+To see changes made due to previously reported issues, see the {component_history}[{component} component Change Request tracker^].
 
 
-
-//
-// --------------------------------------------- REFERENCES -----------------------------------------------
-//
-:sectnums!:
-== References
-bibliography::[]

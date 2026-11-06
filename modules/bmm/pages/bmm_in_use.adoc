@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = BMM in Use
 
 BMM schemas as used in the openEHR ADL Workbench (AWB) provide an illustration of their use and visualisation. The following screenshot shows the BMM schema configuration dialog in the AWB, including some meta-data, validation status etc, and also the schema nesting structure.

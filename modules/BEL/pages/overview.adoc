@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Overview
 
 The openEHR Basic Expression Object Model (BEOM) defines the semantics of computable expressions and statements that are used in openEHR archetypes, and might be used in healthcare and life sciences computing where rules and expressions are needed.

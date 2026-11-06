@@ -1,0 +1,8 @@
+* xref:index.adoc[Basic Meta-Model (BMM)]
+** xref:overview.adoc[Overview]
+** xref:bmm_in_use.adoc[BMM in Use]
+** xref:rm_access.adoc[RM Access Package]
+** xref:core.adoc[Core Package]
+** xref:persistence.adoc[Persistence]
+** xref:appendix.adoc[Appendix]
+

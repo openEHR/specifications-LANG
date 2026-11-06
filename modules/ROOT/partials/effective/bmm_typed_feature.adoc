@@ -8,7 +8,7 @@
 
 2+h|*Attributes*
 
-|*type*: `xref:{class_bmm_type}[BMM_TYPE]` [1..1]
+|*type*: `xref:bmm:core.adoc#_bmm_type_class[BMM_TYPE]` [1..1]
 a|Declared or inferred static type of the entity. +
 _Inherited from xref:{class_bmm_typed}[BMM_TYPED]_
 

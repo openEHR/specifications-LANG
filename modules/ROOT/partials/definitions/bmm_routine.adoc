@@ -14,19 +14,19 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*parameters*: `xref:{class_list}[List]<xref:{class_bmm_parameter}[BMM_PARAMETER]>`
+|*parameters*: `xref:{class_list}[List]<xref:bmm3:core-features.adoc#_bmm_parameter_class[BMM_PARAMETER]>`
 a|Formal parameters of the routine.
 
 h|*0..1*
-|*locals*: `xref:{class_list}[List]<xref:{class_bmm_local}[BMM_LOCAL]>`
+|*locals*: `xref:{class_list}[List]<xref:bmm3:core-features.adoc#_bmm_local_class[BMM_LOCAL]>`
 a|Local variables of the routine.
 
 h|*0..1*
-|*pre_conditions*: `xref:{class_list}[List]<xref:{class_bmm_assertion}[BMM_ASSERTION]>`
+|*pre_conditions*: `xref:{class_list}[List]<xref:bmm3:statements.adoc#_bmm_assertion_class[BMM_ASSERTION]>`
 a|
 
 h|*0..1*
-|*post_conditions*: `xref:{class_list}[List]<xref:{class_bmm_assertion}[BMM_ASSERTION]>`
+|*post_conditions*: `xref:{class_list}[List]<xref:bmm3:statements.adoc#_bmm_assertion_class[BMM_ASSERTION]>`
 a|
 
 h|*0..1*

@@ -7,13 +7,13 @@ h|*Description*
 2+a|Unary operator expression node.
 
 h|*Inherit*
-2+|`xref:{class_el_operator}[EL_OPERATOR]`
+2+|`xref:bmm3:expressions.adoc#_el_operator_class[EL_OPERATOR]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `xref:{class_el_simple}[EL_SIMPLE]`
+|*operand*: `xref:bmm3:expressions.adoc#_el_simple_class[EL_SIMPLE]`
 a|Operand node.
 |===

@@ -7,19 +7,19 @@ h|*Description*
 2+a|A BMM model component that contains packages and classes.
 
 h|*Inherit*
-2+|`xref:{class_bmm_declaration}[BMM_DECLARATION]`
+2+|`xref:bmm3:statements.adoc#_bmm_declaration_class[BMM_DECLARATION]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*packages*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_bmm_package}[BMM_PACKAGE]>`
+|*packages*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:bmm:core.adoc#_bmm_package_class[BMM_PACKAGE]>`
 a|Child packages; keys all in upper case for guaranteed matching.
 
 h|*1..1 +
 (redefined)*
-|*scope*: `xref:{class_bmm_package_container}[BMM_PACKAGE_CONTAINER]`
+|*scope*: `xref:bmm:core.adoc#_bmm_package_container_class[BMM_PACKAGE_CONTAINER]`
 a|Model element within which a referenceable element is known.
 
 h|*Functions*
@@ -29,12 +29,12 @@ h|*Functions*
 h|*0..1*
 |*package_at_path* ( +
 a_path: `xref:{class_string}[String][1]` +
-): `xref:{class_bmm_package}[BMM_PACKAGE]`
+): `xref:bmm:core.adoc#_bmm_package_class[BMM_PACKAGE]`
 a|Package at the path `_a_path_`.
 
 h|*1..1*
 |*do_recursive_packages* ( +
-action: `xref:{class_el_procedure_agent}[EL_PROCEDURE_AGENT][1]` +
+action: `xref:bmm3:expressions.adoc#_el_procedure_agent_class[EL_PROCEDURE_AGENT][1]` +
 ): `void`
 a|Recursively execute `_action_`, which is a procedure taking a `BMM_PACKAGE` argument, on all members of packages.
 
