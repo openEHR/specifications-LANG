@@ -7,7 +7,7 @@ h|*Description*
 2+a|Meta-type of for properties of unitary type.
 
 h|*Inherit*
-2+|`xref:{class_bmm_property}[BMM_PROPERTY]`
+2+|`xref:bmm:core.adoc#_bmm_property_class[BMM_PROPERTY]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -15,6 +15,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*type*: `xref:{class_bmm_unitary_type}[BMM_UNITARY_TYPE]`
+|*type*: `xref:bmm3:core-types.adoc#_bmm_unitary_type_class[BMM_UNITARY_TYPE]`
 a|Declared or inferred static type of the entity.
 |===

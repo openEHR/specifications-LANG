@@ -14,7 +14,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*value*: `xref:{class_bmm_literal_value}[BMM_LITERAL_VALUE]`
+|*value*: `xref:bmm3:core-values.adoc#_bmm_literal_value_class[BMM_LITERAL_VALUE]`
 a|The reference item from which the value of this node can be computed.
 
 h|*Functions*
@@ -23,7 +23,7 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*eval_type* (): `xref:{class_bmm_type}[BMM_TYPE]`
+|*eval_type* (): `xref:bmm:core.adoc#_bmm_type_class[BMM_TYPE]`
 a|Return `_value.type_`.
 
 h|*Invariants*

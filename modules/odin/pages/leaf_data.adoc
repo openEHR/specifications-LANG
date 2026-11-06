@@ -18,7 +18,7 @@ Characters are shown in a number of ways. In the literal form, a character is sh
     'a'
 ----
 
-Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in the section <<File Encoding>>.
+Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in the section <<basics.adoc#{underscore}file_encoding,File Encoding>>.
 
 === String Data
 
@@ -44,7 +44,7 @@ Line extension of strings is done simply by including returns in the string. The
             And chased us south along.">
 --------
 
-String data can be used to contain almost any other kind of data, which is intended to be parsed as some other formalism. Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in section <<File Encoding>>.
+String data can be used to contain almost any other kind of data, which is intended to be parsed as some other formalism. Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in section <<basics.adoc#{underscore}file_encoding,File Encoding>>.
 
 === Integer Data
 
@@ -56,7 +56,7 @@ Integers are represented simply as numbers, e.g.:
     29e6
 ----
 
-Commas or periods for breaking long numbers are not allowed, since they confuse the use of commas used to denote list items (See <<Lists of Built-in Types>> below).
+Commas or periods for breaking long numbers are not allowed, since they confuse the use of commas used to denote list items (See <<_lists_of_built_in_types,Lists of Built-in Types>> below).
 
 === Real Data
 
@@ -68,7 +68,7 @@ Real numbers are assumed whenever a decimal is detected in a number, e.g.:
     6.023e23
 ----
 
-Commas or periods for breaking long numbers are not allowed. Only periods may be used to separate the decimal part of a number; unfortunately, the European use of the comma for this purpose conflicts with the use of the comma to distinguish list items (See <<Lists of Built-in Types>> below).
+Commas or periods for breaking long numbers are not allowed. Only periods may be used to separate the decimal part of a number; unfortunately, the European use of the comma for this purpose conflicts with the use of the comma to distinguish list items (See <<_lists_of_built_in_types,Lists of Built-in Types>> below).
 
 === Boolean Data
 
@@ -175,7 +175,7 @@ URI can be expressed as ODIN data in the usual way found on the web, and follow 
     http://www.mozilla.org/products/firefox/upgrade/?application=thunderbird
 ----
 
-Encoding of special characters in URIs follows the IETF RFC 3986, as described in the section <<File Encoding>>.
+Encoding of special characters in URIs follows the IETF RFC 3986, as described in the section <<basics.adoc#{underscore}file_encoding,File Encoding>>.
 
 === Coded Terms
 

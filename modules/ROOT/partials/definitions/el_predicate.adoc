@@ -7,7 +7,7 @@ h|*Description*
 2+a|Parent type of predicate of any object reference.
 
 h|*Inherit*
-2+|`xref:{class_el_terminal}[EL_TERMINAL]`
+2+|`xref:bmm3:expressions.adoc#_el_terminal_class[EL_TERMINAL]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -23,6 +23,6 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*eval_type* (): `xref:{class_bmm_simple_type}[BMM_SIMPLE_TYPE]`
+|*eval_type* (): `xref:bmm:core.adoc#_bmm_simple_type_class[BMM_SIMPLE_TYPE]`
 a|Return `\{BMM_MODEL}._boolean_type_definition_()`.
 |===

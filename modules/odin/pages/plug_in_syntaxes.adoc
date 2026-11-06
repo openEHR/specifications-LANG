@@ -26,3 +26,4 @@ definition = (cadl) <#
 #>
 --------
 
+Clearly, many plug-in syntaxes might one day be used within ODIN data; there is no guarantee that every ODIN parser will support them. The general approach to parsing should be to use plug-in parsers, i.e. to obtain a parser for a plug-in syntax that can be built into the existing parser framework.

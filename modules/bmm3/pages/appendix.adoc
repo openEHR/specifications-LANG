@@ -1,0 +1,86 @@
+include::partial$module_vars.adoc[]
+
+= Appendix
+
+
+== Acknowledgements
+
+=== Primary Author
+
+* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+
+=== Contributors
+
+This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Matija Kejžar, Senior Engineer, Better, Slovenia
+* Patrick Langford, NeuronSong LLC, Utah, USA
+* Claude Nanjo MA African Studies, M Public Health, Cognitive Medical Systems Inc., California, USA
+* Harold Solbrig, Mayo Clinic, Rochester, USA
+* Erik Sundvall PhD, Linkoping University, Sweden
+* Bert Verhees, ROSA Software, The Netherlands.
+
+=== Trademarks
+
+* 'openEHR' is a registered trademark of the openEHR Foundation;
+* 'Java' is a registered trademark of Oracle Corporation;
+* 'C#' is a registered trademark of Microsoft;
+* 'OMG' and 'UML' are registered trademarks of the Object Management Group;
+* 'MagicDraw' is a registered trademark of NoMagic Inc;
+* 'Rational Software Architect' is a registered trademark of IBM Corporation.
+
+
+
+
+ifdef::package_qualifiers[]
+endif::[]
+== Conformance
+
+Conformance of a data or software artifact to an openEHR specification is determined by a formal test of that artifact against the relevant {openehr_its_component}[openEHR Implementation Technology Specification(s) (ITSs)^], such as an IDL interface or an XML-schema. Since ITSs are formal derivations from underlying models, ITS conformance indicates model conformance.
+
+== Previous Versions
+
+IMPORTANT: This document represents the v3 development line of the Basic Meta-Model, extending it with an expression and statement meta-model. The latest stable version of BMM, which is the v2.x form implemented by current openEHR tooling, is specified in the {openehr_bmm}[BMM specification^].
+
+=== Version 3.0.0
+
+This version made major changes to the `BMM_TYPE` hierarchy and semantics, enabling generic inheritance by generic and non-generic classes to be represented.
+
+=== Version 3.1.0
+
+This version adds meta-classes for computational elements to BMM, including:
+
+* routines, variables, constants;
+* expressions (including assertions);
+* statements.
+
+It makes various adjustments to the existing model attributes and classes. The BMM remains compatible with P_BMM 2.x, i.e. any existing `.bmm` file can be parsed to create a v 3.1.0 BMM instance.
+
+== A Note on Language
+
+The elements of meta-models are sometimes named confusingly in the literature and within various programming language technologies. In this specification, we use the following terms:
+
+class:: generally refers to a class defined in a model expressed in BMM, i.e. an instance of a BMM meta-class;
+meta-class:: refers to a class in the BMM itself, such as `BMM_CLASS`, in order to clearly distinguish it from classes defined in models represented using BMM;
+feature (of a class):: any stored or computed element of a class, including constants, attributes (properties) and routines (methods);
+property:: a stored class feature; also known as 'attribute';
+routine:: a computed class feature that may be either value-returning (a function) or work-performing (a procedure);
+function:: a routine that computes and returns a value; typically causes no side-effects in the object;
+procedure:: a routine that performs a computation; typically has side-effects;
+generic (class or type):: a kind of class or type that has parameters of other types; known as 'template' type in some programming languages;
+type:: generally refers to a type defined in a model expressed in BMM, i.e. an instance of a BMM meta-type;
+meta-type:: refers to a type in the BMM itself, which is either a class (such as `BMM_CLASS`) or generically derived (meta-)type in the sense of being an instance generator, where the instances will be concrete type definitions in models represented using BMM.
+
+== Tooling
+
+The {openehr_archie_github}[openEHR Archie Library^] fully implements this specification in Java and may be used to build UI tools for compiling, viewing and editing BMM models.
+
+The {openehr_awb}[openEHR ADL Workbench (AWB)] fully implements this specification, and provides a convenient way of illustrating BMM semantics. The screenshots used in this specification are all from the ADL Workbench. The tool is written in the Eiffel language, and is available as {openehr_awb_github}[open source on Github^]. The BMM libraries can be found in the {eomf_bmm}[EOMF Github repository^].
+
+ifdef::package_qualifiers[]
+:pkg: org.openehr.lang.bmm3.
+endif::[]
+
+:sectnums!:
+
+include::partial$amendment_record.adoc[]

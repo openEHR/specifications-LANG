@@ -4,7 +4,7 @@
 
 2+a|Terminal item corresponding to a reference to a directly instantiable entity, i.e. a variable, constant, or property.
 
-2+|Inherits: xref:{class_el_expression}[EL_EXPRESSION], xref:{class_el_simple}[EL_SIMPLE], xref:{class_el_terminal}[EL_TERMINAL], xref:{class_el_instance_ref}[EL_INSTANCE_REF], xref:{class_el_scoped_ref}[EL_SCOPED_REF]
+2+|Inherits: xref:bmm3:expressions.adoc#_el_expression_class[EL_EXPRESSION], xref:bmm3:expressions.adoc#_el_simple_class[EL_SIMPLE], xref:bmm3:expressions.adoc#_el_terminal_class[EL_TERMINAL], xref:{class_el_instance_ref}[EL_INSTANCE_REF], xref:{class_el_scoped_ref}[EL_SCOPED_REF]
 
 2+h|*Attributes*
 
@@ -17,12 +17,12 @@ a|Definition of the constant, property or variable, inferred by inspection of th
 
 2+h|*Functions*
 
-|*eval_type* (): `xref:{class_bmm_type}[BMM_TYPE]` [1..1]
+|*eval_type* (): `xref:bmm:core.adoc#_bmm_type_class[BMM_TYPE]` [1..1]
 a|Type definition (i.e. BMM meta-type definition object) of the constant, property or variable, inferred by inspection of the current scoping instance. Return `_definition.type_`.
 
-|*is_boolean* (): `link:/classes/Boolean[Boolean] ` +
+|*is_boolean* (): `xref:{class_boolean}[Boolean]` +
  +
 __Post_result__: `Result = eval_type().equal( \{BMM_MODEL}.boolean_type_definition())` [1..1]
 a|True if `_eval_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `Boolean`). +
-_Inherited from xref:{class_el_expression}[EL_EXPRESSION]_
+_Inherited from xref:bmm3:expressions.adoc#_el_expression_class[EL_EXPRESSION]_
 |===

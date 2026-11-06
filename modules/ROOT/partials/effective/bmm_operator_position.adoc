@@ -4,7 +4,7 @@
 
 2+a|Enumeration of possible position of operator in a syntactic representation for operators associated with 1- and 2- degree functions.
 
-2+|Inherits: link:/classes/String[String] 
+2+|Inherits: xref:{class_any}[Any], xref:{class_ordered}[Ordered], xref:{class_string}[String]
 
 2+h|*Constants*
 
@@ -13,4 +13,54 @@ a|Prefix operator position: operator comes before operand.
 
 |infix
 a|Infix operator position: operator comes between left and right operands.
+
+2+h|*Functions*
+
+|*is_equal* ( +
+other: `xref:{class_any}[Any][1]` +
+): `xref:{class_boolean}[Boolean]` [1..1]
+a|Value equality. +
+_Inherited from xref:{class_any}[Any]_
+
+|*infix =* ( +
+other: `xref:{class_any}[Any][1]` +
+): `xref:{class_boolean}[Boolean]` [1..1]
+a|Reference equality. +
+_Inherited from xref:{class_any}[Any]_
+
+|*instance_of* ( +
+a_type: `xref:{class_string}[String][1]` +
+): `xref:{class_any}[Any]` [1..1]
+a|Create new instance of a type. +
+_Inherited from xref:{class_any}[Any]_
+
+|*type_of* ( +
+an_object: `xref:{class_any}[Any][1]` +
+): `xref:{class_string}[String]` [1..1]
+a|Type name of an object as a string. May include generic parameters, as in "Interval<Time>". +
+_Inherited from xref:{class_any}[Any]_
+
+|*infix <* ( +
+other: `xref:{class_ordered}[Ordered][1]` +
+): `xref:{class_boolean}[Boolean]` [1..1]
+a|Arithmetic comparison. In conjunction with ‘=’, enables the definition of the operators ‘>’, ‘>=’, ‘\<=’, ‘<>’. In real type systems, this operator might be defined on another class for comparability. +
+_Inherited from xref:{class_ordered}[Ordered]_
+
+|*infix +* ( +
+other: `xref:{class_string}[String][1]` +
+): `xref:{class_string}[String]` [1..1]
+a|Concatenation operator - causes ‘other’ to be appended to this string. +
+_Inherited from xref:{class_string}[String]_
+
+|*is_empty* (): `xref:{class_boolean}[Boolean]` [1..1]
+a|True if string is empty, i.e. equal to "". +
+_Inherited from xref:{class_string}[String]_
+
+|*is_integer* (): `xref:{class_boolean}[Boolean]` [1..1]
+a|True if string can be parsed as an integer. +
+_Inherited from xref:{class_string}[String]_
+
+|*as_integer* (): `xref:{class_integer}[Integer]` [1..1]
+a|Return the integer corresponding to the integer value represented in this string. +
+_Inherited from xref:{class_string}[String]_
 |===

@@ -12,7 +12,8 @@ image::openehr_block_diagram.svg[openEHR Generic Languages block diagram,role=bl
 == Specifications
 
 * xref:odin:index.adoc[Object Data Instance Notation (ODIN)] [.spec-status.spec-status-stable]#STABLE# — Object Data Instance Notation -- Human-readable serialisation syntax for structured data trees
-* xref:bmm:index.adoc[Basic Meta-Model (BMM)] [.spec-status.spec-status-development]#DEVELOPMENT# — Basic Meta-Model of models & expressions -- Technology-neutral language for defining object-oriented information models
+* xref:bmm:index.adoc[Basic Meta-Model (BMM)] [.spec-status.spec-status-stable]#STABLE# — Basic Meta-Model of object models (v2.x) -- Technology-neutral language for defining object-oriented information models
+* xref:bmm3:index.adoc[Basic Meta-Model (BMM) v3 developments] [.spec-status.spec-status-paused]#PAUSED# — Basic Meta-Model of models & expressions (v3)
 * xref:bmm_persistence:index.adoc[BMM Persistence Model and Syntax] [.spec-status.spec-status-stable]#STABLE# — BMM human-readable serial format -- File format for storing and exchanging BMM model definitions
 * xref:BEL:index.adoc[Basic Expression Language (BEL)] [.spec-status.spec-status-stable]#STABLE# — A basic expression language -- Boolean predicate syntax for archetype invariants and assertion blocks
 * xref:EL:index.adoc[Expression Language (EL)] [.spec-status.spec-status-development]#DEVELOPMENT# — An advanced expression language based on BMM -- Full expression language for archetype rules, decision logic, and guideline conditions

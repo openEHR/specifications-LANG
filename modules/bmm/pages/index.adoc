@@ -9,13 +9,13 @@ include::partial$module_vars.adoc[]
 //
 
 
-= {spec_title} [.spec-status.spec-status-development]#{spec_status}#
+= {spec_title} [.spec-status.spec-status-stable]#{spec_status}#
 
 A technology-neutral language for describing the structure of object-oriented information models, independent of UML, XSD, or any programming language. BMM allows openEHR information models to be defined once and consumed by modelling tools, validators, and code generators across different platforms and languages without retooling. BMM schemas describe classes, properties, generics, and inheritance in a form that can be directly loaded by tools without UML round-tripping or XSD generation steps. The openEHR RM, AM, and LANG models are all formally defined as BMM schemas, which are the authoritative source for code generation and model validation.
 
 == Purpose
 
-This document describes the Basic Meta-Model (BMM), a model of object models. It may be considered as an approximate replacement for the UML XMI. It is human-readable and writable, and supports generic types (open and closed), container types, and multiple inheritance. The related {openehr_bmm_persistence}[BMM Persistence specification^] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as JSON, ODIN or XML.
+This document describes the Basic Meta-Model (BMM), a model of object models. It may be considered as an approximate replacement for the UML XMI. It is human-readable and writable, and supports generic types (open and closed), container types, and multiple inheritance.
 
 
 

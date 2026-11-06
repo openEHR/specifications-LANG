@@ -1,0 +1,11 @@
+include::ROOT:partial$component_vars.adoc[]
+
+:spec_title: Basic Meta-Model (BMM) v3 developments
+:copyright_year: 2018
+:spec_status: PAUSED
+:keywords: reflection, meta-model, UML, BMM
+:description: Basic Meta-Model (BMM) v3 specification
+
+:latest_issue: 4.1.0
+:latest_issue_date: 31 May 2026
+:pkg: org.openehr.lang.bmm3.

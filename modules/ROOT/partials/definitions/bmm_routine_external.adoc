@@ -14,10 +14,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*meta_data*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/String[String] >`
+|*meta_data*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_string}[String]>`
 a|External call general meta-data, including target routine name, type mapping etc.
 
 h|*0..1*
-|*argument_mapping*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/String[String] >`
+|*argument_mapping*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_string}[String]>`
 a|Optional argument-mapping meta-data.
 |===

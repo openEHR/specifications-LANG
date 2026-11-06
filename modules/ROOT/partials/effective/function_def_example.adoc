@@ -10,10 +10,10 @@
 
 2+h|*Attributes*
 
-|*evaluation_agent*: `link:/classes/FUNCTION[FUNCTION] <>` [1..1]
+|*evaluation_agent*: `xref:{class_function}[FUNCTION]<>` [1..1]
 a|
 
-|*identifier*: `link:/classes/String[String] ` [1..1] +
+|*identifier*: `xref:{class_string}[String]` [1..1] +
 `{default{nbsp}={nbsp}"funny"}`
 a|
 |===

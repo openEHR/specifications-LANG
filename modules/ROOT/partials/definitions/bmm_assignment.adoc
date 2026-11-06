@@ -7,7 +7,7 @@ h|*Description*
 2+a|Statement type representing an assignment from a value-generating source to a writable entity, i.e. a variable reference or property.
 
 h|*Inherit*
-2+|`xref:{class_bmm_simple_statement}[BMM_SIMPLE_STATEMENT]`
+2+|`xref:bmm3:statements.adoc#_bmm_simple_statement_class[BMM_SIMPLE_STATEMENT]`
 
 h|*Attributes*
 ^h|*Signature*
@@ -18,6 +18,6 @@ h|*1..1*
 a|The target variable on the notional left-hand side of this assignment.
 
 h|*1..1*
-|*source*: `xref:{class_el_expression}[EL_EXPRESSION]`
+|*source*: `xref:bmm3:expressions.adoc#_el_expression_class[EL_EXPRESSION]`
 a|Source right hand side) of the assignment.
 |===

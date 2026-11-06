@@ -1,0 +1,39 @@
+include::partial$module_vars.adoc[]
+
+//
+// ============================================ Asciidoc HEADER =============================================
+//
+
+//
+// ============================================ Asciidoc PREAMBLE =============================================
+//
+
+
+= {spec_title} [.spec-status.spec-status-paused]#{spec_status}#
+
+== Purpose
+
+This document describes the Basic Meta-Model (BMM), a model of object models. It may be considered as an approximate replacement for the UML XMI. It is human-readable and writable, and supports generic types (open and closed), container types, and multiple inheritance. The related {openehr_bmm_persistence}[BMM Persistence specification^] defines an object model for a serialised schema form. The latter enables serialisation of a BMM into a concrete syntax such as JSON, ODIN or XML.
+
+
+
+
+
+//
+// ============================================= Asciidoc BODY ===============================================
+//
+
+
+//
+// --------------------------------------------- Preface -----------------------------------------------
+//
+
+== Feedback
+
+Feedback may be provided on the {openehr_lang_forum}[openEHR languages specifications forum^].
+
+Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
+
+To see changes made due to previously reported issues, see the {component_history}[{component} component Change Request tracker^].
+
+

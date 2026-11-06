@@ -8,9 +8,9 @@
 
 2+h|*Attributes*
 
-|*meta_data*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/String[String] >` [1..1]
+|*meta_data*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_string}[String]>` [1..1]
 a|External call general meta-data, including target routine name, type mapping etc.
 
-|*argument_mapping*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/String[String] >` [0..1]
+|*argument_mapping*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_string}[String]>` [0..1]
 a|Optional argument-mapping meta-data.
 |===

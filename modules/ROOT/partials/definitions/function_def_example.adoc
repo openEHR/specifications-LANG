@@ -16,12 +16,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*identifier*: `link:/classes/String[String] ` +
+|*identifier*: `xref:{class_string}[String]` +
 `{default{nbsp}={nbsp}"funny"}`
 a|
 
 h|*1..1 +
 (redefined)*
-|*evaluation_agent*: `link:/classes/FUNCTION[FUNCTION] <>`
+|*evaluation_agent*: `xref:{class_function}[FUNCTION]<>`
 a|
 |===

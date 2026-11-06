@@ -4,13 +4,13 @@ h|*Class*
 2+^h|*EL_CASE*
 
 h|*Inherit*
-2+|`xref:{class_el_decision_branch}[EL_DECISION_BRANCH]`
+2+|`xref:bmm3:expressions.adoc#_el_decision_branch_class[EL_DECISION_BRANCH]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*value_constraint*: `link:/classes/C_OBJECT[C_OBJECT] `
+|*value_constraint*: `xref:{class_c_object}[C_OBJECT]`
 a|
 |===

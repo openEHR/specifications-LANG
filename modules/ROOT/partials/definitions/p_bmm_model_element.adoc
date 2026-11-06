@@ -11,6 +11,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*documentation*: `link:/classes/String[String] `
+|*documentation*: `xref:{class_string}[String]`
 a|Optional documentation of this element.
 |===

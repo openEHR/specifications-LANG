@@ -6,10 +6,10 @@
 
 2+h|*Attributes*
 
-|*name*: `link:/classes/String[String] ` [1..1]
+|*name*: `xref:{class_string}[String]` [1..1]
 a|Name of this model element.
 
-|*documentation*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
+|*documentation*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
 a|Optional documentation of this element, as a keyed list.
 
 It is strongly recommended to use the following key /type combinations for the relevant purposes:
@@ -22,15 +22,15 @@ It is strongly recommended to use the following key /type combinations for the r
 
 Other keys and value types may be freely added.
 
-|*scope*: `xref:{class_bmm_declaration}[BMM_DECLARATION]` [1..1]
+|*scope*: `xref:bmm3:statements.adoc#_bmm_declaration_class[BMM_DECLARATION]` [1..1]
 a|Model element within which an element is declared.
 
-|*extensions*: `link:/classes/Hash[Hash] <link:/classes/String[String] ,link:/classes/Any[Any] >` [0..1]
+|*extensions*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
 a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model.
 
 2+h|*Functions*
 
-|*is_root_scope* (): `link:/classes/Boolean[Boolean] ` +
+|*is_root_scope* (): `xref:{class_boolean}[Boolean]` +
  +
 __Post_result__: `Result = (scope = self)` [1..1]
 a|True if this declaration entity is the root of the declaration hierarchy.

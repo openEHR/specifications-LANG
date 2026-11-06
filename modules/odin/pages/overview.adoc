@@ -36,3 +36,4 @@ The ODIN syntax as described above has a number of useful characteristics that e
 * paths can be formed by navigating down a tree branch and concatenating attribute name, container keys (where they are encountered) and '/' characters;
 * every node is reachable by a path;
 * dynamically bound types can be explicitly indicated;
+* shared objects can be referred to by path references.

@@ -6,6 +6,6 @@ include::ROOT:partial$component_vars.adoc[]
 :keywords: openehr, expressions, rules
 :description: openEHR Basic Expression Language specification
 
-:latest_issue: {openehr_jira}/SPECLANG-9[SPECLANG-9].ImportoldExpressionLanguageas'BasicExpressionLanguage';+
-:latest_issue_date: 14 May 2022
+:latest_issue: 1.2.1
+:latest_issue_date: 30 May 2026
 :pkg: org.openehr.lang.beom.

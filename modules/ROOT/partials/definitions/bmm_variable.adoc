@@ -15,7 +15,7 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*scope*: `xref:{class_bmm_routine}[BMM_ROUTINE]`
+|*scope*: `xref:bmm3:core-features.adoc#_bmm_routine_class[BMM_ROUTINE]`
 a|Routine within which variable is defined.
 
 h|*Functions*
@@ -24,6 +24,6 @@ h|*Functions*
 
 h|*1..1 +
 (effected)*
-|*signature* (): `link:/classes/[] `
+|*signature* ()
 a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`.
 |===
