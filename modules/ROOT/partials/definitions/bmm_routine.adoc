@@ -1,0 +1,50 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*__BMM_ROUTINE (abstract)__*
+
+h|*Description*
+2+a|A feature defining a routine, scoped to a class.
+
+h|*Inherit*
+2+|`xref:{class_bmm_class_feature}[BMM_CLASS_FEATURE]`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*parameters*: `xref:{class_list}[List]<xref:{class_bmm_parameter}[BMM_PARAMETER]>`
+a|Formal parameters of the routine.
+
+h|*0..1*
+|*locals*: `xref:{class_list}[List]<xref:{class_bmm_local}[BMM_LOCAL]>`
+a|Local variables of the routine.
+
+h|*0..1*
+|*pre_conditions*: `xref:{class_list}[List]<xref:{class_bmm_assertion}[BMM_ASSERTION]>`
+a|
+
+h|*0..1*
+|*post_conditions*: `xref:{class_list}[List]<xref:{class_bmm_assertion}[BMM_ASSERTION]>`
+a|
+
+h|*0..1*
+|*body*: `xref:{class_bmm_routine_body}[BMM_ROUTINE_BODY]`
+a|Body of a routine, i.e. executable program.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*arity* (): `xref:{class_integer}[Integer]`
+a|Return number of arguments of this routine.
+
+h|*1..1 +
+(effected)*
+|*signature* ()
+a|Formal signature of this element, in the form
+
+`'[arg1_name: T_arg1, ...]:T_value'`.
+|===

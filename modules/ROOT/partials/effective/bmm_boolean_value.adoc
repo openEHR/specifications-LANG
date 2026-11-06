@@ -1,0 +1,33 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*BMM_BOOLEAN_VALUE*
+
+2+a|Meta-type for a literal Boolean value, for which `_type_` is fixed to the `BMM_TYPE` representing `Boolean` and `_value_` is of type `Boolean`.
+
+2+|Inherits: xref:{class_bmm_typed}[BMM_TYPED], xref:{class_bmm_literal_value}[BMM_LITERAL_VALUE], xref:{class_bmm_unitary_value}[BMM_UNITARY_VALUE], xref:{class_bmm_primitive_value}[BMM_PRIMITIVE_VALUE]
+
+2+h|*Attributes*
+
+|*type*: `xref:{class_bmm_simple_type}[BMM_SIMPLE_TYPE]` [1..1]
+a|Declared or inferred static type of the entity. +
+_Inherited from xref:{class_bmm_primitive_value}[BMM_PRIMITIVE_VALUE]_
+
+|*value_literal*: `xref:{class_string}[String]` [1..1]
+a|A serial representation of the value. +
+_Inherited from xref:{class_bmm_literal_value}[BMM_LITERAL_VALUE]_
+
+|*value*: `xref:{class_boolean}[Boolean]` [1..1]
+a|Native Boolean value.
+
+|*syntax*: `xref:{class_string}[String]` [0..1]
+a|Optional specification of formalism of the `_value_literal_` attribute for complex values. Value may be any of `json &#124; yawl &#124; xml &#124; odin &#124; rdf` or another value agreed by the user community. If not set, `json` is assumed. +
+_Inherited from xref:{class_bmm_literal_value}[BMM_LITERAL_VALUE]_
+
+2+h|*Functions*
+
+|*is_boolean* (): `xref:{class_boolean}[Boolean]` +
+ +
+__Post_result__: `Result = type().equal( \{BMM_MODEL}.boolean_type_definition())` [1..1]
+a|True if `_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `'Boolean'`). +
+_Inherited from xref:{class_bmm_typed}[BMM_TYPED]_
+|===

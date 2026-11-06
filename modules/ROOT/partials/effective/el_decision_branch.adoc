@@ -1,0 +1,9 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*__EL_DECISION_BRANCH (abstract)__*
+
+2+h|*Attributes*
+
+|*result*: `xref:{class_el_expression}[EL_EXPRESSION]` [1..1]
+a|Result expression of conditional, if its `_condition_` evaluates to True.
+|===

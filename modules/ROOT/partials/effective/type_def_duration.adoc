@@ -1,0 +1,17 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*TYPE_DEF_DURATION*
+
+2+a|Rules meta-type representing the primitive type Duration.
+
+2+|Inherits: xref:{class_el_type_def}[EL_TYPE_DEF]
+
+2+h|*Attributes*
+
+|*type_name*: `xref:{class_string}[String]` [1..1] +
+`{default{nbsp}={nbsp}"Duration"}`
+a|
+
+|*type_anchor*: `xref:{class_any}[Any]` [1..1]
+a|
+|===

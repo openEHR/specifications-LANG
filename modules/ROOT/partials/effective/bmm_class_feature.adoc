@@ -1,0 +1,65 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*__BMM_CLASS_FEATURE (abstract)__*
+
+2+a|A class entity having a signature and a class as its scope.
+
+2+|Inherits: xref:{class_bmm_declaration}[BMM_DECLARATION], xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]
+
+2+h|*Attributes*
+
+|*name*: `xref:{class_string}[String]` [1..1]
+a|Name of this model element. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*documentation*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
+a|Optional documentation of this element, as a keyed list.
+
+It is strongly recommended to use the following key /type combinations for the relevant purposes:
+
+* `"purpose": String`
+* `"keywords": List<String>`
+* `"use": String`
+* `"misuse": String`
+* `"references": String`
+
+Other keys and value types may be freely added. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*scope*: `xref:{class_bmm_class}[BMM_CLASS]` [1..1]
+a|Class within which a referenceable element is known.
+
+|*extensions*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
+a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*is_synthesised_generic*: `xref:{class_boolean}[Boolean]` [0..1] +
+`{default{nbsp}={nbsp}false}`
+a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter. +
+_Inherited from xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]_
+
+|*visibility*: `xref:{class_bmm_visibility}[BMM_VISIBILITY]` [0..1]
+a|Visibility of this item to client entities.
+
+|*feature_extensions*: `xref:{class_list}[List]<xref:{class_bmm_feature_extension}[BMM_FEATURE_EXTENSION]>` [0..1]
+a|Extensions to feature-level meta-types.
+
+|*group*: `xref:{class_bmm_feature_group}[BMM_FEATURE_GROUP]` [1..1]
+a|Group containing this feature.
+
+2+h|*Functions*
+
+|*is_root_scope* (): `xref:{class_boolean}[Boolean]` +
+ +
+__Post_result__: `Result = (scope = self)` [1..1]
+a|True if this declaration entity is the root of the declaration hierarchy. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|_(abstract)_ *signature* (): `xref:{class_bmm_signature}[BMM_SIGNATURE]` [1..1]
+a|Formal signature of this element, in the form:
+
+`name [arg1_name: T_arg1, ...][:T_value]`
+
+Specific implementations in descendants. +
+_Inherited from xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]_
+|===

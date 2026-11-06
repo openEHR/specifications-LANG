@@ -1,0 +1,28 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*EL_DEFINED*
+
+2+a|A predicate taking one external variable reference argument, that returns true if the reference is resolvable, i.e. the external value is obtainable.
+
+NOTE: probably to be removed.
+
+2+|Inherits: xref:{class_el_expression}[EL_EXPRESSION], xref:{class_el_simple}[EL_SIMPLE], xref:{class_el_terminal}[EL_TERMINAL], xref:{class_el_predicate}[EL_PREDICATE]
+
+2+h|*Attributes*
+
+|*operand*: `xref:{class_el_instance_ref}[EL_INSTANCE_REF]` [1..1]
+a|The target instance of this predicate. +
+_Inherited from xref:{class_el_predicate}[EL_PREDICATE]_
+
+2+h|*Functions*
+
+|*eval_type* (): `xref:{class_bmm_simple_type}[BMM_SIMPLE_TYPE]` [1..1]
+a|Return `\{BMM_MODEL}._boolean_type_definition_()`. +
+_Inherited from xref:{class_el_predicate}[EL_PREDICATE]_
+
+|*is_boolean* (): `xref:{class_boolean}[Boolean]` +
+ +
+__Post_result__: `Result = eval_type().equal( \{BMM_MODEL}.boolean_type_definition())` [1..1]
+a|True if `_eval_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `Boolean`). +
+_Inherited from xref:{class_el_expression}[EL_EXPRESSION]_
+|===

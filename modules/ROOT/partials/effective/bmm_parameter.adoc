@@ -1,0 +1,71 @@
+[cols="2,3", frame=none, grid=rows]
+|===
+2+^h|*BMM_PARAMETER*
+
+2+a|A routine parameter variable.
+
+2+|Inherits: xref:{class_bmm_typed}[BMM_TYPED], xref:{class_bmm_typed_feature}[BMM_TYPED_FEATURE], xref:{class_bmm_declaration}[BMM_DECLARATION], xref:{class_bmm_instantiable}[BMM_INSTANTIABLE], xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY], xref:{class_bmm_variable}[BMM_VARIABLE]
+
+2+h|*Attributes*
+
+|*type*: `xref:{class_bmm_type}[BMM_TYPE]` [1..1]
+a|Declared or inferred static type of the entity. +
+_Inherited from xref:{class_bmm_typed}[BMM_TYPED]_
+
+|*is_nullable*: `xref:{class_boolean}[Boolean]` [0..1] +
+`{default{nbsp}={nbsp}false}`
+a|True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes.. +
+_Inherited from xref:{class_bmm_typed_feature}[BMM_TYPED_FEATURE]_
+
+|*name*: `xref:{class_string}[String]` [1..1]
+a|Name of this model element. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*documentation*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
+a|Optional documentation of this element, as a keyed list.
+
+It is strongly recommended to use the following key /type combinations for the relevant purposes:
+
+* `"purpose": String`
+* `"keywords": List<String>`
+* `"use": String`
+* `"misuse": String`
+* `"references": String`
+
+Other keys and value types may be freely added. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*scope*: `xref:{class_bmm_routine}[BMM_ROUTINE]` [1..1]
+a|Routine within which variable is defined. +
+_Inherited from xref:{class_bmm_variable}[BMM_VARIABLE]_
+
+|*extensions*: `xref:{class_hash}[Hash]<xref:{class_string}[String],xref:{class_any}[Any]>` [0..1]
+a|Optional meta-data of this element, as a keyed list. May be used to extend the meta-model. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*is_synthesised_generic*: `xref:{class_boolean}[Boolean]` [0..1] +
+`{default{nbsp}={nbsp}false}`
+a|True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter. +
+_Inherited from xref:{class_bmm_class_entity}[BMM_CLASS_ENTITY]_
+
+|*direction*: `xref:{class_bmm_parameter_direction}[BMM_PARAMETER_DIRECTION]` [0..1]
+a|Optional read/write direction of the parameter. If none-supplied, the parameter is treated as `in`, i.e. readable.
+
+2+h|*Functions*
+
+|*is_boolean* (): `xref:{class_boolean}[Boolean]` +
+ +
+__Post_result__: `Result = type().equal( \{BMM_MODEL}.boolean_type_definition())` [1..1]
+a|True if `_type_` is notionally Boolean (i.e. a `BMM_SIMPLE_TYPE` with `_type_name()_` = `'Boolean'`). +
+_Inherited from xref:{class_bmm_typed}[BMM_TYPED]_
+
+|*is_root_scope* (): `xref:{class_boolean}[Boolean]` +
+ +
+__Post_result__: `Result = (scope = self)` [1..1]
+a|True if this declaration entity is the root of the declaration hierarchy. +
+_Inherited from xref:{class_bmm_declaration}[BMM_DECLARATION]_
+
+|*signature* () [1..1]
+a|Formal signature of this element, in the form `'name [arg1_name: T_arg1, ...][:T_value]'`. +
+_Inherited from xref:{class_bmm_variable}[BMM_VARIABLE]_
+|===
