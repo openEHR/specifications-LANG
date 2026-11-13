@@ -4,10 +4,16 @@
 |===
 |Issue|Details|Raiser|Completed
 
-|[[latest_issue]]1.5.3
+|[[latest_issue]]1.5.4
+|{spec_tickets}/SPECPR-257[SPECPR-257^]: Improve the ODIN overview example (plural `persons`, optional type on a container item, clarify the `<>` bullet).
+|R Erens, +
+S Kohler
+|[[latest_issue_date]]13 Nov 2026
+
+|1.5.3
 |{spec_tickets}/SPECLANG-10[SPECLANG-10^]: Fix typos in ODIN.
 |R Kavanagh
-|[[latest_issue_date]]03 Apr 2023
+|03 Apr 2023
 
 4+^h|*LANG Release 1.0.0*
 
