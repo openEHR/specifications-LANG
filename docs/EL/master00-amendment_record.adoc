@@ -4,12 +4,19 @@
 |===
 |Issue|Details|Raiser, Implementer|Completed
 
+4+^h|*LANG Release 1.1.0 (unreleased)*
+
+|[[latest_issue]]2.0.1
+|{spec_tickets}/SPECBASE-51[SPECBASE-51^]: Align the description of `Proper_interval` with the Foundation Types, where its boundaries may now be the same.
+|S Iancu
+|[[latest_issue_date]]23 Nov 2026
+
 4+^h|*LANG Release 1.0.0*
 
-|[[latest_issue]]2.0.0
+|2.0.0
 |{spec_tickets}/SPECLANG-1[SPECLANG-1^]. Add Expression Language specification.
 |T Beale
-|[[latest_issue_date]]10 May 2020
+|10 May 2020
 
 |
 |Add Container selectors.
