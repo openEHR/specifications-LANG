@@ -88,7 +88,7 @@ The same `Interval` type as defined in the {openehr_foundation_types}#_interval[
 
 | `Interval<T:Ordered>`         |Interval of any ordered type
 | `Point_interval<T:Ordered>`   |Sub-type used to efficiently represent closed intervals whose boundaries are the same
-| `Proper_interval<T:Ordered>`  |Sub-type used to efficiently represent intervals whose boundaries are different
+| `Proper_interval<T:Ordered>`  |Sub-type used to represent any two-sided or one-sided interval; its boundaries may be the same
 |=================================================================
 
 Automatic type promotion from `Interval<Integer>` to `Interval<Real>` applies to all integer and real values and expressions, in the same fashion as most programming languages.
